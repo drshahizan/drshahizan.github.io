@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/fixedheader/3.1.9/css/fixedHeader.dataTables.min.css"
+    />
+    <style>
+      body {
+        background-color: #add8e6;
+      }
+      header {
+        background-color: #ffffff;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+      }
+      header img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+      }
+      header h1 {
+        margin: 0;
+      }
+      #myTable {
+        width: 600px;
+                clear: both;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      #myTable th,
+      #myTable td {
+        padding: 5px;
+        text-align: left;
+        vertical-align: top;
+        word-wrap: break-word;
+        max-width: 400px;
+      }
+      #myTable thead th {
+        position: sticky;
+        top: 0;
+        background-color: #ffffff;
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="https://example.com/logo.png" alt="Logo" />
+      <h1>Portfolio</h1>
+    </header>
+    <table id="myTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Github</th>
+          <th>Section</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Doe</td>
+          <td><a href="https://github.com/johndoe">johndoe</a></td>
+          <td>Section A</td>
+          <td>Active</td>
+        </tr>
+        <tr>
+          <td>Jane Smith</td>
+          <td><a href="https://github.com/janesmith">janesmith</a></td>
+          <td>Section B</td>
+          <td>Active</td>
+        </tr>
+        <tr>
+          <td>Bob Johnson</td>
+          <td><a href="https://github.com/bobjohnson">bobjohnson</a></td>
+          <td>Section C</td>
+          <td>Inactive</td>
+        </tr>
+        <tr>
+          <td>Sara Lee</td>
+          <td><a href="https://github.com/saralee">saralee</a></td>
+          <td>Section A</td>
+          <td>Active</td>
+        </tr>
+        <tr>
+          <td>Tom Jones</td>
+          <td><a href="https://github.com/tomjones">tomjones</a></td>
+          <td>Section B</td>
+          <td>Inactive</td>
+        </tr>
+      </tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.9/js/dataTables.fixedHeader.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#myTable").DataTable({
+          fixedHeader: true,
+        });
+      });
+    </script>
+  </body>
+</html>

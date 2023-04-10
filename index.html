@@ -1,61 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Engineering (drshahizan)</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Student Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.9/css/fixedHeader.dataTables.min.css">
+    <style>
+        #myTable td:nth-child(4) {
+          text-align: center;
+        }
+      </style>  
 </head>
-<body>
-    <div class="flex justify-center items-center h-[100px] font-semibold">
-        <h1>Project 1 - Portfolio</h1>
+  <body>
+    <div class="jumbotron text-center">
+      <h1>Student Portfolio</h1>
     </div>
-    
-    <div class="flex w-full gap-[60px] px-[60px] pb-[60px]">
-        <div class="flex-1">
-            <div class="my-[20px] font-semibold">
-                <h3>Section 1 :</h3>
-            </div>
-            <div class="flex flex-col flex-wrap gap-[10px]">
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec01/alovey1014/personal_portfolio">alovey1014</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec01/camilytang/P1_camilytang">camilytang</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec01/Jinyong14">Jinyong14</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec01/kohlihui">kohlihui</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec01/pynghaw">pynghaw</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec01/wei1030/Personal%20Portfolio">wei1030</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec01/Wernjie0713">Wernjie0713</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec01/xmqrz">xmqrz</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec01/Yutongchai/P1_Yutongchai">P1_Yutongchai</a>
-            </div>
-        </div>
-        <div class="flex-1">
-            <div class="my-[20px] font-semibold">
-                <h3>Section 2 :</h3>
-            </div>
-            <div class="flex flex-col flex-wrap gap-[10px]">
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/akim730/P1_akim730">akim730</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/Aliatul/project1_oishylea">Aliatul</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/arriffdanish/P1_ariffdanish">arriffdanish</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/arinifthh/P1_arinifthh">arinifthh</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/danialharriz/P1_danialharriz">danialharriz</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/kohxuan/P1_kohxuan">kohxuan</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/Luqman08/portfolio_Luqman08">Luqman08</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/mnazhar13/P1_mnazhar13">mnazhar13</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/MuhdAnass/P1_MuhdAnass">MuhdAnnass</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/Mulyani08/P1_Mulyani">Mulyani08</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/navachander01/P1_navachander01">navachander01</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/Navasarathy/P1Navasarathy">Navasarathy</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/nikzulaikhaa/P1_nikzulaikhaa">nikzulaikhaa</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/NurAleysha/P1_NurAleysha">NurAleysha</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/nurfarahadibah/P1_nurfarahadibah">nurfarahadibah</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/safwan/P1_safwan031">safwan</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/vinesh06/P1_vinesh06">vinesh06</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/wannursofea/P1_wannursofea">wannursofea</a>
-                <a class="text-white bg-gray-400 rounded-xl px-[20px] py-[10px]" href="project/portfolio/sec02/yan-qing09/P1_yan-qing09">qing09</a>
-            </div>
-        </div>
+    <div class="container">
+      <table id="myTable" class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Github</th>
+            <th>Section</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>BERNICE LIM JING XUAN</td>
+                <td><a href="https://github.com/johndoe">johndoe</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-warning"><i class="fas fa-exclamation-triangle"></i> Pending</span></td>
+              </tr>
+              <tr>
+                <td>CAMILY TANG JIA LEI</td>
+                <td><a href="project/portfolio/sec01/camilytang/P1_camilytang"><i class="fab fa-github"></i> janesmith</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+              </tr>
+              <tr>
+                <td>CHAI YU TONG</td>
+                <td><a href="https://github.com/bobjohnson"><i class="fab fa-github"></i> bobjohnson</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+              </tr>
+              <tr>
+                <td>CHEN PYNG HAW</td>
+                <td><a href="https://github.com/saralee"><i class="fab fa-github"></i> saralee</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+              </tr>
+              <tr>
+                <td>GOH JING YANG</td>
+                <td><a href="https://github.com/tomjones"><i class="fab fa-github"></i> tomjones</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+              </tr>
+        </tbody>
+      </table>
     </div>
-
-</body>
+    <footer class="footer mt-auto py-3 text-center">
+      <div class="container">
+        <span class="text-muted">&copy; Dr MSO 2023</span>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.9/js/dataTables.fixedHeader.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#myTable').DataTable({
+          fixedHeader: true
+        });
+      });
+    </script>
+  </body>
 </html>
