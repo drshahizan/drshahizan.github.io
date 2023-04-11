@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="jumbotron" style="background-image: url('student-profile-background.jpg'); background-size: cover; color: white;">
+        <h1 class="display-4">Welcome to Your Student Profile</h1>
+        <p class="lead">Here you can view and manage your student information, including your Github profile, section information, and status.</p>
+        <hr class="my-4">
+        <p>Below is a table that shows your student information:</p>
+        <div class="container">
+          <table id="student-table" class="table table-bordered table-striped table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th>Name</th>
+                <th>Github</th>
+                <th>Section</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John Doe</td>
+                <td><a href="https://github.com/johndoe"><i class="fab fa-github"></i> johndoe</a></td>
+                <td class="text-center">A</td>
+                <td><span class="badge badge-warning"><i class="fas fa-exclamation-triangle"></i> Pending</span></td>
+              </tr>
+              <!-- Add more rows here as needed -->
+            </tbody>
+          </table>
+        </div>
+        <p>Make sure your information is up to date so that your instructors can better assist you!</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">View Profile</a>
+      </div>
+      
+</body>
+</html>
