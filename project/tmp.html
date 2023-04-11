@@ -1,41 +1,390 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.9/css/fixedHeader.dataTables.min.css">
+    <style>
+        #myTable td:nth-child(4) {
+          text-align: left;
+        }
+      </style>  
 </head>
-<body>
-    <div class="jumbotron" style="background-image: url('student-profile-background.jpg'); background-size: cover; color: white;">
-        <h1 class="display-4">Welcome to Your Student Profile</h1>
-        <p class="lead">Here you can view and manage your student information, including your Github profile, section information, and status.</p>
-        <hr class="my-4">
-        <p>Below is a table that shows your student information:</p>
-        <div class="container">
-          <table id="student-table" class="table table-bordered table-striped table-hover">
-            <thead class="thead-dark">
+  <body>
+    <div class="jumbotron" style="background-image: url('student-profile-background.jpg'); background-size: cover; color: black;">
+      <h1 class="display-4">Welcome to Student Profile</h1>
+      <p class="lead">Here you can view and manage your student information, including your Github profile, section information, and status.</p>
+    </div>
+    <div class="container">
+      <table id="myTable" class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Github</th>
+            <th>Section</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>BERNICE LIM JING XUAN</td>
+                <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> BerniceLimJX</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-danger"><i class="fas fa-times"></i> No submission</span></td>
+                            </tr>
               <tr>
-                <th>Name</th>
-                <th>Github</th>
-                <th>Section</th>
-                <th>Status</th>
+                <td>CAMILY TANG JIA LEI</td>
+                <td><a href="project/portfolio/sec01/camilytang/P1_camilytang"><i class="fab fa-github"></i> camilytang</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
               </tr>
-            </thead>
-            <tbody>
               <tr>
-                <td>John Doe</td>
-                <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> drshahizan</a></td>
-                <td class="text-center">A</td>
+                <td>CHAI YU TONG</td>
+                <td><a href="project/portfolio/sec01/Yutongchai/P1_Yutongchai"><i class="fab fa-github"></i> Yutongchai</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+              </tr>
+              <tr>
+                <td>CHEN PYNG HAW</td>
+                <td><a href="project/portfolio/sec01/pynghaw"><i class="fab fa-github"></i> pynghaw</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+              </tr>
+              <tr>
+                <td>GOH JING YANG</td>
+                <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> jingyang26</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-danger"><i class="fas fa-times"></i> No submission</span></td>
+              </tr>
+              <tr>
+                <td>JASLENE YU</td>
+                <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> jaslene-u</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-danger"><i class="fas fa-times"></i> No submission</span></td>
+              </tr>
+              <tr>
+                <td>JOSEPH LAU YEO KAI</td>
+                <td><a href="project/portfolio/sec01/camilytang/P1_camilytang"><i class="fab fa-github"></i> josephlau2003</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+              </tr>
+              <tr>
+                <td>KEK JESSLYN</td>
+                <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> Jesslyn19</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-danger"><i class="fas fa-times"></i> No submission</span></td>
+              </tr>
+              <tr>
+                <td>KOH LI HUI</td>
+                <td><a href="project/portfolio/sec01/kohlihui"><i class="fab fa-github"></i> kohlihui</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+              </tr>
+              <tr>
+                <td>LEE SOON DER</td>
+                <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> LeeSoonDer</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-danger"><i class="fas fa-times"></i> No submission</span></td>
+              </tr>
+              <tr>
+                <td>LIM JING YONG</td>
+                <td><a href="project/portfolio/sec01/Jinyong14"><i class="fab fa-github"></i> Jingyong14</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+              </tr>
+              <tr>
+                <td>LOO JIA CHANG</td>
+                <td><a href="project/portfolio/sec01/camilytang/P1_camilytang"><i class="fab fa-github"></i> jcl03</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+              </tr>
+              <tr>
+                <td>LOW JIE SHENG</td>
+                <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> jiesheng4616</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-danger"><i class="fas fa-times"></i> No submission</span></td>
+              </tr>
+              <tr>
+                <td>LOW YING XI</td>
+                <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> lowyingxi</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+              </tr>
+              <tr>
+                <td>MARCUS JOEY SAYNER</td>
+                <td><a href="project/portfolio/sec01/xmqrz"><i class="fab fa-github"></i> xmqrz</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-danger"><i class="fas fa-times"></i> No submission</span></td>
+              </tr>
+              <tr>
+                <td>MUHAMMAD DANIAL BIN AHMAD SYAHIR</td>
+                <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> daniallllllll </a></td>
+                <td style="text-align:center;">1</td>
                 <td><span class="badge badge-warning"><i class="fas fa-exclamation-triangle"></i> Pending</span></td>
               </tr>
-              <!-- Add more rows here as needed -->
-            </tbody>
-          </table>
-        </div>
-        <p>Make sure your information is up to date so that your instructors can better assist you!</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">View Profile</a>
-      </div>
+              <tr>
+                <td>NEO ZHENG WENG</td>
+                <td><a href="project/portfolio/sec01/camilytang/P1_camilytang"><i class="fab fa-github"></i> zw-weng</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+              </tr>
+              <tr>
+                <td>NG SHU YU	</td>
+                <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> ShuYu03</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+              </tr>
+              <tr>
+                <td>NICOLE LIM TZE YEE</td>
+                <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> nicolelimty</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+              </tr>
+              <tr>
+                <td>SOH HAN WEI</td>
+                <td><a href="project/portfolio/sec01/wei1030/Personal%20Portfolio"><i class="fab fa-github"></i> wei2030</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+              </tr>
+              <tr>
+                <td>TAN JUN YUAN</td>
+                <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> TanJunYuan03 </a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-warning"><i class="fas fa-exclamation-triangle"></i> Pending</span></td>
+              </tr>
+              <tr>
+                <td>TIEW CHUAN RONG</td>
+                <td><a href="project/portfolio/sec01/camilytang/P1_camilytang"><i class="fab fa-github"></i> tiewrong</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+              </tr>
+              <tr>
+                <td>TIEW CHUAN SHEN</td>
+                <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> tiewshen </a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+              </tr>
+              <tr>
+                <td>WONG JUN JI</td>
+                <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> jjwong2003</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+              </tr>
+              <tr>
+                <td>WONG KHAI SHIAN NICHOLAS</td>
+                <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> nicholas0377</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+              </tr>
+              <tr>
+                <td>WONG QIAO YING</td>
+                <td><a href="project/portfolio/sec01/alovey1014/personal_portfolio"><i class="fab fa-github"></i> alovey1014 </a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-warning"><i class="fas fa-exclamation-triangle"></i> Pending</span></td>
+              </tr>
+              <tr>
+                <td>YEOH CHONG YI</td>
+                <td><a href="project/portfolio/sec01/camilytang/P1_camilytang"><i class="fab fa-github"></i> yChongyi</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+              </tr>
+              <tr>
+                <td>YONG WERN JIE</td>
+                <td><a href="project/portfolio/sec01/Wernjie0713"><i class="fab fa-github"></i> Wernjie0713</a></td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+              </tr>
+
+            <tr>
+              <td>ALIATUL IZZAH BINTI JASMAN</td>
+              <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> oishylea</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-warning"><i class="fas fa-exclamation-triangle"></i> Pending</span></td>
+            </tr>
+            <tr>
+              <td>CHE MARHUMI BIN CHE AB RAHIM</td>
+              <td><a href="project/portfolio/sec01/camilytang/P1_camilytang"><i class="fab fa-github"></i> CheMrhumi</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+            </tr>
+            <tr>
+              <td>DANIAL HARRIZ BIN MOHD ASINEH @MOHD ASNEH</td>
+              <td><a href="project/portfolio/sec01/Yutongchai/P1_Yutongchai"><i class="fab fa-github"></i> danialharriz</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+            </tr>
+            <tr>
+              <td>KOH SU XUAN</td>
+              <td><a href="project/portfolio/sec01/pynghaw"><i class="fab fa-github"></i> kohxuan</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+            </tr>
+            <tr>
+              <td>KUGEN A/L KALIDAS</td>
+              <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> kugen03</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+            </tr>
+            <tr>
+              <td>LEE YIK HONG</td>
+              <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> YIKHONGLEE</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-warning"><i class="fas fa-exclamation-triangle"></i> Pending</span></td>
+            </tr>
+            <tr>
+              <td>MUHAMMAD ANAS BIN MOHD PIKRI</td>
+              <td><a href="project/portfolio/sec01/camilytang/P1_camilytang"><i class="fab fa-github"></i> MuhdAnass</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+            </tr>
+            <tr>
+              <td>MUHAMMAD ARIFF DANISH BIN HASHNAN</td>
+              <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> ariffdanish</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+            </tr>
+            <tr>
+              <td>MUHAMMAD IMAN FIRDAUS BIN BAHARUDDIN</td>
+              <td><a href="project/portfolio/sec01/kohlihui"><i class="fab fa-github"></i> MuhammadImanFirdaus </a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+            </tr>
+            <tr>
+              <td>MUHAMMAD LUQMAN HAKIM BIN MOHD RIZAUDIN</td>
+              <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> Luqman08 </a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+            </tr>
+            <tr>
+              <td>MUHAMMAD NUR AZHAR BIN MOHD YAZID</td>
+              <td><a href="project/portfolio/sec01/Jinyong14"><i class="fab fa-github"></i> mnazhar13</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-warning"><i class="fas fa-exclamation-triangle"></i> Pending</span></td>
+            </tr>
+            <tr>
+              <td>MUHAMMAD SAFWAN BIN MOHD AZMI</td>
+              <td><a href="project/portfolio/sec01/camilytang/P1_camilytang"><i class="fab fa-github"></i> safwan031</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+            </tr>
+            <tr>
+              <td>MULYANI BINTI SARIPUDDIN</td>
+              <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> Mulyani28</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+            </tr>
+            <tr>
+              <td>NADHRAH NURSABRINA BINTI ZULAINI</td>
+              <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> SabrinaNadhrah</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+            </tr>
+            <tr>
+              <td>NAVACHANDER NAVASANTAR</td>
+              <td><a href="project/portfolio/sec01/xmqrz"><i class="fab fa-github"></i> Navachander1 </a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+            </tr>
+            <tr>
+              <td>MUHAMMAD DANIAL BIN AHMAD SYAHIR</td>
+              <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> daniallllllll </a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-warning"><i class="fas fa-exclamation-triangle"></i> Pending</span></td>
+            </tr>
+            <tr>
+              <td>NAVASARATHY A/L S.GANESWARAN</td>
+              <td><a href="project/portfolio/sec01/camilytang/P1_camilytang"><i class="fab fa-github"></i> Navasarathy </a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+            </tr>
+            <tr>
+              <td>NIK ZULAIKHAA BINTI ZURAIDI AFANDI</td>
+              <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> nikzulaikhaa </a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+            </tr>
+            <tr>
+              <td>NUR ALEYSHA QURRATU'AINI BINTI MAT SALLEH</td>
+              <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> NurAleysha</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+            </tr>
+            <tr>
+              <td>NUR ARINI FATIHAH BINTI MOHD SABIR	</td>
+              <td><a href="project/portfolio/sec01/wei1030/Personal%20Portfolio"><i class="fab fa-github"></i> arinifthh </a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+            </tr>
+            <tr>
+              <td>NUR FARAH ADIBAH BINTI IDRIS</td>
+              <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> nurfarahadibah </a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-warning"><i class="fas fa-exclamation-triangle"></i> Pending</span></td>
+            </tr>
+            <tr>
+              <td>NURUL ERINA BINTI ZAINUDDIN	</td>
+              <td><a href="project/portfolio/sec01/camilytang/P1_camilytang"><i class="fab fa-github"></i> nrulerina</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+            </tr>
+            <tr>
+              <td>ONG YI YAN</td>
+              <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> ONGYIYAN </a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+            </tr>
+            <tr>
+              <td>SALINI RAVINTHIRAN</td>
+              <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> Salini1</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+            </tr>
+            <tr>
+              <td>TANG YAN QING</td>
+              <td><a href="https://github.com/drshahizan"><i class="fab fa-github"></i> yan-qing09</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+            </tr>
+            <tr>
+              <td>THEVAN RAJU A/L JEGANATH</td>
+              <td><a href="project/portfolio/sec01/alovey1014/personal_portfolio"><i class="fab fa-github"></i> ThevanRaju </a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-warning"><i class="fas fa-exclamation-triangle"></i> Pending</span></td>
+            </tr>
+            <tr>
+              <td>VINESH A/L VIJAYA KUMAR</td>
+              <td><a href="project/portfolio/sec01/camilytang/P1_camilytang"><i class="fab fa-github"></i> vinesh06</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-success"><i class="fas fa-check"></i> Active</span></td>
+            </tr>
+            <tr>
+              <td>WAN NUR SOFEA BINTI MOHD HASBULLAH</td>
+              <td><a href="project/portfolio/sec01/Wernjie0713"><i class="fab fa-github"></i> wannursofea</a></td>
+              <td style="text-align:center;">2</td>
+              <td><span class="badge badge-danger"><i class="fas fa-times"></i> Inactive</span></td>
+            </tr>
       
-</body>
+        </tbody>
+      </table>
+    </div>
+    <footer class="footer mt-auto py-3 text-center">
+      <div class="container">
+        <span class="text-muted">&copy; Dr MSO 2023</span>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.9/js/dataTables.fixedHeader.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#myTable').DataTable({
+          fixedHeader: true
+        });
+      });
+    </script>
+  </body>
 </html>
