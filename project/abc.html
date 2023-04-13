@@ -1,20 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Bootstrap Example</title>
-	<!-- Add Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<!-- Add jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<!-- Add Bootstrap JS -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>Bootstrap Table with DataTables and Button with Image</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+
 </head>
 <body>
 
-	<!-- Add a button with an image -->
-	<button type="button" class="btn btn-default">
-		<img src="https://via.placeholder.com/20x20" alt="image icon"> Click Me
-	</button>
+  <div class="container">
+    <table id="myTable" class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Smith</td>
+          <td>john@example.com</td>
+          <td>
+            <button type="button" class="btn btn-default">
+              <img src="https://example.com/myimage.png" alt="My Image">
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>Jane Doe</td>
+          <td>jane@example.com</td>
+          <td>
+            <button type="button" class="btn btn-default">
+              <img src="https://example.com/myimage.png" alt="My Image">
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('#myTable').DataTable();
+    });
+  </script>
 
 </body>
 </html>
