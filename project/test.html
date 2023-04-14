@@ -1,49 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Bootstrap DataTable Example</title>
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-</head>
-<body>
-  <div class="container mt-4">
-    <h1>Welcome to my Student Portfolio Showcase</h1>
-    <table id="example" class="table table-striped table-bordered" style="width:100%">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Github ID</th>
-          <th>Section</th>
-          <th>Project 1</th>
-          <th>Project 2</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>John Doe</td>
-          <td>johndoe</td>
-          <td>A</td>
-          <td><a href="https://github.com/johndoe/project1"><img src="project1-thumbnail.jpg" alt="Project 1 Thumbnail"></a></td>
-          <td><a href="https://github.com/johndoe/project2"><img src="project2-thumbnail.jpg" alt="Project 2 Thumbnail"></a></td>
-        </tr>
-        <tr>
-          <td>Jane Smith</td>
-          <td>janesmith</td>
-          <td>B</td>
-          <td><a href="https://github.com/janesmith/project1"><img src="project1-thumbnail.jpg" alt="Project 1 Thumbnail"></a></td>
-          <td><a href="https://github.com/janesmith/project2"><img src="project2-thumbnail.jpg" alt="Project 2 Thumbnail"></a></td>
-        </tr>
-        <!-- Add more rows as needed -->
-      </tbody>
-    </table>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('#example').DataTable();
-    });
-  </script>
-</body>
+<html>
+  <head>
+    <title>Hello, Bootstrap!</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <button type="button" class="btn btn-default">
+      <i class="fa fa-home"></i> Default
+    </button>
+    <button type="button" class="btn btn-primary">
+      <i class="fa fa-user"></i> Primary
+    </button>
+    <button type="button" class="btn btn-success">
+      <span class="glyphicon glyphicon-ok"></span>
+      <a href="https://www.utm.my/" target="_blank" style="color: rgb(249, 245, 245)"
+        >Success</a
+      >
+    </button>
+    <button type="button" class="btn btn-info">
+      <i class="fa fa-info-circle"></i> Info
+    </button>
+    <button type="button" class="btn btn-warning">
+      <i class="fa fa-exclamation-triangle"></i> Warning
+    </button>
+    <button type="button" class="btn btn-danger">
+      <i class="fa fa-times"></i> Danger
+    </button>
+    <a href="#" class="btn btn-link"><i class="fa fa-heart"></i> Link</a>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
 </html>

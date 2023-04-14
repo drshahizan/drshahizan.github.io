@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello, Bootstrap!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to my Student Portfolio Showcase</h1>
+            <p class="lead">Explore the work of our talented students and see the amazing projects
+                they have created.</p>
+        </div>
+        <table id="myTable" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th><i class="fab fa-github"></i> Github id</th>
+                    <th>Section</th>
+                    <th>Project 1</th>
+                    <th>Project 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>BERNICE LIM JING XUAN</td>
+                    <td><a href="https://github.com/BerniceLimJX"
+                        ><i class="fab fa-github"></i> BerniceLimJX</a
+                      ></td>
+                    <td style="text-align: center">1</td>
+                    <td>
+                        <button type="button" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span>
+                            <a href="https://github.com/drshahizan" target="_blank" style="color: white;">Delete</a>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success">
+                            <span class="glyphicon glyphicon-ok"></span>
+                            <a href="https://github.com/drshahizan" target="_blank" style="color: white;">Submit</a>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CAMILY TANG JIA LEI</td>
+                    <td>
+                      <a href="project/portfolio/sec01/camilytang/P1_camilytang"
+                        ><i class="fab fa-github"></i> camilytang</a
+                      >
+                    </td>
+                    <td style="text-align: center">1</td>
+                    <td>
+                      <span class="badge badge-success"
+                        ><i class="fas fa-check"></i> Submit</span
+                      >
+                    </td>
+                  </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+    </script>
+</body>
+</html>

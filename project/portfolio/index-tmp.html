@@ -2,12 +2,16 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Student Portfolio</title>
+    <title>Student Portfolio Showcase</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
+    <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -22,27 +26,56 @@
       type="text/css"
       href="https://cdn.datatables.net/fixedheader/3.1.9/css/fixedHeader.dataTables.min.css"
     />
+
     <style>
-      #myTable td:nth-child(4) {
+    #myTable td:nth-child(4)
+ {
         text-align: left;
       }
     </style>
   </head>
   <body>
-    <div
-      class="jumbotron"
-      style="
-        background-image: url('student-profile-background.jpg');
-        background-size: cover;
-        color: black;
-      "
-    >
-      <h1 class="display-4">Welcome to Student Profile</h1>
-      <p class="lead">
-        Here you can view and manage your student information, including your
-        Github profile, section information, and status.
-      </p>
-    </div>
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <a class="navbar-brand" href="#">Student Portfolio Showcase</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="jumbotron">
+      <div class="container">
+        <h1 class="display-4">Welcome to my Student Portfolio Showcase</h1>
+        <p class="lead">
+          Explore the work of our talented students and see the amazing projects
+          they have created.
+        </p>
+      </div>
+    </header>
     <div class="container">
       <table id="myTable" class="table table-striped table-bordered">
         <thead>
@@ -78,35 +111,35 @@
             <td style="text-align: center">1</td>
             <td>
               <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>CHAI YU TONG</td>
             <td>
-              <a href="project/portfolio/sec01/Yutongchai/P1_Yutongchai"
+              <a href="project/portfolio/sec01/Yutongchai/P1_Yutongchai.html"
                 ><i class="fab fa-github"></i> Yutongchai</a
               >
             </td>
             <td style="text-align: center">1</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>CHEN PYNG HAW</td>
             <td>
-              <a href="project/portfolio/sec01/pynghaw"
+              <a href="project/portfolio/sec01/pynghaw/P1_pynghaw.html"
                 ><i class="fab fa-github"></i> pynghaw</a
               >
             </td>
             <td style="text-align: center">1</td>
             <td>
               <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
@@ -127,28 +160,28 @@
           <tr>
             <td>JASLENE YU</td>
             <td>
-              <a href="https://github.com/drshahizan"
+              <a href="project/portfolio/sec01/jaslene-u/P1_jaslene-u.html"
                 ><i class="fab fa-github"></i> jaslene-u</a
               >
             </td>
             <td style="text-align: center">1</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> No submission</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>JOSEPH LAU YEO KAI</td>
             <td>
-              <a href="project/portfolio/sec01/camilytang/P1_camilytang"
+              <a href="https://github.com/drshahizan"
                 ><i class="fab fa-github"></i> josephlau2003</a
               >
             </td>
             <td style="text-align: center">1</td>
             <td>
-              <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+              <span class="badge badge-danger"
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
@@ -169,14 +202,14 @@
           <tr>
             <td>KOH LI HUI</td>
             <td>
-              <a href="project/portfolio/sec01/kohlihui"
+              <a href="project/portfolio/sec01/kohlihui/P1_kohlihui.html"
                 ><i class="fab fa-github"></i> kohlihui</a
               >
             </td>
             <td style="text-align: center">1</td>
             <td>
               <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
@@ -189,8 +222,8 @@
             </td>
             <td style="text-align: center">1</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> No submission</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
@@ -204,21 +237,21 @@
             <td style="text-align: center">1</td>
             <td>
               <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>LOO JIA CHANG</td>
             <td>
-              <a href="project/portfolio/sec01/camilytang/P1_camilytang"
+              <a href="https://github.com/drshahizan"
                 ><i class="fab fa-github"></i> jcl03</a
               >
             </td>
             <td style="text-align: center">1</td>
             <td>
-              <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+              <span class="badge badge-danger"
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
@@ -239,28 +272,28 @@
           <tr>
             <td>LOW YING XI</td>
             <td>
-              <a href="https://github.com/drshahizan"
+              <a href="project/portfolio/sec01/lowyingxi/P1_lowyingxi.html"
                 ><i class="fab fa-github"></i> lowyingxi</a
               >
             </td>
             <td style="text-align: center">1</td>
             <td>
               <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>MARCUS JOEY SAYNER</td>
             <td>
-              <a href="project/portfolio/sec01/xmqrz"
+              <a href="project/portfolio/sec01/xmqrz/P1_xmqrz.html"
                 ><i class="fab fa-github"></i> xmqrz</a
               >
             </td>
             <td style="text-align: center">1</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> No submission</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
@@ -273,36 +306,36 @@
             </td>
             <td style="text-align: center">1</td>
             <td>
-              <span class="badge badge-warning"
-                ><i class="fas fa-exclamation-triangle"></i> Pending</span
+              <span class="badge badge-danger"
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
           <tr>
             <td>NEO ZHENG WENG</td>
             <td>
-              <a href="project/portfolio/sec01/camilytang/P1_camilytang"
+              <a href="https://github.com/drshahizan"
                 ><i class="fab fa-github"></i> zw-weng</a
               >
             </td>
             <td style="text-align: center">1</td>
             <td>
-              <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+              <span class="badge badge-danger"
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
           <tr>
             <td>NG SHU YU</td>
             <td>
-              <a href="https://github.com/drshahizan"
+              <a href="project/portfolio/sec01/ShuYu03/P1_ShuYu03.html"
                 ><i class="fab fa-github"></i> ShuYu03</a
               >
             </td>
             <td style="text-align: center">1</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
@@ -315,22 +348,22 @@
             </td>
             <td style="text-align: center">1</td>
             <td>
-              <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+              <span class="badge badge-danger"
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
           <tr>
             <td>SOH HAN WEI</td>
             <td>
-              <a href="project/portfolio/sec01/wei1030/Personal%20Portfolio"
+              <a href="project/portfolio/sec01/wei2030/index.html"
                 ><i class="fab fa-github"></i> wei2030</a
               >
             </td>
             <td style="text-align: center">1</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
@@ -343,22 +376,22 @@
             </td>
             <td style="text-align: center">1</td>
             <td>
-              <span class="badge badge-warning"
-                ><i class="fas fa-exclamation-triangle"></i> Pending</span
+              <span class="badge badge-danger"
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
           <tr>
             <td>TIEW CHUAN RONG</td>
             <td>
-              <a href="project/portfolio/sec01/camilytang/P1_camilytang"
+              <a href="project/portfolio/sec01/tiewrong/P1_tiewrong.html"
                 ><i class="fab fa-github"></i> tiewrong</a
               >
             </td>
             <td style="text-align: center">1</td>
             <td>
               <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
@@ -372,7 +405,7 @@
             <td style="text-align: center">1</td>
             <td>
               <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
@@ -385,8 +418,8 @@
             </td>
             <td style="text-align: center">1</td>
             <td>
-              <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+              <span class="badge badge-danger"
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
@@ -400,35 +433,36 @@
             <td style="text-align: center">1</td>
             <td>
               <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
           <tr>
             <td>WONG QIAO YING</td>
             <td>
-              <a href="project/portfolio/sec01/alovey1014/personal_portfolio"
+              <a
+                href="project/portfolio/sec01/alovey1014/personal_portfolio.html"
                 ><i class="fab fa-github"></i> alovey1014
               </a>
             </td>
             <td style="text-align: center">1</td>
             <td>
-              <span class="badge badge-warning"
-                ><i class="fas fa-exclamation-triangle"></i> Pending</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>YEOH CHONG YI</td>
             <td>
-              <a href="project/portfolio/sec01/camilytang/P1_camilytang"
+              <a href="project/portfolio/sec01/yChongyi/P1_yChongyi.html"
                 ><i class="fab fa-github"></i> yChongyi</a
               >
             </td>
             <td style="text-align: center">1</td>
             <td>
-              <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+              <span class="badge badge-danger"
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
@@ -442,7 +476,7 @@
             <td style="text-align: center">1</td>
             <td>
               <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
@@ -450,56 +484,56 @@
           <tr>
             <td>ALIATUL IZZAH BINTI JASMAN</td>
             <td>
-              <a href="https://github.com/drshahizan"
+              <a href="project/portfolio/sec02/Aliatul/project1_oishylea"
                 ><i class="fab fa-github"></i> oishylea</a
               >
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-warning"
-                ><i class="fas fa-exclamation-triangle"></i> Pending</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>CHE MARHUMI BIN CHE AB RAHIM</td>
             <td>
-              <a href="project/portfolio/sec01/camilytang/P1_camilytang"
+              <a href="https://github.com/drshahizan"
                 ><i class="fab fa-github"></i> CheMrhumi</a
               >
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+              <span class="badge badge-danger"
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
           <tr>
             <td>DANIAL HARRIZ BIN MOHD ASINEH @MOHD ASNEH</td>
             <td>
-              <a href="project/portfolio/sec01/Yutongchai/P1_Yutongchai"
+              <a href="project/portfolio/sec02/danialharriz/P1_danialharriz"
                 ><i class="fab fa-github"></i> danialharriz</a
               >
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>KOH SU XUAN</td>
             <td>
-              <a href="project/portfolio/sec01/pynghaw"
+              <a href="project/portfolio/sec02/kohxuan/P1_kohxuan"
                 ><i class="fab fa-github"></i> kohxuan</a
               >
             </td>
             <td style="text-align: center">2</td>
             <td>
               <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
@@ -513,7 +547,7 @@
             <td style="text-align: center">2</td>
             <td>
               <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
@@ -526,106 +560,106 @@
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-warning"
-                ><i class="fas fa-exclamation-triangle"></i> Pending</span
+              <span class="badge badge-danger"
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
           <tr>
             <td>MUHAMMAD ANAS BIN MOHD PIKRI</td>
             <td>
-              <a href="project/portfolio/sec01/camilytang/P1_camilytang"
+              <a href="project/portfolio/sec02/MuhdAnass/P1_MuhdAnass"
                 ><i class="fab fa-github"></i> MuhdAnass</a
               >
             </td>
             <td style="text-align: center">2</td>
             <td>
               <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>MUHAMMAD ARIFF DANISH BIN HASHNAN</td>
             <td>
-              <a href="https://github.com/drshahizan"
+              <a href="project/portfolio/sec02/arriffdanish/P1_ariffdanish.html"
                 ><i class="fab fa-github"></i> ariffdanish</a
               >
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>MUHAMMAD IMAN FIRDAUS BIN BAHARUDDIN</td>
             <td>
-              <a href="project/portfolio/sec01/kohlihui"
+              <a href="https://github.com/drshahizan"
                 ><i class="fab fa-github"></i> MuhammadImanFirdaus
               </a>
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+              <span class="badge badge-danger"
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
           <tr>
             <td>MUHAMMAD LUQMAN HAKIM BIN MOHD RIZAUDIN</td>
             <td>
-              <a href="https://github.com/drshahizan"
+              <a href="project/portfolio/sec02/Luqman08/portfolio_Luqman08.html"
                 ><i class="fab fa-github"></i> Luqman08
               </a>
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>MUHAMMAD NUR AZHAR BIN MOHD YAZID</td>
             <td>
-              <a href="project/portfolio/sec01/Jinyong14"
+              <a href="project/portfolio/sec02/mnazhar13/P1_mnazhar13.html"
                 ><i class="fab fa-github"></i> mnazhar13</a
               >
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-warning"
-                ><i class="fas fa-exclamation-triangle"></i> Pending</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>MUHAMMAD SAFWAN BIN MOHD AZMI</td>
             <td>
-              <a href="project/portfolio/sec01/camilytang/P1_camilytang"
+              <a href="project/portfolio/sec02/safwan/P1_safwan031"
                 ><i class="fab fa-github"></i> safwan031</a
               >
             </td>
             <td style="text-align: center">2</td>
             <td>
               <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>MULYANI BINTI SARIPUDDIN</td>
             <td>
-              <a href="https://github.com/drshahizan"
+              <a href="project/portfolio/sec02/Mulyani28/P1_Mulyani.html"
                 ><i class="fab fa-github"></i> Mulyani28</a
               >
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
@@ -638,134 +672,121 @@
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+              <span class="badge badge-danger"
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
           <tr>
             <td>NAVACHANDER NAVASANTAR</td>
             <td>
-              <a href="project/portfolio/sec01/xmqrz"
+              <a href="project/portfolio/sec02/navachander01/P1_navachander01"
                 ><i class="fab fa-github"></i> Navachander1
               </a>
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
-          <tr>
-            <td>MUHAMMAD DANIAL BIN AHMAD SYAHIR</td>
-            <td>
-              <a href="https://github.com/drshahizan"
-                ><i class="fab fa-github"></i> daniallllllll
-              </a>
-            </td>
-            <td style="text-align: center">2</td>
-            <td>
-              <span class="badge badge-warning"
-                ><i class="fas fa-exclamation-triangle"></i> Pending</span
-              >
-            </td>
-          </tr>
+
           <tr>
             <td>NAVASARATHY A/L S.GANESWARAN</td>
             <td>
-              <a href="project/portfolio/sec01/camilytang/P1_camilytang"
+              <a href="project/portfolio/sec02/Navasarathy/P1Navasarathy"
                 ><i class="fab fa-github"></i> Navasarathy
               </a>
             </td>
             <td style="text-align: center">2</td>
             <td>
               <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>NIK ZULAIKHAA BINTI ZURAIDI AFANDI</td>
             <td>
-              <a href="https://github.com/drshahizan"
+              <a href="project/portfolio/sec02/nikzulaikhaa/P1_nikzulaikhaa"
                 ><i class="fab fa-github"></i> nikzulaikhaa
               </a>
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>NUR ALEYSHA QURRATU'AINI BINTI MAT SALLEH</td>
             <td>
-              <a href="https://github.com/drshahizan"
+              <a href="project/portfolio/sec02/NurAleysha/P1_NurAleysha"
                 ><i class="fab fa-github"></i> NurAleysha</a
               >
             </td>
             <td style="text-align: center">2</td>
             <td>
               <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>NUR ARINI FATIHAH BINTI MOHD SABIR</td>
             <td>
-              <a href="project/portfolio/sec01/wei1030/Personal%20Portfolio"
+              <a href="project/portfolio/sec02/arinifthh/P1_arinifthh.html"
                 ><i class="fab fa-github"></i> arinifthh
               </a>
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>NUR FARAH ADIBAH BINTI IDRIS</td>
             <td>
-              <a href="https://github.com/drshahizan"
+              <a href="project/portfolio/sec02/nurfarahadibah/P1_nurfarahadibah"
                 ><i class="fab fa-github"></i> nurfarahadibah
               </a>
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-warning"
-                ><i class="fas fa-exclamation-triangle"></i> Pending</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>NURUL ERINA BINTI ZAINUDDIN</td>
             <td>
-              <a href="project/portfolio/sec01/camilytang/P1_camilytang"
+              <a href="https://github.com/drshahizan"
                 ><i class="fab fa-github"></i> nrulerina</a
               >
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+              <span class="badge badge-danger"
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
           <tr>
             <td>ONG YI YAN</td>
             <td>
-              <a href="https://github.com/drshahizan"
+              <a href="project/portfolio/sec02/ongyiyan/p1_ONGYIYAN.html"
                 ><i class="fab fa-github"></i> ONGYIYAN
               </a>
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
@@ -778,64 +799,92 @@
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+              <span class="badge badge-danger"
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
           <tr>
             <td>TANG YAN QING</td>
             <td>
-              <a href="https://github.com/drshahizan"
+              <a href="project/portfolio/sec02/yan-qing09/P1_yan-qing09"
                 ><i class="fab fa-github"></i> yan-qing09</a
               >
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>THEVAN RAJU A/L JEGANATH</td>
             <td>
-              <a href="project/portfolio/sec01/alovey1014/personal_portfolio"
+              <a href="https://github.com/drshahizan"
                 ><i class="fab fa-github"></i> ThevanRaju
               </a>
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-warning"
-                ><i class="fas fa-exclamation-triangle"></i> Pending</span
+              <span class="badge badge-danger"
+                ><i class="fas fa-times"></i> No submission</span
               >
             </td>
           </tr>
           <tr>
             <td>VINESH A/L VIJAYA KUMAR</td>
             <td>
-              <a href="project/portfolio/sec01/camilytang/P1_camilytang"
+              <a href="project/portfolio/sec02/vinesh06/P1_vinesh06"
                 ><i class="fab fa-github"></i> vinesh06</a
               >
             </td>
             <td style="text-align: center">2</td>
             <td>
               <span class="badge badge-success"
-                ><i class="fas fa-check"></i> Active</span
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
           <tr>
             <td>WAN NUR SOFEA BINTI MOHD HASBULLAH</td>
             <td>
-              <a href="project/portfolio/sec01/Wernjie0713"
+              <a href="project/portfolio/sec02/wannursofea/P1_wannursofea"
                 ><i class="fab fa-github"></i> wannursofea</a
               >
             </td>
             <td style="text-align: center">2</td>
             <td>
-              <span class="badge badge-danger"
-                ><i class="fas fa-times"></i> Inactive</span
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>MUHAMMAD DANIEL HAKIM BIN SYAHRULNIZAM</td>
+            <td>
+              <a href="project/portfolio/sec02/akim730/P1_akim730"
+                ><i class="fab fa-github"></i> akim730</a
+              >
+            </td>
+            <td style="text-align: center">2</td>
+            <td>
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Goh Jiale</td>
+            <td>
+              <a href="project/portfolio/sec02/Jialegoh/P1_Jialegoh.html"
+                ><i class="fab fa-github"></i> Jialegoh</a
+              >
+            </td>
+            <td style="text-align: center">2</td>
+            <td>
+              <span class="badge badge-success"
+                ><i class="fas fa-check"></i> Submit</span
               >
             </td>
           </tr>
