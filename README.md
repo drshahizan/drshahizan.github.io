@@ -42,5 +42,7 @@ I am  __Shahizan__, and I work as a lecturer at [Universiti Teknologi Malaysia](
   
   ![Follower Badge](https://img.shields.io/github/followers/drshahizan)
   ![](https://komarev.com/ghpvc/?username=drshahizan&label=Views&color=0e75b6&style=flat)
+![](https://hit.yhype.me/github/profile?user_id=81284918)
+
 
 </details>
