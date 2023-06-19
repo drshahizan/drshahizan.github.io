@@ -1,726 +1,974 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Student Portfolio Showcase</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
 
-<head>
-  <title>Student Portfolio Showcase</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
 
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <style>
+      #myTable td:nth-child(3),
+      #myTable td:nth-child(4) {
+        text-align: center;
+      }
+    </style>
+  </head>
 
-  <style>
-    #myTable td:nth-child(3),
-    #myTable td:nth-child(4) {
-      text-align: center;
-    }
-  </style>
-</head>
+  <body>
+    <!-- Navbar -->
 
-<body>
-  <!-- Navbar -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <a class="navbar-brand" href="https://github.com/drshahizan">
+        <i class="fab fa-github" style="font-size: 1em"></i>
+        <!-- set an explicit 'font-size' value -->
+        GitHub
+      </a>
 
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <a class="navbar-brand" href="https://github.com/drshahizan">
-      <i class="fab fa-github" style="font-size: 1em"></i>
-      <!-- set an explicit 'font-size' value -->
-      GitHub
-    </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/drshahizan">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="scsv1223.html">Web Programming</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="https://github.com/drshahizan/software-engineering"
+              >Software Engineering</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/drshahizan">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="scsv1223.html">Web Programming</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/drshahizan/software-engineering">Software Engineering</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <!-- Header -->
+    <header class="jumbotron">
+      <div class="container">
+        <h1 class="display-4">Welcome to my Student Portfolio Showcase</h1>
+        <p class="lead">
+          Special topic: Explore the work of our talented students and see the
+          amazing projects they have created.
+        </p>
+      </div>
+    </header>
 
-  <!-- Header -->
-  <header class="jumbotron">
     <div class="container">
-      <h1 class="display-4">Welcome to my Student Portfolio Showcase</h1>
-      <p class="lead">
-        Special topic: Explore the work of our talented students and see the
-        amazing projects they have created.
-      </p>
+      <table id="myTable" class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th><i class="fab fa-github"></i> Github id</th>
+            <th style="text-align: center">HTML</th>
+            <th style="text-align: center">Bootstrap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>BA.SHARILFAZLEE SALLEH B.HJ A.SUHAIMI</td>
+            <td>
+              <a href="https://github.com/Spek1993"> Spek1993 </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/spek1993/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/bootstrap/spek1993/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>ADAM SHAH BIN MOHD FAIZAL</td>
+            <td>
+              <a href="https://github.com/adamshahmf"> adamshahmf</a>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>AHMAD HUMAIDI FIRDAUS BIN MOHAMMAD DIN</td>
+            <td>
+              <a href="https://github.com/alanscotch"> alanscotch </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>AHMAD SYAUQIE BIN AHMAD</td>
+            <td>
+              <a href="https://github.com/ASA42000"> ASA42000 </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>ALEXANDER MCCAFFER REDIK</td>
+            <td>
+              <a href="https://github.com/alexmccaffer"> alexmccaffer</a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/alexmccaffer/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>AMMAR HAFIY BIN MUHAMMAD</td>
+            <td>
+              <a href="https://github.com/amrhfy">amrhfy</a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>AMMAR IBRAHIM BIN MOHAMED</td>
+            <td>
+              <a href="https://github.com/ammaribrahim95"> ammaribrahim95 </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/ammaribrahim95/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/bootstrap/ammaribrahim95/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>BARANI A/P POOVALAN</td>
+            <td>
+              <a href="https://github.com/barani2014"> barani2014 </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>EFFA AIZA BINTI SULAIMAN</td>
+            <td>
+              <a href="https://github.com/effaaiza"> effaaiza </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>EL INSYIRAAH FATHIN BINTI AMIRUDDIN</td>
+            <td>
+              <a href="https://github.com/elleamyr"> elleamyr</a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>IKHMAL SYAZREEL BIN MOHD AZIZAN</td>
+            <td>
+              <a href="https://github.com/syazreel28"> syazreel28 </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>ISMAIL BIN AMAN</td>
+            <td>
+              <a href="https://github.com/oldpistol"> oldpistol </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/oldpistol/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/bootstrap/oldpistol/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>LOGESWARY A/P KRISHNAMOORTHY</td>
+            <td>
+              <a href="https://github.com/Logeswary98"> Logeswary98 </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/Logeswary98/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>MOGANAKUMARAN A/L SELVAKUMARAN</td>
+            <td>
+              <a href="https://github.com/RN1310"> RN1310 </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/RN1310/Project-1.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>MOHAMAD ZUL IKMAL BIN MOHAMMAD RAZAL</td>
+            <td>
+              <a href="https://github.com/lamki"> lamki </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/lamki/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>MOHAMED HARIS BIN MOHAMED MAZLAN</td>
+            <td>
+              <a href="https://github.com/harismazlan"> harismazlan </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/harismazlan/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/bootstrap/harismazlan/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>MOHD NOOR HAFIZ BIN MUHAMAD SAID</td>
+            <td>
+              <a href="https://github.com/mohdnoorhafiz"> mohdnoorhafiz</a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/mohdnoorhafiz/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/bootstrap/mohdnoorhafiz/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>MUHAMMAD AZAM BIN AZMAN</td>
+            <td>
+              <a href="https://github.com/azamazman96"> azamazman96 </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/azamazman96/azamportfolio.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/bootstrap/Azamazman96/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>MUHAMMAD BADRUL AMIN BIN MASROL</td>
+            <td>
+              <a href="https://github.com/badz20"> badz20</a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/badz20/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/bootstrap/badz20/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>MUHAMMAD FAHMI BIN CHE AB WAHAB</td>
+            <td>
+              <a href="https://github.com/fahmiwahab29"> fahmiwahab29 </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>MUHAMMAD FAIZ FITRI BIN MOHD NOH</td>
+            <td>
+              <a href="https://github.com/AshuraRin"> AshuraRin </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/AshuraRin/project1_AshuraRin.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/bootstrap/AshuraRin/project2_AshuraRin.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>MUHAMMAD FAIZAL BIN ASARAB ALI</td>
+            <td>
+              <a href="https://github.com/Faizal994"> Faizal994 </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/Faizal994/project1_faizal994.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/bootstrap/Faizal994/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>MUHAMMAD HAFIZ BIN ISKANDAR</td>
+            <td>
+              <a href="https://github.com/mhafiziskandar"> mhafiziskandar </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>NABILAH BINTI ABD RAHMAN</td>
+            <td>
+              <a href="https://github.com/nabilaharahman"> nabilaharahman </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>NOR HAZIDA BINTI HAMDAN</td>
+            <td>
+              <a href="https://github.com/hazida"> hazed</a>
+            </td>
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/NorHazida/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>SASHILA SRE A/P RAMADASS</td>
+            <td>
+              <a href="https://github.com/sreshila30"> sreshila30 </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/sreshila30/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>SEPRIYANDI BIN AGUSR</td>
+            <td>
+              <a href="https://github.com/sepz36"> sepz36 </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/sepz36/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/bootstrap/sepz36/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>SHANMUGADHARSHINI A/P MURALI</td>
+            <td>
+              <a href="https://github.com/Shan9821"> Shan9821 </a>
+            </td>
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/Shan9821/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/bootstrap/Shan9821/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>SHARVIN A/L M.GUNALAN</td>
+            <td>
+              <a href="https://github.com/Sharvin01"> Sharvin01 </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/Sharvin01/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>SITI DZIN NORSYAFIKA BINTI MOHD ISA</td>
+            <td>
+              <a href="https://github.com/dzinsyafika97"> dzinsyafika97 </a>
+            </td>
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/dzinsyafika97/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/bootstrap/dzinsyafika97/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>SUBAHSHINI A/P SANGARA LINGAM</td>
+            <td>
+              <a href="https://github.com/Subahshini15"> Subahshini15 </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>SYAIFUL ALFRAIZA BIN AINI ABDULLAH</td>
+            <td>
+              <a href="https://github.com/syaifulalfraiza"> syaifulalfraiza </a>
+            </td>
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/syaifulalfraiza/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>WAN ASMAA' SYAHIRAH BINTI ABD MALEK</td>
+            <td>
+              <a href="https://github.com/twilighttttt"> twilighttttt </a>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                <a
+                  href="project/portfolio/twilighttttt/index.html"
+                  target="_blank"
+                  style="color: white"
+                  >Submit</a
+                >
+              </button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+                <a href="https://" target="_blank" style="color: white"
+                  >No File</a
+                >
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </header>
 
-  <div class="container">
-    <table id="myTable" class="table table-striped table-bordered">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th><i class="fab fa-github"></i> Github id</th>
-          <th style="text-align: center">HTML</th>
-          <th style="text-align: center">Bootstrap</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>BA.SHARILFAZLEE SALLEH B.HJ A.SUHAIMI</td>
-          <td>
-            <a href="https://github.com/Spek1993"> Spek1993 </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/spek1993/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>ADAM SHAH BIN MOHD FAIZAL</td>
-          <td>
-            <a href="https://github.com/adamshahmf"> adamshahmf</a>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>AHMAD HUMAIDI FIRDAUS BIN MOHAMMAD DIN</td>
-          <td>
-            <a href="https://github.com/alanscotch"> alanscotch </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>AHMAD SYAUQIE BIN AHMAD</td>
-          <td>
-            <a href="https://github.com/ASA42000"> ASA42000 </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>ALEXANDER MCCAFFER REDIK</td>
-          <td>
-            <a href="https://github.com/alexmccaffer"> alexmccaffer</a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/alexmccaffer/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>AMMAR HAFIY BIN MUHAMMAD</td>
-          <td>
-            <a href="https://github.com/amrhfy">amrhfy</a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>AMMAR IBRAHIM BIN MOHAMED</td>
-          <td>
-            <a href="https://github.com/ammaribrahim95"> ammaribrahim95 </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/ammaribrahim95/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/bootstrap/ammaribrahim95/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>BARANI A/P POOVALAN</td>
-          <td>
-            <a href="https://github.com/barani2014"> barani2014 </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>EFFA AIZA BINTI SULAIMAN</td>
-          <td>
-            <a href="https://github.com/effaaiza"> effaaiza </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>EL INSYIRAAH FATHIN BINTI AMIRUDDIN</td>
-          <td>
-            <a href="https://github.com/elleamyr"> elleamyr</a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>IKHMAL SYAZREEL BIN MOHD AZIZAN</td>
-          <td>
-            <a href="https://github.com/syazreel28"> syazreel28 </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>ISMAIL BIN AMAN</td>
-          <td>
-            <a href="https://github.com/oldpistol"> oldpistol </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/oldpistol/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>LOGESWARY A/P KRISHNAMOORTHY</td>
-          <td>
-            <a href="https://github.com/Logeswary98"> Logeswary98 </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/Logeswary98/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>MOGANAKUMARAN A/L SELVAKUMARAN</td>
-          <td>
-            <a href="https://github.com/RN1310"> RN1310 </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/RN1310/Project-1.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>MOHAMAD ZUL IKMAL BIN MOHAMMAD RAZAL</td>
-          <td>
-            <a href="https://github.com/lamki"> lamki </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/lamki/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>MOHAMED HARIS BIN MOHAMED MAZLAN</td>
-          <td>
-            <a href="https://github.com/harismazlan"> harismazlan </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/harismazlan/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://
-                  target=" _blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>MOHD NOOR HAFIZ BIN MUHAMAD SAID</td>
-          <td>
-            <a href="https://github.com/mohdnoorhafiz"> mohdnoorhafiz</a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/mohdnoorhafiz/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/bootstrap/mohdnoorhafiz/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>MUHAMMAD AZAM BIN AZMAN</td>
-          <td>
-            <a href="https://github.com/azamazman96"> azamazman96 </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/azamazman96/azamportfolio.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>MUHAMMAD BADRUL AMIN BIN MASROL</td>
-          <td>
-            <a href="https://github.com/badz20"> badz20</a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/badz20/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/bootstrap/badz20/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>MUHAMMAD FAHMI BIN CHE AB WAHAB</td>
-          <td>
-            <a href="https://github.com/fahmiwahab29"> fahmiwahab29 </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>MUHAMMAD FAIZ FITRI BIN MOHD NOH</td>
-          <td>
-            <a href="https://github.com/AshuraRin"> AshuraRin </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/AshuraRin/project1_AshuraRin.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/bootstrap/AshuraRin/project2_AshuraRin.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-          
-        </tr>
-        <tr>
-          <td>MUHAMMAD FAIZAL BIN ASARAB ALI</td>
-          <td>
-            <a href="https://github.com/Faizal994"> Faizal994 </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/Faizal994/project1_faizal994.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/bootstrap/Faizal994/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>MUHAMMAD HAFIZ BIN ISKANDAR</td>
-          <td>
-            <a href="https://github.com/mhafiziskandar"> mhafiziskandar </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>NABILAH BINTI ABD RAHMAN</td>
-          <td>
-            <a href="https://github.com/nabilaharahman"> nabilaharahman </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>NOR HAZIDA BINTI HAMDAN</td>
-          <td>
-            <a href="https://github.com/hazida"> hazed</a>
-          </td>
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/NorHazida/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>SASHILA SRE A/P RAMADASS</td>
-          <td>
-            <a href="https://github.com/sreshila30"> sreshila30 </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/sreshila30/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>SEPRIYANDI BIN AGUSR</td>
-          <td>
-            <a href="https://github.com/sepz36"> sepz36 </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/sepz36/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/bootstrap/sepz36/sepzio/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>SHANMUGADHARSHINI A/P MURALI</td>
-          <td>
-            <a href="https://github.com/Shan9821"> Shan9821 </a>
-          </td>
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/Shan9821/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>SHARVIN A/L M.GUNALAN</td>
-          <td>
-            <a href="https://github.com/Sharvin01"> Sharvin01 </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/Sharvin01/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>SITI DZIN NORSYAFIKA BINTI MOHD ISA</td>
-          <td>
-            <a href="https://github.com/dzinsyafika97"> dzinsyafika97 </a>
-          </td>
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/dzinsyafika97/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>SUBAHSHINI A/P SANGARA LINGAM</td>
-          <td>
-            <a href="https://github.com/Subahshini15"> Subahshini15 </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>SYAIFUL ALFRAIZA BIN AINI ABDULLAH</td>
-          <td>
-            <a href="https://github.com/syaifulalfraiza"> syaifulalfraiza </a>
-          </td>
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/syaifulalfraiza/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>WAN ASMAA' SYAHIRAH BINTI ABD MALEK</td>
-          <td>
-            <a href="https://github.com/twilighttttt"> twilighttttt </a>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-success">
-              <i class="fas fa-check"></i>
-              <a href="project/portfolio/twilighttttt/index.html" target="_blank" style="color: white">Submit</a>
-            </button>
-          </td>
-
-          <td>
-            <button type="button" class="btn btn-danger">
-              <i class="fas fa-times"></i>
-              <a href="https://" target="_blank" style="color: white">No File</a>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("#myTable").DataTable();
-    });
-  </script>
- </body>
-<p align="center">
-    <a href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&labelColor=%23697689&countColor=%23555555&style=plastic" /></a>
-</p>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#myTable").DataTable();
+      });
+    </script>
+  </body>
+  <p align="center">
+    <a
+      href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"
+      ><img
+        src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&labelColor=%23697689&countColor=%23555555&style=plastic"
+    /></a>
+  </p>
 </html>
