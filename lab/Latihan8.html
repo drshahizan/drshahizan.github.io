@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perbandingan Terjemahan Manual dan Mesin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            resize: vertical;
+        }
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+        }
+        .output {
+            margin-top: 20px;
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Perbandingan Terjemahan Manual dan Mesin</h1>
+    
+    <label for="inputText">Teks Asli (Bahasa Indonesia):</label>
+    <textarea id="inputText" rows="5" placeholder="Masukkan teks asli di sini..."></textarea>
+
+    <label for="manualTranslation">Terjemahan Manual (Bahasa Inggris):</label>
+    <textarea id="manualTranslation" rows="5" placeholder="Masukkan terjemahan manual di sini..."></textarea>
+
+    <label for="languageSelect">Pilih Bahasa Terjemahan Mesin:</label>
+    <select id="languageSelect">
+        <option value="en">Inggris</option>
+        <option value="fr">Prancis</option>
+        <option value="de">Jerman</option>
+        <option value="es">Spanyol</option>
+        <option value="jp">Jepang</option>
+        <option value="zh">Mandarin</option>
+        <option value="ru">Rusia</option>
+        <option value="ar">Arab</option>
+    </select>
+
+    <button onclick="translateText()">Bandingkan Terjemahan</button>
+
+    <h3>Hasil Terjemahan Mesin:</h3>
+    <textarea id="machineTranslation" rows="5" readonly></textarea>
+
+    <div class="output" id="comparisonResult"></div>
+</div>
+
+<script>
+    function translateText() {
+        const originalText = document.getElementById('inputText').value;
+        const manualTranslation = document.getElementById('manualTranslation').value;
+        const language = document.getElementById('languageSelect').value;
+
+        if (originalText.trim() === '') {
+            alert('Silakan masukkan teks asli untuk diterjemahkan.');
+            return;
+        }
+
+        const apiUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=id&tl=${language}&dt=t&q=${encodeURI(originalText)}`;
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const machineTranslation = data[0][0][0];
+                document.getElementById('machineTranslation').value = machineTranslation;
+                compareTranslations(manualTranslation, machineTranslation);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat menerjemahkan.');
+            });
+    }
+
+    function compareTranslations(manualTranslation, machineTranslation) {
+        const resultDiv = document.getElementById('comparisonResult');
+        if (manualTranslation.trim() === '') {
+            resultDiv.innerHTML = '<p style="color:red;">Terjemahan manual belum diisi.</p>';
+        } else {
+            const manualText = manualTranslation.trim();
+            const machineText = machineTranslation.trim();
+            let result = '';
+
+            if (manualText === machineText) {
+                result = '<p style="color:green;">Hasil terjemahan mesin dan terjemahan manual identik!</p>';
+            } else {
+                result = '<p style="color:orange;">Ada perbedaan antara terjemahan manual dan terjemahan mesin.</p>';
+            }
+
+            resultDiv.innerHTML = result;
+        }
+    }
+</script>
+
+</body>
+</html>

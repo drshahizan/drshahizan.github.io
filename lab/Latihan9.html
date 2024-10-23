@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terjemahkan Bahasa Daerah ke Bahasa Indonesia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            resize: vertical;
+        }
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Terjemahkan Bahasa Daerah ke Bahasa Indonesia</h1>
+    
+    <label for="inputText">Masukkan teks dalam Bahasa Daerah:</label>
+    <textarea id="inputText" rows="5" placeholder="Masukkan teks di sini..."></textarea>
+
+    <label for="languageSelect">Pilih Bahasa Daerah:</label>
+    <select id="languageSelect">
+        <option value="jw">Jawa</option>
+        <option value="su">Sunda</option>
+        <option value="min">Minangkabau</option>
+        <option value="bt">Batak</option>
+        <option value="bug">Bugis</option>
+        <option value="bal">Bali</option>
+        <option value="ace">Aceh</option>
+        <option value="bew">Betawi</option>
+        <option value="mad">Madura</option>
+        <option value="bjn">Banjar</option>
+    </select>
+
+    <button onclick="translateText()">Terjemahkan</button>
+
+    <h3>Hasil Terjemahan ke Bahasa Indonesia:</h3>
+    <textarea id="outputText" rows="5" readonly></textarea>
+</div>
+
+<script>
+    function translateText() {
+        const text = document.getElementById('inputText').value;
+        const language = document.getElementById('languageSelect').value;
+
+        if (text.trim() === '') {
+            alert('Silakan masukkan teks untuk diterjemahkan.');
+            return;
+        }
+
+        const apiUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${language}&tl=id&dt=t&q=${encodeURI(text)}`;
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const translatedText = data[0][0][0];
+                document.getElementById('outputText').value = translatedText;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat menerjemahkan.');
+            });
+    }
+</script>
+
+</body>
+</html>
