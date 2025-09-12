@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Analitik Staf</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+        }
+        
+        .sidebar {
+            background-color: var(--dark);
+            color: white;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+        
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 12px 20px;
+            margin: 4px 0;
+            border-radius: 4px;
+        }
+        
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .sidebar .nav-link i {
+            margin-right: 10px;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background-color: white;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+            padding: 15px 20px;
+            border-radius: 10px 10px 0 0 !important;
+        }
+        
+        .stats-card {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stats-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .stats-card .label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stats-card .trend {
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        
+        .trend.up {
+            color: var(--success);
+        }
+        
+        .trend.down {
+            color: var(--accent);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            padding: 20px;
+        }
+        
+        .badge-analytics {
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-left: 10px;
+        }
+        
+        .badge-descriptive {
+            background-color: #3498db;
+        }
+        
+        .badge-diagnostic {
+            background-color: #e74c3c;
+        }
+        
+        .badge-prescriptive {
+            background-color: #27ae60;
+        }
+        
+        .badge-predictive {
+            background-color: #f39c12;
+        }
+        
+        .alert-recommendation {
+            border-left: 4px solid var(--success);
+            background-color: #f8fff9;
+        }
+        
+        .data-table {
+            font-size: 0.9rem;
+        }
+        
+        .data-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .filter-bar {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                height: auto;
+                position: relative;
+            }
+            
+            .stats-card .number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-user-tie me-2"></i>
+                Dashboard Analitik Staf
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-cog"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i> Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 col-md-3 p-0 sidebar">
+                <div class="d-flex flex-column p-3">
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="Pelajar.html" class="nav-link">
+                                <i class="fas fa-users"></i> Pelajar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Staf.html" class="nav-link active">
+                                <i class="fas fa-users"></i> Staf
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Institusi.html" class="nav-link ">
+                                <i class="fas fa-home"></i> Institusi
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-flask"></i> Penyelidikan
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="perkongsianData.html" class="nav-link">
+                                <i class="fas fa-file-export"></i> Perkongsian Data
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pengolahanData.html" class="nav-link">
+                                <i class="fas fa-graduation-cap"></i> Pengolahan Data
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Network & API.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i> Rangkaian
+                            </a>
+                        </li>
+                         -->
+                        <li class="nav-item">
+                            <a href="Profile.html" class="nav-link">
+                                <i class="fas fa-cog"></i> Profil
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-10 col-md-9 p-4">
+                <!-- Filter Bar -->
+                 <div class="container filter-container">
+        
+        <div class="filter-bar">
+            <div class="row mb-3">
+                <div class="col-lg-3 col-md-6 mb-2">
+                    <label class="form-label small fw-bold">Sesi Akademik</label>
+                    <select class="form-select">
+                        <option selected>2023/2024</option>
+                        <option>2022/2023</option>
+                        <option>2021/2022</option>
+                        <option>2020/2021</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-2">
+                    <label class="form-label small fw-bold">Jenis Institusi</label>
+                    <select class="form-select" id="institutionType">
+                        <option selected value="all">Semua Institusi</option>
+                        <option value="ipta">IPTA (Awam)</option>
+                        <option value="ipts">IPTS (Swasta)</option>
+                        <option value="poly">Hospital Pengajar Universiti (HPU)</option>
+                        <option value="poly">Politeknik</option>
+                        <option value="poly">Kolej Komuniti</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-2">
+                    <label class="form-label small fw-bold">Universiti</label>
+                    <select class="form-select" id="universitySelect">
+                        <option selected value="all">Semua Universiti</option>
+                        
+                        <!-- IPTA Options -->
+                        <option class="option-group" disabled>--- IPTA (Awam) ---</option>
+                        <option value="um" data-type="ipta">Universiti Malaya (UM)</option>
+                        <option value="ukm" data-type="ipta">Universiti Kebangsaan Malaysia (UKM)</option>
+                        <option value="usm" data-type="ipta">Universiti Sains Malaysia (USM)</option>
+                        <option value="upm" data-type="ipta">Universiti Putra Malaysia (UPM)</option>
+                        <option value="utm" data-type="ipta">Universiti Teknologi Malaysia (UTM)</option>
+                        <option value="uia" data-type="ipta">Universiti Islam Antarabangsa Malaysia (UIAM)</option>
+                        <option value="uitm" data-type="ipta">Universiti Teknologi MARA (UiTM)</option>
+                        <option value="ums" data-type="ipta">Universiti Malaysia Sabah (UMS)</option>
+                        <option value="ump" data-type="ipta">Universiti Malaysia Pahang (UMP)</option>
+                        <option value="unimas" data-type="ipta">Universiti Malaysia Sarawak (UNIMAS)</option>
+                        
+                        <!-- IPTS Options -->
+                        <option class="option-group" disabled>--- IPTS (Swasta) ---</option>
+                        <option value="mmu" data-type="ipts">Multimedia University (MMU)</option>
+                        <option value="taylors" data-type="ipts">Taylor's University</option>
+                        <option value="sunway" data-type="ipts">Sunway University</option>
+                        <option value="ucsi" data-type="ipts">UCSI University</option>
+                        <option value="monash" data-type="ipts">Monash University Malaysia</option>
+                        <option value="nottingham" data-type="ipts">University of Nottingham Malaysia</option>
+                        <option value="help" data-type="ipts">HELP University</option>
+                        <option value="segi" data-type="ipts">SEGi University</option>
+                        <option value="limkokwing" data-type="ipts">Limkokwing University</option>
+                        
+                        <!-- Politeknik Options -->
+                        <option class="option-group" disabled>--- Politeknik ---</option>
+                        <option value="poliku" data-type="poly">Politeknik Sultan Haji Ahmad Shah (POLISAS)</option>
+                        <option value="polibs" data-type="poly">Politeknik Sultan Salahuddin Abdul Aziz Shah</option>
+                        <option value="polimu" data-type="poly">Politeknik Muadzam Shah</option>
+                        <option value="polikl" data-type="poly">Politeknik Kota Kuala Lumpur</option>
+                        <option value="polibn" data-type="poly">Politeknik Balik Pulau</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-2">
+                    <label class="form-label small fw-bold">Program</label>
+                    <select class="form-select">
+                        <option selected>Semua Program</option>
+                        <option>Asasi / Pra-Universiti</option>
+                        <option>Diploma</option>
+                        <option>Ijazah Sarjana Muda</option>
+                        <option>Sarjana</option>
+                        <option>PhD</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-2">
+                    <label class="form-label small fw-bold">Fakulti</label>
+                    <select class="form-select">
+                        <option selected>Semua Fakulti</option>
+                        <option>Sains Komputer & Teknologi Maklumat</option>
+                        <option>Kejuruteraan</option>
+                        <option>Sastera & Sains Sosial</option>
+                        <option>Perniagaan & Pengurusan</option>
+                        <option>Perubatan & Sains Kesihatan</option>
+                        <option>Pendidikan</option>
+                        <option>Undang-undang</option>
+                        <option>Sains & Teknologi</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-2">
+                    <label class="form-label small fw-bold">Bidang Pengajian</label>
+                    <select class="form-select">
+                        <option selected>Semua Bidang</option>
+                        <option>Sains Komputer</option>
+                        <option>Kejuruteraan Elektrik</option>
+                        <option>Kejuruteraan Mekanikal</option>
+                        <option>Perakaunan</option>
+                        <option>Pengurusan</option>
+                        <option>Linguistik</option>
+                        <option>Perubatan</option>
+                        <option>Farmasi</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-2">
+                    <label class="form-label small fw-bold">Negeri</label>
+                    <select class="form-select">
+                        <option selected>Semua Negeri</option>
+                        <option>Johor</option>
+                        <option>Kedah</option>
+                        <option>Kelantan</option>
+                        <option>Kuala Lumpur</option>
+                        <option>Melaka</option>
+                        <option>Negeri Sembilan</option>
+                        <option>Pahang</option>
+                        <option>Perak</option>
+                        <option>Perlis</option>
+                        <option>Pulau Pinang</option>
+                        <option>Sabah</option>
+                        <option>Sarawak</option>
+                        <option>Selangor</option>
+                        <option>Terengganu</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-2 d-flex align-items-end">
+                    <button class="btn btn-primary w-100 filter-btn">
+                        <i class="fas fa-filter me-2"></i> Gunakan Penapis
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                <!-- Descriptive Analytics - Key Metrics -->
+                <h4 class="mb-4"> Statistik Staf Keseluruhan <span class="badge badge-analytics badge-descriptive">Deskriptif</span></h4>
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-user-tie fa-2x text-primary"></i>
+                                <div class="number">1,245</div>
+                                <div class="label">Jumlah Staf</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 3.5% dari tahun lalu</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-graduation-cap fa-2x text-success"></i>
+                                <div class="number">785</div>
+                                <div class="label">Staf Akademik</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 2.1% peningkatan</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-flask fa-2x text-warning"></i>
+                                <div class="number">312</div>
+                                <div class="label">Penyelidik Aktif</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 8% dari tahun lalu</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-chart-line fa-2x text-info"></i>
+                                <div class="number">68.2%</div>
+                                <div class="label">Staf dengan PhD</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 4.8% peningkatan</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diagnostic Analytics - Trends and Comparisons -->
+                <h4 class="my-4"> Taburan Staf <span class="badge badge-analytics badge-diagnostic">Diagnostik</span></h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Taburan Staf Mengikut Bidang</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="staffDistributionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Perbandingan Gelaran Jawatan</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="positionComparisonChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Predictive Analytics - Forecasts -->
+                <h4 class="my-4"> Ramalan Prestasi Staf <span class="badge badge-analytics badge-predictive">Prediktif</span></h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Ramalan Kemasukan Staf</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="staffForecastChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Taburan Kelulusan Tertinggi</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="qualificationChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prescriptive Analytics - Recommendations -->
+                <h4 class="my-4">Cadangan Pembangunan Staf <span class="badge badge-analytics badge-prescriptive">Preskriptif</span></h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Cadangan Berdasarkan Analitik
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-recommendation mb-3">
+                                    <h6><i class="fas fa-lightbulb text-warning me-2"></i> Program Pembangunan Staf Sains Komputer</h6>
+                                    <p class="mb-0">Analisis menunjukkan bahawa Fakulti Sains Komputer memerlukan lebih ramai staf dengan kepakaran AI dan Sains Data.</p>
+                                </div>
+                                <div class="alert alert-recommendation mb-3">
+                                    <h6><i class="fas fa-lightbulb text-warning me-2"></i> Rancangan Penggantian Staf Bersara</h6>
+                                    <p class="mb-0">42 staf akan bersara dalam tempoh 3 tahun akan datang. Cadangkan program mentor-mentee untuk pemindahan pengetahuan.</p>
+                                </div>
+                                <div class="alert alert-recommendation">
+                                    <h6><i class="fas fa-lightbulb text-warning me-2"></i> Meningkatkan Kolaborasi Penyelidikan</h6>
+                                    <p class="mb-0">Hanya 35% staf mempunyai Research ID dan Author ID yang didaftarkan. Galakkan pendaftaran untuk meningkatkan impak penyelidikan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Tindakan Prioriti
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Prioriti</th>
+                                                <th>Tindakan</th>
+                                                <th>Kesan Dijangka</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span class="badge bg-danger">Tinggi</span></td>
+                                                <td>Program mentor-mentee staf</td>
+                                                <td>Pemindahan pengetahuan</td>
+                                                <td><span class="badge bg-warning">Dalam Perancangan</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="badge bg-warning">Sederhana</span></td>
+                                                <td>Latihan Research ID/Author ID</td>
+                                                <td>+25% pendaftaran</td>
+                                                <td><span class="badge bg-success">Disetujui</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="badge bg-info">Rendah</span></td>
+                                                <td>Kemaskini data staf</td>
+                                                <td>Ketepatan data 95%</td>
+                                                <td><span class="badge bg-secondary">Cadangan</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Staff Distribution Chart
+            const distributionCtx = document.getElementById('staffDistributionChart').getContext('2d');
+            new Chart(distributionCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Sains Komputer', 'Kejuruteraan', 'Sastera', 'Perniagaan', 'Perubatan', 'Lain-lain'],
+                    datasets: [{
+                        data: [285, 220, 180, 165, 150, 245],
+                        backgroundColor: [
+                            '#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6', '#95a5a6'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right'
+                        }
+                    }
+                }
+            });
+
+            // Position Comparison Chart
+            const positionCtx = document.getElementById('positionComparisonChart').getContext('2d');
+            new Chart(positionCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Profesor', 'Profesor Madya', 'Pensyarah Kanan', 'Pensyarah', 'Penyelidik', 'Bukan Akademik'],
+                    datasets: [{
+                        label: 'Bilangan Staf',
+                        data: [45, 120, 185, 435, 95, 365],
+                        backgroundColor: '#3498db'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Staff Forecast Chart
+            const forecastCtx = document.getElementById('staffForecastChart').getContext('2d');
+            new Chart(forecastCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
+                    datasets: [{
+                        label: 'Staf Akademik',
+                        data: [650, 690, 720, 785, 820, 860],
+                        borderColor: '#3498db',
+                        tension: 0.3,
+                        fill: false
+                    }, {
+                        label: 'Staf Bukan Akademik',
+                        data: [420, 430, 440, 460, 470, 480],
+                        borderColor: '#e74c3c',
+                        tension: 0.3,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+
+            // Qualification Chart
+            const qualificationCtx = document.getElementById('qualificationChart').getContext('2d');
+            new Chart(qualificationCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['PhD', 'Sarjana', 'Sarjana Muda', 'Diploma', 'Lain-lain'],
+                    datasets: [{
+                        data: [850, 220, 95, 45, 35],
+                        backgroundColor: [
+                            '#3498db', '#2ecc71', '#f39c12', '#e74c3c', '#95a5a6'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right'
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

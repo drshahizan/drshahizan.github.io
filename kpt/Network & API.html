@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Analitik Pengurusan Rangkaian - Gudang Data KPT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+        }
+        
+        .sidebar {
+            background-color: var(--dark);
+            color: white;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+        
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 12px 20px;
+            margin: 4px 0;
+            border-radius: 4px;
+        }
+        
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .sidebar .nav-link i {
+            margin-right: 10px;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background-color: white;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+            padding: 15px 20px;
+            border-radius: 10px 10px 0 0 !important;
+        }
+        
+        .stats-card {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stats-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .stats-card .label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stats-card .trend {
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        
+        .trend.up {
+            color: var(--success);
+        }
+        
+        .trend.down {
+            color: var(--accent);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            padding: 20px;
+        }
+        
+        .badge-analytics {
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-left: 10px;
+        }
+        
+        .badge-descriptive {
+            background-color: #3498db;
+        }
+        
+        .badge-diagnostic {
+            background-color: #e74c3c;
+        }
+        
+        .badge-prescriptive {
+            background-color: #27ae60;
+        }
+        
+        .badge-predictive {
+            background-color: #f39c12;
+        }
+        
+        .alert-recommendation {
+            border-left: 4px solid var(--success);
+            background-color: #f8fff9;
+        }
+        
+        .data-table {
+            font-size: 0.9rem;
+        }
+        
+        .data-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .filter-bar {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-online {
+            background-color: var(--success);
+        }
+        
+        .status-offline {
+            background-color: var(--accent);
+        }
+        
+        .status-warning {
+            background-color: var(--warning);
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+        
+        .notification-item {
+            border-left: 3px solid var(--accent);
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            background-color: #fff8f8;
+            border-radius: 4px;
+        }
+        
+        .notification-warning {
+            border-left-color: var(--warning);
+            background-color: #fffbf0;
+        }
+        
+        .notification-info {
+            border-left-color: var(--secondary);
+            background-color: #f0f8ff;
+        }
+        
+        .infra-status-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .infra-status-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+        }
+        
+        .infra-status-online::after {
+            background-color: var(--success);
+        }
+        
+        .infra-status-warning::after {
+            background-color: var(--warning);
+        }
+        
+        .infra-status-offline::after {
+            background-color: var(--accent);
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                height: auto;
+                position: relative;
+            }
+            
+            .stats-card .number {
+                font-size: 2rem;
+            }
+        }
+
+        /* Custom styles for API monitoring */
+        .api-status-card {
+            border-left: 4px solid var(--success);
+        }
+        
+        .api-status-card.warning {
+            border-left-color: var(--warning);
+        }
+        
+        .api-status-card.danger {
+            border-left-color: var(--accent);
+        }
+        
+        .api-response-time {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+        
+        .refresh-btn {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .refresh-btn:hover {
+            transform: rotate(180deg);
+        }
+        
+        .last-updated {
+            font-size: 0.8rem;
+            color: #6c757d;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-network-wired me-2"></i>
+                Gudang Data KPT - Dashboard Pengurusan Rangkaian
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-cog"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i> Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 col-md-3 p-0 sidebar">
+                <div class="d-flex flex-column p-3">
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="Institusi.html" class="nav-link">
+                                <i class="fas fa-home"></i> Institusi
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Pelajar.html" class="nav-link">
+                                <i class="fas fa-users"></i> Pelajar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Staf.html" class="nav-link">
+                                <i class="fas fa-users"></i> Staf
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pengolahanData.html" class="nav-link">
+                                <i class="fas fa-graduation-cap"></i> Pengolahan Data
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="perkongsianData.html" class="nav-link">
+                                <i class="fas fa-file-export"></i> Perkongsian Data
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Penyelidikan.html" class="nav-link">
+                                <i class="fas fa-flask"></i> Penyelidikan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Network & API.html" class="nav-link active">
+                                <i class="fas fa-chart-line"></i> Rangkaian
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="Profile.html" class="nav-link">
+                                <i class="fas fa-cog"></i> Profil
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-10 col-md-9 p-4">
+                <!-- Filter Bar -->
+                <div class="filter-bar mb-4">
+                    <div class="row">
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select">
+                                <option selected>Lokasi: Semua</option>
+                                <option>Kampus Utama</option>
+                                <option>Kampus Cawangan</option>
+                                <option>Data Center</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select">
+                                <option selected>Jenis Peranti: Semua</option>
+                                <option>Router</option>
+                                <option>Switch</option>
+                                <option>Server</option>
+                                <option>Firewall</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select">
+                                <option selected>Status: Semua</option>
+                                <option>Online</option>
+                                <option>Warning</option>
+                                <option>Offline</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <button class="btn btn-primary w-100"><i class="fas fa-filter me-2"></i> Gunakan Filter</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Status Overview -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4>Status Keseluruhan Infrastruktur <span class="badge badge-analytics badge-descriptive">Masa Nyata</span></h4>
+                    <div class="last-updated">Kemaskini terakhir: <span id="lastUpdateTime">11:45:32</span> 
+                        <i class="fas fa-sync-alt refresh-btn ms-2" onclick="refreshData()"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card infra-status-card infra-status-online">
+                            <div class="card-body">
+                                <i class="fas fa-network-wired fa-2x text-primary"></i>
+                                <div class="number">87%</div>
+                                <div class="label">Rangkaian Online</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 2% peningkatan dari semalam</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card infra-status-card infra-status-warning">
+                            <div class="card-body">
+                                <i class="fas fa-fingerprint fa-2x text-warning"></i>
+                                <div class="number">92%</div>
+                                <div class="label">Sistem Akses Berfungsi</div>
+                                <div class="trend down"><i class="fas fa-arrow-down"></i> 3% isu biometrik</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card infra-status-card infra-status-online">
+                            <div class="card-body">
+                                <i class="fas fa-bolt fa-2x text-success"></i>
+                                <div class="number">99.5%</div>
+                                <div class="label">Kestabilan Kuasa</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 0.2% peningkatan</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card infra-status-card infra-status-online">
+                            <div class="card-body">
+                                <i class="fas fa-fan fa-2x text-info"></i>
+                                <div class="number">96%</div>
+                                <div class="label">Sistem Penyejukan</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 1% peningkatan</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API & Web Services Status -->
+                <h4 class="my-4">Status API & Web Services <span class="badge badge-analytics badge-descriptive">Masa Nyata</span></h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card api-status-card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>API Integrasi Sistem</span>
+                                <span class="badge bg-success">Online</span>
+                            </div>
+                            <div class="card-body">
+                                <h6>API Pengurusan Pelajar</h6>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span>Endpoint: api.kpt.edu.my/students/v1</span>
+                                    <span class="api-response-time">Response: 120ms</span>
+                                </div>
+                                <div class="progress mb-4" style="height: 8px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 95%"></div>
+                                </div>
+                                
+                                <h6>API Pengurusan Kewangan</h6>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span>Endpoint: api.kpt.edu.my/finance/v1</span>
+                                    <span class="api-response-time">Response: 85ms</span>
+                                </div>
+                                <div class="progress mb-4" style="height: 8px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 98%"></div>
+                                </div>
+                                
+                                <h6>API Pengurusan Sumber Manusia</h6>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span>Endpoint: api.kpt.edu.my/hr/v1</span>
+                                    <span class="api-response-time">Response: 210ms</span>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 87%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card api-status-card warning">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Web Services Luaran</span>
+                                <span class="badge bg-warning">Isu Sedang berlaku</span>
+                            </div>
+                            <div class="card-body">
+                                <h6>JPN - Jabatan Pendaftaran Negara</h6>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span>Endpoint: api.jpn.gov.my/verification</span>
+                                    <span class="api-response-time">Response: 520ms</span>
+                                </div>
+                                <div class="progress mb-4" style="height: 8px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 75%"></div>
+                                </div>
+                                
+                                <h6>JPJ - Jabatan Pengangkutan Jalan</h6>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span>Endpoint: api.jpj.gov.my/license</span>
+                                    <span class="api-response-time">Response: 320ms</span>
+                                </div>
+                                <div class="progress mb-4" style="height: 8px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 92%"></div>
+                                </div>
+                                
+                                <h6>MOE - Kementerian Pendidikan</h6>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span>Endpoint: api.moe.gov.my/validation</span>
+                                    <span class="api-response-time text-danger">Response: 1200ms</span>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts and Performance Data -->
+                <div class="row mt-4">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Traffic Rangkaian & Prestasi API</span>
+                                <div>
+                                    <span class="badge badge-analytics badge-predictive">Ramalan</span>
+                                    <span class="badge badge-analytics badge-diagnostic">Diagnostik</span>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="networkTrafficChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <span>Status Integrasi Sistem</span>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="integrationStatusChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Network Performance -->
+                <h4 class="my-4">Prestasi Rangkaian <span class="badge badge-analytics badge-diagnostic">Diagnostik</span></h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Penggunaan Bandwidth (Mbps)</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="bandwidthUsageChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Latensi Rangkaian (ms)</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="latencyChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications & Alerts -->
+                <h4 class="my-4">Notifikasi & Amaran <span class="badge badge-analytics badge-prescriptive">Preskriptif</span></h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <span>Amaran Terkini</span>
+                                <span class="badge bg-danger ms-2">3 Baru</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="notification-item">
+                                    <h6><i class="fas fa-exclamation-circle text-danger me-2"></i> Switch Core 02 mengalami latency tinggi</h6>
+                                    <p class="mb-1">Lokasi: Data Center Utama | Dikesan: 10:45:23</p>
+                                    <p class="mb-0">Cadangan: Periksa beban trafik dan pertimbangkan load balancing</p>
+                                </div>
+                                <div class="notification-item notification-warning">
+                                    <h6><i class="fas fa-exclamation-triangle text-warning me-2"></i> Penggunaan CPU server meningkat kepada 85%</h6>
+                                    <p class="mb-1">Lokasi: Server App01 | Dikesan: 10:30:15</p>
+                                    <p class="mb-0">Cadangan: Periksa proses yang berjalan dan pertimbangkan scaling</p>
+                                </div>
+                                <div class="notification-item notification-info">
+                                    <h6><i class="fas fa-info-circle text-info me-2"></i> Backup mingguan bermula</h6>
+                                    <p class="mb-1">Lokasi: Sistem StorAN | Dikesan: 10:15:47</p>
+                                    <p class="mb-0">Status: Sedang berjalan (25% selesai)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Log Peristiwa
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Masa</th>
+                                                <th>Peristiwa</th>
+                                                <th>Lokasi</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>10:45:23</td>
+                                                <td>Latency tinggi pada Switch Core 02</td>
+                                                <td>Data Center</td>
+                                                <td><span class="badge bg-warning">Warning</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>10:30:15</td>
+                                                <td>Penggunaan CPU tinggi</td>
+                                                <td>Server App01</td>
+                                                <td><span class="badge bg-warning">Warning</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>10:15:47</td>
+                                                <td>Backup mingguan bermula</td>
+                                                <td>Sistem StorAN</td>
+                                                <td><span class="badge bg-info">Info</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>09:58:12</td>
+                                                <td>Kemaskini firmware router selesai</td>
+                                                <td>Router Utama</td>
+                                                <td><span class="badge bg-success">Selesai</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>09:45:33</td>
+                                                <td>Pemantauan rangkaian diaktifkan</td>
+                                                <td>Sistem</td>
+                                                <td><span class="badge bg-success">Normal</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Predictive Analytics -->
+                <h4 class="my-4">Analitik Ramalan <span class="badge badge-analytics badge-predictive">Ramalan</span></h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Ramalan Kegagalan Peranti
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="failurePredictionChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Trend Kapasiti Rangkaian
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="capacityTrendChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+
+
+                <!-- Notifications and Recommendations -->
+                <div class="row mt-4">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <span>Notifikasi Sistem Terkini</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="notification-item notification-warning">
+                                    <div class="d-flex justify-content-between">
+                                        <strong>Isu Prestasi API MOE</strong>
+                                        <small>10:45 pagi</small>
+                                    </div>
+                                    <p>Masa respon API melebihi 1000ms. Sila semak sambungan rangkaian.</p>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="d-flex justify-content-between">
+                                        <strong>Peningkatan Trafik Tidak Normal</strong>
+                                        <small>09:30 pagi</small>
+                                    </div>
+                                    <p>Terdapat peningkatan trafik luar biasa dari subnet 192.168.23.0/24.</p>
+                                </div>
+                                <div class="notification-item notification-info">
+                                    <div class="d-flex justify-content-between">
+                                        <strong>Penyelenggaraan Dijadualkan</strong>
+                                        <small>Semalam</small>
+                                    </div>
+                                    <p>Penyelenggaraan rangkaian dijadualkan pada Sabtu ini dari 10 malam hingga 2 pagi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <span>Cadangan Tindakan</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-recommendation">
+                                    <h6><i class="fas fa-lightbulb text-success me-2"></i> Optimasi Konfigurasi API</h6>
+                                    <p class="mb-0">Pertimbangkan untuk menambah caching pada endpoint MOE untuk meningkatkan prestasi.</p>
+                                </div>
+                                <div class="alert alert-recommendation">
+                                    <h6><i class="fas fa-lightbulb text-success me-2"></i> Penambahan Bandwidth</h6>
+                                    <p class="mb-0">Trafik rangkaian menunjukkan trend peningkatan. Pertimbangkan untuk meningkatkan bandwidth dalam 2 bulan.</p>
+                                </div>
+                                <div class="alert alert-recommendation">
+                                    <h6><i class="fas fa-lightbulb text-success me-2"></i> Pengesalan Keselamatan</h6>
+                                    <p class="mb-0">Terdapat percubaan akses luar biasa dari IP awan. Sila semak konfigurasi firewall.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Function to update the last updated time
+        function updateLastUpdatedTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('ms-MY', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('lastUpdateTime').textContent = timeString;
+        }
+        
+        // Function to simulate data refresh
+        function refreshData() {
+            // Show loading state
+            const refreshBtn = document.querySelector('.refresh-btn');
+            refreshBtn.classList.add('fa-spin');
+            
+            // Simulate API call
+            setTimeout(() => {
+                updateLastUpdatedTime();
+                refreshBtn.classList.remove('fa-spin');
+                
+                // Show notification
+                alert('Data telah dikemaskini pada ' + new Date().toLocaleTimeString('ms-MY'));
+            }, 1500);
+        }
+        
+        // Initialize charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Bandwidth Usage Chart
+            const bandwidthCtx = document.getElementById('bandwidthUsageChart').getContext('2d');
+            const bandwidthChart = new Chart(bandwidthCtx, {
+                type: 'line',
+                data: {
+                    labels: ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00'],
+                    datasets: [{
+                        label: 'LAN',
+                        data: [120, 110, 95, 105, 180, 210, 230, 250, 220, 190, 170, 140],
+                        borderColor: '#3498db',
+                        backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }, {
+                        label: 'WAN',
+                        data: [80, 75, 70, 85, 120, 150, 170, 160, 140, 110, 90, 85],
+                        borderColor: '#2ecc71',
+                        backgroundColor: 'rgba(46, 204, 113, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Mbps'
+                            }
+                        }
+                    }
+                }
+            });
+            // Network Traffic Chart
+            const trafficCtx = document.getElementById('networkTrafficChart').getContext('2d');
+            const trafficChart = new Chart(trafficCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Isnin', 'Selasa', 'Rabu', 'Khamis', 'Jumaat', 'Sabtu', 'Ahad'],
+                    datasets: [
+                        {
+                            label: 'Trafik Masuk (Mbps)',
+                            data: [120, 115, 130, 140, 145, 100, 80],
+                            borderColor: '#3498db',
+                            backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: 'Trafik Keluar (Mbps)',
+                            data: [80, 85, 90, 95, 100, 70, 60],
+                            borderColor: '#e74c3c',
+                            backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: 'Purata Masa Respon API (ms)',
+                            data: [120, 125, 110, 130, 140, 115, 105],
+                            borderColor: '#27ae60',
+                            backgroundColor: 'rgba(39, 174, 96, 0.1)',
+                            tension: 0.3,
+                            fill: true,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Trafik Rangkaian (Mbps)'
+                            }
+                        },
+                        y1: {
+                            position: 'right',
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Masa Respon (ms)'
+                            },
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        }
+                    }
+                }
+            });
+            // Latency Chart
+            const latencyCtx = document.getElementById('latencyChart').getContext('2d');
+            const latencyChart = new Chart(latencyCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Router Utama', 'Switch Core 01', 'Switch Core 02', 'Firewall', 'Server App01', 'Server DB02'],
+                    datasets: [{
+                        label: 'Latensi (ms)',
+                        data: [12, 8, 45, 15, 28, 10],
+                        backgroundColor: [
+                            'rgba(52, 152, 219, 0.7)',
+                            'rgba(52, 152, 219, 0.7)',
+                            'rgba(231, 76, 60, 0.7)',
+                            'rgba(52, 152, 219, 0.7)',
+                            'rgba(243, 156, 18, 0.7)',
+                            'rgba(52, 152, 219, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(52, 152, 219, 1)',
+                            'rgba(52, 152, 219, 1)',
+                            'rgba(231, 76, 60, 1)',
+                            'rgba(52, 152, 219, 1)',
+                            'rgba(243, 156, 18, 1)',
+                            'rgba(52, 152, 219, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Milisaat (ms)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Failure Prediction Chart
+            const failureCtx = document.getElementById('failurePredictionChart').getContext('2d');
+            const failureChart = new Chart(failureCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Risiko Rendah', 'Risiko Sederhana', 'Risiko Tinggi'],
+                    datasets: [{
+                        data: [72, 18, 10],
+                        backgroundColor: [
+                            'rgba(46, 204, 113, 0.7)',
+                            'rgba(243, 156, 18, 0.7)',
+                            'rgba(231, 76, 60, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(46, 204, 113, 1)',
+                            'rgba(243, 156, 18, 1)',
+                            'rgba(231, 76, 60, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.raw + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Capacity Trend Chart
+            const capacityCtx = document.getElementById('capacityTrendChart').getContext('2d');
+            const capacityChart = new Chart(capacityCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Ogo', 'Sep', 'Okt', 'Nov', 'Dis'],
+                    datasets: [{
+                        label: 'Penggunaan Semasa',
+                        data: [45, 48, 52, 55, 58, 62, 65, 67, 68, 70, 72, 75],
+                        borderColor: '#3498db',
+                        backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }, {
+                        label: 'Kapasiti Maksimum',
+                        data: [90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90],
+                        borderColor: '#e74c3c',
+                        borderDash: [5, 5],
+                        tension: 0.4,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'Peratus Kapasiti'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Simulate real-time updates
+            setInterval(() => {
+                // Update bandwidth chart with new data
+                const newData = bandwidthChart.data.datasets[0].data.map(value => {
+                    // Random fluctuation ±5
+                    return Math.max(50, value + (Math.random() * 10 - 5));
+                });
+                bandwidthChart.data.datasets[0].data = newData;
+                bandwidthChart.update();
+                
+                // Update latency for Switch Core 02 (simulating improvement)
+                if (latencyChart.data.datasets[0].data[2] > 15) {
+                    latencyChart.data.datasets[0].data[2] -= 2;
+                    latencyChart.update();
+                }
+            }, 5000);
+            // Integration Status Chart
+            const integrationCtx = document.getElementById('integrationStatusChart').getContext('2d');
+            const integrationChart = new Chart(integrationCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Berfungsi', 'Isu Prestasi', 'Offline'],
+                    datasets: [{
+                        data: [78, 17, 5],
+                        backgroundColor: [
+                            '#27ae60',
+                            '#f39c12',
+                            '#e74c3c'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+            
+            // Update the time initially
+            updateLastUpdatedTime();
+            
+        });
+        
+    </script>
+</body>
+</html>

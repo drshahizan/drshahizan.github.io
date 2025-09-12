@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Masuk - Gudang Data KPT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .login-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+        }
+        
+        .login-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .login-header h4 {
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .login-header p {
+            margin: 5px 0 0;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .login-body {
+            padding: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            font-weight: 500;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .form-control {
+            border-radius: 6px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .btn-login {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            width: 100%;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-login:hover {
+            background-color: var(--secondary);
+        }
+        
+        .login-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .login-links a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        
+        .login-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .security-notice {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--warning);
+            padding: 10px 15px;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+        }
+        
+        .security-notice i {
+            color: var(--warning);
+            margin-right: 5px;
+        }
+        
+        @media (max-width: 576px) {
+            .login-container {
+                margin: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h4><i class="fas fa-university me-2"></i>Gudang Data KPT</h4>
+            <p>Sila daftar masuk ke akaun anda</p>
+        </div>
+        
+        <div class="login-body">
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">ID Pengguna</label>
+                    <input type="text" class="form-control" id="username" placeholder="Masukkan ID pengguna" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Kata Laluan</label>
+                    <input type="password" class="form-control" id="password" placeholder="Masukkan kata laluan" required>
+                </div>
+                
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Ingat saya</label>
+                </div>
+                
+                <button type="submit" class="btn btn-login">Daftar Masuk</button>
+                
+                <div class="login-links">
+                    <a href="#" id="forgotPassword">Lupa Kata Laluan?</a>
+                    <a href="#" id="help">Bantuan</a>
+                </div>
+            </form>
+            
+            <div class="security-notice">
+                <i class="fas fa-shield-alt"></i>
+                Sesi akan ditamatkan secara automatik selepas 30 minit tidak aktif
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Reset Password -->
+    <div class="modal fade" id="resetPasswordModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tetapan Semula Kata Laluan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="resetEmail" class="form-label">Emel Institusi</label>
+                        <input type="email" class="form-control" id="resetEmail" placeholder="nama@institusi.edu.my" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="staffId" class="form-label">ID Staf/Pelajar</label>
+                        <input type="text" class="form-control" id="staffId" required>
+                    </div>
+                    <div class="alert alert-info">
+                        <small>
+                            <i class="fas fa-info-circle"></i> Arahan untuk menetapkan semula kata laluan akan dihantar ke emel anda selepas pengesahan.
+                        </small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" id="submitResetRequest">Hantar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inisialisasi modal reset password
+            const resetPasswordModal = new bootstrap.Modal(document.getElementById('resetPasswordModal'));
+            
+            // Handle forgot password link
+            document.getElementById('forgotPassword').addEventListener('click', function(e) {
+                e.preventDefault();
+                resetPasswordModal.show();
+            });
+            
+            // Handle reset password submission
+            document.getElementById('submitResetRequest').addEventListener('click', function() {
+                const email = document.getElementById('resetEmail').value;
+                const staffId = document.getElementById('staffId').value;
+                
+                if (email && staffId) {
+                    // Simulasi proses reset (dalam aplikasi sebenar, ini akan berkomunikasi dengan backend)
+                    alert('Permintaan tetapan semula kata laluan telah dihantar. Sila semak emel anda untuk arahan selanjutnya.');
+                    resetPasswordModal.hide();
+                } else {
+                    alert('Sila isi semua maklumat yang diperlukan.');
+                }
+            });
+            
+            // Handle login form submission
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                
+                // Simulasi proses login (dalam aplikasi sebenar, ini akan berkomunikasi dengan backend)
+                if (username && password) {
+                    // Redirect ke dashboard setelah login berjaya
+                    alert('Login berjaya! Anda akan diarahkan ke dashboard.');
+                    window.location.href = 'Institusi.html';
+                } else {
+                    alert('Sila isi kedua-dua ID pengguna dan kata laluan.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

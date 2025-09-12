@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Analitik Data Mart Pelajar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+        }
+        
+        .sidebar {
+            background-color: var(--dark);
+            color: white;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+        
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 12px 20px;
+            margin: 4px 0;
+            border-radius: 4px;
+        }
+        
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .sidebar .nav-link i {
+            margin-right: 10px;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background-color: white;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+            padding: 15px 20px;
+            border-radius: 10px 10px 0 0 !important;
+        }
+        
+        .stats-card {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stats-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .stats-card .label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stats-card .trend {
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        
+        .trend.up {
+            color: var(--success);
+        }
+        
+        .trend.down {
+            color: var(--accent);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            padding: 20px;
+        }
+        
+        .badge-analytics {
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-left: 10px;
+        }
+        
+        .badge-descriptive {
+            background-color: #3498db;
+        }
+        
+        .badge-diagnostic {
+            background-color: #e74c3c;
+        }
+        
+        .badge-prescriptive {
+            background-color: #27ae60;
+        }
+        
+        .badge-predictive {
+            background-color: #f39c12;
+        }
+        
+        .alert-recommendation {
+            border-left: 4px solid var(--success);
+            background-color: #f8fff9;
+        }
+        
+        .data-table {
+            font-size: 0.9rem;
+        }
+        
+        .data-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .filter-bar {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                height: auto;
+                position: relative;
+            }
+            
+            .stats-card .number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-user-graduate me-2"></i>
+                Dashboard Analitik Data Mart Pelajar
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-cog"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i> Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 col-md-3 p-0 sidebar">
+                <div class="d-flex flex-column p-3">
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="Pelajar.html" class="nav-link active">
+                                <i class="fas fa-users"></i> Pelajar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Staf.html" class="nav-link">
+                                <i class="fas fa-users"></i> Staf
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Institusi.html" class="nav-link ">
+                                <i class="fas fa-home"></i> Institusi
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-flask"></i> Penyelidikan
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="perkongsianData.html" class="nav-link">
+                                <i class="fas fa-file-export"></i> Perkongsian Data
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pengolahanData.html" class="nav-link">
+                                <i class="fas fa-graduation-cap"></i> Pengolahan Data
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Network & API.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i> Rangkaian
+                            </a>
+                        </li>
+                         -->
+                        <li class="nav-item">
+                            <a href="Profile.html" class="nav-link">
+                                <i class="fas fa-cog"></i> Profil
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-10 col-md-9 p-4">
+                <!-- Filter Bar -->
+                <div class="filter-bar mb-4">
+                    <div class="row">
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select">
+                                <option selected>Sesi: 2023/2024</option>
+                                <option>2022/2023</option>
+                                <option>2021/2022</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select">
+                                <option selected>Semua Fakulti</option>
+                                <option>Sains Komputer</option>
+                                <option>Kejuruteraan</option>
+                                <option>Sastera</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select">
+                                <option selected>Semua Program</option>
+                                <option>Diploma</option>
+                                <option>Ijazah Sarjana Muda</option>
+                                <option>Sarjana</option>
+                                <option>PhD</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <button class="btn btn-primary w-100"><i class="fas fa-filter me-2"></i> Gunakan Filter</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Descriptive Analytics - Key Metrics -->
+                <h4 class="mb-4">Analitik Deskriptif <span class="badge badge-analytics badge-descriptive">Deskriptif</span></h4>
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-users fa-2x text-primary"></i>
+                                <div class="number">12,458</div>
+                                <div class="label">Jumlah Pelajar</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 5.2% dari semester lalu</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-user-graduate fa-2x text-success"></i>
+                                <div class="number">87.3%</div>
+                                <div class="label">Pelajar Aktif</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 1.3% peningkatan</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-globe-asia fa-2x text-warning"></i>
+                                <div class="number">1,243</div>
+                                <div class="label">Pelajar Antarabangsa</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 8% dari tahun lalu</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-chart-line fa-2x text-info"></i>
+                                <div class="number">3.42</div>
+                                <div class="label">Purata CGPA</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 0.05 peningkatan</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diagnostic Analytics - Demographics -->
+                <h4 class="my-4">Analitik Demografi <span class="badge badge-analytics badge-diagnostic">Diagnostik</span></h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Taburan Pelajar Mengikut Jantina</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="genderDistributionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Taburan Pelajar Mengikut Kaum</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="ethnicityDistributionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Predictive Analytics - Academic Performance -->
+                <h4 class="my-4">Analitik Prestasi Akademik <span class="badge badge-analytics badge-predictive">Prediktif</span></h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Taburan CGPA Pelajar</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="cgpaDistributionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Perbandingan CGPA Mengikut Fakulti</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="facultyCgpaChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prescriptive Analytics - Recommendations -->
+                <h4 class="my-4">Analitik Status Pengajian <span class="badge badge-analytics badge-prescriptive">Preskriptif</span></h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Status Semasa Pelajar
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="studentStatusChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Cadangan Berdasarkan Analitik
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-recommendation mb-3">
+                                    <h6><i class="fas fa-lightbulb text-warning me-2"></i> Program Bimbingan untuk Pelajar Berisiko</h6>
+                                    <p class="mb-0">342 pelajar dikenalpasti berisiko tinggi untuk gagal berdasarkan rekod akademik semasa. Cadangkan program bimbingan.</p>
+                                </div>
+                                <div class="alert alert-recommendation mb-3">
+                                    <h6><i class="fas fa-lightbulb text-warning me-2"></i> Sokongan Kewangan untuk Pelajar B40</h6>
+                                    <p class="mb-0">Analisis menunjukkan 28% pelajar berasal dari keluarga B40. Cadang penambahan program bantuan kewangan.</p>
+                                </div>
+                                <div class="alert alert-recommendation">
+                                    <h6><i class="fas fa-lightbulb text-warning me-2"></i> Program Sokongan Pelajar Antarabangsa</h6>
+                                    <p class="mb-0">Pelajar antarabangsa menunjukkan kadar attrition 12% lebih tinggi. Cadang program sokongan khusus.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <h4 class="my-4">Data Ringkasan Pelajar</h4>
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>Senarai Ringkas Data Pelajar</span>
+                        <button class="btn btn-sm btn-primary">Eksport Data</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover data-table">
+                                <thead>
+                                    <tr>
+                                        <th>No. Matrik</th>
+                                        <th>Nama</th>
+                                        <th>Program</th>
+                                        <th>Status</th>
+                                        <th>CGPA</th>
+                                        <th>Tahun Pengajian</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>AB12345</td>
+                                        <td>Ahmad bin Abdullah</td>
+                                        <td>Sains Komputer</td>
+                                        <td><span class="badge bg-success">Aktif</span></td>
+                                        <td>3.75</td>
+                                        <td>Tahun 3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CD67890</td>
+                                        <td>Siti binti Mohamad</td>
+                                        <td>Kejuruteraan</td>
+                                        <td><span class="badge bg-success">Aktif</span></td>
+                                        <td>3.42</td>
+                                        <td>Tahun 2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>EF24680</td>
+                                        <td>John Smith</td>
+                                        <td>Perniagaan</td>
+                                        <td><span class="badge bg-warning">Berisiko</span></td>
+                                        <td>2.15</td>
+                                        <td>Tahun 1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>GH13579</td>
+                                        <td>Lee Chen</td>
+                                        <td>Perubatan</td>
+                                        <td><span class="badge bg-success">Aktif</span></td>
+                                        <td>3.92</td>
+                                        <td>Tahun 4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>IJ11223</td>
+                                        <td>Maria Rodriguez</td>
+                                        <td>Linguistik</td>
+                                        <td><span class="badge bg-info">Pertukaran</span></td>
+                                        <td>3.28</td>
+                                        <td>Tahun 2</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gender Distribution Chart
+            const genderCtx = document.getElementById('genderDistributionChart').getContext('2d');
+            new Chart(genderCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Lelaki', 'Perempuan'],
+                    datasets: [{
+                        data: [52, 48],
+                        backgroundColor: ['#3498db', '#e74c3c'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // Ethnicity Distribution Chart
+            const ethnicityCtx = document.getElementById('ethnicityDistributionChart').getContext('2d');
+            new Chart(ethnicityCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Melayu', 'Cina', 'India', 'Bumiputera Sabah/Sarawak', 'Lain-lain'],
+                    datasets: [{
+                        data: [65, 15, 8, 7, 5],
+                        backgroundColor: ['#2ecc71', '#e74c3c', '#3498db', '#f39c12', '#9b59b6'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // CGPA Distribution Chart
+            const cgpaCtx = document.getElementById('cgpaDistributionChart').getContext('2d');
+            new Chart(cgpaCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['4.00', '3.50-3.99', '3.00-3.49', '2.50-2.99', '2.00-2.49', '< 2.00'],
+                    datasets: [{
+                        label: 'Bilangan Pelajar',
+                        data: [850, 2450, 3850, 2950, 1550, 750],
+                        backgroundColor: '#3498db',
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Faculty CGPA Comparison Chart
+            const facultyCtx = document.getElementById('facultyCgpaChart').getContext('2d');
+            new Chart(facultyCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Sains Komputer', 'Kejuruteraan', 'Perniagaan', 'Perubatan', 'Sastera', 'Pendidikan'],
+                    datasets: [{
+                        label: 'Purata CGPA',
+                        data: [3.35, 3.28, 3.42, 3.65, 3.38, 3.51],
+                        backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        pointBackgroundColor: 'rgba(52, 152, 219, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(52, 152, 219, 1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 2.5,
+                            suggestedMax: 4.0
+                        }
+                    }
+                }
+            });
+
+            // Student Status Chart
+            const statusCtx = document.getElementById('studentStatusChart').getContext('2d');
+            new Chart(statusCtx, {
+                type: 'polarArea',
+                data: {
+                    labels: ['Aktif', 'Tamat Pengajian', 'Berhenti', 'Tangguh', 'Diberhentikan'],
+                    datasets: [{
+                        data: [10870, 850, 320, 280, 130],
+                        backgroundColor: [
+                            'rgba(46, 204, 113, 0.7)',
+                            'rgba(52, 152, 219, 0.7)',
+                            'rgba(243, 156, 18, 0.7)',
+                            'rgba(231, 76, 60, 0.7)',
+                            'rgba(149, 165, 166, 0.7)'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

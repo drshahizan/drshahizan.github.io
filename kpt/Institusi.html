@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Analitik Program Pengajian</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+        }
+        
+        .sidebar {
+            background-color: var(--dark);
+            color: white;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+        
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 12px 20px;
+            margin: 4px 0;
+            border-radius: 4px;
+        }
+        
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .sidebar .nav-link i {
+            margin-right: 10px;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background-color: white;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+            padding: 15px 20px;
+            border-radius: 10px 10px 0 0 !important;
+        }
+        
+        .stats-card {
+            height: 260px; /* Set a fixed height for all cards */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            background: #fff;
+            border-radius: 16px;
+            margin-bottom: 24px;
+        }
+        .stats-card .card-body {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 32px 16px;
+        }
+        
+        .stats-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .stats-card .label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stats-card .trend {
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        
+        .trend.up {
+            color: var(--success);
+        }
+        
+        .trend.down {
+            color: var(--accent);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            padding: 20px;
+        }
+        
+        .badge-analytics {
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-left: 10px;
+        }
+        
+        .badge-descriptive {
+            background-color: #3498db;
+        }
+        
+        .badge-diagnostic {
+            background-color: #e74c3c;
+        }
+        
+        .badge-prescriptive {
+            background-color: #27ae60;
+        }
+        
+        .badge-predictive {
+            background-color: #f39c12;
+        }
+        
+        .alert-recommendation {
+            border-left: 4px solid var(--success);
+            background-color: #f8fff9;
+        }
+        
+        .data-table {
+            font-size: 0.9rem;
+        }
+        
+        .data-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .filter-bar {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                height: auto;
+                position: relative;
+            }
+            
+            .stats-card .number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-user-graduate me-2"></i>
+                Dashboard Analitik Program Pengajian
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-cog"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i> Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 col-md-3 p-0 sidebar">
+                <div class="d-flex flex-column p-3">
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="Pelajar.html" class="nav-link">
+                                <i class="fas fa-users"></i> Pelajar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Staf.html" class="nav-link">
+                                <i class="fas fa-users"></i> Staf
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Institusi.html" class="nav-link active">
+                                <i class="fas fa-home"></i> Institusi
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-flask"></i> Penyelidikan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Profile.html" class="nav-link">
+                                <i class="fas fa-cog"></i> Profil
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-10 col-md-9 p-4">
+                <!-- Filter Bar -->
+                  <div class="container filter-container">
+        
+        <div class="filter-bar">
+            <div class="row mb-3">
+                <div class="col-lg-3 col-md-6 mb-2">
+                    <label class="form-label small fw-bold">Sesi Akademik</label>
+                    <select class="form-select">
+                        <option selected>2023/2024</option>
+                        <option>2022/2023</option>
+                        <option>2021/2022</option>
+                        <option>2020/2021</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-2">
+                    <label class="form-label small fw-bold">Jenis Institusi</label>
+                    <select class="form-select" id="institutionType">
+                        <option selected value="all">Semua Institusi</option>
+                        <option value="ipta">IPTA (Awam)</option>
+                        <option value="ipts">IPTS (Swasta)</option>
+                        <option value="poly">Hospital Pengajar Universiti (HPU)</option>
+                        <option value="poly">Politeknik</option>
+                        <option value="poly">Kolej Komuniti</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-2">
+                    <label class="form-label small fw-bold">Universiti</label>
+                    <select class="form-select" id="universitySelect">
+                        <option selected value="all">Semua Universiti</option>
+                        
+                        <!-- IPTA Options -->
+                        <option class="option-group" disabled>--- IPTA (Awam) ---</option>
+                        <option value="um" data-type="ipta">Universiti Malaya (UM)</option>
+                        <option value="ukm" data-type="ipta">Universiti Kebangsaan Malaysia (UKM)</option>
+                        <option value="usm" data-type="ipta">Universiti Sains Malaysia (USM)</option>
+                        <option value="upm" data-type="ipta">Universiti Putra Malaysia (UPM)</option>
+                        <option value="utm" data-type="ipta">Universiti Teknologi Malaysia (UTM)</option>
+                        <option value="uia" data-type="ipta">Universiti Islam Antarabangsa Malaysia (UIAM)</option>
+                        <option value="uitm" data-type="ipta">Universiti Teknologi MARA (UiTM)</option>
+                        <option value="ums" data-type="ipta">Universiti Malaysia Sabah (UMS)</option>
+                        <option value="ump" data-type="ipta">Universiti Malaysia Pahang (UMP)</option>
+                        <option value="unimas" data-type="ipta">Universiti Malaysia Sarawak (UNIMAS)</option>
+                        
+                        <!-- IPTS Options -->
+                        <option class="option-group" disabled>--- IPTS (Swasta) ---</option>
+                        <option value="mmu" data-type="ipts">Multimedia University (MMU)</option>
+                        <option value="taylors" data-type="ipts">Taylor's University</option>
+                        <option value="sunway" data-type="ipts">Sunway University</option>
+                        <option value="ucsi" data-type="ipts">UCSI University</option>
+                        <option value="monash" data-type="ipts">Monash University Malaysia</option>
+                        <option value="nottingham" data-type="ipts">University of Nottingham Malaysia</option>
+                        <option value="help" data-type="ipts">HELP University</option>
+                        <option value="segi" data-type="ipts">SEGi University</option>
+                        <option value="limkokwing" data-type="ipts">Limkokwing University</option>
+                        
+                        <!-- Politeknik Options -->
+                        <option class="option-group" disabled>--- Politeknik ---</option>
+                        <option value="poliku" data-type="poly">Politeknik Sultan Haji Ahmad Shah (POLISAS)</option>
+                        <option value="polibs" data-type="poly">Politeknik Sultan Salahuddin Abdul Aziz Shah</option>
+                        <option value="polimu" data-type="poly">Politeknik Muadzam Shah</option>
+                        <option value="polikl" data-type="poly">Politeknik Kota Kuala Lumpur</option>
+                        <option value="polibn" data-type="poly">Politeknik Balik Pulau</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-2">
+                    <label class="form-label small fw-bold">Program</label>
+                    <select class="form-select">
+                        <option selected>Semua Program</option>
+                        <option>Asasi / Pra-Universiti</option>
+                        <option>Diploma</option>
+                        <option>Ijazah Sarjana Muda</option>
+                        <option>Sarjana</option>
+                        <option>PhD</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-2">
+                    <label class="form-label small fw-bold">Fakulti</label>
+                    <select class="form-select">
+                        <option selected>Semua Fakulti</option>
+                        <option>Sains Komputer & Teknologi Maklumat</option>
+                        <option>Kejuruteraan</option>
+                        <option>Sastera & Sains Sosial</option>
+                        <option>Perniagaan & Pengurusan</option>
+                        <option>Perubatan & Sains Kesihatan</option>
+                        <option>Pendidikan</option>
+                        <option>Undang-undang</option>
+                        <option>Sains & Teknologi</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-2">
+                    <label class="form-label small fw-bold">Bidang Pengajian</label>
+                    <select class="form-select">
+                        <option selected>Semua Bidang</option>
+                        <option>Sains Komputer</option>
+                        <option>Kejuruteraan Elektrik</option>
+                        <option>Kejuruteraan Mekanikal</option>
+                        <option>Perakaunan</option>
+                        <option>Pengurusan</option>
+                        <option>Linguistik</option>
+                        <option>Perubatan</option>
+                        <option>Farmasi</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-2">
+                    <label class="form-label small fw-bold">Negeri</label>
+                    <select class="form-select">
+                        <option selected>Semua Negeri</option>
+                        <option>Johor</option>
+                        <option>Kedah</option>
+                        <option>Kelantan</option>
+                        <option>Kuala Lumpur</option>
+                        <option>Melaka</option>
+                        <option>Negeri Sembilan</option>
+                        <option>Pahang</option>
+                        <option>Perak</option>
+                        <option>Perlis</option>
+                        <option>Pulau Pinang</option>
+                        <option>Sabah</option>
+                        <option>Sarawak</option>
+                        <option>Selangor</option>
+                        <option>Terengganu</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-2 d-flex align-items-end">
+                    <button class="btn btn-primary w-100 filter-btn">
+                        <i class="fas fa-filter me-2"></i> Gunakan Penapis
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <!-- Descriptive Analytics - Key Metrics -->
+                <h4 class="mb-4">Statistik Program Pengajian <span class="badge badge-analytics badge-descriptive">Deskriptif</span></h4>
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-user-graduate fa-2x text-primary"></i>
+                                <div class="number">12,450</div>
+                                <div class="label">Jumlah Enrolmen</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 5.2% dari tahun lalu</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-clock fa-2x text-warning"></i>
+                                <div class="number">4.7</div>
+                                <div class="label">Tahun Purata Tamat Pengajian</div>
+                                <div class="trend down"><i class="fas fa-arrow-down"></i> 0.3 tahun penurunan</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-chart-line fa-2x text-success"></i>
+                                <div class="number">78.3%</div>
+                                <div class="label">Kadar Kelulusan</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 2.7% peningkatan</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-exclamation-triangle fa-2x text-info"></i>
+                                <div class="number">8.5%</div>
+                                <div class="label">Kadar Keciciran</div>
+                                <div class="trend down"><i class="fas fa-arrow-down"></i> 1.3% penurunan</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diagnostic Analytics - Graduation Delay Factors -->
+                <h4 class="my-4">Faktor Mempengaruhi Akademik Pelajar <span class="badge badge-analytics badge-diagnostic">Diagnostik</span></h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Punca Kelambatan Tamat Pengajian</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="graduationDelayChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Faktor Keciciran Pelajar Mengikut Program</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="dropoutFactorsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Predictive Analytics - Program Effectiveness -->
+                <h4 class="my-4">Ramalan dan Risiko Keberkesanan Program Akademik <span class="badge badge-analytics badge-predictive">Prediktif</span></h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Ramalan Keberkesanan Program 2027</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="programEffectivenessChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Risiko Keciciran Pelajar Mengikut Program</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="dropoutRiskChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prescriptive Analytics - Program Recommendations -->
+                <h4 class="my-4">Cadangan Peningkatan Program Pengajian <span class="badge badge-analytics badge-prescriptive">Preskriptif</span></h4>
+                <div class="row">
+                    <!-- <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Analisis Kekuatan & Kelemahan Program
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="programAnalysisChart"></canvas>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Cadangan Berdasarkan Analitik
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-recommendation mb-3">
+                                    <h6><i class="fas fa-lightbulb text-warning me-2"></i> Strategi Pemasaran Program</h6>
+                                    <p class="mb-0">Program Sains Komputer menunjukkan permintaan tinggi. Cadang kempen pemasaran digital untuk menarik lebih ramai pelajar berkemahiran tinggi.</p>
+                                </div>
+                                <div class="alert alert-recommendation mb-3">
+                                    <h6><i class="fas fa-lightbulb text-warning me-2"></i> Bimbingan Akademik</h6>
+                                    <p class="mb-0">Program Kejuruteraan mempunyai kadar pengulangan subjek tertinggi (23%). Cadang program mentor-mentee dan kelas tambahan untuk subjek teras.</p>
+                                </div>
+                                <div class="alert alert-recommendation">
+                                    <h6><i class="fas fa-lightbulb text-warning me-2"></i> Sokongan Kewangan</h6>
+                                    <p class="mb-0">32% keciciran disebabkan masalah kewangan. Cadang skim bantuan kewangan dan program kerja sambilan untuk pelajar yang memerlukan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <h4 class="my-4">Data Program Pengajian</h4>
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>Statistik Program Pengajian 2023</span>
+                        <button class="btn btn-sm btn-primary" id="exportDataBtn">Eksport Data</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Program Pengajian</th>
+                                        <th>Jumlah Pelajar</th>
+                                        <th>Kadar Kelulusan</th>
+                                        <th>Kadar Keciciran</th>
+                                        <th>Purata Tempoh Pengajian</th>
+                                        <th>Pengulangan Subjek</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Diploma Sains Komputer</td>
+                                        <td>850</td>
+                                        <td>85.6%</td>
+                                        <td>5.2%</td>
+                                        <td>2.4 tahun</td>
+                                        <td>12.3%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ijazah Kejuruteraan</td>
+                                        <td>1,250</td>
+                                        <td>72.8%</td>
+                                        <td>12.5%</td>
+                                        <td>4.8 tahun</td>
+                                        <td>23.1%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ijazah Perniagaan</td>
+                                        <td>1,540</td>
+                                        <td>81.3%</td>
+                                        <td>7.8%</td>
+                                        <td>3.9 tahun</td>
+                                        <td>15.6%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sarjana Sastera</td>
+                                        <td>420</td>
+                                        <td>88.2%</td>
+                                        <td>4.5%</td>
+                                        <td>1.8 tahun</td>
+                                        <td>8.2%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PhD Pendidikan</td>
+                                        <td>180</td>
+                                        <td>68.7%</td>
+                                        <td>15.3%</td>
+                                        <td>5.2 tahun</td>
+                                        <td>18.4%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Graduation Delay Factors Chart
+            const graduationDelayCtx = document.getElementById('graduationDelayChart').getContext('2d');
+            const graduationDelayChart = new Chart(graduationDelayCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Pengulangan Subjek', 'Masalah Penyeliaan', 'Isu Motivasi', 'Beban Akademik', 'Masalah Kewangan'],
+                    datasets: [{
+                        label: 'Peratusan',
+                        data: [35, 22, 18, 15, 10],
+                        backgroundColor: [
+                            'rgba(52, 152, 219, 0.7)',
+                            'rgba(155, 89, 182, 0.7)',
+                            'rgba(46, 204, 113, 0.7)',
+                            'rgba(241, 196, 15, 0.7)',
+                            'rgba(231, 76, 60, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(52, 152, 219, 1)',
+                            'rgba(155, 89, 182, 1)',
+                            'rgba(46, 204, 113, 1)',
+                            'rgba(241, 196, 15, 1)',
+                            'rgba(231, 76, 60, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Faktor Kelambatan Tamat Pengajian (%)'
+                        }
+                    }
+                }
+            });
+
+            // Dropout Factors Chart
+            const dropoutFactorsCtx = document.getElementById('dropoutFactorsChart').getContext('2d');
+            const dropoutFactorsChart = new Chart(dropoutFactorsCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Kesukaran Subjek Teras', 'Beban Kredit', 'Masalah Kewangan', 'Isu Peribadi', 'Kurang Minat'],
+                    datasets: [{
+                        data: [30, 25, 20, 15, 10],
+                        backgroundColor: [
+                            'rgba(231, 76, 60, 0.7)',
+                            'rgba(241, 196, 15, 0.7)',
+                            'rgba(52, 152, 219, 0.7)',
+                            'rgba(155, 89, 182, 0.7)',
+                            'rgba(46, 204, 113, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(231, 76, 60, 1)',
+                            'rgba(241, 196, 15, 1)',
+                            'rgba(52, 152, 219, 1)',
+                            'rgba(155, 89, 182, 1)',
+                            'rgba(46, 204, 113, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Faktor Keciciran Pelajar (%)'
+                        }
+                    }
+                }
+            });
+
+            // Program Effectiveness Chart
+            const programEffectivenessCtx = document.getElementById('programEffectivenessChart').getContext('2d');
+            const programEffectivenessChart = new Chart(programEffectivenessCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Permintaan Pasaran', 'Kualiti Graduan', 'Kemaskinian Kurikulum', 'Kepuasan Pelajar', 'Kadar Penempatan', 'Pencapaian Akademik'],
+                    datasets: [
+                        {
+                            label: 'Sains Komputer',
+                            data: [85, 80, 75, 82, 88, 78],
+                            backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                            borderColor: 'rgba(52, 152, 219, 1)',
+                            pointBackgroundColor: 'rgba(52, 152, 219, 1)'
+                        },
+                        {
+                            label: 'Kejuruteraan',
+                            data: [78, 75, 70, 68, 72, 80],
+                            backgroundColor: 'rgba(231, 76, 60, 0.2)',
+                            borderColor: 'rgba(231, 76, 60, 1)',
+                            pointBackgroundColor: 'rgba(231, 76, 60, 1)'
+                        },
+                        {
+                            label: 'Perniagaan',
+                            data: [82, 78, 80, 85, 80, 75],
+                            backgroundColor: 'rgba(46, 204, 113, 0.2)',
+                            borderColor: 'rgba(46, 204, 113, 1)',
+                            pointBackgroundColor: 'rgba(46, 204, 113, 1)'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Ramalan Keberkesanan Program 2030'
+                        }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+
+            // Dropout Risk Chart
+            const dropoutRiskCtx = document.getElementById('dropoutRiskChart').getContext('2d');
+            const dropoutRiskChart = new Chart(dropoutRiskCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Diploma Sains Komputer', 'Ijazah Kejuruteraan', 'Ijazah Perniagaan', 'Sarjana Sastera', 'PhD Pendidikan'],
+                    datasets: [{
+                        label: 'Risiko Keciciran (%)',
+                        data: [12, 28, 15, 8, 35],
+                        backgroundColor: [
+                            'rgba(52, 152, 219, 0.7)',
+                            'rgba(231, 76, 60, 0.7)',
+                            'rgba(46, 204, 113, 0.7)',
+                            'rgba(241, 196, 15, 0.7)',
+                            'rgba(155, 89, 182, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(52, 152, 219, 1)',
+                            'rgba(231, 76, 60, 1)',
+                            'rgba(46, 204, 113, 1)',
+                            'rgba(241, 196, 15, 1)',
+                            'rgba(155, 89, 182, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Risiko Keciciran Pelajar Mengikut Program (%)'
+                        }
+                    }
+                }
+            });
+
+            // Program Analysis Chart
+            const programAnalysisCtx = document.getElementById('programAnalysisChart').getContext('2d');
+            const programAnalysisChart = new Chart(programAnalysisCtx, {
+                type: 'polarArea',
+                data: {
+                    labels: ['Kekuatan Fakulti', 'Kemaskinian Kurikulum', 'Sokongan Pelajar', 'Sumber Kewangan', 'Infrastruktur'],
+                    datasets: [{
+                        data: [75, 60, 80, 45, 70],
+                        backgroundColor: [
+                            'rgba(52, 152, 219, 0.7)',
+                            'rgba(46, 204, 113, 0.7)',
+                            'rgba(241, 196, 15, 0.7)',
+                            'rgba(231, 76, 60, 0.7)',
+                            'rgba(155, 89, 182, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(52, 152, 219, 1)',
+                            'rgba(46, 204, 113, 1)',
+                            'rgba(241, 196, 15, 1)',
+                            'rgba(231, 76, 60, 1)',
+                            'rgba(155, 89, 182, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Analisis Kekuatan & Kelemahan Program'
+                        }
+                    }
+                }
+            });
+        });
+
+          document.getElementById('exportDataBtn').addEventListener('click', function () {
+            const table = document.querySelector('.data-table');
+            let csv = [];
+            for (let row of table.rows) {
+                let rowData = [];
+                for (let cell of row.cells) {
+                    rowData.push('"' + cell.innerText.replace(/"/g, '""') + '"');
+                }
+                csv.push(rowData.join(','));
+            }
+            const csvContent = "data:text/csv;charset=utf-8," + csv.join('\n');
+            const link = document.createElement('a');
+            link.setAttribute('href', csvContent);
+            link.setAttribute('download', 'data_kebolehpasaran_graduan.csv');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
+</body>
+</html>

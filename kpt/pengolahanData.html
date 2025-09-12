@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Pengolahan Data - Dashboard Analitik Institusi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+        }
+        
+        .sidebar {
+            background-color: var(--dark);
+            color: white;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+        
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 12px 20px;
+            margin: 4px 0;
+            border-radius: 4px;
+        }
+        
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .sidebar .nav-link i {
+            margin-right: 10px;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background-color: white;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+            padding: 15px 20px;
+            border-radius: 10px 10px 0 0 !important;
+        }
+        
+        .stats-card {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stats-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .stats-card .label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stats-card .trend {
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        
+        .trend.up {
+            color: var(--success);
+        }
+        
+        .trend.down {
+            color: var(--accent);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            padding: 20px;
+        }
+        
+        .badge-analytics {
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-left: 10px;
+        }
+        
+        .badge-descriptive {
+            background-color: #3498db;
+        }
+        
+        .badge-diagnostic {
+            background-color: #e74c3c;
+        }
+        
+        .badge-prescriptive {
+            background-color: #27ae60;
+        }
+        
+        .badge-predictive {
+            background-color: #f39c12;
+        }
+        
+        .alert-recommendation {
+            border-left: 4px solid var(--success);
+            background-color: #f8fff9;
+        }
+        
+        .data-table {
+            font-size: 0.9rem;
+        }
+        
+        .data-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .filter-bar {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .integration-status {
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;      /* Prevent line break */
+            display: inline-block;    /* Keep pill shape */
+        }
+        
+        .status-success {
+            background-color: rgba(39, 174, 96, 0.15);
+            color: #27ae60;
+        }
+        
+        .status-warning {
+            background-color: rgba(243, 156, 18, 0.15);
+            color: #f39c12;
+        }
+        
+        .status-danger {
+            background-color: rgba(231, 76, 60, 0.15);
+            color: #e74c3c;
+        }
+        
+        .status-info {
+            background-color: rgba(52, 152, 219, 0.15);
+            color: #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                height: auto;
+                position: relative;
+            }
+            
+            .stats-card .number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-university me-2"></i>
+                Dashboard Analitik Institusi
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-cog"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i> Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 col-md-3 p-0 sidebar">
+                <div class="d-flex flex-column p-3">
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="Institusi.html" class="nav-link">
+                                <i class="fas fa-home"></i> Institusi
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Pelajar.html" class="nav-link">
+                                <i class="fas fa-users"></i> Pelajar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Staf.html" class="nav-link">
+                                <i class="fas fa-users"></i> Staf
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pengolahanData.html" class="nav-link active">
+                                <i class="fas fa-graduation-cap"></i> Pengolahan Data
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="perkongsianData.html" class="nav-link">
+                                <i class="fas fa-file-export"></i> Perkongsian Data
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Penyelidikan.html" class="nav-link">
+                                <i class="fas fa-flask"></i> Penyelidikan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Network & API.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i> Rangkaian
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="Profile.html" class="nav-link">
+                                <i class="fas fa-cog"></i> Profil
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-10 col-md-9 p-4">
+                
+                <!-- Filter Bar -->
+                <div class="filter-bar mb-4">
+                    <div class="row">
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select">
+                                <option selected>Sistem Sumber: Semua</option>
+                                <option>Sistem Pengurusan Pelajar</option>
+                                <option>Sistem Pengurusan Akademik</option>
+                                <option>Sistem Kewangan</option>
+                                <option>Sumber Luaran</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select">
+                                <option selected>Status: Semua</option>
+                                <option>Aktif</option>
+                                <option>Tidak Aktif</option>
+                                <option>Dalam Proses</option>
+                                <option>Ralat</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <input type="date" class="form-control" id="dateFilter">
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <button class="btn btn-primary w-100"><i class="fas fa-filter me-2"></i> Gunakan Filter</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UC-03-01: Integrasi Data -->
+                <h4 class="mb-4">Integrasi Data <span class="badge badge-analytics badge-descriptive">UC-03-01</span></h4>
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-database fa-2x text-primary"></i>
+                                <div class="number">15</div>
+                                <div class="label">Sistem Sumber</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 2 sistem baru ditambah</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-sync-alt fa-2x text-success"></i>
+                                <div class="number">98.7%</div>
+                                <div class="label">Kadar Kejayaan Integrasi</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 0.5% peningkatan</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-clock fa-2x text-warning"></i>
+                                <div class="number">12.4s</div>
+                                <div class="label">Masa Pemprosesan Purata</div>
+                                <div class="trend down"><i class="fas fa-arrow-down"></i> 1.2s penurunan</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-tasks fa-2x text-info"></i>
+                                <div class="number">245</div>
+                                <div class="label">Jadual Data Diproses</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 5 jadual baru</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Status Integrasi Sistem Sumber</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Sistem Sumber</th>
+                                                <th>Status</th>
+                                                <th>Kekerapan</th>
+                                                <th>Kemas Kini Terakhir</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Sistem Pengurusan Pelajar</td>
+                                                <td><span class="integration-status status-success">Aktif</span></td>
+                                                <td>Harian</td>
+                                                <td>12 Jun 2023 23:45</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sistem Akademik</td>
+                                                <td><span class="integration-status status-success">Aktif</span></td>
+                                                <td>Harian</td>
+                                                <td>12 Jun 2023 23:30</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sistem Kewangan</td>
+                                                <td><span class="integration-status status-warning">Sedang Diproses</span></td>
+                                                <td>Mingguan</td>
+                                                <td>11 Jun 2023 02:15</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sistem Sumber Luaran</td>
+                                                <td><span class="integration-status status-danger">Ralat</span></td>
+                                                <td>Bulanan</td>
+                                                <td>5 Jun 2023 10:22</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sistem Perpustakaan</td>
+                                                <td><span class="integration-status status-success">Aktif</span></td>
+                                                <td>Harian</td>
+                                                <td>12 Jun 2023 22:15</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Statistik Integrasi Data</span>
+                                <button class="btn btn-sm btn-outline-secondary">Lihat Detail</button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="integrationStatsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UC-03-02: Set Kekerapan Transaksi Data -->
+                <h4 class="my-4">Set Kekerapan Transaksi Data <span class="badge badge-analytics badge-diagnostic">UC-03-02</span></h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Tetapan Kekerapan Integrasi
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Sistem Sumber</label>
+                                        <select class="form-select">
+                                            <option selected>Sistem Pengurusan Pelajar</option>
+                                            <option>Sistem Akademik</option>
+                                            <option>Sistem Kewangan</option>
+                                            <option>Sistem Sumber Luaran</option>
+                                            <option>Sistem Perpustakaan</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Kekerapan Kemas Kini</label>
+                                        <select class="form-select">
+                                            <option>Harian</option>
+                                            <option selected>Mingguan</option>
+                                            <option>Bulanan</option>
+                                            <option>Setiap Suku Tahun</option>
+                                            <option>Atas Permintaan</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Masa Pelaksanaan (untuk harian)</label>
+                                        <input type="time" class="form-control" value="23:30">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Hari Pelaksanaan (untuk mingguan)</label>
+                                        <select class="form-select">
+                                            <option>Isnin</option>
+                                            <option>Selasa</option>
+                                            <option>Rabu</option>
+                                            <option>Khamis</option>
+                                            <option selected>Jumaat</option>
+                                            <option>Sabtu</option>
+                                            <option>Ahad</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Simpan Tetapan</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Jadual Integrasi Aktif
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Sistem</th>
+                                                <th>Kekerapan</th>
+                                                <th>Pelaksanaan Seterusnya</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Sistem Pengurusan Pelajar</td>
+                                                <td>Harian</td>
+                                                <td>13 Jun 2023 23:30</td>
+                                                <td><span class="integration-status status-success">Aktif</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sistem Akademik</td>
+                                                <td>Harian</td>
+                                                <td>13 Jun 2023 23:30</td>
+                                                <td><span class="integration-status status-success">Aktif</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sistem Kewangan</td>
+                                                <td>Mingguan</td>
+                                                <td>16 Jun 2023 02:00</td>
+                                                <td><span class="integration-status status-warning">Aktif (Peringatan)</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sistem Sumber Luaran</td>
+                                                <td>Bulanan</td>
+                                                <td>1 Jul 2023 00:00</td>
+                                                <td><span class="integration-status status-danger">Ditangguhkan</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sistem Perpustakaan</td>
+                                                <td>Harian</td>
+                                                <td>13 Jun 2023 22:15</td>
+                                                <td><span class="integration-status status-success">Aktif</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UC-03-03: Uji Talian Antara Sistem -->
+                <h4 class="my-4">Uji Talian Antara Sistem <span class="badge badge-analytics badge-prescriptive">UC-03-03</span></h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Ujian Sambungan Sistem
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Pilih Sistem untuk Ujian</label>
+                                        <select class="form-select">
+                                            <option selected>Sistem Pengurusan Pelajar</option>
+                                            <option>Sistem Akademik</option>
+                                            <option>Sistem Kewangan</option>
+                                            <option>Sistem Sumber Luaran</option>
+                                            <option>Sistem Perpustakaan</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Jenis Ujian</label>
+                                        <select class="form-select">
+                                            <option>Ujian Sambungan Asas</option>
+                                            <option selected>Ujian Penghantaran Data</option>
+                                            <option>Ujian Prestasi</option>
+                                            <option>Ujian Keselamatan</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Saiz Data Ujian (MB)</label>
+                                        <input type="range" class="form-range" min="1" max="100" value="10">
+                                        <div class="form-text">10 MB dipilih</div>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="detailedLogs">
+                                        <label class="form-check-label" for="detailedLogs">Hasilkan Log Terperinci</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Jalankan Ujian</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Keputusan Ujian Terkini
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <h6>Status Ujian Terakhir: <span class="badge bg-success">Berjaya</span></h6>
+                                    <p class="mb-1">Sistem: Sistem Pengurusan Pelajar</p>
+                                    <p class="mb-1">Masa: 12 Jun 2023 14:30</p>
+                                    <p class="mb-0">Tempoh: 45.2 saat</p>
+                                </div>
+                                <div class="mb-4">
+                                    <h6>Metrik Prestasi</h6>
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Kelajuan Sambungan:</span>
+                                        <span>98.5 Mbps</span>
+                                    </div>
+                                    <div class="progress mb-3" style="height: 10px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 95%"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Kadar Kejayaan:</span>
+                                        <span>100%</span>
+                                    </div>
+                                    <div class="progress mb-3" style="height: 10px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Kadar Kehilangan Data:</span>
+                                        <span>0%</span>
+                                    </div>
+                                    <div class="progress mb-3" style="height: 10px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h6>Log Ujian</h6>
+                                    <div class="border rounded p-2 bg-light" style="max-height: 150px; overflow-y: auto;">
+                                        <div class="text-success">[14:30:05] Memulakan ujian sambungan...</div>
+                                        <div class="text-success">[14:30:07] Sambungan kepada sistem berjaya</div>
+                                        <div class="text-success">[14:30:10] Penghantaran data ujian dimulakan</div>
+                                        <div class="text-success">[14:30:45] Data ujian berjaya dihantar</div>
+                                        <div class="text-success">[14:30:50] Pengesahan integriti data: LULUS</div>
+                                        <div class="text-success">[14:30:52] Ujian selesai tanpa ralat</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Chart for Integration Statistics
+        const ctx = document.getElementById('integrationStatsChart').getContext('2d');
+        const integrationStatsChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Siswa', 'Akademik', 'Kewangan', 'Sumber Luar', 'Perpustakaan'],
+                datasets: [{
+                    label: 'Jumlah Data Diproses (GB)',
+                    data: [125, 87, 42, 18, 56],
+                    backgroundColor: [
+                        'rgba(52, 152, 219, 0.7)',
+                        'rgba(46, 204, 113, 0.7)',
+                        'rgba(155, 89, 182, 0.7)',
+                        'rgba(241, 196, 15, 0.7)',
+                        'rgba(230, 126, 34, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(52, 152, 219, 1)',
+                        'rgba(46, 204, 113, 1)',
+                        'rgba(155, 89, 182, 1)',
+                        'rgba(241, 196, 15, 1)',
+                        'rgba(230, 126, 34, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Jumlah Data (GB)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Jumlah Data Diproses Mengikut Sistem (Bulan Ini)'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

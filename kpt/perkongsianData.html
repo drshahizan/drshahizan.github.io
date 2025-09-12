@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Analitik Institusi - Modul Perkongsian Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+        }
+        
+        .sidebar {
+            background-color: var(--dark);
+            color: white;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+        
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 12px 20px;
+            margin: 4px 0;
+            border-radius: 4px;
+        }
+        
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .sidebar .nav-link i {
+            margin-right: 10px;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background-color: white;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+            padding: 15px 20px;
+            border-radius: 10px 10px 0 0 !important;
+        }
+        
+        .stats-card {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stats-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .stats-card .label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stats-card .trend {
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        
+        .trend.up {
+            color: var(--success);
+        }
+        
+        .trend.down {
+            color: var(--accent);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            padding: 20px;
+        }
+        
+        .badge-analytics {
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-left: 10px;
+        }
+        
+        .badge-descriptive {
+            background-color: #3498db;
+        }
+        
+        .badge-diagnostic {
+            background-color: #e74c3c;
+        }
+        
+        .badge-prescriptive {
+            background-color: #27ae60;
+        }
+        
+        .badge-predictive {
+            background-color: #f39c12;
+        }
+        
+        .alert-recommendation {
+            border-left: 4px solid var(--success);
+            background-color: #f8fff9;
+        }
+        
+        .data-table {
+            font-size: 0.9rem;
+        }
+        
+        .data-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .filter-bar {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .status-pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-approved {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .status-rejected {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status-review {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+        
+        .priority-high {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .priority-medium {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .priority-low {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .detail-view {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .detail-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+        
+        .detail-value {
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                height: auto;
+                position: relative;
+            }
+            
+            .stats-card .number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-university me-2"></i>
+                Dashboard Analitik Institusi
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-cog"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i> Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 col-md-3 p-0 sidebar">
+                <div class="d-flex flex-column p-3">
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="Institusi.html" class="nav-link">
+                                <i class="fas fa-home"></i> Institusi
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Pelajar.html" class="nav-link">
+                                <i class="fas fa-users"></i> Pelajar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Staf.html" class="nav-link">
+                                <i class="fas fa-users"></i> Staf
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pengolahanData.html" class="nav-link">
+                                <i class="fas fa-graduation-cap"></i> Pengolahan Data
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="perkongsianData.html" class="nav-link active">
+                                <i class="fas fa-file-export"></i> Perkongsian Data
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Penyelidikan.html" class="nav-link">
+                                <i class="fas fa-flask"></i> Penyelidikan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Network & API.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i> Rangkaian
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="Profile.html" class="nav-link">
+                                <i class="fas fa-cog"></i> Profil
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-10 col-md-9 p-4">
+                
+                <!-- Filter Bar -->
+                <div class="filter-bar mb-4">
+                    <div class="row">
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select">
+                                <option selected>Semua Status</option>
+                                <option>Dalam Proses</option>
+                                <option>Menunggu Kelulusan</option>
+                                <option>Diluluskan</option>
+                                <option>Ditolak</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <select class="form-select">
+                                <option selected>Semua Jenis Data</option>
+                                <option>Data Pelajar</option>
+                                <option>Data Akademik</option>
+                                <option>Data Penyelidikan</option>
+                                <option>Data Kewangan</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <input type="date" class="form-control" placeholder="Tarikh Mula">
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <button class="btn btn-primary w-100"><i class="fas fa-filter me-2"></i> Gunakan Filter</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <h4 class="mb-4">Statistik Permohonan <span class="badge badge-analytics badge-descriptive">Deskriptif</span></h4>
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-file-alt fa-2x text-primary"></i>
+                                <div class="number">48</div>
+                                <div class="label">Jumlah Permohonan</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 12% dari bulan lalu</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-check-circle fa-2x text-success"></i>
+                                <div class="number">32</div>
+                                <div class="label">Diluluskan</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 66.7% kadar kelulusan</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-times-circle fa-2x text-danger"></i>
+                                <div class="number">8</div>
+                                <div class="label">Ditolak</div>
+                                <div class="trend down"><i class="fas fa-arrow-down"></i> 16.7% kadar penolakan</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <i class="fas fa-clock fa-2x text-warning"></i>
+                                <div class="number">8</div>
+                                <div class="label">Menunggu Kelulusan</div>
+                                <div class="trend up"><i class="fas fa-arrow-up"></i> 4 permohonan baru</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Permohonan Menunggu Kelulusan -->
+                <h4 class="my-4">Permohonan Menunggu Kelulusan <span class="badge badge-analytics badge-diagnostic">Diagnostik</span></h4>
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>Senarai Permohonan</span>
+                        <button class="btn btn-sm btn-outline-primary"><i class="fas fa-download me-1"></i> Eksport</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rujukan</th>
+                                        <th>Pemohon</th>
+                                        <th>Jabatan</th>
+                                        <th>Jenis Data</th>
+                                        <th>Tarikh Mohon</th>
+                                        <th>Tujuan</th>
+                                        <th>Status</th>
+                                        <th>Tindakan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#REF-2024-0012</td>
+                                        <td>Dr. Ahmad bin Ismail</td>
+                                        <td>Fakulti Sains Komputer</td>
+                                        <td>Data Pelajar</td>
+                                        <td>12 Mac 2024</td>
+                                        <td>Penyelidikan Prestasi Akademik</td>
+                                        <td><span class="status-badge status-review">Semakan</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">Proses</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#REF-2024-0015</td>
+                                        <td>Prof. Madya Dr. Siti Norhidayah</td>
+                                        <td>Fakulti Pendidikan</td>
+                                        <td>Data Akademik</td>
+                                        <td>15 Mac 2024</td>
+                                        <td>Kajian Pedagogi</td>
+                                        <td><span class="status-badge status-pending">Menunggu</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">Proses</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#REF-2024-0018</td>
+                                        <td>En. Mohd Rizal bin Abdullah</td>
+                                        <td>Jabatan Perancangan</td>
+                                        <td>Data Kewangan</td>
+                                        <td>18 Mac 2024</td>
+                                        <td>Laporan Prestasi Kewangan</td>
+                                        <td><span class="status-badge status-review">Semakan</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">Proses</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#REF-2024-0020</td>
+                                        <td>Dr. Lee Chen Wei</td>
+                                        <td>Fakulti Kejuruteraan</td>
+                                        <td>Data Penyelidikan</td>
+                                        <td>20 Mac 2024</td>
+                                        <td>Analisis Citation</td>
+                                        <td><span class="status-badge status-pending">Menunggu</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">Proses</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detail Permohonan -->
+                <h4 class="my-4">Detail Permohonan <span class="badge badge-analytics badge-prescriptive">Preskriptif</span></h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Maklumat Permohonan #REF-2024-0012
+                            </div>
+                            <div class="card-body">
+                                <div class="detail-view">
+                                    <div class="detail-item">
+                                        <div class="detail-label">Pemohon</div>
+                                        <div class="detail-value">Dr. Ahmad bin Ismail</div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <div class="detail-label">Jabatan/Fakulti</div>
+                                        <div class="detail-value">Fakulti Sains Komputer</div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <div class="detail-label">Jenis Data Dimohon</div>
+                                        <div class="detail-value">Data Pelajar (Rekod Akademik 5 Tahun Terakhir)</div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <div class="detail-label">Tujuan Permohonan</div>
+                                        <div class="detail-value">Penyelidikan berkaitan prestasi akademik dan faktor-faktor yang mempengaruhinya</div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <div class="detail-label">Tempoh Data Diperlukan</div>
+                                        <div class="detail-value">1 April 2024 - 30 Jun 2024</div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <div class="detail-label">Kategori Sensitiviti Data</div>
+                                        <div class="detail-value"><span class="priority-high status-badge">Tinggi</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Proses Kelulusan
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-recommendation">
+                                    <h6><i class="fas fa-lightbulb me-2"></i> Cadangan Sistem</h6>
+                                    <p>Berdasarkan analisis, permohonan ini mempunyai 78% kesesuaian dengan dasar semasa. Disarankan untuk meluluskan dengan pemantauan berkala.</p>
+                                </div>
+                                
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Keputusan</label>
+                                        <select class="form-select">
+                                            <option selected>-- Pilih Keputusan --</option>
+                                            <option value="approve">Lulus</option>
+                                            <option value="reject">Tolak</option>
+                                            <option value="request_more">Minta Maklumat Tambahan</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Ulasan</label>
+                                        <textarea class="form-control" rows="4" placeholder="Sila berikan ulasan atau syarat tambahan..."></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Tempoh Kelulusan (jika diluluskan)</label>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="date" class="form-control" placeholder="Tarikh Mula">
+                                            </div>
+                                            <div class="col">
+                                                <input type="date" class="form-control" placeholder="Tarikh Tamat">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="notifyApplicant">
+                                        <label class="form-check-label" for="notifyApplicant">Maklumkan pemohon melalui emel</label>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <button type="submit" class="btn btn-success"><i class="fas fa-check-circle me-2"></i> Hantar Keputusan</button>
+                                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-save me-2"></i> Simpan sebagai Draft</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Chart initialization and other JavaScript would go here
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Dashboard loaded');
+        });
+    </script>
+</body>
+</html>

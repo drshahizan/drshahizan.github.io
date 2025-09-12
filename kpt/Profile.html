@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pengguna - Dashboard Analitik Data Mart Pelajar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+        }
+        
+        .sidebar {
+            background-color: var(--dark);
+            color: white;
+            /* height: 100vh;
+            position: sticky;
+            top: 0; */
+        }
+        
+        .sidebar .nav-link {
+            color: #fff !important;
+            opacity: 1 !important;
+            background: none !important;
+            transition: background 0.2s, color 0.2s;
+        }
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            background-color: rgba(255,255,255,0.1) !important;
+            color: #fff !important;
+        }
+        
+        .sidebar .nav-link i {
+            margin-right: 10px;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background-color: white;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+            padding: 15px 20px;
+            border-radius: 10px 10px 0 0 !important;
+        }
+        
+        .profile-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 0;
+            margin-bottom: 20px;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+        }
+        
+        .profile-stats {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+        
+        .nav-pills .nav-link.active {
+            background-color: var(--primary);
+        }
+        
+        .nav-pills .nav-link {
+            color: var(--dark);
+        }
+        
+        .info-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            font-size: 1.1rem;
+        }
+        
+        .activity-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .preference-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .notification-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                height: auto;
+                position: relative;
+            }
+            
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-user-graduate me-2"></i>
+                Dashboard Analitik Data Mart Pelajar
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-cog"></i></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user"></i> Admin
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle me-2"></i>Profil Saya</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#passwordModal"><i class="fas fa-key me-2"></i>Tetapan Semula Kata Laluan</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Log Keluar</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 col-md-3 p-0 sidebar">
+                <div class="d-flex flex-column p-3">
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="Pelajar.html" class="nav-link">
+                                <i class="fas fa-users"></i> Pelajar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Staf.html" class="nav-link">
+                                <i class="fas fa-users"></i> Staf
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Institusi.html" class="nav-link ">
+                                <i class="fas fa-home"></i> Institusi
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-flask"></i> Penyelidikan
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="perkongsianData.html" class="nav-link">
+                                <i class="fas fa-file-export"></i> Perkongsian Data
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pengolahanData.html" class="nav-link">
+                                <i class="fas fa-graduation-cap"></i> Pengolahan Data
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Network & API.html" class="nav-link">
+                                <i class="fas fa-chart-line"></i> Rangkaian
+                            </a>
+                        </li>
+                         -->
+                        <li class="nav-item">
+                            <a href="Profile.html" class="nav-link active">
+                                <i class="fas fa-cog"></i> Profil
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-10 col-md-9 p-4">
+                <!-- Profile Header -->
+                <div class="profile-header">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <div class="col-md-8 d-flex align-items-center">
+                                <img src="https://ui-avatars.com/api/?name=Admin+User&background=3498db&color=fff&size=120" alt="Profile" class="profile-img me-4">
+                                <div>
+                                    <h3 class="mb-1">Ahmad bin Abdullah</h3>
+                                    <p class="mb-1">Admin Sistem | Bahagian Hal Ehwal Pelajar</p>
+                                    <p class="mb-0"><i class="fas fa-envelope me-2"></i>ahmad.abdullah@example.edu.my</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="profile-stats">
+                                    <div class="row">
+                                        <div class="col-4 stat-item">
+                                            <div class="stat-value">5</div>
+                                            <div class="stat-label">Tahun</div>
+                                        </div>
+                                        <div class="col-4 stat-item">
+                                            <div class="stat-value">142</div>
+                                            <div class="stat-label">Tugasan</div>
+                                        </div>
+                                        <div class="col-4 stat-item">
+                                            <div class="stat-value">98%</div>
+                                            <div class="stat-label">Selesai</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="mb-0">Profil Saya</h4>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Profil Saya</li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-info-circle me-2"></i> Maklumat Profil
+                            </div>
+                            <div class="card-body">
+                                <div class="text-center mb-4">
+                                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=3498db&color=fff&size=150" alt="Profile" class="profile-img mb-3">
+                                    <h5>Ahmad bin Abdullah</h5>
+                                    <p class="text-muted">Pentadbir Sistem</p>
+                                    <button class="btn btn-outline-primary btn-sm">
+                                        <i class="fas fa-camera me-1"></i> Tukar Gambar
+                                    </button>
+                                </div>
+                                
+                                <div class="info-item">
+                                    <div class="info-label">Nama Penuh</div>
+                                    <div class="info-value">Ahmad bin Abdullah</div>
+                                </div>
+                                
+                                <div class="info-item">
+                                    <div class="info-label">Jawatan</div>
+                                    <div class="info-value">Pentadbir Sistem</div>
+                                </div>
+                                
+                                <div class="info-item">
+                                    <div class="info-label">Jabatan</div>
+                                    <div class="info-value">Bahagian Hal Ehwal Pelajar</div>
+                                </div>
+                                
+                                <div class="info-item">
+                                    <div class="info-label">Emel</div>
+                                    <div class="info-value">ahmad.abdullah@example.edu.my</div>
+                                </div>
+                                
+                                <div class="info-item">
+                                    <div class="info-label">No. Telefon</div>
+                                    <div class="info-value">+60 12 345 6789</div>
+                                </div>
+                                
+                                <div class="info-item">
+                                    <div class="info-label">Lokasi</div>
+                                    <div class="info-value">Kampus Utama, Universiti Example</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-shield-alt me-2"></i> Keselamatan
+                            </div>
+                            <div class="card-body">
+                                <div class="info-item">
+                                    <div class="info-label">Kata Laluan</div>
+                                    <div class="info-value">••••••••••</div>
+                                    <!-- ...existing code... -->
+                                    <a class="btn btn-outline-primary btn-sm mt-2" href="Lupa Password.html">
+                                        <i class="fas fa-key me-1"></i> Tukar Kata Laluan
+                                    </a>
+                                    <!-- ...existing code... -->
+                                </div>
+                                
+                                <div class="info-item">
+                                    <div class="info-label">Pengesahan Dua Faktor</div>
+                                    <div class="info-value">Tidak Aktif</div>
+                                    <button class="btn btn-outline-primary btn-sm mt-2">
+                                        <i class="fas fa-mobile-alt me-1"></i> Aktifkan
+                                    </button>
+                                </div>
+                                
+                                <div class="info-item mb-0">
+                                    <div class="info-label">Sesi Terkini</div>
+                                    <div class="info-value">11 Sept 2025, 15:42</div>
+                                    <button class="btn btn-outline-secondary btn-sm mt-2">
+                                        <i class="fas fa-list me-1"></i> Lihat Semua Sesi
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-8">
+                        <ul class="nav nav-pills mb-4" id="profileTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="activity-tab" data-bs-toggle="pill" data-bs-target="#activity" type="button" role="tab">
+                                    <i class="fas fa-history me-1"></i> Aktiviti Terkini
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="preferences-tab" data-bs-toggle="pill" data-bs-target="#preferences" type="button" role="tab">
+                                    <i class="fas fa-sliders-h me-1"></i> Keutamaan
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="notifications-tab" data-bs-toggle="pill" data-bs-target="#notifications" type="button" role="tab">
+                                    <i class="fas fa-bell me-1"></i> Pemberitahuan
+                                </button>
+                            </li>
+                        </ul>
+                        
+                        <div class="tab-content" id="profileTabsContent">
+                            <div class="tab-pane fade show active" id="activity" role="tabpanel">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="fas fa-history me-2"></i> Log Aktiviti Terkini
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="activity-item d-flex">
+                                            <div class="activity-icon text-success">
+                                                <i class="fas fa-sign-in-alt"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="mb-1">Log Masuk Berjaya</h6>
+                                                <p class="mb-1">Anda telah log masuk ke dalam sistem</p>
+                                                <small class="text-muted">11 Sept 2025, 15:42 • IP: 192.168.1.101</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="activity-item d-flex">
+                                            <div class="activity-icon text-primary">
+                                                <i class="fas fa-file-export"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="mb-1">Eksport Data</h6>
+                                                <p class="mb-1">Menghasilkan laporan data pelajar</p>
+                                                <small class="text-muted">11 Sept 2025, 14:30 • Format: CSV</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="activity-item d-flex">
+                                            <div class="activity-icon text-info">
+                                                <i class="fas fa-filter"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="mb-1">Tapis Data</h6>
+                                                <p class="mb-1">Menapis data pelajar mengikut fakulti Sains Komputer</p>
+                                                <small class="text-muted">11 Sept 2025, 13:15 • 245 rekod ditemui</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="activity-item d-flex">
+                                            <div class="activity-icon text-warning">
+                                                <i class="fas fa-chart-pie"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="mb-1">Analisis Data</h6>
+                                                <p class="mb-1">Menjana analisis prestasi pelajar bagi semester 1 2025</p>
+                                                <small class="text-muted">11 Sept 2025, 11:20 • 1,245 data dianalisis</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="activity-item d-flex">
+                                            <div class="activity-icon text-secondary">
+                                                <i class="fas fa-user-edit"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="mb-1">Kemaskini Profil</h6>
+                                                <p class="mb-1">Mengemaskini maklumat profil pengguna</p>
+                                                <small class="text-muted">10 Sept 2025, 16:50 • No. telefon dikemaskini</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="text-center mt-3">
+                                            <button class="btn btn-outline-primary">Lihat Semua Aktiviti</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-pane fade" id="preferences" role="tabpanel">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="fas fa-sliders-h me-2"></i> Tetapan Keutamaan
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="preference-item">
+                                            <h6>Bahasa</h6>
+                                            <p class="text-muted">Pilih bahasa pilihan untuk antara muka sistem</p>
+                                            <select class="form-select">
+                                                <option selected>Bahasa Malaysia</option>
+                                                <option>English</option>
+                                                <option>中文</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="preference-item">
+                                            <h6>Zon Waktu</h6>
+                                            <p class="text-muted">Tetapkan zon waktu untuk paparan masa yang tepat</p>
+                                            <select class="form-select">
+                                                <option selected>(UTC+08:00) Kuala Lumpur, Singapura</option>
+                                                <option>(UTC+08:00) Beijing, Hong Kong, Urumqi</option>
+                                                <option>(UTC+07:00) Bangkok, Hanoi, Jakarta</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="preference-item">
+                                            <h6>Format Tarikh</h6>
+                                            <p class="text-muted">Pilih format paparan tarikh yang diinginkan</p>
+                                            <select class="form-select">
+                                                <option selected>DD/MM/YYYY (contoh: 11/09/2025)</option>
+                                                <option>YYYY-MM-DD (contoh: 2025-09-11)</option>
+                                                <option>MM/DD/YYYY (contoh: 09/11/2025)</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="preference-item">
+                                            <h6>Bilangan Rekod Setiap Halaman</h6>
+                                            <p class="text-muted">Tetapkan bilangan maksimum rekod yang dipaparkan setiap halaman</p>
+                                            <select class="form-select">
+                                                <option>10 rekod</option>
+                                                <option selected>25 rekod</option>
+                                                <option>50 rekod</option>
+                                                <option>100 rekod</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="preference-item">
+                                            <h6>Tema Warna</h6>
+                                            <p class="text-muted">Pilih tema warna untuk antara muka sistem</p>
+                                            <div class="d-flex gap-2">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="themeRadio" id="themeLight" checked>
+                                                    <label class="form-check-label" for="themeLight">
+                                                        Terang
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="themeRadio" id="themeDark">
+                                                    <label class="form-check-label" for="themeDark">
+                                                        Gelap
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="themeRadio" id="themeAuto">
+                                                    <label class="form-check-label" for="themeAuto">
+                                                        Auto (ikut sistem)
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="text-end mt-4">
+                                            <button class="btn btn-primary">Simpan Keutamaan</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-pane fade" id="notifications" role="tabpanel">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="fas fa-bell me-2"></i> Tetapan Pemberitahuan
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="mb-3">Jenis Pemberitahuan</h6>
+                                        
+                                        <div class="notification-item">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="notifEmail" checked>
+                                                <label class="form-check-label" for="notifEmail">
+                                                    Pemberitahuan melalui Emel
+                                                </label>
+                                            </div>
+                                            <p class="text-muted small ms-4 mt-1">Terima pemberitahuan penting melalui emel</p>
+                                        </div>
+                                        
+                                        <div class="notification-item">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="notifSystem" checked>
+                                                <label class="form-check-label" for="notifSystem">
+                                                    Pemberitahuan Sistem
+                                                </label>
+                                            </div>
+                                            <p class="text-muted small ms-4 mt-1">Paparkan pemberitahuan dalam sistem</p>
+                                        </div>
+                                        
+                                        <div class="notification-item">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="notifDataUpdate">
+                                                <label class="form-check-label" for="notifDataUpdate">
+                                                    Kemaskini Data
+                                                </label>
+                                            </div>
+                                            <p class="text-muted small ms-4 mt-1">Pemberitahuan apabila data penting dikemaskini</p>
+                                        </div>
+                                        
+                                        <div class="notification-item">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="notifReport" checked>
+                                                <label class="form-check-label" for="notifReport">
+                                                    Laporan Siap Dijana
+                                                </label>
+                                            </div>
+                                            <p class="text-muted small ms-4 mt-1">Pemberitahuan apabila laporan siap dijana</p>
+                                        </div>
+                                        
+                                        <div class="notification-item">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="notifSecurity">
+                                                <label class="form-check-label" for="notifSecurity">
+                                                    Keselamatan
+                                                </label>
+                                            </div>
+                                            <p class="text-muted small ms-4 mt-1">Pemberitahuan berkaitan keselamatan akaun</p>
+                                        </div>
+                                        
+                                        <h6 class="mb-3 mt-4">Kekerapan Pemberitahuan</h6>
+                                        
+                                        <div class="notification-item">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="frequencyRadio" id="frequencyImmediate" checked>
+                                                <label class="form-check-label" for="frequencyImmediate">
+                                                    Segera
+                                                </label>
+                                            </div>
+                                            <p class="text-muted small ms-4 mt-1">Terima pemberitahuan serta-merta</p>
+                                        </div>
+                                        
+                                        <div class="notification-item">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="frequencyRadio" id="frequencyDaily">
+                                                <label class="form-check-label" for="frequencyDaily">
+                                                    Ringkasan Harian
+                                                </label>
+                                            </div>
+                                            <p class="text-muted small ms-4 mt-1">Terima pemberitahuan sekali sehari</p>
+                                        </div>
+                                        
+                                        <div class="notification-item">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="frequencyRadio" id="frequencyWeekly">
+                                                <label class="form-check-label" for="frequencyWeekly">
+                                                    Ringkasan Mingguan
+                                                </label>
+                                            </div>
+                                            <p class="text-muted small ms-4 mt-1">Terima pemberitahuan sekali seminggu</p>
+                                        </div>
+                                        
+                                        <div class="text-end mt-4">
+                                            <button class="btn btn-primary">Simpan Tetapan</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tetapan Semula Kata Laluan -->
+    <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="passwordModalLabel">Tetapan Semula Kata Laluan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="currentPassword" class="form-label">Kata Laluan Semasa</label>
+                            <input type="password" class="form-control" id="currentPassword">
+                        </div>
+                        <div class="mb-3">
+                            <label for="newPassword" class="form-label">Kata Laluan Baharu</label>
+                            <input type="password" class="form-control" id="newPassword">
+                            <div class="form-text">Kata laluan mesti mengandungi sekurang-kurangnya 8 aksara, termasuk nombor dan huruf.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Sahkan Kata Laluan Baharu</label>
+                            <input type="password" class="form-control" id="confirmPassword">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary">Simpan Kata Laluan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // JavaScript untuk mengendalikan tab
+        const triggerTabList = document.querySelectorAll('#profileTabs button')
+        triggerTabList.forEach(triggerEl => {
+            new bootstrap.Tab(triggerEl)
+        })
+        
+        // Fungsi untuk menangani perubahan tema
+        document.querySelectorAll('input[name="themeRadio"]').forEach((radio) => {
+            radio.addEventListener('change', function() {
+                // Kod untuk menukar tema akan ditambah di sini
+                console.log('Tema dipilih: ' + this.id);
+            });
+        });
+    </script>
+</body>
+</html>
