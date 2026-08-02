@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://drshahizan.github.io/setiausaha-pintar-utm/sitemap.xml

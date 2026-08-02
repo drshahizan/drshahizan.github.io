@@ -1,0 +1,6 @@
+const themeBtn=document.querySelector('#themeBtn');
+if(localStorage.getItem('utm-theme')==='dark') document.documentElement.dataset.theme='dark';
+themeBtn?.addEventListener('click',()=>{const dark=document.documentElement.dataset.theme!=='dark';document.documentElement.dataset.theme=dark?'dark':'';localStorage.setItem('utm-theme',dark?'dark':'light')});
+document.querySelectorAll('.copy-resource').forEach(button=>button.addEventListener('click',async event=>{event.preventDefault();const source=button.dataset.copy||button.previousElementSibling?.innerText||'';await navigator.clipboard.writeText(source.trim());const original=button.textContent;button.textContent='Disalin ✓';setTimeout(()=>button.textContent=original,1400)}));
+document.querySelector('#quizForm')?.addEventListener('submit',event=>{event.preventDefault();const data=new FormData(event.currentTarget);const score=['q1','q2','q3'].filter(q=>data.get(q)==='a').length;document.querySelector('#quizResult').value=`Skor anda: ${score}/3 — ${score===3?'Tahniah, semua jawapan tepat.':'Semak semula panduan dan cuba lagi.'}`});
+const backTop=document.querySelector('#backTop');addEventListener('scroll',()=>backTop?.classList.toggle('show',scrollY>500),{passive:true});backTop?.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
