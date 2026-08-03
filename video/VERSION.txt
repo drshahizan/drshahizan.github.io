@@ -1,0 +1,21 @@
+AI in Video Resume — Versi 7
+Tarikh kemas kini: 31 Julai 2026
+
+Perubahan disahkan:
+1. Badge pelawat dimasukkan pada footer.
+2. Kotak “12 segmen, 10 saat setiap segmen” dipertingkatkan keterbacaannya.
+3. Kotak “Dikuasakan Generative AI” dipertingkatkan keterbacaannya.
+4. Butang Muat Turun Slaid diletakkan sebelum Muat Turun Modul.
+5. Tagline ditukar kepada “Bina profil profesional. Tampilkan potensi melalui AI.”
+6. Parameter versi ditambah pada CSS dan JavaScript untuk mengelakkan cache lama.
+7. Butang Kongsi Program dibuang.
+8. Ikon Generative AI diganti dan warnanya dipertingkatkan.
+9. Markah Kandungan & Relevan dan Kualiti Video ditetapkan kepada 20.
+10. Ruang storyboard kini menggunakan slaid 44 hingga 50 sahaja; Slaid 51 telah dibuang.
+11. Pautan Muat Turun Slaid dan Modul Lengkap dikemas kini ke SharePoint.
+12. Pautan video rujukan ditambah pada setiap Slaid 44 hingga 50.
+13. Slaid 2 ditambah sebagai item pertama dalam ruangan storyboard.
+14. Pautan video SharePoint ditambah pada Slaid 2.
+15. Bahagian Hasil Pertandingan ditambah dengan empat karya daripada video kvp.pptx.
+16. Versi 8: kategori Sorotan Suasana Pertandingan ditambah menggunakan 16 gambar asal daripada galeri kvp.pptx.
+16. Setiap hasil memaparkan imej asal, program, institusi dan pautan video.

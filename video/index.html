@@ -15,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <!-- Versi dikemas kini: 31 Julai 2026, v7 -->
-  <link rel="stylesheet" href="style.css?v=20260731-7">
+  <!-- Versi dikemas kini: 3 Ogos 2026, v8 -->
+  <link rel="stylesheet" href="style.css?v=20260803-8">
 </head>
 <body class="light">
   <div id="loader" aria-hidden="true"><div class="loader-orb"></div><span>Menjana masa depan anda...</span></div>
@@ -28,7 +28,7 @@
       <a class="brand" href="#utama"><span class="brand-mark">AI</span><span>Video Resume</span></a>
       <button class="menu-btn" aria-label="Buka menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
       <div class="nav-links">
-        <a href="#tentang">Tentang</a><a href="#bengkel">Bengkel</a><a href="#pertandingan">Pertandingan</a><a href="#hasil-pertandingan">Hasil</a>
+        <a href="#tentang">Tentang</a><a href="#bengkel">Bengkel</a><a href="#pertandingan">Pertandingan</a><a href="#hasil-pertandingan">Hasil</a><a href="#sorotan-pertandingan">Sorotan</a>
         <a href="#proses">Proses</a><a href="#storyboard">Storyboard</a><a href="#tools">AI Tools</a><a href="#jadual">Jadual</a>
         <a href="#galeri">Galeri</a><a href="#faq">FAQ</a>
       </div>
@@ -50,8 +50,8 @@
           <div class="typed-row"><i class="fa-solid fa-wand-magic-sparkles"></i><span id="typed">Idea menjadi visual.</span></div>
           <div class="hero-actions">
             <a class="btn primary" href="#pertandingan">Lihat Pertandingan <i class="fa-solid fa-arrow-right"></i></a>
-            <a class="btn secondary" href="https://liveutm-my.sharepoint.com/:b:/g/personal/shahizan_live_utm_my/IQC8a3j29deRSqJ-_zTNBi8fARywYhwRz9IuT6Q5vKU3-g8?e=TMOKbC" target="_blank" rel="noopener">Slaid <i class="fa-solid fa-file-pdf"></i></a>
-            <a class="btn secondary" href="https://liveutm-my.sharepoint.com/:b:/g/personal/shahizan_live_utm_my/IQBFKe5Bx9BKRo29G3JJO8ZPAbrjerzHCNb0Ea1SGIMquLU?e=EaYbri" target="_blank" rel="noopener">Modul <i class="fa-solid fa-file-pdf"></i></a>
+            <a class="btn secondary" href="https://liveutm-my.sharepoint.com/:b:/g/personal/shahizan_live_utm_my/IQC8a3j29deRSqJ-_zTNBi8fARywYhwRz9IuT6Q5vKU3-g8?e=TMOKbC" target="_blank" rel="noopener">Muat Turun Slaid <i class="fa-solid fa-file-pdf"></i></a>
+            <a class="btn secondary" href="https://liveutm-my.sharepoint.com/:b:/g/personal/shahizan_live_utm_my/IQBFKe5Bx9BKRo29G3JJO8ZPAbrjerzHCNb0Ea1SGIMquLU?e=EaYbri" target="_blank" rel="noopener">Muat Turun Modul <i class="fa-solid fa-file-pdf"></i></a>
           </div>
           <div class="hero-meta">
             <span><i class="fa-regular fa-calendar"></i> 30 Julai 2026</span>
@@ -160,6 +160,17 @@
             <div class="result-copy"><span>HASIL 04</span><h3>Diploma Perakaunan</h3><p><i class="fa-solid fa-building-columns"></i> Kolej Vokasional Perdagangan</p></div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section id="sorotan-pertandingan" class="section competition-highlights">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">Galeri Aktiviti</span>
+          <h2>Sorotan Suasana Pertandingan</h2>
+          <p>Kenangan sepanjang bengkel dan pertandingan, daripada sesi pembelajaran serta kerja berpasukan hingga pembentangan dan penghargaan peserta.</p>
+        </div>
+        <div class="competition-gallery" id="competitionGallery" aria-label="Galeri suasana bengkel dan pertandingan"></div>
       </div>
     </section>
 
@@ -304,6 +315,6 @@
   <dialog id="lightbox"><button class="close-lightbox" aria-label="Tutup">×</button><img alt=""><p></p></dialog>
   <dialog id="searchDialog"><form method="dialog"><button class="close-dialog" aria-label="Tutup">×</button><label for="searchInput">Cari dalam laman</label><input id="searchInput" type="search" placeholder="Contoh: storyboard, CapCut, pertandingan"><div id="searchResults"></div></form></dialog>
   <div id="toast" role="status" aria-live="polite"></div>
-  <script src="script.js?v=20260731-7"></script>
+  <script src="script.js?v=20260803-8"></script>
 </body>
 </html>
