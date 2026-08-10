@@ -1,0 +1,25 @@
+.tool-group-title {
+  margin: 2.5rem 0 1rem;
+  color: var(--navy);
+  font-size: 1.35rem;
+}
+
+.tool-group-title:first-of-type {
+  margin-top: 0;
+}
+
+#tools .card {
+  display: flex;
+  flex-direction: column;
+}
+
+#tools .card .tool-link {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: .9rem;
+}
+
+#tools .card .tool-link-secondary {
+  margin-top: .15rem;
+  padding-top: .15rem;
+}
