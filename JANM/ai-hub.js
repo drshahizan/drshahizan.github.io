@@ -1,1 +1,19 @@
-const menu=document.querySelector('.menu'),links=document.querySelector('.hub-links');menu?.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{await navigator.clipboard.writeText(b.closest('.prompt-card')?.querySelector('.prompt-text')?.innerText||b.dataset.copy);const t=document.querySelector('.toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}));const search=document.querySelector('#prompt-search'),filters=document.querySelectorAll('.filter'),cards=document.querySelectorAll('.prompt-card');let category='semua';function apply(){const q=(search?.value||'').toLowerCase();cards.forEach(c=>c.hidden=!((category==='semua'||c.dataset.category===category)&&c.innerText.toLowerCase().includes(q)))}search?.addEventListener('input',apply);filters.forEach(f=>f.addEventListener('click',()=>{filters.forEach(x=>x.classList.remove('active'));f.classList.add('active');category=f.dataset.filter;apply()}));
+(() => {
+  'use strict';
+  const menu = document.querySelector('.menu');
+  const links = document.querySelector('.hub-links');
+  menu?.addEventListener('click', () => {
+    const open = links?.classList.toggle('open') || false;
+    menu.setAttribute('aria-expanded', String(open));
+  });
+  links?.addEventListener('click', () => {
+    links.classList.remove('open');
+    menu?.setAttribute('aria-expanded', 'false');
+  });
+})();
+document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="enhanced.css?v=20260811-1">');
+const enhancedScript=document.createElement('script');
+enhancedScript.src='enhanced.js?v=20260811-1';
+enhancedScript.defer=true;
+document.head.appendChild(enhancedScript);
+if(location.pathname.endsWith('/latihan.html')||location.pathname.endsWith('latihan.html')){const exerciseScript=document.createElement('script');exerciseScript.src='latihan-enhanced.js?v=20260811-1';document.head.appendChild(exerciseScript)}

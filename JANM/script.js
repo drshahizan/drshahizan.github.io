@@ -12,3 +12,5 @@ if(heroArt){
     heroImage.style.objectFit='contain';
   }
 }
+document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="enhanced.css?v=20260811-1">');
+const enhancedScript=document.createElement('script');enhancedScript.src='enhanced.js?v=20260811-1';enhancedScript.defer=true;document.head.appendChild(enhancedScript);

@@ -1,0 +1,8 @@
+.exercise-grid { align-items: stretch; }
+.exercise-card { display: flex; flex-direction: column; }
+.module-label { display: inline-flex; align-items: center; width: fit-content; margin-bottom: .9rem; padding: .38rem .72rem; border-radius: 999px; background: #e8f0ff; color: #073b78; font-size: .78rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.exercise-card p { flex: 1; }
+.exercise-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-top: 1.1rem; }
+.exercise-actions .button { margin: 0; }
+.dataset-status { display: inline-flex; min-height: 44px; align-items: center; padding: .7rem 1rem; border: 1px dashed #9aa8b8; border-radius: .65rem; background: #f4f6f8; color: #536171; font-weight: 700; }
+@media (max-width: 560px) { .exercise-actions { align-items: stretch; flex-direction: column; } .exercise-actions .button, .dataset-status { width: 100%; justify-content: center; text-align: center; } }
