@@ -1,0 +1,19 @@
+.resource > img {
+  display: block;
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.module-cover {
+  display: block;
+  width: min(100%, 960px);
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  margin: 1.5rem auto;
+  border-radius: 22px;
+}

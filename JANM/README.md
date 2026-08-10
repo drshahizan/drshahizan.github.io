@@ -1,5 +1,7 @@
 # Pemerkasaan AI dalam Pengoperasian Pejabat
 
+Versi ini turut menyediakan halaman berasingan `ai-tools.html`, `prompt-ai.html`, `panduan-ai.html`, `sumber.html` dan `penggunaan-peralatan.html` supaya kandungan tidak terlalu panjang. Semua fail perlu dimuat naik ke root repositori bersama folder `assets` dan `modules`.
+
 Laman statik HTML, CSS dan JavaScript untuk GitHub Pages.
 
 ## Struktur
