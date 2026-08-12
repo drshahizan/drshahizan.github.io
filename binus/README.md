@@ -8,6 +8,7 @@ A lightweight multi-page learning portal for sharing Guest Lecture materials wit
 - `programme.html` — lecture journey and AI-assisted literature review workflow
 - `materials.html` — slides, notes, worksheet and AI prompt bank
 - `tools.html` — featured platforms and task-based AI research guides
+- `prompts.html` — searchable prompt bank with category filters and copy buttons
 - `resources.html` — related repositories and searchable further reading
 
 ## Publish with GitHub Pages
