@@ -2,7 +2,9 @@
 @media(max-width:1000px){.menu-toggle{display:grid}.nav-links{position:fixed;top:72px;left:20px;right:20px;display:none;grid-template-columns:repeat(5,1fr);padding:18px;background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow)}.nav-links.open{display:grid}.hero-grid{grid-template-columns:1fr 320px;gap:30px}.event-strip{grid-template-columns:repeat(3,1fr)}.quick-grid{grid-template-columns:1fr 1fr}.materials-grid,.tool-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.container{width:min(100% - 30px,var(--container))}.nav-wrap{padding:0 15px}.brand small{display:none}.nav-actions .button{display:none}.hero{padding-top:105px}.hero-grid{grid-template-columns:1fr}.hero-copy{padding-top:0}.poster-card{max-width:360px;justify-self:center}.event-strip{grid-template-columns:1fr 1fr}.about-grid,.people-grid{grid-template-columns:1fr}.timeline,.workflow,.featured-tools,.principles{grid-template-columns:1fr 1fr}.resource-list,.reading-groups{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.brand b{font-size:11px}.brand-mark{width:36px;height:36px}.nav-links{grid-template-columns:1fr}.hero h1{font-size:39px}.button-row .button{width:100%}.event-strip,.quick-grid,.materials-grid,.tool-grid,.timeline,.workflow,.featured-tools,.principles,.reading-groups{grid-template-columns:1fr}.page-hero{padding-top:110px}.reading-head{align-items:stretch;flex-direction:column}.search-box{width:100%}.speaker-card,.moderator-card{flex-direction:column}.footer-grid{grid-template-columns:1fr}.footer-bottom{align-items:flex-start;flex-direction:column;gap:12px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none}*{transition:none!important}}
+/* Content and images remain visible even when JavaScript or animation is blocked. */
+.reveal{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
 /* Academic AI Prompt Bank */
 .quick-grid{grid-template-columns:repeat(auto-fit,minmax(205px,1fr))}
@@ -15,3 +17,21 @@
 @media(max-width:760px){.tool-hub-grid{grid-template-columns:1fr}.collection-tools{align-items:stretch;flex-direction:column}.collection-tools>p{margin-top:0}}
 @media(max-width:1000px){body:has([data-tool-collection]) .nav-links{display:grid;position:static;grid-template-columns:repeat(5,auto);padding:0;border:0;box-shadow:none;background:transparent}}
 @media(max-width:760px){body:has([data-tool-collection]) .nav-links{display:none}.tool-card{min-height:230px}}
+
+/* Editorial photography */
+.visual-story{padding:0 0 36px;background:linear-gradient(180deg,var(--off),var(--white))}
+.visual-story-card{position:relative;min-height:390px;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);isolation:isolate}
+.visual-story-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.visual-story-card::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,31,48,.82),rgba(5,31,48,.28) 58%,transparent);z-index:1}
+.visual-story-copy{position:relative;z-index:2;max-width:520px;padding:54px;color:#fff}
+.visual-story-copy .eyebrow{color:#7dd8ff}.visual-story-copy h2{font-size:clamp(28px,4vw,46px)}
+.visual-story-copy p{color:#d9eaf2;font-size:16px}
+.page-hero .page-hero-grid,.prompt-hero .page-hero-grid,.builder-hero .page-hero-grid{max-width:var(--container);margin:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,500px);gap:50px;align-items:center;text-align:left}
+.page-hero .page-hero-grid{margin-left:auto}
+.prompt-hero .page-hero-grid .eyebrow{justify-content:flex-start}
+.page-hero-visual{position:relative;min-height:310px;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);background:var(--light)}
+.page-hero-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.page-hero-visual::after{content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.35);border-radius:inherit;pointer-events:none}
+.page-hero-visual .visual-label{position:absolute;z-index:2;left:18px;bottom:18px;padding:9px 13px;border-radius:10px;background:rgba(6,30,45,.82);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;backdrop-filter:blur(8px)}
+@media(max-width:900px){.page-hero .page-hero-grid,.prompt-hero .page-hero-grid,.builder-hero .page-hero-grid{grid-template-columns:1fr;gap:28px}.page-hero-visual{min-height:280px}.prompt-hero .page-hero-grid{text-align:center}.prompt-hero .page-hero-grid .eyebrow{justify-content:center}}
+@media(max-width:560px){.visual-story-card{min-height:440px}.visual-story-copy{padding:32px 25px}.visual-story-card::after{background:linear-gradient(0deg,rgba(5,31,48,.88),rgba(5,31,48,.25))}.page-hero-visual{min-height:220px;border-radius:20px}}
