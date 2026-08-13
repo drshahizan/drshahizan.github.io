@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
 <title>Review &amp; Evidence Analysis | Research Tools</title>
 <link rel="stylesheet" href="style.css">
 <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js">
@@ -59,11 +62,14 @@
 <section class="section">
 <div class="container">
 <div class="collection-tools">
+<div class="collection-filter-controls">
 <label class="collection-search">
 <i data-lucide="search">
 </i>
 <input id="collectionSearch" type="search" placeholder="Search this collection…">
 </label>
+<select class="subcategory-filter" id="subcategoryFilter" aria-label="Filter by subcategory"><option value="">All subcategories</option></select>
+</div>
 <p id="collectionCount">
 </p>
 </div>
@@ -93,6 +99,7 @@
 <a href="tools-review.html">Review</a>
 <a href="tools-writing.html">Writing</a>
 <a href="tools-visualisation.html">Visualisation</a>
+<a href="tools-methods.html">Methods &amp; Data</a>
 </div>
 </div>
 <div class="container footer-bottom">
