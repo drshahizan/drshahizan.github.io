@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<title>Research Tools | Writing and Publication Workshop GRG 2026</title>
+<meta name="description" content="Search and explore a curated academic research toolkit by research task.">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js">
+</script>
+<script defer src="script.js">
+</script>
+<script defer src="tools-catalog.js">
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="scroll-progress" id="scrollProgress">
+</div>
+<header class="site-header" id="siteHeader">
+<div class="nav-wrap">
+<a class="brand" href="index.html">
+<span class="brand-mark">GRG</span>
+<span>
+<b>Writing and Publication Workshop GRG 2026</b>
+<small>Workshop Resources for Postgraduate Researchers</small>
+</span>
+</a>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+<i data-lucide="menu">
+</i>
+</button>
+<nav class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="programme.html">Programme</a>
+<a href="materials.html">Materials</a>
+<a class="active" aria-current="page" href="tools.html">AI Tools</a>
+<a href="ai-prompt.html">AI Prompt</a>
+<a href="resources.html">Resources</a>
+</nav>
+<div class="nav-actions">
+<a class="button button-small" href="materials.html">Get Materials</a>
+<button class="icon-button" id="themeToggle" aria-label="Switch theme">
+<i data-lucide="moon">
+</i>
+</button>
+</div>
+</div>
+</header>
+<main id="main">
+<section class="page-hero">
+<div class="container page-hero-grid">
+<div>
+<p class="eyebrow">CURATED RESEARCH TOOLKIT</p>
+<h1>Find the right research tool</h1>
+<p>Search the complete directory or browse focused collections organised around the academic research workflow.</p>
+</div>
+<div class="page-hero-visual reveal">
+<img src="assets/images/tools-malaysian-researchers.png" alt="Malaysian postgraduate researchers analysing literature networks and research data" width="1672" height="941">
+<span class="visual-label">80 TOOLS · ONE RESEARCH WORKFLOW</span>
+</div>
+</div>
+</section>
+<section class="section section-tint">
+<div class="container">
+<div class="tool-search-panel">
+<label for="toolSearch">
+<i data-lucide="search">
+</i>
+<span class="sr-only">Search research tools</span>
+<input id="toolSearch" type="search" placeholder="Search by tool, function or keyword…" autocomplete="off">
+</label>
+<p id="toolSearchCount">Start typing to search all research tools.</p>
+</div>
+<div id="toolSearchResults" class="tool-grid tool-search-results" aria-live="polite">
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">BROWSE BY PURPOSE</p>
+<h2>Five focused collections</h2>
+<p class="prose">Each tool is listed once under its primary purpose, while search covers the full directory.</p>
+</div>
+<div class="tool-hub-grid">
+<a class="tool-hub-card" href="tools-discovery.html">
+<i data-lucide="library-big">
+</i>
+<small>01</small>
+<h3>Discovery &amp; Databases</h3>
+<p>Scholarly databases, semantic search, recommendations and paper discovery.</p>
+<b class="tool-hub-count">20 tools</b>
+<span>Explore collection →</span>
+</a>
+<a class="tool-hub-card" href="tools-review.html">
+<i data-lucide="scan-search">
+</i>
+<small>02</small>
+<h3>Review &amp; Evidence Analysis</h3>
+<p>Literature review, research-gap identification, reading and evidence assessment.</p>
+<b class="tool-hub-count">10 tools</b>
+<span>Explore collection →</span>
+</a>
+<a class="tool-hub-card" href="tools-writing.html">
+<i data-lucide="notebook-pen">
+</i>
+<small>03</small>
+<h3>Writing, Citation &amp; Publishing</h3>
+<p>Academic writing, reference management, systematic review and submission support.</p>
+<b class="tool-hub-count">20 tools</b>
+<span>Explore collection →</span>
+</a>
+<a class="tool-hub-card" href="tools-visualisation.html">
+<i data-lucide="network">
+</i>
+<small>04</small>
+<h3>Paper Visualisation</h3>
+<p>Citation maps, bibliometric networks, science mapping and knowledge visualisation.</p>
+<b class="tool-hub-count">14 tools</b>
+<span>Explore collection →</span>
+</a>
+<a class="tool-hub-card" href="tools-methods.html">
+<i data-lucide="chart-no-axes-combined">
+</i>
+<small>05</small>
+<h3>Research Methods, Data &amp; Productivity</h3>
+<p>Quantitative and qualitative analysis, data collection, project management and research scheduling.</p>
+<b class="tool-hub-count">16 tools</b>
+<span>Explore collection →</span>
+</a>
+</div>
+</div>
+</section>
+<section class="section section-tint">
+<div class="container">
+<div class="alert">
+<i data-lucide="triangle-alert">
+</i>
+<p>AI is an assistant, not the researcher. Verify every claim, quotation and reference against the original source. Features, pricing and availability may change.</p>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="container footer-grid">
+<div>
+<h3>Writing and Publication Workshop GRG 2026</h3>
+<p>A learning resource portal for students and researchers.</p>
+</div>
+<div>
+<h4>Explore</h4>
+<a href="programme.html">Programme</a>
+<a href="materials.html">Materials</a>
+<a href="tools.html">AI Tools</a>
+<a href="ai-prompt.html">AI Prompt</a>
+<a href="prompt-builder.html">Prompt Builder</a>
+<a href="resources.html">Resources</a>
+</div>
+<div>
+<h4>Tools Collections</h4>
+<a href="tools-discovery.html">Discovery</a>
+<a href="tools-review.html">Review</a>
+<a href="tools-writing.html">Writing</a>
+<a href="tools-visualisation.html">Visualisation</a>
+<a href="tools-methods.html">Methods &amp; Data</a>
+</div>
+</div>
+<div class="container footer-bottom">
+<p>© 2026 AI in Publication.<br>Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi Malaysia.</p>
+<a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer">
+<img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman">
+</a>
+</div>
+</footer>
+<button class="back-top" id="backTop" aria-label="Back to top">
+<i data-lucide="arrow-up">
+</i>
+</button>
+</body>
+</html>

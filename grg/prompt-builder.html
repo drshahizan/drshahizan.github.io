@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Academic Prompt Builder | Writing and Publication Workshop GRG 2026</title>
+  <meta name="description" content="Create, refine and copy structured AI prompts for research articles, proposals and theses.">
+  <meta name="theme-color" content="#6d28d9">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js">
+</script>
+  <script defer src="script.js">
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="scroll-progress" id="scrollProgress">
+</div>
+  <header class="site-header" id="siteHeader">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">
+<span class="brand-mark">GRG</span>
+<span>
+<b>Writing and Publication Workshop GRG 2026</b>
+<small>Workshop Resources for Postgraduate Researchers</small>
+</span>
+</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+<i data-lucide="menu">
+</i>
+</button>
+      <nav class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="programme.html">Programme</a>
+<a href="materials.html">Materials</a>
+<a href="tools.html">AI Tools</a>
+<a class="active" aria-current="page" href="ai-prompt.html">AI Prompt</a>
+<a href="resources.html">Resources</a>
+</nav>
+      <div class="nav-actions">
+<a class="button button-small" href="#builder">Build a Prompt</a>
+<button class="icon-button" id="themeToggle" aria-label="Switch theme">
+<i data-lucide="moon">
+</i>
+</button>
+</div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="builder-hero">
+      <div class="container">
+        <p class="eyebrow">ACADEMIC PROMPT BUILDER</p>
+        <h1>Turn your research needs into a <span>clear, purposeful prompt.</span>
+</h1>
+        <p>Create a structured and responsible prompt for a research article, proposal or thesis. Complete the relevant fields and the builder will organise your information into a ready-to-use instruction.</p>
+      </div>
+    </section>
+
+    <section class="section builder-section" id="builder">
+      <div class="container builder-layout">
+        <form class="builder-form" id="promptBuilderForm">
+          <div class="builder-intro">
+            <div>
+<p class="eyebrow">STEP 01</p>
+<h2>Define the writing task</h2>
+</div>
+            <button class="text-button" type="button" id="builderReset">
+<i data-lucide="rotate-ccw">
+</i> Clear Form</button>
+          </div>
+
+          <div class="form-grid">
+            <label>
+<span>Document type <b>*</b>
+</span>
+<select id="documentType" required>
+<option value="">Select a document type</option>
+<option>Research article</option>
+<option>Master's thesis</option>
+<option>PhD thesis</option>
+<option>Research proposal</option>
+</select>
+</label>
+            <label>
+<span>Section <b>*</b>
+</span>
+<select id="sectionType" required>
+<option value="">Select a section</option>
+<option>Research title</option>
+<option>Abstract</option>
+<option>Introduction</option>
+<option>Problem statement</option>
+<option>Research objectives and questions</option>
+<option>Literature review</option>
+<option>Conceptual or theoretical framework</option>
+<option>Methodology</option>
+<option>Findings or results</option>
+<option>Discussion</option>
+<option>Research implications</option>
+<option>Conclusion</option>
+<option>Full manuscript review</option>
+<option>Response to reviewers</option>
+</select>
+</label>
+            <label>
+<span>AI role</span>
+<select id="aiRole">
+<option value="an expert in academic writing and research methodology">Academic writing expert</option>
+<option value="a critical and constructive research supervisor">Research supervisor</option>
+<option value="a meticulous academic journal editor">Journal editor</option>
+<option value="an experienced scholarly peer reviewer">Peer reviewer</option>
+<option value="a research methodology expert in the stated field">Research methodology expert</option>
+</select>
+</label>
+            <label>
+<span>Action required <b>*</b>
+</span>
+<select id="actionType" required>
+<option value="">Select an action</option>
+<option>Develop a new draft</option>
+<option>Review and refine the text</option>
+<option>Critically evaluate the content</option>
+<option>Restructure the content</option>
+<option>Summarise the content</option>
+<option>Strengthen the argument</option>
+<option>Compare and synthesise the evidence</option>
+<option>Recommend improvements</option>
+</select>
+</label>
+            <label class="full">
+<span>Research title or topic <b>*</b>
+</span>
+<input id="researchTopic" required placeholder="Example: Explainable AI for intrusion detection in the Internet of Medical Things">
+</label>
+            <label class="full">
+<span>Specific task <b>*</b>
+</span>
+<textarea id="specificTask" required rows="3" placeholder="Example: Refine the problem statement so that the research gap, significance of the problem and need for the study are clearly established.">
+</textarea>
+</label>
+            <label class="full">
+<span>Research context</span>
+<textarea id="researchContext" rows="4" placeholder="Describe the background, population, setting, scope, variables or problem being investigated.">
+</textarea>
+</label>
+            <label class="full">
+<span>Research objectives or questions</span>
+<textarea id="objectives" rows="3" placeholder="List the objectives or research questions that the response must address.">
+</textarea>
+</label>
+            <label>
+<span>Research design or methodology</span>
+<input id="methodology" placeholder="Example: Mixed methods, case study, SLR or experiment">
+</label>
+            <label>
+<span>Target journal or audience</span>
+<input id="audience" placeholder="Example: WoS Q2 journal; researchers in artificial intelligence">
+</label>
+            <label class="full">
+<span>Evidence or source material</span>
+<textarea id="sourceMaterial" rows="5" placeholder="Paste the relevant manuscript text, findings, condensed table data or verified source information. Do not include confidential data.">
+</textarea>
+<small>The generated instruction will tell the AI to rely on this material for specific facts and references.</small>
+</label>
+          </div>
+
+          <div class="builder-intro builder-step">
+            <div>
+<p class="eyebrow">STEP 02</p>
+<h2>Specify the required response</h2>
+</div>
+          </div>
+          <div class="form-grid">
+            <label>
+<span>Output language</span>
+<select id="outputLanguage">
+<option>Academic English</option>
+<option>Academic Malay</option>
+<option>Clear, accessible English</option>
+</select>
+</label>
+            <label>
+<span>Writing tone</span>
+<select id="tone">
+<option>Formal, critical and objective</option>
+<option>Concise, clear and precise</option>
+<option>Analytical and evidence-based</option>
+<option>Persuasive without overstating claims</option>
+</select>
+</label>
+            <label>
+<span>Output format</span>
+<select id="outputFormat">
+<option>Coherent academic paragraphs</option>
+<option>Structured response with subheadings</option>
+<option>Comparative table</option>
+<option>Recommendations with justifications</option>
+<option>Original text, revised text and explanation of changes</option>
+<option>Reviewer report organised into major and minor issues</option>
+</select>
+</label>
+            <label>
+<span>Suggested length</span>
+<select id="length">
+<option>Brief (150–250 words)</option>
+<option>Moderate (300–500 words)</option>
+<option>Detailed (600–1,000 words)</option>
+<option>As required by the content</option>
+</select>
+</label>
+            <label class="full">
+<span>Additional requirements</span>
+<textarea id="constraints" rows="3" placeholder="Example: Retain technical terminology; follow APA 7; do not alter the findings; avoid repetition; flag suggestions that require additional evidence.">
+</textarea>
+</label>
+          </div>
+
+          <div class="builder-actions">
+<button class="button" type="submit">
+<i data-lucide="wand-sparkles">
+</i> Generate Prompt</button>
+<p>Fields marked with <b>*</b> are required.</p>
+</div>
+        </form>
+
+        <aside class="builder-output" aria-live="polite">
+          <div class="output-head">
+<div>
+<p class="eyebrow">GENERATED PROMPT</p>
+<h2>Ready to use</h2>
+</div>
+<button class="copy-output" id="copyBuilderPrompt" type="button" disabled>
+<i data-lucide="copy">
+</i>
+<span>Copy Prompt</span>
+</button>
+</div>
+          <div class="prompt-preview empty" id="builderPreview">
+<div class="empty-state">
+<i data-lucide="sparkles">
+</i>
+<h3>Your prompt will appear here</h3>
+<p>Complete the required fields, then select <b>Generate Prompt</b>.</p>
+</div>
+</div>
+          <div class="builder-note">
+<i data-lucide="shield-check">
+</i>
+<p>
+<b>Human review is essential.</b> Verify all facts, interpretations and references against the original sources before using the output in an article or thesis.</p>
+</div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+<div class="container footer-grid">
+<div>
+<h3>Writing and Publication Workshop GRG 2026</h3>
+<p>A learning resource portal for students and researchers.</p>
+</div>
+<div>
+<h4>Explore</h4>
+<a href="prompts.html">AI Prompt Bank</a>
+<a href="prompt-builder.html">Prompt Builder</a>
+<a href="tools.html">AI Tools</a>
+<a href="resources.html">Resources</a>
+</div>
+<div>
+<h4>Return</h4>
+<a href="index.html">Home</a>
+</div>
+</div>
+<div class="container footer-bottom">
+<p>© 2026 AI in Publication.<br>Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi Malaysia.</p>
+<a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer">
+<img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman">
+</a>
+</div>
+</footer>
+  <button class="back-top" id="backTop" aria-label="Back to top">
+<i data-lucide="arrow-up">
+</i>
+</button>
+  <div class="copy-toast" id="builderToast" role="status" aria-live="polite">Prompt copied successfully</div>
+</body>
+</html>
