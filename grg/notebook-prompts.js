@@ -93,7 +93,7 @@
     ["novelty", "D · Build Novelty & Contribution", [
       ["research-gap", "13. Research Gap Identification", [
         ["Identify and Classify Research Gaps", "Identify evidence-based theoretical, methodological, empirical, contextual, population, dataset, evaluation, application, contradiction, and integration gaps. Cite the sources demonstrating what is known and what remains unresolved."],
-        ["Prioritize Defensible Gaps", "Rank the identified gaps by scholarly significance, strength of supporting evidence, urgency, feasibility, potential impact, and suitability for a WoS Q1 article. Explain why the highest-ranked gaps deserve attention."],
+        ["Prioritize Defensible Gaps", "Rank the identified gaps by scholarly significance, strength of supporting evidence, urgency, feasibility, potential impact, and suitability for a high-quality peer-reviewed article. Explain why the highest-ranked gaps deserve attention."],
         ["Convert Gaps into Researchable Problems", "Transform the strongest gaps into precise research problems. For each problem, specify the unresolved issue, affected context or population, evidence of insufficiency, consequences, and the type of study needed."],
         ["Distinguish Genuine and Superficial Gaps", "Evaluate whether proposed gaps represent important unresolved knowledge or merely the absence of a study in a specific location, population, dataset, or technology. Reject gaps lacking scholarly significance."],
         ["Build a Gap–Evidence–Opportunity Matrix", "Create a matrix linking each research gap to supporting sources, affected theory or practice, consequences, required evidence, suitable methodology, and potential contribution."]
@@ -101,9 +101,9 @@
       ["novelty-positioning", "14. Novelty & Research Positioning", [
         ["Establish the Scholarly Position", "Develop a structured positioning argument explaining what is established, what remains uncertain, why existing approaches are insufficient, and where a new study can make a defensible contribution."],
         ["Evaluate Potential Novelty", "Assess proposed research ideas against all notebook sources. Distinguish genuine theoretical, methodological, empirical, contextual, technological, or integrative novelty from replication, incremental extension, or unsupported novelty claims."],
-        ["Draft a Q1-Level Novelty Statement", "Draft a concise novelty and contribution statement for a WoS Q1 article. Link every claimed difference to the existing literature, define the contribution boundaries, and avoid absolute claims such as 'first' unless fully demonstrated by the sources."],
+        ["Draft a Defensible Novelty Statement", "Draft a concise novelty and contribution statement for a high-quality journal article. Link every claimed difference to the existing literature, define the contribution boundaries, and avoid absolute claims such as 'first' unless fully demonstrated by the sources."],
         ["Compare the Proposed Study with Closest Prior Work", "Identify the studies most similar to the proposed research and compare them directly by problem, theory, method, data, context, evaluation, findings, and contribution. State precisely how the proposed study differs."],
-        ["Stress-Test the Novelty Claim", "Act as a skeptical Q1 reviewer and challenge the proposed novelty claim. Identify prior studies that weaken it, unsupported assertions, incremental elements, and the evidence needed to make the positioning defensible."]
+        ["Stress-Test the Novelty Claim", "Act as a skeptical journal reviewer and challenge the proposed novelty claim. Identify prior studies that weaken it, unsupported assertions, incremental elements, and the evidence needed to make the positioning defensible."]
       ]],
       ["framework-agenda", "15. Framework & Research Agenda", [
         ["Develop an Evidence-Based Framework", "Propose a conceptual framework grounded in the synthesized literature. Define the constructs, relationships, mechanisms, contextual factors, mediators, moderators, assumptions, and source evidence supporting each element."],
@@ -150,7 +150,7 @@
     "Identify and Explain Contradictions",
     "Audit Research Designs",
     "Identify and Classify Research Gaps",
-    "Draft a Q1-Level Novelty Statement"
+    "Draft a Defensible Novelty Statement"
   ]);
 
   const bank = document.getElementById("notebookPromptBank");
