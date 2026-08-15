@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NotebookLM Prompts for Q1 Research Article Development | AI Tools for Smarter Academic Research</title>
+<meta name="description" content="Copy-ready NotebookLM prompts for analysing, comparing, critically evaluating and positioning 30 research papers.">
+<meta name="theme-color" content="#028ed5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<script defer src="notebook-prompts.js"></script>
+<script defer src="script.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="scroll-progress" id="scrollProgress"></div>
+<header class="site-header" id="siteHeader">
+<div class="nav-wrap">
+<a class="brand" href="index.html"><span class="brand-mark">AI</span><span><b>AI Tools for Smarter Academic Research</b><small>Learning Materials for Students &amp; Researchers</small></span></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
+<nav class="nav-links" id="navLinks"><a href="index.html">Home</a><a href="programme.html">Programme</a><a href="materials.html">Materials</a><a href="tools.html">AI Tools</a><a class="active" aria-current="page" href="ai-prompt.html">AI Prompt</a><a href="resources.html">Resources</a></nav>
+<div class="nav-actions"><a class="button button-small" href="#prompt-bank">Browse Prompts</a><button class="icon-button" id="themeToggle" aria-label="Switch theme"><i data-lucide="moon"></i></button></div>
+</div>
+</header>
+<main id="main">
+<section class="prompt-hero">
+<div class="container">
+<p class="eyebrow">NOTEBOOKLM PROMPT LIBRARY</p>
+<h1>NotebookLM Prompts for <span>Q1 Research Article Development</span></h1>
+<p>Use 75 focused prompts across four research stages and 15 subcategories to structure, compare, critique and position the literature for a defensible WoS Q1 article.</p>
+<p class="prompt-count" id="notebookTotal"></p>
+</div>
+</section>
+<section class="notebook-overview-section" aria-labelledby="notebook-overview-title">
+<div class="container">
+<div class="notebook-overview-heading">
+<p class="eyebrow">PROMPT FRAMEWORK</p>
+<h2 id="notebook-overview-title">Four stages for developing a critical research article</h2>
+<p>Review the complete structure of the 15 NotebookLM prompt subcategories before exploring the detailed prompt bank.</p>
+</div>
+<figure class="notebook-overview-figure">
+<img src="assets/images/notebooklm-research-article-prompts.png" alt="Infographic showing four NotebookLM prompt stages and 15 subcategories for research article development: understand and structure, compare and synthesise, critically evaluate, and build novelty and contribution" width="1672" height="941" loading="eager">
+</figure>
+</div>
+</section>
+<section class="section notebook-config-section" id="configure-chat">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">CONFIGURE ONCE BEFORE USING THE PROMPTS</p>
+<h2>Configure NotebookLM Chat</h2>
+<p class="prose">Set the role, operating rules and response format once. The 75 task prompts below can then remain concise and focused.</p>
+</div>
+<div class="notebook-config-grid">
+<article><span>01</span><i data-lucide="graduation-cap"></i><h3>Role</h3><p>Define the research expertise and scholarly perspective NotebookLM should apply.</p></article>
+<article><span>02</span><i data-lucide="shield-check"></i><h3>Rules</h3><p>Ground every response in the uploaded sources and prevent unsupported information.</p></article>
+<article><span>03</span><i data-lucide="table-properties"></i><h3>Output</h3><p>Specify how comparisons, evidence, gaps and conclusions should be presented.</p></article>
+</div>
+<div class="notebook-config-prompt">
+<div class="notebook-config-head"><div><p class="eyebrow">ROLE + RULES + OUTPUT</p><h3>Recommended Configure Chat instruction</h3></div><button class="copy-output" id="copyChatConfig" type="button"><i data-lucide="copy"></i><span>Copy Configuration</span></button></div>
+<pre id="chatConfigPrompt">ROLE
+Act as a senior academic researcher with expertise in critical literature synthesis and WoS Q1 research article development in [FIELD OR TOPIC].
+
+RULES
+• Use only information supported by the uploaded sources.
+• Do not fabricate references, facts, findings, quotations, methods, or numerical values.
+• Clearly state when information or evidence is unavailable in the sources.
+• Support every important claim with citations to the relevant uploaded sources whenever possible.
+• Distinguish clearly between direct source evidence and analytical inference.
+• Compare and synthesise studies instead of producing paper-by-paper summaries.
+• Preserve important methodological, theoretical, contextual, and evidential differences between studies.
+• Treat all generated conclusions as provisional until verified against the original sources.
+
+OUTPUT
+• Begin with a direct answer to the requested task.
+• Explain the supporting evidence and cite the relevant sources.
+• Use a table when comparing multiple studies, theories, methods, datasets, findings, or limitations.
+• Highlight similarities, differences, contradictions, research gaps, and strength of evidence.
+• Separate strongly supported conclusions, tentative interpretations, and unsupported questions.
+• End with three key takeaways and a short list of items requiring researcher verification.</pre>
+</div>
+</div>
+</section>
+<section class="section prompt-section" id="prompt-bank">
+<div class="container">
+<div class="prompt-controls">
+<label class="prompt-search"><i data-lucide="search"></i><span class="sr-only">Search NotebookLM prompts</span><input id="notebookSearch" type="search" placeholder="Search analysis tasks or keywords…" autocomplete="off"></label>
+<div class="prompt-filters" id="notebookFilters" role="group" aria-label="Filter NotebookLM prompts"></div>
+<p id="promptCount" class="prompt-count" aria-live="polite"></p>
+</div>
+<div class="alert"><i data-lucide="shield-check"></i><p><b>Research integrity:</b> Check generated interpretations against the original notebook sources. Do not treat an AI summary as a substitute for reading, evaluating and citing the source material.</p></div>
+<div class="prompt-categories" id="notebookPromptBank"></div>
+<div class="prompt-empty" id="promptEmpty" hidden><i data-lucide="search-x"></i><h2>No prompts found</h2><p>Try another keyword or clear the category filter.</p></div>
+</div>
+</section>
+</main>
+<footer>
+<div class="container footer-grid">
+<div><h3>AI Tools for Smarter Academic Research</h3><p>A learning resource portal for students and researchers.</p></div>
+<div><h4>Prompt Libraries</h4><a href="prompts.html">Academic Editing</a><a href="thesis-prompts.html">Thesis Prompts</a><a href="article-prompts.html">Article Prompts</a><a href="gemini-notebook-prompts.html">NotebookLM Prompts</a><a href="prompt-builder.html">Prompt Builder</a></div>
+<div><h4>Return</h4><a href="ai-prompt.html">AI Prompt Centre</a><a href="index.html">Home</a><a href="materials.html">Materials</a></div>
+</div>
+<div class="container footer-bottom"><p>© 2026 AI Tools for Smarter Academic Research.<br>Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi Malaysia</p><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a></div>
+</footer>
+<button class="back-top" id="backTop" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+<div class="copy-toast" id="copyToast" role="status" aria-live="polite">Prompt copied</div>
+</body>
+</html>
