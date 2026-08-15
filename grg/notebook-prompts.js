@@ -112,6 +112,36 @@
         ["Develop a Q1 Article Argument Map", "Construct an argument map connecting the research problem, established knowledge, unresolved gap, proposed framework, research questions, methodological response, expected findings, and contributions."],
         ["Design a Validation Roadmap", "Propose a sequence of studies or analyses needed to validate the framework, including exploratory, confirmatory, comparative, longitudinal, cross-context, and replication work where appropriate."]
       ]]
+    ]],
+    ["publish", "E · Publish, Respond & Resubmit", [
+      ["manuscript-development", "16. Manuscript Development", [
+        ["Build a Source-Grounded Introduction", "Using the uploaded literature and my manuscript context, draft an introduction that moves from the research problem to established knowledge, the defensible gap, study rationale, objective, and contribution. Cite the uploaded sources for every literature-dependent claim and flag missing evidence."],
+        ["Develop a Critical Literature Review", "Draft a publication-ready literature review organised by themes and arguments rather than by individual papers. Integrate agreements, contradictions, methodological differences, limitations, and the exact gap addressed by my study."],
+        ["Strengthen the Discussion with Sources", "Compare my uploaded results and discussion draft with the notebook literature. Identify findings that are supported, contradicted, or insufficiently contextualised, then propose a balanced discussion with source-grounded explanations and appropriately qualified claims."],
+        ["Align Claims Across the Manuscript", "Audit the uploaded title, abstract, introduction, results, discussion, and conclusion. Identify inconsistencies in objectives, terminology, findings, contribution claims, and cited evidence, then recommend exact corrections without inventing content."],
+        ["Create an Evidence-to-Manuscript Map", "Create a table linking each major manuscript claim to the supporting notebook sources, opposing evidence, manuscript section, confidence level, and action required. Flag claims that depend on one source or lack direct support."]
+      ]],
+      ["submission-readiness", "17. Journal Submission Readiness", [
+        ["Assess Journal–Manuscript Fit", "Using the uploaded journal aims, scope, author guidelines, recent articles, and my manuscript, assess fit by topic, audience, article type, methodology, contribution, and presentation. Identify fit strengths, mismatch risks, and revisions required before submission."],
+        ["Run a Pre-Submission Evidence Audit", "Review the manuscript against the uploaded sources and journal requirements. Check unsupported claims, citation accuracy, outdated evidence, missing landmark work, contradictions, reference–text consistency, and statements requiring author verification."],
+        ["Draft a Source-Grounded Cover Letter", "Draft a concise cover letter using the uploaded manuscript and verified journal information. State the problem, principal contribution, journal fit, originality, and relevant declarations without exaggeration or unsupported impact claims."],
+        ["Simulate an Editorial Screening", "Act as a handling editor using the uploaded journal information and manuscript. Assess scope fit, novelty, evidence, methodological credibility, clarity, reporting completeness, and likely desk-rejection risks. Provide a prioritised correction plan."],
+        ["Prepare a Submission Compliance Matrix", "Convert the uploaded author guidelines into a compliance matrix with requirement, manuscript location, status, required action, and verification note. Do not infer requirements that are not present in the uploaded documents."]
+      ]],
+      ["reviewer-response", "18. Reviewer Comments & Response", [
+        ["Classify Every Reviewer Comment", "Break the uploaded editor and reviewer letters into discrete comments. Classify each as conceptual, methodological, analytical, evidence-related, reporting, language, formatting, or clarification, then assign priority and required action."],
+        ["Build a Reviewer Response Matrix", "Create a table with reviewer, exact comment, interpretation, manuscript issue, required evidence, planned revision, revised location, and completion status. Preserve the reviewer wording and do not claim an action is complete unless verified."],
+        ["Find Evidence for Reviewer Requests", "For each reviewer comment that requires literature support, identify the most relevant uploaded sources, explain how they address the concern, and state whether the evidence supports revision, qualification, additional discussion, or respectful disagreement."],
+        ["Draft Point-by-Point Responses", "Draft a professional response to every reviewer comment using acknowledgement, action taken, evidence-based rationale, and exact manuscript location. Maintain a respectful tone, quote comments accurately, and distinguish completed changes from proposed actions."],
+        ["Prepare a Respectful Disagreement", "For comments that cannot be implemented, draft a concise response that acknowledges the concern, explains the source-grounded or methodological reason, offers a reasonable alternative, and identifies any clarifying manuscript revision made."]
+      ]],
+      ["revision-resubmission", "19. Revision & Resubmission", [
+        ["Verify Every Revision Against the Sources", "Compare the revised manuscript with the reviewer response and uploaded evidence. Check that new claims and citations are accurate, appropriately qualified, and consistent with the original findings."],
+        ["Audit Response–Manuscript Consistency", "For every response, verify that the promised change appears in the revised manuscript at the stated location. Flag missing revisions, inaccurate page references, partial responses, and changes not explained to the reviewer."],
+        ["Check for Revision-Created Problems", "Review the revised manuscript for contradictions, duplication, disrupted flow, terminology changes, citation imbalance, or unsupported claims introduced while responding to reviewers. Recommend precise repairs."],
+        ["Prepare the Final Resubmission Summary", "Draft a concise editor-facing summary of the major revisions, strengthened evidence, methodological clarifications, and unresolved points. Use only verified changes shown in the uploaded revised manuscript and response matrix."],
+        ["Run a Final Reviewer Simulation", "Act as the original reviewers and reassess whether every concern has been addressed convincingly. Return resolved, partially resolved, or unresolved for each comment, with the exact additional action needed before resubmission."]
+      ]]
     ]]
   ];
 
@@ -197,7 +227,7 @@
     const toast = document.getElementById("copyToast");
     if (toast) { toast.classList.add("visible"); setTimeout(() => toast.classList.remove("visible"), 1600); }
   });
-  total.textContent = `${promptNumber} copy-ready prompts · 15 subcategories · 4 research stages · Top 5 featured prompts`;
+  total.textContent = `${promptNumber} copy-ready prompts · 19 subcategories · 5 publishing stages · Top 5 featured prompts`;
   update();
   window.lucide?.createIcons();
 })();

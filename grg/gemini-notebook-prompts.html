@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NotebookLM Prompts for Q1 Research Article Development | Writing and Publication Workshop GRG 2026</title>
-<meta name="description" content="Copy-ready NotebookLM prompts for analysing, comparing, critically evaluating and positioning 30 research papers.">
+<title>NotebookLM Prompts for Publishing | Writing and Publication Workshop GRG 2026</title>
+<meta name="description" content="Copy-ready NotebookLM prompts for literature synthesis, manuscript development, journal submission, reviewer response and resubmission.">
 <meta name="theme-color" content="#6d28d9">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,20 +36,22 @@
 <section class="prompt-hero">
 <div class="container">
 <p class="eyebrow">NOTEBOOKLM PROMPT LIBRARY</p>
-<h1>NotebookLM Prompts for <span>Q1 Research Article Development</span></h1>
-<p>Use 75 focused prompts across four research stages and 15 subcategories to structure, compare, critique and position the literature for a defensible WoS Q1 article.</p>
+<h1>NotebookLM Prompts <span>for Publishing</span></h1>
+<p>Use 95 focused prompts across five publishing stages and 19 subcategories—from literature analysis and manuscript development to journal submission, reviewer response and resubmission.</p>
 <p class="prompt-count" id="notebookTotal"></p>
 </div>
 </section>
-<section class="notebook-overview-section" aria-labelledby="notebook-overview-title">
-<div class="container">
-<div class="notebook-overview-heading">
-<p class="eyebrow">PROMPT FRAMEWORK</p>
-<h2 id="notebook-overview-title">Four stages for developing a critical research article</h2>
-<p>Review the complete structure of the 15 NotebookLM prompt subcategories before exploring the detailed prompt bank.</p>
+<section class="prompt-story-section" aria-labelledby="notebook-overview-title">
+<div class="container prompt-story-grid prompt-story-reverse">
+<div class="prompt-story-copy">
+<p class="eyebrow">SOURCE-GROUNDED SYNTHESIS</p>
+<h2 id="notebook-overview-title">Read across the literature—<span>not one paper at a time.</span></h2>
+<p>Use NotebookLM to compare uploaded studies, test the strength of evidence, uncover contradictions and build a defensible publication argument. The expanded prompt library also supports journal submission, reviewer responses and final resubmission checks.</p>
+<div class="prompt-story-tags"><span>COMPARE</span><span>SYNTHESISE</span><span>CRITIQUE</span><span>VERIFY</span></div>
+<a class="story-link" href="#prompt-bank">Explore all 95 NotebookLM prompts <i data-lucide="arrow-right"></i></a>
 </div>
-<figure class="notebook-overview-figure">
-<img src="assets/images/notebooklm-research-article-prompts.png" alt="Infographic showing four NotebookLM prompt stages and 15 subcategories for research article development: understand and structure, compare and synthesise, critically evaluate, and build novelty and contribution" width="1672" height="941" loading="eager">
+<figure class="prompt-story-image">
+<img src="assets/images/notebooklm-publishing-malaysian-researchers.png" alt="A diverse group of Malaysian postgraduate researchers using digital notebooks, journal articles and evidence matrices to synthesise literature for publishing" width="976" height="832" loading="eager">
 </figure>
 </div>
 </section>
@@ -58,7 +60,7 @@
 <div class="section-heading">
 <p class="eyebrow">CONFIGURE ONCE BEFORE USING THE PROMPTS</p>
 <h2>Configure NotebookLM Chat</h2>
-<p class="prose">Set the role, operating rules and response format once. The 75 task prompts below can then remain concise and focused.</p>
+<p class="prose">Set the role, operating rules and response format once. The 95 task prompts below can then remain concise and focused.</p>
 </div>
 <div class="notebook-config-grid">
 <article><span>01</span><i data-lucide="graduation-cap"></i><h3>Role</h3><p>Define the research expertise and scholarly perspective NotebookLM should apply.</p></article>
@@ -68,7 +70,7 @@
 <div class="notebook-config-prompt">
 <div class="notebook-config-head"><div><p class="eyebrow">ROLE + RULES + OUTPUT</p><h3>Recommended Configure Chat instruction</h3></div><button class="copy-output" id="copyChatConfig" type="button"><i data-lucide="copy"></i><span>Copy Configuration</span></button></div>
 <pre id="chatConfigPrompt">ROLE
-Act as a senior academic researcher with expertise in critical literature synthesis and WoS Q1 research article development in [FIELD OR TOPIC].
+Act as a senior academic researcher, journal editor and peer reviewer with expertise in critical literature synthesis and scholarly publishing in [FIELD OR TOPIC].
 
 RULES
 • Use only information supported by the uploaded sources.
@@ -79,6 +81,8 @@ RULES
 • Compare and synthesise studies instead of producing paper-by-paper summaries.
 • Preserve important methodological, theoretical, contextual, and evidential differences between studies.
 • Treat all generated conclusions as provisional until verified against the original sources.
+• When reviewer letters and manuscript versions are uploaded, preserve the exact reviewer comments and distinguish requested, planned, completed, and unresolved revisions.
+• Do not claim that a manuscript change has been completed unless it is visible in the uploaded revised version.
 
 OUTPUT
 • Begin with a direct answer to the requested task.
