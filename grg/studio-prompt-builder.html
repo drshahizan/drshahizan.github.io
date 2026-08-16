@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Build a Gemini Notebook Studio Prompt | Writing &amp; Publication Workshop GRG 2026</title>
+<meta name="description" content="Build a concise source-grounded prompt for Gemini Notebook Studio outputs.">
+<meta name="theme-color" content="#6d28d9">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"><script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script><script defer src="studio-prompt-builder.js"></script><script defer src="script.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a><div class="scroll-progress" id="scrollProgress"></div>
+<header class="site-header" id="siteHeader"><div class="nav-wrap">
+<a class="brand" href="index.html"><span class="brand-mark">GRG</span><span><b>Writing &amp; Publication Workshop GRG 2026</b><small>Workshop Resources for Postgraduate Researchers</small></span></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
+<nav class="nav-links" id="navLinks"><a href="index.html">Home</a><a href="programme.html">Programme</a><a href="materials.html">Materials</a><a href="tools.html">AI Tools</a><a class="active" aria-current="page" href="ai-prompt.html">AI Prompt</a><a href="resources.html">Resources</a></nav>
+<div class="nav-actions"><a class="button button-small" href="#builder">Build a Studio Prompt</a><button class="icon-button" id="themeToggle" aria-label="Switch theme"><i data-lucide="moon"></i></button></div>
+</div></header>
+<main id="main">
+<section class="builder-hero"><div class="container"><p class="eyebrow">BUILD A GEMINI NOTEBOOK STUDIO PROMPT</p><h1>Turn verified sources into a <span>clear Studio brief.</span></h1><p>Select the output, define its purpose and specify how Gemini Notebook should organise and present the uploaded evidence.</p></div></section>
+<section class="section builder-section" id="builder"><div class="container builder-layout">
+<form class="builder-form" id="studioBuilderForm">
+<div class="builder-intro"><div><p class="eyebrow">STEP 01</p><h2>Define the output</h2></div><button class="text-button" type="button" id="studioBuilderReset"><i data-lucide="rotate-ccw"></i> Clear Form</button></div>
+<div class="form-grid">
+<label><span>Studio output <b>*</b></span><select id="studioOutput" required><option value="">Select an output</option><option>Infographic</option><option>Slide deck</option><option>Audio overview</option><option>Video overview</option><option>Mind map</option><option>Flashcards</option><option>Quiz</option><option>Report</option></select></label>
+<label><span>Target audience <b>*</b></span><select id="studioAudience" required><option value="">Select an audience</option><option>Academic researchers in [FIELD]</option><option>Journal editors and peer reviewers</option><option>Postgraduate researchers</option><option>Research supervisors and students</option><option>Conference participants</option><option>Authors revising a manuscript</option></select></label>
+<label class="full"><span>Purpose <b>*</b></span><textarea id="studioPurpose" rows="3" required placeholder="Example: Explain how the literature supports a defensible research gap and proposed contribution."></textarea></label>
+<label class="full"><span>Evidence focus <b>*</b></span><textarea id="studioEvidence" rows="3" required placeholder="Example: Areas of consensus, conflicting findings, methodological limitations and the unresolved problem."></textarea></label>
+</div>
+<div class="builder-intro builder-step"><div><p class="eyebrow">STEP 02</p><h2>Shape the output</h2></div></div>
+<div class="form-grid">
+<label class="full"><span>Required structure <b>*</b></span><textarea id="studioStructure" rows="4" required placeholder="Example: Established knowledge → Conflicting evidence → Limitations → Research gap → Proposed contribution."></textarea></label>
+<label><span>Style</span><select id="studioStyle"><option>Professional, concise and academic</option><option>Critical, analytical and evidence-based</option><option>Clear, visual and presentation-ready</option><option>Constructive and reviewer-oriented</option><option>Instructional and accessible</option></select></label>
+<label><span>Output language</span><select id="studioLanguage"><option>Academic English</option><option>Academic Malay</option><option>Clear, accessible English</option></select></label>
+<label class="full"><span>Additional constraints</span><textarea id="studioConstraints" rows="3" placeholder="Example: Use one message per slide; cite supporting sources; preserve uncertainty; do not infer missing methodology."></textarea></label>
+</div>
+<div class="builder-actions"><button class="button" type="submit"><i data-lucide="wand-sparkles"></i> Generate Studio Prompt</button><p>Fields marked with <b>*</b> are required.</p></div>
+</form>
+<aside class="builder-output" aria-live="polite"><div class="output-head"><div><p class="eyebrow">GENERATED STUDIO PROMPT</p><h2>Ready to use</h2></div><button class="copy-output" id="copyStudioBuilderPrompt" type="button" disabled><i data-lucide="copy"></i><span>Copy Prompt</span></button></div><div class="prompt-preview empty" id="studioBuilderPreview"><div class="empty-state"><i data-lucide="panels-top-left"></i><h3>Your Studio prompt will appear here</h3><p>Complete the required fields, then select <b>Generate Studio Prompt</b>.</p></div></div><div class="builder-note"><i data-lucide="shield-check"></i><p><b>Source-grounded output:</b> Verify every claim against the original source. The researcher remains accountable for the final output.</p></div></aside>
+</div></section>
+</main>
+<footer><div class="container footer-grid"><div><h3>Writing &amp; Publication Workshop GRG 2026</h3><p>A learning resource portal for students and researchers.</p></div><div><h4>Studio Resources</h4><a href="gemini-notebook-studio-prompts.html">Gemini Notebook Studio Prompts</a><a href="studio-prompt-builder.html">Build a Studio Prompt</a><a href="gemini-notebook-prompts.html">Gemini Notebook Prompts</a><a href="prompt-builder.html">Build a Publication Prompt</a></div><div><h4>Return</h4><a href="ai-prompt.html">AI Prompt Centre</a><a href="index.html">Home</a><a href="materials.html">Materials</a></div></div><div class="container footer-bottom"><p>© 2026 AI in Publication.<br>Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi Malaysia.</p><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a></div></footer>
+<button class="back-top" id="backTop" aria-label="Back to top"><i data-lucide="arrow-up"></i></button><div class="copy-toast" id="builderToast" role="status" aria-live="polite">Prompt copied</div>
+</body></html>

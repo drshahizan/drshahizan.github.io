@@ -89,7 +89,7 @@
 .notebook-config-head .copy-output{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff}
 .notebook-config-prompt pre{margin:20px 0 0;white-space:pre-wrap;color:#d8e8f0;font:400 13px/1.7 Inter,sans-serif}
 .prompt-section .alert{margin-bottom:54px}
-.prompt-section .prompt-categories{padding-top:4px}
+.prompt-section .prompt-categories{padding-top:4px}.studio-infographic img{object-fit:contain;background:#fff}
 .prompt-filters .top-five-filter{border-color:#d7a21e;color:#8a5a00}
 .prompt-filters .top-five-filter:hover,.prompt-filters .top-five-filter.active{border-color:#d7a21e;background:#d7a21e;color:#fff}
 .featured-prompt{border-color:color-mix(in srgb,#d7a21e 58%,var(--border));box-shadow:0 10px 26px rgba(215,162,30,.09)}

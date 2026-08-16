@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gemini Notebook Studio Prompts | Writing &amp; Publication Workshop GRG 2026</title>
+<meta name="description" content="Copy-ready Gemini Notebook Studio prompts for source-grounded infographics, slide decks, audio, video, mind maps, flashcards, quizzes and reports.">
+<meta name="theme-color" content="#6d28d9">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"><script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script><script defer src="studio-prompts.js"></script><script defer src="script.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a><div class="scroll-progress" id="scrollProgress"></div>
+<header class="site-header" id="siteHeader"><div class="nav-wrap">
+<a class="brand" href="index.html"><span class="brand-mark">GRG</span><span><b>Writing &amp; Publication Workshop GRG 2026</b><small>Workshop Resources for Postgraduate Researchers</small></span></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
+<nav class="nav-links" id="navLinks"><a href="index.html">Home</a><a href="programme.html">Programme</a><a href="materials.html">Materials</a><a href="tools.html">AI Tools</a><a class="active" aria-current="page" href="ai-prompt.html">AI Prompt</a><a href="resources.html">Resources</a></nav>
+<div class="nav-actions"><a class="button button-small" href="studio-prompt-builder.html">Build a Studio Prompt</a><button class="icon-button" id="themeToggle" aria-label="Switch theme"><i data-lucide="moon"></i></button></div>
+</div></header>
+<main id="main">
+<section class="prompt-hero"><div class="container"><p class="eyebrow">GEMINI NOTEBOOK STUDIO PROMPT LIBRARY</p><h1>Gemini Notebook <span>Studio Prompts</span></h1><p>Turn uploaded, verified sources into publication-ready visual, audio and review outputs with 24 practical prompts across eight Studio formats.</p><p class="prompt-count" id="studioTotal"></p></div></section>
+<section class="prompt-story-section" aria-labelledby="studio-overview-title"><div class="container prompt-story-grid prompt-story-reverse"><div class="prompt-story-copy"><p class="eyebrow">SOURCE-GROUNDED OUTPUT CREATION</p><h2 id="studio-overview-title">Transform evidence into <span>purposeful research outputs.</span></h2><p>Studio prompts differ from analytical Chat prompts. They specify the purpose, audience, evidence focus, structure, delivery style and constraints for a complete output generated from uploaded sources.</p><div class="prompt-story-tags"><span>VISUALISE</span><span>PRESENT</span><span>EXPLAIN</span><span>REVIEW</span></div><a class="story-link" href="#prompt-bank">Explore all 24 Studio prompts <i data-lucide="arrow-right"></i></a></div><figure class="prompt-story-image studio-infographic"><img src="assets/images/gemini-notebook-studio-prompts-v2.png" alt="Gemini Notebook Studio prompt outputs created from verified sources" width="976" height="832" loading="eager"></figure></div></section>
+<section class="section notebook-config-section" id="studio-formula"><div class="container"><div class="section-heading"><p class="eyebrow">DESIGN THE OUTPUT BEFORE GENERATING IT</p><h2>Studio Prompt Formula</h2><p class="prose">Use a complete production brief: <b>Output Type + Purpose + Audience + Evidence Focus + Structure + Style + Constraints.</b></p></div><div class="notebook-config-prompt"><div class="notebook-config-head"><div><p class="eyebrow">REUSABLE TEMPLATE</p><h3>Build a source-grounded Studio prompt</h3></div><button class="copy-output" id="copyStudioFormula" type="button"><i data-lucide="copy"></i><span>Copy Formula</span></button></div><pre id="studioFormulaPrompt">Create a [STUDIO OUTPUT] for [AUDIENCE] to achieve [PURPOSE].
+
+Focus on [TOPIC OR EVIDENCE].
+
+Organise the output into:
+[REQUIRED STRUCTURE].
+
+Use [STYLE, TONE OR VISUAL APPROACH].
+
+Use only the uploaded sources. Preserve uncertainty, cite supporting evidence and do not invent facts, references, quotations or numerical values.</pre></div></div></section>
+<section class="section prompt-section" id="prompt-bank"><div class="container"><div class="prompt-controls"><label class="prompt-search"><i data-lucide="search"></i><span class="sr-only">Search Studio prompts</span><input id="studioSearch" type="search" placeholder="Search Studio outputs or publication tasks…" autocomplete="off"></label><div class="prompt-filters" id="studioFilters" role="group" aria-label="Filter Studio prompts"></div><p id="promptCount" class="prompt-count" aria-live="polite"></p></div><div class="alert"><i data-lucide="shield-check"></i><p><b>Verified sources first:</b> Use only uploaded sources, verify every important claim and retain researcher accountability. Studio availability and customisation options may vary by account or plan.</p></div><div class="prompt-categories" id="studioPromptBank"></div><div class="prompt-empty" id="promptEmpty" hidden><i data-lucide="search-x"></i><h2>No prompts found</h2><p>Try another keyword or clear the output filter.</p></div></div></section>
+</main>
+<footer><div class="container footer-grid"><div><h3>Writing &amp; Publication Workshop GRG 2026</h3><p>A learning resource portal for students and researchers.</p></div><div><h4>Prompt Libraries</h4><a href="scopus-ai-prompts.html">Scopus AI Prompts</a><a href="gemini-notebook-prompts.html">Gemini Notebook Prompts</a><a href="gemini-notebook-studio-prompts.html">Gemini Notebook Studio Prompts</a><a href="studio-prompt-builder.html">Build a Studio Prompt</a><a href="ai-publication-prompts.html">Google Gemini Prompts for Publication</a><a href="prompt-builder.html">Build a Publication Prompt</a></div><div><h4>Return</h4><a href="ai-prompt.html">AI Prompt Centre</a><a href="index.html">Home</a><a href="materials.html">Materials</a></div></div><div class="container footer-bottom"><p>© 2026 AI in Publication.<br>Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi Malaysia.</p><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a></div></footer>
+<button class="back-top" id="backTop" aria-label="Back to top"><i data-lucide="arrow-up"></i></button><div class="copy-toast" id="copyToast" role="status" aria-live="polite">Prompt copied</div>
+</body></html>
