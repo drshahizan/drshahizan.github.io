@@ -68,6 +68,8 @@
 .builder-note svg{width:20px;flex:0 0 auto;color:#76d7ff}
 .builder-note p{margin:0;color:#c8dae5;font-size:11px;line-height:1.55}
 .builder-note b{color:#fff}
+.slr-upload-guide{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}.slr-upload-guide article{display:flex;align-items:flex-start;gap:12px;padding:16px;border:1px solid var(--border);border-radius:14px;background:var(--off)}.slr-upload-guide svg{width:24px;flex:0 0 auto;color:var(--blue)}.slr-upload-guide article div{display:grid;gap:4px}.slr-upload-guide b{font-size:12px}.slr-upload-guide span{color:var(--muted);font-size:11px;line-height:1.5}.slr-checks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0 0;padding:18px;border:1px solid var(--border);border-radius:16px}.slr-checks legend{padding:0 8px;color:var(--text);font:800 13px Manrope}.slr-checks label{display:flex;align-items:flex-start;gap:9px;padding:10px;border-radius:10px;background:var(--off);color:var(--muted);font-size:11px;line-height:1.45;cursor:pointer}.slr-checks input{width:16px;height:16px;margin:1px 0 0;accent-color:var(--blue);flex:0 0 auto}.slr-checks label:has(input:checked){background:var(--light);color:var(--text)}
+@media(max-width:620px){.slr-upload-guide,.slr-checks{grid-template-columns:1fr}}
 .notebook-config-section{padding-bottom:56px;background:var(--white)}
 .notebook-overview-section{padding:62px 0 70px;background:var(--off)}
 .notebook-overview-heading{max-width:820px;margin-bottom:28px}
