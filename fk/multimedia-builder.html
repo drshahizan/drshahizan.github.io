@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pembina Prompt Multimedia | UTM AI Hub</title>
+<meta name="description" content="Bina prompt tersuai untuk poster, infografik, banner media sosial atau muzik latar menggunakan Google Gemini.">
+<link rel="icon" href="assets/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pembina Prompt Multimedia | UTM AI Hub">
+<meta property="og:description" content="Bina prompt tersuai untuk poster, infografik, banner media sosial atau muzik latar menggunakan Google Gemini.">
+<meta property="og:image" content="https://drshahizan.github.io/fk/assets/poster-kursus-ai.jpeg">
+<meta property="og:url" content="https://drshahizan.github.io/fk/multimedia-builder.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="css/hub-style.css">
+<link rel="stylesheet" href="css/nav-standard.css">
+<script src="js/hub.js" defer></script><script src="js/multimedia-builder.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Langkau ke kandungan</a>
+<header class="nav-wrap">
+  <nav class="nav shell">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">UTM</span>
+      <span><b>Fakulti Komputeran</b><small>Universiti Teknologi Malaysia</small></span>
+    </a>
+<button class="menu" aria-label="Buka menu" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Utama</a>
+      <a href="ai-tools.html">AI Tools</a>
+      <a href="prompt-ai.html">Pusat Prompt AI</a>
+      <a href="prompt-builder.html">Prompt Builder</a>
+      <a href="video-ai.html">Video</a>
+      <a href="multimedia-ai.html" aria-current="page">Multimedia</a>
+      <a href="analisis-data-ai.html">Analisis Data</a>
+      <a href="panduan-ai.html">Panduan AI</a>
+      <a href="sumber-ai.html">Sumber</a>
+    </div>
+  </nav>
+</header>
+<main id="main">
+<section class="page-hero">
+<div class="wrap">
+<p class="kicker">PEMBINA PROMPT MULTIMEDIA</p>
+<h1>Bina prompt untuk poster, infografik atau muzik.</h1>
+<p>Pilih jenis bahan, jelaskan mesej dan gaya, kemudian jana prompt sedia guna untuk Google Gemini. Pembina ini tidak menghantar atau menyimpan maklumat yang anda isi.</p>
+</div>
+</section>
+<section>
+<div class="wrap builder-grid">
+<form id="mm-builder" class="card form-card">
+<label for="mm-type">Jenis bahan</label>
+<select id="mm-type">
+<option>Poster</option>
+<option>Infografik</option>
+<option>Banner Media Sosial</option>
+<option>Muzik Latar</option>
+</select>
+<label for="mm-title">Tajuk / tujuan utama</label>
+<input id="mm-title" required placeholder="Contoh: Poster Minggu Kerjaya Fakulti Komputeran">
+<label for="mm-audience">Audiens</label>
+<input id="mm-audience" placeholder="Contoh: pelajar dan staf UTM">
+<label for="mm-message">Mesej utama, teks atau mood/genre</label>
+<textarea id="mm-message" rows="4" required placeholder="Untuk poster/infografik: teks yang perlu dipaparkan. Untuk muzik: mood, genre atau konsep."></textarea>
+<label for="mm-style">Gaya visual atau nada</label>
+<select id="mm-style">
+<option>Profesional dan kemas</option>
+<option>Meriah dan warna-warni</option>
+<option>Minimalis</option>
+<option>Formal dan rasmi</option>
+<option>Ceria dan santai</option>
+</select>
+<label for="mm-color">Warna / tema</label>
+<input id="mm-color" placeholder="Untuk bahan visual sahaja. Contoh: maroon dan emas (UTM)">
+<label for="mm-size">Saiz / nisbah bidang</label>
+<select id="mm-size">
+<option>Poster A4 (mudah cetak)</option>
+<option>Landskap (banner media sosial)</option>
+<option>Segi empat (Instagram)</option>
+<option>Cerita (9:16)</option>
+<option>Tidak berkenaan (muzik)</option>
+</select>
+<label for="mm-language">Bahasa teks dalam imej</label>
+<select id="mm-language">
+<option>Bahasa Melayu</option>
+<option>English</option>
+<option>Dwibahasa Melayu–English</option>
+<option>Tidak berkenaan (muzik)</option>
+</select>
+<label for="mm-elements">Elemen wajib</label>
+<textarea id="mm-elements" rows="3" placeholder="Contoh: logo UTM, kod QR pendaftaran, tarikh dan lokasi"></textarea>
+<label for="mm-constraints">Kekangan</label>
+<textarea id="mm-constraints" rows="3" placeholder="Contoh: jangan guna wajah sebenar; elakkan logo pihak ketiga"></textarea>
+<button class="button" type="submit">Jana Prompt Multimedia</button>
+</form>
+<article class="card">
+<h2>Prompt anda</h2>
+<div id="mm-output" class="output-box" aria-live="polite">Lengkapkan maklumat di sebelah dan tekan “Jana Prompt Multimedia”.</div>
+<div class="hero-actions">
+<button id="mm-copy" class="button" type="button">Salin Prompt</button>
+<button id="mm-reset" class="button alt" type="button">Kosongkan</button>
+</div>
+<p class="notice"><strong>Ingat:</strong> semak ketepatan sebarang teks, angka atau fakta dalam hasil sebelum diedarkan, dan labelkan sebagai kandungan janaan AI untuk edaran rasmi.</p>
+</article>
+</div>
+</section>
+</main>
+<footer>
+  <div class="shell" style="display:flex; flex-direction:column; align-items:center; gap:15px; text-align:center;">
+    <p>© 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi Malaysia.</p>
+    <a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer">
+      <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman">
+    </a>
+  </div>
+</footer>
+</body>
+</html>

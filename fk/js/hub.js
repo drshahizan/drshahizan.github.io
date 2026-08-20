@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',()=>{
   const menu=document.querySelector('.menu');
-  const links=document.querySelector('.hub-links');
+  const links=document.querySelector('.hub-links, .nav-links');
   if(menu&&links){
     menu.addEventListener('click',()=>{
       const open=links.classList.toggle('open');

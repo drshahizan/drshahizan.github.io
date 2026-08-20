@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pembina Prompt Analisis Data | UTM AI Hub</title>
+<meta name="description" content="Bina prompt tersuai untuk Deep Research, Canvas, Gems atau Guided Learning bagi analisis data dan sokongan membuat keputusan menggunakan Google Gemini.">
+<link rel="icon" href="assets/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pembina Prompt Analisis Data | UTM AI Hub">
+<meta property="og:description" content="Bina prompt tersuai untuk Deep Research, Canvas, Gems atau Guided Learning bagi analisis data dan sokongan membuat keputusan menggunakan Google Gemini.">
+<meta property="og:image" content="https://drshahizan.github.io/fk/assets/poster-kursus-ai.jpeg">
+<meta property="og:url" content="https://drshahizan.github.io/fk/analisis-data-builder.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="css/hub-style.css">
+<link rel="stylesheet" href="css/nav-standard.css">
+<script src="js/hub.js" defer></script><script src="js/analisis-data-builder.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Langkau ke kandungan</a>
+<header class="nav-wrap">
+  <nav class="nav shell">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">UTM</span>
+      <span><b>Fakulti Komputeran</b><small>Universiti Teknologi Malaysia</small></span>
+    </a>
+<button class="menu" aria-label="Buka menu" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Utama</a>
+      <a href="ai-tools.html">AI Tools</a>
+      <a href="prompt-ai.html">Pusat Prompt AI</a>
+      <a href="prompt-builder.html">Prompt Builder</a>
+      <a href="video-ai.html">Video</a>
+      <a href="multimedia-ai.html">Multimedia</a>
+      <a href="analisis-data-ai.html" aria-current="page">Analisis Data</a>
+      <a href="panduan-ai.html">Panduan AI</a>
+      <a href="sumber-ai.html">Sumber</a>
+    </div>
+  </nav>
+</header>
+<main id="main">
+<section class="page-hero">
+<div class="wrap">
+<p class="kicker">PEMBINA PROMPT ANALISIS DATA</p>
+<h1>Bina prompt untuk Deep Research, Canvas, Gems atau Guided Learning.</h1>
+<p>Pilih ciri Gemini yang sesuai, jelaskan topik dan keperluan, kemudian jana prompt sedia guna. Pembina ini tidak menghantar atau menyimpan maklumat yang anda isi.</p>
+</div>
+</section>
+<section>
+<div class="wrap builder-grid">
+<form id="ad-builder" class="card form-card">
+<label for="ad-type">Ciri Gemini</label>
+<select id="ad-type">
+<option>Deep Research</option>
+<option>Canvas</option>
+<option>Gems</option>
+<option>Guided Learning</option>
+</select>
+<label for="ad-topic">Topik / tujuan utama</label>
+<input id="ad-topic" required placeholder="Contoh: trend pendaftaran pelajar tiga semester lepas">
+<label for="ad-audience">Audiens / penerima</label>
+<input id="ad-audience" placeholder="Contoh: pengurusan fakulti, jawatankuasa akademik">
+<label for="ad-details">Soalan, keperluan atau konsep utama</label>
+<textarea id="ad-details" rows="4" required placeholder="Deep Research: soalan kajian. Canvas: jadual/skrip yang perlu dibina. Gems: peranan &amp; tugas pembantu. Guided Learning: konsep yang ingin difahami."></textarea>
+<label for="ad-source">Sumber atau data yang dibenarkan</label>
+<textarea id="ad-source" rows="3" placeholder="Contoh: data pendaftaran yang dilampirkan, laporan rasmi, dokumen yang dibenarkan sahaja"></textarea>
+<label for="ad-format">Format output</label>
+<select id="ad-format">
+<option>Laporan ringkas</option>
+<option>Jadual</option>
+<option>Ringkasan dapatan utama</option>
+<option>Senarai semak</option>
+<option>Carta/visualisasi</option>
+<option>Penjelasan langkah demi langkah</option>
+</select>
+<label for="ad-language">Bahasa</label>
+<select id="ad-language">
+<option>Bahasa Melayu</option>
+<option>English</option>
+<option>Dwibahasa Melayu–English</option>
+</select>
+<label for="ad-constraints">Kekangan</label>
+<textarea id="ad-constraints" rows="3" placeholder="Contoh: jangan guna data peribadi pelajar/staf sebenar; had kepada 5 dapatan utama"></textarea>
+<button class="button" type="submit">Jana Prompt Analisis Data</button>
+</form>
+<article class="card">
+<h2>Prompt anda</h2>
+<div id="ad-output" class="output-box" aria-live="polite">Lengkapkan maklumat di sebelah dan tekan “Jana Prompt Analisis Data”.</div>
+<div class="hero-actions">
+<button id="ad-copy" class="button" type="button">Salin Prompt</button>
+<button id="ad-reset" class="button alt" type="button">Kosongkan</button>
+</div>
+<p class="notice"><strong>Ingat:</strong> AI menyediakan analisis dan cadangan sahaja. Sahkan rujukan Deep Research, lindungi data sulit dalam Canvas/Gems, dan pastikan pegawai bertanggungjawab mengesahkan sebelum keputusan rasmi dibuat.</p>
+</article>
+</div>
+</section>
+</main>
+<footer>
+  <div class="shell" style="display:flex; flex-direction:column; align-items:center; gap:15px; text-align:center;">
+    <p>© 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi Malaysia.</p>
+    <a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer">
+      <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman">
+    </a>
+  </div>
+</footer>
+</body>
+</html>

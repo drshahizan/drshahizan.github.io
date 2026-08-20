@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       const label=document.createElement('span');label.className='prompt-label';label.textContent=item.l;
       const title=document.createElement('h3');title.textContent=item.t;
       const body=document.createElement('p');body.className='prompt-text';body.textContent=item.p;
-      const button=document.createElement('button');button.className='button copy-prompt';button.type='button';button.textContent='Salin prompt';button.addEventListener('click',()=>copy(item.p));
+      const button=document.createElement('button');button.className='button copy-prompt';button.type='button';button.textContent='Salin Prompt';button.addEventListener('click',()=>copy(item.p));
       card.append(label,title,body,button);return card;
     }));
     count.textContent=`${items.length} daripada ${prompts.length} prompt dipaparkan`;
