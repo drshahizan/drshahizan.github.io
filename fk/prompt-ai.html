@@ -1,34 +1,221 @@
 <!doctype html>
 <html lang="ms">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Pusat Prompt AI | Pemerkasaan Tugasan Harian</title>
-  <meta name="description" content="Panduan membina prompt, pembina interaktif dan 35 contoh prompt AI untuk kegunaan harian umum.">
-  <meta name="theme-color" content="#7a0026"><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="css/prompt-style.css">
-  <script defer src="prompts.js"></script><script defer src="prompt-ai.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prompt AI untuk Kegunaan Harian | Kursus AI UTM</title>
+<link rel="stylesheet" href="css/hub-style.css">
+<script src="js/hub.js" defer></script>
+<script src="js/prompt-library.js" defer></script>
+<style>.prompt-card[hidden],.prompt-empty[hidden]{display:none!important}.prompt-empty{grid-column:1/-1}.filter:focus-visible,.prompt-toolbar input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}</style>
 </head>
-<body class="guide-page prompt-page">
-<a class="skip" href="#kandungan">Langkau ke kandungan</a>
-<header class="guide-nav"><a class="brand" href="index.html"><span class="crest">UTM</span><span>Tugasan <b>Lebih Pintar</b></span></a><nav aria-label="Navigasi prompt"><a href="index.html">Utama</a><a href="#asas">Asas</a><a href="#proses">Proses</a><a href="#pembina">Pembina</a><a href="#koleksi">Prompt</a><a href="#checklist">Senarai semak</a></nav><button id="promptTheme" aria-label="Tukar tema">◐</button></header>
-<main id="kandungan">
-  <section class="guide-hero prompt-hero"><div><p class="eyebrow">PUSAT PROMPT AI</p><h1>Daripada arahan yang jelas kepada hasil yang lebih berguna.</h1><p>Pelajari struktur prompt, bina arahan sendiri dan akses 35 contoh prompt untuk komunikasi, mesyuarat, laporan, program, pembentangan, data dan produktiviti.</p><div class="guide-hero-actions"><a class="btn primary" href="#pembina">Bina Prompt</a><a class="btn ghost" href="#koleksi">Teroka Prompt</a></div></div><div class="guide-principle"><span>Formula Ringkas</span><b>Peranan + Tugasan + Konteks + Format + Kekangan</b></div></section>
-  <nav class="guide-toc" aria-label="Kandungan pusat prompt"><a href="#asas">Asas Prompt</a><a href="#proses">Proses</a><a href="#teknik">Teknik</a><a href="#pembina">Pembina Prompt</a><a href="#koleksi">Perpustakaan</a></nav>
-  <section class="guide-section" id="asas"><div class="guide-section-head"><span>01</span><div><p class="eyebrow">ASAS PROMPT</p><h2>Nyatakan apa yang diperlukan, untuk siapa dan dalam bentuk apa.</h2></div></div>
-    <article class="guide-feature"><div><h3>Formula Prompt yang Berkesan</h3><p>Gunakan lima komponen ini secara tersusun. Prompt tidak semestinya panjang, tetapi konteks dan hasil yang dikehendaki mesti jelas.</p></div><div class="formula-grid"><span><b>P</b><strong>Peranan</strong><small>Siapakah AI perlu bertindak sebagai?</small></span><span><b>T</b><strong>Tugasan</strong><small>Apakah yang perlu dihasilkan?</small></span><span><b>K</b><strong>Konteks</strong><small>Siapa penerima dan apakah situasinya?</small></span><span><b>F</b><strong>Format</strong><small>Bagaimanakah jawapan perlu disusun?</small></span><span><b>X</b><strong>Kekangan</strong><small>Apakah batasan, nada atau syaratnya?</small></span></div><div class="formula-example"><b>Struktur asas</b><p>Bertindak sebagai [peranan]. Sediakan [tugasan] berdasarkan [konteks]. Gunakan [format] dan patuhi [kekangan].</p><button class="guide-copy" data-copy="Bertindak sebagai [peranan]. Sediakan [tugasan] berdasarkan [konteks]. Gunakan [format] dan patuhi [kekangan].">Salin Struktur</button></div></article>
-  </section>
-  <section class="guide-section alt" id="proses"><div class="guide-section-head"><span>02</span><div><p class="eyebrow">PROSES</p><h2>Tujuh langkah membina prompt yang boleh digunakan.</h2></div></div>
-    <ol class="prompt-process"><li><b>Kenal pasti hasil</b><span>Tentukan dokumen atau keputusan yang diperlukan.</span></li><li><b>Tetapkan peranan</b><span>Nyatakan kepakaran atau perspektif AI.</span></li><li><b>Berikan konteks</b><span>Masukkan penerima, tujuan dan maklumat penting.</span></li><li><b>Tentukan format</b><span>Pilih jadual, senarai, e-mel, laporan atau struktur lain.</span></li><li><b>Masukkan kekangan</b><span>Tetapkan bahasa, nada, panjang dan perkara yang dilarang.</span></li><li><b>Jana dan perhalusi</b><span>Berikan arahan susulan untuk membetulkan kelemahan.</span></li><li><b>Semak dan sahkan</b><span>Pastikan fakta, data dan keputusan tepat sebelum digunakan.</span></li></ol>
-  </section>
-  <section class="guide-section" id="teknik"><div class="guide-section-head"><span>03</span><div><p class="eyebrow">TEKNIK & KESALAHAN</p><h2>Perhalusi arahan secara berperingkat.</h2></div></div><div class="guide-two-col">
-    <article class="guide-card"><h3>Sebelum dan selepas</h3><div class="compare-prompt"><div><span>Sebelum</span><p>“Buat e-mel mesyuarat.”</p><small>Tiada penerima, tujuan, format atau tindakan.</small></div><div><span>Selepas</span><p>“Bertindak sebagai pembantu pentadbiran profesional. Sediakan e-mel jemputan mesyuarat kepada ahli pasukan. Sertakan tujuan, tarikh, masa, lokasi, agenda dan pengesahan kehadiran. Gunakan nada rasmi dan ringkas.”</p></div></div></article>
-    <article class="guide-card"><h3>Kesalahan lazim</h3><ul class="check-list warning"><li>Arahan terlalu umum atau tidak lengkap</li><li>Tiada konteks organisasi atau penerima</li><li>Terlalu banyak tugasan dalam satu arahan</li><li>Format jawapan tidak dinyatakan</li><li>Data sensitif dimasukkan tanpa kawalan</li><li>Jawapan digunakan tanpa semakan manusia</li></ul></article>
-  </div></section>
-  <section class="guide-section alt" id="pembina"><div class="guide-section-head"><span>04</span><div><p class="eyebrow">PEMBINA PROMPT</p><h2>Lengkapkan medan dan jana arahan anda.</h2></div></div><article class="guide-card wide prompt-builder">
-    <div class="builder-fields"><label>Peranan<input id="labRole" value="Pembantu profesional yang teliti"></label><label>Tugasan<input id="labTask" placeholder="Contoh: Sediakan e-mel jemputan"></label><label>Konteks<textarea id="labContext" placeholder="Penerima, tujuan dan maklumat penting"></textarea></label><label>Format<input id="labFormat" placeholder="Contoh: Tajuk, isi, tindakan dan penutup"></label><label>Kekangan<input id="labConstraint" placeholder="Contoh: Ringkas, profesional dan jangan mereka fakta"></label></div><button id="buildPrompt" class="btn primary">Jana Prompt</button><div id="labOutput" class="lab-output" aria-live="polite">Prompt yang dijana akan dipaparkan di sini.</div><button id="copyLab" class="guide-copy" hidden>Salin Prompt</button>
-  </article></section>
-  <section class="section prompt-library prompt-hub-library" id="koleksi"><div class="section-head"><p class="eyebrow">PERPUSTAKAAN PROMPT AI</p><h2>Prompt untuk kegunaan harian umum</h2><p>Tapis mengikut kategori atau cari tugasan yang diperlukan. Buka kad, salin prompt dan gantikan maklumat dalam kurungan siku.</p></div><div class="prompt-summary"><span><b>7</b>Kategori</span><span><b>35</b>Prompt</span><span><b>1 klik</b>Salin &amp; guna</span></div><div class="prompt-controls"><input id="promptSearch" type="search" placeholder="Cari prompt, contoh: minit, poster, laporan..." aria-label="Cari prompt"><div id="promptFilters" class="prompt-filters" aria-label="Tapis kategori prompt"></div></div><div id="promptGrid" class="prompt-grid"></div></section>
-  <section class="guide-section checklist-section" id="checklist"><div class="guide-section-head"><span>05</span><div><p class="eyebrow">SEBELUM DIGUNAKAN</p><h2>Senarai semak hasil AI</h2></div></div><div class="final-checklist"><label><input type="checkbox"> Fakta dibandingkan dengan sumber asal</label><label><input type="checkbox"> Nama, jawatan, tarikh dan nombor tepat</label><label><input type="checkbox"> Tiada data sulit atau peribadi didedahkan</label><label><input type="checkbox"> Bahasa dan nada sesuai dengan penerima</label><label><input type="checkbox"> Format mematuhi keperluan organisasi</label><label><input type="checkbox"> Hasil telah disunting dan disahkan manusia</label></div><p class="checklist-note">Gunakan hasil AI hanya selepas semakan dan kelulusan yang berkaitan.</p></section>
+<body>
+<header class="hub-nav">
+<a class="hub-brand" href="index.html">UTM <span>AI Hub</span>
+</a>
+<button class="menu" aria-label="Buka menu" aria-expanded="false">☰</button>
+<nav class="hub-links">
+<a href="index.html">Utama</a>
+<a href="ai-tools.html">AI Tools</a>
+<a href="prompt-ai.html" aria-current="page">Prompt AI</a>
+<a href="prompt-builder.html">Prompt Builder</a>
+<a href="panduan-ai.html">Panduan AI</a>
+<a href="sumber-ai.html">Sumber</a>
+</nav>
+</header>
+<main>
+<section class="page-hero">
+<div class="wrap">
+<p class="kicker">Pusat Prompt AI</p>
+<h1>Daripada arahan jelas kepada hasil yang berguna.</h1>
+<p>Prompt umum untuk komunikasi, dokumen, pembelajaran, perancangan, data dan kreativiti. Gantikan teks dalam [kurungan] sebelum digunakan.</p>
+<div class="hero-actions">
+<a class="button" href="#library">Cari prompt</a>
+<a class="button alt" href="#formula">Lihat formula</a>
+<a class="button alt" href="prompt-builder.html">Bina prompt sendiri</a>
+</div>
+</div>
+</section>
+<section id="formula" class="compact">
+<div class="wrap">
+<header class="section-title">
+<p class="kicker">Formula ringkas</p>
+<h2>Peranan + Tugasan + Konteks + Format + Kekangan</h2>
+</header>
+<div class="grid">
+<article class="card">
+<h3>Peranan</h3>
+<p>Siapakah AI perlu bertindak sebagai?</p>
+</article>
+<article class="card">
+<h3>Tugasan</h3>
+<p>Apakah yang perlu dihasilkan?</p>
+</article>
+<article class="card">
+<h3>Konteks</h3>
+<p>Siapa penerima dan apakah situasinya?</p>
+</article>
+<article class="card">
+<h3>Format</h3>
+<p>Bagaimanakah jawapan perlu disusun?</p>
+</article>
+<article class="card">
+<h3>Kekangan</h3>
+<p>Apakah batasan, nada dan panjangnya?</p>
+</article>
+</div>
+<p class="notice">Struktur: Bertindak sebagai [peranan]. Sediakan [tugasan] berdasarkan [konteks]. Gunakan [format] dan patuhi [kekangan].</p>
+</div>
+</section>
+<section id="library" class="accent">
+<div class="wrap">
+<header class="section-title">
+<p class="kicker">Perpustakaan prompt</p>
+<h2>Prompt untuk kerja dan kehidupan seharian</h2>
+<p>Gunakan maklumat rekaan atau data yang telah dinyahpengenal apabila mencuba prompt.</p>
+</header>
+<div class="prompt-toolbar">
+<input id="prompt-search" type="search" placeholder="Cari prompt…" aria-label="Cari prompt">
+<button type="button" class="filter active" data-filter="semua" aria-pressed="true">Semua</button>
+<button type="button" class="filter" data-filter="komunikasi" aria-pressed="false">Komunikasi</button>
+<button type="button" class="filter" data-filter="dokumen" aria-pressed="false">Dokumen</button>
+<button type="button" class="filter" data-filter="belajar" aria-pressed="false">Belajar</button>
+<button type="button" class="filter" data-filter="rancang" aria-pressed="false">Perancangan</button>
+<button type="button" class="filter" data-filter="data" aria-pressed="false">Data</button>
+<button type="button" class="filter" data-filter="kreatif" aria-pressed="false">Kreatif</button>
+<button type="button" class="filter" data-filter="produktiviti" aria-pressed="false">Produktiviti</button>
+<button type="button" class="filter" data-filter="rumah" aria-pressed="false">Kehidupan Harian</button>
+<button type="button" class="filter" data-filter="kewangan" aria-pressed="false">Kewangan Asas</button>
+<button type="button" class="filter" data-filter="digital" aria-pressed="false">Digital &amp; Teknologi</button>
+</div>
+<p id="prompt-count" class="notice" role="status">100 prompt tersedia</p>
+<div id="prompt-grid" class="grid two"></div>
+<p id="prompt-empty" class="notice prompt-empty" role="status" hidden>Tiada prompt sepadan. Cuba kata kunci lain atau pilih kategori “Semua”.</p>
+<script id="prompt-data" type="application/json">
+[
+{"c":"komunikasi","l":"Komunikasi","t":"E-mel profesional","p":"Bertindak sebagai penyunting komunikasi profesional. Sediakan e-mel kepada [penerima] tentang [perkara]. Sertakan tujuan, maklumat utama, tindakan dan tarikh akhir. Gunakan nada sopan dan maksimum 180 patah perkataan."},
+{"c":"komunikasi","l":"Komunikasi","t":"Mesej WhatsApp ringkas","p":"Tulis mesej WhatsApp kepada [penerima] untuk memaklumkan [perkara]. Nyatakan tindakan dan tarikh penting. Gunakan nada mesra tetapi profesional, maksimum 80 patah perkataan."},
+{"c":"komunikasi","l":"Komunikasi","t":"Balasan pertanyaan","p":"Sediakan balasan kepada pertanyaan berikut: [pertanyaan]. Jawab setiap perkara dengan jelas, nyatakan maklumat yang belum pasti dan cadangkan tindakan seterusnya. Jangan mereka fakta."},
+{"c":"komunikasi","l":"Komunikasi","t":"Jemputan acara","p":"Tulis jemputan untuk [nama acara] pada [tarikh, masa dan lokasi]. Terangkan tujuan, sasaran peserta, cara mengesahkan kehadiran dan tarikh tutup. Gunakan format yang mudah diimbas."},
+{"c":"komunikasi","l":"Komunikasi","t":"Peringatan sopan","p":"Hasilkan peringatan sopan tentang [tugasan atau bayaran] yang perlu diselesaikan pada [tarikh]. Elakkan nada mendesak dan sertakan saluran untuk mendapatkan bantuan."},
+{"c":"komunikasi","l":"Komunikasi","t":"Pengumuman perubahan","p":"Sediakan pengumuman tentang perubahan [jadual/lokasi/prosedur]. Nyatakan perkara lama, perkara baharu, sebab ringkas, tarikh berkuat kuasa dan tindakan penerima."},
+{"c":"komunikasi","l":"Komunikasi","t":"Maklum balas membina","p":"Bantu saya menyampaikan maklum balas tentang [hasil kerja] menggunakan kaedah: kekuatan, perkara yang boleh ditambah baik, contoh khusus dan cadangan tindakan. Gunakan nada menghormati."},
+{"c":"komunikasi","l":"Komunikasi","t":"Skrip panggilan telefon","p":"Sediakan skrip panggilan telefon untuk [tujuan]. Masukkan salam, pengenalan, soalan utama, pengesahan maklumat, rumusan dan penutup. Sediakan juga respons jika penerima belum bersedia."},
+{"c":"komunikasi","l":"Komunikasi","t":"Terjemahan mesra pembaca","p":"Terjemahkan teks berikut daripada [bahasa asal] kepada [bahasa sasaran]. Kekalkan maksud, nama khas dan nada. Gunakan bahasa semula jadi, kemudian tandakan istilah yang memerlukan pengesahan: [teks]."},
+{"c":"komunikasi","l":"Komunikasi","t":"Ringkasan perbualan","p":"Tukar nota perbualan berikut kepada ringkasan neutral yang mengandungi isu, persetujuan, tindakan, pemilik dan tarikh. Jangan masukkan pendapat baharu: [nota]."},
+
+{"c":"dokumen","l":"Dokumen","t":"Ringkasan dokumen","p":"Ringkaskan teks berikut kepada tujuan, isi utama, keputusan, tindakan dan perkara yang perlu disahkan. Jangan tambah fakta yang tiada. Teks: [tampal teks yang dibenarkan]."},
+{"c":"dokumen","l":"Dokumen","t":"Semakan bahasa","p":"Semak teks berikut dari segi ejaan, tatabahasa, kejelasan dan nada. Kekalkan maksud asal. Berikan versi dibaiki dan senarai perubahan penting: [teks]."},
+{"c":"dokumen","l":"Dokumen","t":"Surat rasmi","p":"Sediakan draf surat rasmi kepada [penerima] tentang [perkara]. Susun dengan rujukan perkara, tujuan, latar belakang ringkas, permohonan atau keputusan, tindakan dan penutup sopan."},
+{"c":"dokumen","l":"Dokumen","t":"Minit mesyuarat","p":"Tukar nota berikut kepada minit mesyuarat. Susun mengikut agenda, perbincangan, keputusan, tindakan, pegawai bertanggungjawab dan tarikh siap. Tandakan maklumat yang tidak lengkap: [nota]."},
+{"c":"dokumen","l":"Dokumen","t":"Laporan satu halaman","p":"Sediakan laporan satu halaman mengenai [topik] untuk [pembaca]. Masukkan latar belakang, dapatan, bukti, risiko, cadangan dan tindakan. Gunakan tajuk kecil serta bullet yang ringkas."},
+{"c":"dokumen","l":"Dokumen","t":"Prosedur kerja","p":"Tukar penerangan berikut kepada prosedur langkah demi langkah. Sertakan tujuan, prasyarat, langkah bernombor, semakan kualiti, amaran dan hasil akhir: [penerangan]."},
+{"c":"dokumen","l":"Dokumen","t":"Soalan lazim FAQ","p":"Bina 10 soalan lazim dan jawapan ringkas berdasarkan maklumat berikut. Susun daripada soalan asas kepada khusus. Jangan cipta polisi atau syarat baharu: [maklumat]."},
+{"c":"dokumen","l":"Dokumen","t":"Perbandingan dua versi","p":"Bandingkan Versi A dan Versi B. Senaraikan persamaan, perbezaan, maklumat yang hilang, percanggahan dan cadangan gabungan. Petik hanya frasa pendek yang perlu: [Versi A] [Versi B]."},
+{"c":"dokumen","l":"Dokumen","t":"Tukar nada penulisan","p":"Tulis semula teks berikut dalam nada [formal/mesra/mudah] untuk [khalayak]. Kekalkan semua fakta dan maksud. Hadkan kepada [panjang]: [teks]."},
+{"c":"dokumen","l":"Dokumen","t":"Senarai semak dokumen","p":"Bina senarai semak untuk menyemak [jenis dokumen]. Kelompokkan kepada kandungan, ketepatan, format, bahasa, aksesibiliti, privasi dan kelulusan akhir."},
+
+{"c":"belajar","l":"Pembelajaran","t":"Terangkan konsep","p":"Terangkan [konsep] kepada pemula menggunakan bahasa mudah. Berikan analogi, contoh harian, tiga salah faham lazim dan lima soalan semakan kendiri berserta jawapan."},
+{"c":"belajar","l":"Pembelajaran","t":"Pelan pembelajaran","p":"Bina pelan pembelajaran [topik] selama [tempoh] untuk tahap [tahap]. Susun objektif, aktiviti 30 minit, latihan, rehat dan kaedah menilai kemajuan."},
+{"c":"belajar","l":"Pembelajaran","t":"Kad imbas","p":"Hasilkan 15 kad imbas tentang [topik]. Gunakan format soalan di hadapan dan jawapan ringkas di belakang. Liputi definisi, contoh, perbezaan dan aplikasi."},
+{"c":"belajar","l":"Pembelajaran","t":"Kuiz kendiri","p":"Bina kuiz 10 soalan tentang [topik] pada tahap [asas/sederhana]. Campurkan aneka pilihan dan respons ringkas. Berikan jawapan serta penjelasan selepas semua soalan."},
+{"c":"belajar","l":"Pembelajaran","t":"Tutor langkah demi langkah","p":"Bimbing saya menyelesaikan [masalah] sebagai tutor. Tanya satu soalan pada satu masa, beri petunjuk sebelum jawapan, dan semak pemahaman saya pada setiap peringkat."},
+{"c":"belajar","l":"Pembelajaran","t":"Nota Cornell","p":"Tukar bahan berikut kepada nota Cornell dengan lajur kata kunci, nota utama, contoh dan rumusan. Kekalkan istilah penting dan tandakan fakta yang perlu disahkan: [bahan]."},
+{"c":"belajar","l":"Pembelajaran","t":"Bandingkan konsep","p":"Bandingkan [konsep A] dengan [konsep B] dalam jadual: definisi, tujuan, cara berfungsi, contoh, kelebihan, batasan dan bila sesuai digunakan."},
+{"c":"belajar","l":"Pembelajaran","t":"Belajar daripada kesilapan","p":"Semak jawapan saya untuk [soalan]. Jangan terus beri jawapan penuh. Kenal pasti langkah yang betul, titik kesilapan, petunjuk pembetulan dan satu soalan latihan serupa: [jawapan]."},
+{"c":"belajar","l":"Pembelajaran","t":"Peta konsep teks","p":"Bina peta konsep berbentuk hierarki untuk [topik]. Mulakan dengan idea utama, pecahkan kepada subtopik dan tunjukkan hubungan menggunakan frasa pendek."},
+{"c":"belajar","l":"Pembelajaran","t":"Persediaan pembentangan","p":"Bantu saya memahami [topik] untuk pembentangan [durasi]. Sediakan struktur, tiga mesej utama, contoh, soalan yang mungkin ditanya dan jawapan ringkas berasaskan fakta."},
+
+{"c":"rancang","l":"Perancangan","t":"Pelan tindakan","p":"Tukar matlamat [matlamat] kepada pelan tindakan. Susun tugasan mengikut keutamaan, pemilik, tempoh, sumber, risiko dan ukuran kejayaan dalam jadual."},
+{"c":"rancang","l":"Perancangan","t":"Agenda mesyuarat","p":"Sediakan agenda mesyuarat [nama] selama [tempoh]. Masukkan masa, perkara, hasil dikehendaki dan penanggungjawab. Akhiri dengan keputusan serta tindakan susulan."},
+{"c":"rancang","l":"Perancangan","t":"Jadual mingguan","p":"Bina jadual mingguan berdasarkan komitmen berikut: [senarai]. Utamakan perkara penting, sediakan masa rehat, masa penampan dan satu blok untuk tugas tertangguh."},
+{"c":"rancang","l":"Perancangan","t":"Pecahkan projek besar","p":"Pecahkan projek [nama] kepada fasa, hasil, tugasan kecil, kebergantungan, anggaran tempoh, risiko dan titik semakan. Nyatakan andaian yang digunakan."},
+{"c":"rancang","l":"Perancangan","t":"Senarai persediaan acara","p":"Bina pelan persediaan untuk [acara] pada [tarikh]. Kelompokkan tugas sebelum, semasa dan selepas acara. Sertakan pemilik, tarikh siap, peralatan dan pelan sandaran."},
+{"c":"rancang","l":"Perancangan","t":"Pelan perjalanan","p":"Cadangkan jadual perjalanan [tempoh] ke [destinasi] untuk minat [minat] dan bajet [julat]. Susun aktiviti mengikut kawasan, masa rehat dan pilihan cuaca buruk. Minta saya menyemak maklumat semasa."},
+{"c":"rancang","l":"Perancangan","t":"Matriks keutamaan","p":"Kelaskan tugasan berikut menggunakan matriks penting-mendesak. Terangkan sebab, tindakan seterusnya dan tugasan yang boleh dijadual, diwakilkan atau digugurkan: [tugasan]."},
+{"c":"rancang","l":"Perancangan","t":"Pelan 30 hari","p":"Bina pelan 30 hari untuk mencapai [hasil]. Tetapkan sasaran mingguan, tindakan harian yang realistik, ukuran kemajuan dan semakan pada hari ke-7, 14, 21 dan 30."},
+{"c":"rancang","l":"Perancangan","t":"Persediaan temu duga","p":"Bina pelan persediaan temu duga untuk peranan [jawatan]. Sediakan topik kajian, 10 soalan latihan, rangka jawapan STAR, soalan untuk penemuduga dan senarai semak hari temu duga."},
+{"c":"rancang","l":"Perancangan","t":"Pelan keputusan","p":"Bantu saya menilai pilihan [A/B/C]. Cipta kriteria berwajaran berdasarkan keutamaan [senarai], bandingkan bukti, risiko dan kebolehbalikan. Jangan buat keputusan bagi pihak saya."},
+
+{"c":"data","l":"Data","t":"Analisis awal","p":"Berdasarkan data agregat berikut, kenal pasti pola, perubahan, nilai luar biasa dan soalan lanjut. Bezakan pemerhatian daripada tafsiran. Jangan mereka nilai: [data]."},
+{"c":"data","l":"Data","t":"Pilih carta","p":"Cadangkan carta terbaik untuk menunjukkan [tujuan] menggunakan pemboleh ubah [senarai]. Terangkan paksi, label, warna, risiko salah tafsir dan satu alternatif."},
+{"c":"data","l":"Data","t":"Semak kualiti data","p":"Bina senarai semak kualiti untuk dataset [penerangan]. Liputi nilai hilang, pendua, format, julat, kategori, tarikh, outlier, privasi dan dokumentasi."},
+{"c":"data","l":"Data","t":"Formula hamparan","p":"Cadangkan formula Excel atau Google Sheets untuk [tujuan] berdasarkan lajur [senarai]. Berikan formula, contoh kecil, penerangan setiap bahagian dan cara menguji hasil."},
+{"c":"data","l":"Data","t":"Jadual ringkasan","p":"Cadangkan jadual ringkasan untuk menjawab [soalan] daripada data [lajur]. Nyatakan baris, lajur, ukuran, penapis dan susunan. Jangan andaikan nilai yang tidak diberikan."},
+{"c":"data","l":"Data","t":"Tafsir trend","p":"Tafsir trend berikut secara berhati-hati: [data]. Nyatakan arah, magnitud, turun naik, tempoh luar biasa, kemungkinan penjelasan dan data tambahan yang diperlukan. Elakkan dakwaan sebab-akibat."},
+{"c":"data","l":"Data","t":"Ramalan asas","p":"Cadangkan pendekatan ramalan asas untuk siri masa [penerangan]. Jelaskan data minimum, pembahagian latihan-ujian, metrik penilaian, andaian dan batasan. Jangan cipta angka ramalan tanpa data."},
+{"c":"data","l":"Data","t":"Soalan analitik","p":"Tukar masalah [masalah] kepada lima soalan analitik yang jelas. Untuk setiap soalan, nyatakan data diperlukan, ukuran, tempoh, tahap perincian dan keputusan yang boleh disokong."},
+{"c":"data","l":"Data","t":"Naratif berasaskan data","p":"Tulis naratif ringkas berdasarkan dapatan [dapatan]. Gunakan urutan konteks, pemerhatian, makna berhati-hati, batasan dan tindakan. Bezakan fakta, tafsiran dan cadangan."},
+{"c":"data","l":"Data","t":"Semak dakwaan angka","p":"Audit dakwaan berikut terhadap jadual data yang diberi. Tanda sebagai disokong, separa disokong atau tidak disokong dan tunjukkan pengiraan ringkas: [dakwaan] [jadual]."},
+
+{"c":"kreatif","l":"Kreatif","t":"Idea kandungan","p":"Jana 10 idea kandungan untuk [topik] bagi [khalayak]. Berikan tajuk, mesej utama, format, pembukaan dan seruan tindakan. Elakkan dakwaan yang tidak disahkan."},
+{"c":"kreatif","l":"Kreatif","t":"Storyboard video","p":"Bina storyboard video [durasi] tentang [topik]. Susun masa, visual, naratif, teks skrin dan audio. Gunakan pembukaan jelas, tiga isi dan penutup."},
+{"c":"kreatif","l":"Kreatif","t":"Nama projek","p":"Cadangkan 20 nama untuk [projek/produk/acara]. Nama mesti [ciri], mudah disebut dan sesuai untuk [khalayak]. Kelompokkan mengikut gaya dan jelaskan lima pilihan terbaik."},
+{"c":"kreatif","l":"Kreatif","t":"Tajuk menarik","p":"Hasilkan 15 tajuk untuk kandungan tentang [topik]. Sediakan versi informatif, berorientasikan manfaat dan berbentuk soalan. Elakkan gimik atau dakwaan berlebihan."},
+{"c":"kreatif","l":"Kreatif","t":"Kapsyen media sosial","p":"Tulis lima kapsyen untuk [platform] tentang [topik]. Gunakan nada [nada], panjang berbeza, seruan tindakan sesuai dan maksimum tiga hashtag yang relevan."},
+{"c":"kreatif","l":"Kreatif","t":"Konsep poster","p":"Cadangkan tiga konsep poster untuk [acara]. Bagi setiap konsep, nyatakan hierarki teks, palet warna, imej, gaya grafik, CTA dan cara memastikan teks mudah dibaca."},
+{"c":"kreatif","l":"Kreatif","t":"Skrip penerangan 60 saat","p":"Tulis skrip 60 saat untuk menerangkan [topik] kepada [khalayak]. Mulakan dengan masalah, beri satu contoh, terangkan manfaat dan akhiri dengan tindakan mudah."},
+{"c":"kreatif","l":"Kreatif","t":"Aktiviti kumpulan","p":"Cadangkan lima aktiviti kumpulan tentang [topik] untuk [bilangan] peserta selama [tempoh]. Nyatakan objektif, bahan, langkah, hasil dan kaedah refleksi."},
+{"c":"kreatif","l":"Kreatif","t":"Analogi baharu","p":"Cipta lima analogi yang mudah untuk menerangkan [konsep]. Terangkan padanan setiap bahagian serta batas analogi supaya pembaca tidak salah faham."},
+{"c":"kreatif","l":"Kreatif","t":"Variasi pembukaan","p":"Tulis 10 pembukaan berbeza untuk artikel atau pembentangan mengenai [topik]: fakta, soalan, senario, masalah, perbandingan dan cerita ringkas. Jangan mereka statistik."},
+
+{"c":"produktiviti","l":"Produktiviti","t":"Senarai tugas pintar","p":"Tukar senarai mentah berikut kepada tugas yang jelas dan boleh dilaksanakan. Tambah hasil dikehendaki, keutamaan, anggaran masa dan langkah pertama: [senarai]."},
+{"c":"produktiviti","l":"Produktiviti","t":"Rutin pagi realistik","p":"Cadangkan rutin pagi selama [tempoh] berdasarkan komitmen [senarai]. Utamakan persediaan penting dan ruang penampan. Elakkan jadual terlalu padat."},
+{"c":"produktiviti","l":"Produktiviti","t":"Fokus 25 minit","p":"Pecahkan tugas [tugas] kepada sesi fokus 25 minit. Nyatakan sasaran setiap sesi, bahan diperlukan, gangguan yang perlu dielak dan semakan selepas sesi."},
+{"c":"produktiviti","l":"Produktiviti","t":"Audit penggunaan masa","p":"Analisis log masa berikut dan kelompokkan kepada kerja bernilai tinggi, rutin, gangguan dan rehat. Cadangkan tiga pelarasan kecil tanpa mengurangkan rehat penting: [log]."},
+{"c":"produktiviti","l":"Produktiviti","t":"Mulakan tugas sukar","p":"Bantu saya memulakan [tugas] dengan mengecilkannya kepada langkah pertama yang boleh dibuat dalam lima minit, diikuti tiga langkah seterusnya dan definisi siap."},
+{"c":"produktiviti","l":"Produktiviti","t":"Templat catatan harian","p":"Bina templat catatan harian ringkas yang merangkumi tiga keutamaan, janji temu, nota, perkara selesai, perkara tertangguh dan fokus esok."},
+{"c":"produktiviti","l":"Produktiviti","t":"Sistem folder digital","p":"Cadangkan struktur folder untuk [projek/kehidupan peribadi]. Gunakan nama konsisten, maksimum tiga tahap, folder arkib dan peraturan penamaan fail bertarikh."},
+{"c":"produktiviti","l":"Produktiviti","t":"Persediaan minggu baharu","p":"Sediakan ritual perancangan mingguan 30 minit. Masukkan semakan minggu lalu, kalendar, tiga hasil utama, tugasan sokongan, risiko dan masa rehat."},
+{"c":"produktiviti","l":"Produktiviti","t":"Mesyuarat lebih singkat","p":"Semak tujuan mesyuarat [tujuan] dan cadangkan sama ada perlu diadakan. Jika ya, bina agenda keputusan selama maksimum 30 minit; jika tidak, cadangkan mesej pengganti."},
+{"c":"produktiviti","l":"Produktiviti","t":"Rumusan akhir hari","p":"Berdasarkan catatan berikut, hasilkan rumusan akhir hari: pencapaian, perkara belum selesai, halangan, orang untuk dihubungi dan tiga keutamaan esok: [catatan]."},
+
+{"c":"rumah","l":"Kehidupan Harian","t":"Menu mingguan fleksibel","p":"Cadangkan menu tujuh hari berdasarkan bahan [senarai], bilangan orang [bilangan] dan masa memasak [tempoh]. Utamakan hidangan seimbang, mudah dan penggunaan semula bahan. Nyatakan pilihan alahan."},
+{"c":"rumah","l":"Kehidupan Harian","t":"Senarai belian","p":"Bina senarai belian daripada menu [menu]. Kelompokkan mengikut bahagian kedai, anggarkan kuantiti untuk [bilangan] orang dan tandakan barang yang perlu disemak di rumah dahulu."},
+{"c":"rumah","l":"Kehidupan Harian","t":"Jadual kerja rumah","p":"Bina jadual kerja rumah mingguan untuk [bilangan] orang. Bahagikan secara adil mengikut masa dan kemampuan, sertakan tugas harian, mingguan serta sistem pertukaran."},
+{"c":"rumah","l":"Kehidupan Harian","t":"Susun ruang kecil","p":"Cadangkan cara menyusun [ruang] berdasarkan barang [senarai] dan batasan [saiz/bajet]. Utamakan keselamatan, akses mudah dan penyelesaian tanpa pembelian dahulu."},
+{"c":"rumah","l":"Kehidupan Harian","t":"Senarai semak berpindah","p":"Bina senarai semak berpindah rumah mengikut garis masa empat minggu, satu minggu, sehari sebelum dan hari berpindah. Sertakan utiliti, dokumen, pembungkusan dan pembersihan."},
+{"c":"rumah","l":"Kehidupan Harian","t":"Aktiviti hujung minggu","p":"Cadangkan 10 aktiviti hujung minggu di [kawasan] untuk [bilangan] orang dengan bajet [julat]. Sediakan pilihan dalam rumah dan luar rumah serta ingatkan saya menyemak waktu operasi semasa."},
+{"c":"rumah","l":"Kehidupan Harian","t":"Persediaan tetamu","p":"Bina pelan menerima [bilangan] tetamu selama [tempoh]. Senaraikan persediaan ruang, makanan, jadual, keperluan khas dan tugas yang boleh dibuat lebih awal."},
+{"c":"rumah","l":"Kehidupan Harian","t":"Penyelenggaraan rumah","p":"Bina kalendar penyelenggaraan asas rumah mengikut bulanan, suku tahunan dan tahunan. Fokus pada pemeriksaan selamat dan nyatakan tugas yang memerlukan profesional."},
+{"c":"rumah","l":"Kehidupan Harian","t":"Rancang sambutan sederhana","p":"Cadangkan pelan sambutan [acara] yang sederhana untuk [bilangan] orang dengan bajet [julat]. Masukkan tema, makanan, aktiviti, jadual dan senarai semak."},
+{"c":"rumah","l":"Kehidupan Harian","t":"Kurangkan pembaziran makanan","p":"Berdasarkan bahan yang hampir tamat [senarai], cadangkan cara menggunakannya dalam tiga hidangan. Utamakan keselamatan makanan dan minta saya menyemak keadaan serta tarikh sebenar."},
+
+{"c":"kewangan","l":"Kewangan Asas","t":"Bajet bulanan mudah","p":"Bina templat bajet bulanan berdasarkan pendapatan [jumlah] dan kategori perbelanjaan [senarai]. Asingkan keperluan, komitmen, simpanan dan pilihan. Jangan beri nasihat pelaburan."},
+{"c":"kewangan","l":"Kewangan Asas","t":"Jejak perbelanjaan","p":"Kelompokkan transaksi berikut kepada kategori dan jumlah. Tandakan transaksi tidak jelas untuk semakan, jangan meneka identiti peniaga: [transaksi yang telah dinyahpengenal]."},
+{"c":"kewangan","l":"Kewangan Asas","t":"Banding harga seunit","p":"Bandingkan pilihan [A/B/C] menggunakan harga, berat atau kuantiti dan kos seunit. Tunjukkan pengiraan dan nyatakan faktor bukan harga seperti kualiti atau pembaziran."},
+{"c":"kewangan","l":"Kewangan Asas","t":"Pelan simpanan matlamat","p":"Bina pelan simpanan untuk matlamat [matlamat] berjumlah [jumlah] dalam [tempoh]. Kira sasaran bulanan dan sediakan tiga senario. Nyatakan andaian dan elakkan cadangan produk kewangan."},
+{"c":"kewangan","l":"Kewangan Asas","t":"Semak bil","p":"Bantu saya menyemak bil berikut. Senaraikan caj tetap, penggunaan, cukai, perubahan daripada tempoh lalu dan perkara yang perlu ditanya kepada penyedia: [butiran tanpa data sensitif]."},
+{"c":"kewangan","l":"Kewangan Asas","t":"Senarai kos acara","p":"Bina anggaran kos untuk [acara] dengan [bilangan] orang. Kelompokkan kos wajib, pilihan dan penampan. Sediakan versi minimum, sederhana dan selesa tanpa mereka harga semasa."},
+{"c":"kewangan","l":"Kewangan Asas","t":"Banding langganan","p":"Bina jadual perbandingan langganan [A/B/C] berdasarkan harga, fungsi digunakan, had, kekerapan penggunaan dan kos tahunan. Minta saya menyemak harga semasa sebelum membuat keputusan."},
+{"c":"kewangan","l":"Kewangan Asas","t":"Rancang pembelian besar","p":"Bantu saya menilai pembelian [barang] berdasarkan keperluan, kekerapan guna, kos keseluruhan, penyelenggaraan, jaminan dan alternatif. Jangan buat keputusan bagi pihak saya."},
+{"c":"kewangan","l":"Kewangan Asas","t":"Kurangkan kos rutin","p":"Analisis kategori perbelanjaan [senarai] dan cadangkan 10 cara penjimatan kecil yang tidak menjejaskan keperluan asas. Susun mengikut usaha dan anggaran kesan."},
+{"c":"kewangan","l":"Kewangan Asas","t":"Soalan sebelum membeli","p":"Sediakan 12 soalan semakan sebelum membeli [barang/perkhidmatan], termasuk keperluan sebenar, bajet, ulasan, polisi pemulangan, jaminan, kos tersembunyi dan alternatif."},
+
+{"c":"digital","l":"Digital & Teknologi","t":"Terangkan ralat aplikasi","p":"Terangkan mesej ralat berikut dalam bahasa mudah: [ralat]. Senaraikan punca yang mungkin, langkah semakan selamat daripada paling mudah dan bila perlu mendapatkan bantuan teknikal."},
+{"c":"digital","l":"Digital & Teknologi","t":"Formula carian web","p":"Bina lima pertanyaan carian yang tepat untuk mencari [maklumat]. Gunakan kata kunci, frasa tepat, penapis laman dan tarikh apabila sesuai. Utamakan sumber rasmi."},
+{"c":"digital","l":"Digital & Teknologi","t":"Semak mesej mencurigakan","p":"Analisis mesej berikut untuk tanda penipuan tanpa membuka pautan. Semak tekanan masa, permintaan data, alamat penghantar, pautan dan tindakan selamat. Mesej: [teks tanpa maklumat sensitif]."},
+{"c":"digital","l":"Digital & Teknologi","t":"Panduan aplikasi","p":"Sediakan panduan pemula untuk menggunakan fungsi [fungsi] dalam [aplikasi]. Gunakan langkah bernombor, nama menu, hasil dijangka, kesilapan lazim dan cara membatalkan perubahan."},
+{"c":"digital","l":"Digital & Teknologi","t":"Nama fail konsisten","p":"Cadangkan konvensyen nama fail untuk [jenis kerja] yang merangkumi tarikh, projek, versi dan status. Berikan 10 contoh serta peraturan aksara yang perlu dielakkan."},
+{"c":"digital","l":"Digital & Teknologi","t":"Sandaran fail","p":"Bina pelan sandaran mudah untuk fail [jenis]. Gunakan prinsip salinan berbilang, jadual, penamaan, ujian pemulihan dan perlindungan privasi. Jangan minta kata laluan atau data sulit."},
+{"c":"digital","l":"Digital & Teknologi","t":"Prompt imej bertanggungjawab","p":"Bina prompt untuk menghasilkan ilustrasi [subjek] dalam gaya [gaya], nisbah [nisbah] dan palet [warna]. Elakkan logo, tokoh sebenar dan bahan berhak cipta; nyatakan komposisi dan pencahayaan."},
+{"c":"digital","l":"Digital & Teknologi","t":"Semak aksesibiliti digital","p":"Audit kandungan [laman/dokumen] berdasarkan tajuk, kontras, alt text, teks pautan, papan kekunci, bahasa mudah dan struktur. Berikan isu mengikut keutamaan serta pembaikan."},
+{"c":"digital","l":"Digital & Teknologi","t":"Banding alat AI","p":"Bandingkan alat AI [A/B/C] untuk tugas [tugas] berdasarkan fungsi, kemudahan, privasi, kos semasa, batasan dan keperluan semakan manusia. Tandakan perkara yang perlu disahkan di laman rasmi."},
+{"c":"digital","l":"Digital & Teknologi","t":"Semak jawapan AI","p":"Nilai jawapan AI berikut. Asingkan fakta, pendapat dan cadangan; tandakan dakwaan yang perlukan sumber; kesan percanggahan; dan bina senarai semak pengesahan sebelum digunakan: [jawapan]."}
+]
+</script>
+</div>
+</section>
 </main>
-<footer class="guide-footer"><div class="brand footer-brand"><span class="crest">UTM</span><span>Universiti Teknologi Malaysia</span></div><a href="panduan-ai.html">Panduan Penggunaan →</a><a href="sumber-ai.html">Sumber AI →</a><a href="https://drshahizan.github.io/setiausaha/prompt-ai.html" target="_blank" rel="noopener">Koleksi prompt rujukan ↗</a><a href="index.html">Halaman utama →</a><div class="guide-copyright"><span>© 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi Malaysia.</span><a href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"> <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&labelColor=%23697689&countColor=%23555555&style=plastic" alt="Bilangan pelawat laman"> </a></div></footer>
-<button id="guideTop" aria-label="Kembali ke atas">↑</button>
-</body></html>
+<div class="toast" role="status">Prompt telah disalin</div>
+<footer class="hub-footer">
+<div class="wrap">
+<span>© 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi Malaysia.</span>
+<a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer">
+<img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman">
+</a>
+<a href="index.html">Kembali ke halaman program</a>
+</div>
+</footer>
+</body>
+</html>
