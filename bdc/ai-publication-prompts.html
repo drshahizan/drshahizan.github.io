@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Google Gemini Prompts for Publication — AI for Research</title>
+  <meta name="description" content="A practical Google Gemini prompt library guiding researchers from article positioning and manuscript development to journal submission, reviewer response and resubmission.">
+  <meta name="theme-color" content="#8a1538">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script defer src="script.js"></script>
+  <script defer src="publication-prompts.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <header class="site-header" id="siteHeader">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html"><span class="brand-mark">AI</span><span><b>AI for Research</b><small>UTM Big Data Centre</small></span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#outcomes">Outcomes</a>
+        <a href="programme.html">Programme</a>
+        <a href="training-modules.html">Training Modules</a>
+        <a href="materials.html">Materials</a>
+        <a href="tools.html">AI Tools</a>
+        <a class="active" aria-current="page" href="ai-prompt.html">AI Prompt</a>
+        <a href="resources.html">Resources</a>
+        <a href="index.html#trainer">Trainer</a>
+      </nav>
+      <div class="nav-actions"><a class="button button-small" href="programme.html">View Programme</a><button class="icon-button" id="themeToggle" aria-label="Switch theme"><i data-lucide="moon"></i></button></div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="prompt-hero publication-prompt-hero">
+      <div class="container">
+        <p class="eyebrow">GOOGLE GEMINI · PUBLICATION PROMPTS</p>
+        <h1>Google Gemini Prompts <span>for Publication</span></h1>
+        <p class="publication-summary">A focused collection of Google Gemini prompts for planning, drafting, quality review, journal selection, submission and reviewer response.</p>
+        <div class="publication-stats"><span><b>6</b> phases</span><span><b>20</b> categories</span><span><b id="promptTotal">66</b> prompts</span></div>
+        <div class="button-row"><a class="button" href="#library">Browse the Library</a><a class="button button-ghost" href="prompt-builder.html">Build a Publication Prompt</a></div>
+      </div>
+    </section>
+
+    <section class="prompt-story-section" aria-labelledby="publication-story-title">
+      <div class="container prompt-story-grid">
+        <figure class="prompt-story-image">
+          <img src="assets/images/publication-workflow-malaysian-researchers.jpg" alt="A diverse group of Malaysian postgraduate researchers reviewing a manuscript, evidence and reviewer feedback before journal submission" width="976" height="832" loading="eager">
+        </figure>
+        <div class="prompt-story-copy">
+          <p class="eyebrow">PUBLICATION IN PRACTICE</p>
+          <h2 id="publication-story-title">Turn reviewer feedback into a <span>stronger paper.</span></h2>
+          <p>Move confidently from the first article idea to a carefully revised submission. The library provides focused prompts to position your contribution, strengthen every manuscript section, prepare journal files and respond to reviewers with evidence.</p>
+          <div class="prompt-story-tags"><span>POSITION</span><span>WRITE</span><span>VERIFY</span><span>RESPOND</span></div>
+          <a class="story-link" href="#library">Explore all 66 publication prompts <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="configure-section">
+      <div class="container configure-card">
+        <div class="configure-copy"><p class="eyebrow">CONFIGURE ONCE</p><h2>Set the context before using any prompt</h2><p>Complete the bracketed fields, paste this instruction first, then use any prompt from the library below.</p></div>
+        <div class="configure-prompt"><button class="copy-library-prompt" type="button" data-copy-target="configureText"><i data-lucide="copy"></i><span>Copy setup</span></button><p id="configureText">Act as a senior academic researcher, journal editor and peer reviewer in [FIELD]. I am preparing a [ARTICLE TYPE] for [TARGET JOURNAL OR JOURNAL LEVEL]. My study examines [TOPIC] using [METHOD] in [CONTEXT]. Use only the manuscript text, verified evidence and references that I provide. Do not fabricate citations, data, results or journal requirements. Clearly label assumptions, weaknesses and items requiring author verification. Preserve my intended meaning and disciplinary terminology. Provide precise, actionable recommendations aligned with ethical scholarly publishing and the target journal's requirements.</p></div>
+      </div>
+    </section>
+
+    <section class="section publication-library" id="library">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">THE COMPLETE WORKFLOW</p><h2>Find the right prompt for your next publication task</h2><p>Search by task or filter by phase. Each prompt is designed to work with the Configure Once instruction above.</p></div>
+        <div class="publication-controls">
+          <label class="publication-search"><i data-lucide="search"></i><input id="publicationPromptSearch" type="search" placeholder="Search prompts, e.g. abstract, journal fit, reviewer..." aria-label="Search publication prompts"><kbd>/</kbd></label>
+          <div class="publication-filters" id="publicationFilters" aria-label="Filter prompts by phase"></div>
+          <p class="publication-result-count" id="publicationResultCount" aria-live="polite"></p>
+        </div>
+        <div class="publication-phases" id="publicationPhases"></div>
+        <div class="prompt-empty" id="publicationEmpty" hidden><i data-lucide="search-x"></i><h2>No matching prompt</h2><p>Try another keyword or choose a different phase.</p></div>
+      </div>
+    </section>
+
+    <section class="section publication-ethics">
+      <div class="container"><div class="section-heading"><p class="eyebrow">RESPONSIBLE USE</p><h2>AI assists. The researcher remains accountable.</h2></div><div class="principles"><article><i data-lucide="badge-check"></i><h3>Verify</h3><p>Check every factual claim, interpretation, citation and journal requirement.</p></article><article><i data-lucide="quote"></i><h3>Cite</h3><p>Use authentic sources and follow the target journal's disclosure and citation policies.</p></article><article><i data-lucide="shield-check"></i><h3>Protect</h3><p>Do not upload confidential, sensitive, identifiable or unpublished data without approval.</p></article><article><i data-lucide="brain"></i><h3>Judge</h3><p>Retain scholarly ownership, disciplinary judgment and responsibility for the final manuscript.</p></article></div></div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-grid"><div><h3 style="color:#fff">AI for Research</h3><p>From Literature Discovery to Academic Writing<br>UTM Big Data Centre · Universiti Teknologi Malaysia</p></div><div><h4>Publication Prompts</h4><a href="#library">Browse Library</a><a href="prompt-builder.html">Build a Publication Prompt</a></div><div><h4>Return</h4><a href="ai-prompt.html">AI Prompt</a><a href="materials.html">Materials</a><a href="resources.html">Resources</a></div></div><div class="container footer-bottom"><p>© 2026 AI for Research · UTM Big Data Centre, Universiti Teknologi Malaysia.<br>Trainer: Prof. Madya Ts. Dr. Mohd Shahizan bin Othman.</p><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a></div></footer>
+  <div class="copy-toast" id="publicationToast" role="status">Prompt copied</div>
+  <button class="back-top" id="backTop" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+</body>
+</html>

@@ -1,0 +1,44 @@
+"use strict";
+document.addEventListener("DOMContentLoaded",()=>{
+  if(window.lucide)lucide.createIcons();
+  const root=document.documentElement,header=document.getElementById("siteHeader"),progress=document.getElementById("scrollProgress"),back=document.getElementById("backTop"),menu=document.getElementById("menuToggle"),nav=document.getElementById("navLinks"),theme=document.getElementById("themeToggle");
+
+  const saved=localStorage.getItem("air-theme");
+  if(saved)root.dataset.theme=saved;
+  const icon=()=>{if(!theme)return;theme.innerHTML=`<i data-lucide="${root.dataset.theme==="dark"?"sun":"moon"}"></i>`;if(window.lucide)lucide.createIcons()};
+  icon();
+  theme?.addEventListener("click",()=>{root.dataset.theme=root.dataset.theme==="dark"?"light":"dark";localStorage.setItem("air-theme",root.dataset.theme);icon()});
+
+  menu?.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});
+  nav?.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));
+
+  const scroll=()=>{
+    const top=scrollY,max=document.documentElement.scrollHeight-innerHeight;
+    header?.classList.toggle("compact",top>25);
+    back?.classList.toggle("visible",top>500);
+    if(progress)progress.style.width=`${max>0?top/max*100:0}%`;
+  };
+  scroll();
+  addEventListener("scroll",scroll,{passive:true});
+  back?.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
+
+  const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll(".reveal").forEach(e=>observer.observe(e));
+
+  const readingSearch=document.getElementById("readingSearch");
+  readingSearch?.addEventListener("input",()=>{
+    const term=readingSearch.value.toLowerCase().trim();
+    document.querySelectorAll("[data-title]").forEach(a=>{
+      const match=a.dataset.title.toLowerCase().includes(term);
+      a.classList.toggle("search-hidden",!match);
+      if(match&&term)a.closest("details").open=true;
+    });
+  });
+
+  const lightbox=document.getElementById("posterLightbox"),open=document.getElementById("posterOpen"),close=document.getElementById("posterClose");
+  const shut=()=>{if(lightbox){lightbox.hidden=true;document.body.style.overflow=""}};
+  open?.addEventListener("click",()=>{lightbox.hidden=false;document.body.style.overflow="hidden";close.focus()});
+  close?.addEventListener("click",shut);
+  lightbox?.addEventListener("click",e=>{if(e.target===lightbox)shut()});
+  addEventListener("keydown",e=>{if(e.key==="Escape")shut()});
+});

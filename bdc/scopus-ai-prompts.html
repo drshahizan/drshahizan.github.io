@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scopus AI Prompts for Research Discovery — AI for Research</title>
+<meta name="description" content="Copy-ready Scopus AI questions for research discovery, gap analysis, method comparison, evidence synthesis and article positioning.">
+<meta name="theme-color" content="#8a1538">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<script defer src="scopus-ai-prompts.js"></script>
+<script defer src="script.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="scroll-progress" id="scrollProgress"></div>
+<header class="site-header" id="siteHeader">
+<div class="nav-wrap">
+<a class="brand" href="index.html">
+<span class="brand-mark">AI</span>
+<span><b>AI for Research</b><small>UTM Big Data Centre</small></span>
+</a>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
+<nav class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="index.html#about">About</a>
+<a href="index.html#outcomes">Outcomes</a>
+<a href="programme.html">Programme</a>
+<a href="training-modules.html">Training Modules</a>
+<a href="materials.html">Materials</a>
+<a href="tools.html">AI Tools</a>
+<a class="active" aria-current="page" href="ai-prompt.html">AI Prompt</a>
+<a href="resources.html">Resources</a>
+<a href="index.html#trainer">Trainer</a>
+</nav>
+<div class="nav-actions"><a class="button button-small" href="programme.html">View Programme</a><button class="icon-button" id="themeToggle" aria-label="Switch theme"><i data-lucide="moon"></i></button></div>
+</div>
+</header>
+<main id="main">
+<section class="prompt-hero">
+<div class="container">
+<p class="eyebrow">SCOPUS AI · RESEARCH DISCOVERY</p>
+<h1>Scopus AI Prompts <span>for Research Discovery</span></h1>
+<p>Use 48 focused natural-language questions across 12 categories to explore literature, assess evidence, identify defensible gaps and position your article within current research.</p>
+<p class="prompt-count" id="scopusTotal"></p>
+</div>
+</section>
+<section class="prompt-story-section" aria-labelledby="scopus-overview-title">
+<div class="container prompt-story-grid prompt-story-reverse">
+<div class="prompt-story-copy">
+<p class="eyebrow">FOCUSED ACADEMIC DISCOVERY</p>
+<h2 id="scopus-overview-title">Ask a precise question—<span>discover a stronger direction.</span></h2>
+<p>Use Scopus AI to search and synthesise indexed academic abstracts, understand a research landscape and locate sources worth examining. Start with one concise question, then follow the evidence into gaps, trends, methods, theories and article positioning.</p>
+<div class="prompt-story-tags"><span>DISCOVER</span><span>COMPARE</span><span>POSITION</span><span>VERIFY</span></div>
+<a class="story-link" href="#prompt-bank">Explore all 48 Scopus AI prompts <i data-lucide="arrow-right"></i></a>
+</div>
+<figure class="prompt-story-image">
+<img src="assets/images/scopus-ai-malaysian-researchers.jpg" alt="Diverse Malaysian postgraduate researchers using academic literature discovery tools in a university library" width="976" height="832" loading="eager">
+</figure>
+</div>
+</section>
+<section class="section notebook-config-section" id="question-design">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">WRITE A BETTER SCOPUS AI QUESTION</p>
+<h2>Be specific, concise and evidence-focused</h2>
+<p class="prose">Scopus AI works best with a direct natural-language question about one research objective. Complex role instructions and Boolean search strings are unnecessary.</p>
+</div>
+<div class="notebook-config-grid">
+<article><span>01</span><i data-lucide="scan-search"></i><h3>Topic</h3><p>Name the phenomenon, technology, problem or relationship you want to investigate.</p></article>
+<article><span>02</span><i data-lucide="crosshair"></i><h3>Objective</h3><p>Specify whether you need gaps, trends, comparisons, frameworks, impacts or consensus.</p></article>
+<article><span>03</span><i data-lucide="map-pinned"></i><h3>Context</h3><p>Add a population, industry, geography, method or time boundary only when relevant.</p></article>
+</div>
+<div class="notebook-config-prompt">
+<div class="notebook-config-head"><div><p class="eyebrow">TOPIC + OBJECTIVE + CONTEXT</p><h3>Universal question pattern</h3></div><button class="copy-output" id="copyScopusPattern" type="button"><i data-lucide="copy"></i><span>Copy Pattern</span></button></div>
+<pre id="scopusPattern">What are the [RESEARCH OBJECTIVE] regarding [TOPIC] in [CONTEXT OR POPULATION] over [OPTIONAL TIME BOUNDARY]?</pre>
+<p class="prose"><b>Example:</b> What are the emerging applications of explainable artificial intelligence for medical image diagnosis over the last five years?</p>
+</div>
+</div>
+</section>
+<section class="section section-tint">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">GOLDEN RULES</p><h2>Questions that produce more useful discovery</h2></div>
+<div class="notebook-config-grid">
+<article><i data-lucide="message-circle-question"></i><h3>Ask naturally</h3><p>Write a clear English question. Avoid Boolean operators, quotation marks and long keyword strings.</p></article>
+<article><i data-lucide="focus"></i><h3>Keep one focus</h3><p>Avoid broad topics. Name the specific issue, relationship, method, context or population.</p></article>
+<article><i data-lucide="git-branch-plus"></i><h3>Go deeper</h3><p>Use suggested follow-up questions to refine the search, compare evidence and explore related concepts.</p></article>
+</div>
+</div>
+</section>
+<section class="section prompt-section" id="prompt-bank">
+<div class="container">
+<div class="prompt-controls">
+<label class="prompt-search"><i data-lucide="search"></i><span class="sr-only">Search Scopus AI prompts</span><input id="scopusSearch" type="search" placeholder="Search research objectives or keywords…" autocomplete="off"></label>
+<div class="prompt-filters" id="scopusFilters" role="group" aria-label="Filter Scopus AI prompts"></div>
+<p id="promptCount" class="prompt-count" aria-live="polite"></p>
+</div>
+<div class="alert"><i data-lucide="shield-check"></i><p><b>Verify the evidence:</b> Scopus AI supports literature discovery, not final scholarly judgement. Open the original publications and evaluate their design, sample, context, limitations and full-text findings before using or citing a claim.</p></div>
+<div class="prompt-categories" id="scopusPromptBank"></div>
+<div class="prompt-empty" id="promptEmpty" hidden><i data-lucide="search-x"></i><h2>No prompts found</h2><p>Try another keyword or clear the category filter.</p></div>
+</div>
+</section>
+</main>
+<footer>
+<div class="container footer-grid">
+<div>
+<h3 style="color:#fff">AI for Research</h3>
+<p>From Literature Discovery to Academic Writing<br>UTM Big Data Centre · Universiti Teknologi Malaysia</p>
+</div>
+<div>
+<h4>Prompt Libraries</h4>
+<a href="scopus-ai-prompts.html">Scopus AI Prompts</a>
+<a href="gemini-notebook-prompts.html">Gemini Notebook Prompts</a>
+<a href="ai-publication-prompts.html">Google Gemini Prompts for Publication</a>
+<a href="prompt-builder.html">Build a Publication Prompt</a>
+</div>
+<div>
+<h4>Return</h4>
+<a href="ai-prompt.html">AI Prompt Centre</a>
+<a href="index.html">Home</a>
+<a href="materials.html">Materials</a>
+</div>
+</div>
+<div class="container footer-bottom"><p>© 2026 AI for Research · UTM Big Data Centre, Universiti Teknologi Malaysia.<br>Trainer: Prof. Madya Ts. Dr. Mohd Shahizan bin Othman.</p><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a></div>
+</footer>
+<button class="back-top" id="backTop" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+<div class="copy-toast" id="copyToast" role="status" aria-live="polite">Prompt copied</div>
+</body>
+</html>

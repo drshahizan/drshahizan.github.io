@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 2: Idea Generation and Research Design — AI for Research</title>
+<meta name="description" content="Generate and refine research ideas, formulate research questions and develop an initial research design with AI. Includes a Research Question & Design prompt builder and a FINER quick reference.">
+<meta name="theme-color" content="#8a1538">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<script defer src="modules.js"></script>
+<script defer src="script.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="scroll-progress" id="scrollProgress"></div>
+<header class="site-header" id="siteHeader">
+<div class="nav-wrap">
+<a class="brand" href="index.html"><span class="brand-mark">AI</span><span><b>AI for Research</b><small>UTM Big Data Centre</small></span></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
+<nav class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="index.html#about">About</a>
+<a href="index.html#outcomes">Outcomes</a>
+<a href="programme.html">Programme</a>
+<a class="active" aria-current="page" href="training-modules.html">Training Modules</a>
+<a href="materials.html">Materials</a>
+<a href="tools.html">AI Tools</a>
+<a href="ai-prompt.html">AI Prompt</a>
+<a href="resources.html">Resources</a>
+<a href="index.html#trainer">Trainer</a>
+</nav>
+<div class="nav-actions"><a class="button button-small" href="programme.html">View Full Schedule</a><button class="icon-button" id="themeToggle" aria-label="Switch theme"><i data-lucide="moon"></i></button></div>
+</div>
+</header>
+<main id="main">
+<section class="page-hero">
+<div class="container">
+<p class="eyebrow">MODULE 2 · 10:30 – 11:30 AM</p>
+<h1>Idea Generation and Research Design</h1>
+<p>Generate and refine research ideas, explore potential research problems, formulate research questions and develop an initial research design with AI as a structured thinking partner.</p>
+<div class="button-row" style="margin-top:22px"><a class="button" href="programme.html">View Full Schedule <i data-lucide="arrow-right"></i></a><a class="button button-outline" href="#rq-builder">Try the Prompt Builder</a><a class="button button-outline" href="#idea-validation-tools">Check Novelty</a><a class="button button-outline" href="#gemini-notebook-exercise">Gemini Notebook Hands-On Exercise</a></div>
+</div>
+</section>
+
+<section class="section" id="rq-builder">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">HANDS-ON TOOL</p>
+<h2>Research Question &amp; Design Prompt Builder</h2>
+<p class="prose">Describe your topic and constraints. The builder assembles a ready-to-use prompt asking an AI chat tool to propose candidate research questions, assess them against the FINER criteria, and outline an initial research design.</p>
+</div>
+<div class="builder-layout">
+<form class="builder-form" id="rqBuilderForm">
+<div class="builder-intro"><div><p class="eyebrow">STEP 01</p><h2>Describe your research interest</h2></div><button class="text-button" type="button" id="rqBuilderReset"><i data-lucide="rotate-ccw"></i> Clear Form</button></div>
+<div class="form-grid">
+<label class="full"><span>Broad topic or interest area <b>*</b></span><input id="rqTopic" required placeholder="e.g., use of generative AI among postgraduate researchers"></label>
+<label><span>Field or discipline</span><input id="rqField" placeholder="e.g., Educational Technology"></label>
+<label><span>Target population or context</span><input id="rqContext" placeholder="e.g., Malaysian public university postgraduates"></label>
+<label class="full"><span>Motivation or observed problem</span><textarea id="rqMotivation" rows="3" placeholder="What gap, contradiction or practical problem prompted this interest?"></textarea></label>
+<label><span>Preferred research type</span><select id="rqType"><option>Quantitative</option><option>Qualitative</option><option>Mixed-methods</option><option>Systematic Literature Review</option><option>Not yet decided</option></select></label>
+<label><span>Known constraints</span><input id="rqConstraints" placeholder="e.g., 6-month timeline, limited access to industry data"></label>
+</div>
+<div class="builder-actions"><button class="button" type="submit"><i data-lucide="wand-sparkles"></i> Generate Prompt</button><p>Fields marked with <b>*</b> are required.</p></div>
+</form>
+<aside class="builder-output" aria-live="polite">
+<div class="output-head"><div><p class="eyebrow">GENERATED PROMPT</p><h2>Ready to use</h2></div><button class="copy-output" id="copyRqPrompt" type="button" disabled><i data-lucide="copy"></i><span>Copy Prompt</span></button></div>
+<div class="prompt-preview empty" id="rqBuilderPreview"><div class="empty-state"><i data-lucide="lightbulb"></i><h3>Your prompt will appear here</h3><p>Complete the required fields, then select <b>Generate Prompt</b>.</p></div></div>
+<div class="builder-note"><i data-lucide="shield-check"></i><p><b>Idea, not evidence:</b> Treat AI-generated questions and designs as a starting point. Verify novelty against the literature before committing to a direction.</p></div>
+</aside>
+</div>
+</div>
+</section>
+
+<section class="section section-tint">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">QUICK REFERENCE</p><h2>Check every candidate question against FINER</h2></div>
+<div class="principles">
+<article><i data-lucide="check-circle"></i><h3>Feasible</h3><p>Adequate time, funding, expertise and access to data or participants.</p></article>
+<article><i data-lucide="sparkles"></i><h3>Interesting</h3><p>Engaging to you, your supervisor and the intended research community.</p></article>
+<article><i data-lucide="gem"></i><h3>Novel</h3><p>Confirms, extends or challenges existing findings rather than repeating them.</p></article>
+<article><i data-lucide="scale"></i><h3>Ethical</h3><p>Approvable by an institutional review board or research ethics committee.</p></article>
+<article><i data-lucide="target"></i><h3>Relevant</h3><p>Matters to scientific knowledge, practice, or policy in your field.</p></article>
+</div>
+</div>
+</section>
+
+<section class="section" id="idea-validation-tools">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">RECOMMENDED TOOLS</p>
+<h2>Check whether your idea is genuinely novel</h2>
+<p class="prose">Before committing to a research question, use one of these to see what the literature already says — and whether the assumption behind your idea actually holds up.</p>
+</div>
+<div class="materials-grid">
+<article class="resource-card"><div class="resource-top"><b>01</b><i data-lucide="quote"></i></div><small>CITATION CONTEXT</small><h3>Scite</h3><p>Shows whether citations support, contrast with or merely mention a publication — useful for testing the assumption behind your idea.</p></article>
+<article class="resource-card"><div class="resource-top"><b>02</b><i data-lucide="git-branch"></i></div><small>RESEARCH LANDSCAPE</small><h3>ResearchRabbit</h3><p>Maps related papers, authors and citation connections for iterative exploration of your idea's landscape.</p></article>
+<article class="resource-card"><div class="resource-top"><b>03</b><i data-lucide="map"></i></div><small>LITERATURE MAPPING</small><h3>Litmaps</h3><p>Creates citation maps and monitors new publications — a fast way to check whether your idea is already being explored.</p></article>
+<article class="resource-card"><div class="resource-top"><b>04</b><i data-lucide="sparkles"></i></div><small>EVIDENCE SEARCH</small><h3>Consensus</h3><p>Synthesises findings across papers and links every answer back to its source — a quick reality check for a candidate idea.</p></article>
+</div>
+</div>
+</section>
+
+<section class="section section-tint" id="gemini-notebook-exercise">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">IDEA VALIDATION</p>
+<h2>Pressure-test your idea with Gemini Notebook</h2>
+<p class="prose">Gemini Notebook builds answers only from documents you upload. Upload the handful of papers behind your idea, then ask it to compare them — a fast way to surface contradictions, gaps and unanswered questions before you commit to a research question.</p>
+</div>
+<div class="notebook-config-grid">
+<article><span>01</span><i data-lucide="upload"></i><h3>Upload</h3><p>Upload 3–5 key papers on your topic — your own shortlist, or highly-cited papers found with Scopus AI or Publish or Perish in Module 1.</p></article>
+<article><span>02</span><i data-lucide="message-circle-question"></i><h3>Ask</h3><p>Ask Gemini Notebook to compare the papers and surface consensus, contradictions and unanswered questions.</p></article>
+<article><span>03</span><i data-lucide="pencil-ruler"></i><h3>Refine</h3><p>Use what surfaces to sharpen your candidate research question and confirm it addresses a genuine gap.</p></article>
+</div>
+<div class="notebook-config-prompt">
+<div class="notebook-config-head"><div><p class="eyebrow">GAP-FINDING PROMPT</p><h3>Compare your uploaded sources</h3></div><button class="copy-output" id="copyGeminiNotebookM2" type="button"><i data-lucide="copy"></i><span>Copy Prompt</span></button></div>
+<pre id="geminiNotebookPatternM2">Compare the uploaded sources on [TOPIC]. Identify: (1) areas of consensus, (2) contradictions or unresolved debates, (3) one specific gap that has not yet been addressed. Use only the uploaded sources, and flag anything uncertain or not supported.</pre>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">DURING THIS SESSION</p><h2>Try it with your own shortlist</h2></div>
+<ul class="check-list">
+<li>Upload 3–5 papers into a new Gemini Notebook — your own shortlist, or results from Module 1's Scopus AI or Publish or Perish exercise.</li>
+<li>Paste the gap-finding prompt above and review what Gemini Notebook surfaces.</li>
+<li>Note one contradiction or gap you did not expect, and consider whether it sharpens your candidate research question.</li>
+</ul>
+<div class="alert">
+<i data-lucide="shield-alert"></i>
+<p><b>Verify before you rely on it:</b> Gemini Notebook only reasons over what you upload — it cannot tell you what the wider literature says. Cross-check any claimed gap against a proper search (see Module 1) before treating it as genuinely novel. See <a href="gemini-notebook-prompts.html">Gemini Notebook Prompts</a> for more prompt patterns.</p>
+</div>
+</div>
+</section>
+
+<section class="section section-tint">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">RELATED TOOLS &amp; PROMPTS</p><h2>Validate your idea before committing</h2></div>
+<div class="tool-grid">
+<a class="tool-card" href="scopus-ai-prompts.html"><i data-lucide="scan-search"></i><small>CHECK NOVELTY</small><h3>Scopus AI Prompts for Research Discovery</h3><p>Explore existing trends and gaps to see whether your idea is genuinely novel.</p><span>Explore Scopus AI Prompts →</span></a>
+<a class="tool-card" href="gemini-notebook-prompts.html"><i data-lucide="notebook-text"></i><small>SOURCE-GROUNDED Q&amp;A</small><h3>Gemini Notebook Prompts</h3><p>More prompt patterns for synthesising and cross-checking your uploaded sources.</p><span>Explore Gemini Notebook Prompts →</span></a>
+<a class="tool-card" href="tools-discovery.html"><i data-lucide="library"></i><small>DISCOVERY &amp; DATABASES</small><h3>AI Tools for Discovery</h3><p>Search academic databases to confirm what has already been studied.</p><span>Explore Discovery Tools →</span></a>
+</div>
+</div>
+</section>
+
+<section class="section final-cta">
+<div class="container">
+<p class="eyebrow">5 MODULES · 1 DAY</p>
+<h2>See how Module 2 fits into the full programme.</h2>
+<p>Review timings for every module, breaks and the closing wrap-up.</p>
+<a class="button" href="programme.html">View Full Schedule</a>
+</div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h3 style="color:#fff">AI for Research</h3>
+      <p>From Literature Discovery to Academic Writing<br>UTM Big Data Centre · Universiti Teknologi Malaysia</p>
+    </div>
+    <div>
+      <h4>Training</h4>
+      <a href="index.html#about">Course Overview</a>
+      <a href="index.html#outcomes">Learning Outcomes</a>
+      <a href="programme.html">Programme</a>
+      <a href="index.html#trainer">Trainer</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="materials.html">Materials</a>
+      <a href="tools.html">AI Tools</a>
+      <a href="ai-prompt.html">AI Prompt</a>
+      <a href="resources.html">Resources</a>
+    </div>
+    <div>
+      <h4>Event</h4>
+      <span>24 August 2026</span>
+      <span>9.00 AM – 5.00 PM</span>
+      <span>Dewan Banquet, Aras 2, Blok N31, UTM Johor Bahru</span>
+      <span>+607-533 3354</span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 AI for Research · UTM Big Data Centre, Universiti Teknologi Malaysia.<br>Trainer: Prof. Madya Ts. Dr. Mohd Shahizan bin Othman.</p>
+    <a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer">
+      <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman">
+    </a>
+  </div>
+</footer>
+<button class="back-top" id="backTop" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+<div class="copy-toast" id="builderToast" role="status" aria-live="polite">Copied</div>
+</body>
+</html>

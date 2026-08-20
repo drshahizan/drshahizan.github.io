@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 1: Literature Discovery and Understanding — AI for Research</title>
+<meta name="description" content="Discover relevant scholarly literature, explore peer-reviewed research and understand key information from academic papers with AI. Includes a Boolean search string builder.">
+<meta name="theme-color" content="#8a1538">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<script defer src="modules.js"></script>
+<script defer src="script.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="scroll-progress" id="scrollProgress"></div>
+<header class="site-header" id="siteHeader">
+<div class="nav-wrap">
+<a class="brand" href="index.html"><span class="brand-mark">AI</span><span><b>AI for Research</b><small>UTM Big Data Centre</small></span></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
+<nav class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="index.html#about">About</a>
+<a href="index.html#outcomes">Outcomes</a>
+<a href="programme.html">Programme</a>
+<a class="active" aria-current="page" href="training-modules.html">Training Modules</a>
+<a href="materials.html">Materials</a>
+<a href="tools.html">AI Tools</a>
+<a href="ai-prompt.html">AI Prompt</a>
+<a href="resources.html">Resources</a>
+<a href="index.html#trainer">Trainer</a>
+</nav>
+<div class="nav-actions"><a class="button button-small" href="programme.html">View Full Schedule</a><button class="icon-button" id="themeToggle" aria-label="Switch theme"><i data-lucide="moon"></i></button></div>
+</div>
+</header>
+<main id="main">
+<section class="page-hero">
+<div class="container">
+<p class="eyebrow">MODULE 1 · 9:00 – 10:15 AM</p>
+<h1>Literature Discovery and Understanding</h1>
+<p>Discover relevant scholarly literature, explore peer-reviewed research and understand key information from academic papers using AI-assisted search, synthesis and verification.</p>
+<div class="button-row" style="margin-top:22px"><a class="button" href="programme.html">View Full Schedule <i data-lucide="arrow-right"></i></a><a class="button button-outline" href="#search-builder">Try the Search String Builder</a><a class="button button-outline" href="#databases">Databases &amp; AI Discovery Tools</a><a class="button button-outline" href="#publish-or-perish">Publish or Perish</a><a class="button button-outline" href="#scopus-ai-exercise">Scopus AI Hands-On Exercise</a></div>
+</div>
+</section>
+
+<section class="section" id="search-builder">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">HANDS-ON TOOL</p>
+<h2>Boolean Search String Builder</h2>
+<p class="prose">Group your keywords into up to three concepts. The builder combines synonyms with <b>OR</b> and connects each concept with <b>AND</b>, producing a search string ready to paste into Scopus, Web of Science or Google Scholar's advanced search.</p>
+</div>
+<div class="builder-layout">
+<form class="builder-form" id="searchStringForm">
+<div class="builder-intro"><div><p class="eyebrow">STEP 01</p><h2>Enter your concepts</h2></div><button class="text-button" type="button" id="searchStringReset"><i data-lucide="rotate-ccw"></i> Clear Form</button></div>
+<div class="form-grid">
+<label class="full"><span>Concept 1 — main topic <b>*</b></span><input id="concept1" required placeholder="e.g., student engagement, learner engagement"><small>Separate synonyms with commas.</small></label>
+<label class="full"><span>Concept 2</span><input id="concept2" placeholder="e.g., online learning, e-learning, distance education"><small>Separate synonyms with commas.</small></label>
+<label class="full"><span>Concept 3 (optional)</span><input id="concept3" placeholder="e.g., higher education, university students"><small>Separate synonyms with commas.</small></label>
+<label><span>Search scope</span><select id="fieldScope"><option value="Title and Abstract">Title and Abstract</option><option value="Title only">Title only</option><option value="All fields">All fields</option></select></label>
+</div>
+<div class="builder-actions"><button class="button" type="submit"><i data-lucide="wand-sparkles"></i> Generate Search String</button><p>Fields marked with <b>*</b> are required.</p></div>
+</form>
+<aside class="builder-output" aria-live="polite">
+<div class="output-head"><div><p class="eyebrow">GENERATED SEARCH STRING</p><h2>Ready to paste</h2></div><button class="copy-output" id="copySearchString" type="button" disabled><i data-lucide="copy"></i><span>Copy</span></button></div>
+<div class="prompt-preview empty" id="searchStringPreview"><div class="empty-state"><i data-lucide="scan-search"></i><h3>Your search string will appear here</h3><p>Enter at least one concept, then select <b>Generate Search String</b>.</p></div></div>
+<div class="builder-note"><i data-lucide="shield-check"></i><p><b>Database-specific syntax:</b> Field tags differ by database (e.g., TITLE-ABS-KEY in Scopus, TS= in Web of Science). Adjust the pasted string to match the platform you are searching.</p></div>
+</aside>
+</div>
+</div>
+</section>
+
+<section class="section section-tint" id="databases">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">WHERE TO SEARCH</p>
+<h2>Start with core scholarly databases</h2>
+<p class="prose">Before turning to AI-powered discovery, run the search string you built above through the major multidisciplinary databases below. Adjust the field tags to match each platform's syntax.</p>
+</div>
+<div class="materials-grid">
+<article class="resource-card"><div class="resource-top"><b>01</b><i data-lucide="database"></i></div><small>MULTIDISCIPLINARY</small><h3>Scopus</h3><p>Comprehensive abstract and citation database covering peer-reviewed journals, books and conference proceedings.</p></article>
+<article class="resource-card"><div class="resource-top"><b>02</b><i data-lucide="database"></i></div><small>MULTIDISCIPLINARY</small><h3>Web of Science</h3><p>Clarivate citation index and discovery platform for scholarly literature, proceedings, books and datasets.</p></article>
+<article class="resource-card"><div class="resource-top"><b>03</b><i data-lucide="database"></i></div><small>FREE &amp; MULTIDISCIPLINARY</small><h3>Google Scholar</h3><p>Free academic search engine covering papers, theses, books, abstracts and other scholarly materials.</p></article>
+</div>
+<p class="prose" style="margin-top:18px"><b>Searching a specific field?</b> UTM Library also provides subject-specific databases — ACM Digital Library and IEEE Xplore for computing and engineering, ScienceDirect and SpringerLink for multidisciplinary full text, PubMed for biomedical sciences, and Emerald Insight for business and management. See the full list under <a href="tools-discovery.html" style="color:var(--blue);font-weight:700">AI Tools for Discovery →</a></p>
+</div>
+</section>
+
+<section class="section" id="ai-discovery-tools">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">BEYOND KEYWORD SEARCH</p>
+<h2>AI-powered discovery tools</h2>
+<p class="prose">These tools go beyond Boolean search — semantic matching, citation-graph exploration and AI screening can surface relevant papers a keyword search alone would miss. Try one alongside Scopus AI later in this module.</p>
+</div>
+<div class="materials-grid">
+<article class="resource-card"><div class="resource-top"><b>01</b><i data-lucide="sparkles"></i></div><small>AI PAPER DISCOVERY</small><h3>Zeta Alpha</h3><p>Neural and semantic search platform for discovering and organising technical and scientific knowledge.</p></article>
+<article class="resource-card"><div class="resource-top"><b>02</b><i data-lucide="share-2"></i></div><small>AI SCHOLARLY SEARCH</small><h3>Semantic Scholar</h3><p>Free AI-powered search for discovering papers and following connections across scientific literature.</p></article>
+<article class="resource-card"><div class="resource-top"><b>03</b><i data-lucide="git-fork"></i></div><small>CITATION DISCOVERY</small><h3>Connected Papers</h3><p>Builds a graph of papers related to a seed publication to reveal prior and derivative work.</p></article>
+<article class="resource-card"><div class="resource-top"><b>04</b><i data-lucide="list-checks"></i></div><small>AI LITERATURE SEARCH</small><h3>Elicit</h3><p>Finds papers, supports study screening and extracts information into structured review tables.</p></article>
+</div>
+</div>
+</section>
+
+<section class="section section-tint" id="publish-or-perish">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">RECOMMENDED TOOL</p>
+<h2>Rank papers by citation impact with Publish or Perish</h2>
+<p class="prose">Publish or Perish is a free desktop application that retrieves citations from Google Scholar, Scopus, Crossref and other sources, then calculates bibliometric indicators such as total citations, h-index and citations per year — helping you spot the most influential papers and authors before you commit to reading them.</p>
+</div>
+<div class="notebook-config-grid">
+<article><span>01</span><i data-lucide="search"></i><h3>Search</h3><p>Paste the search string you built above into Publish or Perish, or search directly by author, topic or journal.</p></article>
+<article><span>02</span><i data-lucide="arrow-up-narrow-wide"></i><h3>Rank</h3><p>Sort results by citations per year to surface the most influential and most recent papers first.</p></article>
+<article><span>03</span><i data-lucide="download"></i><h3>Export</h3><p>Export the reference list to BibTeX, RIS or CSV for your reference manager.</p></article>
+</div>
+<div class="alert">
+<i data-lucide="download"></i>
+<p><b>Free download for this exercise:</b> Install Publish or Perish from <a href="https://harzing.com/resources/publish-or-perish" target="_blank" rel="noopener noreferrer" style="color:#fff;text-decoration:underline">harzing.com/resources/publish-or-perish</a> before the session. A citation count is one signal of impact, not a substitute for reading the paper.</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="scopus-ai-exercise">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">HANDS-ON EXERCISE</p>
+<h2>Try Scopus AI with your own topic</h2>
+<p class="prose">Scopus AI lets you ask a plain-language research question and get a synthesised answer drawn from Scopus-indexed, peer-reviewed literature, along with suggested references and follow-up questions. Use this exercise during the session with your own research topic.</p>
+</div>
+<div class="notebook-config-grid">
+<article><span>01</span><i data-lucide="log-in"></i><h3>Access</h3><p>Log in to Scopus AI through your institution's Scopus subscription (available via the UTM Library) or your personal Scopus account with AI features enabled.</p></article>
+<article><span>02</span><i data-lucide="message-circle-question"></i><h3>Ask</h3><p>Type one natural-language question about your own research topic. Avoid Boolean operators and keyword strings — ask as you would ask a colleague.</p></article>
+<article><span>03</span><i data-lucide="badge-check"></i><h3>Verify</h3><p>Open the papers Scopus AI cites and check the abstract and methodology before treating any claim as established.</p></article>
+</div>
+<div class="notebook-config-prompt">
+<div class="notebook-config-head"><div><p class="eyebrow">TOPIC + OBJECTIVE + CONTEXT</p><h3>Universal question pattern</h3></div><button class="copy-output" id="copyScopusPatternM1" type="button"><i data-lucide="copy"></i><span>Copy Pattern</span></button></div>
+<pre id="scopusPatternM1">What are the [RESEARCH OBJECTIVE] regarding [TOPIC] in [CONTEXT OR POPULATION] over [OPTIONAL TIME BOUNDARY]?</pre>
+<p class="prose"><b>Example:</b> What are the emerging applications of explainable artificial intelligence for medical image diagnosis over the last five years?</p>
+</div>
+</div>
+</section>
+
+<section class="section section-tint">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">DURING THIS SESSION</p><h2>Hands-on checklist</h2></div>
+<ul class="check-list">
+<li>Ask Scopus AI your main research question using the pattern above, with your own topic.</li>
+<li>Note down 3 papers Scopus AI surfaces that look genuinely relevant.</li>
+<li>Ask one follow-up question to explore a gap, trend or contradiction.</li>
+<li>Open one suggested paper and confirm the abstract actually supports what Scopus AI said.</li>
+</ul>
+<div class="alert"><i data-lucide="shield-check"></i><p><b>Verify the evidence:</b> Scopus AI supports literature discovery, not final scholarly judgement. Open the original publications and evaluate their design, sample, context, limitations and full-text findings before using or citing a claim.</p></div>
+<p class="prose" style="margin-top:18px">For the complete library of 48 Scopus AI prompts across 12 categories — covering gaps, trends, methods and article positioning — see <a href="scopus-ai-prompts.html" style="color:var(--blue);font-weight:700">Scopus AI Prompts for Research Discovery →</a></p>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">RELATED TOOLS &amp; PROMPTS</p><h2>Continue your literature discovery</h2></div>
+<div class="tool-grid">
+<a class="tool-card" href="tools-discovery.html"><i data-lucide="library"></i><small>DISCOVERY &amp; DATABASES</small><h3>AI Tools for Discovery</h3><p>Curated academic search engines, citation databases and literature-mapping tools.</p><span>Explore Discovery Tools →</span></a>
+<a class="tool-card" href="scopus-ai-prompts.html"><i data-lucide="scan-search"></i><small>48 FOCUSED QUESTIONS</small><h3>Scopus AI Prompts for Research Discovery</h3><p>Copy-ready questions to explore trends, gaps, methods and article positioning.</p><span>Explore Scopus AI Prompts →</span></a>
+<a class="tool-card" href="gemini-notebook-prompts.html"><i data-lucide="notebook-tabs"></i><small>95 SOURCE-GROUNDED PROMPTS</small><h3>Gemini Notebook Prompts</h3><p>Analyse and compare uploaded papers once you have shortlisted your sources.</p><span>Explore Gemini Notebook Prompts →</span></a>
+</div>
+</div>
+</section>
+
+<section class="section final-cta">
+<div class="container">
+<p class="eyebrow">5 MODULES · 1 DAY</p>
+<h2>See how Module 1 fits into the full programme.</h2>
+<p>Review timings for every module, breaks and the closing wrap-up.</p>
+<a class="button" href="programme.html">View Full Schedule</a>
+</div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h3 style="color:#fff">AI for Research</h3>
+      <p>From Literature Discovery to Academic Writing<br>UTM Big Data Centre · Universiti Teknologi Malaysia</p>
+    </div>
+    <div>
+      <h4>Training</h4>
+      <a href="index.html#about">Course Overview</a>
+      <a href="index.html#outcomes">Learning Outcomes</a>
+      <a href="programme.html">Programme</a>
+      <a href="index.html#trainer">Trainer</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="materials.html">Materials</a>
+      <a href="tools.html">AI Tools</a>
+      <a href="ai-prompt.html">AI Prompt</a>
+      <a href="resources.html">Resources</a>
+    </div>
+    <div>
+      <h4>Event</h4>
+      <span>24 August 2026</span>
+      <span>9.00 AM – 5.00 PM</span>
+      <span>Dewan Banquet, Aras 2, Blok N31, UTM Johor Bahru</span>
+      <span>+607-533 3354</span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 AI for Research · UTM Big Data Centre, Universiti Teknologi Malaysia.<br>Trainer: Prof. Madya Ts. Dr. Mohd Shahizan bin Othman.</p>
+    <a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer">
+      <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman">
+    </a>
+  </div>
+</footer>
+<button class="back-top" id="backTop" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+<div class="copy-toast" id="builderToast" role="status" aria-live="polite">Copied</div>
+</body>
+</html>

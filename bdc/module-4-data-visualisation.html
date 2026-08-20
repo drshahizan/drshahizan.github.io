@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 4: Data and Research Visualisation — AI for Research</title>
+<meta name="description" content="Interpret research findings, select appropriate visual formats and produce diagrams, infographics, charts or data narratives. Includes a chart-type decision helper.">
+<meta name="theme-color" content="#8a1538">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<script defer src="modules.js"></script>
+<script defer src="script.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="scroll-progress" id="scrollProgress"></div>
+<header class="site-header" id="siteHeader">
+<div class="nav-wrap">
+<a class="brand" href="index.html"><span class="brand-mark">AI</span><span><b>AI for Research</b><small>UTM Big Data Centre</small></span></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
+<nav class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="index.html#about">About</a>
+<a href="index.html#outcomes">Outcomes</a>
+<a href="programme.html">Programme</a>
+<a class="active" aria-current="page" href="training-modules.html">Training Modules</a>
+<a href="materials.html">Materials</a>
+<a href="tools.html">AI Tools</a>
+<a href="ai-prompt.html">AI Prompt</a>
+<a href="resources.html">Resources</a>
+<a href="index.html#trainer">Trainer</a>
+</nav>
+<div class="nav-actions"><a class="button button-small" href="programme.html">View Full Schedule</a><button class="icon-button" id="themeToggle" aria-label="Switch theme"><i data-lucide="moon"></i></button></div>
+</div>
+</header>
+<main id="main">
+<section class="page-hero">
+<div class="container">
+<p class="eyebrow">MODULE 4 · 2:00 – 3:15 PM</p>
+<h1>Data and Research Visualisation</h1>
+<p>Interpret research findings, select appropriate visual formats and produce diagrams, infographics, charts or data narratives that communicate results clearly.</p>
+<div class="button-row" style="margin-top:22px"><a class="button" href="programme.html">View Full Schedule <i data-lucide="arrow-right"></i></a><a class="button button-outline" href="#chart-helper">Try the Chart Helper</a><a class="button button-outline" href="#visualisation-tools">Recommended Tools</a></div>
+</div>
+</section>
+
+<section class="section" id="chart-helper">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">HANDS-ON TOOL</p>
+<h2>Chart-Type Decision Helper</h2>
+<p class="prose">Describe what your data needs to show. The helper recommends suitable chart types and explains why, so you can brief an AI tool or design software with confidence.</p>
+</div>
+<div class="builder-layout">
+<form class="builder-form" id="chartHelperForm">
+<div class="builder-intro"><div><p class="eyebrow">STEP 01</p><h2>Describe your data</h2></div><button class="text-button" type="button" id="chartHelperReset"><i data-lucide="rotate-ccw"></i> Clear Form</button></div>
+<div class="form-grid">
+<label class="full"><span>What are you showing? <b>*</b></span><select id="chartGoal" required><option value="">Select a goal</option><option>Comparison between categories</option><option>Trend over time</option><option>Part-to-whole proportion</option><option>Relationship between variables</option><option>Distribution of values</option><option>Process or workflow</option><option>Geographic pattern</option></select></label>
+<label><span>Number of variables</span><select id="chartVariables"><option>1 variable</option><option>2 variables</option><option>3 or more variables</option></select></label>
+<label><span>Audience</span><select id="chartAudience"><option>Academic or technical audience</option><option>General audience</option></select></label>
+</div>
+<div class="builder-actions"><button class="button" type="submit"><i data-lucide="wand-sparkles"></i> Recommend Chart Types</button><p>Fields marked with <b>*</b> are required.</p></div>
+</form>
+<aside class="builder-output" aria-live="polite">
+<div class="output-head"><div><p class="eyebrow">RECOMMENDATION</p><h2>Suggested chart types</h2></div><button class="copy-output" id="copyChartHelper" type="button" disabled><i data-lucide="copy"></i><span>Copy</span></button></div>
+<div class="prompt-preview empty" id="chartHelperPreview"><div class="empty-state"><i data-lucide="bar-chart-3"></i><h3>Your recommendation will appear here</h3><p>Choose what you are showing, then select <b>Recommend Chart Types</b>.</p></div></div>
+<div class="builder-note"><i data-lucide="shield-check"></i><p><b>Accuracy first:</b> Whatever chart type you choose, keep axes honest, label units clearly and avoid distorting the scale.</p></div>
+</aside>
+</div>
+</div>
+</section>
+
+<section class="section section-tint" id="visualisation-tools">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">RECOMMENDED TOOLS</p>
+<h2>Tools for bibliometric mapping and scientific communication</h2>
+<p class="prose">Once you know the chart type you need, these tools help you build bibliometric network maps, topic overviews and polished scientific visuals.</p>
+</div>
+<div class="materials-grid">
+<article class="resource-card"><div class="resource-top"><b>01</b><i data-lucide="network"></i></div><small>BIBLIOMETRIC NETWORK</small><h3>VOSviewer</h3><p>Constructs and visualises co-authorship, citation and keyword co-occurrence networks.</p></article>
+<article class="resource-card"><div class="resource-top"><b>02</b><i data-lucide="bar-chart-3"></i></div><small>BIBLIOMETRIC ANALYSIS</small><h3>Bibliometrix</h3><p>R-based toolkit for comprehensive bibliometric analysis and science mapping.</p></article>
+<article class="resource-card"><div class="resource-top"><b>03</b><i data-lucide="share-2"></i></div><small>NETWORK ANALYSIS</small><h3>Gephi</h3><p>Open-source platform for visualising and analysing complex networks.</p></article>
+<article class="resource-card"><div class="resource-top"><b>04</b><i data-lucide="map"></i></div><small>KNOWLEDGE MAP</small><h3>Open Knowledge Maps</h3><p>Open platform that creates visual overviews of research topics from scholarly literature.</p></article>
+<article class="resource-card"><div class="resource-top"><b>05</b><i data-lucide="dna"></i></div><small>SCIENTIFIC ILLUSTRATION</small><h3>BioRender</h3><p>Creates professional scientific illustrations for biology, medicine and the life sciences.</p></article>
+<article class="resource-card"><div class="resource-top"><b>06</b><i data-lucide="palette"></i></div><small>SCIENTIFIC FIGURES &amp; COMMUNICATION</small><h3>Canva</h3><p>Creates presentations, posters, infographics and other visual research communication materials.</p></article>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">RELATED TOOLS &amp; PROMPTS</p><h2>Build the visual once you know the chart type</h2></div>
+<div class="tool-grid">
+<a class="tool-card" href="tools-visualisation.html"><i data-lucide="chart-spline"></i><small>PAPER VISUALISATION</small><h3>AI Tools for Visualisation</h3><p>Curated tools for charts, diagrams, infographics and data storytelling.</p><span>Explore Visualisation Tools →</span></a>
+<a class="tool-card" href="gemini-notebook-studio-prompts.html"><i data-lucide="panels-top-left"></i><small>24 STUDIO PROMPTS</small><h3>Gemini Notebook Studio Prompts</h3><p>Generate a source-grounded infographic or slide deck from your verified sources.</p><span>Explore Studio Prompts →</span></a>
+<a class="tool-card" href="studio-prompt-builder.html"><i data-lucide="blocks"></i><small>CUSTOM STUDIO OUTPUT</small><h3>Build a Gemini Notebook Studio Prompt</h3><p>Create a concise brief for the exact visual output you need.</p><span>Build a Studio Prompt →</span></a>
+</div>
+</div>
+</section>
+
+<section class="section final-cta">
+<div class="container">
+<p class="eyebrow">5 MODULES · 1 DAY</p>
+<h2>See how Module 4 fits into the full programme.</h2>
+<p>Review timings for every module, breaks and the closing wrap-up.</p>
+<a class="button" href="programme.html">View Full Schedule</a>
+</div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h3 style="color:#fff">AI for Research</h3>
+      <p>From Literature Discovery to Academic Writing<br>UTM Big Data Centre · Universiti Teknologi Malaysia</p>
+    </div>
+    <div>
+      <h4>Training</h4>
+      <a href="index.html#about">Course Overview</a>
+      <a href="index.html#outcomes">Learning Outcomes</a>
+      <a href="programme.html">Programme</a>
+      <a href="index.html#trainer">Trainer</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="materials.html">Materials</a>
+      <a href="tools.html">AI Tools</a>
+      <a href="ai-prompt.html">AI Prompt</a>
+      <a href="resources.html">Resources</a>
+    </div>
+    <div>
+      <h4>Event</h4>
+      <span>24 August 2026</span>
+      <span>9.00 AM – 5.00 PM</span>
+      <span>Dewan Banquet, Aras 2, Blok N31, UTM Johor Bahru</span>
+      <span>+607-533 3354</span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 AI for Research · UTM Big Data Centre, Universiti Teknologi Malaysia.<br>Trainer: Prof. Madya Ts. Dr. Mohd Shahizan bin Othman.</p>
+    <a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer">
+      <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman">
+    </a>
+  </div>
+</footer>
+<button class="back-top" id="backTop" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+<div class="copy-toast" id="builderToast" role="status" aria-live="polite">Copied</div>
+</body>
+</html>

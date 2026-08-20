@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 3: Knowledge Organisation and Mind Mapping — AI for Research</title>
+<meta name="description" content="Organise research information, synthesise source-based knowledge and transform research concepts into structured mind maps. Includes a Knowledge Organisation prompt builder and recommended mind-mapping tools.">
+<meta name="theme-color" content="#8a1538">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<script defer src="modules.js"></script>
+<script defer src="script.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="scroll-progress" id="scrollProgress"></div>
+<header class="site-header" id="siteHeader">
+<div class="nav-wrap">
+<a class="brand" href="index.html"><span class="brand-mark">AI</span><span><b>AI for Research</b><small>UTM Big Data Centre</small></span></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
+<nav class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="index.html#about">About</a>
+<a href="index.html#outcomes">Outcomes</a>
+<a href="programme.html">Programme</a>
+<a class="active" aria-current="page" href="training-modules.html">Training Modules</a>
+<a href="materials.html">Materials</a>
+<a href="tools.html">AI Tools</a>
+<a href="ai-prompt.html">AI Prompt</a>
+<a href="resources.html">Resources</a>
+<a href="index.html#trainer">Trainer</a>
+</nav>
+<div class="nav-actions"><a class="button button-small" href="programme.html">View Full Schedule</a><button class="icon-button" id="themeToggle" aria-label="Switch theme"><i data-lucide="moon"></i></button></div>
+</div>
+</header>
+<main id="main">
+<section class="page-hero">
+<div class="container">
+<p class="eyebrow">MODULE 3 · 11:30 AM – 12:30 PM</p>
+<h1>Knowledge Organisation and Mind Mapping</h1>
+<p>Organise research information, synthesise source-based knowledge and transform research concepts into structured mind maps and literature matrices.</p>
+<div class="button-row" style="margin-top:22px"><a class="button" href="programme.html">View Full Schedule <i data-lucide="arrow-right"></i></a><a class="button button-outline" href="#ko-builder">Try the Prompt Builder</a></div>
+</div>
+</section>
+
+<section class="section" id="ko-builder">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">HANDS-ON TOOL</p>
+<h2>Knowledge Organisation Prompt Builder</h2>
+<p class="prose">Describe the sources or notes you want to organise. The builder assembles a ready-to-use prompt asking an AI chat tool to structure them into a synthesis matrix, timeline, mind map outline or theoretical framework map.</p>
+</div>
+<div class="builder-layout">
+<form class="builder-form" id="koBuilderForm">
+<div class="builder-intro"><div><p class="eyebrow">STEP 01</p><h2>Describe what to organise</h2></div><button class="text-button" type="button" id="koBuilderReset"><i data-lucide="rotate-ccw"></i> Clear Form</button></div>
+<div class="form-grid">
+<label class="full"><span>Sources, notes or topic to organise <b>*</b></span><textarea id="koSources" rows="4" required placeholder="List the papers/authors (e.g., Smith 2021, Lee 2022) or describe the topic and concepts you want structured."></textarea></label>
+<label><span>Organisation goal</span><select id="koGoal"><option>Thematic synthesis matrix</option><option>Chronological timeline</option><option>Conceptual mind map</option><option>Theoretical framework map</option></select></label>
+<label><span>Output format</span><select id="koFormat"><option>Table</option><option>Nested outline (mind-map text)</option><option>Narrative synthesis</option></select></label>
+<label><span>Level of detail</span><select id="koDetail"><option>Brief overview</option><option>Detailed breakdown</option></select></label>
+</div>
+<div class="builder-actions"><button class="button" type="submit"><i data-lucide="wand-sparkles"></i> Generate Prompt</button><p>Fields marked with <b>*</b> are required.</p></div>
+</form>
+<aside class="builder-output" aria-live="polite">
+<div class="output-head"><div><p class="eyebrow">GENERATED PROMPT</p><h2>Ready to use</h2></div><button class="copy-output" id="copyKoPrompt" type="button" disabled><i data-lucide="copy"></i><span>Copy Prompt</span></button></div>
+<div class="prompt-preview empty" id="koBuilderPreview"><div class="empty-state"><i data-lucide="network"></i><h3>Your prompt will appear here</h3><p>Describe your sources, then select <b>Generate Prompt</b>.</p></div></div>
+<div class="builder-note"><i data-lucide="shield-check"></i><p><b>Source-grounded structure:</b> Upload the actual papers or notes to the AI tool alongside this prompt so every theme and connection can be traced back to a real source.</p></div>
+</aside>
+</div>
+</div>
+</section>
+
+<section class="section section-tint">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">RECOMMENDED TOOLS</p><h2>Mind mapping and knowledge organisation tools</h2></div>
+<div class="materials-grid">
+<article class="resource-card"><div class="resource-top"><b>01</b><i data-lucide="git-branch"></i></div><small>MIND MAPPING</small><h3>Xmind</h3><p>Structured mind maps with outline, tree and fishbone diagram views for organising themes and sub-themes.</p></article>
+<article class="resource-card"><div class="resource-top"><b>02</b><i data-lucide="layout-dashboard"></i></div><small>VISUAL WHITEBOARD</small><h3>Miro</h3><p>Collaborative whiteboard for clustering literature notes, sticky-note theming and framework diagrams.</p></article>
+<article class="resource-card"><div class="resource-top"><b>03</b><i data-lucide="waypoints"></i></div><small>QUICK DIAGRAMMING</small><h3>Whimsical</h3><p>Fast mind maps and flowcharts for early-stage concept structuring.</p></article>
+<article class="resource-card"><div class="resource-top"><b>04</b><i data-lucide="link-2"></i></div><small>NETWORKED NOTES</small><h3>Obsidian</h3><p>Link notes, sources and concepts into a navigable knowledge graph.</p></article>
+<article class="resource-card"><div class="resource-top"><b>05</b><i data-lucide="panels-top-left"></i></div><small>SOURCE-GROUNDED</small><h3>Gemini Notebook Studio</h3><p>Generate a mind map directly from your uploaded, verified sources.</p></article>
+<article class="resource-card"><div class="resource-top"><b>06</b><i data-lucide="layout-grid"></i></div><small>ALL-IN-ONE WORKSPACE</small><h3>Notion</h3><p>Database views and linked pages for building a running literature matrix.</p></article>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">RELATED TOOLS &amp; PROMPTS</p><h2>Turn organised knowledge into a Studio output</h2></div>
+<div class="tool-grid">
+<a class="tool-card" href="gemini-notebook-prompts.html"><i data-lucide="notebook-tabs"></i><small>95 SOURCE-GROUNDED PROMPTS</small><h3>Gemini Notebook Prompts</h3><p>Compare uploaded sources, synthesise evidence and build a defensible research gap.</p><span>Explore Gemini Notebook Prompts →</span></a>
+<a class="tool-card" href="gemini-notebook-studio-prompts.html"><i data-lucide="panels-top-left"></i><small>24 STUDIO PROMPTS</small><h3>Gemini Notebook Studio Prompts</h3><p>Generate a mind map, infographic or report directly from your verified sources.</p><span>Explore Studio Prompts →</span></a>
+<a class="tool-card" href="tools-review.html"><i data-lucide="book-open-check"></i><small>REVIEW &amp; EVIDENCE ANALYSIS</small><h3>AI Tools for Review</h3><p>Curated tools to organise, screen and synthesise evidence at scale.</p><span>Explore Review Tools →</span></a>
+</div>
+</div>
+</section>
+
+<section class="section final-cta">
+<div class="container">
+<p class="eyebrow">5 MODULES · 1 DAY</p>
+<h2>See how Module 3 fits into the full programme.</h2>
+<p>Review timings for every module, breaks and the closing wrap-up.</p>
+<a class="button" href="programme.html">View Full Schedule</a>
+</div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h3 style="color:#fff">AI for Research</h3>
+      <p>From Literature Discovery to Academic Writing<br>UTM Big Data Centre · Universiti Teknologi Malaysia</p>
+    </div>
+    <div>
+      <h4>Training</h4>
+      <a href="index.html#about">Course Overview</a>
+      <a href="index.html#outcomes">Learning Outcomes</a>
+      <a href="programme.html">Programme</a>
+      <a href="index.html#trainer">Trainer</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="materials.html">Materials</a>
+      <a href="tools.html">AI Tools</a>
+      <a href="ai-prompt.html">AI Prompt</a>
+      <a href="resources.html">Resources</a>
+    </div>
+    <div>
+      <h4>Event</h4>
+      <span>24 August 2026</span>
+      <span>9.00 AM – 5.00 PM</span>
+      <span>Dewan Banquet, Aras 2, Blok N31, UTM Johor Bahru</span>
+      <span>+607-533 3354</span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 AI for Research · UTM Big Data Centre, Universiti Teknologi Malaysia.<br>Trainer: Prof. Madya Ts. Dr. Mohd Shahizan bin Othman.</p>
+    <a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer">
+      <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman">
+    </a>
+  </div>
+</footer>
+<button class="back-top" id="backTop" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+<div class="copy-toast" id="builderToast" role="status" aria-live="polite">Copied</div>
+</body>
+</html>
