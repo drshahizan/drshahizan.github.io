@@ -44,6 +44,7 @@ const researchTools=[
 {n:"Mendeley",g:"writing",t:"Citation Management",d:"Reference manager and academic network for organising research, collaboration and discovery.",u:"https://www.mendeley.com/",i:"https://drshahizan.gitbook.io/ai-tools/ai-tools/citation-management/mendeley"},
 {n:"QuillBot",g:"writing",t:"Grammar, Editing & Paraphrasing",d:"AI tool for paraphrasing, grammar checking, summarisation and citation assistance.",u:"https://quillbot.com/"},
 {n:"Grammarly",g:"writing",t:"Grammar & Academic Editing",d:"Improves grammar, spelling, punctuation, clarity and tone, with plagiarism-related features on supported plans.",u:"https://www.grammarly.com/"},
+{n:"Turnitin",g:"writing",t:"Similarity & AI-Writing Detection",d:"Institutional similarity checker used by universities and journals to review manuscripts for matched text and AI-generated content before submission.",u:"https://www.turnitin.com/"},
 {n:"JabRef",g:"writing",t:"Citation Management",d:"Open-source bibliography manager designed especially for BibTeX and LaTeX workflows.",u:"https://www.jabref.org/"},
 {n:"Rayyan",g:"writing",t:"Systematic Review",d:"AI-assisted platform for screening and organising studies in systematic and scoping reviews.",u:"https://www.rayyan.ai/"},
 {n:"Covidence",g:"writing",t:"Systematic Review",d:"Streamlines systematic-review screening, conflict resolution, data extraction and evidence synthesis.",u:"https://www.covidence.org/"},

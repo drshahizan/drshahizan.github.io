@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://drshahizan.github.io/bdc/sitemap.xml

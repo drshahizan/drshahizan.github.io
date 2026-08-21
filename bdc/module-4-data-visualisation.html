@@ -6,6 +6,17 @@
 <title>Module 4: Data and Research Visualisation — AI for Research</title>
 <meta name="description" content="Interpret research findings, select appropriate visual formats and produce diagrams, infographics, charts or data narratives. Includes a chart-type decision helper.">
 <meta name="theme-color" content="#8a1538">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI for Research · UTM Big Data Centre">
+<meta property="og:url" content="https://drshahizan.github.io/bdc/module-4-data-visualisation.html">
+<meta property="og:title" content="Module 4: Data and Research Visualisation — AI for Research">
+<meta property="og:description" content="Interpret research findings, select appropriate visual formats and produce diagrams, infographics, charts or data narratives. Includes a chart-type decision helper.">
+<meta property="og:image" content="https://drshahizan.github.io/bdc/assets/images/ai-for-research-poster.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Module 4: Data and Research Visualisation — AI for Research">
+<meta name="twitter:description" content="Interpret research findings, select appropriate visual formats and produce diagrams, infographics, charts or data narratives. Includes a chart-type decision helper.">
+<meta name="twitter:image" content="https://drshahizan.github.io/bdc/assets/images/ai-for-research-poster.png">
+<link rel="canonical" href="https://drshahizan.github.io/bdc/module-4-data-visualisation.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -23,8 +34,6 @@
 <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
 <nav class="nav-links" id="navLinks">
 <a href="index.html">Home</a>
-<a href="index.html#about">About</a>
-<a href="index.html#outcomes">Outcomes</a>
 <a href="programme.html">Programme</a>
 <a class="active" aria-current="page" href="training-modules.html">Training Modules</a>
 <a href="materials.html">Materials</a>
@@ -33,24 +42,56 @@
 <a href="resources.html">Resources</a>
 <a href="index.html#trainer">Trainer</a>
 </nav>
-<div class="nav-actions"><a class="button button-small" href="programme.html">View Full Schedule</a><button class="icon-button" id="themeToggle" aria-label="Switch theme"><i data-lucide="moon"></i></button></div>
+<div class="nav-actions"><button class="icon-button" id="themeToggle" aria-label="Switch theme"><i data-lucide="moon"></i></button></div>
 </div>
 </header>
 <main id="main">
 <section class="page-hero">
 <div class="container">
-<p class="eyebrow">MODULE 4 · 2:00 – 3:15 PM</p>
+<p class="eyebrow">MODULE 4</p>
 <h1>Data and Research Visualisation</h1>
 <p>Interpret research findings, select appropriate visual formats and produce diagrams, infographics, charts or data narratives that communicate results clearly.</p>
 <div class="button-row" style="margin-top:22px"><a class="button" href="programme.html">View Full Schedule <i data-lucide="arrow-right"></i></a><a class="button button-outline" href="#chart-helper">Try the Chart Helper</a><a class="button button-outline" href="#visualisation-tools">Recommended Tools</a></div>
 </div>
 </section>
 
+<nav class="page-toc" aria-label="On this page">
+<div class="container">
+<label class="page-toc-label" for="jumpNavM4"><i data-lucide="list"></i> Jump to</label>
+<select class="page-toc-select" id="jumpNavM4" data-jump-nav>
+<option value="">Select a section…</option>
+<option value="#before-you-start">Before You Start</option>
+<option value="#chart-helper">4.1 Chart-Type Decision Helper</option>
+<option value="#exercise-4-1">4.2 Spot the Misleading Chart</option>
+<option value="#exercise-4-2">4.3 Recreate a Chart</option>
+<option value="#exercise-4-3">4.4 Infographic Studio</option>
+<option value="#visualisation-tools">Visualisation Tools</option>
+<option value="#traditional-vs-ai">Traditional vs AI</option>
+<option value="#module4-recap">Recap</option>
+<option value="#module4-quiz">Quiz</option>
+</select>
+</div>
+</nav>
+
+<section class="section section-tint" id="before-you-start">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">BEFORE YOU START</p><h2>Come prepared for Module 4</h2></div>
+<ul class="check-list">
+<li>Bring the findings or dataset you want to visualise. Even rough numbers or a summary table is enough.</li>
+<li>Decide who your audience is (academic/technical vs general) before choosing a chart type.</li>
+<li>If practising bibliometric mapping, export a reference list (BibTeX/RIS/CSV) from Module 1's Publish or Perish exercise to import into VOSviewer or Bibliometrix.</li>
+</ul>
+<div class="alert"><i data-lucide="shield-alert"></i><p><b>Accuracy over aesthetics:</b> A visually appealing chart that misrepresents the data (distorted axes, cherry-picked scale) is worse than a plain, honest one. Always sense-check what a chart implies before publishing it.</p></div>
+<div class="qr-box"><img src="assets/images/qr/qr-module-4.png" alt="QR code linking to this module page" width="84" height="84" loading="lazy"><div class="qr-box-text"><p class="qr-box-label">Scan to open this module on your phone</p><p class="qr-box-url">drshahizan.github.io/bdc/module-4-data-visualisation.html</p></div></div>
+<div class="trainer-tip"><div class="trainer-tip-avatar">MSO</div><div><p class="trainer-tip-label">Trainer's Tip, Dr. Shahizan</p><p>I choose the chart type before I choose the colours. Decide what comparison or relationship you want the reader to see first, then pick a chart that shows exactly that. AI tools are fast at making pretty charts and slow at knowing what you are trying to say.</p></div></div>
+</div>
+</section>
+
 <section class="section" id="chart-helper">
 <div class="container">
 <div class="section-heading">
-<p class="eyebrow">HANDS-ON TOOL</p>
-<h2>Chart-Type Decision Helper</h2>
+<p class="eyebrow">EXERCISE 4.1</p>
+<h2>Chart-Type Decision Helper <span class="time-tag">~10 min</span></h2>
 <p class="prose">Describe what your data needs to show. The helper recommends suitable chart types and explains why, so you can brief an AI tool or design software with confidence.</p>
 </div>
 <div class="builder-layout">
@@ -69,6 +110,121 @@
 <div class="builder-note"><i data-lucide="shield-check"></i><p><b>Accuracy first:</b> Whatever chart type you choose, keep axes honest, label units clearly and avoid distorting the scale.</p></div>
 </aside>
 </div>
+<div class="worked-example" style="margin-top:28px">
+<div class="worked-example-head"><i data-lucide="flask-conical"></i><div><p class="eyebrow">WORKED EXAMPLE</p><h3>See a completed recommendation</h3></div></div>
+<p class="worked-example-input"><b>Sample input:</b> Goal: Trend over time · Variables: 2 variables · Audience: General audience</p>
+<div class="worked-example-output">Goal: Trend over time
+Variables: 2 variables
+Audience: General audience
+
+Recommended chart types:
+• Line chart, which shows change or trend across a continuous time period.
+• Area chart, which emphasises cumulative volume or magnitude over time.
+
+Tip: simplify labels, add a short takeaway title and avoid dense technical notation for a general audience.</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="exercise-4-1">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">EXERCISE 4.2</p>
+<h2>Spot the misleading chart <span class="time-tag">~10 min</span></h2>
+<p class="prose">The same data can look completely different depending on how the axes are drawn. Both charts below plot the exact same two numbers, Tool A at 82 and Tool B at 78, a real difference of only 4 points.</p>
+</div>
+<div class="chart-critique-grid">
+<div class="chart-critique-card">
+<svg viewBox="0 0 240 190" role="img" aria-labelledby="chartDistortedTitle">
+<title id="chartDistortedTitle">Bar chart with a truncated y-axis from 75 to 85, exaggerating the gap between Tool A and Tool B</title>
+<rect x="0" y="0" width="240" height="190" fill="var(--off)" rx="10"></rect>
+<line x1="40" y1="20" x2="40" y2="160" stroke="var(--muted)" stroke-width="1"></line>
+<line x1="40" y1="160" x2="220" y2="160" stroke="var(--muted)" stroke-width="1"></line>
+<text x="34" y="24" text-anchor="end" font-size="10" fill="var(--muted)">85</text>
+<text x="34" y="164" text-anchor="end" font-size="10" fill="var(--muted)">75</text>
+<rect x="80" y="62" width="46" height="98" fill="#8a1538" rx="3"></rect>
+<rect x="170" y="118" width="46" height="42" fill="#f7941d" rx="3"></rect>
+<text x="103" y="175" text-anchor="middle" font-size="10" fill="var(--text)" font-weight="700">Tool A: 82</text>
+<text x="193" y="175" text-anchor="middle" font-size="10" fill="var(--text)" font-weight="700">Tool B: 78</text>
+</svg>
+<b>Distorted axis</b>
+<p>The y-axis starts at 75, not 0. That makes Tool B's bar look less than half of Tool A's, when the real difference is only 4 points.</p>
+</div>
+<div class="chart-critique-card">
+<svg viewBox="0 0 240 190" role="img" aria-labelledby="chartHonestTitle">
+<title id="chartHonestTitle">Bar chart with a full y-axis from 0 to 100, showing the true small gap between Tool A and Tool B</title>
+<rect x="0" y="0" width="240" height="190" fill="var(--off)" rx="10"></rect>
+<line x1="40" y1="20" x2="40" y2="160" stroke="var(--muted)" stroke-width="1"></line>
+<line x1="40" y1="160" x2="220" y2="160" stroke="var(--muted)" stroke-width="1"></line>
+<text x="34" y="24" text-anchor="end" font-size="10" fill="var(--muted)">100</text>
+<text x="34" y="164" text-anchor="end" font-size="10" fill="var(--muted)">0</text>
+<rect x="80" y="45" width="46" height="115" fill="#8a1538" rx="3"></rect>
+<rect x="170" y="51" width="46" height="109" fill="#f7941d" rx="3"></rect>
+<text x="103" y="175" text-anchor="middle" font-size="10" fill="var(--text)" font-weight="700">Tool A: 82</text>
+<text x="193" y="175" text-anchor="middle" font-size="10" fill="var(--text)" font-weight="700">Tool B: 78</text>
+</svg>
+<b>Honest axis</b>
+<p>The y-axis runs the full 0 to 100 scale. Tool A and Tool B now look as close as they actually are.</p>
+</div>
+</div>
+<ul class="check-list" style="margin-top:22px">
+<li>Does the y-axis start at zero? If not, is the break clearly marked and justified?</li>
+<li>Is the scale consistent across every bar, point or panel in the chart?</li>
+<li>Are the categories being compared actually comparable (same time period, same population, same unit)?</li>
+<li>Would the chart's headline takeaway change if you redrew it with an honest axis?</li>
+</ul>
+<div class="alert"><i data-lucide="shield-alert"></i><p><b>Apply this to your own charts:</b> Run every chart you plan to present, including one an AI tool generated for you, through these four questions before you publish or present it.</p></div>
+</div>
+</section>
+
+<section class="section section-tint" id="exercise-4-2">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">EXERCISE 4.3</p>
+<h2>Recreate a chart from your own data <span class="time-tag">~15 min</span></h2>
+<p class="prose">Use the Chart-Type Decision Helper above with real numbers instead of a hypothetical scenario.</p>
+</div>
+<ul class="check-list">
+<li>Pull a small dataset you already have, for example the number of matching papers per year from your Module 1 Publish or Perish search, or your own study's results.</li>
+<li>Fill in the table below with your actual numbers.</li>
+<li>Decide your goal (comparison, trend, proportion, relationship, distribution) and run it through the Chart-Type Decision Helper above.</li>
+<li>Build the recommended chart in a tool of your choice (Excel, Canva, or a bibliometric tool from below), and check it against the four questions from Exercise 4.1.</li>
+</ul>
+<div class="exercise-table-wrap">
+<table class="exercise-table">
+<thead><tr><th>Year</th><th>Count</th></tr></thead>
+<tbody>
+<tr><td>e.g., 2021</td><td>e.g., 12</td></tr>
+<tr><td>e.g., 2022</td><td>e.g., 19</td></tr>
+<tr><td>e.g., 2023</td><td>e.g., 31</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section class="section" id="exercise-4-3">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">EXERCISE 4.4</p>
+<h2>Generate and fact-check a Studio infographic <span class="time-tag">~15 min</span></h2>
+<p class="prose">Gemini Notebook Studio can turn your uploaded sources into a polished infographic in seconds. The exercise is not making the infographic, it is checking it.</p>
+</div>
+<ul class="check-list">
+<li>Upload 3 to 5 verified sources on your topic into Gemini Notebook, then open Studio and generate an infographic. See <a href="gemini-notebook-studio-prompts.html" style="color:var(--blue);font-weight:700">Gemini Notebook Studio Prompts</a> for ready-made generation prompts.</li>
+<li>List every number, statistic or claim shown in the infographic.</li>
+<li>Check each one against the actual uploaded sources. Mark it Correct, Wrong or Not traceable to a source.</li>
+<li>Fix or remove anything Wrong or Not traceable before you would consider using the infographic anywhere real.</li>
+</ul>
+<div class="exercise-table-wrap">
+<table class="exercise-table">
+<thead><tr><th>Claim or number in the infographic</th><th>Check result</th></tr></thead>
+<tbody>
+<tr><td>e.g., "68% of respondents reported improved efficiency"</td><td>e.g., Correct, matches Table 2 in Source A</td></tr>
+</tbody>
+</table>
+</div>
+<div class="alert"><i data-lucide="shield-check"></i><p><b>A pretty graphic is not evidence:</b> An infographic is only as trustworthy as the numbers behind it. Never present or submit an AI-generated visual you have not personally verified against the source data.</p></div>
 </div>
 </section>
 
@@ -80,12 +236,12 @@
 <p class="prose">Once you know the chart type you need, these tools help you build bibliometric network maps, topic overviews and polished scientific visuals.</p>
 </div>
 <div class="materials-grid">
-<article class="resource-card"><div class="resource-top"><b>01</b><i data-lucide="network"></i></div><small>BIBLIOMETRIC NETWORK</small><h3>VOSviewer</h3><p>Constructs and visualises co-authorship, citation and keyword co-occurrence networks.</p></article>
-<article class="resource-card"><div class="resource-top"><b>02</b><i data-lucide="bar-chart-3"></i></div><small>BIBLIOMETRIC ANALYSIS</small><h3>Bibliometrix</h3><p>R-based toolkit for comprehensive bibliometric analysis and science mapping.</p></article>
-<article class="resource-card"><div class="resource-top"><b>03</b><i data-lucide="share-2"></i></div><small>NETWORK ANALYSIS</small><h3>Gephi</h3><p>Open-source platform for visualising and analysing complex networks.</p></article>
-<article class="resource-card"><div class="resource-top"><b>04</b><i data-lucide="map"></i></div><small>KNOWLEDGE MAP</small><h3>Open Knowledge Maps</h3><p>Open platform that creates visual overviews of research topics from scholarly literature.</p></article>
-<article class="resource-card"><div class="resource-top"><b>05</b><i data-lucide="dna"></i></div><small>SCIENTIFIC ILLUSTRATION</small><h3>BioRender</h3><p>Creates professional scientific illustrations for biology, medicine and the life sciences.</p></article>
-<article class="resource-card"><div class="resource-top"><b>06</b><i data-lucide="palette"></i></div><small>SCIENTIFIC FIGURES &amp; COMMUNICATION</small><h3>Canva</h3><p>Creates presentations, posters, infographics and other visual research communication materials.</p></article>
+<a class="resource-card resource-link-card" href="https://www.vosviewer.com/" target="_blank" rel="noopener noreferrer"><div class="resource-top"><b>01</b><i data-lucide="network"></i></div><small>BIBLIOMETRIC NETWORK</small><h3>VOSviewer</h3><p>Constructs and visualises co-authorship, citation and keyword co-occurrence networks.</p><span>Visit VOSviewer →</span></a>
+<a class="resource-card resource-link-card" href="https://www.bibliometrix.org/home/" target="_blank" rel="noopener noreferrer"><div class="resource-top"><b>02</b><i data-lucide="bar-chart-3"></i></div><small>BIBLIOMETRIC ANALYSIS</small><h3>Bibliometrix</h3><p>R-based toolkit for comprehensive bibliometric analysis and science mapping.</p><span>Visit Bibliometrix →</span></a>
+<a class="resource-card resource-link-card" href="https://gephi.org/" target="_blank" rel="noopener noreferrer"><div class="resource-top"><b>03</b><i data-lucide="share-2"></i></div><small>NETWORK ANALYSIS</small><h3>Gephi</h3><p>Open-source platform for visualising and analysing complex networks.</p><span>Visit Gephi →</span></a>
+<a class="resource-card resource-link-card" href="https://openknowledgemaps.org/" target="_blank" rel="noopener noreferrer"><div class="resource-top"><b>04</b><i data-lucide="map"></i></div><small>KNOWLEDGE MAP</small><h3>Open Knowledge Maps</h3><p>Open platform that creates visual overviews of research topics from scholarly literature.</p><span>Visit Open Knowledge Maps →</span></a>
+<a class="resource-card resource-link-card" href="https://www.biorender.com/" target="_blank" rel="noopener noreferrer"><div class="resource-top"><b>05</b><i data-lucide="dna"></i></div><small>SCIENTIFIC ILLUSTRATION</small><h3>BioRender</h3><p>Creates professional scientific illustrations for biology, medicine and the life sciences.</p><span>Visit BioRender →</span></a>
+<a class="resource-card resource-link-card" href="https://www.canva.com/" target="_blank" rel="noopener noreferrer"><div class="resource-top"><b>06</b><i data-lucide="palette"></i></div><small>SCIENTIFIC FIGURES &amp; COMMUNICATION</small><h3>Canva</h3><p>Creates presentations, posters, infographics and other visual research communication materials.</p><span>Visit Canva →</span></a>
 </div>
 </div>
 </section>
@@ -101,12 +257,117 @@
 </div>
 </section>
 
+<section class="section section-tint" id="traditional-vs-ai">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">WHY USE AI HERE</p><h2>Traditional vs AI-assisted visualisation</h2></div>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th>Task</th><th>Traditional approach</th><th>AI-assisted approach</th></tr></thead>
+<tbody>
+<tr><td>Choosing a chart type</td><td>Guess based on habit or what's familiar</td><td>Chart-Type Decision Helper recommends types based on your actual goal</td></tr>
+<tr><td>Mapping citation networks</td><td>Manually tally co-citations and co-authorships</td><td>VOSviewer or CiteSpace generate the full network automatically</td></tr>
+<tr><td>Getting a topic overview</td><td>Read through papers and sketch a summary by hand</td><td>Open Knowledge Maps generates a visual topic overview from the literature</td></tr>
+<tr><td>Producing a polished figure</td><td>Rebuild formatting manually in a general design tool</td><td>Canva or BioRender offer research-ready templates for posters and figures</td></tr>
+</tbody>
+</table>
+</div>
+<p class="prose" style="margin-top:16px"><b>The trade-off:</b> AI speeds up chart selection and network mapping; you still own the accuracy and honesty of the final visual.</p>
+</div>
+</section>
+
+<section class="section" id="module4-recap">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">RECAP</p><h2>Key takeaways and terms</h2></div>
+<div class="recap-grid">
+<div class="takeaways">
+<div class="takeaways-head"><i data-lucide="sparkles"></i><h3>Key Takeaways</h3></div>
+<ul>
+<li>Match the chart type to your goal (comparison, trend, proportion, relationship, distribution, process or geography), rather than choosing a chart first and forcing the data to fit it.</li>
+<li>Bibliometric tools (VOSviewer, CiteSpace, Gephi, Bibliometrix) reveal patterns across a whole literature, not a single study.</li>
+<li>Keep axes honest and labels clear. A chart should clarify data, not distort it.</li>
+<li>Studio prompts can generate a source-grounded visual directly from your verified papers.</li>
+</ul>
+</div>
+<dl class="glossary">
+<div><dt>Co-citation network</dt><dd>A map showing which papers are frequently cited together, indicating related themes.</dd></div>
+<div><dt>Bibliometric analysis</dt><dd>The quantitative study of publication and citation patterns.</dd></div>
+<div><dt>Choropleth map</dt><dd>A map shading regions by a numeric value to show geographic patterns.</dd></div>
+<div><dt>Data storytelling</dt><dd>Presenting data with a narrative and clear takeaway, not just raw numbers.</dd></div>
+</dl>
+</div>
+</div>
+</section>
+
+<section class="section section-tint" id="module4-quiz">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">SELF-CHECK</p><h2>Test your understanding</h2></div>
+<form class="quiz" data-quiz="module-4">
+<div class="quiz-q" data-answer="b" data-explain="A line chart shows change or trend across a continuous time period.">
+<p class="quiz-question">1. Which chart type suits showing a trend over a continuous time period?</p>
+<div class="quiz-options">
+<label><input type="radio" name="m4q1" value="a"><span>Pie chart</span></label>
+<label><input type="radio" name="m4q1" value="b"><span>Line chart</span></label>
+<label><input type="radio" name="m4q1" value="c"><span>Scatter plot</span></label>
+</div>
+<p class="quiz-feedback"></p>
+</div>
+<div class="quiz-q" data-answer="b" data-explain="VOSviewer constructs and visualises co-authorship, citation and keyword co-occurrence networks.">
+<p class="quiz-question">2. What does VOSviewer help you visualise?</p>
+<div class="quiz-options">
+<label><input type="radio" name="m4q2" value="a"><span>Grammar errors</span></label>
+<label><input type="radio" name="m4q2" value="b"><span>Co-authorship and citation networks</span></label>
+<label><input type="radio" name="m4q2" value="c"><span>Survey responses</span></label>
+</div>
+<p class="quiz-feedback"></p>
+</div>
+<div class="quiz-q" data-answer="b" data-explain="Honest axes and clear labels keep a chart accurate; everything else is secondary.">
+<p class="quiz-question">3. What is the most important principle when designing a chart?</p>
+<div class="quiz-options">
+<label><input type="radio" name="m4q3" value="a"><span>Maximum colour variety</span></label>
+<label><input type="radio" name="m4q3" value="b"><span>Honest axes and clear labels</span></label>
+<label><input type="radio" name="m4q3" value="c"><span>Using 3D effects</span></label>
+</div>
+<p class="quiz-feedback"></p>
+</div>
+<div class="quiz-q" data-answer="a" data-explain="Open Knowledge Maps creates a visual overview of a research topic straight from the literature.">
+<p class="quiz-question">4. Which tool creates a visual topic overview directly from scholarly literature?</p>
+<div class="quiz-options">
+<label><input type="radio" name="m4q4" value="a"><span>Open Knowledge Maps</span></label>
+<label><input type="radio" name="m4q4" value="b"><span>Zotero</span></label>
+<label><input type="radio" name="m4q4" value="c"><span>QuillBot</span></label>
+</div>
+<p class="quiz-feedback"></p>
+</div>
+<div class="quiz-actions"><button class="button" type="submit"><i data-lucide="check-check"></i> Check Answers</button><p class="quiz-result" aria-live="polite"></p></div>
+</form>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="next-bridge">
+<i data-lucide="arrow-right-circle"></i>
+<div><p class="eyebrow">WHAT'S NEXT</p><p>Have your findings clearly visualised? Module 5 helps you weave them into a well-structured, properly cited piece of academic writing.</p></div>
+</div>
+</div>
+</section>
+
 <section class="section final-cta">
 <div class="container">
 <p class="eyebrow">5 MODULES · 1 DAY</p>
 <h2>See how Module 4 fits into the full programme.</h2>
 <p>Review timings for every module, breaks and the closing wrap-up.</p>
 <a class="button" href="programme.html">View Full Schedule</a>
+</div>
+</section>
+
+<section class="section" style="padding:36px 0">
+<div class="container">
+<nav class="module-pager" aria-label="Module navigation">
+<a class="module-pager-link module-pager-prev" href="module-3-knowledge-organisation.html"><i data-lucide="arrow-left"></i><span><small>Previous</small>Module 3: Knowledge Organisation</span></a>
+<a class="module-pager-hub" href="training-modules.html"><i data-lucide="grid-3x3"></i> All Modules</a>
+<a class="module-pager-link module-pager-next" href="module-5-academic-writing.html"><span><small>Next</small>Module 5: Academic Writing</span><i data-lucide="arrow-right"></i></a>
+</nav>
 </div>
 </section>
 </main>
@@ -135,7 +396,7 @@
       <h4>Event</h4>
       <span>24 August 2026</span>
       <span>9.00 AM – 5.00 PM</span>
-      <span>Dewan Banquet, Aras 2, Blok N31, UTM Johor Bahru</span>
+      <span>Seminar Room, Level 1, Block N31, UTM Johor Bahru</span>
       <span>+607-533 3354</span>
     </div>
   </div>

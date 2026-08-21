@@ -6,6 +6,17 @@
 <title>Module 3: Knowledge Organisation and Mind Mapping — AI for Research</title>
 <meta name="description" content="Organise research information, synthesise source-based knowledge and transform research concepts into structured mind maps. Includes a Knowledge Organisation prompt builder and recommended mind-mapping tools.">
 <meta name="theme-color" content="#8a1538">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI for Research · UTM Big Data Centre">
+<meta property="og:url" content="https://drshahizan.github.io/bdc/module-3-knowledge-organisation.html">
+<meta property="og:title" content="Module 3: Knowledge Organisation and Mind Mapping — AI for Research">
+<meta property="og:description" content="Organise research information, synthesise source-based knowledge and transform research concepts into structured mind maps. Includes a Knowledge Organisation prompt builder and recommended mind-mapping tools.">
+<meta property="og:image" content="https://drshahizan.github.io/bdc/assets/images/ai-for-research-poster.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Module 3: Knowledge Organisation and Mind Mapping — AI for Research">
+<meta name="twitter:description" content="Organise research information, synthesise source-based knowledge and transform research concepts into structured mind maps. Includes a Knowledge Organisation prompt builder and recommended mind-mapping tools.">
+<meta name="twitter:image" content="https://drshahizan.github.io/bdc/assets/images/ai-for-research-poster.png">
+<link rel="canonical" href="https://drshahizan.github.io/bdc/module-3-knowledge-organisation.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -23,8 +34,6 @@
 <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
 <nav class="nav-links" id="navLinks">
 <a href="index.html">Home</a>
-<a href="index.html#about">About</a>
-<a href="index.html#outcomes">Outcomes</a>
 <a href="programme.html">Programme</a>
 <a class="active" aria-current="page" href="training-modules.html">Training Modules</a>
 <a href="materials.html">Materials</a>
@@ -33,24 +42,54 @@
 <a href="resources.html">Resources</a>
 <a href="index.html#trainer">Trainer</a>
 </nav>
-<div class="nav-actions"><a class="button button-small" href="programme.html">View Full Schedule</a><button class="icon-button" id="themeToggle" aria-label="Switch theme"><i data-lucide="moon"></i></button></div>
+<div class="nav-actions"><button class="icon-button" id="themeToggle" aria-label="Switch theme"><i data-lucide="moon"></i></button></div>
 </div>
 </header>
 <main id="main">
 <section class="page-hero">
 <div class="container">
-<p class="eyebrow">MODULE 3 · 11:30 AM – 12:30 PM</p>
+<p class="eyebrow">MODULE 3</p>
 <h1>Knowledge Organisation and Mind Mapping</h1>
 <p>Organise research information, synthesise source-based knowledge and transform research concepts into structured mind maps and literature matrices.</p>
 <div class="button-row" style="margin-top:22px"><a class="button" href="programme.html">View Full Schedule <i data-lucide="arrow-right"></i></a><a class="button button-outline" href="#ko-builder">Try the Prompt Builder</a></div>
 </div>
 </section>
 
+<nav class="page-toc" aria-label="On this page">
+<div class="container">
+<label class="page-toc-label" for="jumpNavM3"><i data-lucide="list"></i> Jump to</label>
+<select class="page-toc-select" id="jumpNavM3" data-jump-nav>
+<option value="">Select a section…</option>
+<option value="#before-you-start">Before You Start</option>
+<option value="#ko-builder">3.1 Knowledge Organisation Prompt Builder</option>
+<option value="#research-matrix">3.2 Research Matrix</option>
+<option value="#exercise-3-2">3.3 Concept Mapping</option>
+<option value="#traditional-vs-ai">Traditional vs AI</option>
+<option value="#module3-recap">Recap</option>
+<option value="#module3-quiz">Quiz</option>
+</select>
+</div>
+</nav>
+
+<section class="section section-tint" id="before-you-start">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">BEFORE YOU START</p><h2>Come prepared for Module 3</h2></div>
+<ul class="check-list">
+<li>Bring 3 to 5 sources, notes or papers you want to organise, either from Module 1's search or your own shortlist.</li>
+<li>Have a free account ready for at least one mind-mapping tool (e.g., Xmind, MindMeister or Markmap).</li>
+<li>If using Gemini Notebook Studio, upload your verified sources before the session to save time.</li>
+</ul>
+<div class="alert"><i data-lucide="shield-alert"></i><p><b>Trace every connection to a source:</b> Whatever tool you use, every theme, cluster or relationship in your map should be traceable back to an actual paper or note, and not invented by the AI.</p></div>
+<div class="qr-box"><img src="assets/images/qr/qr-module-3.png" alt="QR code linking to this module page" width="84" height="84" loading="lazy"><div class="qr-box-text"><p class="qr-box-label">Scan to open this module on your phone</p><p class="qr-box-url">drshahizan.github.io/bdc/module-3-knowledge-organisation.html</p></div></div>
+<div class="trainer-tip"><div class="trainer-tip-avatar">MSO</div><div><p class="trainer-tip-label">Trainer's Tip, Dr. Shahizan</p><p>A mind map is only useful if you can still explain it a week later. Before you move on, talk through your map out loud to a labmate. If you cannot explain a link between two nodes, it probably needs a source or it needs to go.</p></div></div>
+</div>
+</section>
+
 <section class="section" id="ko-builder">
 <div class="container">
 <div class="section-heading">
-<p class="eyebrow">HANDS-ON TOOL</p>
-<h2>Knowledge Organisation Prompt Builder</h2>
+<p class="eyebrow">EXERCISE 3.1</p>
+<h2>Knowledge Organisation Prompt Builder <span class="time-tag">~10 min</span></h2>
 <p class="prose">Describe the sources or notes you want to organise. The builder assembles a ready-to-use prompt asking an AI chat tool to structure them into a synthesis matrix, timeline, mind map outline or theoretical framework map.</p>
 </div>
 <div class="builder-layout">
@@ -70,6 +109,191 @@
 <div class="builder-note"><i data-lucide="shield-check"></i><p><b>Source-grounded structure:</b> Upload the actual papers or notes to the AI tool alongside this prompt so every theme and connection can be traced back to a real source.</p></div>
 </aside>
 </div>
+<div class="worked-example" style="margin-top:28px">
+<div class="worked-example-head"><i data-lucide="flask-conical"></i><div><p class="eyebrow">WORKED EXAMPLE</p><h3>See a completed prompt</h3></div></div>
+<p class="worked-example-input"><b>Sample input:</b> Sources: "Smith 2021, Lee 2022, Tan 2023 on AI in higher education" · Goal: Thematic synthesis matrix · Format: Table · Detail: Brief overview</p>
+<div class="worked-example-output">Act as a research assistant helping me organise source material.
+
+Sources, notes or topic to organise:
+Smith 2021, Lee 2022, Tan 2023 on AI in higher education
+
+Organisation goal: Thematic synthesis matrix.
+
+Present the result as a table.
+
+Level of detail: Brief overview.
+
+Ground every theme, connection and entry in the sources or notes I provided. Do not invent studies, findings or relationships that are not supported by the material. Clearly flag any gaps where more source information is needed.</div>
+</div>
+</div>
+</section>
+
+<section class="section section-tint" id="research-matrix">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">EXERCISE 3.2</p>
+<h2>Build a Research Matrix <span class="time-tag">~20 min</span></h2>
+<p class="prose">A research matrix is a table that forces structure onto messy source material or study design, one row per source, question or theme, so patterns, gaps and inconsistencies become visible at a glance instead of staying buried across separate papers or notes. Pick the type that matches what you need right now.</p>
+</div>
+<div class="matrix-grid">
+<article class="matrix-card">
+<div class="matrix-card-top"><i data-lucide="rows-3"></i><h3>Literature Review Matrix</h3></div>
+<p>Organises past studies by author, year, method and findings, one row per source, so you can compare them side by side and spot what the literature has not yet answered.</p>
+<span class="matrix-use">Best for finding research gaps</span>
+<div class="matrix-example-wrap">
+<table class="matrix-example">
+<thead><tr><th>Author, Year</th><th>Method</th><th>Key Finding</th><th>Gap</th></tr></thead>
+<tbody>
+<tr><td>Smith 2021</td><td>Survey, n=210</td><td>AI feedback speeds up drafting</td><td>Long-term retention not measured</td></tr>
+<tr><td>Lee 2022</td><td>Case study</td><td>Students value fast feedback</td><td>Single institution, small sample</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+<article class="matrix-card">
+<div class="matrix-card-top"><i data-lucide="git-compare"></i><h3>Research Design Matrix</h3></div>
+<p>Aligns your own study's core components, research questions, objectives, methods and data sources, in one row per question, so you can check every part of your design is logically consistent.</p>
+<span class="matrix-use">Best for checking your own study</span>
+<div class="matrix-example-wrap">
+<table class="matrix-example">
+<thead><tr><th>Research Question</th><th>Objective</th><th>Method</th><th>Data Source</th></tr></thead>
+<tbody>
+<tr><td>Does AI feedback improve revision quality?</td><td>Compare revision quality with and without AI feedback</td><td>Quasi-experimental</td><td>Pre/post writing samples</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+<article class="matrix-card">
+<div class="matrix-card-top"><i data-lucide="layers"></i><h3>Synthesis Matrix</h3></div>
+<p>Groups sources by common theme or idea rather than by individual article, one row per theme, so you can see how the literature clusters and where sources agree or disagree.</p>
+<span class="matrix-use">Best for writing your literature review</span>
+<div class="matrix-example-wrap">
+<table class="matrix-example">
+<thead><tr><th>Theme</th><th>Supporting Sources</th></tr></thead>
+<tbody>
+<tr><td>AI improves drafting speed</td><td>Smith 2021; Lee 2022; Tan 2023</td></tr>
+<tr><td>Feedback quality varies by tool</td><td>Lee 2022; Wong 2023</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+</div>
+
+<div class="section-heading" style="margin-top:8px">
+<p class="eyebrow">READY-TO-USE PROMPTS</p>
+<h2>Copy a prompt for your matrix type</h2>
+<p class="prose">Paste your own sources or study details in place of the bracketed instructions, then run the prompt in your AI chat tool of choice.</p>
+</div>
+<div class="matrix-prompt-grid">
+<div class="notebook-config-prompt">
+<div class="notebook-config-head"><div><p class="eyebrow">LITERATURE REVIEW MATRIX</p><h3>Ready-to-use prompt</h3></div><button class="copy-output" data-copy-pattern="matrixPromptLitReview" type="button"><i data-lucide="copy"></i><span>Copy</span></button></div>
+<pre id="matrixPromptLitReview">Act as a research assistant helping me build a literature review matrix.
+
+Sources to include (author, year, and a short description or abstract of each):
+[PASTE YOUR SOURCES HERE]
+
+Organise them into a table with these columns: Author &amp; Year, Purpose/Objective, Method &amp; Sample, Key Findings, Limitations, Gap or Question This Raises.
+
+Base every cell only on the sources I provided. Do not invent findings, methods or authors. If a source does not report a column's information, write "Not reported" instead of guessing.
+
+After the table, list 2 to 3 possible research gaps suggested by patterns across the rows.</pre>
+</div>
+<div class="notebook-config-prompt">
+<div class="notebook-config-head"><div><p class="eyebrow">RESEARCH DESIGN MATRIX</p><h3>Ready-to-use prompt</h3></div><button class="copy-output" data-copy-pattern="matrixPromptDesign" type="button"><i data-lucide="copy"></i><span>Copy</span></button></div>
+<pre id="matrixPromptDesign">Act as a research supervisor helping me check the alignment of my study.
+
+My research questions: [LIST YOUR RESEARCH QUESTIONS]
+My objectives: [LIST YOUR OBJECTIVES]
+My proposed method(s): [LIST YOUR METHODS]
+
+Build a table with one row per research question and these columns: Research Question, Objective, Variables or Constructs, Method, Data Source or Instrument.
+
+Check whether each research question logically aligns with its objective and method. Flag any row where the method does not seem capable of answering the stated question, and explain why.</pre>
+</div>
+<div class="notebook-config-prompt">
+<div class="notebook-config-head"><div><p class="eyebrow">SYNTHESIS MATRIX</p><h3>Ready-to-use prompt</h3></div><button class="copy-output" data-copy-pattern="matrixPromptSynthesis" type="button"><i data-lucide="copy"></i><span>Copy</span></button></div>
+<pre id="matrixPromptSynthesis">Act as a research assistant helping me build a thematic synthesis matrix.
+
+Sources (author, year, and a short description or key points of each):
+[PASTE YOUR SOURCES HERE]
+
+Identify 3 to 6 recurring themes across these sources. Build a table with themes as rows and sources as columns, marking which sources discuss each theme and a one-line note on their position.
+
+Ground every theme in the sources provided. Do not invent a theme that is not actually discussed. Note any theme where sources disagree or contradict each other.</pre>
+</div>
+</div>
+
+<div class="section-heading" style="margin-top:36px">
+<p class="eyebrow">CUSTOM PROMPT</p>
+<h2>Or build your own matrix prompt</h2>
+<p class="prose">Choose a matrix type, describe your own sources or study components, and the builder assembles a tailored prompt with matching columns.</p>
+</div>
+<div class="builder-layout">
+<form class="builder-form" id="matrixBuilderForm">
+<div class="builder-intro"><div><p class="eyebrow">STEP 01</p><h2>Describe your matrix</h2></div><button class="text-button" type="button" id="matrixBuilderReset"><i data-lucide="rotate-ccw"></i> Clear Form</button></div>
+<div class="form-grid">
+<label><span>Matrix type</span><select id="matrixType"><option>Literature Review Matrix</option><option>Research Design Matrix</option><option>Synthesis Matrix</option></select></label>
+<label class="full"><span>Sources, notes or study components <b>*</b></span><textarea id="matrixSources" rows="4" required placeholder="List your sources (e.g., Smith 2021, Lee 2022) or your research questions, objectives and methods."></textarea></label>
+<label class="full"><span>Columns</span><input id="matrixColumns" placeholder="Auto-filled once you pick a matrix type. Edit freely."></label>
+<label><span>Output format</span><select id="matrixFormat"><option>Table</option><option>Markdown table</option><option>Spreadsheet-ready CSV style</option></select></label>
+<label><span>Level of detail</span><select id="matrixDetail"><option>Brief overview</option><option>Detailed breakdown</option></select></label>
+</div>
+<div class="builder-actions"><button class="button" type="submit"><i data-lucide="wand-sparkles"></i> Generate Prompt</button><p>Fields marked with <b>*</b> are required.</p></div>
+</form>
+<aside class="builder-output" aria-live="polite">
+<div class="output-head"><div><p class="eyebrow">GENERATED PROMPT</p><h2>Ready to use</h2></div><button class="copy-output" id="copyMatrixPrompt" type="button" disabled><i data-lucide="copy"></i><span>Copy Prompt</span></button></div>
+<div class="prompt-preview empty" id="matrixBuilderPreview"><div class="empty-state"><i data-lucide="table-2"></i><h3>Your prompt will appear here</h3><p>Choose a matrix type and describe your sources, then select <b>Generate Prompt</b>.</p></div></div>
+<div class="builder-note"><i data-lucide="shield-check"></i><p><b>Verify every cell:</b> Check the finished matrix against your actual sources or study design. An AI-built matrix is a starting draft, not a finished analysis.</p></div>
+</aside>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">DURING THIS EXERCISE</p><h2>Try it with your own material</h2></div>
+<ul class="check-list">
+<li>Pick the matrix type above that matches what you need right now.</li>
+<li>Paste 3 to 5 of your own sources, or your own research questions, objectives and methods, into a ready-to-use prompt or the custom builder.</li>
+<li>Run the prompt in your AI chat tool of choice, uploading the actual sources where the tool supports it.</li>
+<li>Read every row against the real source or your own study design. Correct or remove anything the AI got wrong.</li>
+<li>Scan across the finished rows for gaps, misalignments or repeated themes, that pattern is the actual output of building a matrix.</li>
+</ul>
+<div class="alert"><i data-lucide="shield-alert"></i><p><b>A matrix is a thinking tool, not a citation:</b> Every row must trace back to a real source or a real part of your study. If the AI cannot find the information, it should say so, not fill the cell with something plausible-sounding.</p></div>
+</div>
+</section>
+
+<section class="section section-tint" id="exercise-3-2">
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">EXERCISE 3.3</p>
+<h2>Concept mapping from an abstract <span class="time-tag">~15 min</span></h2>
+<p class="prose">Before you let an AI tool draw a mind map for you, try extracting the concepts and relationships yourself from one abstract. Comparing your manual map against the AI's version shows you exactly what a source-grounded tool adds, and what it might miss.</p>
+</div>
+<ul class="check-list">
+<li>Pick one abstract from your shortlist, ideally one with a few distinct concepts and a clear relationship between them.</li>
+<li>Manually list the key concepts in the abstract, then write how each pair of concepts relates (causes, is a type of, is measured by, contradicts, and so on).</li>
+<li>Run the ready-to-use prompt below with the same abstract in an AI chat tool.</li>
+<li>Compare the two: did the AI find a relationship you missed, or add one that is not actually in the text?</li>
+</ul>
+<div class="exercise-table-wrap">
+<table class="exercise-table">
+<thead><tr><th>Concept</th><th>Relationship</th><th>Concept</th></tr></thead>
+<tbody>
+<tr><td>AI feedback</td><td>reduces</td><td>time spent on revision</td></tr>
+<tr><td>Time spent on revision</td><td>correlates with</td><td>student satisfaction</td></tr>
+</tbody>
+</table>
+</div>
+<div class="notebook-config-prompt" style="margin-top:20px">
+<div class="notebook-config-head"><div><p class="eyebrow">CONCEPT EXTRACTION PROMPT</p><h3>Ready-to-use prompt</h3></div><button class="copy-output" data-copy-pattern="conceptMapPromptM3" type="button"><i data-lucide="copy"></i><span>Copy</span></button></div>
+<pre id="conceptMapPromptM3">Act as a research assistant helping me build a concept map from a single abstract.
+
+Abstract:
+[PASTE THE ABSTRACT HERE]
+
+Extract the key concepts in this abstract, then list how each pair of related concepts connects, as a set of "Concept, Relationship, Concept" triples suitable for a mind map. Ground every triple strictly in the wording of the abstract. Do not add outside knowledge, and do not infer a relationship the abstract does not actually state.</pre>
+</div>
 </div>
 </section>
 
@@ -77,12 +301,14 @@
 <div class="container">
 <div class="section-heading"><p class="eyebrow">RECOMMENDED TOOLS</p><h2>Mind mapping and knowledge organisation tools</h2></div>
 <div class="materials-grid">
-<article class="resource-card"><div class="resource-top"><b>01</b><i data-lucide="git-branch"></i></div><small>MIND MAPPING</small><h3>Xmind</h3><p>Structured mind maps with outline, tree and fishbone diagram views for organising themes and sub-themes.</p></article>
-<article class="resource-card"><div class="resource-top"><b>02</b><i data-lucide="layout-dashboard"></i></div><small>VISUAL WHITEBOARD</small><h3>Miro</h3><p>Collaborative whiteboard for clustering literature notes, sticky-note theming and framework diagrams.</p></article>
-<article class="resource-card"><div class="resource-top"><b>03</b><i data-lucide="waypoints"></i></div><small>QUICK DIAGRAMMING</small><h3>Whimsical</h3><p>Fast mind maps and flowcharts for early-stage concept structuring.</p></article>
-<article class="resource-card"><div class="resource-top"><b>04</b><i data-lucide="link-2"></i></div><small>NETWORKED NOTES</small><h3>Obsidian</h3><p>Link notes, sources and concepts into a navigable knowledge graph.</p></article>
-<article class="resource-card"><div class="resource-top"><b>05</b><i data-lucide="panels-top-left"></i></div><small>SOURCE-GROUNDED</small><h3>Gemini Notebook Studio</h3><p>Generate a mind map directly from your uploaded, verified sources.</p></article>
-<article class="resource-card"><div class="resource-top"><b>06</b><i data-lucide="layout-grid"></i></div><small>ALL-IN-ONE WORKSPACE</small><h3>Notion</h3><p>Database views and linked pages for building a running literature matrix.</p></article>
+<a class="resource-card resource-link-card" href="https://xmind.app/" target="_blank" rel="noopener noreferrer"><div class="resource-top"><b>01</b><i data-lucide="git-branch"></i></div><small>MIND MAPPING</small><h3>Xmind</h3><p>Structured mind maps with outline, tree and fishbone diagram views for organising themes and sub-themes.</p><span>Visit Xmind →</span></a>
+<a class="resource-card resource-link-card" href="https://markmap.js.org/" target="_blank" rel="noopener noreferrer"><div class="resource-top"><b>02</b><i data-lucide="workflow"></i></div><small>MARKDOWN → MIND MAP</small><h3>Markmap</h3><p>Transforms Markdown outlines into interactive mind maps for organising research concepts.</p><span>Visit Markmap →</span></a>
+<a class="resource-card resource-link-card" href="https://www.mindmeister.com/" target="_blank" rel="noopener noreferrer"><div class="resource-top"><b>03</b><i data-lucide="layout-dashboard"></i></div><small>COLLABORATIVE MIND MAPPING</small><h3>MindMeister</h3><p>Online collaborative mind-mapping tool for organising concepts, projects and research ideas.</p><span>Visit MindMeister →</span></a>
+<a class="resource-card resource-link-card" href="https://obsidian.md/" target="_blank" rel="noopener noreferrer"><div class="resource-top"><b>04</b><i data-lucide="link-2"></i></div><small>NETWORKED NOTES</small><h3>Obsidian</h3><p>Link notes, sources and concepts into a navigable knowledge graph.</p><span>Visit Obsidian →</span></a>
+<a class="resource-card resource-link-card" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer"><div class="resource-top"><b>05</b><i data-lucide="panels-top-left"></i></div><small>SOURCE-GROUNDED</small><h3>Gemini Notebook Studio</h3><p>Generate a mind map directly from your uploaded, verified sources.</p><span>Visit Gemini Notebook →</span></a>
+<a class="resource-card resource-link-card" href="https://www.notion.so/" target="_blank" rel="noopener noreferrer"><div class="resource-top"><b>06</b><i data-lucide="layout-grid"></i></div><small>ALL-IN-ONE WORKSPACE</small><h3>Notion</h3><p>Database views and linked pages for building a running literature matrix.</p><span>Visit Notion →</span></a>
+<a class="resource-card resource-link-card" href="https://miro.com/" target="_blank" rel="noopener noreferrer"><div class="resource-top"><b>07</b><i data-lucide="layout-dashboard"></i></div><small>VISUAL WHITEBOARD</small><h3>Miro</h3><p>Collaborative online whiteboard for clustering literature notes, sticky-note theming and framework diagrams.</p><span>Visit Miro →</span></a>
+<a class="resource-card resource-link-card" href="https://whimsical.com/" target="_blank" rel="noopener noreferrer"><div class="resource-top"><b>08</b><i data-lucide="waypoints"></i></div><small>MIND MAPPING &amp; FLOWCHARTS</small><h3>Whimsical</h3><p>Fast, lightweight mind maps, flowcharts and wireframes for early-stage concept structuring.</p><span>Visit Whimsical →</span></a>
 </div>
 </div>
 </section>
@@ -98,12 +324,117 @@
 </div>
 </section>
 
+<section class="section section-tint" id="traditional-vs-ai">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">WHY USE AI HERE</p><h2>Traditional vs AI-assisted knowledge organisation</h2></div>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th>Task</th><th>Traditional approach</th><th>AI-assisted approach</th></tr></thead>
+<tbody>
+<tr><td>Clustering themes</td><td>Sort sticky notes or index cards by hand</td><td>KO Prompt Builder or Gemini Notebook Studio clusters themes from your sources in seconds</td></tr>
+<tr><td>Drawing the mind map</td><td>Sketch by hand or manually place nodes one at a time</td><td>Markmap or Xmind render a full map instantly from a text outline</td></tr>
+<tr><td>Tracing themes to sources</td><td>Flip between your notes and the map to check each link</td><td>A source-grounded prompt keeps every theme traceable to a named source</td></tr>
+<tr><td>Updating as new papers arrive</td><td>Redraw or manually re-cluster the whole map</td><td>Re-run the same prompt with the new sources added</td></tr>
+</tbody>
+</table>
+</div>
+<p class="prose" style="margin-top:16px"><b>The trade-off:</b> AI speeds up structuring; you still confirm every theme and connection is grounded in a real source.</p>
+</div>
+</section>
+
+<section class="section" id="module3-recap">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">RECAP</p><h2>Key takeaways and terms</h2></div>
+<div class="recap-grid">
+<div class="takeaways">
+<div class="takeaways-head"><i data-lucide="sparkles"></i><h3>Key Takeaways</h3></div>
+<ul>
+<li>A synthesis matrix, timeline, mind map or framework map each suit a different organisation goal, so choose based on what you need to show.</li>
+<li>Always ground AI-generated structure in your actual sources; never let it invent themes or connections.</li>
+<li>Mind-mapping tools structure your thinking; Gemini Notebook Studio generates a map directly from verified sources.</li>
+<li>A well-organised literature map becomes the backbone of your literature review section later.</li>
+</ul>
+</div>
+<dl class="glossary">
+<div><dt>Synthesis matrix</dt><dd>A table organising sources by theme, showing which studies support or address each theme.</dd></div>
+<div><dt>Literature matrix</dt><dd>A structured table comparing sources across dimensions such as method, sample and findings.</dd></div>
+<div><dt>Node</dt><dd>A single concept or entry in a mind map, connected to related ideas by branches.</dd></div>
+<div><dt>Knowledge graph</dt><dd>A network of linked notes, sources or concepts showing how they relate.</dd></div>
+</dl>
+</div>
+</div>
+</section>
+
+<section class="section section-tint" id="module3-quiz">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">SELF-CHECK</p><h2>Test your understanding</h2></div>
+<form class="quiz" data-quiz="module-3">
+<div class="quiz-q" data-answer="b" data-explain="A thematic synthesis matrix organises sources by theme so they can be compared side-by-side.">
+<p class="quiz-question">1. Which output format is best when you want to compare sources side-by-side by theme?</p>
+<div class="quiz-options">
+<label><input type="radio" name="m3q1" value="a"><span>Nested outline</span></label>
+<label><input type="radio" name="m3q1" value="b"><span>Thematic synthesis matrix</span></label>
+<label><input type="radio" name="m3q1" value="c"><span>Chronological timeline</span></label>
+</div>
+<p class="quiz-feedback"></p>
+</div>
+<div class="quiz-q" data-answer="b" data-explain="Every theme, cluster or connection should be traceable to an actual source you provided, not invented.">
+<p class="quiz-question">2. What should every theme or connection in your organised knowledge be traceable to?</p>
+<div class="quiz-options">
+<label><input type="radio" name="m3q2" value="a"><span>The AI's general knowledge</span></label>
+<label><input type="radio" name="m3q2" value="b"><span>An actual source or note you provided</span></label>
+<label><input type="radio" name="m3q2" value="c"><span>A random assumption</span></label>
+</div>
+<p class="quiz-feedback"></p>
+</div>
+<div class="quiz-q" data-answer="a" data-explain="Gemini Notebook Studio generates outputs like mind maps directly from your uploaded, verified sources.">
+<p class="quiz-question">3. Which tool generates a mind map directly from your uploaded, verified sources?</p>
+<div class="quiz-options">
+<label><input type="radio" name="m3q3" value="a"><span>Gemini Notebook Studio</span></label>
+<label><input type="radio" name="m3q3" value="b"><span>Grammarly</span></label>
+<label><input type="radio" name="m3q3" value="c"><span>SPSS</span></label>
+</div>
+<p class="quiz-feedback"></p>
+</div>
+<div class="quiz-q" data-answer="b" data-explain="Markmap converts a Markdown outline into an interactive, explorable mind map.">
+<p class="quiz-question">4. Markmap is best described as:</p>
+<div class="quiz-options">
+<label><input type="radio" name="m3q4" value="a"><span>A citation manager</span></label>
+<label><input type="radio" name="m3q4" value="b"><span>A tool that turns a Markdown outline into an interactive mind map</span></label>
+<label><input type="radio" name="m3q4" value="c"><span>A survey platform</span></label>
+</div>
+<p class="quiz-feedback"></p>
+</div>
+<div class="quiz-actions"><button class="button" type="submit"><i data-lucide="check-check"></i> Check Answers</button><p class="quiz-result" aria-live="polite"></p></div>
+</form>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="next-bridge">
+<i data-lucide="arrow-right-circle"></i>
+<div><p class="eyebrow">WHAT'S NEXT</p><p>Have your literature organised into themes? Module 4 helps you turn those findings into clear charts, diagrams and visual research communication.</p></div>
+</div>
+</div>
+</section>
+
 <section class="section final-cta">
 <div class="container">
 <p class="eyebrow">5 MODULES · 1 DAY</p>
 <h2>See how Module 3 fits into the full programme.</h2>
 <p>Review timings for every module, breaks and the closing wrap-up.</p>
 <a class="button" href="programme.html">View Full Schedule</a>
+</div>
+</section>
+
+<section class="section" style="padding:36px 0">
+<div class="container">
+<nav class="module-pager" aria-label="Module navigation">
+<a class="module-pager-link module-pager-prev" href="module-2-idea-generation.html"><i data-lucide="arrow-left"></i><span><small>Previous</small>Module 2: Idea Generation</span></a>
+<a class="module-pager-hub" href="training-modules.html"><i data-lucide="grid-3x3"></i> All Modules</a>
+<a class="module-pager-link module-pager-next" href="module-4-data-visualisation.html"><span><small>Next</small>Module 4: Data and Research Visualisation</span><i data-lucide="arrow-right"></i></a>
+</nav>
 </div>
 </section>
 </main>
@@ -132,7 +463,7 @@
       <h4>Event</h4>
       <span>24 August 2026</span>
       <span>9.00 AM – 5.00 PM</span>
-      <span>Dewan Banquet, Aras 2, Blok N31, UTM Johor Bahru</span>
+      <span>Seminar Room, Level 1, Block N31, UTM Johor Bahru</span>
       <span>+607-533 3354</span>
     </div>
   </div>
