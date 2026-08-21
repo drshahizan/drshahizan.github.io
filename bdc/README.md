@@ -76,6 +76,7 @@ This package is configured for **https://drshahizan.github.io/bdc/**. If you dep
 - **Header cleanup** — removed the "View Programme" / "View Full Schedule" button from the header on every page, since it duplicated the "Programme" link already in the main navigation. The header now shows the nav links and the theme toggle only.
 - **Article workflow** — `materials.html` has a new "Your end-to-end article workflow" section: a 10-stage numbered timeline from literature discovery (Module 1) through drafting (Module 5), self-review, peer/supervisor review, a similarity/AI-writing check, formatting, and final submission — each stage links to the relevant module, tool or checklist.
 - **Interactive pre-submission checklist** — `materials.html` has a new 20-item checklist ("Pre-Submission Checklist") grouped into Content & Argument, Citations & Evidence, AI Use & Integrity, Formatting & Journal Requirements, and Final Technical Checks. Each item is a real checkbox with a live progress bar; your ticks are saved to this browser's `localStorage` (key `bdcSubmissionChecklist`) and a "Reset Checklist" button clears them.
+- **Detailed printable module notes** — `assets/downloads/module-1-literature-discovery-notes.pdf` through `module-5-academic-writing-notes.pdf` are five separate, detailed, maroon/gold-themed PDFs (one per module, 9–12 pages each). Each covers learning objectives, a glossary, step-by-step "how to use" guides for that module's AI tools (Scopus AI, Publish or Perish, Gemini Notebook, the Research Matrix builder, the Chart-Type Decision Helper, the AI Disclosure Builder, and more), a worked example, every numbered exercise with a full model answer, an AI tools table, a Traditional vs AI-assisted comparison, common pitfalls to check, a recap of key takeaways, and blank ruled pages for handwritten notes. Linked from the Materials page under "Detailed Printable Notes" and from a "Download Module Notes (PDF)" button on each module page's hero. To regenerate after editing module content, update the `content_m1.py`–`content_m5.py` data files and re-run `build.py` + `render_pdf.py` from this project's working files (`/tmp/work/modulenotes/`), which use the same shared print-CSS/Playwright pipeline as the cheat sheet.
 
 ## Files
 
@@ -89,6 +90,7 @@ This package is configured for **https://drshahizan.github.io/bdc/**. If you dep
 - `assets/images/*.jpg` — supporting imagery for the AI Tools, AI Prompt Centre, Materials and Resources pages
 - `assets/images/qr/*.png` — QR codes for the Training Modules hub and each module page
 - `assets/downloads/ai-for-research-cheat-sheet.pdf` — printable five-page module cheat sheet
+- `assets/downloads/module-1-literature-discovery-notes.pdf` … `module-5-academic-writing-notes.pdf` — five detailed, printable per-module PDF notes with tool guides, worked examples, exercises with model answers, and blank note pages
 - `404.html` — custom "page not found" page matching the site's header/footer
 - `sitemap.xml` — XML sitemap listing all 25 pages, for search engines
 - `robots.txt` — allows crawling and points to `sitemap.xml`
