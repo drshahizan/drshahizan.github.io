@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<script defer src="ai-prompt-centre.js"></script>
 <script defer src="script.js"></script>
 </head>
 <body>
@@ -45,8 +46,8 @@
 <div class="container page-hero-grid">
 <div>
 <p class="eyebrow">AI PROMPTS FOR RESEARCH</p>
-<h1>One focused pathway from <span>idea to resubmission</span></h1>
-<p>Develop a journal article using publication-specific prompts, discover academic evidence with Scopus AI, analyse verified sources in Gemini Notebook, or build a prompt tailored to your current research task.</p>
+<h1>AI Prompts for <span>Every Stage of Research</span></h1>
+<p>Choose your research task first, then open the most suitable prompt library, builder or evidence-grounded workflow—from discovery and research design to publication and resubmission.</p>
 </div>
 <div class="page-hero-visual reveal">
 <img src="assets/images/generated/ai-prompt-centre.webp" alt="A Malaysian postgraduate researcher refining an academic AI prompt in a university library" width="1536" height="864">
@@ -54,9 +55,36 @@
 </div>
 </div>
 </section>
-<section class="section" id="prompt-resources">
+<section class="section section-tint" id="choose-task">
 <div class="container">
-<div class="tool-grid">
+<div class="section-heading"><p class="eyebrow">START WITH YOUR TASK</p><h2>What do you want to do?</h2><p>Select an outcome instead of guessing which AI platform or prompt library to use.</p></div>
+<div class="prompt-task-grid">
+<a href="scopus-ai-prompts.html"><i data-lucide="scan-search"></i><span><b>Discover literature</b><small>Scopus AI questions</small></span></a>
+<a href="module-2-idea-generation.html#rq-builder"><i data-lucide="lightbulb"></i><span><b>Refine a research question</b><small>Research design builder</small></span></a>
+<a href="gemini-notebook-prompts.html"><i data-lucide="notebook-tabs"></i><span><b>Analyse uploaded papers</b><small>Source-grounded synthesis</small></span></a>
+<a href="module-3-knowledge-organisation.html#ko-builder"><i data-lucide="network"></i><span><b>Organise evidence</b><small>Matrix and knowledge map</small></span></a>
+<a href="research-methodology-prompts.html"><i data-lucide="flask-conical"></i><span><b>Plan methods and analysis</b><small>Design, data and interpretation</small></span></a>
+<a href="gemini-notebook-studio-prompts.html"><i data-lucide="panels-top-left"></i><span><b>Create a visual output</b><small>Source-grounded Studio</small></span></a>
+<a href="ai-publication-prompts.html"><i data-lucide="file-pen-line"></i><span><b>Write or improve a manuscript</b><small>Publication workflow</small></span></a>
+<a href="manuscript-review-prompts.html"><i data-lucide="file-search-2"></i><span><b>Review a manuscript</b><small>Editorial perspectives</small></span></a>
+<a href="slr-development-prompts.html"><i data-lucide="list-checks"></i><span><b>Develop an SLR</b><small>Protocol to synthesis</small></span></a>
+<a href="prompt-builder.html"><i data-lucide="shield-check"></i><span><b>Review a completed SLR</b><small>Custom review builder</small></span></a>
+<a href="ai-publication-prompts.html"><i data-lucide="messages-square"></i><span><b>Respond to reviewers</b><small>Revision and resubmission</small></span></a>
+<a href="agentic-ai-publication.html"><i data-lucide="workflow"></i><span><b>Run a multi-step workflow</b><small>Agentic AI with approval</small></span></a>
+</div>
+</div>
+</section>
+
+<section class="section" id="quick-start">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">QUICK START</p><h2>Top 5 prompts to start with</h2><p>Replace the bracketed fields, upload the required evidence, then verify the output against the original sources.</p></div>
+<div class="quick-prompt-grid" id="quickPromptGrid"></div>
+</div>
+</section>
+
+<section class="section section-tint" id="prompt-resources">
+<div class="container">
+<div class="section-heading"><p class="eyebrow">A · DISCOVER AND DEFINE</p><h2>Build a defensible research direction</h2></div><div class="tool-grid">
 <a class="tool-card" href="scopus-ai-prompts.html">
 <i data-lucide="scan-search"></i>
 <small>01 · 12 CATEGORIES · 48 FOCUSED QUESTIONS</small>
@@ -64,51 +92,61 @@
 <p>Explore research gaps, trends, evidence strength, methods, theoretical frameworks, literature-review directions and defensible article positioning.</p>
 <span>Explore Scopus AI Prompts →</span>
 </a>
+<a class="tool-card" href="module-2-idea-generation.html#rq-builder"><i data-lucide="lightbulb"></i><small>02 · RESEARCH QUESTION &amp; DESIGN</small><h3>Research Question and Design Builder</h3><p>Refine a broad topic into an aligned research problem, research question, objective and initial design.</p><span>Build a Research Question →</span></a>
+</div>
+<div class="section-heading prompt-group-heading"><p class="eyebrow">B · ANALYSE AND ORGANISE EVIDENCE</p><h2>Move from papers to structured knowledge</h2></div><div class="tool-grid">
 <a class="tool-card" href="gemini-notebook-prompts.html">
 <i data-lucide="notebook-tabs"></i>
-<small>02 · SOURCE ANALYSIS &amp; SYNTHESIS</small>
+<small>03 · SOURCE ANALYSIS &amp; SYNTHESIS</small>
 <h3>Gemini Notebook Prompts</h3>
 <p>Use 95 prompts to analyse literature, develop the manuscript, prepare for submission, address reviewer comments and verify the revised article before resubmission.</p>
 <span>Open Gemini Notebook Prompts →</span>
 </a>
+<a class="tool-card" href="module-3-knowledge-organisation.html#ko-builder"><i data-lucide="table-properties"></i><small>04 · MATRIX &amp; KNOWLEDGE MAP</small><h3>Knowledge Organisation Prompt Builder</h3><p>Transform uploaded studies into themes, evidence matrices, conceptual structures and traceable knowledge maps.</p><span>Organise the Evidence →</span></a>
 <a class="tool-card" href="gemini-notebook-studio-prompts.html">
 <i data-lucide="panels-top-left"></i>
-<small>03 · 8 STUDIO OUTPUTS · 24 PROMPTS</small>
+<small>05 · 8 STUDIO OUTPUTS · 24 PROMPTS</small>
 <h3>Gemini Notebook Studio Prompts</h3>
 <p>Transform verified sources into publication-ready infographics, slide decks, audio and video overviews, mind maps, flashcards, quizzes and critical reports.</p>
 <span>Explore Studio Prompts →</span>
 </a>
 <a class="tool-card" href="studio-prompt-builder.html">
 <i data-lucide="blocks"></i>
-<small>04 · CUSTOM STUDIO OUTPUT</small>
+<small>06 · CUSTOM STUDIO OUTPUT</small>
 <h3>Build a Gemini Notebook Studio Prompt</h3>
 <p>Create a concise source-grounded brief for an infographic, slide deck, audio or video overview, mind map, flashcards, quiz or report.</p>
 <span>Build a Studio Prompt →</span>
 </a>
+</div>
+<div class="section-heading prompt-group-heading"><p class="eyebrow">C · DESIGN, ANALYSE AND PUBLISH</p><h2>Strengthen methods, findings and manuscripts</h2></div><div class="tool-grid">
+<a class="tool-card" href="research-methodology-prompts.html"><i data-lucide="flask-conical"></i><small>07 · 5 CATEGORIES · 25 PROMPTS</small><h3>Research Methodology and Data Analysis Prompts</h3><p>Align questions, methods, sampling, data collection, analysis, interpretation and reproducibility without inventing data.</p><span>Explore Methodology Prompts →</span></a>
 <a class="tool-card" href="ai-publication-prompts.html">
 <i data-lucide="library-big"></i>
-<small>05 · 6 PHASES · 20 CATEGORIES · 66 PROMPTS</small>
+<small>08 · 6 PHASES · 20 CATEGORIES · 66 PROMPTS</small>
 <h3>Google Gemini Prompts for Publication</h3>
 <p>Move from article positioning and manuscript development to quality review, journal selection, submission, reviewer response and resubmission.</p>
 <span>Explore Google Gemini Prompts →</span>
 </a>
 <a class="tool-card" href="manuscript-review-prompts.html">
 <i data-lucide="file-search-2"></i>
-<small>06 · 5 EDITORIAL REVIEWS · WORD REPORT</small>
+<small>09 · 5 EDITORIAL REVIEWS · WORD REPORT</small>
 <h3>Comprehensive Manuscript Review Prompts</h3>
 <p>Choose a Q1–Q2 manuscript review, desk-rejection simulation, novelty audit, methodology review or multi-reviewer panel and generate a structured Word report.</p>
 <span>Choose a Manuscript Review →</span>
 </a>
+<a class="tool-card" href="slr-development-prompts.html"><i data-lucide="list-checks"></i><small>10 · 4 STAGES · 20 PROMPTS</small><h3>Systematic Literature Review Development Prompts</h3><p>Develop a transparent SLR from protocol, eligibility and search strategy to screening, appraisal, synthesis and PRISMA reporting.</p><span>Develop an SLR →</span></a>
 <a class="tool-card" href="prompt-builder.html">
 <i data-lucide="wand-sparkles"></i>
-<small>07 · UPLOADED ARTICLE · SLR REVIEW</small>
+<small>11 · UPLOADED ARTICLE · SLR REVIEW</small>
 <h3>Build an SLR Review Prompt</h3>
 <p>Configure a journal editor or peer reviewer to evaluate the complete systematic literature review article uploaded by the user.</p>
 <span>Build an SLR Review Prompt →</span>
 </a>
+</div>
+<div class="section-heading prompt-group-heading"><p class="eyebrow">D · AUTOMATE WITH HUMAN APPROVAL</p><h2>Coordinate complex publication workflows</h2></div><div class="tool-grid">
 <a class="tool-card" href="agentic-ai-publication.html">
 <i data-lucide="workflow"></i>
-<small>08 · 8 RESEARCH AGENTS · VERIFIED WORKFLOWS</small>
+<small>12 · 8 RESEARCH AGENTS · VERIFIED WORKFLOWS</small>
 <h3>Agentic AI for Writing and Publication</h3>
 <p>Configure evidence-grounded agents for literature discovery, synthesis, gap validation, novelty, alignment, journal selection, editorial screening and reviewer response.</p>
 <span>Explore Agentic AI Workflows →</span>

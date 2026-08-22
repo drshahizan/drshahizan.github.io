@@ -409,18 +409,67 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   // ---------- Training hub: progress badges ----------
   document.querySelectorAll("[data-module]").forEach(card=>{
-    const badge=card.querySelector("[data-progress-badge]");
-    if(!badge)return;
     const entry=readProgress()[card.dataset.module];
-    if(!entry){
-      badge.textContent="Not started";
-      badge.removeAttribute("data-state");
-    }else if(entry.score===entry.total){
-      badge.textContent=`Completed ${entry.score}/${entry.total}`;
+    if(!entry)return;
+    const badge=document.createElement("span");
+    badge.className="progress-badge";
+    badge.setAttribute("data-progress-badge","");
+    if(entry.score===entry.total){
+      badge.textContent=`Quiz completed · ${entry.score}/${entry.total}`;
       badge.dataset.state="completed";
     }else{
-      badge.textContent=`In progress ${entry.score}/${entry.total}`;
-      badge.removeAttribute("data-state");
+      badge.textContent=`Quiz attempted · ${entry.score}/${entry.total}`;
+      badge.dataset.state="attempted";
     }
+    card.prepend(badge);
   });
+
+  const moduleCards=[...document.querySelectorAll("[data-module]")];
+  if(moduleCards.length){
+    const data=readProgress();
+    const attempted=moduleCards.filter(card=>Boolean(data[card.dataset.module])).length;
+    const completed=moduleCards.filter(card=>{
+      const entry=data[card.dataset.module];
+      return entry&&entry.total>0&&entry.score===entry.total;
+    }).length;
+    if(attempted>0){
+      const summary=document.createElement("div");
+      summary.className="module-progress-summary";
+      summary.innerHTML=`<div><p class="eyebrow">YOUR QUIZ PROGRESS</p><strong>${completed} of ${moduleCards.length} module quizzes completed</strong><span>${attempted} attempted · Saved on this device only.</span></div><div class="module-progress-track" role="progressbar" aria-label="Module quiz completion" aria-valuemin="0" aria-valuemax="${moduleCards.length}" aria-valuenow="${completed}"><span style="width:${moduleCards.length?completed/moduleCards.length*100:0}%"></span></div>`;
+      moduleCards[0].closest(".tool-grid")?.before(summary);
+    }
+  }
+
+  // ---------- Materials page: task-based prompt hierarchy ----------
+  const materialsPromptGrid=document.getElementById("materialsPromptGrid");
+  if(materialsPromptGrid){
+    const cardMap=new Map([...materialsPromptGrid.children].map(card=>[card.getAttribute("href"),card]));
+    const makeCard=(href,number,icon,meta,title,description,action)=>{
+      const a=document.createElement("a");a.className="resource-card resource-link-card";a.href=href;
+      a.innerHTML=`<div class="resource-top"><b>${number}</b><i data-lucide="${icon}"></i></div><small>${meta}</small><h3>${title}</h3><p>${description}</p><span>${action} →</span>`;return a;
+    };
+    cardMap.set("module-2-idea-generation.html#rq-builder",makeCard("module-2-idea-generation.html#rq-builder","05","lightbulb","RESEARCH QUESTION & DESIGN","Research Question and Design Builder","Align the research problem, question, objective and initial design.","Build a Research Question"));
+    cardMap.set("module-3-knowledge-organisation.html#ko-builder",makeCard("module-3-knowledge-organisation.html#ko-builder","06","table-properties","MATRIX & KNOWLEDGE MAP","Knowledge Organisation Prompt Builder","Organise verified studies into themes, matrices and conceptual structures.","Organise the Evidence"));
+    const groups=[
+      ["Workshop Prompt Libraries","Use these four resources directly alongside Parts 2–4 of the training presentation.",["scopus-ai-prompts.html","gemini-notebook-prompts.html","gemini-notebook-studio-prompts.html","ai-publication-prompts.html"]],
+      ["Research Development","Refine the study, organise evidence, design methods, develop an SLR or build a custom Studio output.",["module-2-idea-generation.html#rq-builder","module-3-knowledge-organisation.html#ko-builder","research-methodology-prompts.html","slr-development-prompts.html","studio-prompt-builder.html"]],
+      ["Review and Publication","Evaluate a completed manuscript or SLR, then coordinate complex revision and publication workflows.",["manuscript-review-prompts.html","prompt-builder.html","agentic-ai-publication.html"]]
+    ];
+    materialsPromptGrid.replaceChildren();materialsPromptGrid.removeAttribute("class");materialsPromptGrid.className="materials-prompt-groups";
+    let promptNumber=1;
+    groups.forEach(([title,description,hrefs])=>{
+      const section=document.createElement("section");section.className="materials-prompt-group";
+      section.innerHTML=`<div class="materials-prompt-group-head"><div><h3>${title}</h3><p>${description}</p></div></div><div class="materials-grid"></div>`;
+      const grid=section.querySelector(".materials-grid");hrefs.forEach(href=>{
+        const card=cardMap.get(href);
+        if(card){
+          const number=card.querySelector(".resource-top b");
+          if(number)number.textContent=String(promptNumber).padStart(2,"0");
+          promptNumber+=1;
+          grid.append(card);
+        }
+      });materialsPromptGrid.append(section);
+    });
+    window.lucide?.createIcons();
+  }
 });
