@@ -1,0 +1,35 @@
+TEMPLAT SENARAI SEMAK PROSES
+
+Nama proses: [NAMA PROSES]
+Tujuan: [TUJUAN]
+Pemilik proses: [UNIT / PEGAWAI]
+Tarikh mula: [TARIKH]
+Tarikh sasaran: [TARIKH]
+Rujukan rasmi: [SOP / PEKELILING / TAKWIM / SISTEM]
+
+SEBELUM
+[ ] Tujuan dan skop disahkan
+[ ] Peranan dan pemilik tindakan ditetapkan
+[ ] Dokumen dan sumber rujukan lengkap
+[ ] Data peribadi atau sulit dikenal pasti
+[ ] Input diminimumkan atau dinyahpengenal
+
+SEMASA
+[ ] Setiap langkah proses dipatuhi
+[ ] Tarikh dan status direkod
+[ ] Pengecualian atau isu dicatat
+[ ] Bukti tindakan disimpan
+[ ] Semakan penyelia dilaksanakan
+
+SELEPAS
+[ ] Hasil disemak dengan sumber rasmi
+[ ] Kelulusan pegawai bertanggungjawab diperoleh
+[ ] Penerima dan saluran edaran disahkan
+[ ] Rekod difailkan di lokasi yang ditetapkan
+[ ] Tindakan susulan dan tarikh ditetapkan
+
+Catatan:
+[CATATAN]
+
+Disediakan oleh: [NAMA / TARIKH]
+Disemak oleh: [NAMA / TARIKH]

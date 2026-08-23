@@ -1,0 +1,47 @@
+TEMPLAT HEBAHAN PELBAGAI SALURAN
+
+MAKLUMAT INDUK YANG TELAH DISAHKAN
+Program / perkara: [TAJUK]
+Tujuan: [TUJUAN]
+Audiens: [KUMPULAN SASARAN]
+Tarikh / masa: [BUTIRAN]
+Tempat / platform: [BUTIRAN]
+Tindakan penerima: [TINDAKAN]
+Tarikh akhir: [TARIKH]
+Pautan rasmi: [PAUTAN]
+Pegawai / unit untuk dihubungi: [BUTIRAN]
+
+E-MEL
+Subjek: [TAJUK DAN TINDAKAN]
+Salam pembuka.
+[Tujuan dan konteks ringkas]
+[Butiran utama]
+[Tindakan dan tarikh akhir]
+[Pautan / pertanyaan]
+Penutup rasmi.
+
+WHATSAPP
+[PEMBUKA RINGKAS]
+[APA / SIAPA / BILA / DI MANA]
+Tindakan: [TINDAKAN]
+Tarikh akhir: [TARIKH]
+Maklumat lanjut: [PAUTAN]
+
+FACEBOOK
+[TAJUK MENARIK]
+[Konteks dan manfaat]
+[Butiran program]
+[Ajakan bertindak dan pautan rasmi]
+
+INSTAGRAM
+[HOOK RINGKAS]
+[Butiran utama]
+[Ajakan bertindak]
+[Hashtag yang diluluskan]
+
+SEMAKAN WAJIB
+- Semua saluran menggunakan fakta yang sama
+- Tarikh, masa, tempat dan pautan disahkan
+- Nada dan panjang disesuaikan dengan saluran
+- Data peribadi, imej, logo dan hak penggunaan disemak
+- Kelulusan edaran diperoleh

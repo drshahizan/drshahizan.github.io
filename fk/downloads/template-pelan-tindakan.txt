@@ -1,0 +1,25 @@
+TEMPLAT PELAN TINDAKAN
+
+Tajuk pelan: [TAJUK]
+Tempoh: [TARIKH MULA - TARIKH AKHIR]
+Objektif: [OBJEKTIF]
+Pemilik keseluruhan: [UNIT / PEGAWAI]
+Pihak meluluskan: [NAMA / JAWATAN]
+
+BAGI SETIAP TINDAKAN
+1. Nombor tindakan: [NO.]
+2. Tindakan: [TINDAKAN KHUSUS]
+3. Hasil yang dijangka: [HASIL]
+4. Pemilik: [PEGAWAI / UNIT]
+5. Tarikh mula: [TARIKH]
+6. Tarikh akhir: [TARIKH]
+7. Kebergantungan: [PERKARA / PIHAK]
+8. Risiko: [RISIKO]
+9. Mitigasi: [TINDAKAN KAWALAN]
+10. Bukti siap: [DOKUMEN / REKOD]
+11. Status: [BELUM MULA / DALAM TINDAKAN / SELESAI / TERTANGGUH]
+12. Catatan: [CATATAN]
+
+Semakan kemajuan: [MINGGUAN / BULANAN / TARIKH]
+Tarikh kemas kini terakhir: [TARIKH]
+Disahkan oleh: [NAMA / JAWATAN]

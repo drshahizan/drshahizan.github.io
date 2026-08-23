@@ -5,9 +5,9 @@ Laman web rasmi bagi **Kursus Pemerkasaan AI Universiti Teknologi Malaysia (UTM)
 ## Halaman Utama
 
 - `index.html` — maklumat kursus dan tentatif
-- `bahan-sesi.html` — pusat bahan, latihan dan hasil pembelajaran untuk lima sesi kursus
+- `bahan-sesi.html` — laluan kursus mengikut lima sesi dengan bahan wajib, tambahan dan rujukan selepas bengkel
 - `downloads/Modul_Rujukan_Pemerkasaan_Tugasan_Harian_AI_FC_UTM.pdf` — modul rujukan peserta 19 halaman yang menggabungkan nota dan latihan bagi lima sesi
-- `ai-tools.html` — direktori alat AI
+- `ai-tools.html` — direktori Alat AI
 - `prompt-ai.html` — pusat koleksi prompt AI
 - `prompt-kerja-fc.html` — 50 prompt kerja Sumber Manusia & Pengurusan Akademik
 - `prompt-library.html` — perpustakaan 100 prompt dengan carian dan penapis
@@ -24,7 +24,7 @@ Laman web rasmi bagi **Kursus Pemerkasaan AI Universiti Teknologi Malaysia (UTM)
 - `latihan-laporan-tahunan-utm-2020.html` — latihan 17 langkah menggunakan Gemini Notebook dan Google Gemini untuk menganalisis Laporan Tahunan UTM 2020
 - `latihan-sesi-5-ai-bertanggungjawab.html` — latihan klasifikasi data, privasi, semakan fakta dan kawalan manusia
 - `panduan-ai.html` — panduan penggunaan AI yang bertanggungjawab
-- `sumber-ai.html` — templat pentadbiran, kuiz kendiri, glosari istilah AI, soalan lazim dan senarai semak induk
+- `sumber-ai.html` — lapan templat kerja pentadbiran, templat komunikasi/kreatif, kuiz kendiri, glosari, soalan lazim dan senarai semak induk
 
 Pusat Prompt AI turut menyediakan tiga halaman tempatan untuk aktiviti harian di tempat kerja:
 
@@ -37,7 +37,7 @@ Multimedia AI dan Analisis Data turut menyediakan halaman pembina prompt tersuai
 - `multimedia-builder.html` — pembina prompt untuk poster, infografik, banner media sosial atau muzik latar
 - `analisis-data-builder.html` — pembina prompt untuk Deep Research, Canvas, Gems atau Guided Learning
 
-Kesemua 27 halaman berkongsi header dan footer standard yang sama. Navigasi utama diringkaskan kepada enam pautan: Utama, Bahan Pengajaran, Prompt AI, Ruang Kerja, AI Tools dan Sumber; halaman khusus dicapai melalui pusat bahan mengikut sesi.
+Kesemua 27 halaman berkongsi header dan footer standard yang sama. Navigasi utama diringkaskan kepada enam pautan: Utama, Bahan Pengajaran, Prompt AI, Ruang Kerja, Alat AI dan Sumber; halaman khusus dicapai melalui pusat bahan mengikut sesi.
 
 ## Struktur Fail
 
