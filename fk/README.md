@@ -5,6 +5,7 @@ Laman web rasmi bagi **Kursus Pemerkasaan AI Universiti Teknologi Malaysia (UTM)
 ## Halaman Utama
 
 - `index.html` — maklumat kursus dan tentatif
+- `bahan-sesi.html` — pusat bahan, latihan dan hasil pembelajaran untuk lima sesi kursus
 - `ai-tools.html` — direktori alat AI
 - `prompt-ai.html` — pusat koleksi prompt AI
 - `prompt-kerja-fc.html` — 50 prompt kerja Sumber Manusia & Pengurusan Akademik
@@ -13,6 +14,14 @@ Laman web rasmi bagi **Kursus Pemerkasaan AI Universiti Teknologi Malaysia (UTM)
 - `video-ai.html` — panduan menghasilkan video AI (proses, storyboard, alat AI, hasil pertandingan)
 - `multimedia-ai.html` — panduan menghasilkan poster, infografik dan muzik menggunakan Google Gemini
 - `analisis-data-ai.html` — panduan analisis data & sokongan membuat keputusan menggunakan Deep Research, Canvas, Gems dan Guided Learning
+- `latihan-sesi-1-pembantu-digital.html` — latihan memilih alat AI dan membina aliran kerja tugasan–alat–semakan
+- `latihan-sesi-2-prompt-engineering.html` — latihan membina, menguji dan menambah baik prompt secara berperingkat
+- `latihan-sesi-3-populasi.html` — latihan Google Gemini menggunakan dataset penduduk Malaysia OpenDOSM, termasuk analisis, ramalan 2050, laporan, poster dan infografik
+- `latihan-sesi-3-pensyarah.html` — Latihan 2 Google Gemini secara langkah demi langkah menggunakan dataset pensyarah universiti awam OpenDOSM
+- `latihan-program-senamrobik.html` — latihan pengurusan program langkah demi langkah berdasarkan poster Senamrobik & Sukan Rakyat FC 2026
+- `latihan-gemini-notebook-sspa.html` — latihan Gemini Notebook menggunakan PP Bilangan 1 Tahun 2024 untuk Custom Chat HR, Skim N dan output Studio
+- `latihan-laporan-tahunan-utm-2020.html` — latihan 17 langkah menggunakan Gemini Notebook dan Google Gemini untuk menganalisis Laporan Tahunan UTM 2020
+- `latihan-sesi-5-ai-bertanggungjawab.html` — latihan klasifikasi data, privasi, semakan fakta dan kawalan manusia
 - `panduan-ai.html` — panduan penggunaan AI yang bertanggungjawab
 - `sumber-ai.html` — templat pentadbiran, kuiz kendiri, glosari istilah AI, soalan lazim dan senarai semak induk
 
@@ -27,7 +36,7 @@ Multimedia AI dan Analisis Data turut menyediakan halaman pembina prompt tersuai
 - `multimedia-builder.html` — pembina prompt untuk poster, infografik, banner media sosial atau muzik latar
 - `analisis-data-builder.html` — pembina prompt untuk Deep Research, Canvas, Gems atau Guided Learning
 
-Kesemua 16 halaman berkongsi header dan footer standard yang sama (brand, navigation 9 link, hamburger menu pada skrin sempit, dan footer hak cipta).
+Kesemua 27 halaman berkongsi header dan footer standard yang sama. Navigasi utama diringkaskan kepada enam pautan: Utama, Bahan Pengajaran, Prompt AI, Ruang Kerja, AI Tools dan Sumber; halaman khusus dicapai melalui pusat bahan mengikut sesi.
 
 ## Struktur Fail
 

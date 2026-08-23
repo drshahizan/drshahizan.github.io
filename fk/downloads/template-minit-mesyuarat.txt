@@ -1,0 +1,23 @@
+TEMPLAT MINIT MESYUARAT
+
+Nama mesyuarat:
+Tarikh / masa / tempat:
+Pengerusi:
+Kehadiran:
+
+AGENDA [NOMBOR]: [TAJUK]
+Perbincangan:
+- [Ringkasan berasaskan nota yang disahkan]
+
+Keputusan:
+- [Keputusan sebenar mesyuarat]
+
+Tindakan:
+- Tindakan: [Perkara]
+- Pegawai/unit: [Pemilik]
+- Tarikh siap: [Tarikh]
+- Status: [Belum mula/Dalam tindakan/Selesai]
+
+Disediakan oleh:
+Disemak oleh:
+Tarikh semakan:

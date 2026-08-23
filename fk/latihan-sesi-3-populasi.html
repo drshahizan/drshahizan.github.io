@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Latihan Sesi 3: Analisis Penduduk Malaysia | Fakulti Komputeran UTM</title>
+<meta name="description" content="Latihan Google Gemini menggunakan dataset Population Table: Malaysia daripada OpenDOSM untuk analisis, carta, peramalan 2050, laporan, poster dan infografik.">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/hub-style.css">
+<link rel="stylesheet" href="css/nav-standard.css">
+<script src="js/hub.js" defer></script>
+<script src="js/copy-prompt.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Langkau ke kandungan</a>
+<header class="nav-wrap"><nav class="nav shell"><a class="brand" href="index.html"><span class="brand-mark">UTM</span><span><b>Fakulti Komputeran</b><small>Universiti Teknologi Malaysia</small></span></a><button class="menu" aria-label="Buka menu" aria-expanded="false">☰</button><div class="nav-links">
+      <a href="index.html">Utama</a>
+      <a href="bahan-sesi.html" aria-current="page">Bahan Pengajaran</a>
+      <a href="prompt-ai.html">Prompt AI</a>
+      <a href="ruang-kerja-ai.html">Ruang Kerja</a>
+      <a href="ai-tools.html">AI Tools</a>
+      <a href="sumber-ai.html">Sumber</a>
+    </div></nav></header>
+
+<main id="main">
+<section class="page-hero has-photo photo-data"><div class="wrap"><p class="kicker">SESI 3 · LATIHAN AMALI GOOGLE GEMINI</p><h1>Daripada data penduduk kepada ramalan 2050.</h1><p>Gunakan dataset rasmi OpenDOSM untuk memahami struktur data, membina visualisasi, menguji kaedah peramalan dan menghasilkan laporan serta bahan komunikasi.</p><div class="hero-actions"><a class="button" href="#mula">Mulakan latihan</a><a class="button alt" href="https://storage.dosm.gov.my/population/population_malaysia.csv" target="_blank" rel="noopener noreferrer">Muat turun CSV ↗</a></div></div></section>
+
+<section id="mula"><div class="wrap"><header class="section-title"><p class="kicker">DATASET RASMI</p><h2>Population Table: Malaysia</h2><p>Data penduduk peringkat nasional dari 1970 hingga 2026 mengikut jantina, kumpulan umur dan etnik. Nilai populasi menggunakan unit ribu orang.</p></header>
+<div class="dataset-brief"><div><b>Medan</b><span><code>date</code>, <code>sex</code>, <code>age</code>, <code>ethnicity</code>, <code>population</code></span></div><div><b>Tempoh</b><span>1970–2026</span></div><div><b>Sumber</b><span>Jabatan Perangkaan Malaysia</span></div><div><b>Kemas kini</b><span>31 Julai 2026</span></div></div>
+<div class="notice"><strong>Kawalan wajib:</strong> Untuk siri jumlah penduduk Malaysia, tapis tepat kepada <code>sex = both</code>, <code>age = overall</code> dan <code>ethnicity = overall</code>. Jangan jumlahkan baris kategori kerana ini akan menyebabkan pengiraan berganda.</div>
+<div class="hero-actions"><a class="button" href="https://open.dosm.gov.my/data-catalogue/population_malaysia" target="_blank" rel="noopener noreferrer">Buka halaman dataset ↗</a><a class="button alt" href="#prompt-induk">Terus ke prompt induk</a></div></div></section>
+
+<section class="accent"><div class="wrap"><header class="section-title"><p class="kicker">ALIRAN KERJA</p><h2>Lapan tugasan, satu hasil bersepadu</h2></header><div class="exercise-flow"><span>1<small>Fahami data</small></span><span>2<small>Rancang analisis</small></span><span>3<small>Pilih carta</small></span><span>4<small>Ramal 2050</small></span><span>5<small>Jelaskan kaedah</small></span><span>6<small>Tulis laporan</small></span><span>7<small>Hasilkan poster</small></span><span>8<small>Bina infografik</small></span></div></div></section>
+
+<section id="prompt-induk"><div class="wrap"><header class="section-title"><p class="kicker">PROMPT INDUK</p><h2>Jalankan keseluruhan latihan dalam Google Gemini</h2><p>Muat naik fail CSV ke Gemini, kemudian salin prompt ini. Prompt induk sesuai jika masa latihan mencukupi.</p></header>
+<article class="card prompt-card master-prompt"><h3>Analisis lengkap penduduk Malaysia hingga 2050</h3><pre id="pop-master" class="prompt-text">PERANAN
+Bertindak sebagai penganalisis data demografi dan pegawai komunikasi data. Analisis fail population_malaysia.csv daripada OpenDOSM yang telah saya muat naik.
+
+KAWALAN DATA
+1. Sahkan nama medan, jenis data, julat tahun, unit, nilai hilang, pendua dan kategori unik.
+2. Untuk jumlah penduduk Malaysia, tapis hanya sex='both', age='overall' dan ethnicity='overall'. Jangan jumlahkan kategori terperinci kerana ia bertindih dengan nilai overall.
+3. Population diberikan dalam ribu orang ('000). Nyatakan unit pada setiap jadual dan carta; darab 1,000 hanya apabila melaporkan bilangan orang.
+4. Bezakan tahun banci 1970, 1980, 1991, 2000, 2010 dan 2020 daripada anggaran pertengahan tahun bagi tahun lain.
+5. Jangan mereka data. Jika analisis tidak boleh dilaksanakan, nyatakan sebab dan maklumat tambahan yang diperlukan.
+
+TUGAS ANALISIS
+A. Huraikan struktur, liputan, granulariti, kekuatan dan batasan dataset.
+B. Senaraikan analisis yang boleh dibuat: trend jumlah, pertumbuhan tahunan, CAGR mengikut dekad, komposisi jantina, struktur umur, penuaan penduduk, nisbah tanggungan dan komposisi etnik. Tandakan analisis yang terjejas oleh perubahan granulariti sejarah.
+C. Cadangkan carta yang sesuai bagi setiap soalan analisis dan jelaskan sebab pemilihan.
+D. Bina siri jumlah penduduk 1970–2026 dan ramalkan 2027–2050.
+E. Bandingkan sekurang-kurangnya tiga model: trend linear, CAGR dan Holt damped trend. Gunakan data hingga 2015 untuk melatih dan 2016–2026 untuk ujian belakang. Kira MAE, RMSE dan MAPE. Pilih model berdasarkan ralat, kewajaran demografi dan kestabilan ramalan—bukan hanya satu metrik.
+F. Paparkan formula, parameter, andaian dan satu contoh pengiraan. Hasilkan julat ketidakpastian rendah–asas–tinggi; jangan tampilkan ramalan 2050 sebagai angka yang pasti.
+G. Hasilkan jadual ramalan tahunan 2027–2050 serta ringkasan bagi 2030, 2040 dan 2050.
+H. Sediakan laporan profesional dalam Bahasa Melayu dengan tajuk, ringkasan eksekutif, metodologi, dapatan, carta, ramalan, implikasi, batasan dan rujukan sumber.
+I. Selepas laporan, sediakan dua brief kreatif berasingan: poster A4 potret dan infografik 1080×1350. Gunakan hanya angka yang telah disahkan dalam analisis.
+
+FORMULA MINIMUM
+Trend linear: ŷ_t = a + bt
+CAGR: r = (P_n/P_0)^(1/n) - 1; ramalan P_(n+h) = P_n(1+r)^h
+MAE = (1/n)Σ|y_t-ŷ_t|
+RMSE = √[(1/n)Σ(y_t-ŷ_t)²]
+MAPE = (100/n)Σ|(y_t-ŷ_t)/y_t|
+Untuk Holt damped trend, tunjukkan persamaan aras, trend teredam dan ramalan serta nilai parameter yang digunakan.
+
+FORMAT HASIL
+Gunakan jadual yang kemas, tajuk carta yang jelas dan nota sumber “Jabatan Perangkaan Malaysia, OpenDOSM”. Akhiri dengan bahagian “Semakan Manusia Diperlukan” yang menyenaraikan angka, andaian dan visual yang perlu disahkan sebelum penerbitan.</pre><button class="button copy-prompt" type="button" data-target="pop-master">Salin Prompt Induk</button></article></div></section>
+
+<section class="accent"><div class="wrap"><header class="section-title"><p class="kicker">PROMPT BERPERINGKAT</p><h2>Laksanakan satu tugasan pada satu masa</h2><p>Gunakan prompt berikut secara berturutan dalam perbualan Gemini yang sama selepas fail CSV dimuat naik.</p></header><div class="prompt-stack">
+<article class="card prompt-card"><span class="prompt-step">01</span><h3>Huraikan data</h3><pre id="pop-1" class="prompt-text">Analisis fail population_malaysia.csv yang dimuat naik. Huraikan tujuan dataset, tempoh liputan, unit, lima medan, jenis data dan semua kategori utama. Semak nilai hilang, pendua, julat tahun dan bilangan rekod. Terangkan perbezaan granulariti bagi 1970–1979, 1980–1990 dan 1991–2026 serta kesannya kepada perbandingan. Bezakan tahun banci dengan tahun anggaran. Hasilkan jadual kamus data dan bahagian “Batasan Penggunaan”. Jangan buat analisis trend dahulu.</pre><button class="button copy-prompt" data-target="pop-1">Salin Prompt 1</button></article>
+<article class="card prompt-card"><span class="prompt-step">02</span><h3>Kenal pasti analisis yang boleh dibuat</h3><pre id="pop-2" class="prompt-text">Berdasarkan dataset yang telah disemak, bina matriks cadangan analisis dengan lajur: soalan analisis, pemboleh ubah, penapis, ukuran, tempoh sesuai, hasil yang dijangka dan batasan. Masukkan trend jumlah penduduk, kadar pertumbuhan tahunan, CAGR, komposisi jantina, nisbah jantina, struktur umur, kumpulan umur 0–14/15–64/65+, nisbah tanggungan, penuaan penduduk dan komposisi etnik. Tandakan analisis yang tidak wajar dibandingkan merentas keseluruhan 1970–2026 kerana perubahan kategori.</pre><button class="button copy-prompt" data-target="pop-2">Salin Prompt 2</button></article>
+<article class="card prompt-card"><span class="prompt-step">03</span><h3>Cadangkan bentuk carta</h3><pre id="pop-3" class="prompt-text">Cadangkan pelan visualisasi bagi analisis penduduk Malaysia. Untuk setiap visual, berikan tajuk, tujuan, jenis carta, medan, penapis, paksi, unit, warna dan anotasi penting. Pertimbangkan: carta garis untuk trend keseluruhan; bar atau slope chart untuk perbandingan dekad; piramid penduduk bagi struktur umur dan jantina; stacked area atau 100% stacked bar untuk komposisi; serta line chart dengan jalur ketidakpastian bagi ramalan. Elakkan carta pai jika terlalu banyak kategori. Pilih maksimum enam carta utama untuk laporan dan jelaskan sebabnya.</pre><button class="button copy-prompt" data-target="pop-3">Salin Prompt 3</button></article>
+<article class="card prompt-card"><span class="prompt-step">04</span><h3>Ramalkan penduduk hingga 2050</h3><pre id="pop-4" class="prompt-text">Tapis siri jumlah penduduk kepada sex='both', age='overall', ethnicity='overall'. Ramalkan penduduk Malaysia bagi 2027–2050. Bandingkan model trend linear, CAGR dan Holt damped trend. Laksanakan ujian belakang: latih menggunakan data hingga 2015 dan uji pada 2016–2026. Bandingkan MAE, RMSE dan MAPE, kemudian pilih model yang paling munasabah. Latih semula model terpilih menggunakan 1970–2026. Paparkan ramalan tahunan, angka 2030/2040/2050, kadar pertumbuhan tersirat dan tiga senario rendah–asas–tinggi. Gunakan unit juta orang dengan satu tempat perpuluhan dan jangan gambarkan unjuran sebagai kepastian.</pre><button class="button copy-prompt" data-target="pop-4">Salin Prompt 4</button></article>
+<article class="card prompt-card"><span class="prompt-step">05</span><h3>Terangkan kaedah dan formula</h3><pre id="pop-5" class="prompt-text">Terangkan kepada peserta bukan teknikal bagaimana ramalan tadi dilaksanakan. Tunjukkan formula trend linear ŷ_t=a+bt dan CAGR r=(P_n/P_0)^(1/n)-1, P_(n+h)=P_n(1+r)^h. Terangkan persamaan Holt damped trend untuk aras, trend dan ramalan. Huraikan fungsi MAE, RMSE dan MAPE serta mengapa ujian belakang diperlukan. Gunakan satu contoh pengiraan sebenar daripada dataset, nyatakan andaian, dan jelaskan mengapa cohort-component tidak boleh dilaksanakan dengan sempurna tanpa andaian khusus tentang kesuburan, kematian dan migrasi.</pre><button class="button copy-prompt" data-target="pop-5">Salin Prompt 5</button></article>
+<article class="card prompt-card"><span class="prompt-step">06</span><h3>Hasilkan laporan penduduk Malaysia</h3><pre id="pop-6" class="prompt-text">Gunakan hanya dapatan dan ramalan yang telah disahkan dalam perbualan ini. Tulis “Laporan Analisis dan Unjuran Penduduk Malaysia sehingga 2050” dalam Bahasa Melayu. Struktur: muka hadapan; ringkasan eksekutif; profil dataset; metodologi; trend 1970–2026; struktur umur dan jantina; komposisi etnik dengan caveat; keputusan pemilihan model; unjuran 2027–2050; implikasi kepada perkhidmatan awam dan perancangan; batasan; kesimpulan; sumber. Sertakan jadual serta cadangan penempatan enam carta. Bezakan fakta sejarah, anggaran DOSM dan ramalan latihan. Jangan cipta rujukan.</pre><button class="button copy-prompt" data-target="pop-6">Salin Prompt 6</button></article>
+<article class="card prompt-card"><span class="prompt-step">07</span><h3>Hasilkan poster penduduk Malaysia</h3><pre id="pop-7" class="prompt-text">Berdasarkan laporan yang telah disahkan, reka poster A4 potret bertajuk “Penduduk Malaysia: Daripada 1970 Menuju 2050”. Audiens ialah orang awam. Gunakan satu angka utama bagi 2026, satu angka ramalan 2050 yang dilabel jelas “unjuran latihan”, satu carta garis ringkas, tiga dapatan penting dan satu nota metodologi. Gaya moden Malaysia, profesional, latar cerah, merah marun dan emas sebagai aksen, tipografi mudah dibaca, ruang putih seimbang. Masukkan sumber “Jabatan Perangkaan Malaysia, OpenDOSM” dan nota “Ramalan bergantung pada model dan andaian”. Jangan masukkan angka yang tidak wujud dalam analisis.</pre><button class="button copy-prompt" data-target="pop-7">Salin Prompt 7</button></article>
+<article class="card prompt-card"><span class="prompt-step">08</span><h3>Hasilkan infografik penduduk Malaysia</h3><pre id="pop-8" class="prompt-text">Berdasarkan laporan yang telah disahkan, hasilkan infografik potret 1080×1350 bertajuk “Penduduk Malaysia sehingga 2050”. Susun kepada lima blok: (1) dataset 1970–2026, (2) perubahan jumlah penduduk, (3) struktur umur dan penuaan, (4) kaedah ramalan serta prestasi model, (5) unjuran 2030/2040/2050. Gunakan carta mini, ikon ringkas dan maksimum 45 perkataan penerangan di luar label angka. Bezakan data sejarah dan ramalan menggunakan warna atau garisan berlainan. Sertakan unit, sumber OpenDOSM dan peringatan bahawa 2050 ialah unjuran. Semak semua angka terhadap jadual laporan sebelum menghasilkan visual akhir.</pre><button class="button copy-prompt" data-target="pop-8">Salin Prompt 8</button></article>
+</div></div></section>
+
+<section><div class="wrap"><header class="section-title"><p class="kicker">HASIL LATIHAN</p><h2>Empat fail yang perlu disiapkan</h2></header><div class="grid"><article class="card"><span class="icon">▦</span><h3>Analisis &amp; carta</h3><p>Jadual data bersih, pemilihan model, metrik ralat dan enam visual utama.</p></article><article class="card"><span class="icon">▤</span><h3>Laporan</h3><p>Laporan analisis serta unjuran sehingga 2050 dengan metodologi dan batasan.</p></article><article class="card"><span class="icon">▰</span><h3>Poster</h3><p>Poster A4 untuk komunikasi ringkas kepada orang awam.</p></article><article class="card"><span class="icon">◫</span><h3>Infografik</h3><p>Infografik digital yang membezakan data sejarah dan ramalan.</p></article></div><div class="notice"><strong>Semakan akhir:</strong> Pastikan semua angka, formula, label unit dan sumber disemak manusia sebelum digunakan atau diterbitkan.</div></div></section>
+</main>
+<footer>
+  <div class="shell" style="display:flex; flex-direction:column; align-items:center; gap:15px; text-align:center;">
+    <p>© 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi Malaysia.</p>
+    <a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer">
+      <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman">
+    </a>
+  </div>
+</footer>
+</body></html>

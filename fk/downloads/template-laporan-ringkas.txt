@@ -1,0 +1,19 @@
+TEMPLAT LAPORAN RINGKAS
+
+Tajuk:
+Tempoh laporan:
+Disediakan untuk:
+
+1. Ringkasan eksekutif
+2. Tujuan dan skop
+3. Sumber data
+4. Dapatan utama
+5. Isu atau risiko
+6. Tindakan yang telah dilaksanakan
+7. Tindakan susulan
+8. Pegawai/unit bertanggungjawab
+9. Tarikh sasaran
+10. Status keseluruhan
+
+Semakan fakta oleh:
+Tarikh semakan:
