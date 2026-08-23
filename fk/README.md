@@ -6,6 +6,7 @@ Laman web rasmi bagi **Kursus Pemerkasaan AI Universiti Teknologi Malaysia (UTM)
 
 - `index.html` — maklumat kursus dan tentatif
 - `bahan-sesi.html` — pusat bahan, latihan dan hasil pembelajaran untuk lima sesi kursus
+- `downloads/Modul_Rujukan_Pemerkasaan_Tugasan_Harian_AI_FC_UTM.pdf` — modul rujukan peserta 19 halaman yang menggabungkan nota dan latihan bagi lima sesi
 - `ai-tools.html` — direktori alat AI
 - `prompt-ai.html` — pusat koleksi prompt AI
 - `prompt-kerja-fc.html` — 50 prompt kerja Sumber Manusia & Pengurusan Akademik
@@ -50,6 +51,8 @@ Kesemua 27 halaman berkongsi header dan footer standard yang sama. Navigasi utam
 - `assets/` — poster, ikon dan imej
 
 Semua contoh prompt dan templat di seluruh laman kini mempunyai butang salin, dengan label yang seragam ("Salin Prompt").
+
+Fail Laporan Tahunan UTM 2020 tidak disertakan dalam ZIP. Peserta menggunakan salinan yang telah disimpan sendiri untuk latihan berkaitan.
 
 ## GitHub Pages
 

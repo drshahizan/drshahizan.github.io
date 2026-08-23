@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   reset?.addEventListener('click',()=>document.querySelectorAll('#kualiti input[type="checkbox"]').forEach(box=>box.checked=false));
   const pages=[
     ['Bahan Kursus Mengikut Sesi','Pusat bahan, latihan dan hasil pembelajaran untuk kelima-lima sesi kursus.','bahan-sesi.html'],
+    ['Modul Rujukan Peserta PDF','Nota lengkap dan latihan bagi kelima-lima sesi kursus dalam format PDF.','downloads/Modul_Rujukan_Pemerkasaan_Tugasan_Harian_AI_FC_UTM.pdf'],
     ['Latihan Sesi 1: AI sebagai Pembantu Digital','Pilih alat AI, nyahpengenal input dan bina aliran kerja tugasan–alat–semakan.','latihan-sesi-1-pembantu-digital.html'],
     ['Latihan Sesi 2: Prompt Engineering','Bina, uji, audit dan tambah baik prompt untuk urusan HR dan pejabat akademik.','latihan-sesi-2-prompt-engineering.html'],
     ['Latihan Sesi 3: Penduduk Malaysia 2050','Analisis dataset OpenDOSM menggunakan Google Gemini, termasuk carta, peramalan, laporan, poster dan infografik.','latihan-sesi-3-populasi.html'],
