@@ -1,196 +1,417 @@
 <!doctype html>
 <html lang="ms">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Multimedia AI | Pemerkasaan Tugasan Harian Menggunakan AI</title>
-<meta name="description" content="Panduan menghasilkan poster, infografik dan muzik menggunakan Google Gemini — daripada idea, prompt, hingga hasil siap guna.">
-<link rel="icon" href="assets/favicon.svg">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Multimedia AI | Pemerkasaan Tugasan Harian Menggunakan AI">
-<meta property="og:description" content="Panduan menghasilkan poster, infografik dan muzik menggunakan Google Gemini — daripada idea, prompt, hingga hasil siap guna.">
-<meta property="og:image" content="https://drshahizan.github.io/fk/assets/poster-kursus-ai.jpeg">
-<meta property="og:url" content="https://drshahizan.github.io/fk/multimedia-ai.html">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="css/hub-style.css">
-<link rel="stylesheet" href="css/nav-standard.css">
-<script src="js/hub.js" defer></script>
-<script src="js/copy-prompt.js" defer></script>
-</head>
-<body>
-<a class="skip" href="#main">Langkau ke kandungan</a>
-<header class="nav-wrap">
-  <nav class="nav shell">
-    <a class="brand" href="index.html">
-      <span class="brand-mark">UTM</span>
-      <span><b>Fakulti Komputeran</b><small>Universiti Teknologi Malaysia</small></span>
-    </a>
-<button class="menu" aria-label="Buka menu" aria-expanded="false">☰</button>
-    <div class="nav-links">
-      <a href="index.html">Utama</a>
-      <a href="bahan-sesi.html" aria-current="page">Bahan Pengajaran</a>
-      <a href="prompt-ai.html">Prompt AI</a>
-      <a href="ruang-kerja-ai.html">Ruang Kerja</a>
-      <a href="ai-tools.html">Alat AI</a>
-      <a href="sumber-ai.html">Sumber</a>
-    </div>
-  </nav>
-</header>
-<main id="main">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Multimedia AI | Pemerkasaan Tugasan Harian Menggunakan AI</title>
+    <meta
+      name="description"
+      content="Panduan menghasilkan poster, infografik dan muzik menggunakan Google Gemini — daripada idea, prompt, hingga hasil siap guna."
+    />
+    <link rel="icon" href="assets/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Multimedia AI | Pemerkasaan Tugasan Harian Menggunakan AI"
+    />
+    <meta
+      property="og:description"
+      content="Panduan menghasilkan poster, infografik dan muzik menggunakan Google Gemini — daripada idea, prompt, hingga hasil siap guna."
+    />
+    <meta
+      property="og:image"
+      content="https://drshahizan.github.io/fk/assets/poster-kursus-ai.jpeg"
+    />
+    <meta
+      property="og:url"
+      content="https://drshahizan.github.io/fk/multimedia-ai.html"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="css/hub-style.css" />
+    <link rel="stylesheet" href="css/nav-standard.css" />
+    <script src="js/hub.js" defer></script>
+    <script src="js/copy-prompt.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Langkau ke kandungan</a>
+    <header class="nav-wrap">
+      <nav class="nav shell">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">AI</span>
+          <span
+            ><b>Pemerkasaan Tugasan Harian Menggunakan AI</b
+            ><small>Fakulti Komputeran, UTM</small></span
+          >
+        </a>
+        <button class="menu" aria-label="Buka menu" aria-expanded="false">
+          ☰
+        </button>
+        <div class="nav-links">
+          <a href="index.html">Utama</a
+          ><a href="tentatif-program.html">Tentatif Program</a>
+          <a href="bahan-sesi.html" aria-current="page">Bahan Pengajaran</a>
+          <a href="prompt-ai.html">Prompt AI</a>
+          <a href="ruang-kerja-ai.html">Ruang Kerja</a>
+          <a href="ai-tools.html">Alat AI</a>
+          <a href="sumber-ai.html">Sumber</a>
+          <a href="index.html#penceramah">Penceramah</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="page-hero has-photo photo-media">
+        <div class="wrap">
+          <p class="kicker">Panduan Multimedia AI</p>
+          <h1>
+            Hasilkan poster, infografik dan muzik menggunakan Google Gemini.
+          </h1>
+          <p>
+            Panduan ringkas menghasilkan bahan visual dan audio — poster majlis,
+            infografik prosedur, banner media sosial dan muzik latar ringkas —
+            menggunakan ciri imej dan muzik terkini dalam Google Gemini.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#proses">Lihat proses</a>
+            <a class="button alt" href="#contoh-prompt">Lihat contoh prompt</a>
+          </div>
+        </div>
+      </section>
 
-<section class="page-hero has-photo photo-media">
-<div class="wrap">
-<p class="kicker">Panduan Multimedia AI</p>
-<h1>Hasilkan poster, infografik dan muzik menggunakan Google Gemini.</h1>
-<p>Panduan ringkas menghasilkan bahan visual dan audio — poster majlis, infografik prosedur, banner media sosial dan muzik latar ringkas — menggunakan ciri imej dan muzik terkini dalam Google Gemini.</p>
-<div class="hero-actions">
-<a class="button" href="#proses">Lihat proses</a>
-<a class="button alt" href="#contoh-prompt">Lihat contoh prompt</a>
-</div>
-</div>
-</section>
+      <section id="proses">
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">Workflow Ringkas</p>
+            <h2>Lima langkah daripada idea kepada hasil siap guna</h2>
+            <p>
+              Multimedia di sini bermaksud imej, poster, infografik dan muzik —
+              bukan video. Untuk video, rujuk
+              <a href="video-ai.html">Panduan Video AI</a>.
+            </p>
+          </header>
+          <div class="grid">
+            <article class="card">
+              <span class="icon">01</span>
+              <h3>Idea &amp; Tujuan</h3>
+              <p>
+                Tentukan jenis bahan (poster, infografik, banner atau muzik
+                latar), audiens dan mesej utama sebelum menulis prompt.
+              </p>
+            </article>
+            <article class="card">
+              <span class="icon">02</span>
+              <h3>Tulis Prompt</h3>
+              <p>
+                Nyatakan dengan jelas teks yang perlu dipaparkan, gaya visual,
+                warna jenama dan nada — atau mood/genre bagi muzik.
+              </p>
+            </article>
+            <article class="card">
+              <span class="icon">03</span>
+              <h3>Jana dengan Gemini</h3>
+              <p>
+                Guna ciri imej Gemini untuk poster/infografik, atau ciri muzik
+                Gemini untuk trek audio ringkas.
+              </p>
+            </article>
+            <article class="card">
+              <span class="icon">04</span>
+              <h3>Semak &amp; Perhalusi</h3>
+              <p>
+                Sahkan ketepatan sebarang teks, angka atau fakta dalam imej;
+                laraskan nisbah bidang, pencahayaan dan warna; ulang prompt jika
+                perlu.
+              </p>
+            </article>
+            <article class="card">
+              <span class="icon">05</span>
+              <h3>Muat Turun &amp; Label</h3>
+              <p>
+                Muat turun hasil dalam resolusi yang sesuai dan labelkan sebagai
+                kandungan janaan AI jika diedarkan secara rasmi.
+              </p>
+            </article>
+          </div>
+          <p class="notice">
+            Tip: mulakan prompt dengan tujuan bahan — "Reka poster untuk…",
+            "Hasilkan infografik langkah demi langkah untuk…" — supaya Gemini
+            fokus kepada hasil yang tepat.
+          </p>
+        </div>
+      </section>
 
-<section id="proses">
-<div class="wrap">
-<header class="section-title">
-<p class="kicker">Workflow Ringkas</p>
-<h2>Lima langkah daripada idea kepada hasil siap guna</h2>
-<p>Multimedia di sini bermaksud imej, poster, infografik dan muzik — bukan video. Untuk video, rujuk <a href="video-ai.html">Panduan Video AI</a>.</p>
-</header>
-<div class="grid">
-<article class="card">
-<span class="icon">01</span>
-<h3>Idea &amp; Tujuan</h3>
-<p>Tentukan jenis bahan (poster, infografik, banner atau muzik latar), audiens dan mesej utama sebelum menulis prompt.</p>
-</article>
-<article class="card">
-<span class="icon">02</span>
-<h3>Tulis Prompt</h3>
-<p>Nyatakan dengan jelas teks yang perlu dipaparkan, gaya visual, warna jenama dan nada — atau mood/genre bagi muzik.</p>
-</article>
-<article class="card">
-<span class="icon">03</span>
-<h3>Jana dengan Gemini</h3>
-<p>Guna ciri imej Gemini untuk poster/infografik, atau ciri muzik Gemini untuk trek audio ringkas.</p>
-</article>
-<article class="card">
-<span class="icon">04</span>
-<h3>Semak &amp; Perhalusi</h3>
-<p>Sahkan ketepatan sebarang teks, angka atau fakta dalam imej; laraskan nisbah bidang, pencahayaan dan warna; ulang prompt jika perlu.</p>
-</article>
-<article class="card">
-<span class="icon">05</span>
-<h3>Muat Turun &amp; Label</h3>
-<p>Muat turun hasil dalam resolusi yang sesuai dan labelkan sebagai kandungan janaan AI jika diedarkan secara rasmi.</p>
-</article>
-</div>
-<p class="notice">Tip: mulakan prompt dengan tujuan bahan — "Reka poster untuk…", "Hasilkan infografik langkah demi langkah untuk…" — supaya Gemini fokus kepada hasil yang tepat.</p>
-</div>
-</section>
+      <section id="poster-infografik" class="accent">
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">Imej, Poster &amp; Infografik</p>
+            <h2>Ciri imej terkini Gemini untuk bahan visual</h2>
+            <p>
+              Model imej terkini Gemini (dikenali sebagai Nano Banana Pro /
+              Gemini 3 Pro Image) kuat dalam menghasilkan teks yang jelas terus
+              dalam imej dan infografik berasaskan fakta.
+            </p>
+          </header>
+          <div class="grid">
+            <article class="card">
+              <span class="icon">Aa</span>
+              <h3>Teks Jelas Dalam Imej</h3>
+              <p>
+                Hasilkan tajuk, slogan atau perenggan teks yang jelas dibaca
+                terus dalam poster, dalam pelbagai bahasa dan gaya fon.
+              </p>
+            </article>
+            <article class="card">
+              <span class="icon">📊</span>
+              <h3>Infografik Berasaskan Fakta</h3>
+              <p>
+                Berikan data atau fakta sebenar dalam prompt supaya infografik
+                dan carta yang dihasilkan lebih tepat dan relevan.
+              </p>
+            </article>
+            <article class="card">
+              <span class="icon">🎛</span>
+              <h3>Kawalan Kreatif</h3>
+              <p>
+                Muat naik sehingga 14 imej rujukan untuk kekalkan identiti dan
+                gaya, serta laraskan nisbah bidang, pencahayaan dan warna.
+              </p>
+            </article>
+            <article class="card">
+              <span class="icon">4K</span>
+              <h3>Resolusi Tinggi</h3>
+              <p>
+                Jana output sehingga resolusi 2K/4K — sesuai untuk cetakan
+                poster dan banner bersaiz besar.
+              </p>
+            </article>
+          </div>
+          <p class="notice">
+            Ciri ini tersedia dalam apl Gemini, Google Slides/Vids dan Google AI
+            Studio, tertakluk kepada akses akaun anda.
+          </p>
+        </div>
+      </section>
 
-<section id="poster-infografik" class="accent">
-<div class="wrap">
-<header class="section-title">
-<p class="kicker">Imej, Poster &amp; Infografik</p>
-<h2>Ciri imej terkini Gemini untuk bahan visual</h2>
-<p>Model imej terkini Gemini (dikenali sebagai Nano Banana Pro / Gemini 3 Pro Image) kuat dalam menghasilkan teks yang jelas terus dalam imej dan infografik berasaskan fakta.</p>
-</header>
-<div class="grid">
-<article class="card"><span class="icon">Aa</span><h3>Teks Jelas Dalam Imej</h3><p>Hasilkan tajuk, slogan atau perenggan teks yang jelas dibaca terus dalam poster, dalam pelbagai bahasa dan gaya fon.</p></article>
-<article class="card"><span class="icon">📊</span><h3>Infografik Berasaskan Fakta</h3><p>Berikan data atau fakta sebenar dalam prompt supaya infografik dan carta yang dihasilkan lebih tepat dan relevan.</p></article>
-<article class="card"><span class="icon">🎛</span><h3>Kawalan Kreatif</h3><p>Muat naik sehingga 14 imej rujukan untuk kekalkan identiti dan gaya, serta laraskan nisbah bidang, pencahayaan dan warna.</p></article>
-<article class="card"><span class="icon">4K</span><h3>Resolusi Tinggi</h3><p>Jana output sehingga resolusi 2K/4K — sesuai untuk cetakan poster dan banner bersaiz besar.</p></article>
-</div>
-<p class="notice">Ciri ini tersedia dalam apl Gemini, Google Slides/Vids dan Google AI Studio, tertakluk kepada akses akaun anda.</p>
-</div>
-</section>
+      <section id="muzik">
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">Muzik</p>
+            <h2>Hasilkan muzik latar ringkas dengan Gemini</h2>
+            <p>
+              Ciri muzik Gemini (dikenali sebagai Lyria 3) menghasilkan trek
+              audio pendek berdasarkan penerangan teks atau imej/video sebagai
+              ilham.
+            </p>
+          </header>
+          <div class="grid">
+            <article class="card">
+              <span class="icon">✎</span>
+              <h3>Prompt Teks</h3>
+              <p>
+                Terangkan mood, genre atau konsep — contohnya "muzik latar ceria
+                dan ringkas untuk pembukaan majlis".
+              </p>
+            </article>
+            <article class="card">
+              <span class="icon">🖼</span>
+              <h3>Ilham Imej/Video</h3>
+              <p>
+                Muat naik foto atau video sebagai rujukan, dan Gemini akan jana
+                muzik yang sepadan dengan suasana bahan tersebut.
+              </p>
+            </article>
+          </div>
+          <p class="notice">
+            <b>Had penting:</b> ciri ini untuk pengguna 18 tahun ke atas, dan
+            lirik automatik buat masa ini hanya menyokong lapan bahasa
+            (Inggeris, Jerman, Sepanyol, Perancis, Hindi, Jepun, Korea,
+            Portugis) — belum menyokong Bahasa Melayu. Sesuai untuk muzik latar
+            tanpa lirik atau jingle ringkas, bukan lagu rasmi majlis.
+          </p>
+        </div>
+      </section>
 
-<section id="muzik">
-<div class="wrap">
-<header class="section-title">
-<p class="kicker">Muzik</p>
-<h2>Hasilkan muzik latar ringkas dengan Gemini</h2>
-<p>Ciri muzik Gemini (dikenali sebagai Lyria 3) menghasilkan trek audio pendek berdasarkan penerangan teks atau imej/video sebagai ilham.</p>
-</header>
-<div class="grid">
-<article class="card"><span class="icon">✎</span><h3>Prompt Teks</h3><p>Terangkan mood, genre atau konsep — contohnya "muzik latar ceria dan ringkas untuk pembukaan majlis".</p></article>
-<article class="card"><span class="icon">🖼</span><h3>Ilham Imej/Video</h3><p>Muat naik foto atau video sebagai rujukan, dan Gemini akan jana muzik yang sepadan dengan suasana bahan tersebut.</p></article>
-</div>
-<p class="notice"><b>Had penting:</b> ciri ini untuk pengguna 18 tahun ke atas, dan lirik automatik buat masa ini hanya menyokong lapan bahasa (Inggeris, Jerman, Sepanyol, Perancis, Hindi, Jepun, Korea, Portugis) — belum menyokong Bahasa Melayu. Sesuai untuk muzik latar tanpa lirik atau jingle ringkas, bukan lagu rasmi majlis.</p>
-</div>
-</section>
+      <section id="contoh-prompt" class="accent">
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">Contoh Prompt</p>
+            <h2>Sedia guna untuk keperluan kerja harian</h2>
+            <p>
+              Gantikan teks dalam [kurungan] mengikut keperluan sebenar anda.
+            </p>
+          </header>
+          <div class="grid two">
+            <article class="card prompt-card">
+              <h3>Poster Majlis</h3>
+              <p id="mm-prompt-1" class="prompt-text">
+                Reka poster untuk [nama program] bertarikh [tarikh] di [lokasi].
+                Sertakan tajuk besar, masa, lokasi dan ruang untuk logo UTM.
+                Gaya profesional, warna maroon dan emas, sediakan ruang kosong
+                untuk kod QR pendaftaran.
+              </p>
+              <button
+                class="button copy-prompt"
+                type="button"
+                data-target="mm-prompt-1"
+              >
+                Salin Prompt
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <h3>Infografik Prosedur</h3>
+              <p id="mm-prompt-2" class="prompt-text">
+                Hasilkan infografik langkah demi langkah untuk prosedur [nama
+                proses, contoh: permohonan cuti]. Gunakan [bilangan] langkah
+                bernombor, ikon ringkas dan warna yang konsisten dengan jenama
+                fakulti.
+              </p>
+              <button
+                class="button copy-prompt"
+                type="button"
+                data-target="mm-prompt-2"
+              >
+                Salin Prompt
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <h3>Banner Media Sosial</h3>
+              <p id="mm-prompt-3" class="prompt-text">
+                Reka banner media sosial saiz landskap untuk mempromosikan
+                [acara/pengumuman]. Sertakan tajuk pendek, tarikh dan seruan
+                tindakan "Daftar Sekarang".
+              </p>
+              <button
+                class="button copy-prompt"
+                type="button"
+                data-target="mm-prompt-3"
+              >
+                Salin Prompt
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <h3>Muzik Latar Ringkas</h3>
+              <p id="mm-prompt-4" class="prompt-text">
+                Hasilkan muzik latar ceria dan pendek, tanpa lirik, untuk
+                tayangan slaid pembukaan majlis fakulti. Nada positif dan
+                profesional.
+              </p>
+              <button
+                class="button copy-prompt"
+                type="button"
+                data-target="mm-prompt-4"
+              >
+                Salin Prompt
+              </button>
+            </article>
+          </div>
+          <p class="notice">
+            Nak bina prompt tersuai mengikut keperluan sebenar anda? Guna
+            <a href="multimedia-builder.html">Pembina Prompt Multimedia →</a>
+          </p>
+        </div>
+      </section>
 
-<section id="contoh-prompt" class="accent">
-<div class="wrap">
-<header class="section-title">
-<p class="kicker">Contoh Prompt</p>
-<h2>Sedia guna untuk keperluan kerja harian</h2>
-<p>Gantikan teks dalam [kurungan] mengikut keperluan sebenar anda.</p>
-</header>
-<div class="grid two">
-<article class="card prompt-card">
-<h3>Poster Majlis</h3>
-<p id="mm-prompt-1" class="prompt-text">Reka poster untuk [nama program] bertarikh [tarikh] di [lokasi]. Sertakan tajuk besar, masa, lokasi dan ruang untuk logo UTM. Gaya profesional, warna maroon dan emas, sediakan ruang kosong untuk kod QR pendaftaran.</p>
-<button class="button copy-prompt" type="button" data-target="mm-prompt-1">Salin Prompt</button>
-</article>
-<article class="card prompt-card">
-<h3>Infografik Prosedur</h3>
-<p id="mm-prompt-2" class="prompt-text">Hasilkan infografik langkah demi langkah untuk prosedur [nama proses, contoh: permohonan cuti]. Gunakan [bilangan] langkah bernombor, ikon ringkas dan warna yang konsisten dengan jenama fakulti.</p>
-<button class="button copy-prompt" type="button" data-target="mm-prompt-2">Salin Prompt</button>
-</article>
-<article class="card prompt-card">
-<h3>Banner Media Sosial</h3>
-<p id="mm-prompt-3" class="prompt-text">Reka banner media sosial saiz landskap untuk mempromosikan [acara/pengumuman]. Sertakan tajuk pendek, tarikh dan seruan tindakan "Daftar Sekarang".</p>
-<button class="button copy-prompt" type="button" data-target="mm-prompt-3">Salin Prompt</button>
-</article>
-<article class="card prompt-card">
-<h3>Muzik Latar Ringkas</h3>
-<p id="mm-prompt-4" class="prompt-text">Hasilkan muzik latar ceria dan pendek, tanpa lirik, untuk tayangan slaid pembukaan majlis fakulti. Nada positif dan profesional.</p>
-<button class="button copy-prompt" type="button" data-target="mm-prompt-4">Salin Prompt</button>
-</article>
-</div>
-<p class="notice">Nak bina prompt tersuai mengikut keperluan sebenar anda? Guna <a href="multimedia-builder.html">Pembina Prompt Multimedia →</a></p>
-</div>
-</section>
+      <section id="etika">
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">Etika &amp; Peraturan</p>
+            <h2>Empat perkara wajib sebelum edaran</h2>
+          </header>
+          <div class="grid">
+            <article class="card">
+              <h3>1. Label kandungan AI</h3>
+              <p>
+                Nyatakan dengan jelas jika poster, infografik atau muzik
+                dihasilkan menggunakan AI, terutamanya untuk edaran rasmi.
+              </p>
+            </article>
+            <article class="card">
+              <h3>2. Kebenaran &amp; privasi</h3>
+              <p>
+                Jangan jana imej wajah individu sebenar tanpa kebenaran mereka.
+              </p>
+            </article>
+            <article class="card">
+              <h3>3. Sahkan fakta</h3>
+              <p>
+                Walaupun infografik "berasaskan fakta", tetap semak setiap angka
+                dan tarikh dengan sumber rasmi sebelum diedarkan.
+              </p>
+            </article>
+            <article class="card">
+              <h3>4. Hak cipta &amp; lesen</h3>
+              <p>
+                Semak terma penggunaan Gemini sebelum guna hasil untuk tujuan
+                komersial atau rasmi; elakkan logo/jenama pihak ketiga tanpa
+                kebenaran.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-<section id="etika">
-<div class="wrap">
-<header class="section-title">
-<p class="kicker">Etika &amp; Peraturan</p>
-<h2>Empat perkara wajib sebelum edaran</h2>
-</header>
-<div class="grid">
-<article class="card"><h3>1. Label kandungan AI</h3><p>Nyatakan dengan jelas jika poster, infografik atau muzik dihasilkan menggunakan AI, terutamanya untuk edaran rasmi.</p></article>
-<article class="card"><h3>2. Kebenaran &amp; privasi</h3><p>Jangan jana imej wajah individu sebenar tanpa kebenaran mereka.</p></article>
-<article class="card"><h3>3. Sahkan fakta</h3><p>Walaupun infografik "berasaskan fakta", tetap semak setiap angka dan tarikh dengan sumber rasmi sebelum diedarkan.</p></article>
-<article class="card"><h3>4. Hak cipta &amp; lesen</h3><p>Semak terma penggunaan Gemini sebelum guna hasil untuk tujuan komersial atau rasmi; elakkan logo/jenama pihak ketiga tanpa kebenaran.</p></article>
-</div>
-</div>
-</section>
-
-<section>
-<div class="wrap">
-<header class="section-title">
-<p class="kicker">Sumber Rujukan</p>
-<h2>Ciri imej dan muzik Google Gemini</h2>
-<p>Maklumat ciri pada halaman ini dirujuk daripada pengumuman rasmi Google mengenai model imej Gemini terkini dan ciri muzik Lyria 3.</p>
-</header>
-<div class="hero-actions">
-<a class="button alt" href="https://blog.google/innovation-and-ai/products/nano-banana-pro/" target="_blank" rel="noopener noreferrer">Ciri imej Gemini ↗</a>
-<a class="button alt" href="https://blog.google/innovation-and-ai/products/gemini-app/lyria-3/" target="_blank" rel="noopener noreferrer">Ciri muzik Gemini ↗</a>
-<a class="button" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">Buka Google Gemini ↗</a>
-</div>
-</div>
-</section>
-
-</main>
-<footer>
-  <div class="shell" style="display:flex; flex-direction:column; align-items:center; gap:15px; text-align:center;">
-    <p>© 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi Malaysia.</p>
-    <a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer">
-      <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman">
-    </a>
-  </div>
-</footer>
-</body>
+      <section>
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">Sumber Rujukan</p>
+            <h2>Ciri imej dan muzik Google Gemini</h2>
+            <p>
+              Maklumat ciri pada halaman ini dirujuk daripada pengumuman rasmi
+              Google mengenai model imej Gemini terkini dan ciri muzik Lyria 3.
+            </p>
+          </header>
+          <div class="hero-actions">
+            <a
+              class="button alt"
+              href="https://blog.google/innovation-and-ai/products/nano-banana-pro/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Ciri imej Gemini ↗</a
+            >
+            <a
+              class="button alt"
+              href="https://blog.google/innovation-and-ai/products/gemini-app/lyria-3/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Ciri muzik Gemini ↗</a
+            >
+            <a
+              class="button"
+              href="https://gemini.google.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Buka Google Gemini ↗</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div
+        class="shell"
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          text-align: center;
+        "
+      >
+        <p>
+          © 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi
+          Malaysia.
+        </p>
+        <a
+          class="visitor-badge"
+          href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic"
+            alt="Bilangan pelawat laman"
+          />
+        </a>
+      </div>
+    </footer>
+  </body>
 </html>

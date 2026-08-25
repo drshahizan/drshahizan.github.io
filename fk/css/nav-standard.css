@@ -1,21 +1,143 @@
 /* Standard site header & footer (matches index.html) — scoped subset of style.css
    so it can be safely combined with hub-style.css on tool pages without
    colliding with hub-style.css's own body/section rules. */
-.shell{width:min(1180px,calc(100% - 48px));margin:auto}
-header.nav-wrap{position:sticky;top:0;z-index:20;background:#fffffff2;backdrop-filter:blur(14px);border-bottom:1px solid #eadfe2;font-family:Arial,Helvetica,sans-serif}
-header.nav-wrap .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-header.nav-wrap .brand{display:flex;align-items:center;gap:12px;color:#3d0016;text-decoration:none}
-header.nav-wrap .brand-mark{font:900 26px Georgia;letter-spacing:-2px;color:#7a0026;border-right:1px solid #d6c6cb;padding-right:12px}
-header.nav-wrap .brand span:last-child{display:flex;flex-direction:column;line-height:1.15}
-header.nav-wrap .brand b{font-size:13px;text-transform:uppercase;letter-spacing:.08em}
-header.nav-wrap .brand small{font-size:10px;color:#6f6267;margin-top:3px}
-header.nav-wrap .nav-links{display:flex;gap:16px}
-header.nav-wrap .nav-links a{font-size:13px;color:#5a4d52;text-decoration:none;font-weight:700}
-header.nav-wrap .nav-links a[aria-current="page"]{color:#7a0026}
-header.nav-wrap .menu{display:none;border:0;border-radius:6px;background:#7a0026;color:#fff;width:40px;height:40px;font-size:16px;cursor:pointer}
-footer{background:#1d1015;color:#fff;padding:34px 0;font-family:Arial,Helvetica,sans-serif}
-footer .footer-brand{color:#fff}
-footer .footer-brand .brand-mark{color:#f1ca55}
-footer p{font-size:10px;color:#a8969c}
-@media(max-width:1080px){header.nav-wrap .menu{display:block}header.nav-wrap .nav{flex-wrap:wrap;height:auto;padding:14px 0}header.nav-wrap .nav-links{display:none;order:3;width:100%;flex-direction:column;align-items:stretch;gap:2px;padding-top:10px;border-top:1px solid #eadfe2;margin-top:12px}header.nav-wrap .nav-links.open{display:flex}header.nav-wrap .nav-links a{padding:10px 4px}}
-@media(max-width:620px){.shell{width:calc(100% - 28px)}header.nav-wrap .nav{height:auto}}
+.shell {
+  width: min(1180px, calc(100% - 48px));
+  margin: auto;
+}
+header.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #fffffff2;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #eadfe2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+header.nav-wrap .nav {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+header.nav-wrap .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #3d0016;
+  text-decoration: none;
+}
+header.nav-wrap .brand-mark {
+  font: 900 26px Georgia;
+  letter-spacing: -2px;
+  color: #7a0026;
+  border-right: 1px solid #d6c6cb;
+  padding-right: 12px;
+}
+header.nav-wrap .brand span:last-child {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+header.nav-wrap .brand b {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+}
+header.nav-wrap .brand small {
+  font-size: 10px;
+  color: #6f6267;
+  margin-top: 3px;
+}
+header.nav-wrap .nav-links {
+  display: flex;
+  gap: 16px;
+}
+header.nav-wrap .nav-links a {
+  font-size: 13px;
+  color: #5a4d52;
+  text-decoration: none;
+  font-weight: 700;
+}
+header.nav-wrap .nav-links a[aria-current="page"] {
+  color: #7a0026;
+}
+header.nav-wrap .menu {
+  display: none;
+  border: 0;
+  border-radius: 6px;
+  background: #7a0026;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+}
+footer {
+  background: #1d1015;
+  color: #fff;
+  padding: 34px 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+footer .footer-brand {
+  color: #fff;
+}
+footer .footer-brand .brand-mark {
+  color: #f1ca55;
+}
+footer p {
+  font-size: 10px;
+  color: #a8969c;
+}
+@media (max-width: 1080px) {
+  header.nav-wrap .menu {
+    display: block;
+  }
+  header.nav-wrap .nav {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 14px 0;
+  }
+  header.nav-wrap .nav-links {
+    display: none;
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding-top: 10px;
+    border-top: 1px solid #eadfe2;
+    margin-top: 12px;
+  }
+  header.nav-wrap .nav-links.open {
+    display: flex;
+  }
+  header.nav-wrap .nav-links a {
+    padding: 10px 4px;
+  }
+}
+@media (max-width: 620px) {
+  .shell {
+    width: calc(100% - 28px);
+  }
+  header.nav-wrap .nav {
+    height: auto;
+  }
+  header.nav-wrap .brand b {
+    font-size: 10px;
+    max-width: 235px;
+  }
+  header.nav-wrap .brand small {
+    font-size: 9px;
+  }
+}
+footer {
+  padding: 8px 0;
+}
+footer .shell {
+  gap: 5px !important;
+}
+footer p {
+  margin: 0;
+}

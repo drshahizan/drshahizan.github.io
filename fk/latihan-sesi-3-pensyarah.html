@@ -1,30 +1,184 @@
 <!doctype html>
 <html lang="ms">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Latihan 2 Sesi 3: Pensyarah Universiti Awam | Fakulti Komputeran UTM</title>
-<meta name="description" content="Latihan Google Gemini langkah demi langkah menggunakan dataset pensyarah universiti awam OpenDOSM.">
-<link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="css/hub-style.css"><link rel="stylesheet" href="css/nav-standard.css">
-<script src="js/hub.js" defer></script><script src="js/copy-prompt.js" defer></script>
-</head>
-<body><a class="skip" href="#main">Langkau ke kandungan</a>
-<header class="nav-wrap"><nav class="nav shell"><a class="brand" href="index.html"><span class="brand-mark">UTM</span><span><b>Fakulti Komputeran</b><small>Universiti Teknologi Malaysia</small></span></a><button class="menu" aria-label="Buka menu" aria-expanded="false">☰</button><div class="nav-links">
-      <a href="index.html">Utama</a><a href="bahan-sesi.html" aria-current="page">Bahan Pengajaran</a><a href="prompt-ai.html">Prompt AI</a><a href="ruang-kerja-ai.html">Ruang Kerja</a><a href="ai-tools.html">Alat AI</a><a href="sumber-ai.html">Sumber</a>
-    </div></nav></header>
-<main id="main">
-<section class="page-hero has-photo photo-data"><div class="wrap"><p class="kicker">SESI 3 · LATIHAN 2 · GOOGLE GEMINI</p><h1>Analisis tenaga akademik universiti awam.</h1><p>Ikuti sepuluh langkah untuk mengaudit data, menganalisis trend, membandingkan universiti dan menghasilkan laporan sokongan perancangan.</p><div class="hero-actions"><a class="button" href="#persediaan">Mulakan langkah demi langkah</a><a class="button alt" href="https://storage.data.gov.my/education/lecturers_uni.csv" target="_blank" rel="noopener noreferrer">Muat turun CSV ↗</a></div></div></section>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>
+      Latihan 2 Sesi 3: Pensyarah Universiti Awam | Fakulti Komputeran UTM
+    </title>
+    <meta
+      name="description"
+      content="Latihan Google Gemini langkah demi langkah menggunakan dataset pensyarah universiti awam OpenDOSM."
+    />
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="css/hub-style.css" />
+    <link rel="stylesheet" href="css/nav-standard.css" />
+    <script src="js/hub.js" defer></script>
+    <script src="js/copy-prompt.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Langkau ke kandungan</a>
+    <header class="nav-wrap">
+      <nav class="nav shell">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">AI</span
+          ><span
+            ><b>Pemerkasaan Tugasan Harian Menggunakan AI</b
+            ><small>Fakulti Komputeran, UTM</small></span
+          ></a
+        ><button class="menu" aria-label="Buka menu" aria-expanded="false">
+          ☰
+        </button>
+        <div class="nav-links">
+          <a href="index.html">Utama</a
+          ><a href="tentatif-program.html">Tentatif Program</a
+          ><a href="bahan-sesi.html" aria-current="page">Bahan Pengajaran</a
+          ><a href="prompt-ai.html">Prompt AI</a
+          ><a href="ruang-kerja-ai.html">Ruang Kerja</a
+          ><a href="ai-tools.html">Alat AI</a
+          ><a href="sumber-ai.html">Sumber</a>
+          <a href="index.html#penceramah">Penceramah</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="page-hero has-photo photo-data">
+        <div class="wrap">
+          <p class="kicker">SESI 3 · LATIHAN 2 · GOOGLE GEMINI</p>
+          <h1>Analisis tenaga akademik universiti awam.</h1>
+          <p>
+            Ikuti sepuluh langkah untuk mengaudit data, menganalisis trend,
+            membandingkan universiti dan menghasilkan laporan sokongan
+            perancangan.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#persediaan">Mulakan langkah demi langkah</a
+            ><a
+              class="button alt"
+              href="https://storage.data.gov.my/education/lecturers_uni.csv"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Muat turun CSV ↗</a
+            >
+          </div>
+        </div>
+      </section>
 
-<section id="persediaan"><div class="wrap"><header class="section-title"><p class="kicker">DATASET RASMI</p><h2>Lecturers in Public Universities by Citizenship &amp; Sex</h2><p>Bilangan staf akademik universiti awam di peringkat nasional dan negeri, dengan pecahan kewarganegaraan dan jantina.</p></header>
-<div class="dataset-brief"><div><b>Medan</b><span><code>state</code>, <code>university</code>, <code>citizenship</code>, <code>sex</code>, <code>date</code>, <code>staff</code></span></div><div><b>Tempoh</b><span>2014–2023</span></div><div><b>Liputan</b><span>20 universiti awam</span></div><div><b>Sumber</b><span>Kementerian Pendidikan Tinggi</span></div></div>
-<div class="notice"><strong>Sebelum bermula:</strong> Muat turun CSV, buka <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">Google Gemini</a>, mulakan perbualan baharu dan muat naik fail. Gunakan semua prompt dalam perbualan yang sama supaya hasil setiap langkah menjadi konteks kepada langkah berikutnya.</div>
-<div class="filter-guide"><article><b>Jumlah nasional</b><code>state='Malaysia'<br>university='All Universities'<br>citizenship='all'<br>sex='both'</code></article><article><b>Jumlah setiap universiti</b><code>state!='Malaysia'<br>university!='All Universities'<br>citizenship='all'<br>sex='both'</code></article><article><b>Pecahan jantina</b><code>citizenship='all'<br>sex IN ('male','female')</code></article><article><b>Pecahan kewarganegaraan</b><code>citizenship IN ('citizen','non_citizen')<br>sex='both'</code></article></div>
-</div></section>
+      <section id="persediaan">
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">DATASET RASMI</p>
+            <h2>Lecturers in Public Universities by Citizenship &amp; Sex</h2>
+            <p>
+              Bilangan staf akademik universiti awam di peringkat nasional dan
+              negeri, dengan pecahan kewarganegaraan dan jantina.
+            </p>
+          </header>
+          <div class="dataset-brief">
+            <div>
+              <b>Medan</b
+              ><span
+                ><code>state</code>, <code>university</code>,
+                <code>citizenship</code>, <code>sex</code>, <code>date</code>,
+                <code>staff</code></span
+              >
+            </div>
+            <div><b>Tempoh</b><span>2014–2023</span></div>
+            <div><b>Liputan</b><span>20 universiti awam</span></div>
+            <div><b>Sumber</b><span>Kementerian Pendidikan Tinggi</span></div>
+          </div>
+          <div class="notice">
+            <strong>Sebelum bermula:</strong> Muat turun CSV, buka
+            <a
+              href="https://gemini.google.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Google Gemini</a
+            >, mulakan perbualan baharu dan muat naik fail. Gunakan semua prompt
+            dalam perbualan yang sama supaya hasil setiap langkah menjadi
+            konteks kepada langkah berikutnya.
+          </div>
+          <div class="filter-guide">
+            <article>
+              <b>Jumlah nasional</b
+              ><code
+                >state='Malaysia'<br />university='All Universities'<br />citizenship='all'<br />sex='both'</code
+              >
+            </article>
+            <article>
+              <b>Jumlah setiap universiti</b
+              ><code
+                >state!='Malaysia'<br />university!='All Universities'<br />citizenship='all'<br />sex='both'</code
+              >
+            </article>
+            <article>
+              <b>Pecahan jantina</b
+              ><code>citizenship='all'<br />sex IN ('male','female')</code>
+            </article>
+            <article>
+              <b>Pecahan kewarganegaraan</b
+              ><code
+                >citizenship IN ('citizen','non_citizen')<br />sex='both'</code
+              >
+            </article>
+          </div>
+        </div>
+      </section>
 
-<section class="accent"><div class="wrap"><header class="section-title"><p class="kicker">HASIL AKHIR</p><h2>Apa yang akan dibina?</h2></header><div class="grid"><article class="card"><span class="icon">✓</span><h3>Data tervalidasi</h3><p>Struktur, kualiti dan peraturan penapisan yang telah diperiksa.</p></article><article class="card"><span class="icon">↗</span><h3>Analisis trend</h3><p>Perubahan nasional, jantina, kewarganegaraan dan universiti.</p></article><article class="card"><span class="icon">▦</span><h3>Dashboard ringkas</h3><p>Enam visual yang menjawab soalan pengurusan.</p></article><article class="card"><span class="icon">▤</span><h3>Laporan keputusan</h3><p>Dapatan, implikasi, cadangan dan batasan.</p></article></div></div></section>
+      <section class="accent">
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">HASIL AKHIR</p>
+            <h2>Apa yang akan dibina?</h2>
+          </header>
+          <div class="grid">
+            <article class="card">
+              <span class="icon">✓</span>
+              <h3>Data tervalidasi</h3>
+              <p>
+                Struktur, kualiti dan peraturan penapisan yang telah diperiksa.
+              </p>
+            </article>
+            <article class="card">
+              <span class="icon">↗</span>
+              <h3>Analisis trend</h3>
+              <p>
+                Perubahan nasional, jantina, kewarganegaraan dan universiti.
+              </p>
+            </article>
+            <article class="card">
+              <span class="icon">▦</span>
+              <h3>Dashboard ringkas</h3>
+              <p>Enam visual yang menjawab soalan pengurusan.</p>
+            </article>
+            <article class="card">
+              <span class="icon">▤</span>
+              <h3>Laporan keputusan</h3>
+              <p>Dapatan, implikasi, cadangan dan batasan.</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-<section><div class="wrap"><header class="section-title"><p class="kicker">LANGKAH DEMI LANGKAH</p><h2>Salin satu prompt, semak hasil, kemudian teruskan</h2><p>Jangan lompat ke visual atau cadangan sebelum data dan pengiraan disahkan.</p></header><div class="prompt-stack">
-
-<article class="card prompt-card"><span class="prompt-step">01</span><h3>Kenali struktur dataset</h3><p class="step-goal"><b>Tujuan:</b> Memahami liputan sebelum membuat pengiraan.</p><pre id="lect-1" class="prompt-text">Bertindak sebagai penganalisis data pendidikan tinggi. Baca keseluruhan fail lecturers_uni.csv yang telah saya muat naik. Jangan buat kesimpulan prestasi lagi.
+      <section>
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">LANGKAH DEMI LANGKAH</p>
+            <h2>Salin satu prompt, semak hasil, kemudian teruskan</h2>
+            <p>
+              Jangan lompat ke visual atau cadangan sebelum data dan pengiraan
+              disahkan.
+            </p>
+          </header>
+          <div class="prompt-stack">
+            <article class="card prompt-card">
+              <span class="prompt-step">01</span>
+              <h3>Kenali struktur dataset</h3>
+              <p class="step-goal">
+                <b>Tujuan:</b> Memahami liputan sebelum membuat pengiraan.
+              </p>
+              <pre id="lect-1" class="prompt-text">
+Bertindak sebagai penganalisis data pendidikan tinggi. Baca keseluruhan fail lecturers_uni.csv yang telah saya muat naik. Jangan buat kesimpulan prestasi lagi.
 
 Huraikan:
 1. tujuan dan sumber dataset;
@@ -33,9 +187,20 @@ Huraikan:
 4. semua kategori unik bagi citizenship dan sex;
 5. perbezaan antara rekod nasional, “All Universities” dan rekod universiti tertentu.
 
-Hasilkan jadual kamus data dengan lajur: medan, jenis data, contoh nilai, maksud dan risiko salah tafsir. Akhiri dengan lima soalan yang perlu disahkan sebelum analisis.</pre><button class="button copy-prompt" data-target="lect-1">Salin Prompt 1</button></article>
+Hasilkan jadual kamus data dengan lajur: medan, jenis data, contoh nilai, maksud dan risiko salah tafsir. Akhiri dengan lima soalan yang perlu disahkan sebelum analisis.</pre>
+              <button class="button copy-prompt" data-target="lect-1">
+                Salin Prompt 1
+              </button>
+            </article>
 
-<article class="card prompt-card"><span class="prompt-step">02</span><h3>Audit kualiti dan elakkan pengiraan berganda</h3><p class="step-goal"><b>Tujuan:</b> Mengesahkan data sesuai dianalisis.</p><pre id="lect-2" class="prompt-text">Audit kualiti lecturers_uni.csv. Semak nilai hilang, rekod pendua, tahun hilang, nilai staff negatif, ejaan kategori tidak konsisten dan kombinasi kategori yang tidak lengkap.
+            <article class="card prompt-card">
+              <span class="prompt-step">02</span>
+              <h3>Audit kualiti dan elakkan pengiraan berganda</h3>
+              <p class="step-goal">
+                <b>Tujuan:</b> Mengesahkan data sesuai dianalisis.
+              </p>
+              <pre id="lect-2" class="prompt-text">
+Audit kualiti lecturers_uni.csv. Semak nilai hilang, rekod pendua, tahun hilang, nilai staff negatif, ejaan kategori tidak konsisten dan kombinasi kategori yang tidak lengkap.
 
 Uji peraturan berikut:
 A. Jumlah nasional = state='Malaysia', university='All Universities', citizenship='all', sex='both'.
@@ -43,35 +208,80 @@ B. Jumlah universiti = state!='Malaysia', university!='All Universities', citize
 C. Pecahan jantina menggunakan male dan female sahaja; jangan campurkan both.
 D. Pecahan kewarganegaraan menggunakan citizen dan non_citizen sahaja; jangan campurkan all.
 
-Untuk setiap tahun, semak sama ada male + female hampir sama dengan both dan citizen + non_citizen hampir sama dengan all. Senaraikan sebarang perbezaan. Hasilkan laporan audit berstatus Lulus, Perlu Semakan atau Gagal bagi setiap ujian. Jangan membetulkan data secara senyap.</pre><button class="button copy-prompt" data-target="lect-2">Salin Prompt 2</button></article>
+Untuk setiap tahun, semak sama ada male + female hampir sama dengan both dan citizen + non_citizen hampir sama dengan all. Senaraikan sebarang perbezaan. Hasilkan laporan audit berstatus Lulus, Perlu Semakan atau Gagal bagi setiap ujian. Jangan membetulkan data secara senyap.</pre>
+              <button class="button copy-prompt" data-target="lect-2">
+                Salin Prompt 2
+              </button>
+            </article>
 
-<article class="card prompt-card"><span class="prompt-step">03</span><h3>Bina jadual analisis yang bersih</h3><p class="step-goal"><b>Tujuan:</b> Menyediakan empat jadual tanpa pertindihan.</p><pre id="lect-3" class="prompt-text">Berdasarkan audit yang telah dibuat, bina empat jadual analisis berasingan:
+            <article class="card prompt-card">
+              <span class="prompt-step">03</span>
+              <h3>Bina jadual analisis yang bersih</h3>
+              <p class="step-goal">
+                <b>Tujuan:</b> Menyediakan empat jadual tanpa pertindihan.
+              </p>
+              <pre id="lect-3" class="prompt-text">
+Berdasarkan audit yang telah dibuat, bina empat jadual analisis berasingan:
 1. national_total: year, total_staff;
 2. university_total: year, state, university, total_staff;
 3. sex_summary: level, year, state, university, male, female, both, female_share_pct;
 4. citizenship_summary: level, year, state, university, citizen, non_citizen, all, non_citizen_share_pct.
 
-Dalam sex_summary dan citizenship_summary, masukkan baris nasional serta baris setiap universiti dan tandakan melalui level='national' atau level='university'. Gunakan penapis yang telah disahkan dan jangan jumlahkan baris agregat bersama kategori terperinci. Tambah year daripada date. Tunjukkan lima baris pertama setiap jadual, bilangan baris dan formula bagi female_share_pct serta non_citizen_share_pct. Laporkan jika nilai pembahagi sifar atau rekod tidak lengkap.</pre><button class="button copy-prompt" data-target="lect-3">Salin Prompt 3</button></article>
+Dalam sex_summary dan citizenship_summary, masukkan baris nasional serta baris setiap universiti dan tandakan melalui level='national' atau level='university'. Gunakan penapis yang telah disahkan dan jangan jumlahkan baris agregat bersama kategori terperinci. Tambah year daripada date. Tunjukkan lima baris pertama setiap jadual, bilangan baris dan formula bagi female_share_pct serta non_citizen_share_pct. Laporkan jika nilai pembahagi sifar atau rekod tidak lengkap.</pre>
+              <button class="button copy-prompt" data-target="lect-3">
+                Salin Prompt 3
+              </button>
+            </article>
 
-<article class="card prompt-card"><span class="prompt-step">04</span><h3>Analisis trend nasional</h3><p class="step-goal"><b>Tujuan:</b> Memahami perubahan bilangan staf akademik Malaysia.</p><pre id="lect-4" class="prompt-text">Gunakan jadual national_total sahaja. Analisis trend staf akademik universiti awam Malaysia dari 2014 hingga 2023.
+            <article class="card prompt-card">
+              <span class="prompt-step">04</span>
+              <h3>Analisis trend nasional</h3>
+              <p class="step-goal">
+                <b>Tujuan:</b> Memahami perubahan bilangan staf akademik
+                Malaysia.
+              </p>
+              <pre id="lect-4" class="prompt-text">
+Gunakan jadual national_total sahaja. Analisis trend staf akademik universiti awam Malaysia dari 2014 hingga 2023.
 
 Kira bagi setiap tahun:
 - perubahan bilangan = staff_t - staff_(t-1);
 - perubahan peratus = [(staff_t/staff_(t-1))-1] × 100;
 - indeks dengan 2014=100.
 
-Kira juga perubahan bersih 2014–2023 dan CAGR menggunakan r=(P_2023/P_2014)^(1/9)-1. Kenal pasti tahun kenaikan dan penurunan terbesar. Hasilkan satu jadual, satu carta garis dan lima dapatan yang hanya berdasarkan angka. Jangan nyatakan sebab perubahan jika dataset tidak membekalkan bukti.</pre><button class="button copy-prompt" data-target="lect-4">Salin Prompt 4</button></article>
+Kira juga perubahan bersih 2014–2023 dan CAGR menggunakan r=(P_2023/P_2014)^(1/9)-1. Kenal pasti tahun kenaikan dan penurunan terbesar. Hasilkan satu jadual, satu carta garis dan lima dapatan yang hanya berdasarkan angka. Jangan nyatakan sebab perubahan jika dataset tidak membekalkan bukti.</pre>
+              <button class="button copy-prompt" data-target="lect-4">
+                Salin Prompt 4
+              </button>
+            </article>
 
-<article class="card prompt-card"><span class="prompt-step">05</span><h3>Analisis komposisi jantina</h3><p class="step-goal"><b>Tujuan:</b> Menilai pola penyertaan lelaki dan perempuan.</p><pre id="lect-5" class="prompt-text">Gunakan sex_summary. Analisis komposisi jantina pada peringkat nasional dan universiti bagi 2014–2023.
+            <article class="card prompt-card">
+              <span class="prompt-step">05</span>
+              <h3>Analisis komposisi jantina</h3>
+              <p class="step-goal">
+                <b>Tujuan:</b> Menilai pola penyertaan lelaki dan perempuan.
+              </p>
+              <pre id="lect-5" class="prompt-text">
+Gunakan sex_summary. Analisis komposisi jantina pada peringkat nasional dan universiti bagi 2014–2023.
 
 Kira female_share_pct = female/(male+female)×100 dan gender_gap = female-male. Sahkan male+female terhadap both sebelum menggunakan hasil. Tunjukkan:
 1. trend bahagian perempuan di peringkat nasional;
 2. universiti dengan bahagian perempuan tertinggi dan terendah pada 2023, tetapi tandakan universiti dengan jumlah staf kecil;
 3. universiti yang mengalami perubahan bahagian perempuan terbesar dari 2014 ke 2023.
 
-Gunakan carta garis nasional dan bar mendatar universiti. Elakkan bahasa yang menyiratkan sebab atau kualiti prestasi. Nyatakan bahawa angka ialah komposisi, bukan ukuran kesaksamaan peluang.</pre><button class="button copy-prompt" data-target="lect-5">Salin Prompt 5</button></article>
+Gunakan carta garis nasional dan bar mendatar universiti. Elakkan bahasa yang menyiratkan sebab atau kualiti prestasi. Nyatakan bahawa angka ialah komposisi, bukan ukuran kesaksamaan peluang.</pre>
+              <button class="button copy-prompt" data-target="lect-5">
+                Salin Prompt 5
+              </button>
+            </article>
 
-<article class="card prompt-card"><span class="prompt-step">06</span><h3>Analisis kewarganegaraan</h3><p class="step-goal"><b>Tujuan:</b> Memahami penyertaan staf bukan warganegara.</p><pre id="lect-6" class="prompt-text">Gunakan citizenship_summary. Analisis bilangan dan bahagian staf akademik bukan warganegara dari 2014 hingga 2023.
+            <article class="card prompt-card">
+              <span class="prompt-step">06</span>
+              <h3>Analisis kewarganegaraan</h3>
+              <p class="step-goal">
+                <b>Tujuan:</b> Memahami penyertaan staf bukan warganegara.
+              </p>
+              <pre id="lect-6" class="prompt-text">
+Gunakan citizenship_summary. Analisis bilangan dan bahagian staf akademik bukan warganegara dari 2014 hingga 2023.
 
 Kira non_citizen_share_pct = non_citizen/(citizen+non_citizen)×100 dan sahkan jumlah terhadap all. Hasilkan:
 1. trend nasional bilangan serta peratus bukan warganegara;
@@ -79,9 +289,20 @@ Kira non_citizen_share_pct = non_citizen/(citizen+non_citizen)×100 dan sahkan j
 3. perubahan 2014–2023 bagi setiap universiti;
 4. universiti dengan kenaikan atau penurunan paling ketara.
 
-Gunakan carta garis nasional dan scatter plot 2023 dengan paksi jumlah staf serta peratus bukan warganegara. Jangan menyamakan peratus bukan warganegara dengan kualiti atau tahap pengantarabangsaan keseluruhan.</pre><button class="button copy-prompt" data-target="lect-6">Salin Prompt 6</button></article>
+Gunakan carta garis nasional dan scatter plot 2023 dengan paksi jumlah staf serta peratus bukan warganegara. Jangan menyamakan peratus bukan warganegara dengan kualiti atau tahap pengantarabangsaan keseluruhan.</pre>
+              <button class="button copy-prompt" data-target="lect-6">
+                Salin Prompt 6
+              </button>
+            </article>
 
-<article class="card prompt-card"><span class="prompt-step">07</span><h3>Bandingkan universiti dan fokus UTM</h3><p class="step-goal"><b>Tujuan:</b> Membina penanda aras deskriptif yang adil.</p><pre id="lect-7" class="prompt-text">Gunakan data universiti bagi tahun 2023 dan trend 2014–2023. Sediakan penanda aras untuk Universiti Teknologi Malaysia (UTM) berbanding semua universiti awam.
+            <article class="card prompt-card">
+              <span class="prompt-step">07</span>
+              <h3>Bandingkan universiti dan fokus UTM</h3>
+              <p class="step-goal">
+                <b>Tujuan:</b> Membina penanda aras deskriptif yang adil.
+              </p>
+              <pre id="lect-7" class="prompt-text">
+Gunakan data universiti bagi tahun 2023 dan trend 2014–2023. Sediakan penanda aras untuk Universiti Teknologi Malaysia (UTM) berbanding semua universiti awam.
 
 Bandingkan UTM bagi:
 - jumlah staf akademik;
@@ -89,9 +310,20 @@ Bandingkan UTM bagi:
 - bahagian staf perempuan;
 - bilangan dan bahagian staf bukan warganegara.
 
-Paparkan kedudukan, median semua universiti, beza UTM daripada median dan kuartil UTM bagi setiap ukuran. Sediakan jadual ringkas “Ukuran | UTM | Median UA | Kedudukan | Tafsiran berhati-hati”. Jangan membina skor komposit atau menyimpulkan universiti terbaik kerana dataset tidak mengukur pengajaran, penyelidikan, beban kerja atau prestasi.</pre><button class="button copy-prompt" data-target="lect-7">Salin Prompt 7</button></article>
+Paparkan kedudukan, median semua universiti, beza UTM daripada median dan kuartil UTM bagi setiap ukuran. Sediakan jadual ringkas “Ukuran | UTM | Median UA | Kedudukan | Tafsiran berhati-hati”. Jangan membina skor komposit atau menyimpulkan universiti terbaik kerana dataset tidak mengukur pengajaran, penyelidikan, beban kerja atau prestasi.</pre>
+              <button class="button copy-prompt" data-target="lect-7">
+                Salin Prompt 7
+              </button>
+            </article>
 
-<article class="card prompt-card"><span class="prompt-step">08</span><h3>Reka dashboard enam visual</h3><p class="step-goal"><b>Tujuan:</b> Menyampaikan dapatan tanpa carta berlebihan.</p><pre id="lect-8" class="prompt-text">Reka dashboard satu halaman berdasarkan hasil yang telah disahkan. Gunakan enam visual:
+            <article class="card prompt-card">
+              <span class="prompt-step">08</span>
+              <h3>Reka dashboard enam visual</h3>
+              <p class="step-goal">
+                <b>Tujuan:</b> Menyampaikan dapatan tanpa carta berlebihan.
+              </p>
+              <pre id="lect-8" class="prompt-text">
+Reka dashboard satu halaman berdasarkan hasil yang telah disahkan. Gunakan enam visual:
 1. kad KPI jumlah staf nasional 2023;
 2. carta garis trend nasional 2014–2023;
 3. bar perubahan tahunan;
@@ -99,16 +331,39 @@ Paparkan kedudukan, median semua universiti, beza UTM daripada median dan kuarti
 5. scatter plot jumlah staf lawan bahagian bukan warganegara 2023;
 6. kad penanda aras UTM.
 
-Bagi setiap visual, nyatakan tujuan, data dan penapis, paksi, unit, susunan, anotasi serta mesej utama. Gunakan warna marun untuk UTM dan kelabu bagi universiti lain. Jangan gunakan paksi terpotong yang mengelirukan. Sertakan tajuk, tahun dan sumber pada setiap visual.</pre><button class="button copy-prompt" data-target="lect-8">Salin Prompt 8</button></article>
+Bagi setiap visual, nyatakan tujuan, data dan penapis, paksi, unit, susunan, anotasi serta mesej utama. Gunakan warna marun untuk UTM dan kelabu bagi universiti lain. Jangan gunakan paksi terpotong yang mengelirukan. Sertakan tajuk, tahun dan sumber pada setiap visual.</pre>
+              <button class="button copy-prompt" data-target="lect-8">
+                Salin Prompt 8
+              </button>
+            </article>
 
-<article class="card prompt-card"><span class="prompt-step">09</span><h3>Rumus dapatan dan cadangan</h3><p class="step-goal"><b>Tujuan:</b> Membezakan fakta, tafsiran dan cadangan.</p><pre id="lect-9" class="prompt-text">Berdasarkan analisis Langkah 1–8 sahaja, bina matriks keputusan dengan lajur: dapatan berangka, tafsiran berhati-hati, implikasi pentadbiran, cadangan tindakan, data tambahan diperlukan dan tahap keyakinan.
+            <article class="card prompt-card">
+              <span class="prompt-step">09</span>
+              <h3>Rumus dapatan dan cadangan</h3>
+              <p class="step-goal">
+                <b>Tujuan:</b> Membezakan fakta, tafsiran dan cadangan.
+              </p>
+              <pre id="lect-9" class="prompt-text">
+Berdasarkan analisis Langkah 1–8 sahaja, bina matriks keputusan dengan lajur: dapatan berangka, tafsiran berhati-hati, implikasi pentadbiran, cadangan tindakan, data tambahan diperlukan dan tahap keyakinan.
 
 Fokus cadangan kepada perancangan tenaga kerja, pemantauan komposisi, pengekalan staf, pelaporan dan keperluan data. Jangan mendakwa hubungan sebab-akibat. Jangan mencadangkan tindakan individu berdasarkan jantina atau kewarganegaraan. Asingkan dengan jelas:
 - fakta yang terus diperoleh daripada dataset;
 - inferens yang perlu disahkan;
-- perkara yang tidak boleh dijawab oleh dataset.</pre><button class="button copy-prompt" data-target="lect-9">Salin Prompt 9</button></article>
+- perkara yang tidak boleh dijawab oleh dataset.</pre>
+              <button class="button copy-prompt" data-target="lect-9">
+                Salin Prompt 9
+              </button>
+            </article>
 
-<article class="card prompt-card"><span class="prompt-step">10</span><h3>Sediakan laporan pengurusan</h3><p class="step-goal"><b>Tujuan:</b> Menggabungkan semua hasil menjadi dokumen keputusan.</p><pre id="lect-10" class="prompt-text">Sediakan “Laporan Analisis Staf Akademik Universiti Awam Malaysia, 2014–2023” dalam Bahasa Melayu berdasarkan hasil yang telah disahkan.
+            <article class="card prompt-card">
+              <span class="prompt-step">10</span>
+              <h3>Sediakan laporan pengurusan</h3>
+              <p class="step-goal">
+                <b>Tujuan:</b> Menggabungkan semua hasil menjadi dokumen
+                keputusan.
+              </p>
+              <pre id="lect-10" class="prompt-text">
+Sediakan “Laporan Analisis Staf Akademik Universiti Awam Malaysia, 2014–2023” dalam Bahasa Melayu berdasarkan hasil yang telah disahkan.
 
 Struktur:
 1. muka hadapan;
@@ -124,18 +379,88 @@ Struktur:
 11. data tambahan diperlukan;
 12. kesimpulan dan sumber.
 
-Gunakan nada profesional untuk pengurusan universiti. Label semua jadual dan rajah, nyatakan unit orang, dan gunakan sumber “Kementerian Pendidikan Tinggi melalui OpenDOSM”. Jangan cipta sebab, dasar atau rujukan. Akhiri dengan “Senarai Semak Pengesahan” bagi angka, formula, label dan tafsiran.</pre><button class="button copy-prompt" data-target="lect-10">Salin Prompt 10</button></article>
+Gunakan nada profesional untuk pengurusan universiti. Label semua jadual dan rajah, nyatakan unit orang, dan gunakan sumber “Kementerian Pendidikan Tinggi melalui OpenDOSM”. Jangan cipta sebab, dasar atau rujukan. Akhiri dengan “Senarai Semak Pengesahan” bagi angka, formula, label dan tafsiran.</pre>
+              <button class="button copy-prompt" data-target="lect-10">
+                Salin Prompt 10
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
 
-</div></div></section>
-
-<section class="accent"><div class="wrap"><header class="section-title"><p class="kicker">SEMAKAN PESERTA</p><h2>Sebelum laporan dihantar</h2></header><div class="grid"><article class="card"><h3>Penapis tepat</h3><p>Pastikan rekod agregat tidak dicampur dengan pecahan jantina, kewarganegaraan atau universiti.</p></article><article class="card"><h3>Pengiraan boleh dijejak</h3><p>Semak formula, pembahagi, tahun asas dan sekurang-kurangnya tiga nilai secara manual.</p></article><article class="card"><h3>Tafsiran berhemah</h3><p>Bezakan pola deskriptif daripada sebab, kualiti atau prestasi universiti.</p></article><article class="card"><h3>Semakan manusia</h3><p>Pastikan pegawai bertanggungjawab menyemak semua angka dan cadangan akhir.</p></article></div><div class="hero-actions"><a class="button" href="latihan-sesi-3-populasi.html">Kembali ke Latihan 1</a><a class="button alt" href="bahan-sesi.html#sesi-3">Bahan Sesi 3</a></div></div></section>
-</main>
-<footer>
-  <div class="shell" style="display:flex; flex-direction:column; align-items:center; gap:15px; text-align:center;">
-    <p>© 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi Malaysia.</p>
-    <a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer">
-      <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman">
-    </a>
-  </div>
-</footer>
-</body></html>
+      <section class="accent">
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">SEMAKAN PESERTA</p>
+            <h2>Sebelum laporan dihantar</h2>
+          </header>
+          <div class="grid">
+            <article class="card">
+              <h3>Penapis tepat</h3>
+              <p>
+                Pastikan rekod agregat tidak dicampur dengan pecahan jantina,
+                kewarganegaraan atau universiti.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Pengiraan boleh dijejak</h3>
+              <p>
+                Semak formula, pembahagi, tahun asas dan sekurang-kurangnya tiga
+                nilai secara manual.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Tafsiran berhemah</h3>
+              <p>
+                Bezakan pola deskriptif daripada sebab, kualiti atau prestasi
+                universiti.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Semakan manusia</h3>
+              <p>
+                Pastikan pegawai bertanggungjawab menyemak semua angka dan
+                cadangan akhir.
+              </p>
+            </article>
+          </div>
+          <div class="hero-actions">
+            <a class="button" href="latihan-sesi-3-populasi.html"
+              >Kembali ke Latihan 1</a
+            ><a class="button alt" href="bahan-sesi.html#sesi-3"
+              >Bahan Sesi 3</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div
+        class="shell"
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          text-align: center;
+        "
+      >
+        <p>
+          © 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi
+          Malaysia.
+        </p>
+        <a
+          class="visitor-badge"
+          href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic"
+            alt="Bilangan pelawat laman"
+          />
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

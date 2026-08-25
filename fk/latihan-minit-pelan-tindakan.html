@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ms">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Minit kepada Pelan Tindakan | Latihan Staf FC</title>
+    <meta
+      name="description"
+      content="Latihan menukar minit mesyuarat kepada keputusan, action tracker, susulan dan agenda."
+    />
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="css/hub-style.css" />
+    <link rel="stylesheet" href="css/nav-standard.css" />
+    <script src="js/hub.js" defer></script>
+    <script src="js/copy-prompt.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Langkau ke kandungan</a>
+    <header class="nav-wrap">
+      <nav class="nav shell">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">AI</span
+          ><span
+            ><b>Pemerkasaan Tugasan Harian Menggunakan AI</b
+            ><small>Fakulti Komputeran, UTM</small></span
+          ></a
+        ><button class="menu" aria-label="Buka menu" aria-expanded="false">
+          ☰
+        </button>
+        <div class="nav-links">
+          <a href="index.html">Utama</a
+          ><a href="tentatif-program.html">Tentatif Program</a
+          ><a href="bahan-sesi.html" aria-current="page">Bahan Pengajaran</a
+          ><a href="prompt-ai.html">Prompt AI</a
+          ><a href="ruang-kerja-ai.html">Ruang Kerja</a
+          ><a href="ai-tools.html">Alat AI</a><a href="sumber-ai.html">Sumber</a
+          ><a href="index.html#penceramah">Penceramah</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap programme-hero">
+          <div>
+            <p class="kicker">SESI 4 · DOKUMEN &amp; KOMUNIKASI</p>
+            <h1>Minit Mesyuarat kepada Pelan Tindakan</h1>
+            <p>
+              Tukar minit yang telah dinyahpengenal kepada keputusan, pemilik
+              tindakan, tarikh akhir, komunikasi susulan dan agenda berikutnya.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#langkah">Mulakan latihan</a
+              ><a class="button alt" href="latihan-praktikal-staf-fc.html"
+                >Semua latihan</a
+              >
+            </div>
+          </div>
+          <figure class="programme-poster">
+            <img
+              src="assets/images/latihan/latihan-minit-pelan-tindakan.webp"
+              alt="Staf FC menukar minit mesyuarat kepada pelan tindakan"
+            />
+            <figcaption>Hasil: action tracker, susulan dan agenda</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section>
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">ARAHAN</p>
+            <h2>Enam langkah daripada rekod kepada tindakan</h2>
+          </header>
+          <div class="notice">
+            <strong>Privasi:</strong> Gunakan minit latihan atau minit yang
+            telah dinyahpengenal. Jangan masukkan isu tatatertib, kesihatan atau
+            data individu.
+          </div>
+        </div>
+      </section>
+      <section id="langkah" class="accent">
+        <div class="wrap">
+          <div class="programme-flow">
+            <span>1<small>Semak</small></span
+            ><span>2<small>Keputusan</small></span
+            ><span>3<small>Tindakan</small></span
+            ><span>4<small>Susulan</small></span
+            ><span>5<small>Agenda</small></span
+            ><span>6<small>Audit</small></span>
+          </div>
+          <div class="prompt-stack">
+            <article class="card prompt-card">
+              <span class="prompt-step">01</span>
+              <h3>Semak dan nyahpengenal</h3>
+              <pre id="mpt-1" class="prompt-text">
+Bertindak sebagai urus setia mesyuarat Fakulti Komputeran UTM. Semak minit sebelum memproses.
+
+Kenal pasti nama, nombor staf/pelajar, e-mel, telefon, isu tatatertib, kesihatan, kewangan atau maklumat sensitif. Cadangkan [PEGAWAI A], [PELAJAR B] dan [UNIT C]. Jangan ulang data sensitif. Berhenti jika risikonya tinggi.</pre>
+              <button class="button copy-prompt" data-target="mpt-1">
+                Salin Prompt 1
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">02</span>
+              <h3>Ekstrak keputusan</h3>
+              <pre id="mpt-2" class="prompt-text">
+Gunakan minit selamat. Ekstrak tajuk agenda, ringkasan perbincangan, keputusan rasmi, cadangan belum diputuskan, perkara berbangkit dan maklumat tidak jelas.
+
+Hasilkan jadual dengan lokasi bukti agenda/perenggan. Jangan menukar cadangan menjadi keputusan. Tandakan [PERLU DISAHKAN].</pre>
+              <button class="button copy-prompt" data-target="mpt-2">
+                Salin Prompt 2
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">03</span>
+              <h3>Bina action tracker</h3>
+              <pre id="mpt-3" class="prompt-text">
+Tukarkan keputusan kepada ACTION TRACKER: ID, tindakan spesifik, hasil serahan, pemilik peranan, penyokong, tarikh mula, tarikh akhir, kebergantungan, risiko, status dan sumber bukti.
+
+Jangan mereka pemilik atau tarikh. Gunakan [PERLU DISAHKAN]. Setiap tindakan mesti bermula dengan kata kerja dan boleh disahkan siap.</pre>
+              <button class="button copy-prompt" data-target="mpt-3">
+                Salin Prompt 3
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">04</span>
+              <h3>Komunikasi susulan</h3>
+              <pre id="mpt-4" class="prompt-text">
+Berdasarkan ACTION TRACKER disahkan, sediakan e-mel rasmi, mesej WhatsApp ringkas dan peringatan individu.
+
+Nyatakan mesyuarat, tindakan, tarikh akhir, kaedah kemas kini dan saluran pertanyaan. Nada profesional, tiada ancaman dan tiada maklumat sensitif.</pre>
+              <button class="button copy-prompt" data-target="mpt-4">
+                Salin Prompt 4
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">05</span>
+              <h3>Agenda seterusnya</h3>
+              <pre id="mpt-5" class="prompt-text">
+Sediakan agenda berdasarkan perkara berbangkit dan ACTION TRACKER: pengesahan minit, status tindakan, keputusan baharu, risiko/halangan, perkara lain dan penutup.
+
+Bagi setiap item, nyatakan tujuan, pembentang mengikut peranan, masa cadangan, dokumen diperlukan dan keputusan diminta.</pre>
+              <button class="button copy-prompt" data-target="mpt-5">
+                Salin Prompt 5
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">06</span>
+              <h3>Audit ketepatan</h3>
+              <pre id="mpt-6" class="prompt-text">
+Audit ringkasan, keputusan, tracker, komunikasi dan agenda terhadap minit asal. Pastikan setiap keputusan mempunyai bukti, cadangan tidak menjadi keputusan, data sensitif tiada dan pemilik/tarikh tidak direka.
+
+Hasilkan matriks LULUS/TIDAK LULUS dengan isu, bukti, pembetulan dan perkara yang mesti disahkan urus setia.</pre>
+              <button class="button copy-prompt" data-target="mpt-6">
+                Salin Prompt 6
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div
+        class="shell"
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          text-align: center;
+        "
+      >
+        <p>
+          © 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi
+          Malaysia.
+        </p>
+        <a
+          class="visitor-badge"
+          href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic"
+            alt="Bilangan pelawat laman"
+        /></a>
+      </div>
+    </footer>
+  </body>
+</html>

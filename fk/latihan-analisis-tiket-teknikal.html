@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ms">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Analisis Tiket Sokongan Teknikal | Latihan Staf FC</title>
+    <meta
+      name="description"
+      content="Latihan analisis KPI, SLA dan dashboard tiket sokongan teknikal Fakulti Komputeran."
+    />
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="css/hub-style.css" />
+    <link rel="stylesheet" href="css/nav-standard.css" />
+    <script src="js/hub.js" defer></script>
+    <script src="js/copy-prompt.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Langkau ke kandungan</a>
+    <header class="nav-wrap">
+      <nav class="nav shell">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">AI</span
+          ><span
+            ><b>Pemerkasaan Tugasan Harian Menggunakan AI</b
+            ><small>Fakulti Komputeran, UTM</small></span
+          ></a
+        ><button class="menu" aria-label="Buka menu" aria-expanded="false">
+          ☰
+        </button>
+        <div class="nav-links">
+          <a href="index.html">Utama</a
+          ><a href="tentatif-program.html">Tentatif Program</a
+          ><a href="bahan-sesi.html" aria-current="page">Bahan Pengajaran</a
+          ><a href="prompt-ai.html">Prompt AI</a
+          ><a href="ruang-kerja-ai.html">Ruang Kerja</a
+          ><a href="ai-tools.html">Alat AI</a><a href="sumber-ai.html">Sumber</a
+          ><a href="index.html#penceramah">Penceramah</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap programme-hero">
+          <div>
+            <p class="kicker">SESI 3 · DATA &amp; KEPUTUSAN</p>
+            <h1>Analisis Tiket Sokongan Teknikal</h1>
+            <p>
+              Gunakan dataset sintetik untuk mengukur masa respons, masa
+              penyelesaian, kategori masalah, lokasi, pematuhan SLA dan kepuasan
+              pengguna.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#langkah">Mulakan latihan</a
+              ><a class="button alt" href="latihan-praktikal-staf-fc.html"
+                >Semua latihan</a
+              >
+            </div>
+          </div>
+          <figure class="programme-poster">
+            <img
+              src="assets/images/latihan/latihan-analisis-tiket-teknikal.webp"
+              alt="Staf teknikal FC menganalisis tiket dan rangkaian makmal"
+            />
+            <figcaption>
+              Hasil: dashboard SLA dan laporan penambahbaikan
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <section>
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">ARAHAN</p>
+            <h2>Enam langkah daripada tiket kepada tindakan</h2>
+          </header>
+          <div class="event-facts">
+            <article><b>Data</b><span>120 tiket sintetik</span></article>
+            <article><b>Analisis</b><span>KPI, SLA dan corak</span></article>
+            <article><b>Serahan</b><span>Dashboard dan laporan</span></article>
+          </div>
+          <div class="notice">
+            <strong>Keselamatan:</strong> Jangan gunakan nama, e-mel, nombor
+            telefon, alamat IP atau rekod insiden sebenar.
+          </div>
+        </div>
+      </section>
+      <section id="langkah" class="accent">
+        <div class="wrap">
+          <div class="programme-flow">
+            <span>1<small>Dataset</small></span
+            ><span>2<small>Kualiti</small></span
+            ><span>3<small>KPI</small></span
+            ><span>4<small>Corak</small></span
+            ><span>5<small>Visual</small></span
+            ><span>6<small>Laporan</small></span>
+          </div>
+          <div class="prompt-stack">
+            <article class="card prompt-card">
+              <span class="prompt-step">01</span>
+              <h3>Hasilkan dataset sintetik</h3>
+              <pre id="att-1" class="prompt-text">
+Bertindak sebagai penganalisis operasi sokongan teknikal Fakulti Komputeran UTM. Hasilkan dataset SINTETIK 120 tiket bagi tiga bulan dalam CSV.
+
+Medan: ticket_id, tarikh_masa_dibuka, lokasi, kategori, keutamaan, saluran, masa_respons_minit, masa_selesai_jam, status, pematuhan_sla, penyelesaian_pertama, skor_kepuasan dan catatan_ringkas. Gunakan kategori rangkaian, komputer, perisian, akaun, projektor dan makmal. Sertakan kamus data.</pre>
+              <button class="button copy-prompt" data-target="att-1">
+                Salin Prompt 1
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">02</span>
+              <h3>Audit kualiti data</h3>
+              <pre id="att-2" class="prompt-text">
+Semak jenis data, nilai hilang, pendua, julat mustahil, tarikh tidak logik, kategori tidak konsisten dan percanggahan antara status dengan masa penyelesaian.
+
+Hasilkan laporan isu, peraturan pembersihan dan jadual sebelum/selepas. Jangan mengganti nilai tanpa merekodkan sebab. Namakan hasil DATA TIKET BERSIH V1.</pre>
+              <button class="button copy-prompt" data-target="att-2">
+                Salin Prompt 2
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">03</span>
+              <h3>Kira KPI sokongan</h3>
+              <pre id="att-3" class="prompt-text">
+Gunakan DATA TIKET BERSIH V1. Kira jumlah tiket, tiket selesai, backlog, median dan purata masa respons/penyelesaian, kadar pematuhan SLA, penyelesaian pertama dan kepuasan.
+
+Tunjukkan formula, pembilang, penyebut dan keputusan. Pecahkan mengikut bulan dan keutamaan. Jelaskan apabila median lebih sesuai daripada purata.</pre>
+              <button class="button copy-prompt" data-target="att-3">
+                Salin Prompt 3
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">04</span>
+              <h3>Kenal pasti corak</h3>
+              <pre id="att-4" class="prompt-text">
+Analisis kategori, lokasi, hari, waktu, keutamaan dan saluran yang menyumbang kepada tiket tinggi atau SLA gagal. Bezakan korelasi daripada sebab.
+
+Senaraikan lima dapatan berangka, tiga hipotesis yang perlu disiasat dan data tambahan diperlukan. Jangan menyalahkan pegawai berdasarkan data agregat.</pre>
+              <button class="button copy-prompt" data-target="att-4">
+                Salin Prompt 4
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">05</span>
+              <h3>Reka dashboard</h3>
+              <pre id="att-5" class="prompt-text">
+Reka dashboard satu halaman dengan kad KPI, trend mingguan, carta bar kategori, heatmap lokasi-waktu, pematuhan SLA mengikut keutamaan dan jadual backlog.
+
+Bagi setiap visual, nyatakan soalan, medan, carta, paksi, warna dan amaran salah tafsir. Gunakan warna mesra buta warna serta jadual alternatif.</pre>
+              <button class="button copy-prompt" data-target="att-5">
+                Salin Prompt 5
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">06</span>
+              <h3>Laporan tindakan</h3>
+              <pre id="att-6" class="prompt-text">
+Sediakan laporan maksimum tiga halaman: ringkasan eksekutif, metodologi, KPI, dapatan, risiko, cadangan 30/60/90 hari dan ukuran kejayaan.
+
+Pautkan setiap cadangan kepada dapatan. Nyatakan pemilik peranan, tempoh, keutamaan dan KPI. Label hipotesis dan senaraikan batasan dataset sintetik.</pre>
+              <button class="button copy-prompt" data-target="att-6">
+                Salin Prompt 6
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div
+        class="shell"
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          text-align: center;
+        "
+      >
+        <p>
+          © 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi
+          Malaysia.
+        </p>
+        <a
+          class="visitor-badge"
+          href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic"
+            alt="Bilangan pelawat laman"
+        /></a>
+      </div>
+    </footer>
+  </body>
+</html>

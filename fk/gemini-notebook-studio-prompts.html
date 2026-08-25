@@ -1,51 +1,301 @@
-<!doctype html><html lang="ms"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gemini Notebook Studio Prompts untuk Tempat Kerja | UTM AI Hub</title><meta name="description" content="24 prompt Studio untuk menghasilkan bahan kerja daripada sumber yang dibenarkan."><meta property="og:type" content="website"><meta property="og:title" content="Gemini Notebook Studio Prompts untuk Tempat Kerja | UTM AI Hub"><meta property="og:description" content="24 prompt Studio untuk menghasilkan bahan kerja daripada sumber yang dibenarkan."><meta property="og:image" content="https://drshahizan.github.io/fk/assets/poster-kursus-ai.jpeg"><meta property="og:url" content="https://drshahizan.github.io/fk/gemini-notebook-studio-prompts.html"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="css/hub-style.css">
-  <link rel="stylesheet" href="css/nav-standard.css">
-<script src="js/hub.js" defer></script><script src="js/prompt-library.js" defer></script></head><body><a class="skip" href="#main">Langkau ke kandungan</a><header class="nav-wrap">
-  <nav class="nav shell">
-    <a class="brand" href="index.html">
-      <span class="brand-mark">UTM</span>
-      <span><b>Fakulti Komputeran</b><small>Universiti Teknologi Malaysia</small></span>
-    </a>
-<button class="menu" aria-label="Buka menu" aria-expanded="false">☰</button>
-    <div class="nav-links">
-      <a href="index.html">Utama</a>
-      <a href="bahan-sesi.html">Bahan Pengajaran</a>
-      <a href="prompt-ai.html" aria-current="page">Prompt AI</a>
-      <a href="ruang-kerja-ai.html">Ruang Kerja</a>
-      <a href="ai-tools.html">Alat AI</a>
-      <a href="sumber-ai.html">Sumber</a>
-    </div>
-  </nav>
-</header><main id="main"><section class="page-hero has-photo photo-media"><div class="wrap"><p class="kicker">GEMINI NOTEBOOK STUDIO PROMPTS</p><h1>Tukar sumber kerja kepada bahan komunikasi yang mudah difahami.</h1><p>Pilih output Studio, lengkapkan maklumat dalam [kurungan], dan pastikan hasil akhir disemak oleh pegawai yang bertanggungjawab.</p><div class="hero-actions"><a class="button" href="#library">Teroka 24 prompt</a><a class="button alt" href="studio-prompt-builder.html">Bina Studio Prompt</a></div></div></section><section id="library" class="accent"><div class="wrap"><header class="section-title"><p class="kicker">8 OUTPUT STUDIO</p><h2>24 prompt untuk komunikasi dan pembelajaran di tempat kerja</h2><p>Setiap jenis output mempunyai tiga kegunaan praktikal berdasarkan sumber dalam notebook.</p></header><div class="prompt-toolbar"><input id="prompt-search" type="search" placeholder="Cari output atau tugasan…" aria-label="Cari prompt"><button class="filter active" data-filter="semua" aria-pressed="true">Semua</button><button class="filter" data-filter="infografik">Infografik</button><button class="filter" data-filter="slaid">Slaid</button><button class="filter" data-filter="audio">Audio</button><button class="filter" data-filter="video">Video</button><button class="filter" data-filter="mindmap">Peta Minda</button><button class="filter" data-filter="flashcard">Kad Imbas</button><button class="filter" data-filter="kuiz">Kuiz</button><button class="filter" data-filter="laporan">Laporan</button></div><p id="prompt-count" class="notice" role="status">24 prompt tersedia</p><div id="prompt-grid" class="grid two"></div><p id="prompt-empty" class="notice prompt-empty" hidden>Tiada prompt sepadan.</p><script id="prompt-data" type="application/json">[
-{"c":"infografik","l":"Infografik","t":"Ringkasan prosedur","p":"Hasilkan infografik menegak tentang [prosedur] untuk [audiens]. Gunakan hanya sumber notebook. Susun tujuan, 5–7 langkah, amaran, dokumen diperlukan dan saluran bantuan. Gunakan bahasa ringkas dan hierarki visual jelas."},
-{"c":"infografik","l":"Infografik","t":"Status projek","p":"Hasilkan infografik status [projek] untuk pihak pengurusan. Paparkan objektif, kemajuan, pencapaian, isu, risiko dan tiga tindakan seterusnya. Jangan cipta angka yang tiada dalam sumber."},
-{"c":"infografik","l":"Infografik","t":"Kempen kesedaran","p":"Hasilkan infografik kesedaran tentang [topik tempat kerja]. Masukkan sebab penting, amalan betul, perkara perlu dielak dan tindakan segera. Semua dakwaan mesti berasaskan sumber notebook."},
-{"c":"slaid","l":"Slide Deck","t":"Taklimat pengurusan","p":"Hasilkan slaid 8 halaman untuk taklimat [topik] kepada [audiens]. Struktur: konteks, isu, bukti, pilihan, risiko, cadangan, tindakan dan penutup. Sertakan nota pembentang dan rujukan sumber."},
-{"c":"slaid","l":"Slide Deck","t":"Orientasi staf","p":"Hasilkan slaid orientasi staf baharu tentang [unit/proses]. Liputi peranan, aliran kerja, sistem, dokumen, standard, kontak dan kesilapan lazim. Gunakan sumber notebook sahaja."},
-{"c":"slaid","l":"Slide Deck","t":"Laporan pascaprogram","p":"Hasilkan slaid laporan [program] yang memaparkan objektif, pelaksanaan, penyertaan, hasil, maklum balas, isu, perbelanjaan tersedia dan penambahbaikan."},
-{"c":"audio","l":"Audio Overview","t":"Brief perjalanan kerja","p":"Hasilkan audio overview 6–8 minit tentang [projek/topik] untuk didengar sebelum mesyuarat. Fokus pada konteks, kemajuan, isu, keputusan diperlukan dan tindakan. Gunakan nada profesional."},
-{"c":"audio","l":"Audio Overview","t":"Penerangan polisi","p":"Hasilkan audio overview tentang [polisi/prosedur] untuk staf. Terangkan tujuan, siapa terlibat, keperluan utama, contoh aplikasi dan perkara yang perlu dirujuk kepada pegawai."},
-{"c":"audio","l":"Audio Overview","t":"Rumusan laporan","p":"Hasilkan audio overview 5 minit yang merumus [laporan]. Bezakan dapatan, tafsiran, risiko dan cadangan. Nyatakan batasan sumber dengan jelas."},
-{"c":"video","l":"Video Overview","t":"Demonstrasi proses","p":"Hasilkan video overview tentang [proses kerja]. Gunakan struktur pembukaan, prasyarat, langkah, titik semakan, kesilapan lazim dan penutup. Cadangkan visual skrin bagi setiap bahagian."},
-{"c":"video","l":"Video Overview","t":"Hebahan program","p":"Hasilkan video overview 60–90 saat untuk [program]. Paparkan tujuan, manfaat, tarikh, sasaran, cara menyertai dan tindakan. Jangan tambah maklumat promosi yang tidak disokong."},
-{"c":"video","l":"Video Overview","t":"Perubahan prosedur","p":"Hasilkan video overview yang menerangkan perubahan daripada [prosedur lama] kepada [prosedur baharu]. Tekankan apa berubah, sebab, tarikh kuat kuasa dan tindakan staf."},
-{"c":"mindmap","l":"Mind Map","t":"Peta proses kerja","p":"Hasilkan peta minda bagi [proses]. Pusatkan matlamat, kemudian cabangkan kepada input, peranan, langkah, keputusan, output, risiko dan dokumen berdasarkan sumber."},
-{"c":"mindmap","l":"Mind Map","t":"Peta projek","p":"Hasilkan peta minda [projek] dengan cabang objektif, pihak berkepentingan, hasil, jadual, sumber, risiko, isu dan ukuran kejayaan."},
-{"c":"mindmap","l":"Mind Map","t":"Peta pengetahuan unit","p":"Hasilkan peta minda pengetahuan untuk [unit]. Susun fungsi, perkhidmatan, sistem, dokumen, kontak, jadual rutin dan kebergantungan."},
-{"c":"flashcard","l":"Flashcards","t":"Istilah dan singkatan","p":"Hasilkan 20 kad imbas istilah dan singkatan bagi [topik/unit]. Bahagian hadapan: istilah. Bahagian belakang: definisi konteks, contoh dan sumber."},
-{"c":"flashcard","l":"Flashcards","t":"Langkah prosedur","p":"Hasilkan kad imbas untuk menguasai [prosedur]. Liputi urutan langkah, pemilik, dokumen, tempoh, semakan dan pengecualian. Jangan tambah syarat baharu."},
-{"c":"flashcard","l":"Flashcards","t":"Persediaan khidmat pelanggan","p":"Hasilkan 15 kad imbas soalan-jawapan untuk staf yang mengendalikan pertanyaan tentang [perkhidmatan]. Gunakan jawapan daripada sumber dan tandakan kes yang perlu dirujuk."},
-{"c":"kuiz","l":"Quiz","t":"Semakan kefahaman prosedur","p":"Hasilkan kuiz 12 soalan tentang [prosedur] untuk staf. Campurkan aneka pilihan dan senario ringkas. Berikan jawapan, penjelasan dan rujukan sumber selepas semua soalan."},
-{"c":"kuiz","l":"Quiz","t":"Kesedaran keselamatan","p":"Hasilkan kuiz berasaskan senario tentang [keselamatan/privasi]. Uji pengenalpastian risiko, tindakan betul, pelaporan dan perkara dilarang berdasarkan sumber."},
-{"c":"kuiz","l":"Quiz","t":"Orientasi unit","p":"Hasilkan kuiz orientasi [unit] merangkumi fungsi, peranan, sistem, proses, kontak dan peraturan kerja. Elakkan soalan trivia yang tidak membantu tugas."},
-{"c":"laporan","l":"Report","t":"Laporan status mingguan","p":"Hasilkan laporan status mingguan [projek/unit]. Susun pencapaian, tugasan berjalan, isu, risiko, tindakan, pemilik dan fokus minggu hadapan berdasarkan sumber."},
-{"c":"laporan","l":"Report","t":"Laporan analisis isu","p":"Hasilkan laporan analisis [isu] dengan struktur konteks, bukti, pola, kesan, punca yang disokong, pilihan tindakan, risiko dan maklumat tambahan diperlukan."},
-{"c":"laporan","l":"Report","t":"Laporan serah tugas","p":"Hasilkan laporan serah tugas untuk [jawatan/projek]. Masukkan tanggungjawab, status, tarikh penting, fail, sistem, kontak, isu, risiko dan tindakan tertunggak."}
-]</script></div></section></main><div class="toast" role="status">Prompt telah disalin</div><footer>
-  <div class="shell" style="display:flex; flex-direction:column; align-items:center; gap:15px; text-align:center;">
-    <p>© 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi Malaysia.</p>
-    <a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer">
-      <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman">
-    </a>
-  </div>
-</footer></body></html>
+<!doctype html>
+<html lang="ms">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>
+      Gemini Notebook Studio Prompts untuk Tempat Kerja | UTM AI Hub
+    </title>
+    <meta
+      name="description"
+      content="24 prompt Studio untuk menghasilkan bahan kerja daripada sumber yang dibenarkan."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Gemini Notebook Studio Prompts untuk Tempat Kerja | UTM AI Hub"
+    />
+    <meta
+      property="og:description"
+      content="24 prompt Studio untuk menghasilkan bahan kerja daripada sumber yang dibenarkan."
+    />
+    <meta
+      property="og:image"
+      content="https://drshahizan.github.io/fk/assets/poster-kursus-ai.jpeg"
+    />
+    <meta
+      property="og:url"
+      content="https://drshahizan.github.io/fk/gemini-notebook-studio-prompts.html"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="css/hub-style.css" />
+    <link rel="stylesheet" href="css/nav-standard.css" />
+    <script src="js/hub.js" defer></script>
+    <script src="js/prompt-library.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Langkau ke kandungan</a>
+    <header class="nav-wrap">
+      <nav class="nav shell">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">AI</span>
+          <span
+            ><b>Pemerkasaan Tugasan Harian Menggunakan AI</b
+            ><small>Fakulti Komputeran, UTM</small></span
+          >
+        </a>
+        <button class="menu" aria-label="Buka menu" aria-expanded="false">
+          ☰
+        </button>
+        <div class="nav-links">
+          <a href="index.html">Utama</a
+          ><a href="tentatif-program.html">Tentatif Program</a>
+          <a href="bahan-sesi.html">Bahan Pengajaran</a>
+          <a href="prompt-ai.html" aria-current="page">Prompt AI</a>
+          <a href="ruang-kerja-ai.html">Ruang Kerja</a>
+          <a href="ai-tools.html">Alat AI</a>
+          <a href="sumber-ai.html">Sumber</a>
+          <a href="index.html#penceramah">Penceramah</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="page-hero has-photo photo-media">
+        <div class="wrap">
+          <p class="kicker">GEMINI NOTEBOOK STUDIO PROMPTS</p>
+          <h1>
+            Tukar sumber kerja kepada bahan komunikasi yang mudah difahami.
+          </h1>
+          <p>
+            Pilih output Studio, lengkapkan maklumat dalam [kurungan], dan
+            pastikan hasil akhir disemak oleh pegawai yang bertanggungjawab.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#library">Teroka 24 prompt</a
+            ><a class="button alt" href="studio-prompt-builder.html"
+              >Bina Studio Prompt</a
+            >
+          </div>
+        </div>
+      </section>
+      <section id="library" class="accent">
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">8 OUTPUT STUDIO</p>
+            <h2>24 prompt untuk komunikasi dan pembelajaran di tempat kerja</h2>
+            <p>
+              Setiap jenis output mempunyai tiga kegunaan praktikal berdasarkan
+              sumber dalam notebook.
+            </p>
+          </header>
+          <div class="prompt-toolbar">
+            <input
+              id="prompt-search"
+              type="search"
+              placeholder="Cari output atau tugasan…"
+              aria-label="Cari prompt"
+            /><button
+              class="filter active"
+              data-filter="semua"
+              aria-pressed="true"
+            >
+              Semua</button
+            ><button class="filter" data-filter="infografik">Infografik</button
+            ><button class="filter" data-filter="slaid">Slaid</button
+            ><button class="filter" data-filter="audio">Audio</button
+            ><button class="filter" data-filter="video">Video</button
+            ><button class="filter" data-filter="mindmap">Peta Minda</button
+            ><button class="filter" data-filter="flashcard">Kad Imbas</button
+            ><button class="filter" data-filter="kuiz">Kuiz</button
+            ><button class="filter" data-filter="laporan">Laporan</button>
+          </div>
+          <p id="prompt-count" class="notice" role="status">
+            24 prompt tersedia
+          </p>
+          <div id="prompt-grid" class="grid two"></div>
+          <p id="prompt-empty" class="notice prompt-empty" hidden>
+            Tiada prompt sepadan.
+          </p>
+          <script id="prompt-data" type="application/json">
+            [
+              {
+                "c": "infografik",
+                "l": "Infografik",
+                "t": "Ringkasan prosedur",
+                "p": "Hasilkan infografik menegak tentang [prosedur] untuk [audiens]. Gunakan hanya sumber notebook. Susun tujuan, 5–7 langkah, amaran, dokumen diperlukan dan saluran bantuan. Gunakan bahasa ringkas dan hierarki visual jelas."
+              },
+              {
+                "c": "infografik",
+                "l": "Infografik",
+                "t": "Status projek",
+                "p": "Hasilkan infografik status [projek] untuk pihak pengurusan. Paparkan objektif, kemajuan, pencapaian, isu, risiko dan tiga tindakan seterusnya. Jangan cipta angka yang tiada dalam sumber."
+              },
+              {
+                "c": "infografik",
+                "l": "Infografik",
+                "t": "Kempen kesedaran",
+                "p": "Hasilkan infografik kesedaran tentang [topik tempat kerja]. Masukkan sebab penting, amalan betul, perkara perlu dielak dan tindakan segera. Semua dakwaan mesti berasaskan sumber notebook."
+              },
+              {
+                "c": "slaid",
+                "l": "Slide Deck",
+                "t": "Taklimat pengurusan",
+                "p": "Hasilkan slaid 8 halaman untuk taklimat [topik] kepada [audiens]. Struktur: konteks, isu, bukti, pilihan, risiko, cadangan, tindakan dan penutup. Sertakan nota pembentang dan rujukan sumber."
+              },
+              {
+                "c": "slaid",
+                "l": "Slide Deck",
+                "t": "Orientasi staf",
+                "p": "Hasilkan slaid orientasi staf baharu tentang [unit/proses]. Liputi peranan, aliran kerja, sistem, dokumen, standard, kontak dan kesilapan lazim. Gunakan sumber notebook sahaja."
+              },
+              {
+                "c": "slaid",
+                "l": "Slide Deck",
+                "t": "Laporan pascaprogram",
+                "p": "Hasilkan slaid laporan [program] yang memaparkan objektif, pelaksanaan, penyertaan, hasil, maklum balas, isu, perbelanjaan tersedia dan penambahbaikan."
+              },
+              {
+                "c": "audio",
+                "l": "Audio Overview",
+                "t": "Brief perjalanan kerja",
+                "p": "Hasilkan audio overview 6–8 minit tentang [projek/topik] untuk didengar sebelum mesyuarat. Fokus pada konteks, kemajuan, isu, keputusan diperlukan dan tindakan. Gunakan nada profesional."
+              },
+              {
+                "c": "audio",
+                "l": "Audio Overview",
+                "t": "Penerangan polisi",
+                "p": "Hasilkan audio overview tentang [polisi/prosedur] untuk staf. Terangkan tujuan, siapa terlibat, keperluan utama, contoh aplikasi dan perkara yang perlu dirujuk kepada pegawai."
+              },
+              {
+                "c": "audio",
+                "l": "Audio Overview",
+                "t": "Rumusan laporan",
+                "p": "Hasilkan audio overview 5 minit yang merumus [laporan]. Bezakan dapatan, tafsiran, risiko dan cadangan. Nyatakan batasan sumber dengan jelas."
+              },
+              {
+                "c": "video",
+                "l": "Video Overview",
+                "t": "Demonstrasi proses",
+                "p": "Hasilkan video overview tentang [proses kerja]. Gunakan struktur pembukaan, prasyarat, langkah, titik semakan, kesilapan lazim dan penutup. Cadangkan visual skrin bagi setiap bahagian."
+              },
+              {
+                "c": "video",
+                "l": "Video Overview",
+                "t": "Hebahan program",
+                "p": "Hasilkan video overview 60–90 saat untuk [program]. Paparkan tujuan, manfaat, tarikh, sasaran, cara menyertai dan tindakan. Jangan tambah maklumat promosi yang tidak disokong."
+              },
+              {
+                "c": "video",
+                "l": "Video Overview",
+                "t": "Perubahan prosedur",
+                "p": "Hasilkan video overview yang menerangkan perubahan daripada [prosedur lama] kepada [prosedur baharu]. Tekankan apa berubah, sebab, tarikh kuat kuasa dan tindakan staf."
+              },
+              {
+                "c": "mindmap",
+                "l": "Mind Map",
+                "t": "Peta proses kerja",
+                "p": "Hasilkan peta minda bagi [proses]. Pusatkan matlamat, kemudian cabangkan kepada input, peranan, langkah, keputusan, output, risiko dan dokumen berdasarkan sumber."
+              },
+              {
+                "c": "mindmap",
+                "l": "Mind Map",
+                "t": "Peta projek",
+                "p": "Hasilkan peta minda [projek] dengan cabang objektif, pihak berkepentingan, hasil, jadual, sumber, risiko, isu dan ukuran kejayaan."
+              },
+              {
+                "c": "mindmap",
+                "l": "Mind Map",
+                "t": "Peta pengetahuan unit",
+                "p": "Hasilkan peta minda pengetahuan untuk [unit]. Susun fungsi, perkhidmatan, sistem, dokumen, kontak, jadual rutin dan kebergantungan."
+              },
+              {
+                "c": "flashcard",
+                "l": "Flashcards",
+                "t": "Istilah dan singkatan",
+                "p": "Hasilkan 20 kad imbas istilah dan singkatan bagi [topik/unit]. Bahagian hadapan: istilah. Bahagian belakang: definisi konteks, contoh dan sumber."
+              },
+              {
+                "c": "flashcard",
+                "l": "Flashcards",
+                "t": "Langkah prosedur",
+                "p": "Hasilkan kad imbas untuk menguasai [prosedur]. Liputi urutan langkah, pemilik, dokumen, tempoh, semakan dan pengecualian. Jangan tambah syarat baharu."
+              },
+              {
+                "c": "flashcard",
+                "l": "Flashcards",
+                "t": "Persediaan khidmat pelanggan",
+                "p": "Hasilkan 15 kad imbas soalan-jawapan untuk staf yang mengendalikan pertanyaan tentang [perkhidmatan]. Gunakan jawapan daripada sumber dan tandakan kes yang perlu dirujuk."
+              },
+              {
+                "c": "kuiz",
+                "l": "Quiz",
+                "t": "Semakan kefahaman prosedur",
+                "p": "Hasilkan kuiz 12 soalan tentang [prosedur] untuk staf. Campurkan aneka pilihan dan senario ringkas. Berikan jawapan, penjelasan dan rujukan sumber selepas semua soalan."
+              },
+              {
+                "c": "kuiz",
+                "l": "Quiz",
+                "t": "Kesedaran keselamatan",
+                "p": "Hasilkan kuiz berasaskan senario tentang [keselamatan/privasi]. Uji pengenalpastian risiko, tindakan betul, pelaporan dan perkara dilarang berdasarkan sumber."
+              },
+              {
+                "c": "kuiz",
+                "l": "Quiz",
+                "t": "Orientasi unit",
+                "p": "Hasilkan kuiz orientasi [unit] merangkumi fungsi, peranan, sistem, proses, kontak dan peraturan kerja. Elakkan soalan trivia yang tidak membantu tugas."
+              },
+              {
+                "c": "laporan",
+                "l": "Report",
+                "t": "Laporan status mingguan",
+                "p": "Hasilkan laporan status mingguan [projek/unit]. Susun pencapaian, tugasan berjalan, isu, risiko, tindakan, pemilik dan fokus minggu hadapan berdasarkan sumber."
+              },
+              {
+                "c": "laporan",
+                "l": "Report",
+                "t": "Laporan analisis isu",
+                "p": "Hasilkan laporan analisis [isu] dengan struktur konteks, bukti, pola, kesan, punca yang disokong, pilihan tindakan, risiko dan maklumat tambahan diperlukan."
+              },
+              {
+                "c": "laporan",
+                "l": "Report",
+                "t": "Laporan serah tugas",
+                "p": "Hasilkan laporan serah tugas untuk [jawatan/projek]. Masukkan tanggungjawab, status, tarikh penting, fail, sistem, kontak, isu, risiko dan tindakan tertunggak."
+              }
+            ]
+          </script>
+        </div>
+      </section>
+    </main>
+    <div class="toast" role="status">Prompt telah disalin</div>
+    <footer>
+      <div
+        class="shell"
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          text-align: center;
+        "
+      >
+        <p>
+          © 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi
+          Malaysia.
+        </p>
+        <a
+          class="visitor-badge"
+          href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic"
+            alt="Bilangan pelawat laman"
+          />
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

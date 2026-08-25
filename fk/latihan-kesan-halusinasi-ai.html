@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ms">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cabaran Mengesan Halusinasi AI | Latihan Staf FC</title>
+    <meta
+      name="description"
+      content="Latihan menyemak dakwaan AI terhadap dokumen rasmi dan menentukan kesesuaian penggunaan."
+    />
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="css/hub-style.css" />
+    <link rel="stylesheet" href="css/nav-standard.css" />
+    <script src="js/hub.js" defer></script>
+    <script src="js/copy-prompt.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Langkau ke kandungan</a>
+    <header class="nav-wrap">
+      <nav class="nav shell">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">AI</span
+          ><span
+            ><b>Pemerkasaan Tugasan Harian Menggunakan AI</b
+            ><small>Fakulti Komputeran, UTM</small></span
+          ></a
+        ><button class="menu" aria-label="Buka menu" aria-expanded="false">
+          ☰
+        </button>
+        <div class="nav-links">
+          <a href="index.html">Utama</a
+          ><a href="tentatif-program.html">Tentatif Program</a
+          ><a href="bahan-sesi.html" aria-current="page">Bahan Pengajaran</a
+          ><a href="prompt-ai.html">Prompt AI</a
+          ><a href="ruang-kerja-ai.html">Ruang Kerja</a
+          ><a href="ai-tools.html">Alat AI</a><a href="sumber-ai.html">Sumber</a
+          ><a href="index.html#penceramah">Penceramah</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap programme-hero">
+          <div>
+            <p class="kicker">SESI 5 · ETIKA, PRIVASI &amp; KUALITI</p>
+            <h1>Cabaran Mengesan Halusinasi AI</h1>
+            <p>
+              Bandingkan jawapan AI dengan dokumen rasmi, kesan dakwaan tanpa
+              bukti dan tentukan sama ada output boleh digunakan, perlu dibaiki
+              atau mesti ditolak.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#langkah">Mulakan latihan</a
+              ><a class="button alt" href="latihan-praktikal-staf-fc.html"
+                >Semua latihan</a
+              >
+            </div>
+          </div>
+          <figure class="programme-poster">
+            <img
+              src="assets/images/latihan/latihan-kesan-halusinasi-ai.webp"
+              alt="Staf FC menyemak jawapan AI terhadap dokumen rasmi"
+            />
+            <figcaption>Hasil: matriks dakwaan, bukti dan keputusan</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section>
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">ARAHAN</p>
+            <h2>Enam langkah semakan berasaskan bukti</h2>
+          </header>
+          <div class="event-facts">
+            <article><b>Sumber</b><span>Dokumen rasmi lengkap</span></article>
+            <article><b>Semakan</b><span>Dakwaan kepada bukti</span></article>
+            <article>
+              <b>Keputusan</b><span>Guna, baiki, semak atau tolak</span>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="langkah" class="accent">
+        <div class="wrap">
+          <div class="programme-flow">
+            <span>1<small>Sumber</small></span
+            ><span>2<small>Dakwaan</small></span
+            ><span>3<small>Bukti</small></span
+            ><span>4<small>Risiko</small></span
+            ><span>5<small>Baiki</small></span
+            ><span>6<small>Putus</small></span>
+          </div>
+          <div class="prompt-stack">
+            <article class="card prompt-card">
+              <span class="prompt-step">01</span>
+              <h3>Inventori sumber rasmi</h3>
+              <pre id="kha-1" class="prompt-text">
+Bertindak sebagai penyemak fakta pentadbiran. Teliti dokumen rasmi yang dimuat naik. Jangan menjawab soalan substantif lagi.
+
+Senaraikan tajuk, penerbit, tarikh, versi, skop, seksyen, jadual/lampiran dan batasan. Nyatakan sama ada dokumen lengkap dan boleh dibaca. Jika tidak mencukupi, berhenti dan minta sumber tambahan.</pre>
+              <button class="button copy-prompt" data-target="kha-1">
+                Salin Prompt 1
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">02</span>
+              <h3>Pecahkan jawapan kepada dakwaan</h3>
+              <pre id="kha-2" class="prompt-text">
+Pecahkan jawapan AI kepada dakwaan atomik: satu fakta atau cadangan setiap baris. Berikan ID C01, C02 dan seterusnya.
+
+Kelaskan sebagai fakta, angka, tarikh, syarat, prosedur, tafsiran atau cadangan. Jangan menilai kebenaran lagi.</pre>
+              <button class="button copy-prompt" data-target="kha-2">
+                Salin Prompt 2
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">03</span>
+              <h3>Padankan dengan bukti</h3>
+              <pre id="kha-3" class="prompt-text">
+Bagi setiap dakwaan, cari bukti dalam dokumen. Hasilkan jadual: ID, dakwaan, status, seksyen/halaman/jadual, petikan pendek maksimum 20 patah perkataan dan penjelasan.
+
+Status: DISOKONG, SEPARA DISOKONG, TIDAK DISOKONG, BERCANGGAH atau TIDAK DAPAT DISAHKAN. Jangan cipta petikan atau halaman.</pre>
+              <button class="button copy-prompt" data-target="kha-3">
+                Salin Prompt 3
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">04</span>
+              <h3>Nilai tahap bahaya</h3>
+              <pre id="kha-4" class="prompt-text">
+Nilai dakwaan bermasalah sebagai KRITIKAL, MAJOR, SEDERHANA atau MINOR berdasarkan kemungkinan dan impak kepada staf, pelajar, operasi, kewangan, keselamatan atau reputasi.
+
+Kenal pasti fakta rekaan, angka salah, syarat ditambah, tafsiran melampau, sumber palsu atau kepastian berlebihan.</pre>
+              <button class="button copy-prompt" data-target="kha-4">
+                Salin Prompt 4
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">05</span>
+              <h3>Baiki jawapan</h3>
+              <pre id="kha-5" class="prompt-text">
+Tulis semula jawapan menggunakan hanya dakwaan DISOKONG. Kecilkan skop dakwaan SEPARA DISOKONG. Buang dakwaan TIDAK DISOKONG atau BERCANGGAH.
+
+Sertakan rujukan seksyen/halaman, labelkan tafsiran dan senaraikan soalan yang memerlukan pengesahan pegawai.</pre>
+              <button class="button copy-prompt" data-target="kha-5">
+                Salin Prompt 5
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">06</span>
+              <h3>Buat keputusan penggunaan</h3>
+              <pre id="kha-6" class="prompt-text">
+Bandingkan jawapan asal dan pembetulan. Berikan keputusan: BOLEH DIGUNAKAN, GUNA SELEPAS PEMBETULAN, PERLU SEMAKAN PAKAR atau TOLAK.
+
+Nilai ketepatan, kelengkapan, kebolehkesanan bukti, risiko, nada dan khalayak. Sediakan senarai semak pra-penerbitan serta pegawai penyemak dan pelulus.</pre>
+              <button class="button copy-prompt" data-target="kha-6">
+                Salin Prompt 6
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div
+        class="shell"
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          text-align: center;
+        "
+      >
+        <p>
+          © 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi
+          Malaysia.
+        </p>
+        <a
+          class="visitor-badge"
+          href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic"
+            alt="Bilangan pelawat laman"
+        /></a>
+      </div>
+    </footer>
+  </body>
+</html>

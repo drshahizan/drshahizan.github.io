@@ -172,6 +172,9 @@ textarea {
 .photo-media {
   --hero-image: url("../assets/images/hero-staf-sokongan-fc.webp");
 }
+.photo-ai-tools {
+  --hero-image: url("../assets/images/ai-tools-mesyuarat-objektif-v2.webp");
+}
 .photo-hr {
   --hero-image: url("../assets/images/hr-operasi-staf.webp");
 }
@@ -1907,5 +1910,54 @@ pre.prompt-text {
 @media (max-width: 620px) {
   .hub-purpose {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Keep the first content block close to the compact site header. */
+main > .page-hero,
+main > .prompt-centre-hero {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+main > .page-hero.has-photo .wrap {
+  min-height: 0;
+  justify-content: flex-start;
+}
+main > .prompt-centre-hero .prompt-centre-hero-grid {
+  align-items: start;
+}
+/* Direktori latihan praktikal */
+.exercise-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.exercise-directory-grid .card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.exercise-directory-grid .card img {
+  width: calc(100% + 48px);
+  max-width: none;
+  height: 240px;
+  margin: -24px -24px 22px;
+  object-fit: cover;
+}
+
+.exercise-directory-grid .card .button {
+  margin-top: auto;
+}
+
+@media (max-width: 760px) {
+  .exercise-directory-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .exercise-directory-grid .card img {
+    height: 210px;
   }
 }

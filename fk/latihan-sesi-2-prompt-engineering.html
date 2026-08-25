@@ -1,28 +1,221 @@
-<!doctype html><html lang="ms"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Latihan Sesi 2: Prompt Engineering | FC UTM</title><meta name="description" content="Latihan membina, menguji dan menambah baik prompt bagi staf sokongan HR dan pejabat akademik."><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="css/hub-style.css"><link rel="stylesheet" href="css/nav-standard.css"><script src="js/hub.js" defer></script><script src="js/copy-prompt.js" defer></script></head><body>
-<a class="skip" href="#main">Langkau ke kandungan</a><header class="nav-wrap"><nav class="nav shell"><a class="brand" href="index.html"><span class="brand-mark">UTM</span><span><b>Fakulti Komputeran</b><small>Universiti Teknologi Malaysia</small></span></a><button class="menu" aria-label="Buka menu" aria-expanded="false">☰</button><div class="nav-links"><a href="index.html">Utama</a><a href="bahan-sesi.html" aria-current="page">Bahan Pengajaran</a><a href="prompt-ai.html">Prompt AI</a><a href="ruang-kerja-ai.html">Ruang Kerja</a><a href="ai-tools.html">Alat AI</a><a href="sumber-ai.html">Sumber</a></div></nav></header>
-<main id="main"><section class="page-hero has-photo photo-operations"><div class="wrap"><p class="kicker">SESI 2 · LATIHAN AMALI</p><h1>Daripada arahan kabur kepada prompt boleh guna.</h1><p>Bina prompt menggunakan formula Peranan + Proses + Maklumat + Hasil + Kawalan, kemudian uji dan sahkan output.</p><div class="hero-actions"><a class="button" href="#mula">Mulakan latihan</a><a class="button alt" href="prompt-builder.html">Buka Prompt Builder</a></div></div></section>
-<section id="mula"><div class="wrap"><header class="section-title"><p class="kicker">PILIH SENARIO</p><h2>Satu tugasan, dua pusingan penambahbaikan</h2><p>Pilih urusan cuti/kehadiran, surat pelantikan, hebahan latihan, pendaftaran kursus, jadual kemudahan atau urusan peperiksaan. Gunakan maklumat rekaan.</p></header><div class="notebook-phases five"><div><b>1 · Tentukan</b><span>Tugasan dan audiens</span></div><div><b>2 · Bina</b><span>Lima komponen prompt</span></div><div><b>3 · Uji</b><span>Nilai output pertama</span></div><div><b>4 · Baiki</b><span>Tambah kawalan</span></div><div><b>5 · Simpan</b><span>Templat boleh guna semula</span></div></div></div></section>
-<section class="accent"><div class="wrap"><header class="section-title"><p class="kicker">PROMPT BERPERINGKAT</p><h2>Laksanakan sepuluh langkah</h2></header><div class="prompt-stack">
-<article class="card prompt-card"><span class="prompt-step">01</span><h3>Takrif tugasan</h3><pre id="s2-1" class="prompt-text">Bantu saya mentakrif tugasan [NYATAKAN TUGASAN] untuk staf sokongan [HR / pejabat akademik]. Tanya maksimum lima soalan penting tentang tujuan, audiens, input, tarikh akhir dan format output. Jangan minta data peribadi sebenar.</pre><button class="button copy-prompt" data-target="s2-1">Salin Prompt 1</button></article>
-<article class="card prompt-card"><span class="prompt-step">02</span><h3>Kenal pasti kriteria</h3><pre id="s2-2" class="prompt-text">Berdasarkan jawapan saya, bina spesifikasi output: tujuan, pembaca, isi wajib, nada, panjang, format, sumber rujukan, perkara dilarang dan kriteria kejayaan. Tandakan maklumat yang belum lengkap.</pre><button class="button copy-prompt" data-target="s2-2">Salin Prompt 2</button></article>
-<article class="card prompt-card"><span class="prompt-step">03</span><h3>Bina lima komponen</h3><pre id="s2-3" class="prompt-text">Tukarkan spesifikasi tadi kepada jadual lima komponen: Peranan, Proses, Maklumat, Hasil dan Kawalan. Pastikan arahan boleh dilaksanakan, tidak bercanggah dan tidak mengandungi data sensitif.</pre><button class="button copy-prompt" data-target="s2-3">Salin Prompt 3</button></article>
-<article class="card prompt-card master-prompt"><span class="prompt-step">04</span><h3>Prompt lengkap</h3><pre id="s2-4" class="prompt-text">PERANAN: Bertindak sebagai pembantu pentadbiran universiti yang teliti.
+<!doctype html>
+<html lang="ms">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Latihan Sesi 2: Prompt Engineering | FC UTM</title>
+    <meta
+      name="description"
+      content="Latihan membina, menguji dan menambah baik prompt bagi staf sokongan HR dan pejabat akademik."
+    />
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="css/hub-style.css" />
+    <link rel="stylesheet" href="css/nav-standard.css" />
+    <script src="js/hub.js" defer></script>
+    <script src="js/copy-prompt.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Langkau ke kandungan</a>
+    <header class="nav-wrap">
+      <nav class="nav shell">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">AI</span
+          ><span
+            ><b>Pemerkasaan Tugasan Harian Menggunakan AI</b
+            ><small>Fakulti Komputeran, UTM</small></span
+          ></a
+        ><button class="menu" aria-label="Buka menu" aria-expanded="false">
+          ☰
+        </button>
+        <div class="nav-links">
+          <a href="index.html">Utama</a
+          ><a href="tentatif-program.html">Tentatif Program</a
+          ><a href="bahan-sesi.html" aria-current="page">Bahan Pengajaran</a
+          ><a href="prompt-ai.html">Prompt AI</a
+          ><a href="ruang-kerja-ai.html">Ruang Kerja</a
+          ><a href="ai-tools.html">Alat AI</a
+          ><a href="sumber-ai.html">Sumber</a>
+          <a href="index.html#penceramah">Penceramah</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="page-hero has-photo photo-operations">
+        <div class="wrap">
+          <p class="kicker">SESI 2 · LATIHAN AMALI</p>
+          <h1>Daripada arahan kabur kepada prompt boleh guna.</h1>
+          <p>
+            Bina prompt menggunakan formula Peranan + Proses + Maklumat + Hasil
+            + Kawalan, kemudian uji dan sahkan output.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#mula">Mulakan latihan</a
+            ><a class="button alt" href="prompt-builder.html"
+              >Buka Prompt Builder</a
+            >
+          </div>
+        </div>
+      </section>
+      <section id="mula">
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">PILIH SENARIO</p>
+            <h2>Satu tugasan, dua pusingan penambahbaikan</h2>
+            <p>
+              Pilih urusan cuti/kehadiran, surat pelantikan, hebahan latihan,
+              pendaftaran kursus, jadual kemudahan atau urusan peperiksaan.
+              Gunakan maklumat rekaan.
+            </p>
+          </header>
+          <div class="notebook-phases five">
+            <div><b>1 · Tentukan</b><span>Tugasan dan audiens</span></div>
+            <div><b>2 · Bina</b><span>Lima komponen prompt</span></div>
+            <div><b>3 · Uji</b><span>Nilai output pertama</span></div>
+            <div><b>4 · Baiki</b><span>Tambah kawalan</span></div>
+            <div><b>5 · Simpan</b><span>Templat boleh guna semula</span></div>
+          </div>
+        </div>
+      </section>
+      <section class="accent">
+        <div class="wrap">
+          <header class="section-title">
+            <p class="kicker">PROMPT BERPERINGKAT</p>
+            <h2>Laksanakan sepuluh langkah</h2>
+          </header>
+          <div class="prompt-stack">
+            <article class="card prompt-card">
+              <span class="prompt-step">01</span>
+              <h3>Takrif tugasan</h3>
+              <pre id="s2-1" class="prompt-text">
+Bantu saya mentakrif tugasan [NYATAKAN TUGASAN] untuk staf sokongan [HR / pejabat akademik]. Tanya maksimum lima soalan penting tentang tujuan, audiens, input, tarikh akhir dan format output. Jangan minta data peribadi sebenar.</pre>
+              <button class="button copy-prompt" data-target="s2-1">
+                Salin Prompt 1
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">02</span>
+              <h3>Kenal pasti kriteria</h3>
+              <pre id="s2-2" class="prompt-text">
+Berdasarkan jawapan saya, bina spesifikasi output: tujuan, pembaca, isi wajib, nada, panjang, format, sumber rujukan, perkara dilarang dan kriteria kejayaan. Tandakan maklumat yang belum lengkap.</pre>
+              <button class="button copy-prompt" data-target="s2-2">
+                Salin Prompt 2
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">03</span>
+              <h3>Bina lima komponen</h3>
+              <pre id="s2-3" class="prompt-text">
+Tukarkan spesifikasi tadi kepada jadual lima komponen: Peranan, Proses, Maklumat, Hasil dan Kawalan. Pastikan arahan boleh dilaksanakan, tidak bercanggah dan tidak mengandungi data sensitif.</pre>
+              <button class="button copy-prompt" data-target="s2-3">
+                Salin Prompt 3
+              </button>
+            </article>
+            <article class="card prompt-card master-prompt">
+              <span class="prompt-step">04</span>
+              <h3>Prompt lengkap</h3>
+              <pre id="s2-4" class="prompt-text">
+PERANAN: Bertindak sebagai pembantu pentadbiran universiti yang teliti.
 PROSES: Analisis maklumat yang diberikan, kenal pasti jurang, sediakan draf dan semak semula sebelum menjawab.
 MAKLUMAT: Tugasan ialah [TUGASAN]. Audiens [AUDIENS]. Fakta yang dibenarkan: [FAKTA REKAAN / DINYAHPENGENAL].
 HASIL: Hasilkan [FORMAT] dalam Bahasa Melayu profesional, maksimum [PANJANG], dengan [STRUKTUR].
-KAWALAN: Jangan mereka nama, tarikh, dasar atau keputusan. Tandakan [PERLU SAHKAN] pada maklumat tidak lengkap. Jangan masukkan data peribadi. Akhiri dengan senarai semak fakta untuk pegawai.</pre><button class="button copy-prompt" data-target="s2-4">Salin Prompt 4</button></article>
-<article class="card prompt-card"><span class="prompt-step">05</span><h3>Uji prompt lemah</h3><pre id="s2-5" class="prompt-text">Tulis e-mel tentang program ini.</pre><button class="button copy-prompt" data-target="s2-5">Salin Prompt Lemah</button><p class="step-goal"><b>Bandingkan:</b> Catat apa yang AI terpaksa andaikan dan apa yang hilang.</p></article>
-<article class="card prompt-card"><span class="prompt-step">06</span><h3>Audit output</h3><pre id="s2-6" class="prompt-text">Nilai output tadi pada skala 1–5 bagi ketepatan, kelengkapan, kejelasan, nada, kebolehgunaan dan keselamatan data. Petik masalah secara ringkas, jelaskan puncanya dalam prompt dan cadangkan pembetulan.</pre><button class="button copy-prompt" data-target="s2-6">Salin Prompt 6</button></article>
-<article class="card prompt-card"><span class="prompt-step">07</span><h3>Tambah contoh format</h3><pre id="s2-7" class="prompt-text">Baiki prompt lengkap tadi dengan menambah templat output yang mempunyai tajuk, tujuan, butiran utama, tindakan penerima, tarikh akhir dan pegawai untuk dihubungi. Gunakan placeholder jika fakta belum disahkan.</pre><button class="button copy-prompt" data-target="s2-7">Salin Prompt 7</button></article>
-<article class="card prompt-card"><span class="prompt-step">08</span><h3>Semakan fakta</h3><pre id="s2-8" class="prompt-text">Asingkan setiap dakwaan dalam output kepada tiga kategori: disokong input, inferens munasabah, atau tidak disokong. Jangan mencari alasan untuk mengekalkan dakwaan tidak disokong. Cadangkan sumber dalaman yang patut disemak oleh pegawai.</pre><button class="button copy-prompt" data-target="s2-8">Salin Prompt 8</button></article>
-<article class="card prompt-card"><span class="prompt-step">09</span><h3>Jadikan templat</h3><pre id="s2-9" class="prompt-text">Tukarkan prompt terbaik kepada templat boleh guna semula. Gantikan butiran berubah dengan placeholder berhuruf besar dalam kurungan siku. Tambah arahan penggunaan, input minimum dan senarai semak sebelum dihantar kepada AI.</pre><button class="button copy-prompt" data-target="s2-9">Salin Prompt 9</button></article>
-<article class="card prompt-card"><span class="prompt-step">10</span><h3>Semakan rakan</h3><pre id="s2-10" class="prompt-text">Sediakan borang semakan rakan satu halaman untuk prompt ini: kejelasan tujuan, konteks mencukupi, format khusus, kawalan fakta, privasi, nada dan tindakan manusia. Gunakan pilihan Ya / Perlu Baiki serta ruang komen.</pre><button class="button copy-prompt" data-target="s2-10">Salin Prompt 10</button></article>
-</div><div class="notice"><strong>Serahan:</strong> Prompt lemah, prompt versi akhir, perbandingan output, skor audit dan satu templat boleh guna semula.</div></div></section></main>
-<footer>
-  <div class="shell" style="display:flex; flex-direction:column; align-items:center; gap:15px; text-align:center;">
-    <p>© 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi Malaysia.</p>
-    <a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer">
-      <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman">
-    </a>
-  </div>
-</footer></body></html>
+KAWALAN: Jangan mereka nama, tarikh, dasar atau keputusan. Tandakan [PERLU SAHKAN] pada maklumat tidak lengkap. Jangan masukkan data peribadi. Akhiri dengan senarai semak fakta untuk pegawai.</pre>
+              <button class="button copy-prompt" data-target="s2-4">
+                Salin Prompt 4
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">05</span>
+              <h3>Uji prompt lemah</h3>
+              <pre id="s2-5" class="prompt-text">
+Tulis e-mel tentang program ini.</pre>
+              <button class="button copy-prompt" data-target="s2-5">
+                Salin Prompt Lemah
+              </button>
+              <p class="step-goal">
+                <b>Bandingkan:</b> Catat apa yang AI terpaksa andaikan dan apa
+                yang hilang.
+              </p>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">06</span>
+              <h3>Audit output</h3>
+              <pre id="s2-6" class="prompt-text">
+Nilai output tadi pada skala 1–5 bagi ketepatan, kelengkapan, kejelasan, nada, kebolehgunaan dan keselamatan data. Petik masalah secara ringkas, jelaskan puncanya dalam prompt dan cadangkan pembetulan.</pre>
+              <button class="button copy-prompt" data-target="s2-6">
+                Salin Prompt 6
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">07</span>
+              <h3>Tambah contoh format</h3>
+              <pre id="s2-7" class="prompt-text">
+Baiki prompt lengkap tadi dengan menambah templat output yang mempunyai tajuk, tujuan, butiran utama, tindakan penerima, tarikh akhir dan pegawai untuk dihubungi. Gunakan placeholder jika fakta belum disahkan.</pre>
+              <button class="button copy-prompt" data-target="s2-7">
+                Salin Prompt 7
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">08</span>
+              <h3>Semakan fakta</h3>
+              <pre id="s2-8" class="prompt-text">
+Asingkan setiap dakwaan dalam output kepada tiga kategori: disokong input, inferens munasabah, atau tidak disokong. Jangan mencari alasan untuk mengekalkan dakwaan tidak disokong. Cadangkan sumber dalaman yang patut disemak oleh pegawai.</pre>
+              <button class="button copy-prompt" data-target="s2-8">
+                Salin Prompt 8
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">09</span>
+              <h3>Jadikan templat</h3>
+              <pre id="s2-9" class="prompt-text">
+Tukarkan prompt terbaik kepada templat boleh guna semula. Gantikan butiran berubah dengan placeholder berhuruf besar dalam kurungan siku. Tambah arahan penggunaan, input minimum dan senarai semak sebelum dihantar kepada AI.</pre>
+              <button class="button copy-prompt" data-target="s2-9">
+                Salin Prompt 9
+              </button>
+            </article>
+            <article class="card prompt-card">
+              <span class="prompt-step">10</span>
+              <h3>Semakan rakan</h3>
+              <pre id="s2-10" class="prompt-text">
+Sediakan borang semakan rakan satu halaman untuk prompt ini: kejelasan tujuan, konteks mencukupi, format khusus, kawalan fakta, privasi, nada dan tindakan manusia. Gunakan pilihan Ya / Perlu Baiki serta ruang komen.</pre>
+              <button class="button copy-prompt" data-target="s2-10">
+                Salin Prompt 10
+              </button>
+            </article>
+          </div>
+          <div class="notice">
+            <strong>Serahan:</strong> Prompt lemah, prompt versi akhir,
+            perbandingan output, skor audit dan satu templat boleh guna semula.
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div
+        class="shell"
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          text-align: center;
+        "
+      >
+        <p>
+          © 2026 Assoc. Prof. Dr Mohd Shahizan Othman · Universiti Teknologi
+          Malaysia.
+        </p>
+        <a
+          class="visitor-badge"
+          href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic"
+            alt="Bilangan pelawat laman"
+          />
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>
