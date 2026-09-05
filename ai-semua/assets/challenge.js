@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('[data-day]').forEach(box=>{const key='ai-cabaran-hari-'+box.dataset.day;box.checked=localStorage.getItem(key)==='selesai';box.addEventListener('change',()=>localStorage.setItem(key,box.checked?'selesai':''));});});

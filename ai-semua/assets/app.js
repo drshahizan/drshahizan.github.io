@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('footer').forEach(footer=>{
     const shell=footer.querySelector('.shell'),badge=footer.querySelector('.visitor-badge');if(!shell||!badge)return;badge.remove();
     const info=document.createElement('div');info.className='footer-brand';info.innerHTML='<span class="footer-mark">AI</span><div><strong>AI untuk Semua</strong><small>Mudah, Praktikal &amp; Berguna</small></div>';
-    const links=document.createElement('nav');links.className='footer-links';links.innerHTML='<a href="index.html">Utama</a><a href="modul.html">Modul</a><a href="latihan.html">Latihan</a><a href="prompt-library.html">Prompt</a><a href="ai-tools.html">AI Tools</a>';
+    const links=document.createElement('nav');links.className='footer-links';links.innerHTML='<a href="index.html">Utama</a><a href="tentatif.html">Tentatif</a><a href="panduan.html">Panduan</a><a href="modul.html">Modul</a><a href="latihan.html">Latihan</a><a href="latihan-lanjutan.html">Latihan Lanjutan</a><a href="cabaran-7-hari.html">Cabaran 7 Hari</a><a href="prompt-library.html">Prompt</a><a href="bantuan.html">Bantuan</a><a href="ai-tools.html">AI Tools</a>';
     shell.innerHTML='';shell.append(info,links,badge);const bottom=document.createElement('div');bottom.className='footer-bottom shell';bottom.innerHTML='<span>Fakulti Komputeran, Universiti Teknologi Malaysia</span><span>Belajar AI dengan mudah, selamat dan bermanfaat.</span>';footer.appendChild(bottom);
   });
 });
