@@ -1,6 +1,6 @@
 # 🅱️ SEKSYEN B: POSTER & BANNER SEKOLAH
 
-## B1️⃣ Template Prompt — Poster / Banner Mesyuarat & Taklimat
+## B1. Template Prompt — Poster / Banner Mesyuarat & Taklimat
 
 ```
 Anda ialah pegawai pentadbiran sekolah di Malaysia.
@@ -28,7 +28,7 @@ Reka bentuk:
 
 
 
-## B2️⃣ Template Prompt — Poster / Banner Makluman Peperiksaan
+## B2. Template Prompt — Poster / Banner Makluman Peperiksaan
 
 ```
 Anda ialah pentadbir sekolah.
@@ -54,7 +54,7 @@ Reka bentuk:
 
 
 
-## B3️⃣ Template Prompt — Poster / Banner Makluman Ibu Bapa
+## B3. Template Prompt — Poster / Banner Makluman Ibu Bapa
 
 ```
 Anda ialah penyelaras komunikasi sekolah.
@@ -80,7 +80,7 @@ Reka bentuk:
 
 
 
-## B4️⃣ Template Prompt — Poster / Banner Pengumuman Dalaman Staf
+## B4. Template Prompt — Poster / Banner Pengumuman Dalaman Staf
 
 ```
 Anda ialah pentadbir sekolah.
@@ -104,7 +104,7 @@ Reka bentuk:
 
 
 
-## B5️⃣ Template Prompt — Poster / Banner Peringatan & Notis Penting
+## B5. Template Prompt — Poster / Banner Peringatan & Notis Penting
 
 ```
 Anda ialah pentadbir sekolah.

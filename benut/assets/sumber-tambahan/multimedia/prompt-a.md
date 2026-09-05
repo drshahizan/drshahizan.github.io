@@ -1,6 +1,6 @@
 # 🅰️ SEKSYEN A — INFOGRAFIK PENTADBIRAN SEKOLAH
 
-## A1️⃣ Template Prompt — Infografik SOP & Prosedur Pentadbiran
+## A1. Template Prompt — Infografik SOP & Prosedur Pentadbiran
 
 ```
 Anda ialah pegawai pentadbiran sekolah di Malaysia.
@@ -31,7 +31,7 @@ Reka bentuk:
 - Format infografik 1 halaman (A4)
 ```
 
-## A2️⃣ Template Prompt — Infografik Aliran Proses & Tatacara Sekolah
+## A2. Template Prompt — Infografik Aliran Proses & Tatacara Sekolah
 
 ```
 Anda ialah pentadbir sekolah.
@@ -55,7 +55,7 @@ Reka bentuk:
 - Sesuai dipamerkan di bilik guru
 ```
 
-## A3️⃣ Template Prompt — Infografik Data & Statistik Ringkas Sekolah
+## A3. Template Prompt — Infografik Data & Statistik Ringkas Sekolah
 
 ```
 Anda ialah penyelaras pentadbiran sekolah.
@@ -79,7 +79,7 @@ Reka bentuk:
 - Ikut Standard Grafik Sekolah Malaysia
 ```
 
-## A4️⃣ Template Prompt — Infografik Peranan & Jawatankuasa Sekolah
+## A4. Template Prompt — Infografik Peranan & Jawatankuasa Sekolah
 
 ```
 Anda ialah setiausaha jawatankuasa sekolah.
@@ -101,7 +101,7 @@ Reka bentuk:
 - Mudah difahami sepintas lalu
 ```
 
-## A5️⃣ Template Prompt — Infografik Takwim & Garis Masa Sekolah
+## A5. Template Prompt — Infografik Takwim & Garis Masa Sekolah
 
 ```
 Anda ialah pentadbir sekolah.

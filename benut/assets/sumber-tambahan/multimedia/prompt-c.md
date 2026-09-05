@@ -1,6 +1,6 @@
 # 🅲 SEKSYEN C — POSTER & BANNER PROGRAM SEKOLAH
 
-## C1️⃣ Template Prompt — Poster / Banner Program Akademik & PdP
+## C1. Template Prompt — Poster / Banner Program Akademik & PdP
 
 ```
 Anda ialah pentadbir sekolah di Malaysia.
@@ -28,7 +28,7 @@ Reka bentuk:
 - Sesuai untuk poster A4 dan banner digital
 ```
 
-## C2️⃣ Template Prompt — Poster / Banner Kursus & Latihan Guru
+## C2. Template Prompt — Poster / Banner Kursus & Latihan Guru
 
 ```
 Anda ialah penyelaras latihan sekolah.
@@ -54,7 +54,7 @@ Reka bentuk:
 - Sesuai untuk edaran WhatsApp dan cetakan
 ```
 
-## C3️⃣ Template Prompt — Poster / Banner Hari Anugerah & Pengiktirafan
+## C3. Template Prompt — Poster / Banner Hari Anugerah & Pengiktirafan
 
 ```
 Anda ialah pentadbir sekolah.
@@ -81,7 +81,7 @@ Reka bentuk:
 - Ikut Standard Grafik Sekolah Malaysia
 ```
 
-## C4️⃣ Template Prompt — Poster / Banner Program Kokurikulum & Sahsiah
+## C4. Template Prompt — Poster / Banner Program Kokurikulum & Sahsiah
 
 ```
 Anda ialah pentadbir sekolah.
@@ -106,7 +106,7 @@ Reka bentuk:
 - Sesuai untuk paparan awam sekolah
 ```
 
-## C5️⃣ Template Prompt — Poster / Banner Program Libat Urus Ibu Bapa
+## C5. Template Prompt — Poster / Banner Program Libat Urus Ibu Bapa
 
 ```
 Anda ialah penyelaras komunikasi sekolah.

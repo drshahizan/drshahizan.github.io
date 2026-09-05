@@ -1,7 +1,7 @@
 # 🅶 SEKSYEN G — VISUAL MURID & KOMUNITI SEKOLAH
 
 
-## G1️⃣ Template Prompt — Poster Motivasi Murid
+## G1. Template Prompt — Poster Motivasi Murid
 
 
 ```
@@ -31,7 +31,7 @@ Reka bentuk:
 - Sesuai ditampal di kelas dan koridor
 ```
 
-## G2️⃣ Template Prompt — Visual Nilai Murni & Adab di Sekolah
+## G2. Template Prompt — Visual Nilai Murni & Adab di Sekolah
 
 ```
 Anda ialah pentadbir sekolah.
@@ -58,7 +58,7 @@ Reka bentuk:
 - Sesuai untuk paparan awam sekolah
 ```
 
-## G3️⃣ Template Prompt — Poster Kesedaran
+## G3. Template Prompt — Poster Kesedaran
 
 *(Anti-Buli, Disiplin, Keselamatan)*
 
@@ -87,7 +87,7 @@ Reka bentuk:
 - Ikut Standard Grafik Sekolah Malaysia
 ```
 
-## G4️⃣ Template Prompt — Bahan Visual Sambutan Hari Kebesaran & Perayaan
+## G4. Template Prompt — Bahan Visual Sambutan Hari Kebesaran & Perayaan
 
 ```
 Anda ialah pentadbir sekolah.
@@ -115,7 +115,7 @@ Reka bentuk:
 - Sesuai untuk paparan awam dan digital
 ```
 
-## G5️⃣ Template Prompt — Poster Jati Diri Sekolah & Aspirasi Murid
+## G5. Template Prompt — Poster Jati Diri Sekolah & Aspirasi Murid
 
 ```
 Anda ialah pentadbir sekolah.

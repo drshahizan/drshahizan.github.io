@@ -1,7 +1,7 @@
 # 🅵 SEKSYEN F — MENCANTIKKAN KELAS & PERSEKITARAN SEKOLAH
 
 
-## F1️⃣ Template Prompt — Visual Hiasan Kelas
+## F1. Template Prompt — Visual Hiasan Kelas
 
 *(Motivasi, Nilai Murni & Sahsiah)*
 
@@ -30,7 +30,7 @@ Reka bentuk:
 - Sesuai dicetak dan dilekatkan di dinding kelas
 ```
 
-## F2️⃣ Template Prompt — Poster Peraturan Kelas & Budaya Positif
+## F2. Template Prompt — Poster Peraturan Kelas & Budaya Positif
 
 ```
 Anda ialah guru kelas / pentadbir sekolah.
@@ -57,7 +57,7 @@ Reka bentuk:
 - Sesuai untuk murid rendah & menengah
 ```
 
-## F3️⃣ Template Prompt — Infografik Sudut Ilmu / Sudut Bacaan
+## F3. Template Prompt — Infografik Sudut Ilmu / Sudut Bacaan
 
 ```
 Anda ialah guru sekolah.
@@ -83,7 +83,7 @@ Reka bentuk:
 - Sesuai untuk sudut bacaan fizikal
 ```
 
-## F4️⃣ Template Prompt — Rekaan Visual Papan Kenyataan Kelas & Koridor
+## F4. Template Prompt — Rekaan Visual Papan Kenyataan Kelas & Koridor
 
 ```
 Anda ialah guru/pentadbir sekolah.
@@ -109,7 +109,7 @@ Reka bentuk:
 - Ikut Standard Grafik Sekolah Malaysia
 ```
 
-## F5️⃣ Template Prompt — Tema Visual Kelas
+## F5. Template Prompt — Tema Visual Kelas
 
 *(STEM, Literasi, Sahsiah dan lain-lain)*
 

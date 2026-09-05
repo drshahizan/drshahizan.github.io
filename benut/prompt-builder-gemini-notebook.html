@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Bina arahan berasaskan sumber untuk digunakan dalam Gemini Notebook.">
+<title>Prompt Builder Gemini Notebook | Kursus AI</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/builder.css">
+</head>
+<body data-active="prompt" style="--page-accent:#14833b">
+<div id="site-header"></div>
+<main id="kandungan">
+<section class="page-hero"><div class="container"><div class="breadcrumb"><a href="index.html">Utama</a> / Prompt AI / Gemini Notebook</div><h1>Prompt Builder untuk Gemini Notebook</h1><p>Bina arahan yang memastikan analisis, ringkasan dan cadangan berpandukan dokumen sumber yang dimuat naik.</p><div class="actions"><a class="btn btn-gold" href="#builder">Bina prompt ↓</a><a class="btn btn-outline" href="prompt-builder-studio-gemini-notebook.html">Prompt Builder Studio</a></div></div></section>
+<section class="section"><div class="container builder-grid">
+<form id="builder" class="builder-form">
+<label for="role">Peranan Gemini Notebook *</label><input id="role" required placeholder="Contoh: pembantu pentadbir sekolah yang teliti">
+<label for="task">Tugasan utama *</label><input id="task" required placeholder="Contoh: analisis pekeliling dan kenal pasti tindakan sekolah">
+<label for="sources">Sumber yang akan dimuat naik *</label><textarea id="sources" required placeholder="Contoh: pekeliling rasmi, garis panduan KPM dan minit mesyuarat"></textarea>
+<label for="audience">Pengguna hasil</label><input id="audience" placeholder="Contoh: Guru Besar dan Penolong Kanan">
+<label for="focus">Fokus analisis</label><textarea id="focus" placeholder="Contoh: tujuan, tarikh penting, tanggungjawab, dokumen sokongan dan risiko"></textarea>
+<label for="format">Format jawapan *</label><select id="format" required><option>Jadual berstruktur</option><option>Ringkasan eksekutif</option><option>Senarai semak tindakan</option><option>Perbandingan dokumen</option><option>Soalan lazim dan jawapan</option><option>Garis masa pelaksanaan</option><option>Laporan analisis</option></select>
+<label for="evidence">Tahap bukti *</label><select id="evidence" required><option>Rujukan sumber bagi setiap fakta penting</option><option>Rujukan sumber bagi setiap bahagian</option><option>Petikan sokongan bagi setiap dapatan</option></select>
+<label for="language">Bahasa</label><select id="language"><option>Bahasa Melayu baku</option><option>English</option><option>Dwibahasa Melayu–English</option></select>
+<label for="constraints">Keperluan tambahan</label><textarea id="constraints" placeholder="Contoh: jangan gunakan pengetahuan di luar sumber; tandakan maklumat yang tidak dinyatakan"></textarea>
+<button class="btn btn-primary" type="submit">Jana Prompt Gemini Notebook</button>
+</form>
+<article class="builder-output"><span class="kicker">Prompt anda</span><h2>Pratonton prompt</h2><div id="builder-output" class="output-box" aria-live="polite">Lengkapkan medan bertanda * dan tekan “Jana Prompt Gemini Notebook”.</div><div class="form-actions"><button id="copy-builder" class="btn btn-primary" type="button">Salin Prompt</button><button id="reset-builder" class="btn btn-secondary" type="button">Kosongkan</button></div><p class="notice"><strong>Penting:</strong> Semak bahawa semua sumber telah dimuat naik dan boleh dibaca. Gemini Notebook perlu menyatakan dengan jelas apabila maklumat tidak terdapat dalam sumber.</p></article>
+</div></section>
+</main>
+<div id="site-footer"></div>
+<script src="js/components.js"></script><script src="js/main.js"></script><script src="js/prompt-builder-gemini-notebook.js"></script>
+</body>
+</html>

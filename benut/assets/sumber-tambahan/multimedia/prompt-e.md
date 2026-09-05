@@ -1,6 +1,6 @@
 # 🅴 SEKSYEN E — COVER BUKU, LAPORAN & DOKUMEN RASMI
 
-## E1️⃣ Template Prompt — Cover Buku Program / Modul Sekolah
+## E1. Template Prompt — Cover Buku Program / Modul Sekolah
 
 ```
 Anda ialah pentadbir sekolah di Malaysia.
@@ -26,7 +26,7 @@ Reka bentuk:
 - Sesuai untuk cetakan dan PDF
 ```
 
-## E2️⃣ Template Prompt — Cover Laporan Tahunan / Laporan Program
+## E2. Template Prompt — Cover Laporan Tahunan / Laporan Program
 
 ```
 Anda ialah pegawai pentadbiran sekolah.
@@ -50,7 +50,7 @@ Reka bentuk:
 - Sesuai untuk kegunaan rasmi PPD/JPN
 ```
 
-## E3️⃣ Template Prompt — Cover Kertas Kerja & Fail Pentadbiran
+## E3. Template Prompt — Cover Kertas Kerja & Fail Pentadbiran
 
 ```
 Anda ialah pentadbir sekolah.
@@ -74,7 +74,7 @@ Reka bentuk:
 - Mudah dicetak dan difailkan
 ```
 
-## E4️⃣ Template Prompt — Rekaan Muka Hadapan Buku Teks Tambahan / Modul PdP
+## E4. Template Prompt — Rekaan Muka Hadapan Buku Teks Tambahan / Modul PdP
 
 ```
 Anda ialah guru/pentadbir sekolah.
@@ -101,7 +101,7 @@ Reka bentuk:
 
 
 
-## E5️⃣ Template Prompt — Penyeragaman Identiti Visual Dokumen Rasmi Sekolah
+## E5. Template Prompt — Penyeragaman Identiti Visual Dokumen Rasmi Sekolah
 
 ```
 Anda ialah pentadbir sekolah.

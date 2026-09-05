@@ -1,6 +1,6 @@
 # 🅳 SEKSYEN D — BAHAN VISUAL PANDUAN & MAKLUMAN
 
-## D1️⃣ Template Prompt — Infografik Panduan Ibu Bapa & Murid
+## D1. Template Prompt — Infografik Panduan Ibu Bapa & Murid
 
 ```
 Anda ialah pentadbir sekolah di Malaysia.
@@ -29,7 +29,7 @@ Reka bentuk:
 - Sesuai untuk infografik 1 halaman (A4)
 ```
 
-## D2️⃣ Template Prompt — Infografik Tatacara Kehadiran & Disiplin
+## D2. Template Prompt — Infografik Tatacara Kehadiran & Disiplin
 
 ```
 Anda ialah pentadbir sekolah.
@@ -59,7 +59,7 @@ Reka bentuk:
 
 
 
-## D3️⃣ Template Prompt — Infografik Keselamatan, Kebajikan & Kecemasan
+## D3. Template Prompt — Infografik Keselamatan, Kebajikan & Kecemasan
 
 ```
 Anda ialah pentadbir sekolah.
@@ -87,7 +87,7 @@ Reka bentuk:
 - Ikut Standard Grafik Sekolah Malaysia
 ```
 
-## D4️⃣ Template Prompt — Poster / Banner Panduan Penggunaan Sistem Sekolah
+## D4. Template Prompt — Poster / Banner Panduan Penggunaan Sistem Sekolah
 
 ```
 Anda ialah pentadbir sekolah.
@@ -115,7 +115,7 @@ Reka bentuk:
 - Sesuai untuk cetakan dan edaran digital
 ```
 
-## D5️⃣ Template Prompt — Infografik Soalan Lazim (FAQ) Sekolah
+## D5. Template Prompt — Infografik Soalan Lazim (FAQ) Sekolah
 
 ```
 Anda ialah pentadbir sekolah.

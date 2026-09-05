@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Bina arahan untuk menghasilkan bahan melalui Studio dalam Gemini Notebook.">
+<title>Prompt Builder Studio Gemini Notebook | Kursus AI</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/builder.css">
+</head>
+<body data-active="prompt" style="--page-accent:#60358e">
+<div id="site-header"></div>
+<main id="kandungan">
+<section class="page-hero"><div class="container"><div class="breadcrumb"><a href="index.html">Utama</a> / Prompt AI / Studio Gemini Notebook</div><h1>Prompt Builder untuk Studio Gemini Notebook</h1><p>Bina arahan khusus untuk menghasilkan audio, video, slaid, peta minda, infografik, kuiz atau kad imbas daripada sumber notebook.</p><div class="actions"><a class="btn btn-gold" href="#builder">Bina arahan Studio ↓</a><a class="btn btn-outline" href="prompt-builder-gemini-notebook.html">Prompt Builder Gemini Notebook</a></div></div></section>
+<section class="section"><div class="container builder-grid">
+<form id="builder" class="builder-form">
+<label for="outputType">Hasil Studio *</label><select id="outputType" required><option>Slide Deck</option><option>Audio Overview</option><option>Video Overview</option><option>Mind Map</option><option>Infographic</option><option>Quiz</option><option>Flashcards</option><option>Study Guide</option></select>
+<label for="topic">Topik atau tajuk *</label><input id="topic" required placeholder="Contoh: Panduan pengurusan kehadiran murid">
+<label for="purpose">Tujuan bahan *</label><input id="purpose" required placeholder="Contoh: membantu guru memahami prosedur dan tindakan susulan">
+<label for="audience">Sasaran pengguna *</label><input id="audience" required placeholder="Contoh: guru kelas sekolah rendah">
+<label for="focus">Isi yang perlu diberikan tumpuan</label><textarea id="focus" placeholder="Contoh: peranan, urutan tindakan, tarikh penting, bukti dan kesilapan lazim"></textarea>
+<label for="structure">Struktur hasil</label><textarea id="structure" placeholder="Contoh: pengenalan ringkas, lima bahagian utama, rumusan dan soalan refleksi"></textarea>
+<label for="length">Panjang atau tempoh</label><input id="length" placeholder="Contoh: 8 slaid atau audio selama 5 minit">
+<label for="style">Gaya persembahan</label><select id="style"><option>Profesional, jelas dan mudah difahami</option><option>Mesra pembelajaran dan menarik</option><option>Ringkas dan berorientasikan tindakan</option><option>Formal dan sesuai untuk taklimat rasmi</option></select>
+<label for="evidence">Penggunaan sumber</label><select id="evidence"><option>Gunakan sumber notebook sahaja</option><option>Sertakan rujukan bagi fakta penting</option><option>Sertakan rujukan pada setiap bahagian</option></select>
+<label for="constraints">Keperluan tambahan</label><textarea id="constraints" placeholder="Contoh: gunakan Bahasa Melayu baku; elakkan istilah teknikal tanpa penerangan"></textarea>
+<button class="btn btn-primary" type="submit">Jana Arahan Studio</button>
+</form>
+<article class="builder-output"><span class="kicker">Arahan Studio anda</span><h2>Pratonton arahan</h2><div id="builder-output" class="output-box" aria-live="polite">Lengkapkan medan bertanda * dan tekan “Jana Arahan Studio”.</div><div class="form-actions"><button id="copy-builder" class="btn btn-primary" type="button">Salin Arahan</button><button id="reset-builder" class="btn btn-secondary" type="button">Kosongkan</button></div><p class="notice"><strong>Petua:</strong> Hasil Studio lebih tepat apabila sumber notebook tersusun, fokus dinyatakan dengan jelas dan sasaran pengguna ditentukan.</p></article>
+</div></section>
+</main>
+<div id="site-footer"></div>
+<script src="js/components.js"></script><script src="js/main.js"></script><script src="js/prompt-builder-studio-gemini-notebook.js"></script>
+</body>
+</html>
