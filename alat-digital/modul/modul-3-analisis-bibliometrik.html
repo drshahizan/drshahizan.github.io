@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<base href="../">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Modul 3 · Analisis Bibliometrik</title>
+<link rel="icon" href="assets/icons/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-module="3">
+<div class="topline">
+</div>
+<header class="site-header">
+<nav class="nav container">
+<a class="brand" href="index.html">
+<span class="brand-mark">AD</span>
+<span>Alat Digital<small>Analisis Penyelidikan</small>
+</span>
+</a>
+<button class="menu-btn" aria-expanded="false">☰ Menu</button>
+<div class="nav-links">
+</div>
+</nav>
+</header>
+<main>
+<div class="page-hero module-page-hero">
+<div class="container module-page-hero-grid">
+<div class="module-page-hero-copy">
+<span class="kicker">Modul 3 · Pertengahan · 105 minit</span>
+<h1>Analisis Bibliometrik</h1>
+<p>Daripada dataset Scopus dan Web of Science yang disediakan kepada peta bibliometrik yang boleh diteroka dalam VOSviewer Online.</p>
+<div class="tags">
+<span class="tag">Scopus</span>
+<span class="tag">Web of Science</span>
+<span class="tag">RIS</span>
+<span class="tag">JSON</span>
+<span class="tag">Thesaurus</span>
+<span class="tag">VOSviewer Online</span>
+</div>
+<figure class="module-page-hero-visual"><img src="assets/images/generated/modul-3.webp" alt="Penyelidik meneliti peta jaringan bibliometrik" width="720" height="405"></figure>
+</div>
+</div>
+</div>
+<section>
+<div class="container">
+<div class="section-head">
+<span class="kicker">Aliran kerja hands-on</span>
+<h2>Dataset → Audit → Pembersihan → Visualisasi → Interpretasi</h2>
+<p>Semua latihan menggunakan fail yang disediakan supaya peserta boleh memberi tumpuan kepada pemeriksaan metadata, pembinaan peta dan interpretasi.</p>
+</div>
+<div class="learning-sequence">
+<span>Kenali fail</span>
+<b>→</b>
+<span>Audit metadata</span>
+<b>→</b>
+<span>Bersihkan istilah</span>
+<b>→</b>
+<span>Buka peta</span>
+<b>→</b>
+<span>Banding</span>
+<b>→</b>
+<span>Tafsir &amp; lapor</span>
+</div>
+<div class="grid grid-3">
+<article class="card">
+<h3>Dataset Scopus</h3>
+<p>
+<code>scopus1.json</code> menyediakan rangkaian 50 istilah tajuk daripada 200 rekod.</p>
+</article>
+<article class="card">
+<h3>Dataset WoS</h3>
+<p>
+<code>wos2324.ris</code> mengandungi 288 rekod Web of Science tahun 2023–2024.</p>
+</article>
+<article class="card">
+<h3>Output</h3>
+<p>Peta rangkaian, overlay, density, audit metadata, thesaurus dan laporan mini bibliometrik.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="soft">
+<div class="container">
+<div class="section-head">
+<span class="kicker">Pilih analisis yang betul</span>
+<h2>Peta mesti menjawab soalan</h2>
+</div>
+<div class="responsive-table">
+<table class="status-table">
+<thead>
+<tr>
+<th>Soalan</th>
+<th>Jenis analisis</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Siapakah yang bekerjasama?</td>
+<td>Co-authorship</td>
+<td>Authors, organizations atau countries</td>
+</tr>
+<tr>
+<td>Apakah tema bidang?</td>
+<td>Co-occurrence</td>
+<td>Author keywords</td>
+</tr>
+<tr>
+<td>Sumber manakah disitasi bersama?</td>
+<td>Co-citation</td>
+<td>Cited references atau sources</td>
+</tr>
+<tr>
+<td>Dokumen manakah berkongsi rujukan?</td>
+<td>Bibliographic coupling</td>
+<td>Documents, sources atau authors</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="notice" style="margin-top:18px">
+<strong>Peringatan:</strong> Saiz nod, warna kelompok dan jarak visual tidak membuktikan kualiti atau hubungan sebab-akibat. Semua tetapan dan batasan perlu dilaporkan.</div>
+</div>
+</section>
+<section>
+<div class="container">
+<div class="section-head">
+<span class="kicker">Video panduan</span>
+<h2>Ikuti demonstrasi VOSviewer</h2>
+<p>Tonton video ini sebelum memulakan latihan visualisasi atau gunakan sebagai rujukan semasa aktiviti hands-on.</p>
+</div>
+<a class="video-thumbnail" href="https://youtu.be/kKpDgsj-Fdo?si=xp_kHs6nuwGBB6_u" target="_blank" rel="noopener" aria-label="Tonton demonstrasi VOSviewer di YouTube">
+<img src="assets/images/vosviewer-video-thumbnail.png" alt="Thumbnail video VOSviewer Step by Step menggunakan Publish or Perish">
+<span class="video-play" aria-hidden="true">▶</span>
+</a>
+<p class="video-caption">Klik imej untuk menonton video di YouTube.</p>
+<div class="actions">
+<a class="btn btn-secondary" href="https://youtu.be/kKpDgsj-Fdo?si=xp_kHs6nuwGBB6_u" target="_blank" rel="noopener">Tonton di YouTube ↗</a>
+</div>
+</div>
+</section>
+<section>
+<div class="container">
+<div class="section-head">
+<span class="kicker">Bahan latihan</span>
+<h2>Empat fail untuk tujuh latihan hands-on</h2>
+<p>Muat turun fail mengikut arahan setiap latihan. Simpan fail asal dan gunakan salinan apabila membuat perubahan.</p>
+</div>
+<div class="download-list">
+<a class="download" href="data/modul-3/scopus1.json" download>
+<span>
+<strong>scopus1.json</strong>
+<small>Scopus · 50 istilah tajuk · 239 hubungan · 4 kluster</small>
+</span>
+<b>Muat turun ↓</b>
+</a>
+<a class="download" href="data/modul-3/wos2324.ris" download>
+<span>
+<strong>wos2324.ris</strong>
+<small>Web of Science · 288 rekod · tahun 2023–2024</small>
+</span>
+<b>Muat turun ↓</b>
+</a>
+<a class="download" href="data/modul-3/wos2324-thesaurus.txt" download>
+<span>
+<strong>wos2324-thesaurus.txt</strong>
+<small>Fail pembersihan dan penggabungan kata kunci WoS</small>
+</span>
+<b>Muat turun ↓</b>
+</a>
+<a class="download" href="data/modul-3/wos2324-network.json" download>
+<span>
+<strong>wos2324-network.json</strong>
+<small>58 kata kunci · 669 hubungan · 5 kluster</small>
+</span>
+<b>Muat turun ↓</b>
+</a>
+<a class="download" href="https://www.vosviewer.com/documentation/Manual_VOSviewer_1.6.21.pdf" target="_blank" rel="noopener">
+<span>
+<strong>User Manual VOSviewer 1.6.21</strong>
+<small>Manual rasmi penggunaan dan penerokaan peta</small>
+</span>
+<b>Buka PDF ↗</b>
+</a>
+</div>
+<div class="notice" style="margin-top:18px">
+<strong>Nota metodologi:</strong> <code>scopus1.json</code> menggunakan istilah tajuk. <code>wos2324-network.json</code> menggunakan entri kata kunci daripada fail RIS yang telah dinormalkan. Kedua-duanya ialah bahan latihan penerokaan dan mempunyai batasan yang perlu dilaporkan.</div>
+<div class="actions">
+<a class="btn btn-primary" href="latihan/latihan-modul-3.html">Mulakan 7 Latihan Modul 3</a>
+<a class="btn btn-secondary" href="alatan/modul-3/alat-vosviewer.html">Panduan VOSviewer</a>
+<a class="btn btn-secondary" href="https://app.vosviewer.com/" target="_blank" rel="noopener">Buka VOSviewer Online ↗</a>
+</div>
+<nav class="module-nav">
+<a href="modul/modul-2-literatur-rujukan.html">← Modul 2</a>
+<a class="all" href="modul/index.html">Semua Modul</a>
+<a class="next" href="modul/modul-4-analisis-data.html">Modul 4 →</a>
+</nav>
+</div>
+</section>
+</main>
+<footer class="footer">
+</footer>
+<button class="back-top">↑</button>
+<script src="js/script.js?v=22">
+</script>
+</body>
+</html>

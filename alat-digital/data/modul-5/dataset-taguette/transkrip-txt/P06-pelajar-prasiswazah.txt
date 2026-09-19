@@ -1,0 +1,27 @@
+TRANSKRIP TEMU BUAL P06
+Dataset Latihan Analisis Kualitatif Menggunakan Taguette
+
+ID peserta: P06
+Kumpulan: Pelajar prasiswazah
+Pengalaman/tahap: Tahun 4
+Fokus: Projek tahun akhir
+
+Nota: Transkrip ini ialah data sintetik yang direka untuk latihan. Tiada individu sebenar diwakili.
+
+Penemu bual: Boleh terangkan pengalaman anda menggunakan atau menyokong perkhidmatan perpustakaan digital?
+P06: Semasa projek tahun akhir, saya perlu mencari artikel yang lebih teknikal. Carian biasa menghasilkan terlalu banyak artikel umum. Saya belajar menggunakan tajuk, abstrak dan kata kunci sebagai medan carian.
+
+Penemu bual: Apakah cabaran utama yang anda hadapi?
+P06: Saya sukar menentukan bila carian sudah mencukupi. Setiap kali menukar istilah, artikel baharu muncul. Saya perlukan cara merekod carian supaya penyelia boleh melihat proses, bukan hanya senarai akhir.
+
+Penemu bual: Bagaimanakah anda mengurus proses pencarian atau sokongan pengguna?
+P06: Pengurusan rujukan juga mencabar. Sebelum menggunakan Zotero, saya menyimpan PDF dengan nama rawak dan sukar mencari semula. Metadata yang diimport kadangkala tidak lengkap dan saya tidak tahu perlu menyemaknya.
+
+Penemu bual: Apakah bentuk bantuan atau latihan yang paling berguna?
+P06: Konsultasi pustakawan membantu kerana saya membawa skrin carian sebenar. Dalam bengkel besar, soalan saya terlalu khusus dan masa terhad.
+
+Penemu bual: Bagaimanakah anda melihat penggunaan kecerdasan buatan dalam konteks ini?
+P06: AI bagus untuk mencadangkan istilah dan menerangkan konsep, tetapi saya pernah menerima rujukan yang tidak wujud. Itu membuatkan saya lebih berhati-hati dan menyemak DOI.
+
+Penemu bual: Apakah penambahbaikan yang anda cadangkan?
+P06: Saya mencadangkan klinik mingguan untuk pelajar projek akhir dan satu templat log carian. Jika templat menjadi sebahagian daripada laporan projek, pelajar akan menggunakannya secara konsisten.

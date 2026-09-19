@@ -1,0 +1,27 @@
+TRANSKRIP TEMU BUAL P12
+Dataset Latihan Analisis Kualitatif Menggunakan Taguette
+
+ID peserta: P12
+Kumpulan: Pensyarah dan penyelidik
+Pengalaman/tahap: 15 tahun
+Fokus: Penyeliaan pascasiswazah
+
+Nota: Transkrip ini ialah data sintetik yang direka untuk latihan. Tiada individu sebenar diwakili.
+
+Penemu bual: Boleh terangkan pengalaman anda menggunakan atau menyokong perkhidmatan perpustakaan digital?
+P12: Pelajar pascasiswazah mempunyai banyak alat tetapi tidak semestinya mempunyai aliran kerja. Mereka mencari, menyimpan dan menganalisis secara berasingan sehingga sukar menjejaki keputusan.
+
+Penemu bual: Apakah cabaran utama yang anda hadapi?
+P12: Saya menilai kualiti kajian literatur melalui ketelusan proses. Pelajar perlu menerangkan sumber, tarikh, rentetan, penapis dan sebab memilih artikel.
+
+Penemu bual: Bagaimanakah anda mengurus proses pencarian atau sokongan pengguna?
+P12: Pustakawan boleh menjadi rakan metodologi, terutama untuk strategi carian dan pengurusan bukti. Namun, pelajar sering mendapatkan bantuan terlalu lewat.
+
+Penemu bual: Apakah bentuk bantuan atau latihan yang paling berguna?
+P12: Bahan latihan perlu menggunakan data yang realistik. Contoh terlalu mudah tidak menunjukkan isu seperti metadata hilang, kategori bertindih atau petikan yang boleh menerima lebih daripada satu kod.
+
+Penemu bual: Bagaimanakah anda melihat penggunaan kecerdasan buatan dalam konteks ini?
+P12: AI boleh membantu mengatur idea selepas analisis manusia dibuat. Jika AI digunakan terlalu awal, pelajar cenderung menerima tema yang kemas tetapi tidak cukup disokong oleh petikan.
+
+Penemu bual: Apakah penambahbaikan yang anda cadangkan?
+P12: Saya mencadangkan modul bersepadu dengan dataset sintetik, buku kod, latihan eksport dan contoh audit trail. Ini membolehkan pelajar belajar tanpa mendedahkan data peserta sebenar.

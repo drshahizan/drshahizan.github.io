@@ -1,0 +1,11 @@
+﻿id,tarikh,saluran,kumpulan_pengguna,pertanyaan,kategori_asal,keutamaan,status
+Q001,2026-09-01,E-mel,Pascasiswazah,Bagaimana membina kata kunci untuk kajian literasi AI?,Carian literatur,Sederhana,Baharu
+Q002,2026-09-01,Kaunter,Prasiswazah,Saya tidak dapat mengakses pangkalan data dari luar kampus.,Akses sumber,Tinggi,Baharu
+Q003,2026-09-02,Chat,Pensyarah,Boleh bantu semak DOI bagi lima artikel ini?,Metadata,Sederhana,Dalam tindakan
+Q004,2026-09-03,E-mel,Penyelidik,Saya perlukan artikel penuh yang tidak dilanggan oleh universiti.,Pembekalan dokumen,Sederhana,Baharu
+Q005,2026-09-03,Chat,Prasiswazah,Bagaimana menghasilkan sitasi APA menggunakan Zotero?,Pengurusan rujukan,Rendah,Selesai
+Q006,2026-09-04,E-mel,Pascasiswazah,Cadangkan jurnal Q1 yang pasti menerima artikel saya.,Penerbitan,Tinggi,Baharu
+Q007,2026-09-05,Kaunter,Pensyarah,Bolehkah saya berkongsi PDF buku kepada semua pelajar?,Hak cipta,Tinggi,Baharu
+Q008,2026-09-06,Chat,Penyelidik,Bagaimana mengeksport rekod Scopus untuk VOSviewer?,Bibliometrik,Sederhana,Dalam tindakan
+Q009,2026-09-07,E-mel,Pascasiswazah,Tolong cari semua artikel berkaitan topik tesis saya.,Carian literatur,Sederhana,Baharu
+Q010,2026-09-08,Chat,Prasiswazah,Adakah artikel daripada blog boleh digunakan dalam tugasan?,Penilaian sumber,Rendah,Baharu

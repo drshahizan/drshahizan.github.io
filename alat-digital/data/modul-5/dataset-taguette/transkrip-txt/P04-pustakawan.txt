@@ -1,0 +1,27 @@
+TRANSKRIP TEMU BUAL P04
+Dataset Latihan Analisis Kualitatif Menggunakan Taguette
+
+ID peserta: P04
+Kumpulan: Pustakawan
+Pengalaman/tahap: 3 tahun
+Fokus: Repositori institusi dan sokongan data penyelidikan
+
+Nota: Transkrip ini ialah data sintetik yang direka untuk latihan. Tiada individu sebenar diwakili.
+
+Penemu bual: Boleh terangkan pengalaman anda menggunakan atau menyokong perkhidmatan perpustakaan digital?
+P04: Ramai penyelidik menghubungi perpustakaan hanya pada akhir projek apabila mahu memuat naik tesis atau artikel. Pada tahap itu, isu hak cipta, versi manuskrip dan metadata sukar diperbetulkan. Sokongan sepatutnya bermula ketika perancangan penyelidikan.
+
+Penemu bual: Apakah cabaran utama yang anda hadapi?
+P04: Saya sering membantu menerangkan perbezaan antara fail penerbit, accepted manuscript dan preprint. Pengguna mahu jawapan ringkas, tetapi polisi setiap penerbit berbeza. Kami memerlukan rekod keputusan yang boleh dijejaki.
+
+Penemu bual: Bagaimanakah anda mengurus proses pencarian atau sokongan pengguna?
+P04: Kualiti metadata sangat mempengaruhi kebolehcarian. Singkatan fakulti, variasi nama penyelidik dan kata kunci terlalu umum menyebabkan rekod sukar ditemui. Semakan manusia masih perlu walaupun borang mempunyai cadangan automatik.
+
+Penemu bual: Apakah bentuk bantuan atau latihan yang paling berguna?
+P04: Permintaan berkaitan data penyelidikan meningkat. Penyelidik bertanya tentang format, penyimpanan dan perkongsian data, tetapi tahap sensitiviti berbeza. Nasihat umum tidak sesuai untuk semua projek.
+
+Penemu bual: Bagaimanakah anda melihat penggunaan kecerdasan buatan dalam konteks ini?
+P04: AI mungkin membantu menyarankan kata kunci atau ringkasan, tetapi data yang belum diterbitkan tidak patut dimasukkan ke alat awan tanpa kebenaran. Saya lebih selesa menggunakan contoh sintetik semasa latihan.
+
+Penemu bual: Apakah penambahbaikan yang anda cadangkan?
+P04: Saya berharap perpustakaan menyediakan konsultasi kitar hayat penyelidikan, templat metadata dan saluran rujukan kepada unit etika atau keselamatan maklumat. Pengguna memerlukan satu pintu masuk walaupun jawapan melibatkan beberapa unit.

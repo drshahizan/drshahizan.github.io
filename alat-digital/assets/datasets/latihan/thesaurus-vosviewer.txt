@@ -1,0 +1,6 @@
+label	replace by
+AI	artificial intelligence
+artificial-intelligence	artificial intelligence
+academic library	academic libraries
+digital libraries	digital library
+co authorship	co-authorship

@@ -1,0 +1,27 @@
+TRANSKRIP TEMU BUAL P08
+Dataset Latihan Analisis Kualitatif Menggunakan Taguette
+
+ID peserta: P08
+Kumpulan: Pelajar pascasiswazah
+Pengalaman/tahap: Sarjana tahun 2
+Fokus: Analisis dan penulisan tesis
+
+Nota: Transkrip ini ialah data sintetik yang direka untuk latihan. Tiada individu sebenar diwakili.
+
+Penemu bual: Boleh terangkan pengalaman anda menggunakan atau menyokong perkhidmatan perpustakaan digital?
+P08: Masalah saya bukan lagi mencari artikel tetapi mengurus terlalu banyak artikel. Saya memerlukan cara menghubungkan nota, kod tema dan rujukan supaya hujah tesis mempunyai bukti.
+
+Penemu bual: Apakah cabaran utama yang anda hadapi?
+P08: Saya pernah mengimport rekod ke Zotero tanpa menyemak metadata. Kemudian nama jurnal dan DOI tidak lengkap dalam bibliografi. Sekarang saya memeriksa rekod penting satu demi satu.
+
+Penemu bual: Bagaimanakah anda mengurus proses pencarian atau sokongan pengguna?
+P08: Bahan latihan perpustakaan sangat berguna apabila mempunyai dataset contoh. Jika hanya demonstrasi, saya faham ketika bengkel tetapi lupa apabila melakukan sendiri.
+
+Penemu bual: Apakah bentuk bantuan atau latihan yang paling berguna?
+P08: Saya mahu konsultasi yang menggabungkan carian, pengurusan rujukan dan analisis kualitatif. Sekarang setiap alat dipelajari secara berasingan sedangkan aliran kerja saya saling berkait.
+
+Penemu bual: Bagaimanakah anda melihat penggunaan kecerdasan buatan dalam konteks ini?
+P08: AI membantu mengubah ayat dan memberi struktur, tetapi saya risau suara penulis menjadi terlalu umum. Saya juga tidak mahu memasukkan transkrip sebenar yang sensitif.
+
+Penemu bual: Apakah penambahbaikan yang anda cadangkan?
+P08: Perpustakaan boleh menyediakan projek contoh lengkap dari carian hingga laporan. Dengan melihat hasil akhir dan jejak kerja, pelajar lebih mudah memahami standard yang dikehendaki.

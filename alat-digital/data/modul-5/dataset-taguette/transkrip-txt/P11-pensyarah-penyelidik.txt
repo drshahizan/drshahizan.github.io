@@ -1,0 +1,27 @@
+TRANSKRIP TEMU BUAL P11
+Dataset Latihan Analisis Kualitatif Menggunakan Taguette
+
+ID peserta: P11
+Kumpulan: Pensyarah dan penyelidik
+Pengalaman/tahap: 9 tahun
+Fokus: Pengajaran dan penyelidikan
+
+Nota: Transkrip ini ialah data sintetik yang direka untuk latihan. Tiada individu sebenar diwakili.
+
+Penemu bual: Boleh terangkan pengalaman anda menggunakan atau menyokong perkhidmatan perpustakaan digital?
+P11: Saya menggunakan sumber perpustakaan untuk menyediakan pengajaran dan menulis artikel. Cabaran saya ialah masa; saya mahu carian yang cepat tetapi tetap boleh dipercayai.
+
+Penemu bual: Apakah cabaran utama yang anda hadapi?
+P11: Pelajar sering membawa rujukan yang ditemui melalui carian umum. Saya perlu mengajar mereka membezakan artikel ilmiah, prosiding dan sumber popular. Sokongan pustakawan dalam kelas sangat membantu.
+
+Penemu bual: Bagaimanakah anda mengurus proses pencarian atau sokongan pengguna?
+P11: Akses pangkalan data biasanya baik, tetapi pengalaman pengguna berbeza antara platform. Log masuk yang berulang mengganggu apabila saya berpindah peranti.
+
+Penemu bual: Apakah bentuk bantuan atau latihan yang paling berguna?
+P11: Saya menggunakan pengurus rujukan, tetapi kolaborator menggunakan sistem lain. Eksport dan import kadangkala menghasilkan pendua atau kehilangan nota.
+
+Penemu bual: Bagaimanakah anda melihat penggunaan kecerdasan buatan dalam konteks ini?
+P11: AI berguna untuk meneroka topik, tetapi saya tidak membenarkan pelajar menggunakan rujukan yang belum disahkan. Mereka perlu membuka artikel asal dan menunjukkan bukti.
+
+Penemu bual: Apakah penambahbaikan yang anda cadangkan?
+P11: Saya mencadangkan bahan mikro yang boleh dimasukkan terus ke sistem pembelajaran kursus serta konsultasi bersama pustakawan untuk tugasan penyelidikan.

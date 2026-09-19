@@ -1,0 +1,27 @@
+TRANSKRIP TEMU BUAL P02
+Dataset Latihan Analisis Kualitatif Menggunakan Taguette
+
+ID peserta: P02
+Kumpulan: Pustakawan
+Pengalaman/tahap: 5 tahun
+Fokus: Sumber elektronik dan akses pangkalan data
+
+Nota: Transkrip ini ialah data sintetik yang direka untuk latihan. Tiada individu sebenar diwakili.
+
+Penemu bual: Boleh terangkan pengalaman anda menggunakan atau menyokong perkhidmatan perpustakaan digital?
+P02: Sebahagian besar masa saya digunakan untuk menyelesaikan isu akses. Masalahnya bukan semestinya langganan; kadangkala kuki pelayar, pautan lama atau pengguna tidak melalui portal perpustakaan. Pengguna hanya nampak halaman pembayaran dan menganggap artikel tidak tersedia.
+
+Penemu bual: Apakah cabaran utama yang anda hadapi?
+P02: Saya membina senarai semak ringkas: sahkan status pengguna, buka melalui pautan rasmi, cuba tetingkap peribadi dan semak DOI. Langkah ini mengurangkan pertanyaan berulang, tetapi pengguna masih memerlukan penerangan tentang mengapa setiap langkah dibuat.
+
+Penemu bual: Bagaimanakah anda mengurus proses pencarian atau sokongan pengguna?
+P02: Metadata yang tidak konsisten juga menyukarkan carian. Nama pengarang boleh muncul dalam beberapa bentuk dan kata kunci penerbit tidak semestinya sama dengan istilah pengguna. Sebab itu latihan carian perlu menunjukkan penggunaan sinonim dan carian frasa.
+
+Penemu bual: Apakah bentuk bantuan atau latihan yang paling berguna?
+P02: Apabila platform bertukar antara muka, kami perlu mengemas kini semua bahan latihan. Saya berharap ada inventori pusat untuk pautan, tangkapan skrin dan tarikh semakan supaya staf tahu panduan mana yang masih sah.
+
+Penemu bual: Bagaimanakah anda melihat penggunaan kecerdasan buatan dalam konteks ini?
+P02: Saya berhati-hati menggunakan alat AI awan kerana log pertanyaan boleh mengandungi tajuk projek yang sensitif. Untuk contoh latihan, lebih selamat menggunakan topik umum dan data sintetik. Polisi organisasi perlu diterangkan dalam bahasa mudah.
+
+Penemu bual: Apakah penambahbaikan yang anda cadangkan?
+P02: Penambahbaikan paling penting ialah mesej ralat yang boleh difahami dan butang bantuan pada titik pengguna menghadapi masalah. Pengguna tidak seharusnya mencari nombor telefon selepas beberapa kali gagal log masuk.

@@ -1,0 +1,27 @@
+TRANSKRIP TEMU BUAL P07
+Dataset Latihan Analisis Kualitatif Menggunakan Taguette
+
+ID peserta: P07
+Kumpulan: Pelajar pascasiswazah
+Pengalaman/tahap: Sarjana tahun 1
+Fokus: Kajian literatur awal
+
+Nota: Transkrip ini ialah data sintetik yang direka untuk latihan. Tiada individu sebenar diwakili.
+
+Penemu bual: Boleh terangkan pengalaman anda menggunakan atau menyokong perkhidmatan perpustakaan digital?
+P07: Saya mempunyai topik luas dan sukar mengecilkan skop. Saya sering menukar kata kunci tanpa merekod perubahan, jadi saya tidak dapat menjelaskan mengapa artikel tertentu dipilih.
+
+Penemu bual: Apakah cabaran utama yang anda hadapi?
+P07: Scopus dan Web of Science memberikan hasil berbeza. Pada mulanya saya menganggap satu daripadanya salah, tetapi pustakawan menerangkan liputan sumber dan indeks yang berbeza.
+
+Penemu bual: Bagaimanakah anda mengurus proses pencarian atau sokongan pengguna?
+P07: Cited by membantu saya mengikuti perkembangan, tetapi saya mudah terpengaruh dengan artikel yang banyak sitasi walaupun konteksnya tidak sama. Saya perlu membaca kaedah dan skop, bukan bergantung pada metrik.
+
+Penemu bual: Apakah bentuk bantuan atau latihan yang paling berguna?
+P07: Akses teks penuh tidak selalu tersedia. Perkhidmatan pinjaman antara perpustakaan berguna, tetapi saya hanya mengetahuinya selepas bertanya secara langsung.
+
+Penemu bual: Bagaimanakah anda melihat penggunaan kecerdasan buatan dalam konteks ini?
+P07: Saya menggunakan AI untuk membina senarai konsep. Cadangannya membantu, namun beberapa istilah terlalu umum. Saya semak istilah itu dalam artikel utama sebelum memasukkannya ke rentetan carian.
+
+Penemu bual: Apakah penambahbaikan yang anda cadangkan?
+P07: Saya perlukan sesi khusus tentang systematic search, dokumentasi dan deduplikasi. Bengkel asas membantu, tetapi keperluan pascasiswazah lebih terperinci.

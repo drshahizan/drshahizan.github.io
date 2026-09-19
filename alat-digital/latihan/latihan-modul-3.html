@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<base href="../">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Latihan Modul 3 · Dataset ke VOSviewer</title>
+<link rel="icon" href="assets/icons/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-module="3">
+<div class="topline">
+</div>
+<header class="site-header">
+<nav class="nav container">
+<a class="brand" href="index.html">
+<span class="brand-mark">AD</span>
+<span>Alat Digital<small>Analisis Penyelidikan</small>
+</span>
+</a>
+<button class="menu-btn" aria-expanded="false">☰ Menu</button>
+<div class="nav-links">
+</div>
+</nav>
+</header>
+<main>
+<div class="page-hero">
+<div class="container">
+<span class="kicker">Latihan Modul 3</span>
+<h1>Daripada Dataset kepada Peta Bibliometrik</h1>
+<p>Tujuh latihan hands-on menggunakan fail Scopus dan Web of Science yang telah disediakan. Akses kepada pangkalan data tidak diperlukan semasa latihan.</p>
+</div>
+</div>
+<section>
+<div class="container">
+<div class="learning-sequence">
+<span>Kenali fail</span>
+<b>→</b>
+<span>Audit metadata</span>
+<b>→</b>
+<span>Bersihkan istilah</span>
+<b>→</b>
+<span>Buka peta</span>
+<b>→</b>
+<span>Banding</span>
+<b>→</b>
+<span>Tafsir &amp; lapor</span>
+</div>
+
+<details class="exercise exercise-accordion" open>
+<summary>
+<span class="exercise-number">1</span>
+<span>
+<small>Asas · 15 minit · Berpasangan</small>
+<strong>Kenali Dua Dataset Bibliografi</strong>
+</span>
+<span class="accordion-mark">+</span>
+</summary>
+<div class="exercise-body">
+<div class="scenario">
+<strong>Fail digunakan</strong>
+<p>
+<code>scopus1.json</code> dan <code>wos2324.ris</code>
+</p>
+</div>
+<ol class="step-list" id="m3-a1">
+<li>Muat turun kedua-dua fail melalui butang di bawah.</li>
+<li>Buka fail dengan penyunting teks tanpa mengubah kandungannya.</li>
+<li>Dalam fail RIS, cari medan <code>AU</code>, <code>TI</code>, <code>T2</code>, <code>KW</code>, <code>AB</code>, <code>PY</code> dan <code>DO</code>.</li>
+<li>Dalam fail JSON, cari bahagian <code>items</code>, <code>links</code>, <code>clusters</code> dan <code>weights</code>.</li>
+<li>Bandingkan sumber asal, struktur, kandungan dan kegunaan kedua-dua fail.</li>
+<li>Catat mengapa fail RIS ialah metadata bibliografi manakala JSON ialah rangkaian siap visualisasi.</li>
+</ol>
+<div class="responsive-table">
+<table class="status-table">
+<thead>
+<tr>
+<th>Aspek</th>
+<th>scopus1.json</th>
+<th>wos2324.ris</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sumber</td>
+<td>Scopus</td>
+<td>Web of Science</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>VOSviewer JSON</td>
+<td>RIS</td>
+</tr>
+<tr>
+<td>Kandungan</td>
+<td>50 istilah daripada 200 rekod</td>
+<td>288 rekod bibliografi</td>
+</tr>
+<tr>
+<td>Kegunaan</td>
+<td>Visualisasi rangkaian</td>
+<td>Audit dan pengurusan metadata</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="actions">
+<a class="btn btn-primary btn-small" href="data/modul-3/scopus1.json" download>Muat Turun scopus1.json</a>
+<a class="btn btn-secondary btn-small" href="data/modul-3/wos2324.ris" download>Muat Turun wos2324.ris</a>
+<button class="btn btn-secondary btn-small" data-copy="m3-a1">Salin Arahan</button>
+</div>
+<p class="result">
+<strong>Hasil:</strong> Jadual perbandingan dua dataset dan penerangan ringkas tentang fungsi setiap format.</p>
+<label class="complete-check">
+<input type="checkbox" data-complete="3-1"> Tandakan Latihan 1 selesai</label>
+</div>
+</details>
+
+<details class="exercise exercise-accordion">
+<summary>
+<span class="exercise-number">2</span>
+<span>
+<small>Asas · 20 minit · Individu</small>
+<strong>Buka scopus1.json dalam VOSviewer Online</strong>
+</span>
+<span class="accordion-mark">+</span>
+</summary>
+<div class="exercise-body">
+<div class="scenario">
+<strong>Fail digunakan</strong>
+<p>
+<code>scopus1.json</code>
+</p>
+</div>
+<div class="notice">
+<strong>Batasan:</strong> Peta ini dibina daripada istilah tajuk 200 rekod Scopus kerana sumber asal tidak mengandungi <em>author keywords</em>, abstrak atau rujukan tersitasi.</div>
+<ol class="step-list" id="m3-a2">
+<li>Muat turun <code>scopus1.json</code>.</li>
+<li>Buka VOSviewer Online dan klik <strong>Open</strong>.</li>
+<li>Pilih <strong>VOSviewer JSON file</strong>, pilih fail dan klik <strong>OK</strong>.</li>
+<li>Sahkan paparan: 50 istilah tajuk, 239 hubungan, jumlah kekuatan hubungan 378 dan 4 kluster.</li>
+<li>Pilih tiga nod terbesar dan catat istilah serta hubungannya.</li>
+<li>Gunakan <strong>Find</strong> untuk mencari tiga istilah.</li>
+<li>Bandingkan Network, Overlay dan Density Visualization.</li>
+<li>Ambil satu tangkap layar.</li>
+</ol>
+<div class="actions">
+<a class="btn btn-primary btn-small" href="data/modul-3/scopus1.json" download>Muat Turun scopus1.json</a>
+<a class="btn btn-secondary btn-small" href="https://app.vosviewer.com/" target="_blank" rel="noopener">Buka VOSviewer Online ↗</a>
+<button class="btn btn-secondary btn-small" data-copy="m3-a2">Salin Arahan</button>
+</div>
+<p class="result">
+<strong>Hasil:</strong> Tangkap layar dan catatan tiga nod utama dalam peta Scopus.</p>
+<label class="complete-check">
+<input type="checkbox" data-complete="3-2"> Tandakan Latihan 2 selesai</label>
+</div>
+</details>
+
+<details class="exercise exercise-accordion">
+<summary>
+<span class="exercise-number">3</span>
+<span>
+<small>Asas · 20 minit · Berpasangan</small>
+<strong>Audit Metadata Web of Science</strong>
+</span>
+<span class="accordion-mark">+</span>
+</summary>
+<div class="exercise-body">
+<div class="scenario">
+<strong>Fail digunakan</strong>
+<p>
+<code>wos2324.ris</code>
+</p>
+</div>
+<ol class="step-list" id="m3-a3">
+<li>Buka fail RIS dan semak rekod pertama.</li>
+<li>Kenal pasti tajuk, pengarang, sumber, tahun, DOI, abstrak dan kata kunci.</li>
+<li>Sahkan dataset mengandungi 288 rekod: 243 dari 2023 dan 45 dari 2024.</li>
+<li>Sahkan jenis dokumen: 237 artikel jurnal dan 51 kertas persidangan.</li>
+<li>Cari variasi <code>anomaly detection</code>, <code>ANOMALY DETECTION</code> dan <code>Anomaly detection</code>.</li>
+<li>Cari tajuk <em>Inverse chi-square-based flamingo search optimization...</em> yang muncul dua kali.</li>
+<li>Catat tiga isu kualiti metadata dan cadangan tindakan.</li>
+</ol>
+<div class="actions">
+<a class="btn btn-primary btn-small" href="data/modul-3/wos2324.ris" download>Muat Turun wos2324.ris</a>
+<button class="btn btn-secondary btn-small" data-copy="m3-a3">Salin Arahan</button>
+</div>
+<p class="result">
+<strong>Hasil:</strong> Borang audit yang merekodkan skop, kelengkapan, variasi istilah dan rekod yang perlu disemak.</p>
+<label class="complete-check">
+<input type="checkbox" data-complete="3-3"> Tandakan Latihan 3 selesai</label>
+</div>
+</details>
+
+<details class="exercise exercise-accordion">
+<summary>
+<span class="exercise-number">4</span>
+<span>
+<small>Pertengahan · 25 minit · Berpasangan</small>
+<strong>Bersihkan Kata Kunci WoS dengan Thesaurus</strong>
+</span>
+<span class="accordion-mark">+</span>
+</summary>
+<div class="exercise-body">
+<div class="scenario">
+<strong>Fail digunakan</strong>
+<p>
+<code>wos2324.ris</code> dan <code>wos2324-thesaurus.txt</code>
+</p>
+</div>
+<ol class="step-list" id="m3-a4">
+<li>Muat turun dan buka fail thesaurus.</li>
+<li>Kenal pasti baris yang menggabungkan variasi huruf besar dan kecil.</li>
+<li>Kenal pasti penggabungan <code>IoT</code>, <code>Internet of Things</code> dan <code>Internet of Things (IoT)</code>.</li>
+<li>Kenal pasti istilah umum yang dibuang apabila ruang <code>replace by</code> dibiarkan kosong.</li>
+<li>Semak sama ada <code>cyber security</code> dan <code>cybersecurity</code> patut digabungkan.</li>
+<li>Cadangkan lima baris tambahan berserta justifikasi.</li>
+<li>Simpan salinan baharu tanpa menimpa fail asal.</li>
+</ol>
+<div class="actions">
+<a class="btn btn-primary btn-small" href="data/modul-3/wos2324-thesaurus.txt" download>Muat Turun Thesaurus</a>
+<a class="btn btn-secondary btn-small" href="data/modul-3/wos2324.ris" download>Muat Turun RIS</a>
+<button class="btn btn-secondary btn-small" data-copy="m3-a4">Salin Arahan</button>
+</div>
+<p class="result">
+<strong>Hasil:</strong> Thesaurus yang ditambah baik dan log keputusan pembersihan istilah.</p>
+<label class="complete-check">
+<input type="checkbox" data-complete="3-4"> Tandakan Latihan 4 selesai</label>
+</div>
+</details>
+
+<details class="exercise exercise-accordion">
+<summary>
+<span class="exercise-number">5</span>
+<span>
+<small>Pertengahan · 25 minit · Individu</small>
+<strong>Buka Peta WoS dalam VOSviewer Online</strong>
+</span>
+<span class="accordion-mark">+</span>
+</summary>
+<div class="exercise-body">
+<div class="scenario">
+<strong>Fail digunakan</strong>
+<p>
+<code>wos2324-network.json</code>, dijana daripada 288 rekod dalam <code>wos2324.ris</code>
+</p>
+</div>
+<div class="notice">
+<strong>Kaedah penyediaan:</strong> Kata kunci dinormalkan dengan thesaurus dan dipilih pada minimum lima rekod. Fail RIS menggabungkan entri kata kunci dan tidak mengandungi senarai rujukan tersitasi; peta ini untuk latihan penerokaan.</div>
+<ol class="step-list" id="m3-a5">
+<li>Muat turun <code>wos2324-network.json</code>.</li>
+<li>Buka VOSviewer Online dan pilih <strong>Open → VOSviewer JSON file</strong>.</li>
+<li>Pilih fail dan klik <strong>OK</strong>.</li>
+<li>Sahkan paparan: 58 kata kunci, 669 hubungan, jumlah kekuatan hubungan 1,877 dan 5 kluster.</li>
+<li>Kenal pasti lima kata kunci terbesar.</li>
+<li>Namakan setiap kluster berdasarkan istilah dominan.</li>
+<li>Kenal pasti satu istilah yang menghubungkan beberapa kluster.</li>
+<li>Bandingkan Network, Overlay dan Density Visualization.</li>
+<li>Ambil satu tangkap layar.</li>
+</ol>
+<div class="actions">
+<a class="btn btn-primary btn-small" href="data/modul-3/wos2324-network.json" download>Muat Turun Peta WoS</a>
+<a class="btn btn-secondary btn-small" href="https://app.vosviewer.com/" target="_blank" rel="noopener">Buka VOSviewer Online ↗</a>
+<button class="btn btn-secondary btn-small" data-copy="m3-a5">Salin Arahan</button>
+</div>
+<p class="result">
+<strong>Hasil:</strong> Tangkap layar, lima kata kunci utama dan cadangan nama bagi lima kluster.</p>
+<label class="complete-check">
+<input type="checkbox" data-complete="3-5"> Tandakan Latihan 5 selesai</label>
+</div>
+</details>
+
+<details class="exercise exercise-accordion">
+<summary>
+<span class="exercise-number">6</span>
+<span>
+<small>Pertengahan · 25 minit · Kumpulan</small>
+<strong>Bandingkan Peta Scopus dan WoS</strong>
+</span>
+<span class="accordion-mark">+</span>
+</summary>
+<div class="exercise-body">
+<div class="scenario">
+<strong>Fail digunakan</strong>
+<p>
+<code>scopus1.json</code> dan <code>wos2324-network.json</code>
+</p>
+</div>
+<ol class="step-list" id="m3-a6">
+<li>Buka kedua-dua fail secara berasingan dalam VOSviewer Online.</li>
+<li>Rekod bilangan item, hubungan dan kluster.</li>
+<li>Kenal pasti tiga istilah terbesar dalam setiap peta.</li>
+<li>Bandingkan istilah penghubung dan kepadatan rangkaian.</li>
+<li>Nyatakan jenis data yang membentuk setiap peta.</li>
+<li>Senaraikan sekurang-kurangnya dua batasan bagi setiap dataset.</li>
+<li>Terangkan mengapa perbandingan ini tidak menentukan pangkalan data yang “lebih baik”.</li>
+</ol>
+<div class="responsive-table">
+<table class="status-table">
+<thead>
+<tr>
+<th>Perkara</th>
+<th>Peta Scopus</th>
+<th>Peta WoS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Item / hubungan / kluster</td>
+<td>______</td>
+<td>______</td>
+</tr>
+<tr>
+<td>Tiga istilah terbesar</td>
+<td>______</td>
+<td>______</td>
+</tr>
+<tr>
+<td>Jenis data</td>
+<td>Istilah tajuk</td>
+<td>Kata kunci RIS</td>
+</tr>
+<tr>
+<td>Batasan</td>
+<td>______</td>
+<td>______</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="actions">
+<a class="btn btn-primary btn-small" href="data/modul-3/scopus1.json" download>Dataset Scopus</a>
+<a class="btn btn-secondary btn-small" href="data/modul-3/wos2324-network.json" download>Dataset WoS</a>
+<button class="btn btn-secondary btn-small" data-copy="m3-a6">Salin Arahan</button>
+</div>
+<p class="result">
+<strong>Hasil:</strong> Jadual perbandingan dan rumusan 100 patah perkataan tentang perbezaan proses serta ciri visualisasi.</p>
+<label class="complete-check">
+<input type="checkbox" data-complete="3-6"> Tandakan Latihan 6 selesai</label>
+</div>
+</details>
+
+<details class="exercise exercise-accordion">
+<summary>
+<span class="exercise-number">7</span>
+<span>
+<small>Pertengahan · 30 minit · Kumpulan</small>
+<strong>Tafsir dan Laporkan Peta Bibliometrik</strong>
+</span>
+<span class="accordion-mark">+</span>
+</summary>
+<div class="exercise-body">
+<div class="scenario">
+<strong>Fail digunakan</strong>
+<p>Pilih <code>scopus1.json</code> atau <code>wos2324-network.json</code>.</p>
+</div>
+<ol class="step-list" id="m3-a7">
+<li>Nyatakan nama, sumber dan skop dataset.</li>
+<li>Rekod bilangan item, hubungan dan kluster.</li>
+<li>Kenal pasti tiga nod utama berdasarkan saiz dan kekuatan hubungan.</li>
+<li>Namakan sekurang-kurangnya tiga kluster berdasarkan bukti pada peta.</li>
+<li>Kenal pasti satu istilah penghubung.</li>
+<li>Sertakan satu tangkap layar yang boleh dibaca.</li>
+<li>Tulis interpretasi 150–200 patah perkataan.</li>
+<li>Nyatakan sekurang-kurangnya tiga batasan.</li>
+<li>Bezakan pemerhatian pada peta, interpretasi penyelidik dan dakwaan yang tidak dapat disokong.</li>
+</ol>
+<div class="responsive-table">
+<table class="status-table">
+<thead>
+<tr>
+<th>Perkara dilaporkan</th>
+<th>Catatan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fail dan sumber data</td>
+<td>______</td>
+</tr>
+<tr>
+<td>Item / hubungan / kluster</td>
+<td>______</td>
+</tr>
+<tr>
+<td>Nod dan kluster utama</td>
+<td>______</td>
+</tr>
+<tr>
+<td>Batasan</td>
+<td>______</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="actions">
+<a class="btn btn-primary btn-small" href="https://www.vosviewer.com/documentation/Manual_VOSviewer_1.6.21.pdf" target="_blank" rel="noopener">Manual VOSviewer ↗</a>
+<button class="btn btn-secondary btn-small" data-copy="m3-a7">Salin Arahan</button>
+</div>
+<p class="result">
+<strong>Hasil akhir:</strong> Laporan mini bibliometrik dengan peta, interpretasi berasaskan bukti dan batasan analisis.</p>
+<label class="complete-check">
+<input type="checkbox" data-complete="3-7"> Tandakan Latihan 7 selesai</label>
+</div>
+</details>
+
+<nav class="module-nav">
+<a href="latihan/latihan-modul-2.html">← Modul 2</a>
+<a class="all" href="latihan/index.html">Semua Latihan</a>
+<a class="next" href="latihan/latihan-modul-4.html">Modul 4 →</a>
+</nav>
+</div>
+</section>
+</main>
+<div class="progress-wrap" data-progress>0 daripada 7 latihan selesai</div>
+<footer class="footer">
+</footer>
+<button class="back-top">↑</button>
+<script src="js/script.js?v=22">
+</script>
+</body>
+</html>

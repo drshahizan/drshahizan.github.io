@@ -1,0 +1,27 @@
+TRANSKRIP TEMU BUAL P03
+Dataset Latihan Analisis Kualitatif Menggunakan Taguette
+
+ID peserta: P03
+Kumpulan: Pustakawan
+Pengalaman/tahap: 12 tahun
+Fokus: Literasi maklumat dan latihan pengguna
+
+Nota: Transkrip ini ialah data sintetik yang direka untuk latihan. Tiada individu sebenar diwakili.
+
+Penemu bual: Boleh terangkan pengalaman anda menggunakan atau menyokong perkhidmatan perpustakaan digital?
+P03: Peserta bengkel mempunyai tahap kemahiran yang sangat berbeza. Ada yang sudah biasa dengan operator Boolean, manakala yang lain belum membezakan artikel jurnal dengan laman web biasa. Jika kandungan terlalu cepat, peserta baharu tercicir; jika terlalu asas, peserta berpengalaman hilang fokus.
+
+Penemu bual: Apakah cabaran utama yang anda hadapi?
+P03: Saya menggunakan tugasan berasaskan situasi, contohnya mencari lima artikel terkini untuk satu persoalan. Peserta perlu menerangkan mengapa artikel dipilih. Cara ini menunjukkan bahawa hasil carian yang banyak tidak semestinya berkualiti.
+
+Penemu bual: Bagaimanakah anda mengurus proses pencarian atau sokongan pengguna?
+P03: Bengkel sekali sahaja jarang mencukupi. Kemahiran carian merosot jika tidak digunakan. Saya lebih suka siri mikro selama tiga puluh minit yang disusuli klinik, bahan rakaman dan latihan kendiri.
+
+Penemu bual: Apakah bentuk bantuan atau latihan yang paling berguna?
+P03: Maklum balas peserta biasanya positif, tetapi komen terbuka memberi gambaran lebih berguna. Ada peserta meminta contoh bidang mereka sendiri, dan ada yang mahu lebih banyak masa hands-on. Angka kepuasan sahaja tidak menjelaskan perubahan yang diperlukan.
+
+Penemu bual: Bagaimanakah anda melihat penggunaan kecerdasan buatan dalam konteks ini?
+P03: AI boleh membantu menjana sinonim dan menjelaskan istilah, tetapi peserta perlu membandingkan cadangan itu dengan tesaurus pangkalan data dan artikel sebenar. Saya menekankan bahawa AI ialah titik mula, bukan pihak yang menentukan kesahihan.
+
+Penemu bual: Apakah penambahbaikan yang anda cadangkan?
+P03: Saya mencadangkan modul berperingkat dengan laluan asas dan lanjutan. Pustakawan juga memerlukan masa rasmi untuk menguji alat baharu serta berkongsi bahan supaya usaha tidak dibuat secara berasingan.

@@ -1,0 +1,47 @@
+{
+  "network": {
+    "items": [
+      {"id":1,"label":"artificial intelligence","description":"Cluster 1: AI and library services","x":0.02,"y":0.03,"cluster":1,"weights":{"Occurrences":42},"scores":{"Avg. publication year":2023.4}},
+      {"id":2,"label":"academic library","description":"Cluster 1: AI and library services","x":-0.18,"y":0.10,"cluster":1,"weights":{"Occurrences":35},"scores":{"Avg. publication year":2022.8}},
+      {"id":3,"label":"chatbots","description":"Cluster 1: AI and library services","x":-0.27,"y":-0.04,"cluster":1,"weights":{"Occurrences":21},"scores":{"Avg. publication year":2023.1}},
+      {"id":4,"label":"reference service","description":"Cluster 1: AI and library services","x":-0.32,"y":0.18,"cluster":1,"weights":{"Occurrences":18},"scores":{"Avg. publication year":2021.9}},
+      {"id":5,"label":"digital transformation","description":"Cluster 1: AI and library services","x":-0.08,"y":0.24,"cluster":1,"weights":{"Occurrences":24},"scores":{"Avg. publication year":2022.6}},
+      {"id":6,"label":"information literacy","description":"Cluster 2: Users and literacy","x":0.25,"y":0.16,"cluster":2,"weights":{"Occurrences":29},"scores":{"Avg. publication year":2022.4}},
+      {"id":7,"label":"librarians","description":"Cluster 2: Users and literacy","x":0.35,"y":0.03,"cluster":2,"weights":{"Occurrences":25},"scores":{"Avg. publication year":2022.7}},
+      {"id":8,"label":"user experience","description":"Cluster 2: Users and literacy","x":0.39,"y":0.20,"cluster":2,"weights":{"Occurrences":17},"scores":{"Avg. publication year":2023.0}},
+      {"id":9,"label":"digital literacy","description":"Cluster 2: Users and literacy","x":0.20,"y":0.31,"cluster":2,"weights":{"Occurrences":20},"scores":{"Avg. publication year":2023.3}},
+      {"id":10,"label":"higher education","description":"Cluster 2: Users and literacy","x":0.45,"y":0.34,"cluster":2,"weights":{"Occurrences":16},"scores":{"Avg. publication year":2022.2}},
+      {"id":11,"label":"research support","description":"Cluster 3: Research and scholarly communication","x":-0.10,"y":-0.29,"cluster":3,"weights":{"Occurrences":23},"scores":{"Avg. publication year":2022.5}},
+      {"id":12,"label":"bibliometrics","description":"Cluster 3: Research and scholarly communication","x":-0.28,"y":-0.38,"cluster":3,"weights":{"Occurrences":19},"scores":{"Avg. publication year":2021.8}},
+      {"id":13,"label":"systematic review","description":"Cluster 3: Research and scholarly communication","x":0.02,"y":-0.42,"cluster":3,"weights":{"Occurrences":18},"scores":{"Avg. publication year":2022.9}},
+      {"id":14,"label":"open science","description":"Cluster 3: Research and scholarly communication","x":-0.20,"y":-0.52,"cluster":3,"weights":{"Occurrences":16},"scores":{"Avg. publication year":2022.1}},
+      {"id":15,"label":"research data management","description":"Cluster 3: Research and scholarly communication","x":0.12,"y":-0.31,"cluster":3,"weights":{"Occurrences":20},"scores":{"Avg. publication year":2022.4}},
+      {"id":16,"label":"generative AI","description":"Cluster 4: Generative AI and responsible use","x":0.10,"y":0.02,"cluster":4,"weights":{"Occurrences":31},"scores":{"Avg. publication year":2024.2}},
+      {"id":17,"label":"large language models","description":"Cluster 4: Generative AI and responsible use","x":0.20,"y":-0.10,"cluster":4,"weights":{"Occurrences":26},"scores":{"Avg. publication year":2024.3}},
+      {"id":18,"label":"ethics","description":"Cluster 4: Generative AI and responsible use","x":0.34,"y":-0.24,"cluster":4,"weights":{"Occurrences":22},"scores":{"Avg. publication year":2023.8}},
+      {"id":19,"label":"privacy","description":"Cluster 4: Generative AI and responsible use","x":0.17,"y":-0.27,"cluster":4,"weights":{"Occurrences":15},"scores":{"Avg. publication year":2023.6}},
+      {"id":20,"label":"responsible AI","description":"Cluster 4: Generative AI and responsible use","x":0.43,"y":-0.10,"cluster":4,"weights":{"Occurrences":18},"scores":{"Avg. publication year":2024.0}}
+    ],
+    "links": [
+      {"source_id":1,"target_id":2,"strength":28},{"source_id":1,"target_id":3,"strength":18},{"source_id":1,"target_id":5,"strength":21},{"source_id":2,"target_id":3,"strength":15},{"source_id":2,"target_id":4,"strength":17},{"source_id":2,"target_id":5,"strength":14},{"source_id":3,"target_id":4,"strength":12},{"source_id":4,"target_id":5,"strength":9},
+      {"source_id":6,"target_id":7,"strength":19},{"source_id":6,"target_id":8,"strength":13},{"source_id":6,"target_id":9,"strength":17},{"source_id":6,"target_id":10,"strength":14},{"source_id":7,"target_id":8,"strength":11},{"source_id":7,"target_id":9,"strength":12},{"source_id":8,"target_id":10,"strength":10},{"source_id":9,"target_id":10,"strength":13},
+      {"source_id":11,"target_id":12,"strength":14},{"source_id":11,"target_id":13,"strength":15},{"source_id":11,"target_id":15,"strength":18},{"source_id":12,"target_id":13,"strength":12},{"source_id":12,"target_id":14,"strength":11},{"source_id":13,"target_id":14,"strength":10},{"source_id":13,"target_id":15,"strength":13},{"source_id":14,"target_id":15,"strength":12},
+      {"source_id":16,"target_id":17,"strength":24},{"source_id":16,"target_id":18,"strength":16},{"source_id":16,"target_id":20,"strength":18},{"source_id":17,"target_id":18,"strength":15},{"source_id":17,"target_id":19,"strength":13},{"source_id":17,"target_id":20,"strength":17},{"source_id":18,"target_id":19,"strength":14},{"source_id":18,"target_id":20,"strength":19},{"source_id":19,"target_id":20,"strength":16},
+      {"source_id":1,"target_id":16,"strength":25},{"source_id":1,"target_id":6,"strength":12},{"source_id":2,"target_id":7,"strength":13},{"source_id":2,"target_id":11,"strength":11},{"source_id":5,"target_id":11,"strength":10},{"source_id":6,"target_id":16,"strength":14},{"source_id":7,"target_id":18,"strength":10},{"source_id":9,"target_id":20,"strength":12},{"source_id":11,"target_id":16,"strength":9},{"source_id":13,"target_id":17,"strength":11},{"source_id":15,"target_id":19,"strength":8}
+    ],
+    "clusters": [
+      {"cluster":1,"label":"AI and library services"},
+      {"cluster":2,"label":"Users and literacy"},
+      {"cluster":3,"label":"Research and scholarly communication"},
+      {"cluster":4,"label":"Generative AI and responsible use"}
+    ]
+  },
+  "config": {
+    "parameters": {"scale":1,"item_size":1,"item_color":1,"item_size_variation":0.5,"max_label_length":30,"curved_links":true,"show_info":true},
+    "terminology": {"item":"keyword","items":"keywords","link":"co-occurrence link","links":"co-occurrence links","cluster":"theme","clusters":"themes","link_strength":"link strength","total_link_strength":"total link strength"}
+  },
+  "info": {
+    "title":"Training Dataset: AI in Academic Libraries",
+    "description":"Simulated keyword co-occurrence network for Modul 3 hands-on training. It is designed to resemble an output prepared from Scopus metadata, but it is not an actual Scopus export and must not be used as research evidence."
+  }
+}

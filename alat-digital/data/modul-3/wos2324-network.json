@@ -1,0 +1,4390 @@
+{
+  "network": {
+    "items": [
+      {
+        "id": 1,
+        "label": "anomaly detection",
+        "x": -0.5194,
+        "y": 0.4758,
+        "cluster": 1,
+        "description": "Keyword in 145 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 145,
+          "Total citations": 343,
+          "Total link strength": 450
+        },
+        "scores": {
+          "Avg. publication year": 2023.16,
+          "Avg. citations": 2.37
+        }
+      },
+      {
+        "id": 2,
+        "label": "machine learning",
+        "x": -0.6449,
+        "y": 0.454,
+        "cluster": 1,
+        "description": "Keyword in 135 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 135,
+          "Total citations": 211,
+          "Total link strength": 430
+        },
+        "scores": {
+          "Avg. publication year": 2023.13,
+          "Avg. citations": 1.56
+        }
+      },
+      {
+        "id": 3,
+        "label": "cybersecurity",
+        "x": 0.4868,
+        "y": 0.5194,
+        "cluster": 2,
+        "description": "Keyword in 61 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 61,
+          "Total citations": 112,
+          "Total link strength": 244
+        },
+        "scores": {
+          "Avg. publication year": 2023.13,
+          "Avg. citations": 1.84
+        }
+      },
+      {
+        "id": 4,
+        "label": "intrusion detection",
+        "x": 0.4049,
+        "y": 0.4219,
+        "cluster": 2,
+        "description": "Keyword in 61 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 61,
+          "Total citations": 150,
+          "Total link strength": 227
+        },
+        "scores": {
+          "Avg. publication year": 2023.16,
+          "Avg. citations": 2.46
+        }
+      },
+      {
+        "id": 5,
+        "label": "internet of things",
+        "x": 0.6198,
+        "y": -0.2655,
+        "cluster": 3,
+        "description": "Keyword in 51 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 51,
+          "Total citations": 205,
+          "Total link strength": 232
+        },
+        "scores": {
+          "Avg. publication year": 2023.12,
+          "Avg. citations": 4.02
+        }
+      },
+      {
+        "id": 6,
+        "label": "deep learning",
+        "x": -0.4665,
+        "y": 0.3669,
+        "cluster": 1,
+        "description": "Keyword in 41 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 41,
+          "Total citations": 77,
+          "Total link strength": 177
+        },
+        "scores": {
+          "Avg. publication year": 2023.2,
+          "Avg. citations": 1.88
+        }
+      },
+      {
+        "id": 7,
+        "label": "security",
+        "x": 0.5974,
+        "y": 0.4702,
+        "cluster": 2,
+        "description": "Keyword in 37 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 37,
+          "Total citations": 83,
+          "Total link strength": 173
+        },
+        "scores": {
+          "Avg. publication year": 2023.19,
+          "Avg. citations": 2.24
+        }
+      },
+      {
+        "id": 8,
+        "label": "intrusion detection system",
+        "x": 0.3882,
+        "y": 0.5793,
+        "cluster": 2,
+        "description": "Keyword in 25 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 25,
+          "Total citations": 17,
+          "Total link strength": 104
+        },
+        "scores": {
+          "Avg. publication year": 2023.12,
+          "Avg. citations": 0.68
+        }
+      },
+      {
+        "id": 9,
+        "label": "artificial intelligence",
+        "x": 0.62,
+        "y": -0.3929,
+        "cluster": 3,
+        "description": "Keyword in 19 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 19,
+          "Total citations": 10,
+          "Total link strength": 74
+        },
+        "scores": {
+          "Avg. publication year": 2023.32,
+          "Avg. citations": 0.53
+        }
+      },
+      {
+        "id": 10,
+        "label": "things",
+        "x": -0.0877,
+        "y": -0.6466,
+        "cluster": 4,
+        "description": "Keyword in 15 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 15,
+          "Total citations": 22,
+          "Total link strength": 77
+        },
+        "scores": {
+          "Avg. publication year": 2023.13,
+          "Avg. citations": 1.47
+        }
+      },
+      {
+        "id": 11,
+        "label": "autoencoder",
+        "x": -0.5562,
+        "y": 0.5851,
+        "cluster": 1,
+        "description": "Keyword in 14 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 14,
+          "Total citations": 21,
+          "Total link strength": 39
+        },
+        "scores": {
+          "Avg. publication year": 2023.07,
+          "Avg. citations": 1.5
+        }
+      },
+      {
+        "id": 12,
+        "label": "attack detection",
+        "x": 0.4806,
+        "y": 0.33,
+        "cluster": 2,
+        "description": "Keyword in 13 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 13,
+          "Total citations": 12,
+          "Total link strength": 68
+        },
+        "scores": {
+          "Avg. publication year": 2023.23,
+          "Avg. citations": 0.92
+        }
+      },
+      {
+        "id": 13,
+        "label": "cyber-physical systems",
+        "x": 0.7361,
+        "y": -0.2319,
+        "cluster": 3,
+        "description": "Keyword in 13 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 13,
+          "Total citations": 26,
+          "Total link strength": 59
+        },
+        "scores": {
+          "Avg. publication year": 2023.15,
+          "Avg. citations": 2.0
+        }
+      },
+      {
+        "id": 14,
+        "label": "blockchain",
+        "x": -0.0055,
+        "y": -0.7439,
+        "cluster": 4,
+        "description": "Keyword in 12 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 12,
+          "Total citations": 18,
+          "Total link strength": 48
+        },
+        "scores": {
+          "Avg. publication year": 2023.17,
+          "Avg. citations": 1.5
+        }
+      },
+      {
+        "id": 15,
+        "label": "classification",
+        "x": -0.6461,
+        "y": 0.3349,
+        "cluster": 1,
+        "description": "Keyword in 12 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 12,
+          "Total citations": 29,
+          "Total link strength": 58
+        },
+        "scores": {
+          "Avg. publication year": 2023.08,
+          "Avg. citations": 2.42
+        }
+      },
+      {
+        "id": 16,
+        "label": "feature selection",
+        "x": -0.7175,
+        "y": -0.264,
+        "cluster": 5,
+        "description": "Keyword in 12 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 12,
+          "Total citations": 32,
+          "Total link strength": 50
+        },
+        "scores": {
+          "Avg. publication year": 2023.17,
+          "Avg. citations": 2.67
+        }
+      },
+      {
+        "id": 17,
+        "label": "federated learning",
+        "x": -0.0204,
+        "y": -0.546,
+        "cluster": 4,
+        "description": "Keyword in 12 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 12,
+          "Total citations": 31,
+          "Total link strength": 49
+        },
+        "scores": {
+          "Avg. publication year": 2023.17,
+          "Avg. citations": 2.58
+        }
+      },
+      {
+        "id": 18,
+        "label": "neural-network",
+        "x": -0.3885,
+        "y": 0.4717,
+        "cluster": 1,
+        "description": "Keyword in 11 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 11,
+          "Total citations": 50,
+          "Total link strength": 49
+        },
+        "scores": {
+          "Avg. publication year": 2023.27,
+          "Avg. citations": 4.55
+        }
+      },
+      {
+        "id": 19,
+        "label": "network security",
+        "x": 0.5896,
+        "y": 0.6006,
+        "cluster": 2,
+        "description": "Keyword in 10 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 10,
+          "Total citations": 80,
+          "Total link strength": 44
+        },
+        "scores": {
+          "Avg. publication year": 2023.0,
+          "Avg. citations": 8.0
+        }
+      },
+      {
+        "id": 20,
+        "label": "detection system",
+        "x": -0.5919,
+        "y": -0.2855,
+        "cluster": 5,
+        "description": "Keyword in 9 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 9,
+          "Total citations": 99,
+          "Total link strength": 50
+        },
+        "scores": {
+          "Avg. publication year": 2023.22,
+          "Avg. citations": 11.0
+        }
+      },
+      {
+        "id": 21,
+        "label": "feature-selection",
+        "x": -0.7308,
+        "y": -0.1437,
+        "cluster": 5,
+        "description": "Keyword in 9 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 9,
+          "Total citations": 82,
+          "Total link strength": 45
+        },
+        "scores": {
+          "Avg. publication year": 2023.22,
+          "Avg. citations": 9.11
+        }
+      },
+      {
+        "id": 22,
+        "label": "prediction",
+        "x": -0.1635,
+        "y": -0.7336,
+        "cluster": 4,
+        "description": "Keyword in 9 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 9,
+          "Total citations": 13,
+          "Total link strength": 39
+        },
+        "scores": {
+          "Avg. publication year": 2023.22,
+          "Avg. citations": 1.44
+        }
+      },
+      {
+        "id": 23,
+        "label": "algorithm",
+        "x": -0.7194,
+        "y": -0.3794,
+        "cluster": 5,
+        "description": "Keyword in 8 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 8,
+          "Total citations": 12,
+          "Total link strength": 28
+        },
+        "scores": {
+          "Avg. publication year": 2023.12,
+          "Avg. citations": 1.5
+        }
+      },
+      {
+        "id": 24,
+        "label": "data models",
+        "x": 0.306,
+        "y": 0.464,
+        "cluster": 2,
+        "description": "Keyword in 8 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 8,
+          "Total citations": 60,
+          "Total link strength": 32
+        },
+        "scores": {
+          "Avg. publication year": 2023.12,
+          "Avg. citations": 7.5
+        }
+      },
+      {
+        "id": 25,
+        "label": "industrial control systems",
+        "x": 0.5058,
+        "y": -0.2832,
+        "cluster": 3,
+        "description": "Keyword in 8 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 8,
+          "Total citations": 9,
+          "Total link strength": 27
+        },
+        "scores": {
+          "Avg. publication year": 2023.0,
+          "Avg. citations": 1.12
+        }
+      },
+      {
+        "id": 26,
+        "label": "networks",
+        "x": 0.0979,
+        "y": -0.6849,
+        "cluster": 4,
+        "description": "Keyword in 8 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 8,
+          "Total citations": 37,
+          "Total link strength": 27
+        },
+        "scores": {
+          "Avg. publication year": 2023.12,
+          "Avg. citations": 4.62
+        }
+      },
+      {
+        "id": 27,
+        "label": "threat detection",
+        "x": 0.6277,
+        "y": 0.3678,
+        "cluster": 2,
+        "description": "Keyword in 8 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 8,
+          "Total citations": 21,
+          "Total link strength": 17
+        },
+        "scores": {
+          "Avg. publication year": 2023.12,
+          "Avg. citations": 2.62
+        }
+      },
+      {
+        "id": 28,
+        "label": "architecture",
+        "x": -0.1503,
+        "y": -0.5315,
+        "cluster": 4,
+        "description": "Keyword in 7 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 7,
+          "Total citations": 13,
+          "Total link strength": 46
+        },
+        "scores": {
+          "Avg. publication year": 2023.14,
+          "Avg. citations": 1.86
+        }
+      },
+      {
+        "id": 29,
+        "label": "ensemble",
+        "x": -0.0638,
+        "y": -0.8342,
+        "cluster": 4,
+        "description": "Keyword in 7 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 7,
+          "Total citations": 4,
+          "Total link strength": 38
+        },
+        "scores": {
+          "Avg. publication year": 2023.14,
+          "Avg. citations": 0.57
+        }
+      },
+      {
+        "id": 30,
+        "label": "industrial internet of things",
+        "x": 0.7371,
+        "y": -0.4143,
+        "cluster": 3,
+        "description": "Keyword in 7 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 7,
+          "Total citations": 42,
+          "Total link strength": 35
+        },
+        "scores": {
+          "Avg. publication year": 2023.29,
+          "Avg. citations": 6.0
+        }
+      },
+      {
+        "id": 31,
+        "label": "intrusion detection system (ids)",
+        "x": 0.4451,
+        "y": 0.6724,
+        "cluster": 2,
+        "description": "Keyword in 7 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 7,
+          "Total citations": 109,
+          "Total link strength": 41
+        },
+        "scores": {
+          "Avg. publication year": 2023.0,
+          "Avg. citations": 15.57
+        }
+      },
+      {
+        "id": 32,
+        "label": "lstm",
+        "x": 0.0857,
+        "y": -0.5335,
+        "cluster": 4,
+        "description": "Keyword in 7 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 7,
+          "Total citations": 36,
+          "Total link strength": 24
+        },
+        "scores": {
+          "Avg. publication year": 2023.14,
+          "Avg. citations": 5.14
+        }
+      },
+      {
+        "id": 33,
+        "label": "network anomaly detection",
+        "x": -0.6934,
+        "y": 0.5498,
+        "cluster": 1,
+        "description": "Keyword in 7 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 7,
+          "Total citations": 6,
+          "Total link strength": 26
+        },
+        "scores": {
+          "Avg. publication year": 2023.29,
+          "Avg. citations": 0.86
+        }
+      },
+      {
+        "id": 34,
+        "label": "privacy",
+        "x": -0.2456,
+        "y": -0.6617,
+        "cluster": 4,
+        "description": "Keyword in 7 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 7,
+          "Total citations": 11,
+          "Total link strength": 28
+        },
+        "scores": {
+          "Avg. publication year": 2023.43,
+          "Avg. citations": 1.57
+        }
+      },
+      {
+        "id": 35,
+        "label": "svm",
+        "x": 0.6461,
+        "y": -0.1371,
+        "cluster": 3,
+        "description": "Keyword in 7 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 7,
+          "Total citations": 3,
+          "Total link strength": 37
+        },
+        "scores": {
+          "Avg. publication year": 2023.14,
+          "Avg. citations": 0.43
+        }
+      },
+      {
+        "id": 36,
+        "label": "system",
+        "x": 0.5172,
+        "y": -0.4243,
+        "cluster": 3,
+        "description": "Keyword in 7 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 7,
+          "Total citations": 16,
+          "Total link strength": 26
+        },
+        "scores": {
+          "Avg. publication year": 2023.14,
+          "Avg. citations": 2.29
+        }
+      },
+      {
+        "id": 37,
+        "label": "artificial-intelligence",
+        "x": -0.5093,
+        "y": 0.269,
+        "cluster": 1,
+        "description": "Keyword in 6 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 11,
+          "Total link strength": 40
+        },
+        "scores": {
+          "Avg. publication year": 2023.33,
+          "Avg. citations": 1.83
+        }
+      },
+      {
+        "id": 38,
+        "label": "big data",
+        "x": 0.1023,
+        "y": -0.7972,
+        "cluster": 4,
+        "description": "Keyword in 6 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 10,
+          "Total link strength": 27
+        },
+        "scores": {
+          "Avg. publication year": 2023.17,
+          "Avg. citations": 1.67
+        }
+      },
+      {
+        "id": 39,
+        "label": "computer security",
+        "x": 0.3707,
+        "y": 0.3066,
+        "cluster": 2,
+        "description": "Keyword in 6 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 16,
+          "Total link strength": 43
+        },
+        "scores": {
+          "Avg. publication year": 2023.33,
+          "Avg. citations": 2.67
+        }
+      },
+      {
+        "id": 40,
+        "label": "cyber-physical system",
+        "x": 0.8253,
+        "y": -0.2907,
+        "cluster": 3,
+        "description": "Keyword in 6 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 7,
+          "Total link strength": 17
+        },
+        "scores": {
+          "Avg. publication year": 2023.33,
+          "Avg. citations": 1.17
+        }
+      },
+      {
+        "id": 41,
+        "label": "cyberattack",
+        "x": 0.6864,
+        "y": 0.5364,
+        "cluster": 2,
+        "description": "Keyword in 6 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 24,
+          "Total link strength": 24
+        },
+        "scores": {
+          "Avg. publication year": 2023.0,
+          "Avg. citations": 4.0
+        }
+      },
+      {
+        "id": 42,
+        "label": "cyberattacks",
+        "x": 0.2822,
+        "y": 0.5817,
+        "cluster": 2,
+        "description": "Keyword in 6 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 20,
+          "Total link strength": 25
+        },
+        "scores": {
+          "Avg. publication year": 2023.33,
+          "Avg. citations": 3.33
+        }
+      },
+      {
+        "id": 43,
+        "label": "machine learning algorithms",
+        "x": -0.4527,
+        "y": 0.6197,
+        "cluster": 1,
+        "description": "Keyword in 6 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 8,
+          "Total link strength": 20
+        },
+        "scores": {
+          "Avg. publication year": 2023.33,
+          "Avg. citations": 1.33
+        }
+      },
+      {
+        "id": 44,
+        "label": "neural networks",
+        "x": -0.7453,
+        "y": 0.3878,
+        "cluster": 1,
+        "description": "Keyword in 6 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 32,
+          "Total link strength": 23
+        },
+        "scores": {
+          "Avg. publication year": 2023.17,
+          "Avg. citations": 5.33
+        }
+      },
+      {
+        "id": 45,
+        "label": "optimization",
+        "x": -0.5508,
+        "y": -0.1737,
+        "cluster": 5,
+        "description": "Keyword in 6 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 5,
+          "Total link strength": 22
+        },
+        "scores": {
+          "Avg. publication year": 2023.0,
+          "Avg. citations": 0.83
+        }
+      },
+      {
+        "id": 46,
+        "label": "sdn",
+        "x": -0.3558,
+        "y": 0.3602,
+        "cluster": 1,
+        "description": "Keyword in 6 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 15,
+          "Total link strength": 22
+        },
+        "scores": {
+          "Avg. publication year": 2023.17,
+          "Avg. citations": 2.5
+        }
+      },
+      {
+        "id": 47,
+        "label": "smart grids",
+        "x": 0.4894,
+        "y": -0.1753,
+        "cluster": 3,
+        "description": "Keyword in 6 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 11,
+          "Total link strength": 30
+        },
+        "scores": {
+          "Avg. publication year": 2023.17,
+          "Avg. citations": 1.83
+        }
+      },
+      {
+        "id": 48,
+        "label": "algorithms",
+        "x": -0.8395,
+        "y": -0.2163,
+        "cluster": 5,
+        "description": "Keyword in 5 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 2,
+          "Total link strength": 26
+        },
+        "scores": {
+          "Avg. publication year": 2023.0,
+          "Avg. citations": 0.4
+        }
+      },
+      {
+        "id": 49,
+        "label": "computer crime",
+        "x": -0.5783,
+        "y": -0.3921,
+        "cluster": 5,
+        "description": "Keyword in 5 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 40,
+          "Total link strength": 28
+        },
+        "scores": {
+          "Avg. publication year": 2023.0,
+          "Avg. citations": 8.0
+        }
+      },
+      {
+        "id": 50,
+        "label": "cyber-security",
+        "x": 0.56,
+        "y": 0.2638,
+        "cluster": 2,
+        "description": "Keyword in 5 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 18,
+          "Total link strength": 24
+        },
+        "scores": {
+          "Avg. publication year": 2023.2,
+          "Avg. citations": 3.6
+        }
+      },
+      {
+        "id": 51,
+        "label": "deep learning approach",
+        "x": -0.6358,
+        "y": 0.6552,
+        "cluster": 1,
+        "description": "Keyword in 5 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 8,
+          "Total link strength": 26
+        },
+        "scores": {
+          "Avg. publication year": 2023.0,
+          "Avg. citations": 1.6
+        }
+      },
+      {
+        "id": 52,
+        "label": "feature extraction",
+        "x": -0.6577,
+        "y": -0.0658,
+        "cluster": 5,
+        "description": "Keyword in 5 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 15,
+          "Total link strength": 20
+        },
+        "scores": {
+          "Avg. publication year": 2023.0,
+          "Avg. citations": 3.0
+        }
+      },
+      {
+        "id": 53,
+        "label": "industry 4.0",
+        "x": 0.57,
+        "y": 0.7007,
+        "cluster": 2,
+        "description": "Keyword in 5 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 2,
+          "Total link strength": 20
+        },
+        "scores": {
+          "Avg. publication year": 2023.4,
+          "Avg. citations": 0.4
+        }
+      },
+      {
+        "id": 54,
+        "label": "insider threat",
+        "x": 0.2578,
+        "y": 0.3749,
+        "cluster": 2,
+        "description": "Keyword in 5 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 4,
+          "Total link strength": 9
+        },
+        "scores": {
+          "Avg. publication year": 2023.2,
+          "Avg. citations": 0.8
+        }
+      },
+      {
+        "id": 55,
+        "label": "intrusion detection systems",
+        "x": 0.7217,
+        "y": 0.4053,
+        "cluster": 2,
+        "description": "Keyword in 5 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 12,
+          "Total link strength": 19
+        },
+        "scores": {
+          "Avg. publication year": 2023.0,
+          "Avg. citations": 2.4
+        }
+      },
+      {
+        "id": 56,
+        "label": "malware",
+        "x": 0.3487,
+        "y": 0.7044,
+        "cluster": 2,
+        "description": "Keyword in 5 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 3,
+          "Total link strength": 19
+        },
+        "scores": {
+          "Avg. publication year": 2023.4,
+          "Avg. citations": 0.6
+        }
+      },
+      {
+        "id": 57,
+        "label": "monitoring",
+        "x": -0.8285,
+        "y": -0.3773,
+        "cluster": 5,
+        "description": "Keyword in 5 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 16,
+          "Total link strength": 29
+        },
+        "scores": {
+          "Avg. publication year": 2023.0,
+          "Avg. citations": 3.2
+        }
+      },
+      {
+        "id": 58,
+        "label": "state estimation",
+        "x": 0.6681,
+        "y": -0.5031,
+        "cluster": 3,
+        "description": "Keyword in 5 of 288 Web of Science records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 30,
+          "Total link strength": 23
+        },
+        "scores": {
+          "Avg. publication year": 2023.2,
+          "Avg. citations": 6.0
+        }
+      }
+    ],
+    "links": [
+      {
+        "source_id": 1,
+        "target_id": 2,
+        "strength": 69
+      },
+      {
+        "source_id": 3,
+        "target_id": 2,
+        "strength": 40
+      },
+      {
+        "source_id": 1,
+        "target_id": 4,
+        "strength": 38
+      },
+      {
+        "source_id": 1,
+        "target_id": 3,
+        "strength": 34
+      },
+      {
+        "source_id": 1,
+        "target_id": 5,
+        "strength": 30
+      },
+      {
+        "source_id": 5,
+        "target_id": 2,
+        "strength": 29
+      },
+      {
+        "source_id": 6,
+        "target_id": 2,
+        "strength": 28
+      },
+      {
+        "source_id": 4,
+        "target_id": 2,
+        "strength": 28
+      },
+      {
+        "source_id": 1,
+        "target_id": 6,
+        "strength": 27
+      },
+      {
+        "source_id": 1,
+        "target_id": 7,
+        "strength": 22
+      },
+      {
+        "source_id": 2,
+        "target_id": 7,
+        "strength": 20
+      },
+      {
+        "source_id": 8,
+        "target_id": 2,
+        "strength": 17
+      },
+      {
+        "source_id": 3,
+        "target_id": 4,
+        "strength": 15
+      },
+      {
+        "source_id": 5,
+        "target_id": 4,
+        "strength": 15
+      },
+      {
+        "source_id": 5,
+        "target_id": 7,
+        "strength": 15
+      },
+      {
+        "source_id": 3,
+        "target_id": 6,
+        "strength": 14
+      },
+      {
+        "source_id": 3,
+        "target_id": 5,
+        "strength": 14
+      },
+      {
+        "source_id": 4,
+        "target_id": 7,
+        "strength": 13
+      },
+      {
+        "source_id": 1,
+        "target_id": 12,
+        "strength": 12
+      },
+      {
+        "source_id": 1,
+        "target_id": 8,
+        "strength": 12
+      },
+      {
+        "source_id": 6,
+        "target_id": 5,
+        "strength": 12
+      },
+      {
+        "source_id": 1,
+        "target_id": 10,
+        "strength": 10
+      },
+      {
+        "source_id": 9,
+        "target_id": 3,
+        "strength": 10
+      },
+      {
+        "source_id": 9,
+        "target_id": 2,
+        "strength": 10
+      },
+      {
+        "source_id": 6,
+        "target_id": 4,
+        "strength": 10
+      },
+      {
+        "source_id": 5,
+        "target_id": 10,
+        "strength": 10
+      },
+      {
+        "source_id": 1,
+        "target_id": 11,
+        "strength": 9
+      },
+      {
+        "source_id": 3,
+        "target_id": 8,
+        "strength": 9
+      },
+      {
+        "source_id": 16,
+        "target_id": 2,
+        "strength": 9
+      },
+      {
+        "source_id": 1,
+        "target_id": 15,
+        "strength": 8
+      },
+      {
+        "source_id": 1,
+        "target_id": 13,
+        "strength": 8
+      },
+      {
+        "source_id": 1,
+        "target_id": 17,
+        "strength": 8
+      },
+      {
+        "source_id": 12,
+        "target_id": 2,
+        "strength": 8
+      },
+      {
+        "source_id": 2,
+        "target_id": 10,
+        "strength": 8
+      },
+      {
+        "source_id": 1,
+        "target_id": 25,
+        "strength": 7
+      },
+      {
+        "source_id": 1,
+        "target_id": 26,
+        "strength": 7
+      },
+      {
+        "source_id": 14,
+        "target_id": 2,
+        "strength": 7
+      },
+      {
+        "source_id": 15,
+        "target_id": 2,
+        "strength": 7
+      },
+      {
+        "source_id": 13,
+        "target_id": 2,
+        "strength": 7
+      },
+      {
+        "source_id": 6,
+        "target_id": 8,
+        "strength": 7
+      },
+      {
+        "source_id": 6,
+        "target_id": 7,
+        "strength": 7
+      },
+      {
+        "source_id": 5,
+        "target_id": 8,
+        "strength": 7
+      },
+      {
+        "source_id": 1,
+        "target_id": 28,
+        "strength": 6
+      },
+      {
+        "source_id": 1,
+        "target_id": 9,
+        "strength": 6
+      },
+      {
+        "source_id": 12,
+        "target_id": 3,
+        "strength": 6
+      },
+      {
+        "source_id": 12,
+        "target_id": 5,
+        "strength": 6
+      },
+      {
+        "source_id": 11,
+        "target_id": 2,
+        "strength": 6
+      },
+      {
+        "source_id": 3,
+        "target_id": 7,
+        "strength": 6
+      },
+      {
+        "source_id": 3,
+        "target_id": 10,
+        "strength": 6
+      },
+      {
+        "source_id": 5,
+        "target_id": 31,
+        "strength": 6
+      },
+      {
+        "source_id": 2,
+        "target_id": 18,
+        "strength": 6
+      },
+      {
+        "source_id": 23,
+        "target_id": 1,
+        "strength": 5
+      },
+      {
+        "source_id": 23,
+        "target_id": 2,
+        "strength": 5
+      },
+      {
+        "source_id": 1,
+        "target_id": 41,
+        "strength": 5
+      },
+      {
+        "source_id": 1,
+        "target_id": 16,
+        "strength": 5
+      },
+      {
+        "source_id": 1,
+        "target_id": 21,
+        "strength": 5
+      },
+      {
+        "source_id": 1,
+        "target_id": 32,
+        "strength": 5
+      },
+      {
+        "source_id": 1,
+        "target_id": 19,
+        "strength": 5
+      },
+      {
+        "source_id": 1,
+        "target_id": 18,
+        "strength": 5
+      },
+      {
+        "source_id": 1,
+        "target_id": 22,
+        "strength": 5
+      },
+      {
+        "source_id": 1,
+        "target_id": 35,
+        "strength": 5
+      },
+      {
+        "source_id": 9,
+        "target_id": 6,
+        "strength": 5
+      },
+      {
+        "source_id": 14,
+        "target_id": 17,
+        "strength": 5
+      },
+      {
+        "source_id": 15,
+        "target_id": 4,
+        "strength": 5
+      },
+      {
+        "source_id": 13,
+        "target_id": 3,
+        "strength": 5
+      },
+      {
+        "source_id": 13,
+        "target_id": 6,
+        "strength": 5
+      },
+      {
+        "source_id": 42,
+        "target_id": 2,
+        "strength": 5
+      },
+      {
+        "source_id": 6,
+        "target_id": 10,
+        "strength": 5
+      },
+      {
+        "source_id": 21,
+        "target_id": 5,
+        "strength": 5
+      },
+      {
+        "source_id": 21,
+        "target_id": 2,
+        "strength": 5
+      },
+      {
+        "source_id": 17,
+        "target_id": 5,
+        "strength": 5
+      },
+      {
+        "source_id": 25,
+        "target_id": 2,
+        "strength": 5
+      },
+      {
+        "source_id": 30,
+        "target_id": 7,
+        "strength": 5
+      },
+      {
+        "source_id": 4,
+        "target_id": 19,
+        "strength": 5
+      },
+      {
+        "source_id": 55,
+        "target_id": 2,
+        "strength": 5
+      },
+      {
+        "source_id": 2,
+        "target_id": 47,
+        "strength": 5
+      },
+      {
+        "source_id": 2,
+        "target_id": 35,
+        "strength": 5
+      },
+      {
+        "source_id": 2,
+        "target_id": 36,
+        "strength": 5
+      },
+      {
+        "source_id": 7,
+        "target_id": 10,
+        "strength": 5
+      },
+      {
+        "source_id": 1,
+        "target_id": 38,
+        "strength": 4
+      },
+      {
+        "source_id": 1,
+        "target_id": 14,
+        "strength": 4
+      },
+      {
+        "source_id": 1,
+        "target_id": 39,
+        "strength": 4
+      },
+      {
+        "source_id": 1,
+        "target_id": 50,
+        "strength": 4
+      },
+      {
+        "source_id": 1,
+        "target_id": 24,
+        "strength": 4
+      },
+      {
+        "source_id": 1,
+        "target_id": 20,
+        "strength": 4
+      },
+      {
+        "source_id": 1,
+        "target_id": 31,
+        "strength": 4
+      },
+      {
+        "source_id": 1,
+        "target_id": 57,
+        "strength": 4
+      },
+      {
+        "source_id": 1,
+        "target_id": 44,
+        "strength": 4
+      },
+      {
+        "source_id": 1,
+        "target_id": 45,
+        "strength": 4
+      },
+      {
+        "source_id": 1,
+        "target_id": 47,
+        "strength": 4
+      },
+      {
+        "source_id": 1,
+        "target_id": 58,
+        "strength": 4
+      },
+      {
+        "source_id": 28,
+        "target_id": 4,
+        "strength": 4
+      },
+      {
+        "source_id": 28,
+        "target_id": 2,
+        "strength": 4
+      },
+      {
+        "source_id": 9,
+        "target_id": 5,
+        "strength": 4
+      },
+      {
+        "source_id": 37,
+        "target_id": 3,
+        "strength": 4
+      },
+      {
+        "source_id": 12,
+        "target_id": 6,
+        "strength": 4
+      },
+      {
+        "source_id": 12,
+        "target_id": 7,
+        "strength": 4
+      },
+      {
+        "source_id": 11,
+        "target_id": 4,
+        "strength": 4
+      },
+      {
+        "source_id": 14,
+        "target_id": 3,
+        "strength": 4
+      },
+      {
+        "source_id": 39,
+        "target_id": 3,
+        "strength": 4
+      },
+      {
+        "source_id": 39,
+        "target_id": 6,
+        "strength": 4
+      },
+      {
+        "source_id": 39,
+        "target_id": 2,
+        "strength": 4
+      },
+      {
+        "source_id": 13,
+        "target_id": 5,
+        "strength": 4
+      },
+      {
+        "source_id": 13,
+        "target_id": 4,
+        "strength": 4
+      },
+      {
+        "source_id": 13,
+        "target_id": 7,
+        "strength": 4
+      },
+      {
+        "source_id": 50,
+        "target_id": 2,
+        "strength": 4
+      },
+      {
+        "source_id": 3,
+        "target_id": 22,
+        "strength": 4
+      },
+      {
+        "source_id": 20,
+        "target_id": 5,
+        "strength": 4
+      },
+      {
+        "source_id": 20,
+        "target_id": 2,
+        "strength": 4
+      },
+      {
+        "source_id": 16,
+        "target_id": 5,
+        "strength": 4
+      },
+      {
+        "source_id": 16,
+        "target_id": 7,
+        "strength": 4
+      },
+      {
+        "source_id": 21,
+        "target_id": 4,
+        "strength": 4
+      },
+      {
+        "source_id": 17,
+        "target_id": 7,
+        "strength": 4
+      },
+      {
+        "source_id": 25,
+        "target_id": 4,
+        "strength": 4
+      },
+      {
+        "source_id": 5,
+        "target_id": 26,
+        "strength": 4
+      },
+      {
+        "source_id": 4,
+        "target_id": 46,
+        "strength": 4
+      },
+      {
+        "source_id": 8,
+        "target_id": 7,
+        "strength": 4
+      },
+      {
+        "source_id": 31,
+        "target_id": 2,
+        "strength": 4
+      },
+      {
+        "source_id": 31,
+        "target_id": 7,
+        "strength": 4
+      },
+      {
+        "source_id": 2,
+        "target_id": 56,
+        "strength": 4
+      },
+      {
+        "source_id": 2,
+        "target_id": 33,
+        "strength": 4
+      },
+      {
+        "source_id": 2,
+        "target_id": 19,
+        "strength": 4
+      },
+      {
+        "source_id": 2,
+        "target_id": 45,
+        "strength": 4
+      },
+      {
+        "source_id": 2,
+        "target_id": 34,
+        "strength": 4
+      },
+      {
+        "source_id": 2,
+        "target_id": 27,
+        "strength": 4
+      },
+      {
+        "source_id": 57,
+        "target_id": 7,
+        "strength": 4
+      },
+      {
+        "source_id": 23,
+        "target_id": 29,
+        "strength": 3
+      },
+      {
+        "source_id": 48,
+        "target_id": 1,
+        "strength": 3
+      },
+      {
+        "source_id": 48,
+        "target_id": 3,
+        "strength": 3
+      },
+      {
+        "source_id": 48,
+        "target_id": 6,
+        "strength": 3
+      },
+      {
+        "source_id": 48,
+        "target_id": 8,
+        "strength": 3
+      },
+      {
+        "source_id": 1,
+        "target_id": 49,
+        "strength": 3
+      },
+      {
+        "source_id": 1,
+        "target_id": 40,
+        "strength": 3
+      },
+      {
+        "source_id": 1,
+        "target_id": 51,
+        "strength": 3
+      },
+      {
+        "source_id": 1,
+        "target_id": 29,
+        "strength": 3
+      },
+      {
+        "source_id": 1,
+        "target_id": 52,
+        "strength": 3
+      },
+      {
+        "source_id": 1,
+        "target_id": 30,
+        "strength": 3
+      },
+      {
+        "source_id": 1,
+        "target_id": 53,
+        "strength": 3
+      },
+      {
+        "source_id": 1,
+        "target_id": 34,
+        "strength": 3
+      },
+      {
+        "source_id": 1,
+        "target_id": 46,
+        "strength": 3
+      },
+      {
+        "source_id": 28,
+        "target_id": 3,
+        "strength": 3
+      },
+      {
+        "source_id": 28,
+        "target_id": 6,
+        "strength": 3
+      },
+      {
+        "source_id": 28,
+        "target_id": 7,
+        "strength": 3
+      },
+      {
+        "source_id": 28,
+        "target_id": 10,
+        "strength": 3
+      },
+      {
+        "source_id": 9,
+        "target_id": 14,
+        "strength": 3
+      },
+      {
+        "source_id": 9,
+        "target_id": 4,
+        "strength": 3
+      },
+      {
+        "source_id": 9,
+        "target_id": 22,
+        "strength": 3
+      },
+      {
+        "source_id": 9,
+        "target_id": 7,
+        "strength": 3
+      },
+      {
+        "source_id": 37,
+        "target_id": 5,
+        "strength": 3
+      },
+      {
+        "source_id": 37,
+        "target_id": 2,
+        "strength": 3
+      },
+      {
+        "source_id": 37,
+        "target_id": 7,
+        "strength": 3
+      },
+      {
+        "source_id": 12,
+        "target_id": 4,
+        "strength": 3
+      },
+      {
+        "source_id": 12,
+        "target_id": 8,
+        "strength": 3
+      },
+      {
+        "source_id": 12,
+        "target_id": 10,
+        "strength": 3
+      },
+      {
+        "source_id": 11,
+        "target_id": 3,
+        "strength": 3
+      },
+      {
+        "source_id": 11,
+        "target_id": 6,
+        "strength": 3
+      },
+      {
+        "source_id": 14,
+        "target_id": 6,
+        "strength": 3
+      },
+      {
+        "source_id": 15,
+        "target_id": 29,
+        "strength": 3
+      },
+      {
+        "source_id": 15,
+        "target_id": 5,
+        "strength": 3
+      },
+      {
+        "source_id": 15,
+        "target_id": 8,
+        "strength": 3
+      },
+      {
+        "source_id": 49,
+        "target_id": 3,
+        "strength": 3
+      },
+      {
+        "source_id": 39,
+        "target_id": 5,
+        "strength": 3
+      },
+      {
+        "source_id": 39,
+        "target_id": 4,
+        "strength": 3
+      },
+      {
+        "source_id": 50,
+        "target_id": 4,
+        "strength": 3
+      },
+      {
+        "source_id": 42,
+        "target_id": 3,
+        "strength": 3
+      },
+      {
+        "source_id": 3,
+        "target_id": 31,
+        "strength": 3
+      },
+      {
+        "source_id": 3,
+        "target_id": 57,
+        "strength": 3
+      },
+      {
+        "source_id": 3,
+        "target_id": 34,
+        "strength": 3
+      },
+      {
+        "source_id": 3,
+        "target_id": 47,
+        "strength": 3
+      },
+      {
+        "source_id": 3,
+        "target_id": 58,
+        "strength": 3
+      },
+      {
+        "source_id": 24,
+        "target_id": 7,
+        "strength": 3
+      },
+      {
+        "source_id": 6,
+        "target_id": 16,
+        "strength": 3
+      },
+      {
+        "source_id": 6,
+        "target_id": 53,
+        "strength": 3
+      },
+      {
+        "source_id": 6,
+        "target_id": 46,
+        "strength": 3
+      },
+      {
+        "source_id": 20,
+        "target_id": 4,
+        "strength": 3
+      },
+      {
+        "source_id": 29,
+        "target_id": 21,
+        "strength": 3
+      },
+      {
+        "source_id": 29,
+        "target_id": 5,
+        "strength": 3
+      },
+      {
+        "source_id": 29,
+        "target_id": 8,
+        "strength": 3
+      },
+      {
+        "source_id": 29,
+        "target_id": 2,
+        "strength": 3
+      },
+      {
+        "source_id": 29,
+        "target_id": 35,
+        "strength": 3
+      },
+      {
+        "source_id": 21,
+        "target_id": 35,
+        "strength": 3
+      },
+      {
+        "source_id": 17,
+        "target_id": 4,
+        "strength": 3
+      },
+      {
+        "source_id": 17,
+        "target_id": 2,
+        "strength": 3
+      },
+      {
+        "source_id": 53,
+        "target_id": 7,
+        "strength": 3
+      },
+      {
+        "source_id": 5,
+        "target_id": 35,
+        "strength": 3
+      },
+      {
+        "source_id": 4,
+        "target_id": 8,
+        "strength": 3
+      },
+      {
+        "source_id": 4,
+        "target_id": 32,
+        "strength": 3
+      },
+      {
+        "source_id": 4,
+        "target_id": 26,
+        "strength": 3
+      },
+      {
+        "source_id": 4,
+        "target_id": 10,
+        "strength": 3
+      },
+      {
+        "source_id": 8,
+        "target_id": 19,
+        "strength": 3
+      },
+      {
+        "source_id": 8,
+        "target_id": 10,
+        "strength": 3
+      },
+      {
+        "source_id": 2,
+        "target_id": 26,
+        "strength": 3
+      },
+      {
+        "source_id": 2,
+        "target_id": 44,
+        "strength": 3
+      },
+      {
+        "source_id": 2,
+        "target_id": 22,
+        "strength": 3
+      },
+      {
+        "source_id": 2,
+        "target_id": 46,
+        "strength": 3
+      },
+      {
+        "source_id": 2,
+        "target_id": 58,
+        "strength": 3
+      },
+      {
+        "source_id": 18,
+        "target_id": 22,
+        "strength": 3
+      },
+      {
+        "source_id": 34,
+        "target_id": 7,
+        "strength": 3
+      },
+      {
+        "source_id": 23,
+        "target_id": 21,
+        "strength": 2
+      },
+      {
+        "source_id": 23,
+        "target_id": 5,
+        "strength": 2
+      },
+      {
+        "source_id": 23,
+        "target_id": 8,
+        "strength": 2
+      },
+      {
+        "source_id": 23,
+        "target_id": 35,
+        "strength": 2
+      },
+      {
+        "source_id": 48,
+        "target_id": 12,
+        "strength": 2
+      },
+      {
+        "source_id": 48,
+        "target_id": 5,
+        "strength": 2
+      },
+      {
+        "source_id": 48,
+        "target_id": 2,
+        "strength": 2
+      },
+      {
+        "source_id": 48,
+        "target_id": 10,
+        "strength": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 37,
+        "strength": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 42,
+        "strength": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 55,
+        "strength": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 43,
+        "strength": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 56,
+        "strength": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 36,
+        "strength": 2
+      },
+      {
+        "source_id": 28,
+        "target_id": 12,
+        "strength": 2
+      },
+      {
+        "source_id": 28,
+        "target_id": 14,
+        "strength": 2
+      },
+      {
+        "source_id": 28,
+        "target_id": 5,
+        "strength": 2
+      },
+      {
+        "source_id": 28,
+        "target_id": 18,
+        "strength": 2
+      },
+      {
+        "source_id": 9,
+        "target_id": 37,
+        "strength": 2
+      },
+      {
+        "source_id": 9,
+        "target_id": 24,
+        "strength": 2
+      },
+      {
+        "source_id": 9,
+        "target_id": 18,
+        "strength": 2
+      },
+      {
+        "source_id": 37,
+        "target_id": 30,
+        "strength": 2
+      },
+      {
+        "source_id": 37,
+        "target_id": 8,
+        "strength": 2
+      },
+      {
+        "source_id": 37,
+        "target_id": 18,
+        "strength": 2
+      },
+      {
+        "source_id": 37,
+        "target_id": 22,
+        "strength": 2
+      },
+      {
+        "source_id": 37,
+        "target_id": 10,
+        "strength": 2
+      },
+      {
+        "source_id": 11,
+        "target_id": 7,
+        "strength": 2
+      },
+      {
+        "source_id": 38,
+        "target_id": 20,
+        "strength": 2
+      },
+      {
+        "source_id": 38,
+        "target_id": 5,
+        "strength": 2
+      },
+      {
+        "source_id": 38,
+        "target_id": 4,
+        "strength": 2
+      },
+      {
+        "source_id": 38,
+        "target_id": 2,
+        "strength": 2
+      },
+      {
+        "source_id": 38,
+        "target_id": 22,
+        "strength": 2
+      },
+      {
+        "source_id": 14,
+        "target_id": 30,
+        "strength": 2
+      },
+      {
+        "source_id": 14,
+        "target_id": 4,
+        "strength": 2
+      },
+      {
+        "source_id": 14,
+        "target_id": 10,
+        "strength": 2
+      },
+      {
+        "source_id": 15,
+        "target_id": 3,
+        "strength": 2
+      },
+      {
+        "source_id": 15,
+        "target_id": 6,
+        "strength": 2
+      },
+      {
+        "source_id": 15,
+        "target_id": 21,
+        "strength": 2
+      },
+      {
+        "source_id": 15,
+        "target_id": 43,
+        "strength": 2
+      },
+      {
+        "source_id": 15,
+        "target_id": 56,
+        "strength": 2
+      },
+      {
+        "source_id": 15,
+        "target_id": 35,
+        "strength": 2
+      },
+      {
+        "source_id": 49,
+        "target_id": 5,
+        "strength": 2
+      },
+      {
+        "source_id": 49,
+        "target_id": 4,
+        "strength": 2
+      },
+      {
+        "source_id": 49,
+        "target_id": 2,
+        "strength": 2
+      },
+      {
+        "source_id": 39,
+        "target_id": 31,
+        "strength": 2
+      },
+      {
+        "source_id": 39,
+        "target_id": 7,
+        "strength": 2
+      },
+      {
+        "source_id": 39,
+        "target_id": 35,
+        "strength": 2
+      },
+      {
+        "source_id": 40,
+        "target_id": 4,
+        "strength": 2
+      },
+      {
+        "source_id": 40,
+        "target_id": 2,
+        "strength": 2
+      },
+      {
+        "source_id": 13,
+        "target_id": 52,
+        "strength": 2
+      },
+      {
+        "source_id": 13,
+        "target_id": 30,
+        "strength": 2
+      },
+      {
+        "source_id": 13,
+        "target_id": 53,
+        "strength": 2
+      },
+      {
+        "source_id": 13,
+        "target_id": 57,
+        "strength": 2
+      },
+      {
+        "source_id": 50,
+        "target_id": 20,
+        "strength": 2
+      },
+      {
+        "source_id": 50,
+        "target_id": 58,
+        "strength": 2
+      },
+      {
+        "source_id": 41,
+        "target_id": 3,
+        "strength": 2
+      },
+      {
+        "source_id": 41,
+        "target_id": 5,
+        "strength": 2
+      },
+      {
+        "source_id": 41,
+        "target_id": 4,
+        "strength": 2
+      },
+      {
+        "source_id": 41,
+        "target_id": 2,
+        "strength": 2
+      },
+      {
+        "source_id": 41,
+        "target_id": 7,
+        "strength": 2
+      },
+      {
+        "source_id": 42,
+        "target_id": 21,
+        "strength": 2
+      },
+      {
+        "source_id": 42,
+        "target_id": 58,
+        "strength": 2
+      },
+      {
+        "source_id": 3,
+        "target_id": 24,
+        "strength": 2
+      },
+      {
+        "source_id": 3,
+        "target_id": 51,
+        "strength": 2
+      },
+      {
+        "source_id": 3,
+        "target_id": 20,
+        "strength": 2
+      },
+      {
+        "source_id": 3,
+        "target_id": 52,
+        "strength": 2
+      },
+      {
+        "source_id": 3,
+        "target_id": 16,
+        "strength": 2
+      },
+      {
+        "source_id": 3,
+        "target_id": 17,
+        "strength": 2
+      },
+      {
+        "source_id": 3,
+        "target_id": 54,
+        "strength": 2
+      },
+      {
+        "source_id": 3,
+        "target_id": 33,
+        "strength": 2
+      },
+      {
+        "source_id": 3,
+        "target_id": 19,
+        "strength": 2
+      },
+      {
+        "source_id": 3,
+        "target_id": 18,
+        "strength": 2
+      },
+      {
+        "source_id": 3,
+        "target_id": 35,
+        "strength": 2
+      },
+      {
+        "source_id": 3,
+        "target_id": 36,
+        "strength": 2
+      },
+      {
+        "source_id": 24,
+        "target_id": 17,
+        "strength": 2
+      },
+      {
+        "source_id": 24,
+        "target_id": 5,
+        "strength": 2
+      },
+      {
+        "source_id": 24,
+        "target_id": 4,
+        "strength": 2
+      },
+      {
+        "source_id": 24,
+        "target_id": 2,
+        "strength": 2
+      },
+      {
+        "source_id": 24,
+        "target_id": 43,
+        "strength": 2
+      },
+      {
+        "source_id": 6,
+        "target_id": 52,
+        "strength": 2
+      },
+      {
+        "source_id": 6,
+        "target_id": 57,
+        "strength": 2
+      },
+      {
+        "source_id": 51,
+        "target_id": 5,
+        "strength": 2
+      },
+      {
+        "source_id": 51,
+        "target_id": 4,
+        "strength": 2
+      },
+      {
+        "source_id": 51,
+        "target_id": 8,
+        "strength": 2
+      },
+      {
+        "source_id": 51,
+        "target_id": 2,
+        "strength": 2
+      },
+      {
+        "source_id": 20,
+        "target_id": 31,
+        "strength": 2
+      },
+      {
+        "source_id": 20,
+        "target_id": 18,
+        "strength": 2
+      },
+      {
+        "source_id": 20,
+        "target_id": 10,
+        "strength": 2
+      },
+      {
+        "source_id": 29,
+        "target_id": 4,
+        "strength": 2
+      },
+      {
+        "source_id": 52,
+        "target_id": 16,
+        "strength": 2
+      },
+      {
+        "source_id": 16,
+        "target_id": 8,
+        "strength": 2
+      },
+      {
+        "source_id": 16,
+        "target_id": 19,
+        "strength": 2
+      },
+      {
+        "source_id": 16,
+        "target_id": 18,
+        "strength": 2
+      },
+      {
+        "source_id": 21,
+        "target_id": 8,
+        "strength": 2
+      },
+      {
+        "source_id": 17,
+        "target_id": 30,
+        "strength": 2
+      },
+      {
+        "source_id": 17,
+        "target_id": 34,
+        "strength": 2
+      },
+      {
+        "source_id": 25,
+        "target_id": 19,
+        "strength": 2
+      },
+      {
+        "source_id": 25,
+        "target_id": 7,
+        "strength": 2
+      },
+      {
+        "source_id": 30,
+        "target_id": 5,
+        "strength": 2
+      },
+      {
+        "source_id": 30,
+        "target_id": 4,
+        "strength": 2
+      },
+      {
+        "source_id": 30,
+        "target_id": 10,
+        "strength": 2
+      },
+      {
+        "source_id": 53,
+        "target_id": 2,
+        "strength": 2
+      },
+      {
+        "source_id": 5,
+        "target_id": 57,
+        "strength": 2
+      },
+      {
+        "source_id": 5,
+        "target_id": 33,
+        "strength": 2
+      },
+      {
+        "source_id": 5,
+        "target_id": 19,
+        "strength": 2
+      },
+      {
+        "source_id": 5,
+        "target_id": 44,
+        "strength": 2
+      },
+      {
+        "source_id": 5,
+        "target_id": 18,
+        "strength": 2
+      },
+      {
+        "source_id": 5,
+        "target_id": 22,
+        "strength": 2
+      },
+      {
+        "source_id": 5,
+        "target_id": 34,
+        "strength": 2
+      },
+      {
+        "source_id": 4,
+        "target_id": 31,
+        "strength": 2
+      },
+      {
+        "source_id": 4,
+        "target_id": 43,
+        "strength": 2
+      },
+      {
+        "source_id": 4,
+        "target_id": 33,
+        "strength": 2
+      },
+      {
+        "source_id": 4,
+        "target_id": 44,
+        "strength": 2
+      },
+      {
+        "source_id": 4,
+        "target_id": 18,
+        "strength": 2
+      },
+      {
+        "source_id": 4,
+        "target_id": 22,
+        "strength": 2
+      },
+      {
+        "source_id": 4,
+        "target_id": 35,
+        "strength": 2
+      },
+      {
+        "source_id": 8,
+        "target_id": 55,
+        "strength": 2
+      },
+      {
+        "source_id": 8,
+        "target_id": 33,
+        "strength": 2
+      },
+      {
+        "source_id": 8,
+        "target_id": 35,
+        "strength": 2
+      },
+      {
+        "source_id": 55,
+        "target_id": 19,
+        "strength": 2
+      },
+      {
+        "source_id": 32,
+        "target_id": 44,
+        "strength": 2
+      },
+      {
+        "source_id": 2,
+        "target_id": 43,
+        "strength": 2
+      },
+      {
+        "source_id": 2,
+        "target_id": 57,
+        "strength": 2
+      },
+      {
+        "source_id": 43,
+        "target_id": 7,
+        "strength": 2
+      },
+      {
+        "source_id": 19,
+        "target_id": 7,
+        "strength": 2
+      },
+      {
+        "source_id": 26,
+        "target_id": 44,
+        "strength": 2
+      },
+      {
+        "source_id": 18,
+        "target_id": 47,
+        "strength": 2
+      },
+      {
+        "source_id": 7,
+        "target_id": 47,
+        "strength": 2
+      },
+      {
+        "source_id": 7,
+        "target_id": 36,
+        "strength": 2
+      },
+      {
+        "source_id": 47,
+        "target_id": 36,
+        "strength": 2
+      },
+      {
+        "source_id": 47,
+        "target_id": 27,
+        "strength": 2
+      },
+      {
+        "source_id": 23,
+        "target_id": 9,
+        "strength": 1
+      },
+      {
+        "source_id": 23,
+        "target_id": 15,
+        "strength": 1
+      },
+      {
+        "source_id": 23,
+        "target_id": 3,
+        "strength": 1
+      },
+      {
+        "source_id": 23,
+        "target_id": 6,
+        "strength": 1
+      },
+      {
+        "source_id": 23,
+        "target_id": 51,
+        "strength": 1
+      },
+      {
+        "source_id": 23,
+        "target_id": 4,
+        "strength": 1
+      },
+      {
+        "source_id": 23,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 48,
+        "target_id": 37,
+        "strength": 1
+      },
+      {
+        "source_id": 48,
+        "target_id": 38,
+        "strength": 1
+      },
+      {
+        "source_id": 48,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 48,
+        "target_id": 4,
+        "strength": 1
+      },
+      {
+        "source_id": 48,
+        "target_id": 57,
+        "strength": 1
+      },
+      {
+        "source_id": 48,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 33,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 27,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 9,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 15,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 49,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 30,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 8,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 57,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 34,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 46,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 47,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 36,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 12,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 11,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 49,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 39,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 41,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 29,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 16,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 25,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 54,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 8,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 31,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 43,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 34,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 47,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 36,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 10,
+        "strength": 1
+      },
+      {
+        "source_id": 37,
+        "target_id": 12,
+        "strength": 1
+      },
+      {
+        "source_id": 37,
+        "target_id": 14,
+        "strength": 1
+      },
+      {
+        "source_id": 37,
+        "target_id": 49,
+        "strength": 1
+      },
+      {
+        "source_id": 37,
+        "target_id": 39,
+        "strength": 1
+      },
+      {
+        "source_id": 37,
+        "target_id": 13,
+        "strength": 1
+      },
+      {
+        "source_id": 37,
+        "target_id": 6,
+        "strength": 1
+      },
+      {
+        "source_id": 37,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 37,
+        "target_id": 53,
+        "strength": 1
+      },
+      {
+        "source_id": 37,
+        "target_id": 31,
+        "strength": 1
+      },
+      {
+        "source_id": 37,
+        "target_id": 57,
+        "strength": 1
+      },
+      {
+        "source_id": 37,
+        "target_id": 47,
+        "strength": 1
+      },
+      {
+        "source_id": 37,
+        "target_id": 36,
+        "strength": 1
+      },
+      {
+        "source_id": 12,
+        "target_id": 14,
+        "strength": 1
+      },
+      {
+        "source_id": 12,
+        "target_id": 40,
+        "strength": 1
+      },
+      {
+        "source_id": 12,
+        "target_id": 13,
+        "strength": 1
+      },
+      {
+        "source_id": 12,
+        "target_id": 41,
+        "strength": 1
+      },
+      {
+        "source_id": 12,
+        "target_id": 42,
+        "strength": 1
+      },
+      {
+        "source_id": 12,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 12,
+        "target_id": 16,
+        "strength": 1
+      },
+      {
+        "source_id": 12,
+        "target_id": 30,
+        "strength": 1
+      },
+      {
+        "source_id": 12,
+        "target_id": 53,
+        "strength": 1
+      },
+      {
+        "source_id": 12,
+        "target_id": 31,
+        "strength": 1
+      },
+      {
+        "source_id": 12,
+        "target_id": 32,
+        "strength": 1
+      },
+      {
+        "source_id": 12,
+        "target_id": 56,
+        "strength": 1
+      },
+      {
+        "source_id": 12,
+        "target_id": 58,
+        "strength": 1
+      },
+      {
+        "source_id": 11,
+        "target_id": 13,
+        "strength": 1
+      },
+      {
+        "source_id": 11,
+        "target_id": 29,
+        "strength": 1
+      },
+      {
+        "source_id": 11,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 11,
+        "target_id": 25,
+        "strength": 1
+      },
+      {
+        "source_id": 11,
+        "target_id": 5,
+        "strength": 1
+      },
+      {
+        "source_id": 11,
+        "target_id": 8,
+        "strength": 1
+      },
+      {
+        "source_id": 11,
+        "target_id": 33,
+        "strength": 1
+      },
+      {
+        "source_id": 11,
+        "target_id": 19,
+        "strength": 1
+      },
+      {
+        "source_id": 11,
+        "target_id": 18,
+        "strength": 1
+      },
+      {
+        "source_id": 11,
+        "target_id": 22,
+        "strength": 1
+      },
+      {
+        "source_id": 11,
+        "target_id": 34,
+        "strength": 1
+      },
+      {
+        "source_id": 38,
+        "target_id": 14,
+        "strength": 1
+      },
+      {
+        "source_id": 38,
+        "target_id": 15,
+        "strength": 1
+      },
+      {
+        "source_id": 38,
+        "target_id": 13,
+        "strength": 1
+      },
+      {
+        "source_id": 38,
+        "target_id": 3,
+        "strength": 1
+      },
+      {
+        "source_id": 38,
+        "target_id": 24,
+        "strength": 1
+      },
+      {
+        "source_id": 38,
+        "target_id": 6,
+        "strength": 1
+      },
+      {
+        "source_id": 38,
+        "target_id": 21,
+        "strength": 1
+      },
+      {
+        "source_id": 38,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 38,
+        "target_id": 8,
+        "strength": 1
+      },
+      {
+        "source_id": 38,
+        "target_id": 43,
+        "strength": 1
+      },
+      {
+        "source_id": 38,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 38,
+        "target_id": 10,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 24,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 25,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 5,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 43,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 18,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 34,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 46,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 36,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 27,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 49,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 50,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 42,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 24,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 51,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 16,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 53,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 33,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 19,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 18,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 58,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 36,
+        "strength": 1
+      },
+      {
+        "source_id": 49,
+        "target_id": 39,
+        "strength": 1
+      },
+      {
+        "source_id": 49,
+        "target_id": 41,
+        "strength": 1
+      },
+      {
+        "source_id": 49,
+        "target_id": 24,
+        "strength": 1
+      },
+      {
+        "source_id": 49,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 49,
+        "target_id": 29,
+        "strength": 1
+      },
+      {
+        "source_id": 49,
+        "target_id": 31,
+        "strength": 1
+      },
+      {
+        "source_id": 49,
+        "target_id": 43,
+        "strength": 1
+      },
+      {
+        "source_id": 49,
+        "target_id": 57,
+        "strength": 1
+      },
+      {
+        "source_id": 49,
+        "target_id": 18,
+        "strength": 1
+      },
+      {
+        "source_id": 49,
+        "target_id": 22,
+        "strength": 1
+      },
+      {
+        "source_id": 49,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 49,
+        "target_id": 47,
+        "strength": 1
+      },
+      {
+        "source_id": 39,
+        "target_id": 40,
+        "strength": 1
+      },
+      {
+        "source_id": 39,
+        "target_id": 13,
+        "strength": 1
+      },
+      {
+        "source_id": 39,
+        "target_id": 51,
+        "strength": 1
+      },
+      {
+        "source_id": 39,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 39,
+        "target_id": 52,
+        "strength": 1
+      },
+      {
+        "source_id": 39,
+        "target_id": 16,
+        "strength": 1
+      },
+      {
+        "source_id": 39,
+        "target_id": 8,
+        "strength": 1
+      },
+      {
+        "source_id": 39,
+        "target_id": 26,
+        "strength": 1
+      },
+      {
+        "source_id": 39,
+        "target_id": 44,
+        "strength": 1
+      },
+      {
+        "source_id": 39,
+        "target_id": 18,
+        "strength": 1
+      },
+      {
+        "source_id": 39,
+        "target_id": 22,
+        "strength": 1
+      },
+      {
+        "source_id": 39,
+        "target_id": 10,
+        "strength": 1
+      },
+      {
+        "source_id": 40,
+        "target_id": 13,
+        "strength": 1
+      },
+      {
+        "source_id": 40,
+        "target_id": 50,
+        "strength": 1
+      },
+      {
+        "source_id": 40,
+        "target_id": 3,
+        "strength": 1
+      },
+      {
+        "source_id": 40,
+        "target_id": 6,
+        "strength": 1
+      },
+      {
+        "source_id": 40,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 40,
+        "target_id": 52,
+        "strength": 1
+      },
+      {
+        "source_id": 40,
+        "target_id": 16,
+        "strength": 1
+      },
+      {
+        "source_id": 40,
+        "target_id": 5,
+        "strength": 1
+      },
+      {
+        "source_id": 13,
+        "target_id": 41,
+        "strength": 1
+      },
+      {
+        "source_id": 13,
+        "target_id": 16,
+        "strength": 1
+      },
+      {
+        "source_id": 13,
+        "target_id": 25,
+        "strength": 1
+      },
+      {
+        "source_id": 13,
+        "target_id": 55,
+        "strength": 1
+      },
+      {
+        "source_id": 13,
+        "target_id": 19,
+        "strength": 1
+      },
+      {
+        "source_id": 13,
+        "target_id": 22,
+        "strength": 1
+      },
+      {
+        "source_id": 13,
+        "target_id": 47,
+        "strength": 1
+      },
+      {
+        "source_id": 13,
+        "target_id": 36,
+        "strength": 1
+      },
+      {
+        "source_id": 50,
+        "target_id": 42,
+        "strength": 1
+      },
+      {
+        "source_id": 50,
+        "target_id": 3,
+        "strength": 1
+      },
+      {
+        "source_id": 50,
+        "target_id": 25,
+        "strength": 1
+      },
+      {
+        "source_id": 50,
+        "target_id": 5,
+        "strength": 1
+      },
+      {
+        "source_id": 50,
+        "target_id": 34,
+        "strength": 1
+      },
+      {
+        "source_id": 50,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 50,
+        "target_id": 47,
+        "strength": 1
+      },
+      {
+        "source_id": 41,
+        "target_id": 24,
+        "strength": 1
+      },
+      {
+        "source_id": 41,
+        "target_id": 30,
+        "strength": 1
+      },
+      {
+        "source_id": 41,
+        "target_id": 31,
+        "strength": 1
+      },
+      {
+        "source_id": 41,
+        "target_id": 57,
+        "strength": 1
+      },
+      {
+        "source_id": 41,
+        "target_id": 58,
+        "strength": 1
+      },
+      {
+        "source_id": 42,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 42,
+        "target_id": 5,
+        "strength": 1
+      },
+      {
+        "source_id": 42,
+        "target_id": 4,
+        "strength": 1
+      },
+      {
+        "source_id": 42,
+        "target_id": 55,
+        "strength": 1
+      },
+      {
+        "source_id": 42,
+        "target_id": 32,
+        "strength": 1
+      },
+      {
+        "source_id": 42,
+        "target_id": 56,
+        "strength": 1
+      },
+      {
+        "source_id": 42,
+        "target_id": 33,
+        "strength": 1
+      },
+      {
+        "source_id": 42,
+        "target_id": 34,
+        "strength": 1
+      },
+      {
+        "source_id": 3,
+        "target_id": 29,
+        "strength": 1
+      },
+      {
+        "source_id": 3,
+        "target_id": 21,
+        "strength": 1
+      },
+      {
+        "source_id": 3,
+        "target_id": 32,
+        "strength": 1
+      },
+      {
+        "source_id": 3,
+        "target_id": 56,
+        "strength": 1
+      },
+      {
+        "source_id": 3,
+        "target_id": 44,
+        "strength": 1
+      },
+      {
+        "source_id": 3,
+        "target_id": 46,
+        "strength": 1
+      },
+      {
+        "source_id": 3,
+        "target_id": 27,
+        "strength": 1
+      },
+      {
+        "source_id": 24,
+        "target_id": 6,
+        "strength": 1
+      },
+      {
+        "source_id": 24,
+        "target_id": 30,
+        "strength": 1
+      },
+      {
+        "source_id": 24,
+        "target_id": 54,
+        "strength": 1
+      },
+      {
+        "source_id": 24,
+        "target_id": 19,
+        "strength": 1
+      },
+      {
+        "source_id": 24,
+        "target_id": 58,
+        "strength": 1
+      },
+      {
+        "source_id": 24,
+        "target_id": 36,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 51,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 29,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 25,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 54,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 31,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 55,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 32,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 56,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 19,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 26,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 44,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 18,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 22,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 34,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 35,
+        "strength": 1
+      },
+      {
+        "source_id": 51,
+        "target_id": 29,
+        "strength": 1
+      },
+      {
+        "source_id": 51,
+        "target_id": 16,
+        "strength": 1
+      },
+      {
+        "source_id": 51,
+        "target_id": 21,
+        "strength": 1
+      },
+      {
+        "source_id": 51,
+        "target_id": 31,
+        "strength": 1
+      },
+      {
+        "source_id": 51,
+        "target_id": 33,
+        "strength": 1
+      },
+      {
+        "source_id": 51,
+        "target_id": 19,
+        "strength": 1
+      },
+      {
+        "source_id": 51,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 51,
+        "target_id": 35,
+        "strength": 1
+      },
+      {
+        "source_id": 51,
+        "target_id": 10,
+        "strength": 1
+      },
+      {
+        "source_id": 20,
+        "target_id": 16,
+        "strength": 1
+      },
+      {
+        "source_id": 20,
+        "target_id": 21,
+        "strength": 1
+      },
+      {
+        "source_id": 20,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 20,
+        "target_id": 30,
+        "strength": 1
+      },
+      {
+        "source_id": 20,
+        "target_id": 8,
+        "strength": 1
+      },
+      {
+        "source_id": 20,
+        "target_id": 55,
+        "strength": 1
+      },
+      {
+        "source_id": 20,
+        "target_id": 19,
+        "strength": 1
+      },
+      {
+        "source_id": 20,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 20,
+        "target_id": 22,
+        "strength": 1
+      },
+      {
+        "source_id": 20,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 20,
+        "target_id": 58,
+        "strength": 1
+      },
+      {
+        "source_id": 20,
+        "target_id": 27,
+        "strength": 1
+      },
+      {
+        "source_id": 29,
+        "target_id": 52,
+        "strength": 1
+      },
+      {
+        "source_id": 29,
+        "target_id": 16,
+        "strength": 1
+      },
+      {
+        "source_id": 29,
+        "target_id": 43,
+        "strength": 1
+      },
+      {
+        "source_id": 29,
+        "target_id": 33,
+        "strength": 1
+      },
+      {
+        "source_id": 29,
+        "target_id": 19,
+        "strength": 1
+      },
+      {
+        "source_id": 29,
+        "target_id": 18,
+        "strength": 1
+      },
+      {
+        "source_id": 52,
+        "target_id": 5,
+        "strength": 1
+      },
+      {
+        "source_id": 52,
+        "target_id": 4,
+        "strength": 1
+      },
+      {
+        "source_id": 52,
+        "target_id": 8,
+        "strength": 1
+      },
+      {
+        "source_id": 52,
+        "target_id": 2,
+        "strength": 1
+      },
+      {
+        "source_id": 52,
+        "target_id": 57,
+        "strength": 1
+      },
+      {
+        "source_id": 52,
+        "target_id": 19,
+        "strength": 1
+      },
+      {
+        "source_id": 16,
+        "target_id": 4,
+        "strength": 1
+      },
+      {
+        "source_id": 16,
+        "target_id": 31,
+        "strength": 1
+      },
+      {
+        "source_id": 16,
+        "target_id": 33,
+        "strength": 1
+      },
+      {
+        "source_id": 16,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 16,
+        "target_id": 47,
+        "strength": 1
+      },
+      {
+        "source_id": 16,
+        "target_id": 27,
+        "strength": 1
+      },
+      {
+        "source_id": 21,
+        "target_id": 31,
+        "strength": 1
+      },
+      {
+        "source_id": 21,
+        "target_id": 56,
+        "strength": 1
+      },
+      {
+        "source_id": 21,
+        "target_id": 33,
+        "strength": 1
+      },
+      {
+        "source_id": 21,
+        "target_id": 19,
+        "strength": 1
+      },
+      {
+        "source_id": 21,
+        "target_id": 26,
+        "strength": 1
+      },
+      {
+        "source_id": 21,
+        "target_id": 22,
+        "strength": 1
+      },
+      {
+        "source_id": 21,
+        "target_id": 34,
+        "strength": 1
+      },
+      {
+        "source_id": 21,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 17,
+        "target_id": 43,
+        "strength": 1
+      },
+      {
+        "source_id": 17,
+        "target_id": 19,
+        "strength": 1
+      },
+      {
+        "source_id": 17,
+        "target_id": 44,
+        "strength": 1
+      },
+      {
+        "source_id": 17,
+        "target_id": 18,
+        "strength": 1
+      },
+      {
+        "source_id": 17,
+        "target_id": 46,
+        "strength": 1
+      },
+      {
+        "source_id": 17,
+        "target_id": 10,
+        "strength": 1
+      },
+      {
+        "source_id": 17,
+        "target_id": 27,
+        "strength": 1
+      },
+      {
+        "source_id": 25,
+        "target_id": 55,
+        "strength": 1
+      },
+      {
+        "source_id": 30,
+        "target_id": 53,
+        "strength": 1
+      },
+      {
+        "source_id": 30,
+        "target_id": 8,
+        "strength": 1
+      },
+      {
+        "source_id": 30,
+        "target_id": 32,
+        "strength": 1
+      },
+      {
+        "source_id": 30,
+        "target_id": 57,
+        "strength": 1
+      },
+      {
+        "source_id": 30,
+        "target_id": 26,
+        "strength": 1
+      },
+      {
+        "source_id": 30,
+        "target_id": 44,
+        "strength": 1
+      },
+      {
+        "source_id": 30,
+        "target_id": 18,
+        "strength": 1
+      },
+      {
+        "source_id": 30,
+        "target_id": 46,
+        "strength": 1
+      },
+      {
+        "source_id": 53,
+        "target_id": 5,
+        "strength": 1
+      },
+      {
+        "source_id": 53,
+        "target_id": 8,
+        "strength": 1
+      },
+      {
+        "source_id": 53,
+        "target_id": 56,
+        "strength": 1
+      },
+      {
+        "source_id": 54,
+        "target_id": 4,
+        "strength": 1
+      },
+      {
+        "source_id": 54,
+        "target_id": 32,
+        "strength": 1
+      },
+      {
+        "source_id": 54,
+        "target_id": 2,
+        "strength": 1
+      },
+      {
+        "source_id": 54,
+        "target_id": 22,
+        "strength": 1
+      },
+      {
+        "source_id": 5,
+        "target_id": 32,
+        "strength": 1
+      },
+      {
+        "source_id": 5,
+        "target_id": 43,
+        "strength": 1
+      },
+      {
+        "source_id": 5,
+        "target_id": 56,
+        "strength": 1
+      },
+      {
+        "source_id": 5,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 4,
+        "target_id": 55,
+        "strength": 1
+      },
+      {
+        "source_id": 4,
+        "target_id": 56,
+        "strength": 1
+      },
+      {
+        "source_id": 4,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 4,
+        "target_id": 58,
+        "strength": 1
+      },
+      {
+        "source_id": 4,
+        "target_id": 36,
+        "strength": 1
+      },
+      {
+        "source_id": 4,
+        "target_id": 27,
+        "strength": 1
+      },
+      {
+        "source_id": 8,
+        "target_id": 56,
+        "strength": 1
+      },
+      {
+        "source_id": 8,
+        "target_id": 57,
+        "strength": 1
+      },
+      {
+        "source_id": 31,
+        "target_id": 32,
+        "strength": 1
+      },
+      {
+        "source_id": 31,
+        "target_id": 19,
+        "strength": 1
+      },
+      {
+        "source_id": 31,
+        "target_id": 18,
+        "strength": 1
+      },
+      {
+        "source_id": 31,
+        "target_id": 22,
+        "strength": 1
+      },
+      {
+        "source_id": 31,
+        "target_id": 10,
+        "strength": 1
+      },
+      {
+        "source_id": 55,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 55,
+        "target_id": 27,
+        "strength": 1
+      },
+      {
+        "source_id": 32,
+        "target_id": 2,
+        "strength": 1
+      },
+      {
+        "source_id": 32,
+        "target_id": 33,
+        "strength": 1
+      },
+      {
+        "source_id": 32,
+        "target_id": 26,
+        "strength": 1
+      },
+      {
+        "source_id": 32,
+        "target_id": 22,
+        "strength": 1
+      },
+      {
+        "source_id": 32,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 32,
+        "target_id": 58,
+        "strength": 1
+      },
+      {
+        "source_id": 43,
+        "target_id": 36,
+        "strength": 1
+      },
+      {
+        "source_id": 56,
+        "target_id": 34,
+        "strength": 1
+      },
+      {
+        "source_id": 56,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 57,
+        "target_id": 47,
+        "strength": 1
+      },
+      {
+        "source_id": 57,
+        "target_id": 10,
+        "strength": 1
+      },
+      {
+        "source_id": 33,
+        "target_id": 19,
+        "strength": 1
+      },
+      {
+        "source_id": 33,
+        "target_id": 44,
+        "strength": 1
+      },
+      {
+        "source_id": 33,
+        "target_id": 18,
+        "strength": 1
+      },
+      {
+        "source_id": 33,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 33,
+        "target_id": 10,
+        "strength": 1
+      },
+      {
+        "source_id": 19,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 19,
+        "target_id": 46,
+        "strength": 1
+      },
+      {
+        "source_id": 26,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 26,
+        "target_id": 35,
+        "strength": 1
+      },
+      {
+        "source_id": 26,
+        "target_id": 10,
+        "strength": 1
+      },
+      {
+        "source_id": 44,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 44,
+        "target_id": 35,
+        "strength": 1
+      },
+      {
+        "source_id": 18,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 18,
+        "target_id": 46,
+        "strength": 1
+      },
+      {
+        "source_id": 18,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 18,
+        "target_id": 36,
+        "strength": 1
+      },
+      {
+        "source_id": 18,
+        "target_id": 10,
+        "strength": 1
+      },
+      {
+        "source_id": 18,
+        "target_id": 27,
+        "strength": 1
+      },
+      {
+        "source_id": 45,
+        "target_id": 22,
+        "strength": 1
+      },
+      {
+        "source_id": 45,
+        "target_id": 46,
+        "strength": 1
+      },
+      {
+        "source_id": 45,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 45,
+        "target_id": 10,
+        "strength": 1
+      },
+      {
+        "source_id": 22,
+        "target_id": 47,
+        "strength": 1
+      },
+      {
+        "source_id": 22,
+        "target_id": 36,
+        "strength": 1
+      },
+      {
+        "source_id": 34,
+        "target_id": 36,
+        "strength": 1
+      },
+      {
+        "source_id": 34,
+        "target_id": 27,
+        "strength": 1
+      },
+      {
+        "source_id": 46,
+        "target_id": 36,
+        "strength": 1
+      },
+      {
+        "source_id": 7,
+        "target_id": 58,
+        "strength": 1
+      },
+      {
+        "source_id": 7,
+        "target_id": 35,
+        "strength": 1
+      },
+      {
+        "source_id": 47,
+        "target_id": 58,
+        "strength": 1
+      },
+      {
+        "source_id": 35,
+        "target_id": 27,
+        "strength": 1
+      }
+    ],
+    "clusters": [
+      {
+        "cluster": 1,
+        "label": "Theme 1"
+      },
+      {
+        "cluster": 2,
+        "label": "Theme 2"
+      },
+      {
+        "cluster": 3,
+        "label": "Theme 3"
+      },
+      {
+        "cluster": 4,
+        "label": "Theme 4"
+      },
+      {
+        "cluster": 5,
+        "label": "Theme 5"
+      }
+    ]
+  },
+  "config": {
+    "parameters": {
+      "scale": 1,
+      "item_size": 1,
+      "item_color": 1,
+      "item_size_variation": 0.6,
+      "max_label_length": 35,
+      "link_size_variation": 0.5,
+      "min_link_strength": 1,
+      "max_n_links": 1000,
+      "curved_links": true,
+      "score_colors": "Viridis",
+      "show_info": true
+    },
+    "terminology": {
+      "item": "keyword",
+      "items": "keywords",
+      "link": "co-occurrence link",
+      "links": "co-occurrence links",
+      "cluster": "cluster",
+      "clusters": "clusters",
+      "link_strength": "link strength",
+      "total_link_strength": "total link strength"
+    }
+  },
+  "info": {
+    "title": "Web of Science Keyword Co-occurrence Network 2023–2024",
+    "description": "Derived from 288 records in wos2324.ris. Keywords occurring in at least five records were normalized using wos2324-thesaurus.txt. The RIS export combines keyword entries and contains no cited-reference list, so this map is intended for exploratory training."
+  }
+}

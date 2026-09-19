@@ -1,0 +1,181 @@
+﻿date,year,month_no,month,faculty,user_group,service,access_channel,usage_count,successful_access,failed_access,success_rate_pct,consultation_count,workshop_participants,avg_response_minutes,satisfaction_score,digital_downloads
+2023-01-01,2023,1,Jan,Komputeran,Pascasiswazah,Pangkalan Data,Aplikasi Mudah Alih,423,387,36,91.5,17,11,3.2,3.75,262
+2023-01-01,2023,1,Jan,Kejuruteraan,Penyelidik,Repositori Institusi,Kaunter,323,295,28,91.3,16,11,2.2,3.8,213
+2023-01-01,2023,1,Jan,Sains,Pascasiswazah,Konsultasi Penyelidikan,E-mel,168,153,15,91.1,9,8,5.2,3.85,118
+2023-01-01,2023,1,Jan,Sains Sosial,Penyelidik,Bengkel Literasi Maklumat,Portal Perpustakaan,223,203,20,91.0,14,6,4.2,3.9,165
+2023-01-01,2023,1,Jan,Pengurusan,Pascasiswazah,Pinjaman Digital,Aplikasi Mudah Alih,403,366,37,90.8,29,14,3.2,3.95,314
+2023-02-01,2023,2,Feb,Kejuruteraan,Pensyarah,Pangkalan Data,Kaunter,442,404,38,91.4,18,11,3.4,3.78,274
+2023-02-01,2023,2,Feb,Sains,Prasiswazah,Repositori Institusi,E-mel,343,313,30,91.3,16,12,2.4,3.83,226
+2023-02-01,2023,2,Feb,Sains Sosial,Pensyarah,Konsultasi Penyelidikan,Portal Perpustakaan,189,172,17,91.0,11,9,5.4,3.88,132
+2023-02-01,2023,2,Feb,Pengurusan,Prasiswazah,Bengkel Literasi Maklumat,Aplikasi Mudah Alih,245,223,22,91.0,16,6,4.4,3.93,181
+2023-02-01,2023,2,Feb,Komputeran,Pensyarah,Pinjaman Digital,Kaunter,426,386,40,90.6,31,15,3.4,3.98,332
+2023-03-01,2023,3,Mac,Sains,Penyelidik,Pangkalan Data,E-mel,457,418,39,91.5,18,11,3.0,3.81,283
+2023-03-01,2023,3,Mac,Sains Sosial,Pascasiswazah,Repositori Institusi,Portal Perpustakaan,359,328,31,91.4,17,13,2.0,3.86,237
+2023-03-01,2023,3,Mac,Pengurusan,Penyelidik,Konsultasi Penyelidikan,Aplikasi Mudah Alih,206,188,18,91.3,12,9,5.0,3.91,144
+2023-03-01,2023,3,Mac,Komputeran,Pascasiswazah,Bengkel Literasi Maklumat,Kaunter,246,224,22,91.1,16,6,4.0,3.96,182
+2023-03-01,2023,3,Mac,Kejuruteraan,Penyelidik,Pinjaman Digital,E-mel,428,388,40,90.7,31,15,3.0,4.01,334
+2023-04-01,2023,4,Apr,Sains Sosial,Prasiswazah,Pangkalan Data,Portal Perpustakaan,467,427,40,91.4,19,12,3.2,3.72,290
+2023-04-01,2023,4,Apr,Pengurusan,Pensyarah,Repositori Institusi,Aplikasi Mudah Alih,370,338,32,91.4,18,13,2.2,3.77,244
+2023-04-01,2023,4,Apr,Komputeran,Prasiswazah,Konsultasi Penyelidikan,Kaunter,201,183,18,91.0,11,9,5.2,3.82,141
+2023-04-01,2023,4,Apr,Kejuruteraan,Pensyarah,Bengkel Literasi Maklumat,E-mel,259,235,24,90.7,17,6,4.2,3.87,192
+2023-04-01,2023,4,Apr,Sains,Prasiswazah,Pinjaman Digital,Portal Perpustakaan,442,401,41,90.7,32,15,3.2,3.92,345
+2023-05-01,2023,5,Mei,Pengurusan,Pascasiswazah,Pangkalan Data,Aplikasi Mudah Alih,453,414,39,91.4,18,11,3.4,3.75,281
+2023-05-01,2023,5,Mei,Komputeran,Penyelidik,Repositori Institusi,Kaunter,340,310,30,91.2,16,12,2.4,3.8,224
+2023-05-01,2023,5,Mei,Kejuruteraan,Pascasiswazah,Konsultasi Penyelidikan,E-mel,189,172,17,91.0,11,9,5.4,3.85,132
+2023-05-01,2023,5,Mei,Sains,Penyelidik,Bengkel Literasi Maklumat,Portal Perpustakaan,248,225,23,90.7,16,6,4.4,3.9,184
+2023-05-01,2023,5,Mei,Sains Sosial,Pascasiswazah,Pinjaman Digital,Aplikasi Mudah Alih,415,376,39,90.6,30,15,3.4,3.95,324
+2023-06-01,2023,6,Jun,Komputeran,Pensyarah,Pangkalan Data,Kaunter,411,376,35,91.5,16,10,3.0,3.78,255
+2023-06-01,2023,6,Jun,Kejuruteraan,Prasiswazah,Repositori Institusi,E-mel,316,289,27,91.5,15,11,2.0,3.83,209
+2023-06-01,2023,6,Jun,Sains,Pensyarah,Konsultasi Penyelidikan,Portal Perpustakaan,166,151,15,91.0,9,7,5.0,3.88,116
+2023-06-01,2023,6,Jun,Sains Sosial,Prasiswazah,Bengkel Literasi Maklumat,Aplikasi Mudah Alih,209,190,19,90.9,13,5,4.0,3.93,155
+2023-06-01,2023,6,Jun,Pengurusan,Pensyarah,Pinjaman Digital,Kaunter,394,357,37,90.6,28,14,3.0,3.98,307
+2023-07-01,2023,7,Jul,Kejuruteraan,Penyelidik,Pangkalan Data,E-mel,400,366,34,91.5,16,10,3.2,3.81,248
+2023-07-01,2023,7,Jul,Sains,Pascasiswazah,Repositori Institusi,Portal Perpustakaan,306,279,27,91.2,15,11,2.2,3.86,202
+2023-07-01,2023,7,Jul,Sains Sosial,Penyelidik,Konsultasi Penyelidikan,Aplikasi Mudah Alih,140,128,12,91.4,8,6,5.2,3.91,98
+2023-07-01,2023,7,Jul,Pengurusan,Pascasiswazah,Bengkel Literasi Maklumat,Kaunter,201,183,18,91.0,13,5,4.2,3.96,149
+2023-07-01,2023,7,Jul,Komputeran,Penyelidik,Pinjaman Digital,E-mel,387,351,36,90.7,28,14,3.2,4.01,302
+2023-08-01,2023,8,Ogos,Sains,Prasiswazah,Pangkalan Data,Portal Perpustakaan,413,378,35,91.5,17,10,3.4,3.72,256
+2023-08-01,2023,8,Ogos,Sains Sosial,Pensyarah,Repositori Institusi,Aplikasi Mudah Alih,320,292,28,91.2,15,11,2.4,3.77,211
+2023-08-01,2023,8,Ogos,Pengurusan,Prasiswazah,Konsultasi Penyelidikan,Kaunter,155,141,14,91.0,9,7,5.4,3.82,108
+2023-08-01,2023,8,Ogos,Komputeran,Pensyarah,Bengkel Literasi Maklumat,E-mel,217,197,20,90.8,14,5,4.4,3.87,161
+2023-08-01,2023,8,Ogos,Kejuruteraan,Prasiswazah,Pinjaman Digital,Portal Perpustakaan,387,351,36,90.7,28,14,3.4,3.92,302
+2023-09-01,2023,9,Sep,Sains Sosial,Pascasiswazah,Pangkalan Data,Aplikasi Mudah Alih,450,412,38,91.6,18,11,3.0,3.75,279
+2023-09-01,2023,9,Sep,Pengurusan,Penyelidik,Repositori Institusi,Kaunter,341,311,30,91.2,16,12,2.0,3.8,225
+2023-09-01,2023,9,Sep,Komputeran,Pascasiswazah,Konsultasi Penyelidikan,E-mel,194,177,17,91.2,11,9,5.0,3.85,136
+2023-09-01,2023,9,Sep,Kejuruteraan,Penyelidik,Bengkel Literasi Maklumat,Portal Perpustakaan,240,218,22,90.8,15,6,4.0,3.9,178
+2023-09-01,2023,9,Sep,Sains,Pascasiswazah,Pinjaman Digital,Aplikasi Mudah Alih,428,388,40,90.7,31,15,3.0,3.95,334
+2023-10-01,2023,10,Okt,Pengurusan,Pensyarah,Pangkalan Data,Kaunter,471,431,40,91.5,19,12,3.2,3.78,292
+2023-10-01,2023,10,Okt,Komputeran,Prasiswazah,Repositori Institusi,E-mel,363,331,32,91.2,17,13,2.2,3.83,240
+2023-10-01,2023,10,Okt,Kejuruteraan,Pensyarah,Konsultasi Penyelidikan,Portal Perpustakaan,217,198,19,91.2,12,10,5.2,3.88,152
+2023-10-01,2023,10,Okt,Sains,Prasiswazah,Bengkel Literasi Maklumat,Aplikasi Mudah Alih,264,240,24,90.9,17,7,4.2,3.93,195
+2023-10-01,2023,10,Okt,Sains Sosial,Pensyarah,Pinjaman Digital,Kaunter,436,395,41,90.6,31,15,3.2,3.98,340
+2023-11-01,2023,11,Nov,Komputeran,Penyelidik,Pangkalan Data,E-mel,480,439,41,91.5,19,12,3.4,3.81,298
+2023-11-01,2023,11,Nov,Kejuruteraan,Pascasiswazah,Repositori Institusi,Portal Perpustakaan,373,341,32,91.4,18,13,2.4,3.86,246
+2023-11-01,2023,11,Nov,Sains,Penyelidik,Konsultasi Penyelidikan,Aplikasi Mudah Alih,211,192,19,91.0,12,9,5.4,3.91,148
+2023-11-01,2023,11,Nov,Sains Sosial,Pascasiswazah,Bengkel Literasi Maklumat,Kaunter,276,251,25,90.9,18,7,4.4,3.96,204
+2023-11-01,2023,11,Nov,Pengurusan,Penyelidik,Pinjaman Digital,E-mel,449,407,42,90.6,32,16,3.4,4.01,350
+2023-12-01,2023,12,Dis,Kejuruteraan,Prasiswazah,Pangkalan Data,Portal Perpustakaan,427,391,36,91.6,17,11,3.0,3.72,265
+2023-12-01,2023,12,Dis,Sains,Pensyarah,Repositori Institusi,Aplikasi Mudah Alih,338,309,29,91.4,16,12,2.0,3.77,223
+2023-12-01,2023,12,Dis,Sains Sosial,Prasiswazah,Konsultasi Penyelidikan,Kaunter,177,161,16,91.0,10,8,5.0,3.82,124
+2023-12-01,2023,12,Dis,Pengurusan,Pensyarah,Bengkel Literasi Maklumat,E-mel,226,205,21,90.7,14,6,4.0,3.87,167
+2023-12-01,2023,12,Dis,Komputeran,Prasiswazah,Pinjaman Digital,Portal Perpustakaan,417,378,39,90.6,30,15,3.0,3.92,325
+2024-01-01,2024,1,Jan,Kejuruteraan,Pascasiswazah,Pangkalan Data,Aplikasi Mudah Alih,457,424,33,92.8,18,11,2.8,3.93,283
+2024-01-01,2024,1,Jan,Sains,Penyelidik,Repositori Institusi,Kaunter,357,330,27,92.4,17,12,1.8,3.98,236
+2024-01-01,2024,1,Jan,Sains Sosial,Pascasiswazah,Konsultasi Penyelidikan,E-mel,202,186,16,92.1,11,9,4.8,4.03,141
+2024-01-01,2024,1,Jan,Pengurusan,Penyelidik,Bengkel Literasi Maklumat,Portal Perpustakaan,257,237,20,92.2,16,6,3.8,4.08,190
+2024-01-01,2024,1,Jan,Komputeran,Pascasiswazah,Pinjaman Digital,Aplikasi Mudah Alih,437,402,35,92.0,31,15,2.8,4.13,341
+2024-02-01,2024,2,Feb,Sains,Pensyarah,Pangkalan Data,Kaunter,476,441,35,92.6,19,12,3.0,3.96,295
+2024-02-01,2024,2,Feb,Sains Sosial,Prasiswazah,Repositori Institusi,E-mel,377,349,28,92.6,18,13,2.0,4.01,249
+2024-02-01,2024,2,Feb,Pengurusan,Pensyarah,Konsultasi Penyelidikan,Portal Perpustakaan,223,206,17,92.4,12,10,5.0,4.06,156
+2024-02-01,2024,2,Feb,Komputeran,Prasiswazah,Bengkel Literasi Maklumat,Aplikasi Mudah Alih,279,257,22,92.1,18,7,4.0,4.11,206
+2024-02-01,2024,2,Feb,Kejuruteraan,Pensyarah,Pinjaman Digital,Kaunter,460,423,37,92.0,33,16,3.0,4.16,359
+2024-03-01,2024,3,Mac,Sains Sosial,Penyelidik,Pangkalan Data,E-mel,491,455,36,92.7,20,12,2.6,3.99,304
+2024-03-01,2024,3,Mac,Pengurusan,Pascasiswazah,Repositori Institusi,Portal Perpustakaan,393,364,29,92.6,19,14,1.6,4.04,259
+2024-03-01,2024,3,Mac,Komputeran,Penyelidik,Konsultasi Penyelidikan,Aplikasi Mudah Alih,240,222,18,92.5,13,11,4.7,4.09,168
+2024-03-01,2024,3,Mac,Kejuruteraan,Pascasiswazah,Bengkel Literasi Maklumat,Kaunter,280,258,22,92.1,18,7,3.6,4.14,207
+2024-03-01,2024,3,Mac,Sains,Penyelidik,Pinjaman Digital,E-mel,462,425,37,92.0,33,16,2.6,4.19,360
+2024-04-01,2024,4,Apr,Pengurusan,Prasiswazah,Pangkalan Data,Portal Perpustakaan,501,464,37,92.6,20,13,2.8,3.9,311
+2024-04-01,2024,4,Apr,Komputeran,Pensyarah,Repositori Institusi,Aplikasi Mudah Alih,404,374,30,92.6,19,14,1.8,3.95,267
+2024-04-01,2024,4,Apr,Kejuruteraan,Prasiswazah,Konsultasi Penyelidikan,Kaunter,235,217,18,92.3,13,11,4.8,4.0,164
+2024-04-01,2024,4,Apr,Sains,Pensyarah,Bengkel Literasi Maklumat,E-mel,293,270,23,92.2,19,7,3.8,4.05,217
+2024-04-01,2024,4,Apr,Sains Sosial,Prasiswazah,Pinjaman Digital,Portal Perpustakaan,476,437,39,91.8,34,17,2.8,4.1,371
+2024-05-01,2024,5,Mei,Komputeran,Pascasiswazah,Pangkalan Data,Aplikasi Mudah Alih,487,451,36,92.6,19,12,3.0,3.93,302
+2024-05-01,2024,5,Mei,Kejuruteraan,Penyelidik,Repositori Institusi,Kaunter,374,346,28,92.5,18,13,2.0,3.98,247
+2024-05-01,2024,5,Mei,Sains,Pascasiswazah,Konsultasi Penyelidikan,E-mel,223,206,17,92.4,12,10,5.0,4.03,156
+2024-05-01,2024,5,Mei,Sains Sosial,Penyelidik,Bengkel Literasi Maklumat,Portal Perpustakaan,282,260,22,92.2,18,7,4.0,4.08,209
+2024-05-01,2024,5,Mei,Pengurusan,Pascasiswazah,Pinjaman Digital,Aplikasi Mudah Alih,449,413,36,92.0,32,16,3.0,4.13,350
+2024-06-01,2024,6,Jun,Kejuruteraan,Pensyarah,Pangkalan Data,Kaunter,445,413,32,92.8,18,11,2.6,3.96,276
+2024-06-01,2024,6,Jun,Sains,Prasiswazah,Repositori Institusi,E-mel,350,324,26,92.6,17,12,1.6,4.01,231
+2024-06-01,2024,6,Jun,Sains Sosial,Pensyarah,Konsultasi Penyelidikan,Portal Perpustakaan,200,185,15,92.5,11,9,4.7,4.06,140
+2024-06-01,2024,6,Jun,Pengurusan,Prasiswazah,Bengkel Literasi Maklumat,Aplikasi Mudah Alih,243,224,19,92.2,16,6,3.6,4.11,180
+2024-06-01,2024,6,Jun,Komputeran,Pensyarah,Pinjaman Digital,Kaunter,428,393,35,91.8,31,15,2.6,4.16,334
+2024-07-01,2024,7,Jul,Sains,Penyelidik,Pangkalan Data,E-mel,434,402,32,92.6,17,11,2.8,3.99,269
+2024-07-01,2024,7,Jul,Sains Sosial,Pascasiswazah,Repositori Institusi,Portal Perpustakaan,340,314,26,92.4,16,12,1.8,4.04,224
+2024-07-01,2024,7,Jul,Pengurusan,Penyelidik,Konsultasi Penyelidikan,Aplikasi Mudah Alih,174,161,13,92.5,10,8,4.8,4.09,122
+2024-07-01,2024,7,Jul,Komputeran,Pascasiswazah,Bengkel Literasi Maklumat,Kaunter,235,216,19,91.9,15,6,3.8,4.14,174
+2024-07-01,2024,7,Jul,Kejuruteraan,Penyelidik,Pinjaman Digital,E-mel,421,387,34,91.9,30,15,2.8,4.19,328
+2024-08-01,2024,8,Ogos,Sains Sosial,Prasiswazah,Pangkalan Data,Portal Perpustakaan,447,414,33,92.6,18,11,3.0,3.9,277
+2024-08-01,2024,8,Ogos,Pengurusan,Pensyarah,Repositori Institusi,Aplikasi Mudah Alih,354,327,27,92.4,17,12,2.0,3.95,234
+2024-08-01,2024,8,Ogos,Komputeran,Prasiswazah,Konsultasi Penyelidikan,Kaunter,189,174,15,92.1,11,9,5.0,4.0,132
+2024-08-01,2024,8,Ogos,Kejuruteraan,Pensyarah,Bengkel Literasi Maklumat,E-mel,251,231,20,92.0,16,6,4.0,4.05,186
+2024-08-01,2024,8,Ogos,Sains,Prasiswazah,Pinjaman Digital,Portal Perpustakaan,421,387,34,91.9,30,15,3.0,4.1,328
+2024-09-01,2024,9,Sep,Pengurusan,Pascasiswazah,Pangkalan Data,Aplikasi Mudah Alih,484,449,35,92.8,19,12,2.6,3.93,300
+2024-09-01,2024,9,Sep,Komputeran,Penyelidik,Repositori Institusi,Kaunter,375,347,28,92.5,18,13,1.6,3.98,248
+2024-09-01,2024,9,Sep,Kejuruteraan,Pascasiswazah,Konsultasi Penyelidikan,E-mel,228,210,18,92.1,13,10,4.7,4.03,160
+2024-09-01,2024,9,Sep,Sains,Penyelidik,Bengkel Literasi Maklumat,Portal Perpustakaan,274,252,22,92.0,18,7,3.6,4.08,203
+2024-09-01,2024,9,Sep,Sains Sosial,Pascasiswazah,Pinjaman Digital,Aplikasi Mudah Alih,462,425,37,92.0,33,16,2.6,4.13,360
+2024-10-01,2024,10,Okt,Komputeran,Pensyarah,Pangkalan Data,Kaunter,505,468,37,92.7,20,13,2.8,3.96,313
+2024-10-01,2024,10,Okt,Kejuruteraan,Prasiswazah,Repositori Institusi,E-mel,397,367,30,92.4,19,14,1.8,4.01,262
+2024-10-01,2024,10,Okt,Sains,Pensyarah,Konsultasi Penyelidikan,Portal Perpustakaan,251,232,19,92.4,14,11,4.8,4.06,176
+2024-10-01,2024,10,Okt,Sains Sosial,Prasiswazah,Bengkel Literasi Maklumat,Aplikasi Mudah Alih,298,274,24,91.9,19,7,3.8,4.11,221
+2024-10-01,2024,10,Okt,Pengurusan,Pensyarah,Pinjaman Digital,Kaunter,470,432,38,91.9,34,16,2.8,4.16,367
+2024-11-01,2024,11,Nov,Kejuruteraan,Penyelidik,Pangkalan Data,E-mel,514,476,38,92.6,21,13,3.0,3.99,319
+2024-11-01,2024,11,Nov,Sains,Pascasiswazah,Repositori Institusi,Portal Perpustakaan,407,376,31,92.4,20,14,2.0,4.04,269
+2024-11-01,2024,11,Nov,Sains Sosial,Penyelidik,Konsultasi Penyelidikan,Aplikasi Mudah Alih,245,226,19,92.2,14,11,5.0,4.09,172
+2024-11-01,2024,11,Nov,Pengurusan,Pascasiswazah,Bengkel Literasi Maklumat,Kaunter,310,286,24,92.3,20,8,4.0,4.14,229
+2024-11-01,2024,11,Nov,Komputeran,Penyelidik,Pinjaman Digital,E-mel,483,444,39,91.9,35,17,3.0,4.19,377
+2024-12-01,2024,12,Dis,Sains,Prasiswazah,Pangkalan Data,Portal Perpustakaan,461,427,34,92.6,18,12,2.6,3.9,286
+2024-12-01,2024,12,Dis,Sains Sosial,Pensyarah,Repositori Institusi,Aplikasi Mudah Alih,372,344,28,92.5,18,13,1.6,3.95,246
+2024-12-01,2024,12,Dis,Pengurusan,Prasiswazah,Konsultasi Penyelidikan,Kaunter,211,195,16,92.4,12,9,4.7,4.0,148
+2024-12-01,2024,12,Dis,Komputeran,Pensyarah,Bengkel Literasi Maklumat,E-mel,260,239,21,91.9,17,6,3.6,4.05,192
+2024-12-01,2024,12,Dis,Kejuruteraan,Prasiswazah,Pinjaman Digital,Portal Perpustakaan,451,414,37,91.8,32,16,2.6,4.1,352
+2025-01-01,2025,1,Jan,Sains,Pascasiswazah,Pangkalan Data,Aplikasi Mudah Alih,491,461,30,93.9,20,12,2.5,4.11,304
+2025-01-01,2025,1,Jan,Sains Sosial,Penyelidik,Repositori Institusi,Kaunter,391,366,25,93.6,19,14,1.5,4.16,258
+2025-01-01,2025,1,Jan,Pengurusan,Pascasiswazah,Konsultasi Penyelidikan,E-mel,236,221,15,93.6,13,11,4.5,4.21,165
+2025-01-01,2025,1,Jan,Komputeran,Penyelidik,Bengkel Literasi Maklumat,Portal Perpustakaan,291,272,19,93.5,19,7,3.5,4.26,215
+2025-01-01,2025,1,Jan,Kejuruteraan,Pascasiswazah,Pinjaman Digital,Aplikasi Mudah Alih,471,439,32,93.2,34,16,2.5,4.31,367
+2025-02-01,2025,2,Feb,Sains Sosial,Pensyarah,Pangkalan Data,Kaunter,510,479,31,93.9,20,13,2.7,4.14,316
+2025-02-01,2025,2,Feb,Pengurusan,Prasiswazah,Repositori Institusi,E-mel,411,385,26,93.7,20,14,1.7,4.19,271
+2025-02-01,2025,2,Feb,Komputeran,Pensyarah,Konsultasi Penyelidikan,Portal Perpustakaan,257,240,17,93.4,14,12,4.7,4.24,180
+2025-02-01,2025,2,Feb,Kejuruteraan,Prasiswazah,Bengkel Literasi Maklumat,Aplikasi Mudah Alih,313,292,21,93.3,20,8,3.7,4.29,232
+2025-02-01,2025,2,Feb,Sains,Pensyarah,Pinjaman Digital,Kaunter,494,460,34,93.1,36,17,2.7,4.34,385
+2025-03-01,2025,3,Mac,Pengurusan,Penyelidik,Pangkalan Data,E-mel,525,493,32,93.9,21,13,2.3,4.17,326
+2025-03-01,2025,3,Mac,Komputeran,Pascasiswazah,Repositori Institusi,Portal Perpustakaan,427,400,27,93.7,20,15,1.3,4.22,282
+2025-03-01,2025,3,Mac,Kejuruteraan,Penyelidik,Konsultasi Penyelidikan,Aplikasi Mudah Alih,274,256,18,93.4,15,12,4.3,4.27,192
+2025-03-01,2025,3,Mac,Sains,Pascasiswazah,Bengkel Literasi Maklumat,Kaunter,314,293,21,93.3,20,8,3.3,4.32,232
+2025-03-01,2025,3,Mac,Sains Sosial,Penyelidik,Pinjaman Digital,E-mel,496,462,34,93.1,36,17,2.3,4.37,387
+2025-04-01,2025,4,Apr,Komputeran,Prasiswazah,Pangkalan Data,Portal Perpustakaan,535,502,33,93.8,21,13,2.5,4.08,332
+2025-04-01,2025,4,Apr,Kejuruteraan,Pensyarah,Repositori Institusi,Aplikasi Mudah Alih,438,410,28,93.6,21,15,1.5,4.13,289
+2025-04-01,2025,4,Apr,Sains,Prasiswazah,Konsultasi Penyelidikan,Kaunter,269,252,17,93.7,15,12,4.5,4.18,188
+2025-04-01,2025,4,Apr,Sains Sosial,Pensyarah,Bengkel Literasi Maklumat,E-mel,327,305,22,93.3,21,8,3.5,4.23,242
+2025-04-01,2025,4,Apr,Pengurusan,Prasiswazah,Pinjaman Digital,Portal Perpustakaan,510,475,35,93.1,37,18,2.5,4.28,398
+2025-05-01,2025,5,Mei,Kejuruteraan,Pascasiswazah,Pangkalan Data,Aplikasi Mudah Alih,521,489,32,93.9,21,13,2.7,4.11,323
+2025-05-01,2025,5,Mei,Sains,Penyelidik,Repositori Institusi,Kaunter,408,382,26,93.6,20,14,1.7,4.16,269
+2025-05-01,2025,5,Mei,Sains Sosial,Pascasiswazah,Konsultasi Penyelidikan,E-mel,257,240,17,93.4,14,12,4.7,4.21,180
+2025-05-01,2025,5,Mei,Pengurusan,Penyelidik,Bengkel Literasi Maklumat,Portal Perpustakaan,316,295,21,93.4,20,8,3.7,4.26,234
+2025-05-01,2025,5,Mei,Komputeran,Pascasiswazah,Pinjaman Digital,Aplikasi Mudah Alih,483,450,33,93.2,35,17,2.7,4.31,377
+2025-06-01,2025,6,Jun,Sains,Pensyarah,Pangkalan Data,Kaunter,479,450,29,93.9,19,12,2.3,4.14,297
+2025-06-01,2025,6,Jun,Sains Sosial,Prasiswazah,Repositori Institusi,E-mel,384,360,24,93.8,18,13,1.3,4.19,253
+2025-06-01,2025,6,Jun,Pengurusan,Pensyarah,Konsultasi Penyelidikan,Portal Perpustakaan,234,219,15,93.6,13,11,4.3,4.24,164
+2025-06-01,2025,6,Jun,Komputeran,Prasiswazah,Bengkel Literasi Maklumat,Aplikasi Mudah Alih,277,258,19,93.1,18,7,3.3,4.29,205
+2025-06-01,2025,6,Jun,Kejuruteraan,Pensyarah,Pinjaman Digital,Kaunter,462,430,32,93.1,33,16,2.3,4.34,360
+2025-07-01,2025,7,Jul,Sains Sosial,Penyelidik,Pangkalan Data,E-mel,468,439,29,93.8,19,12,2.5,4.17,290
+2025-07-01,2025,7,Jul,Pengurusan,Pascasiswazah,Repositori Institusi,Portal Perpustakaan,374,350,24,93.6,18,13,1.5,4.22,247
+2025-07-01,2025,7,Jul,Komputeran,Penyelidik,Konsultasi Penyelidikan,Aplikasi Mudah Alih,208,194,14,93.3,12,9,4.5,4.27,146
+2025-07-01,2025,7,Jul,Kejuruteraan,Pascasiswazah,Bengkel Literasi Maklumat,Kaunter,269,251,18,93.3,17,7,3.5,4.32,199
+2025-07-01,2025,7,Jul,Sains,Penyelidik,Pinjaman Digital,E-mel,455,424,31,93.2,33,16,2.5,4.37,355
+2025-08-01,2025,8,Ogos,Pengurusan,Prasiswazah,Pangkalan Data,Portal Perpustakaan,481,452,29,94.0,19,12,2.7,4.08,298
+2025-08-01,2025,8,Ogos,Komputeran,Pensyarah,Repositori Institusi,Aplikasi Mudah Alih,388,364,24,93.8,19,14,1.7,4.13,256
+2025-08-01,2025,8,Ogos,Kejuruteraan,Prasiswazah,Konsultasi Penyelidikan,Kaunter,223,209,14,93.7,12,10,4.7,4.18,156
+2025-08-01,2025,8,Ogos,Sains,Pensyarah,Bengkel Literasi Maklumat,E-mel,285,266,19,93.3,18,7,3.7,4.23,211
+2025-08-01,2025,8,Ogos,Sains Sosial,Prasiswazah,Pinjaman Digital,Portal Perpustakaan,455,424,31,93.2,33,16,2.7,4.28,355
+2025-09-01,2025,9,Sep,Komputeran,Pascasiswazah,Pangkalan Data,Aplikasi Mudah Alih,518,486,32,93.8,21,13,2.3,4.11,321
+2025-09-01,2025,9,Sep,Kejuruteraan,Penyelidik,Repositori Institusi,Kaunter,409,383,26,93.6,20,14,1.3,4.16,270
+2025-09-01,2025,9,Sep,Sains,Pascasiswazah,Konsultasi Penyelidikan,E-mel,262,245,17,93.5,15,12,4.3,4.21,183
+2025-09-01,2025,9,Sep,Sains Sosial,Penyelidik,Bengkel Literasi Maklumat,Portal Perpustakaan,308,287,21,93.2,20,8,3.3,4.26,228
+2025-09-01,2025,9,Sep,Pengurusan,Pascasiswazah,Pinjaman Digital,Aplikasi Mudah Alih,496,462,34,93.1,36,17,2.3,4.31,387
+2025-10-01,2025,10,Okt,Kejuruteraan,Pensyarah,Pangkalan Data,Kaunter,539,506,33,93.9,22,13,2.5,4.14,334
+2025-10-01,2025,10,Okt,Sains,Prasiswazah,Repositori Institusi,E-mel,431,404,27,93.7,21,15,1.5,4.19,284
+2025-10-01,2025,10,Okt,Sains Sosial,Pensyarah,Konsultasi Penyelidikan,Portal Perpustakaan,285,266,19,93.3,16,13,4.5,4.24,200
+2025-10-01,2025,10,Okt,Pengurusan,Prasiswazah,Bengkel Literasi Maklumat,Aplikasi Mudah Alih,332,310,22,93.4,21,8,3.5,4.29,246
+2025-10-01,2025,10,Okt,Komputeran,Pensyarah,Pinjaman Digital,Kaunter,504,469,35,93.1,36,18,2.5,4.34,393
+2025-11-01,2025,11,Nov,Sains,Penyelidik,Pangkalan Data,E-mel,548,515,33,94.0,22,14,2.7,4.17,340
+2025-11-01,2025,11,Nov,Sains Sosial,Pascasiswazah,Repositori Institusi,Portal Perpustakaan,441,413,28,93.7,21,15,1.7,4.22,291
+2025-11-01,2025,11,Nov,Pengurusan,Penyelidik,Konsultasi Penyelidikan,Aplikasi Mudah Alih,279,261,18,93.5,16,13,4.7,4.27,195
+2025-11-01,2025,11,Nov,Komputeran,Pascasiswazah,Bengkel Literasi Maklumat,Kaunter,344,321,23,93.3,22,9,3.7,4.32,255
+2025-11-01,2025,11,Nov,Kejuruteraan,Penyelidik,Pinjaman Digital,E-mel,517,481,36,93.0,37,18,2.7,4.37,403
+2025-12-01,2025,12,Dis,Sains Sosial,Prasiswazah,Pangkalan Data,Portal Perpustakaan,495,465,30,93.9,20,12,2.3,4.08,307
+2025-12-01,2025,12,Dis,Pengurusan,Pensyarah,Repositori Institusi,Aplikasi Mudah Alih,406,380,26,93.6,19,14,1.3,4.13,268
+2025-12-01,2025,12,Dis,Komputeran,Prasiswazah,Konsultasi Penyelidikan,Kaunter,245,229,16,93.5,14,11,4.3,4.18,172
+2025-12-01,2025,12,Dis,Kejuruteraan,Pensyarah,Bengkel Literasi Maklumat,E-mel,294,274,20,93.2,19,7,3.3,4.23,218
+2025-12-01,2025,12,Dis,Sains,Prasiswazah,Pinjaman Digital,Portal Perpustakaan,485,452,33,93.2,35,17,2.3,4.28,378

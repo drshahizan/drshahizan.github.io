@@ -1,0 +1,2100 @@
+{
+  "network": {
+    "items": [
+      {
+        "id": 1,
+        "label": "artificial intelligence",
+        "x": 0.835,
+        "y": 0,
+        "cluster": 1,
+        "description": "Title term derived from 40 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 40,
+          "Total citations": 11322,
+          "Total link strength": 83
+        },
+        "scores": {
+          "Avg. publication year": 2021.08,
+          "Avg. citations": 283.05
+        }
+      },
+      {
+        "id": 2,
+        "label": "systematic review",
+        "x": 0.8408,
+        "y": 0.0468,
+        "cluster": 1,
+        "description": "Title term derived from 24 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 24,
+          "Total citations": 6818,
+          "Total link strength": 52
+        },
+        "scores": {
+          "Avg. publication year": 2021.17,
+          "Avg. citations": 284.08
+        }
+      },
+      {
+        "id": 3,
+        "label": "machine learning",
+        "x": 0.115,
+        "y": 0.55,
+        "cluster": 2,
+        "description": "Title term derived from 23 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 23,
+          "Total citations": 11261,
+          "Total link strength": 51
+        },
+        "scores": {
+          "Avg. publication year": 2017.74,
+          "Avg. citations": 489.61
+        }
+      },
+      {
+        "id": 4,
+        "label": "data",
+        "x": 0.1196,
+        "y": 0.5996,
+        "cluster": 2,
+        "description": "Title term derived from 18 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 18,
+          "Total citations": 10200,
+          "Total link strength": 20
+        },
+        "scores": {
+          "Avg. publication year": 2016.17,
+          "Avg. citations": 566.67
+        }
+      },
+      {
+        "id": 5,
+        "label": "health",
+        "x": 0.8239,
+        "y": 0.0947,
+        "cluster": 1,
+        "description": "Title term derived from 14 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 14,
+          "Total citations": 4116,
+          "Total link strength": 33
+        },
+        "scores": {
+          "Avg. publication year": 2019.71,
+          "Avg. citations": 294
+        }
+      },
+      {
+        "id": 6,
+        "label": "library",
+        "x": 0.7869,
+        "y": 0.1343,
+        "cluster": 1,
+        "description": "Title term derived from 14 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 14,
+          "Total citations": 4310,
+          "Total link strength": 24
+        },
+        "scores": {
+          "Avg. publication year": 2013.64,
+          "Avg. citations": 307.86
+        }
+      },
+      {
+        "id": 7,
+        "label": "deep learning",
+        "x": 0.115,
+        "y": -0.55,
+        "cluster": 4,
+        "description": "Title term derived from 12 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 12,
+          "Total citations": 3311,
+          "Total link strength": 18
+        },
+        "scores": {
+          "Avg. publication year": 2019.75,
+          "Avg. citations": 275.92
+        }
+      },
+      {
+        "id": 8,
+        "label": "libraries",
+        "x": 0.0994,
+        "y": 0.6494,
+        "cluster": 2,
+        "description": "Title term derived from 9 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 9,
+          "Total citations": 2561,
+          "Total link strength": 27
+        },
+        "scores": {
+          "Avg. publication year": 2020.67,
+          "Avg. citations": 284.56
+        }
+      },
+      {
+        "id": 9,
+        "label": "care",
+        "x": 0.7346,
+        "y": 0.1576,
+        "cluster": 1,
+        "description": "Title term derived from 9 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 9,
+          "Total citations": 2350,
+          "Total link strength": 21
+        },
+        "scores": {
+          "Avg. publication year": 2020.56,
+          "Avg. citations": 261.11
+        }
+      },
+      {
+        "id": 10,
+        "label": "classification",
+        "x": -0.605,
+        "y": 0,
+        "cluster": 3,
+        "description": "Title term derived from 8 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 8,
+          "Total citations": 2447,
+          "Total link strength": 19
+        },
+        "scores": {
+          "Avg. publication year": 2015.88,
+          "Avg. citations": 305.88
+        }
+      },
+      {
+        "id": 11,
+        "label": "systems",
+        "x": 0.0916,
+        "y": -0.4584,
+        "cluster": 4,
+        "description": "Title term derived from 8 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 8,
+          "Total citations": 1925,
+          "Total link strength": 18
+        },
+        "scores": {
+          "Avg. publication year": 2012.25,
+          "Avg. citations": 240.63
+        }
+      },
+      {
+        "id": 12,
+        "label": "literature",
+        "x": 0.6746,
+        "y": 0.1594,
+        "cluster": 1,
+        "description": "Title term derived from 8 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 8,
+          "Total citations": 2190,
+          "Total link strength": 16
+        },
+        "scores": {
+          "Avg. publication year": 2019.63,
+          "Avg. citations": 273.75
+        }
+      },
+      {
+        "id": 13,
+        "label": "disease",
+        "x": -0.6208,
+        "y": 0.0832,
+        "cluster": 3,
+        "description": "Title term derived from 7 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 7,
+          "Total citations": 1896,
+          "Total link strength": 16
+        },
+        "scores": {
+          "Avg. publication year": 2018.86,
+          "Avg. citations": 270.86
+        }
+      },
+      {
+        "id": 14,
+        "label": "digital",
+        "x": 0.616,
+        "y": 0.1377,
+        "cluster": 1,
+        "description": "Title term derived from 7 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 7,
+          "Total citations": 1556,
+          "Total link strength": 13
+        },
+        "scores": {
+          "Avg. publication year": 2015.43,
+          "Avg. citations": 222.29
+        }
+      },
+      {
+        "id": 15,
+        "label": "image",
+        "x": -0.6956,
+        "y": 0.1385,
+        "cluster": 3,
+        "description": "Title term derived from 7 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 7,
+          "Total citations": 1669,
+          "Total link strength": 13
+        },
+        "scores": {
+          "Avg. publication year": 2016.29,
+          "Avg. citations": 238.43
+        }
+      },
+      {
+        "id": 16,
+        "label": "diagnosis",
+        "x": -0.795,
+        "y": 0.1299,
+        "cluster": 3,
+        "description": "Title term derived from 6 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 1624,
+          "Total link strength": 18
+        },
+        "scores": {
+          "Avg. publication year": 2018.33,
+          "Avg. citations": 270.67
+        }
+      },
+      {
+        "id": 17,
+        "label": "techniques",
+        "x": -0.8687,
+        "y": 0.0541,
+        "cluster": 3,
+        "description": "Title term derived from 6 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 2103,
+          "Total link strength": 17
+        },
+        "scores": {
+          "Avg. publication year": 2019.67,
+          "Avg. citations": 350.5
+        }
+      },
+      {
+        "id": 18,
+        "label": "generative",
+        "x": 0.5678,
+        "y": 0.0942,
+        "cluster": 1,
+        "description": "Title term derived from 6 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 1610,
+          "Total link strength": 15
+        },
+        "scores": {
+          "Avg. publication year": 2022.33,
+          "Avg. citations": 268.33
+        }
+      },
+      {
+        "id": 19,
+        "label": "chatbots",
+        "x": 0.5381,
+        "y": 0.034,
+        "cluster": 1,
+        "description": "Title term derived from 6 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 2055,
+          "Total link strength": 14
+        },
+        "scores": {
+          "Avg. publication year": 2021.67,
+          "Avg. citations": 342.5
+        }
+      },
+      {
+        "id": 20,
+        "label": "novo",
+        "x": 0.0574,
+        "y": 0.6886,
+        "cluster": 2,
+        "description": "Title term derived from 6 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 1612,
+          "Total link strength": 14
+        },
+        "scores": {
+          "Avg. publication year": 2018.5,
+          "Avg. citations": 268.67
+        }
+      },
+      {
+        "id": 21,
+        "label": "application",
+        "x": 0.5326,
+        "y": -0.035,
+        "cluster": 1,
+        "description": "Title term derived from 6 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 1525,
+          "Total link strength": 12
+        },
+        "scores": {
+          "Avg. publication year": 2017,
+          "Avg. citations": 254.17
+        }
+      },
+      {
+        "id": 22,
+        "label": "drug discovery",
+        "x": 0,
+        "y": 0.7083,
+        "cluster": 2,
+        "description": "Title term derived from 6 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 2191,
+          "Total link strength": 11
+        },
+        "scores": {
+          "Avg. publication year": 2021.33,
+          "Avg. citations": 365.17
+        }
+      },
+      {
+        "id": 23,
+        "label": "information",
+        "x": 0.5533,
+        "y": -0.1032,
+        "cluster": 1,
+        "description": "Title term derived from 6 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 1771,
+          "Total link strength": 8
+        },
+        "scores": {
+          "Avg. publication year": 2010.17,
+          "Avg. citations": 295.17
+        }
+      },
+      {
+        "id": 24,
+        "label": "molecular",
+        "x": -0.0634,
+        "y": 0.7031,
+        "cluster": 2,
+        "description": "Title term derived from 6 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 6,
+          "Total citations": 4634,
+          "Total link strength": 6
+        },
+        "scores": {
+          "Avg. publication year": 2015.33,
+          "Avg. citations": 772.33
+        }
+      },
+      {
+        "id": 25,
+        "label": "large",
+        "x": -0.122,
+        "y": 0.672,
+        "cluster": 2,
+        "description": "Title term derived from 5 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 2157,
+          "Total link strength": 17
+        },
+        "scores": {
+          "Avg. publication year": 2017.4,
+          "Avg. citations": 431.4
+        }
+      },
+      {
+        "id": 26,
+        "label": "scale",
+        "x": -0.1654,
+        "y": 0.6185,
+        "cluster": 2,
+        "description": "Title term derived from 5 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 1609,
+          "Total link strength": 15
+        },
+        "scores": {
+          "Avg. publication year": 2012,
+          "Avg. citations": 321.8
+        }
+      },
+      {
+        "id": 27,
+        "label": "conversational",
+        "x": 0.5987,
+        "y": -0.1606,
+        "cluster": 1,
+        "description": "Title term derived from 5 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 1490,
+          "Total link strength": 13
+        },
+        "scores": {
+          "Avg. publication year": 2017.2,
+          "Avg. citations": 298
+        }
+      },
+      {
+        "id": 28,
+        "label": "decision",
+        "x": 0,
+        "y": -0.4094,
+        "cluster": 4,
+        "description": "Title term derived from 5 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 1473,
+          "Total link strength": 12
+        },
+        "scores": {
+          "Avg. publication year": 2020.6,
+          "Avg. citations": 294.6
+        }
+      },
+      {
+        "id": 29,
+        "label": "images",
+        "x": -0.8757,
+        "y": -0.0567,
+        "cluster": 3,
+        "description": "Title term derived from 5 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 1232,
+          "Total link strength": 12
+        },
+        "scores": {
+          "Avg. publication year": 2012.6,
+          "Avg. citations": 246.4
+        }
+      },
+      {
+        "id": 30,
+        "label": "intelligent",
+        "x": -0.1061,
+        "y": -0.4439,
+        "cluster": 4,
+        "description": "Title term derived from 5 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 1250,
+          "Total link strength": 12
+        },
+        "scores": {
+          "Avg. publication year": 2018.2,
+          "Avg. citations": 250
+        }
+      },
+      {
+        "id": 31,
+        "label": "python",
+        "x": -0.185,
+        "y": 0.55,
+        "cluster": 2,
+        "description": "Title term derived from 5 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 3100,
+          "Total link strength": 9
+        },
+        "scores": {
+          "Avg. publication year": 2017.2,
+          "Avg. citations": 620
+        }
+      },
+      {
+        "id": 32,
+        "label": "identification",
+        "x": -0.1762,
+        "y": 0.477,
+        "cluster": 2,
+        "description": "Title term derived from 5 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 1073,
+          "Total link strength": 8
+        },
+        "scores": {
+          "Avg. publication year": 2009.4,
+          "Avg. citations": 214.6
+        }
+      },
+      {
+        "id": 33,
+        "label": "algorithms",
+        "x": -0.1387,
+        "y": 0.4113,
+        "cluster": 2,
+        "description": "Title term derived from 5 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 1203,
+          "Total link strength": 7
+        },
+        "scores": {
+          "Avg. publication year": 2021.2,
+          "Avg. citations": 240.6
+        }
+      },
+      {
+        "id": 34,
+        "label": "software",
+        "x": -0.1583,
+        "y": -0.55,
+        "cluster": 4,
+        "description": "Title term derived from 5 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 1792,
+          "Total link strength": 7
+        },
+        "scores": {
+          "Avg. publication year": 2009.2,
+          "Avg. citations": 358.4
+        }
+      },
+      {
+        "id": 35,
+        "label": "human",
+        "x": -0.8063,
+        "y": -0.1495,
+        "cluster": 3,
+        "description": "Title term derived from 5 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 5,
+          "Total citations": 1108,
+          "Total link strength": 6
+        },
+        "scores": {
+          "Avg. publication year": 2018.2,
+          "Avg. citations": 221.6
+        }
+      },
+      {
+        "id": 36,
+        "label": "academic",
+        "x": 0.6636,
+        "y": -0.1983,
+        "cluster": 1,
+        "description": "Title term derived from 4 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 4,
+          "Total citations": 811,
+          "Total link strength": 13
+        },
+        "scores": {
+          "Avg. publication year": 2022.5,
+          "Avg. citations": 202.75
+        }
+      },
+      {
+        "id": 37,
+        "label": "agents",
+        "x": 0.7395,
+        "y": -0.2101,
+        "cluster": 1,
+        "description": "Title term derived from 4 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 4,
+          "Total citations": 1349,
+          "Total link strength": 13
+        },
+        "scores": {
+          "Avg. publication year": 2017.5,
+          "Avg. citations": 337.25
+        }
+      },
+      {
+        "id": 38,
+        "label": "spectra",
+        "x": -0.6889,
+        "y": -0.1763,
+        "cluster": 3,
+        "description": "Title term derived from 4 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 4,
+          "Total citations": 935,
+          "Total link strength": 12
+        },
+        "scores": {
+          "Avg. publication year": 2010.5,
+          "Avg. citations": 233.75
+        }
+      },
+      {
+        "id": 39,
+        "label": "higher education",
+        "x": 0.8161,
+        "y": -0.193,
+        "cluster": 1,
+        "description": "Title term derived from 4 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 4,
+          "Total citations": 1375,
+          "Total link strength": 10
+        },
+        "scores": {
+          "Avg. publication year": 2024.25,
+          "Avg. citations": 343.75
+        }
+      },
+      {
+        "id": 40,
+        "label": "chemical",
+        "x": -0.077,
+        "y": 0.3641,
+        "cluster": 2,
+        "description": "Title term derived from 4 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 4,
+          "Total citations": 974,
+          "Total link strength": 10
+        },
+        "scores": {
+          "Avg. publication year": 2023.25,
+          "Avg. citations": 243.5
+        }
+      },
+      {
+        "id": 41,
+        "label": "science",
+        "x": 0,
+        "y": 0.3438,
+        "cluster": 2,
+        "description": "Title term derived from 4 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 4,
+          "Total citations": 1046,
+          "Total link strength": 10
+        },
+        "scores": {
+          "Avg. publication year": 2018,
+          "Avg. citations": 261.5
+        }
+      },
+      {
+        "id": 42,
+        "label": "survey",
+        "x": 0.0807,
+        "y": 0.3551,
+        "cluster": 2,
+        "description": "Title term derived from 4 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 4,
+          "Total citations": 2129,
+          "Total link strength": 8
+        },
+        "scores": {
+          "Avg. publication year": 2019.75,
+          "Avg. citations": 532.25
+        }
+      },
+      {
+        "id": 43,
+        "label": "platform",
+        "x": 0.1524,
+        "y": 0.3976,
+        "cluster": 2,
+        "description": "Title term derived from 4 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 4,
+          "Total citations": 1991,
+          "Total link strength": 8
+        },
+        "scores": {
+          "Avg. publication year": 2019,
+          "Avg. citations": 497.75
+        }
+      },
+      {
+        "id": 44,
+        "label": "technologies",
+        "x": 0.8826,
+        "y": -0.1482,
+        "cluster": 1,
+        "description": "Title term derived from 4 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 4,
+          "Total citations": 1065,
+          "Total link strength": 8
+        },
+        "scores": {
+          "Avg. publication year": 2021.5,
+          "Avg. citations": 266.25
+        }
+      },
+      {
+        "id": 45,
+        "label": "screening",
+        "x": 0.2033,
+        "y": 0.4658,
+        "cluster": 2,
+        "description": "Title term derived from 4 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 4,
+          "Total citations": 1043,
+          "Total link strength": 8
+        },
+        "scores": {
+          "Avg. publication year": 2021.75,
+          "Avg. citations": 260.75
+        }
+      },
+      {
+        "id": 46,
+        "label": "support",
+        "x": -0.1172,
+        "y": -0.6672,
+        "cluster": 4,
+        "description": "Title term derived from 4 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 4,
+          "Total citations": 1324,
+          "Total link strength": 8
+        },
+        "scores": {
+          "Avg. publication year": 2016,
+          "Avg. citations": 331
+        }
+      },
+      {
+        "id": 47,
+        "label": "opportunities",
+        "x": 0,
+        "y": -0.7226,
+        "cluster": 4,
+        "description": "Title term derived from 4 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 4,
+          "Total citations": 1262,
+          "Total link strength": 7
+        },
+        "scores": {
+          "Avg. publication year": 2021,
+          "Avg. citations": 315.5
+        }
+      },
+      {
+        "id": 48,
+        "label": "cancer",
+        "x": -0.5783,
+        "y": -0.1189,
+        "cluster": 3,
+        "description": "Title term derived from 4 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 4,
+          "Total citations": 1006,
+          "Total link strength": 7
+        },
+        "scores": {
+          "Avg. publication year": 2017.75,
+          "Avg. citations": 251.5
+        }
+      },
+      {
+        "id": 49,
+        "label": "drug",
+        "x": 0.1266,
+        "y": -0.6766,
+        "cluster": 4,
+        "description": "Title term derived from 4 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 4,
+          "Total citations": 1213,
+          "Total link strength": 6
+        },
+        "scores": {
+          "Avg. publication year": 2022,
+          "Avg. citations": 303.25
+        }
+      },
+      {
+        "id": 50,
+        "label": "healthcare",
+        "x": 0.9292,
+        "y": -0.081,
+        "cluster": 1,
+        "description": "Title term derived from 4 of 200 Scopus records.",
+        "weights": {
+          "Occurrences": 4,
+          "Total citations": 1219,
+          "Total link strength": 6
+        },
+        "scores": {
+          "Avg. publication year": 2022.5,
+          "Avg. citations": 304.75
+        }
+      }
+    ],
+    "links": [
+      {
+        "source_id": 3,
+        "target_id": 24,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 2,
+        "strength": 13
+      },
+      {
+        "source_id": 39,
+        "target_id": 2,
+        "strength": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 39,
+        "strength": 3
+      },
+      {
+        "source_id": 36,
+        "target_id": 18,
+        "strength": 1
+      },
+      {
+        "source_id": 18,
+        "target_id": 39,
+        "strength": 2
+      },
+      {
+        "source_id": 18,
+        "target_id": 2,
+        "strength": 2
+      },
+      {
+        "source_id": 36,
+        "target_id": 39,
+        "strength": 1
+      },
+      {
+        "source_id": 36,
+        "target_id": 2,
+        "strength": 1
+      },
+      {
+        "source_id": 5,
+        "target_id": 2,
+        "strength": 5
+      },
+      {
+        "source_id": 1,
+        "target_id": 19,
+        "strength": 3
+      },
+      {
+        "source_id": 1,
+        "target_id": 5,
+        "strength": 5
+      },
+      {
+        "source_id": 19,
+        "target_id": 5,
+        "strength": 4
+      },
+      {
+        "source_id": 19,
+        "target_id": 2,
+        "strength": 3
+      },
+      {
+        "source_id": 1,
+        "target_id": 18,
+        "strength": 1
+      },
+      {
+        "source_id": 18,
+        "target_id": 44,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 44,
+        "strength": 1
+      },
+      {
+        "source_id": 39,
+        "target_id": 44,
+        "strength": 1
+      },
+      {
+        "source_id": 27,
+        "target_id": 5,
+        "strength": 3
+      },
+      {
+        "source_id": 9,
+        "target_id": 27,
+        "strength": 3
+      },
+      {
+        "source_id": 9,
+        "target_id": 5,
+        "strength": 6
+      },
+      {
+        "source_id": 3,
+        "target_id": 43,
+        "strength": 1
+      },
+      {
+        "source_id": 25,
+        "target_id": 3,
+        "strength": 2
+      },
+      {
+        "source_id": 3,
+        "target_id": 26,
+        "strength": 2
+      },
+      {
+        "source_id": 40,
+        "target_id": 3,
+        "strength": 1
+      },
+      {
+        "source_id": 8,
+        "target_id": 3,
+        "strength": 3
+      },
+      {
+        "source_id": 25,
+        "target_id": 43,
+        "strength": 1
+      },
+      {
+        "source_id": 43,
+        "target_id": 26,
+        "strength": 1
+      },
+      {
+        "source_id": 40,
+        "target_id": 43,
+        "strength": 1
+      },
+      {
+        "source_id": 8,
+        "target_id": 43,
+        "strength": 1
+      },
+      {
+        "source_id": 25,
+        "target_id": 26,
+        "strength": 3
+      },
+      {
+        "source_id": 40,
+        "target_id": 25,
+        "strength": 2
+      },
+      {
+        "source_id": 25,
+        "target_id": 8,
+        "strength": 3
+      },
+      {
+        "source_id": 40,
+        "target_id": 26,
+        "strength": 1
+      },
+      {
+        "source_id": 8,
+        "target_id": 26,
+        "strength": 2
+      },
+      {
+        "source_id": 40,
+        "target_id": 8,
+        "strength": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 22,
+        "strength": 2
+      },
+      {
+        "source_id": 50,
+        "target_id": 47,
+        "strength": 2
+      },
+      {
+        "source_id": 9,
+        "target_id": 19,
+        "strength": 1
+      },
+      {
+        "source_id": 7,
+        "target_id": 3,
+        "strength": 1
+      },
+      {
+        "source_id": 3,
+        "target_id": 42,
+        "strength": 2
+      },
+      {
+        "source_id": 7,
+        "target_id": 8,
+        "strength": 2
+      },
+      {
+        "source_id": 7,
+        "target_id": 25,
+        "strength": 1
+      },
+      {
+        "source_id": 7,
+        "target_id": 26,
+        "strength": 1
+      },
+      {
+        "source_id": 7,
+        "target_id": 42,
+        "strength": 1
+      },
+      {
+        "source_id": 8,
+        "target_id": 42,
+        "strength": 1
+      },
+      {
+        "source_id": 25,
+        "target_id": 42,
+        "strength": 1
+      },
+      {
+        "source_id": 26,
+        "target_id": 42,
+        "strength": 1
+      },
+      {
+        "source_id": 21,
+        "target_id": 1,
+        "strength": 3
+      },
+      {
+        "source_id": 21,
+        "target_id": 2,
+        "strength": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 50,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 45,
+        "strength": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 43,
+        "strength": 1
+      },
+      {
+        "source_id": 43,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 22,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 22,
+        "target_id": 43,
+        "strength": 1
+      },
+      {
+        "source_id": 3,
+        "target_id": 31,
+        "strength": 1
+      },
+      {
+        "source_id": 4,
+        "target_id": 3,
+        "strength": 4
+      },
+      {
+        "source_id": 3,
+        "target_id": 41,
+        "strength": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 3,
+        "strength": 2
+      },
+      {
+        "source_id": 4,
+        "target_id": 31,
+        "strength": 1
+      },
+      {
+        "source_id": 31,
+        "target_id": 41,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 31,
+        "strength": 1
+      },
+      {
+        "source_id": 4,
+        "target_id": 41,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 4,
+        "strength": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 41,
+        "strength": 2
+      },
+      {
+        "source_id": 23,
+        "target_id": 12,
+        "strength": 2
+      },
+      {
+        "source_id": 12,
+        "target_id": 3,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 25,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 40,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 8,
+        "strength": 4
+      },
+      {
+        "source_id": 25,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 40,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 8,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 27,
+        "strength": 2
+      },
+      {
+        "source_id": 37,
+        "target_id": 1,
+        "strength": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 9,
+        "strength": 5
+      },
+      {
+        "source_id": 37,
+        "target_id": 27,
+        "strength": 3
+      },
+      {
+        "source_id": 27,
+        "target_id": 2,
+        "strength": 1
+      },
+      {
+        "source_id": 37,
+        "target_id": 5,
+        "strength": 3
+      },
+      {
+        "source_id": 37,
+        "target_id": 9,
+        "strength": 3
+      },
+      {
+        "source_id": 37,
+        "target_id": 2,
+        "strength": 1
+      },
+      {
+        "source_id": 9,
+        "target_id": 2,
+        "strength": 2
+      },
+      {
+        "source_id": 28,
+        "target_id": 3,
+        "strength": 1
+      },
+      {
+        "source_id": 3,
+        "target_id": 46,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 46,
+        "strength": 3
+      },
+      {
+        "source_id": 6,
+        "target_id": 31,
+        "strength": 3
+      },
+      {
+        "source_id": 22,
+        "target_id": 24,
+        "strength": 1
+      },
+      {
+        "source_id": 33,
+        "target_id": 3,
+        "strength": 2
+      },
+      {
+        "source_id": 33,
+        "target_id": 8,
+        "strength": 1
+      },
+      {
+        "source_id": 13,
+        "target_id": 12,
+        "strength": 1
+      },
+      {
+        "source_id": 10,
+        "target_id": 12,
+        "strength": 1
+      },
+      {
+        "source_id": 12,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 10,
+        "target_id": 13,
+        "strength": 1
+      },
+      {
+        "source_id": 13,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 10,
+        "target_id": 17,
+        "strength": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 6,
+        "strength": 4
+      },
+      {
+        "source_id": 1,
+        "target_id": 14,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 6,
+        "strength": 2
+      },
+      {
+        "source_id": 47,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 50,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 4,
+        "target_id": 47,
+        "strength": 1
+      },
+      {
+        "source_id": 4,
+        "target_id": 2,
+        "strength": 1
+      },
+      {
+        "source_id": 7,
+        "target_id": 15,
+        "strength": 2
+      },
+      {
+        "source_id": 14,
+        "target_id": 44,
+        "strength": 2
+      },
+      {
+        "source_id": 14,
+        "target_id": 50,
+        "strength": 1
+      },
+      {
+        "source_id": 50,
+        "target_id": 44,
+        "strength": 1
+      },
+      {
+        "source_id": 4,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 13,
+        "target_id": 3,
+        "strength": 2
+      },
+      {
+        "source_id": 33,
+        "target_id": 13,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 28,
+        "strength": 2
+      },
+      {
+        "source_id": 36,
+        "target_id": 1,
+        "strength": 3
+      },
+      {
+        "source_id": 1,
+        "target_id": 12,
+        "strength": 3
+      },
+      {
+        "source_id": 36,
+        "target_id": 6,
+        "strength": 2
+      },
+      {
+        "source_id": 36,
+        "target_id": 12,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 12,
+        "strength": 1
+      },
+      {
+        "source_id": 18,
+        "target_id": 20,
+        "strength": 3
+      },
+      {
+        "source_id": 49,
+        "target_id": 18,
+        "strength": 2
+      },
+      {
+        "source_id": 49,
+        "target_id": 20,
+        "strength": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 13,
+        "strength": 2
+      },
+      {
+        "source_id": 10,
+        "target_id": 35,
+        "strength": 1
+      },
+      {
+        "source_id": 35,
+        "target_id": 29,
+        "strength": 1
+      },
+      {
+        "source_id": 21,
+        "target_id": 35,
+        "strength": 1
+      },
+      {
+        "source_id": 10,
+        "target_id": 29,
+        "strength": 3
+      },
+      {
+        "source_id": 21,
+        "target_id": 10,
+        "strength": 1
+      },
+      {
+        "source_id": 21,
+        "target_id": 29,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 11,
+        "strength": 2
+      },
+      {
+        "source_id": 28,
+        "target_id": 30,
+        "strength": 1
+      },
+      {
+        "source_id": 46,
+        "target_id": 11,
+        "strength": 2
+      },
+      {
+        "source_id": 30,
+        "target_id": 46,
+        "strength": 1
+      },
+      {
+        "source_id": 30,
+        "target_id": 11,
+        "strength": 3
+      },
+      {
+        "source_id": 10,
+        "target_id": 38,
+        "strength": 2
+      },
+      {
+        "source_id": 29,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 38,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 29,
+        "target_id": 38,
+        "strength": 2
+      },
+      {
+        "source_id": 33,
+        "target_id": 1,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 16,
+        "strength": 3
+      },
+      {
+        "source_id": 33,
+        "target_id": 16,
+        "strength": 1
+      },
+      {
+        "source_id": 36,
+        "target_id": 19,
+        "strength": 1
+      },
+      {
+        "source_id": 19,
+        "target_id": 8,
+        "strength": 1
+      },
+      {
+        "source_id": 36,
+        "target_id": 8,
+        "strength": 2
+      },
+      {
+        "source_id": 4,
+        "target_id": 5,
+        "strength": 1
+      },
+      {
+        "source_id": 21,
+        "target_id": 9,
+        "strength": 1
+      },
+      {
+        "source_id": 40,
+        "target_id": 22,
+        "strength": 1
+      },
+      {
+        "source_id": 3,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 48,
+        "target_id": 3,
+        "strength": 1
+      },
+      {
+        "source_id": 16,
+        "target_id": 3,
+        "strength": 2
+      },
+      {
+        "source_id": 15,
+        "target_id": 3,
+        "strength": 1
+      },
+      {
+        "source_id": 3,
+        "target_id": 2,
+        "strength": 2
+      },
+      {
+        "source_id": 48,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 16,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 2,
+        "target_id": 17,
+        "strength": 2
+      },
+      {
+        "source_id": 48,
+        "target_id": 16,
+        "strength": 1
+      },
+      {
+        "source_id": 48,
+        "target_id": 15,
+        "strength": 1
+      },
+      {
+        "source_id": 48,
+        "target_id": 2,
+        "strength": 1
+      },
+      {
+        "source_id": 16,
+        "target_id": 15,
+        "strength": 1
+      },
+      {
+        "source_id": 16,
+        "target_id": 2,
+        "strength": 3
+      },
+      {
+        "source_id": 15,
+        "target_id": 2,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 21,
+        "target_id": 17,
+        "strength": 1
+      },
+      {
+        "source_id": 10,
+        "target_id": 3,
+        "strength": 1
+      },
+      {
+        "source_id": 10,
+        "target_id": 4,
+        "strength": 3
+      },
+      {
+        "source_id": 1,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 16,
+        "target_id": 13,
+        "strength": 3
+      },
+      {
+        "source_id": 13,
+        "target_id": 2,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 35,
+        "strength": 1
+      },
+      {
+        "source_id": 35,
+        "target_id": 46,
+        "strength": 1
+      },
+      {
+        "source_id": 35,
+        "target_id": 11,
+        "strength": 1
+      },
+      {
+        "source_id": 7,
+        "target_id": 22,
+        "strength": 1
+      },
+      {
+        "source_id": 30,
+        "target_id": 6,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 30,
+        "strength": 2
+      },
+      {
+        "source_id": 36,
+        "target_id": 30,
+        "strength": 1
+      },
+      {
+        "source_id": 30,
+        "target_id": 8,
+        "strength": 2
+      },
+      {
+        "source_id": 8,
+        "target_id": 6,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 15,
+        "strength": 1
+      },
+      {
+        "source_id": 18,
+        "target_id": 3,
+        "strength": 1
+      },
+      {
+        "source_id": 22,
+        "target_id": 18,
+        "strength": 1
+      },
+      {
+        "source_id": 3,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 22,
+        "target_id": 3,
+        "strength": 1
+      },
+      {
+        "source_id": 22,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 20,
+        "target_id": 2,
+        "strength": 1
+      },
+      {
+        "source_id": 22,
+        "target_id": 2,
+        "strength": 1
+      },
+      {
+        "source_id": 27,
+        "target_id": 12,
+        "strength": 1
+      },
+      {
+        "source_id": 37,
+        "target_id": 12,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 16,
+        "strength": 1
+      },
+      {
+        "source_id": 28,
+        "target_id": 2,
+        "strength": 1
+      },
+      {
+        "source_id": 4,
+        "target_id": 42,
+        "strength": 1
+      },
+      {
+        "source_id": 3,
+        "target_id": 45,
+        "strength": 1
+      },
+      {
+        "source_id": 7,
+        "target_id": 41,
+        "strength": 1
+      },
+      {
+        "source_id": 33,
+        "target_id": 2,
+        "strength": 1
+      },
+      {
+        "source_id": 8,
+        "target_id": 11,
+        "strength": 1
+      },
+      {
+        "source_id": 1,
+        "target_id": 11,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 5,
+        "strength": 2
+      },
+      {
+        "source_id": 14,
+        "target_id": 2,
+        "strength": 1
+      },
+      {
+        "source_id": 5,
+        "target_id": 44,
+        "strength": 1
+      },
+      {
+        "source_id": 2,
+        "target_id": 44,
+        "strength": 1
+      },
+      {
+        "source_id": 7,
+        "target_id": 13,
+        "strength": 1
+      },
+      {
+        "source_id": 20,
+        "target_id": 31,
+        "strength": 1
+      },
+      {
+        "source_id": 24,
+        "target_id": 31,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 24,
+        "strength": 1
+      },
+      {
+        "source_id": 24,
+        "target_id": 20,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 41,
+        "strength": 2
+      },
+      {
+        "source_id": 6,
+        "target_id": 3,
+        "strength": 2
+      },
+      {
+        "source_id": 4,
+        "target_id": 7,
+        "strength": 1
+      },
+      {
+        "source_id": 10,
+        "target_id": 7,
+        "strength": 2
+      },
+      {
+        "source_id": 7,
+        "target_id": 47,
+        "strength": 1
+      },
+      {
+        "source_id": 47,
+        "target_id": 34,
+        "strength": 1
+      },
+      {
+        "source_id": 47,
+        "target_id": 11,
+        "strength": 1
+      },
+      {
+        "source_id": 7,
+        "target_id": 34,
+        "strength": 1
+      },
+      {
+        "source_id": 7,
+        "target_id": 11,
+        "strength": 1
+      },
+      {
+        "source_id": 34,
+        "target_id": 11,
+        "strength": 2
+      },
+      {
+        "source_id": 13,
+        "target_id": 29,
+        "strength": 1
+      },
+      {
+        "source_id": 16,
+        "target_id": 29,
+        "strength": 1
+      },
+      {
+        "source_id": 20,
+        "target_id": 34,
+        "strength": 1
+      },
+      {
+        "source_id": 10,
+        "target_id": 15,
+        "strength": 1
+      },
+      {
+        "source_id": 32,
+        "target_id": 3,
+        "strength": 3
+      },
+      {
+        "source_id": 48,
+        "target_id": 23,
+        "strength": 1
+      },
+      {
+        "source_id": 23,
+        "target_id": 11,
+        "strength": 1
+      },
+      {
+        "source_id": 32,
+        "target_id": 38,
+        "strength": 2
+      },
+      {
+        "source_id": 4,
+        "target_id": 32,
+        "strength": 1
+      },
+      {
+        "source_id": 4,
+        "target_id": 38,
+        "strength": 1
+      },
+      {
+        "source_id": 3,
+        "target_id": 38,
+        "strength": 2
+      },
+      {
+        "source_id": 32,
+        "target_id": 6,
+        "strength": 1
+      },
+      {
+        "source_id": 6,
+        "target_id": 38,
+        "strength": 1
+      },
+      {
+        "source_id": 21,
+        "target_id": 15,
+        "strength": 1
+      },
+      {
+        "source_id": 23,
+        "target_id": 6,
+        "strength": 1
+      },
+      {
+        "source_id": 23,
+        "target_id": 41,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 25,
+        "strength": 1
+      },
+      {
+        "source_id": 15,
+        "target_id": 26,
+        "strength": 1
+      },
+      {
+        "source_id": 26,
+        "target_id": 38,
+        "strength": 1
+      },
+      {
+        "source_id": 10,
+        "target_id": 26,
+        "strength": 1
+      },
+      {
+        "source_id": 29,
+        "target_id": 26,
+        "strength": 1
+      },
+      {
+        "source_id": 5,
+        "target_id": 23,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 23,
+        "strength": 1
+      },
+      {
+        "source_id": 5,
+        "target_id": 12,
+        "strength": 1
+      },
+      {
+        "source_id": 14,
+        "target_id": 12,
+        "strength": 1
+      },
+      {
+        "source_id": 32,
+        "target_id": 29,
+        "strength": 1
+      }
+    ],
+    "clusters": [
+      {
+        "cluster": 1,
+        "label": "artificial intelligence · systematic review · health"
+      },
+      {
+        "cluster": 2,
+        "label": "machine learning · data · libraries"
+      },
+      {
+        "cluster": 3,
+        "label": "classification · disease · image"
+      },
+      {
+        "cluster": 4,
+        "label": "deep learning · systems · decision"
+      }
+    ]
+  },
+  "config": {
+    "parameters": {
+      "scale": 1,
+      "item_size": 1,
+      "item_color": 1,
+      "item_size_variation": 0.6,
+      "max_label_length": 35,
+      "link_size_variation": 0.5,
+      "min_link_strength": 1,
+      "max_n_links": 1000,
+      "curved_links": true,
+      "score_colors": "Viridis",
+      "show_info": true
+    },
+    "terminology": {
+      "item": "title term",
+      "items": "title terms",
+      "link": "co-occurrence link",
+      "links": "co-occurrence links",
+      "cluster": "cluster",
+      "clusters": "clusters",
+      "link_strength": "link strength",
+      "total_link_strength": "total link strength"
+    }
+  },
+  "info": {
+    "title": "Scopus Title-Term Co-occurrence Network",
+    "description": "Converted from 200 publication records in scopus1.json. Terms and links were derived only from publication titles because the source file did not contain author keywords, abstracts, or cited-reference relationships. This visualization is exploratory and should not be reported as a Scopus author-keyword analysis."
+  }
+}

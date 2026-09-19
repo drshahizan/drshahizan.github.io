@@ -1,0 +1,35 @@
+﻿medan,keterangan,jenis
+
+date,Tarikh bulan rekod,Date
+
+year,Tahun rekod,Number
+
+month_no,Nombor bulan 1 hingga 12,Number
+
+month,Nama ringkas bulan,Text
+
+faculty,Fakulti pengguna,Text
+
+user_group,Kumpulan pengguna,Text
+
+service,Jenis perkhidmatan perpustakaan,Text
+
+access_channel,Saluran capaian,Text
+
+usage_count,Jumlah penggunaan,Number
+
+successful_access,Capaian berjaya,Number
+
+failed_access,Capaian gagal,Number
+
+success_rate_pct,Peratus kejayaan capaian,Percent
+
+consultation_count,Jumlah konsultasi,Number
+
+workshop_participants,Jumlah peserta bengkel,Number
+
+avg_response_minutes,Purata masa respons dalam minit,Decimal
+
+satisfaction_score,Skor kepuasan skala 1 hingga 5,Decimal
+
+digital_downloads,Jumlah muat turun digital,Number

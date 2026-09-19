@@ -1,0 +1,12 @@
+CONTOH JAWAPAN MODUL 4
+
+1. Bahagian dengan jumlah permintaan rujukan tertinggi:
+   Rujukan = 425
+
+2. Bahagian dengan purata kepuasan tertinggi:
+   Digital = 4.6
+
+3. Contoh tajuk carta:
+   Permintaan Rujukan Meningkat Secara Konsisten dari Januari hingga Mac
+
+Nota: Peserta perlu menunjukkan pengiraan atau PivotTable yang menyokong dapatan.

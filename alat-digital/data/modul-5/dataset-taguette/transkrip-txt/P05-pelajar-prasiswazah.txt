@@ -1,0 +1,27 @@
+TRANSKRIP TEMU BUAL P05
+Dataset Latihan Analisis Kualitatif Menggunakan Taguette
+
+ID peserta: P05
+Kumpulan: Pelajar prasiswazah
+Pengalaman/tahap: Tahun 2
+Fokus: Pengguna baharu sumber digital
+
+Nota: Transkrip ini ialah data sintetik yang direka untuk latihan. Tiada individu sebenar diwakili.
+
+Penemu bual: Boleh terangkan pengalaman anda menggunakan atau menyokong perkhidmatan perpustakaan digital?
+P05: Pada awalnya saya menggunakan Google untuk semua tugasan. Saya tahu perpustakaan mempunyai pangkalan data, tetapi nama platform terlalu banyak dan saya tidak pasti yang mana sesuai. Saya biasanya memilih pautan yang boleh dibuka terus.
+
+Penemu bual: Apakah cabaran utama yang anda hadapi?
+P05: Masalah utama ialah kata kunci. Jika saya menggunakan ayat penuh, hasil terlalu sedikit. Selepas pustakawan menunjukkan sinonim dan tanda petik, saya mendapat artikel yang lebih berkaitan.
+
+Penemu bual: Bagaimanakah anda mengurus proses pencarian atau sokongan pengguna?
+P05: Akses dari rumah kadang-kadang meminta log masuk berulang. Saya tidak tahu sama ada masalah pada akaun atau laman jurnal. Saya berhenti mencuba apabila tugasan hampir tamat.
+
+Penemu bual: Apakah bentuk bantuan atau latihan yang paling berguna?
+P05: Video pendek dengan contoh tugasan sebenar lebih membantu daripada manual panjang. Saya mahu boleh berhenti dan mengikut langkah pada komputer sendiri.
+
+Penemu bual: Bagaimanakah anda melihat penggunaan kecerdasan buatan dalam konteks ini?
+P05: Saya pernah menggunakan AI untuk mendapatkan ringkasan artikel. Selepas membaca artikel asal, ada bahagian yang tidak sama. Sekarang saya gunakan AI untuk memahami istilah sahaja dan tetap membaca abstrak serta kesimpulan.
+
+Penemu bual: Apakah penambahbaikan yang anda cadangkan?
+P05: Saya mahu portal mempunyai cadangan alatan berdasarkan jenis tugasan, contohnya cari artikel, simpan rujukan atau semak sitasi. Pada masa ini semua pautan kelihatan sama penting.

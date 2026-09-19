@@ -1,0 +1,27 @@
+TRANSKRIP TEMU BUAL P01
+Dataset Latihan Analisis Kualitatif Menggunakan Taguette
+
+ID peserta: P01
+Kumpulan: Pustakawan
+Pengalaman/tahap: 8 tahun
+Fokus: Perkhidmatan rujukan dan konsultasi penyelidikan
+
+Nota: Transkrip ini ialah data sintetik yang direka untuk latihan. Tiada individu sebenar diwakili.
+
+Penemu bual: Boleh terangkan pengalaman anda menggunakan atau menyokong perkhidmatan perpustakaan digital?
+P01: Perubahan paling ketara ialah pertanyaan pengguna semakin khusus. Dahulu ramai bertanya lokasi buku, tetapi sekarang mereka datang dengan topik tesis dan mahu strategi carian yang boleh digunakan dalam Scopus atau Web of Science. Saya perlu memahami persoalan kajian mereka sebelum mencadangkan kata kunci, operator Boolean dan penapis yang sesuai.
+
+Penemu bual: Apakah cabaran utama yang anda hadapi?
+P01: Cabaran utama ialah pengguna menganggap satu carian sudah mencukupi. Mereka mudah menerima sepuluh hasil pertama tanpa menyemak skop pangkalan data. Saya biasanya meminta mereka membina jadual istilah, mencatat tarikh carian dan menyimpan rentetan carian supaya proses boleh diulang.
+
+Penemu bual: Bagaimanakah anda mengurus proses pencarian atau sokongan pengguna?
+P01: Akses dari luar kampus kadangkala menimbulkan masalah. Ada pengguna keliru antara akaun universiti, pautan proksi dan laman penerbit. Apabila mesej ralat tidak jelas, mereka menyangka perpustakaan tidak melanggan bahan tersebut lalu beralih kepada sumber yang kurang sahih.
+
+Penemu bual: Apakah bentuk bantuan atau latihan yang paling berguna?
+P01: Saya menggunakan sesi konsultasi dalam talian dan rakaman skrin pendek. Rakaman dua atau tiga minit lebih mudah digunakan semula berbanding manual panjang. Namun, video cepat lapuk apabila antara muka pangkalan data berubah.
+
+Penemu bual: Bagaimanakah anda melihat penggunaan kecerdasan buatan dalam konteks ini?
+P01: AI membantu pengguna mendapatkan istilah awal, tetapi jawapan AI mesti disemak dengan rekod asal. Saya sering melihat rujukan yang tajuknya hampir betul tetapi butir jurnal atau tahun tidak tepat. Literasi semakan bukti menjadi lebih penting daripada sekadar kemahiran menaip prompt.
+
+Penemu bual: Apakah penambahbaikan yang anda cadangkan?
+P01: Saya mencadangkan satu pusat bantuan bersepadu dengan panduan langkah demi langkah, contoh carian mengikut bidang dan saluran untuk berjumpa pustakawan. Statistik penggunaan juga patut digabungkan dengan maklum balas kualitatif supaya keputusan tidak bergantung pada bilangan klik sahaja.

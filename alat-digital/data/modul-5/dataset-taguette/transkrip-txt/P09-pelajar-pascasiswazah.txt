@@ -1,0 +1,27 @@
+TRANSKRIP TEMU BUAL P09
+Dataset Latihan Analisis Kualitatif Menggunakan Taguette
+
+ID peserta: P09
+Kumpulan: Pelajar pascasiswazah
+Pengalaman/tahap: PhD tahun 2
+Fokus: Kajian sistematik
+
+Nota: Transkrip ini ialah data sintetik yang direka untuk latihan. Tiada individu sebenar diwakili.
+
+Penemu bual: Boleh terangkan pengalaman anda menggunakan atau menyokong perkhidmatan perpustakaan digital?
+P09: Kajian saya memerlukan carian yang boleh diulang. Saya merekod pangkalan data, tarikh, rentetan dan jumlah hasil. Perubahan kecil pada rentetan memberi kesan besar terhadap bilangan rekod.
+
+Penemu bual: Apakah cabaran utama yang anda hadapi?
+P09: Cabaran paling besar ialah deduplikasi antara pangkalan data. Tajuk yang sama boleh mempunyai tanda baca atau metadata berbeza. Saya tidak mahu membuang rekod secara automatik tanpa semakan.
+
+Penemu bual: Bagaimanakah anda mengurus proses pencarian atau sokongan pengguna?
+P09: Saya menghargai pustakawan yang memahami protokol systematic review. Nasihat umum tentang kata kunci tidak cukup apabila saya perlu mempertahankan sensitiviti dan kekhususan carian.
+
+Penemu bual: Apakah bentuk bantuan atau latihan yang paling berguna?
+P09: Akses kepada manual dan contoh protokol mempercepatkan kerja. Namun, sesetengah pautan lama dan tangkapan skrin tidak sama dengan versi platform terkini.
+
+Penemu bual: Bagaimanakah anda melihat penggunaan kecerdasan buatan dalam konteks ini?
+P09: Saya menggunakan AI untuk mencadangkan variasi istilah, kemudian menguji setiap istilah dengan artikel penanda aras. AI tidak menentukan kriteria kemasukan atau keputusan saringan.
+
+Penemu bual: Apakah penambahbaikan yang anda cadangkan?
+P09: Saya mencadangkan perkhidmatan semakan rentetan carian dan repositori protokol yang telah dinyahidentiti. Ini boleh mengurangkan pengulangan kesilapan antara pelajar.

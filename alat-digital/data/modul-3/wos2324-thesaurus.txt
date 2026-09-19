@@ -1,0 +1,44 @@
+label	replace by
+ANOMALY DETECTION	anomaly detection
+Anomaly detection	anomaly detection
+Machine learning	machine learning
+MACHINE LEARNING	machine learning
+INTRUSION DETECTION	intrusion detection
+Intrusion detection	intrusion detection
+INTRUSION DETECTION SYSTEM	intrusion detection system
+Intrusion detection system	intrusion detection system
+Cybersecurity	cybersecurity
+CYBERSECURITY	cybersecurity
+cyber security	cybersecurity
+Cyber security	cybersecurity
+Deep learning	deep learning
+DEEP LEARNING	deep learning
+IoT	internet of things
+IOT	internet of things
+Internet of Things	internet of things
+Internet of Things (IoT)	internet of things
+INTERNET OF THINGS	internet of things
+Industrial Internet of Things	industrial internet of things
+IIoT	industrial internet of things
+Cyber-physical systems	cyber-physical systems
+CYBER-PHYSICAL SYSTEMS	cyber-physical systems
+Federated learning	federated learning
+FEDERATED LEARNING	federated learning
+Blockchain	blockchain
+BLOCKCHAIN	blockchain
+Artificial intelligence	artificial intelligence
+ARTIFICIAL INTELLIGENCE	artificial intelligence
+systems	
+SYSTEMS	
+model	
+MODEL	
+framework	
+FRAMEWORK	
+challenges	
+CHALLENGES	
+internet	
+INTERNET	
+network	
+NETWORK	
+attacks	
+ATTACKS	
