@@ -52,65 +52,123 @@
 /* Participant registration */
 .registration-layout{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:22px;align-items:start}.participant-type-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.participant-type-card{position:relative;display:flex;flex-direction:column;gap:4px;padding:22px;border:2px solid var(--line);border-radius:14px;cursor:pointer;background:#fff;transition:.2s}.participant-type-card:hover{border-color:#c89ba7;transform:translateY(-1px)}.participant-type-card:has(input:checked){border-color:var(--utm);background:var(--soft);box-shadow:0 0 0 3px rgba(122,23,48,.08)}.participant-type-card input{position:absolute;right:16px;top:16px;accent-color:var(--utm)}.participant-type-card .type-icon{font-size:25px}.participant-type-card strong{font:700 17px "Libre Franklin"}.participant-type-card small{color:var(--muted)}.conditional-section[hidden],.student-only[hidden]{display:none!important}.declaration{display:flex;gap:12px;align-items:flex-start;padding:18px;background:#faf7f8;border:1px solid #eadde1;border-radius:12px;cursor:pointer}.declaration input{margin-top:5px;accent-color:var(--utm);transform:scale(1.15)}.programme-registration-card{position:sticky;top:100px;background:linear-gradient(150deg,#fff,#fbf5f6);border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}.programme-registration-card h2{font:700 25px/1.2 "Libre Franklin";margin:5px 0 22px}.registration-stage{display:grid;grid-template-columns:42px 1fr;gap:13px;padding:15px 0;border-top:1px solid var(--line)}.registration-stage>b{width:38px;height:38px;border-radius:10px;background:var(--utm);color:#fff;display:grid;place-items:center;font-size:12px}.registration-stage strong,.registration-stage span,.registration-stage small{display:block}.registration-stage strong{color:var(--utm);font-size:14px}.registration-stage span{font-weight:700;font-size:13px}.registration-stage small{color:var(--muted);margin-top:2px}.programme-note{margin-top:18px;padding:16px;border-radius:12px;background:var(--utm-dark);color:#fff}.programme-note p{margin:5px 0 0;color:#eadde1;font-size:13px}@media(max-width:900px){.registration-layout{grid-template-columns:1fr}.programme-registration-card{position:static;order:-1}}@media(max-width:620px){.participant-type-grid,.form-grid.two{grid-template-columns:1fr}.submit-bar{flex-direction:column;align-items:stretch}.submit-bar>div{display:grid;grid-template-columns:1fr}.submit-bar .button{width:100%}}
 
+
 /* =========================================================
-   2026-09-29 · Desktop visual alignment fix
-   Keep primary page imagery beside the introduction copy on
-   desktop/tablet landscape; stack only on compact screens.
+   2026 COMPACT SITE-WIDE REFINEMENT
+   Tighter spacing + reduced card-heavy appearance
    ========================================================= */
+
+/* Bring page content closer to the sticky header */
+.view{
+  padding-top:34px;
+  padding-bottom:64px;
+}
+
+/* Cleaner page introductions */
 .split-intro{
-  display:grid;
-  grid-template-columns:minmax(0,1.18fr) minmax(300px,.82fr);
-  gap:clamp(28px,4vw,52px);
-  align-items:center;
+  margin-top:0;
+  margin-bottom:22px;
+  padding:32px 0 36px;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  background:transparent;
 }
-.split-intro-copy{
-  min-width:0;
-}
+.split-intro-copy{padding:0}
 .split-intro-visual{
-  width:100%;
-  min-width:0;
-  max-width:none;
-  margin:0;
-  align-self:center;
-  justify-self:stretch;
-  overflow:hidden;
-}
-.split-intro-visual img{
-  display:block;
-  width:100%;
-  height:auto;
-  aspect-ratio:16 / 9;
-  object-fit:contain;
-  object-position:center;
+  border-radius:16px;
+  box-shadow:none;
 }
 
-/* Keep the two-column composition until true mobile widths. */
-@media (min-width:721px){
-  .split-intro{
-    grid-template-columns:minmax(0,55fr) minmax(300px,45fr);
-  }
-  .split-intro-visual{
-    grid-column:2;
-    grid-row:1;
-  }
-  .split-intro-copy{
-    grid-column:1;
-    grid-row:1;
-  }
+/* Reduce oversized vertical gaps */
+.page-heading{margin-bottom:26px}
+.phase-roadmap,
+.course-outcomes,
+.dashboard-repository{
+  margin-top:34px;
+}
+.content-panel{
+  margin-top:14px;
+}
+.content-panel + .content-panel{
+  margin-top:8px;
 }
 
-@media (max-width:720px){
+/* General information sections should feel open, not like nested cards */
+main .content-panel{
+  border-left:0;
+  border-right:0;
+  border-radius:0;
+  box-shadow:none;
+  background:transparent;
+  padding:28px 0;
+}
+main .course-outcomes{
+  padding-top:30px;
+  padding-bottom:30px;
+}
+
+/* Keep functional UI containers clear and usable */
+.form-section,
+.panel,
+.table-wrap,
+.chart-card,
+.lesson-content,
+.output-card{
+  box-shadow:none;
+}
+
+/* Lighter cards for learning/resources */
+.lesson-card,
+.resource-card,
+.roadmap-card,
+.outcome-grid article{
+  box-shadow:none;
+}
+
+/* Home page */
+.home-split{
+  margin:0 0 22px!important;
+  padding:30px 0 34px!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+}
+.home-journey-summary{
+  margin:0 0 18px!important;
+  padding:18px 0!important;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.home-journey-summary>div{
+  box-shadow:none;
+}
+body:has(.home-split) .view{
+  padding-top:0;
+}
+
+/* Step pages: reduce blank space without removing their useful hierarchy */
+.step-hero{
+  margin-bottom:18px;
+}
+.step-navigation,
+.completion-banner{
+  margin-top:18px;
+}
+
+/* Mobile */
+@media(max-width:900px){
+  .view{padding-top:26px}
   .split-intro{
-    grid-template-columns:1fr;
-    padding:24px;
-    gap:22px;
+    padding:24px 0 28px;
+    gap:24px;
   }
-  .split-intro-copy,
-  .split-intro-visual{
-    grid-column:1;
-    grid-row:auto;
-  }
-  .split-intro-visual{
-    max-width:100%;
-  }
+  body:has(.home-split) .view{padding-top:0}
+  .home-split{padding-top:22px!important;padding-bottom:28px!important}
+}
+@media(max-width:720px){
+  .view{padding-top:24px;padding-bottom:52px}
+  .phase-roadmap,.course-outcomes,.dashboard-repository{margin-top:28px}
+  main .content-panel{padding:24px 0}
 }
