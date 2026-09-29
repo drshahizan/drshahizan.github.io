@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Monitor participant registration for the Systematic Literature Review Workshop 2026."/>
+<title>Participant Dashboard | SLR Workshop 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@600;700&display=swap" rel="stylesheet"/>
+<link href="../assets/styles.css" rel="stylesheet"/>
+<style>
+.participant-bars{display:grid;gap:13px;margin-top:20px}.participant-bar{display:grid;grid-template-columns:110px 1fr 44px;gap:12px;align-items:center}.participant-bar strong{font-size:.86rem}.participant-bar .track{height:11px;background:#eceef1;border-radius:99px;overflow:hidden}.participant-bar .track span{display:block;height:100%;background:#7a1730;border-radius:99px}.participant-bar em{font-style:normal;text-align:right;font-weight:700;color:#7a1730}.participant-table td:first-child{font-weight:700;color:#7a1730}.participant-table td{vertical-align:top}.participant-table small{display:block;color:#6c737b;margin-top:2px}.status-pill{display:inline-flex;padding:5px 9px;border-radius:99px;background:#edf7f0;color:#26733d;font-size:.78rem;font-weight:700}.participant-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}.participant-summary div{padding:16px 0;border-top:2px solid #e4e6e8}.participant-summary strong{display:block;font-size:1.65rem;color:#7a1730}.participant-summary span{font-size:.84rem;color:#687079}.dashboard-note{color:#687079;font-size:.88rem}.filter-bar .participant-type{min-width:190px}@media(max-width:760px){.participant-summary{grid-template-columns:1fr}.participant-bar{grid-template-columns:90px 1fr 34px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+<a class="brand" href="../index.html"><span class="brand-mark">SLR</span><span><strong>Systematic Literature Review</strong><small>From Literature Discovery to Publication</small></span></a>
+<button aria-expanded="false" aria-label="Open navigation" class="menu-button" id="menuButton">☰</button>
+<nav id="mainNav"><a class="nav-link" href="../index.html">Home</a><a class="nav-link" href="../programme/index.html">Programme</a><a class="nav-link" href="../stages/stage-1.html">Stage 1</a><a class="nav-link" href="../stages/stage-2.html">Stage 2</a><a class="nav-link" href="../stages/stage-3.html">Stage 3</a><a class="nav-link" href="../stages/stage-4.html">Stage 4</a><a class="nav-link" href="../workspace/index.html">SLR Workspace</a><a class="nav-link" href="../resources/index.html">Resources</a></nav>
+</header>
+
+<main id="main"><section class="view active dashboard-view">
+<div class="dashboard-intro">
+<div><p class="eyebrow">Participant workspace</p><h1>Participant Dashboard</h1><p>Monitor registrations for the complete four-stage Systematic Literature Review Workshop 2026.</p><small id="participantUpdated">Preparing participant summary…</small></div>
+<div class="dashboard-actions"><a class="button primary" href="register-participant.html">+ Register Participant</a><button class="button ghost" id="participantExport" type="button">Export CSV</button></div>
+</div>
+
+<div class="metric-grid dashboard-metrics" id="participantMetrics"></div>
+
+<div class="dashboard-grid primary-grid">
+<article class="chart-card">
+<div class="panel-title"><div><p class="card-kicker">Participant profile</p><h2>Registration overview</h2><p>Breakdown of postgraduate students and academic staff.</p></div></div>
+<div class="participant-summary" id="participantOverview"></div>
+</article>
+<article class="chart-card">
+<div class="panel-title"><div><p class="card-kicker">Research groups</p><h2>Group distribution</h2><p>Registration distribution across Faculty research groups.</p></div></div>
+<div class="participant-bars" id="researchGroupBars"></div>
+</article>
+</div>
+
+<section class="dashboard-repository" id="participants">
+<div class="page-heading row-heading"><div><p class="eyebrow">Registered participants</p><h2>Participant Registration Records</h2><p>Search and filter workshop registrations.</p></div></div>
+<div class="filter-bar">
+<div class="search-field"><span>⌕</span><input aria-label="Search participants" id="participantSearch" placeholder="Search name, registration ID, email, or research group"/></div>
+<select class="participant-type" aria-label="Filter by participant type" id="filterParticipantType"><option value="">All participants</option><option>Postgraduate Student</option><option>Academic Staff</option></select>
+<select aria-label="Filter by research group" id="filterResearchGroup"><option value="">All research groups</option><option>ALIAS</option><option>IASRG</option><option>IIRG</option><option>ISSIRG</option><option>PCRG</option><option>SERG</option><option>VICUBELAB</option></select>
+</div>
+<div class="table-wrap"><table class="participant-table"><thead><tr><th>Registration ID</th><th>Participant</th><th>Type</th><th>Study</th><th>Research Group</th><th>Status</th></tr></thead><tbody id="participantRows"></tbody></table>
+<div class="empty-state" id="participantEmpty"><strong>No participants found</strong><p>Register a participant or adjust the filters.</p></div></div>
+<p class="table-note" id="participantCount"></p>
+</section>
+</section></main>
+
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><strong>SYSTEMATIC LITERATURE REVIEW</strong><p class="footer-gold">FROM LITERATURE DISCOVERY TO PUBLICATION</p><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><div class="footer-links"><a href="../index.html">Home</a><a href="../programme/index.html">Programme</a><a href="../stages/stage-1.html">Stage 1</a><a href="../stages/stage-2.html">Stage 2</a><a href="../stages/stage-3.html">Stage 3</a><a href="../stages/stage-4.html">Stage 4</a><a href="../workspace/index.html">SLR Workspace</a><a href="../resources/index.html">Resources</a></div></div><div class="footer-rule"></div><div class="footer-bottom"><span>© 2026 Dr MSO · Universiti Teknologi Malaysia. All rights reserved.</span><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" rel="noopener noreferrer" target="_blank"><img alt="Bilangan pelawat laman" src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic"/></a></div></footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="../assets/config.js"></script>
+<script src="../assets/app.js"></script>
+<script>
+(()=>{const cfg=window.SLR_CONFIG||{},groups=['ALIAS','IASRG','IIRG','ISSIRG','PCRG','SERG','VICUBELAB'];let records=[];
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $=s=>document.querySelector(s);
+function metrics(){
+ const students=records.filter(r=>r.participantType==='Postgraduate Student').length;
+ const staff=records.filter(r=>r.participantType==='Academic Staff').length;
+ const activeGroups=new Set(records.map(r=>r.researchGroup).filter(Boolean)).size;
+ $('#participantMetrics').innerHTML=[
+  ['Total Participants',records.length,'All registered participants'],
+  ['Students',students,'Postgraduate participants'],
+  ['Lecturers',staff,'Academic staff participants'],
+  ['Research Groups',activeGroups,'Groups represented']
+ ].map((m,i)=>`<article class="metric dashboard-metric tone-${['maroon','gold','slate','maroon'][i]}"><div class="metric-top"><span>${m[0]}</span><b>0${i+1}</b></div><strong>${m[1]}</strong><small>${m[2]}</small></article>`).join('');
+ const phd=records.filter(r=>r.levelOfStudy==='PhD').length, masters=records.filter(r=>/master/i.test(r.levelOfStudy||'')).length;
+ $('#participantOverview').innerHTML=`<div><strong>${phd}</strong><span>PhD Students</span></div><div><strong>${masters}</strong><span>Master Students</span></div><div><strong>${staff}</strong><span>Academic Staff</span></div>`;
+ const counts=Object.fromEntries(groups.map(g=>[g,records.filter(r=>r.researchGroup===g).length])),max=Math.max(1,...Object.values(counts));
+ $('#researchGroupBars').innerHTML=groups.map(g=>`<div class="participant-bar"><strong>${g}</strong><div class="track"><span style="width:${counts[g]/max*100}%"></span></div><em>${counts[g]}</em></div>`).join('');
+}
+function render(){
+ const q=$('#participantSearch').value.trim().toLowerCase(),type=$('#filterParticipantType').value,group=$('#filterResearchGroup').value;
+ const filtered=records.filter(r=>(!type||r.participantType===type)&&(!group||r.researchGroup===group)&&(!q||[r.registrationId,r.fullName,r.email,r.researchGroup,r.identityNumber].join(' ').toLowerCase().includes(q)));
+ $('#participantRows').innerHTML=filtered.map(r=>`<tr><td>${esc(r.registrationId)}</td><td><strong>${esc(r.fullName)}</strong><small>${esc(r.email)}</small></td><td>${esc(r.participantType)}</td><td>${r.participantType==='Postgraduate Student'?`${esc(r.levelOfStudy)}<small>Semester ${esc(r.currentSemester)}</small>`:'—'}</td><td>${esc(r.researchGroup)}</td><td><span class="status-pill">${esc(r.registrationStatus||'Registered')}</span></td></tr>`).join('');
+ $('#participantEmpty').style.display=filtered.length?'none':'block';
+ $('#participantCount').textContent=`Showing ${filtered.length} of ${records.length} registered participant${records.length===1?'':'s'}.`;
+}
+async function load(){
+ try{
+  if(!cfg.apiUrl) throw new Error('API URL is not configured.');
+  const r=await fetch(`${cfg.apiUrl}?action=participants`,{cache:'no-store'}),data=await r.json();
+  if(!r.ok||data.ok===false)throw new Error(data.error||'Unable to load participants.');
+  records=data.records||[];metrics();render();
+  const d=new Date(data.generatedAt||Date.now());$('#participantUpdated').textContent=`Data refreshed · ${d.toLocaleString('en-MY',{dateStyle:'medium',timeStyle:'short'})}`;
+ }catch(e){$('#participantUpdated').textContent='Live participant data is temporarily unavailable.';$('#participantEmpty').style.display='block';$('#participantEmpty').innerHTML='<strong>Participant data unavailable</strong><p>Check the Apps Script deployment and try again.</p>';}
+}
+function exportCsv(){
+ if(!records.length)return;
+ const cols=['registrationId','fullName','email','participantType','identityNumber','phoneNumber','levelOfStudy','currentSemester','supervisorName','researchGroup','registrationStatus'];
+ const quote=v=>`"${String(v??'').replace(/"/g,'""')}"`,csv=[cols.join(','),...records.map(r=>cols.map(c=>quote(r[c])).join(','))].join('\n');
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='slr-workshop-participants.csv';a.click();URL.revokeObjectURL(a.href);
+}
+['participantSearch','filterParticipantType','filterResearchGroup'].forEach(id=>$('#'+id).addEventListener(id==='participantSearch'?'input':'change',render));
+$('#participantExport').addEventListener('click',exportCsv);load();
+})();
+</script>
+</body></html>
