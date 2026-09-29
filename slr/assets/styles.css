@@ -172,3 +172,171 @@ body:has(.home-split) .view{
   .phase-roadmap,.course-outcomes,.dashboard-repository{margin-top:28px}
   main .content-panel{padding:24px 0}
 }
+
+
+/* =========================================================
+   FINAL SITE-WIDE LAYOUT REFINEMENT — 2026
+   Compact header rhythm, no oversized intro whitespace
+   ========================================================= */
+:root{
+  --page-top-gap:32px;
+  --page-section-gap:32px;
+}
+
+/* Compact top navigation */
+.topbar{
+  min-height:72px !important;
+  padding-top:10px !important;
+  padding-bottom:10px !important;
+}
+.brand{min-height:48px !important}
+.brand-mark{flex:0 0 auto}
+.brand small{margin-top:2px !important}
+
+/* One consistent top rhythm for every page */
+main{padding-top:0 !important}
+.view,
+main > .view,
+main > section.view,
+.view.active{
+  padding-top:var(--page-top-gap) !important;
+  padding-bottom:56px !important;
+}
+
+/* Home intentionally starts a little closer */
+body:has(.home-split) .view,
+body:has(.home-split) .view.active{
+  padding-top:0 !important;
+}
+
+/* All page/section heroes: content determines height */
+.split-intro,
+.stage-hero,
+.page-hero,
+.hero,
+.step-hero,
+.workspace-hero,
+.resource-hero,
+.programme-hero{
+  min-height:0 !important;
+  height:auto !important;
+  margin-top:0 !important;
+}
+
+/* Intro layouts: eliminate accumulated legacy top padding */
+.split-intro,
+.stage-hero,
+.page-hero,
+.workspace-hero,
+.resource-hero,
+.programme-hero{
+  padding-top:0 !important;
+  padding-bottom:30px !important;
+  margin-bottom:20px !important;
+}
+
+/* If an intro is also a split-intro, keep it clean/open */
+.split-intro{
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+}
+.split-intro-copy{
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+  align-self:center;
+}
+.split-intro-copy > :first-child,
+.stage-hero > :first-child,
+.page-hero > :first-child{
+  margin-top:0 !important;
+}
+
+/* Stage pages: eyebrow must appear soon after header */
+.stage-hero .eyebrow,
+.split-intro .eyebrow,
+.page-heading .eyebrow{
+  margin-top:0 !important;
+}
+
+/* Prevent nested sections from creating huge blank bands */
+.content-panel,
+.course-outcomes,
+.phase-roadmap,
+.dashboard-repository,
+.learning-section,
+.stage-section,
+.resources-section{
+  margin-top:0 !important;
+}
+.content-panel{
+  padding-top:26px !important;
+  padding-bottom:26px !important;
+}
+.content-panel + .content-panel,
+.content-panel + .course-outcomes,
+.course-outcomes + .content-panel{
+  margin-top:0 !important;
+}
+
+/* Open visual language for informational sections */
+main .content-panel,
+main .course-outcomes{
+  border-left:0 !important;
+  border-right:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+}
+
+/* Preserve functional boxes, but avoid exaggerated shadows */
+.form-section,
+.panel,
+.table-wrap,
+.chart-card,
+.output-card,
+.lesson-card,
+.resource-card,
+.roadmap-card{
+  box-shadow:none !important;
+}
+
+/* Home */
+.home-split{
+  padding-top:28px !important;
+  padding-bottom:30px !important;
+  margin-bottom:18px !important;
+}
+.home-journey-summary{
+  margin-top:0 !important;
+  margin-bottom:12px !important;
+}
+.course-outcomes{
+  padding-top:26px !important;
+  padding-bottom:26px !important;
+}
+.course-outcomes .page-heading{
+  margin-top:0 !important;
+  margin-bottom:22px !important;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  :root{--page-top-gap:24px}
+  .topbar{
+    min-height:64px !important;
+    padding-top:8px !important;
+    padding-bottom:8px !important;
+  }
+  .split-intro,.stage-hero,.page-hero{
+    padding-bottom:24px !important;
+    gap:24px !important;
+  }
+  .home-split{padding-top:22px !important}
+}
+@media(max-width:720px){
+  :root{--page-top-gap:20px}
+  .view,.view.active{padding-bottom:46px !important}
+  .content-panel{padding-top:22px !important;padding-bottom:22px !important}
+}
