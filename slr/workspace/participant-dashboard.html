@@ -8,7 +8,34 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@600;700&display=swap" rel="stylesheet"/>
 <link href="../assets/styles.css" rel="stylesheet"/>
 <style>
-.participant-bars{display:grid;gap:13px;margin-top:20px}.participant-bar{display:grid;grid-template-columns:110px 1fr 44px;gap:12px;align-items:center}.participant-bar strong{font-size:.86rem}.participant-bar .track{height:11px;background:#eceef1;border-radius:99px;overflow:hidden}.participant-bar .track span{display:block;height:100%;background:#7a1730;border-radius:99px}.participant-bar em{font-style:normal;text-align:right;font-weight:700;color:#7a1730}.participant-table td:first-child{font-weight:700;color:#7a1730}.participant-table td{vertical-align:top}.participant-table small{display:block;color:#6c737b;margin-top:2px}.status-pill{display:inline-flex;padding:5px 9px;border-radius:99px;background:#edf7f0;color:#26733d;font-size:.78rem;font-weight:700}.participant-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}.participant-summary div{padding:16px 0;border-top:2px solid #e4e6e8}.participant-summary strong{display:block;font-size:1.65rem;color:#7a1730}.participant-summary span{font-size:.84rem;color:#687079}.dashboard-note{color:#687079;font-size:.88rem}.filter-bar .participant-type{min-width:190px}@media(max-width:760px){.participant-summary{grid-template-columns:1fr}.participant-bar{grid-template-columns:90px 1fr 34px}}
+.participant-bars{display:grid;gap:13px;margin-top:20px}.participant-bar{display:grid;grid-template-columns:110px 1fr 78px;gap:12px;align-items:center}.participant-bar strong{font-size:.86rem}.participant-bar .track{height:11px;background:#eceef1;border-radius:99px;overflow:hidden}.participant-bar .track span{display:block;height:100%;background:#7a1730;border-radius:99px}.participant-bar em{font-style:normal;text-align:right;font-weight:700;color:#7a1730}.participant-table td:first-child{font-weight:700;color:#7a1730}.participant-table td{vertical-align:top}.participant-table small{display:block;color:#6c737b;margin-top:2px}.status-pill{display:inline-flex;padding:5px 9px;border-radius:99px;background:#edf7f0;color:#26733d;font-size:.78rem;font-weight:700}.participant-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}.participant-summary div{padding:16px 0;border-top:2px solid #e4e6e8}.participant-summary strong{display:block;font-size:1.65rem;color:#7a1730}.participant-summary span{font-size:.84rem;color:#687079}.dashboard-note{color:#687079;font-size:.88rem}.filter-bar .participant-type{min-width:190px}@media(max-width:760px){.participant-summary{grid-template-columns:1fr}.participant-bar{grid-template-columns:90px 1fr 34px}}
+
+.profile-detail{margin-top:28px;padding-top:24px;border-top:1px solid #e4e6e8}.profile-detail h3{margin:0 0 6px;font-size:1rem}.profile-detail p{margin:0 0 16px;color:#6c737b;font-size:.86rem}
+.composition-row{display:grid;grid-template-columns:88px 1fr 70px;gap:12px;align-items:center;margin:12px 0}.composition-row .track{height:10px;background:#eceef1;border-radius:99px;overflow:hidden}.composition-row .track span{display:block;height:100%;background:#7a1730;border-radius:99px}.composition-row em{font-style:normal;text-align:right;font-weight:700;color:#7a1730;font-size:.82rem}
+.semester-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin-top:14px}.semester-cell{text-align:center;padding:10px 4px 8px;border-top:2px solid #e4e6e8}.semester-cell strong{display:block;color:#7a1730;font-size:1.15rem}.semester-cell span{display:block;color:#6c737b;font-size:.72rem;margin-top:3px}
+@media(max-width:760px){.semester-grid{grid-template-columns:repeat(4,1fr)}}
+
+
+.profile-detail{margin-top:26px!important;padding-top:0!important;border-top:0!important}
+.chart-card .panel-title + .profile-detail{margin-top:14px!important;padding-top:0!important;border-top:0!important}
+.profile-detail h3{margin:0 0 18px!important;font-size:1.05rem!important}
+.composition-row{display:grid!important;grid-template-columns:1fr auto!important;gap:8px 18px!important;align-items:center!important;margin:0 0 20px!important}
+.composition-row strong{font-size:.95rem!important}.composition-row em{font-style:normal!important;font-weight:700!important;color:#7a1730!important;text-align:right!important}
+.composition-row .track{grid-column:1/-1!important;height:10px!important;background:#eceef1!important;border-radius:99px!important;overflow:hidden!important}
+.composition-row .track span{display:block!important;height:100%!important;background:#7a1730!important;border-radius:99px!important}
+.semester-grid{display:grid!important;grid-template-columns:repeat(8,minmax(54px,1fr))!important;gap:10px!important;margin-top:16px!important}
+.semester-cell{border:0!important;background:#f6f7f8!important;border-radius:10px!important;padding:13px 6px 11px!important;text-align:center!important}
+.semester-cell strong{display:block!important;font-size:1.25rem!important;color:#7a1730!important;line-height:1.1!important}
+.semester-cell span{display:block!important;margin-top:5px!important;color:#6c737b!important;font-size:.75rem!important;font-weight:600!important}
+@media(max-width:760px){.semester-grid{grid-template-columns:repeat(4,1fr)!important}}
+.composition-section{margin-top:20px!important;padding-top:0!important;border-top:0!important}
+.primary-grid .chart-card>.panel-title h2{margin-top:0!important}
+.dashboard-repository{margin-top:32px!important}
+@media(max-width:760px){.dashboard-repository{margin-top:24px!important}}
+.dashboard-repository .page-heading{margin-bottom:14px!important}
+.dashboard-repository .page-heading p{margin-bottom:0!important}
+.dashboard-repository .filter-bar{margin-top:0!important}
+@media(max-width:760px){.dashboard-repository .page-heading{margin-bottom:12px!important}}
 </style>
 </head>
 <body>
@@ -28,17 +55,17 @@
 
 <div class="dashboard-grid primary-grid">
 <article class="chart-card">
-<div class="panel-title"><div><p class="card-kicker">Participant profile</p><h2>Registration overview</h2><p>Breakdown of postgraduate students and academic staff.</p></div></div>
-<div class="participant-summary" id="participantOverview"></div>
+<div class="panel-title"><div><p class="card-kicker">Participant profile</p><h2>Postgraduate composition</h2></div></div>
+<div class="profile-detail composition-section"><div id="postgraduateComposition"></div></div><div class="profile-detail"><h3>Semester distribution</h3><div class="semester-grid" id="semesterDistribution"></div></div>
 </article>
 <article class="chart-card">
-<div class="panel-title"><div><p class="card-kicker">Research groups</p><h2>Group distribution</h2><p>Registration distribution across Faculty research groups.</p></div></div>
+<div class="panel-title"><div><p class="card-kicker">Research groups</p><h2>Group distribution</h2></div></div>
 <div class="participant-bars" id="researchGroupBars"></div>
 </article>
 </div>
 
 <section class="dashboard-repository" id="participants">
-<div class="page-heading row-heading"><div><p class="eyebrow">Registered participants</p><h2>Participant Registration Records</h2><p>Search and filter workshop registrations.</p></div></div>
+<div class="page-heading row-heading"><div><h2>Participant Registration Records</h2><p>Search and filter workshop registrations.</p></div></div>
 <div class="filter-bar">
 <div class="search-field"><span>⌕</span><input aria-label="Search participants" id="participantSearch" placeholder="Search name, registration ID, email, or research group"/></div>
 <select class="participant-type" aria-label="Filter by participant type" id="filterParticipantType"><option value="">All participants</option><option>Postgraduate Student</option><option>Academic Staff</option></select>
@@ -60,19 +87,14 @@
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const $=s=>document.querySelector(s);
 function metrics(){
- const students=records.filter(r=>r.participantType==='Postgraduate Student').length;
- const staff=records.filter(r=>r.participantType==='Academic Staff').length;
- const activeGroups=new Set(records.map(r=>r.researchGroup).filter(Boolean)).size;
- $('#participantMetrics').innerHTML=[
-  ['Total Participants',records.length,'All registered participants'],
-  ['Students',students,'Postgraduate participants'],
-  ['Lecturers',staff,'Academic staff participants'],
-  ['Research Groups',activeGroups,'Groups represented']
- ].map((m,i)=>`<article class="metric dashboard-metric tone-${['maroon','gold','slate','maroon'][i]}"><div class="metric-top"><span>${m[0]}</span><b>0${i+1}</b></div><strong>${m[1]}</strong><small>${m[2]}</small></article>`).join('');
- const phd=records.filter(r=>r.levelOfStudy==='PhD').length, masters=records.filter(r=>/master/i.test(r.levelOfStudy||'')).length;
- $('#participantOverview').innerHTML=`<div><strong>${phd}</strong><span>PhD Students</span></div><div><strong>${masters}</strong><span>Master Students</span></div><div><strong>${staff}</strong><span>Academic Staff</span></div>`;
- const counts=Object.fromEntries(groups.map(g=>[g,records.filter(r=>r.researchGroup===g).length])),max=Math.max(1,...Object.values(counts));
- $('#researchGroupBars').innerHTML=groups.map(g=>`<div class="participant-bar"><strong>${g}</strong><div class="track"><span style="width:${counts[g]/max*100}%"></span></div><em>${counts[g]}</em></div>`).join('');
+ const students=records.filter(r=>r.participantType==='Postgraduate Student').length,staff=records.filter(r=>r.participantType==='Academic Staff').length,activeGroups=new Set(records.map(r=>r.researchGroup).filter(Boolean)).size;
+ $('#participantMetrics').innerHTML=[['Total Participants',records.length,'All registered participants'],['Students',students,'Postgraduate participants'],['Lecturers',staff,'Academic staff participants'],['Research Groups',activeGroups,'Groups represented']].map((m,i)=>`<article class="metric dashboard-metric tone-${['maroon','gold','slate','maroon'][i]}"><div class="metric-top"><span>${m[0]}</span><b>0${i+1}</b></div><strong>${m[1]}</strong><small>${m[2]}</small></article>`).join('');
+ const phd=records.filter(r=>r.participantType==='Postgraduate Student'&&/^phd$/i.test(r.levelOfStudy||'')).length,masters=records.filter(r=>r.participantType==='Postgraduate Student'&&/^master/i.test(r.levelOfStudy||'')).length;
+ const pg=phd+masters;$('#postgraduateComposition').innerHTML=[['PhD',phd],['Master',masters]].map(([l,n])=>{const pct=pg?Math.round(n/pg*100):0;return `<div class="composition-row"><strong>${l}</strong><em>${n} participant${n===1?'':'s'} · ${pct}%</em><div class="track"><span style="width:${pct}%"></span></div></div>`}).join('');
+ const sem=Array(8).fill(0);records.filter(r=>r.participantType==='Postgraduate Student').forEach(r=>{const m=String(r.currentSemester||'').match(/(\d+)/);if(m){const n=+m[1];if(n>=1&&n<=7)sem[n-1]++;else if(n>=8)sem[7]++}});
+ $('#semesterDistribution').innerHTML=sem.map((n,i)=>`<div class="semester-cell"><strong>${n}</strong><span>${i===7?'S8+':'S'+(i+1)}</span></div>`).join('');
+ const counts=Object.fromEntries(groups.map(g=>[g,records.filter(r=>r.researchGroup===g).length])),den=Math.max(1,records.filter(r=>r.researchGroup).length);
+ $('#researchGroupBars').innerHTML=groups.map(g=>{const pct=Math.round(counts[g]/den*100);return `<div class="participant-bar"><strong>${g}</strong><div class="track"><span style="width:${pct}%"></span></div><em>${counts[g]} · ${pct}%</em></div>`}).join('');
 }
 function render(){
  const q=$('#participantSearch').value.trim().toLowerCase(),type=$('#filterParticipantType').value,group=$('#filterResearchGroup').value;
