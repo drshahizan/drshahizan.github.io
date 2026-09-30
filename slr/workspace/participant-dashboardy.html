@@ -36,13 +36,6 @@
 .dashboard-repository .page-heading p{margin-bottom:0!important}
 .dashboard-repository .filter-bar{margin-top:0!important}
 @media(max-width:760px){.dashboard-repository .page-heading{margin-bottom:12px!important}}
-
-.pagination-wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-top:18px;flex-wrap:wrap}
-.pagination-info{margin:0;color:#6c737b;font-size:.88rem}
-.pagination-controls{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.page-btn{min-width:36px;height:36px;padding:0 10px;border:1px solid #d9dde2;border-radius:9px;background:#fff;color:#34383e;font:inherit;font-weight:700;cursor:pointer}
-.page-btn:hover:not(:disabled){border-color:#7a1730;color:#7a1730}.page-btn.active{background:#7a1730;border-color:#7a1730;color:#fff}.page-btn:disabled{opacity:.42;cursor:not-allowed}.page-ellipsis{padding:0 4px;color:#7b8188}
-@media(max-width:760px){.pagination-wrap{align-items:flex-start;flex-direction:column}.pagination-controls{width:100%}}
 </style>
 </head>
 <body>
@@ -80,7 +73,7 @@
 </div>
 <div class="table-wrap"><table class="participant-table"><thead><tr><th>Registration ID</th><th>Participant</th><th>Type</th><th>Study</th><th>Research Group</th><th>Status</th></tr></thead><tbody id="participantRows"></tbody></table>
 <div class="empty-state" id="participantEmpty"><strong>No participants found</strong><p>Register a participant or adjust the filters.</p></div></div>
-<div class="pagination-wrap"><p class="pagination-info" id="participantCount"></p><nav class="pagination-controls" id="participantPagination" aria-label="Participant records pagination"></nav></div>
+<p class="table-note" id="participantCount"></p>
 </section>
 </section></main>
 
@@ -90,7 +83,7 @@
 <script src="../assets/config.js"></script>
 <script src="../assets/app.js"></script>
 <script>
-(()=>{const cfg=window.SLR_CONFIG||{},groups=['ALIAS','IASRG','IIRG','ISSIRG','PCRG','SERG','VICUBELAB'];let records=[],currentPage=1;const PAGE_SIZE=15;
+(()=>{const cfg=window.SLR_CONFIG||{},groups=['ALIAS','IASRG','IIRG','ISSIRG','PCRG','SERG','VICUBELAB'];let records=[];
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const properCase=v=>String(v??'').trim().toLowerCase().replace(/\b[a-z]/g,c=>c.toUpperCase());
 const $=s=>document.querySelector(s);
@@ -107,21 +100,9 @@ function metrics(){
 function render(){
  const q=$('#participantSearch').value.trim().toLowerCase(),type=$('#filterParticipantType').value,group=$('#filterResearchGroup').value;
  const filtered=records.filter(r=>(!type||r.participantType===type)&&(!group||r.researchGroup===group)&&(!q||[r.registrationId,r.fullName,r.email,r.researchGroup,r.identityNumber].join(' ').toLowerCase().includes(q)));
- const totalPages=Math.max(1,Math.ceil(filtered.length/PAGE_SIZE)); if(currentPage>totalPages)currentPage=totalPages;
- const start=(currentPage-1)*PAGE_SIZE,end=Math.min(start+PAGE_SIZE,filtered.length),pageRecords=filtered.slice(start,end);
- $('#participantRows').innerHTML=pageRecords.map(r=>`<tr><td>${esc(r.registrationId)}</td><td><strong>${esc(properCase(r.fullName))}</strong><small>${esc(r.email)}</small></td><td>${esc(r.participantType)}</td><td>${r.participantType==='Postgraduate Student'?`${esc(r.levelOfStudy)}<small>${esc(/^semester\\s/i.test(r.currentSemester||'')?r.currentSemester:(r.currentSemester?'Semester '+r.currentSemester:''))}</small>`:'—'}</td><td>${esc(r.researchGroup)}</td><td><span class="status-pill">${esc(r.registrationStatus||'Registered')}</span></td></tr>`).join('');
+ $('#participantRows').innerHTML=filtered.map(r=>`<tr><td>${esc(r.registrationId)}</td><td><strong>${esc(properCase(r.fullName))}</strong><small>${esc(r.email)}</small></td><td>${esc(r.participantType)}</td><td>${r.participantType==='Postgraduate Student'?`${esc(r.levelOfStudy)}<small>${esc(/^semester\s/i.test(r.currentSemester||'')?r.currentSemester:(r.currentSemester?'Semester '+r.currentSemester:''))}</small>`:'—'}</td><td>${esc(r.researchGroup)}</td><td><span class="status-pill">${esc(r.registrationStatus||'Registered')}</span></td></tr>`).join('');
  $('#participantEmpty').style.display=filtered.length?'none':'block';
- $('#participantCount').textContent=filtered.length?`Showing ${start+1}–${end} of ${filtered.length} participants`:'Showing 0 participants';
- renderPagination(totalPages,filtered.length);
-}
-function renderPagination(totalPages,totalRecords){
- const nav=$('#participantPagination'); if(totalRecords<=PAGE_SIZE){nav.innerHTML='';nav.style.display='none';return} nav.style.display='flex';
- const items=[],addPage=n=>items.push(`<button class="page-btn${n===currentPage?' active':''}" type="button" data-page="${n}"${n===currentPage?' aria-current="page"':''}>${n}</button>`);
- items.push(`<button class="page-btn" type="button" data-page="${currentPage-1}" ${currentPage===1?'disabled':''}>Previous</button>`);
- let pages=[]; if(totalPages<=7)pages=Array.from({length:totalPages},(_,i)=>i+1); else if(currentPage<=4)pages=[1,2,3,4,5,'…',totalPages]; else if(currentPage>=totalPages-3)pages=[1,'…',totalPages-4,totalPages-3,totalPages-2,totalPages-1,totalPages]; else pages=[1,'…',currentPage-1,currentPage,currentPage+1,'…',totalPages];
- pages.forEach(n=>n==='…'?items.push('<span class="page-ellipsis">…</span>'):addPage(n));
- items.push(`<button class="page-btn" type="button" data-page="${currentPage+1}" ${currentPage===totalPages?'disabled':''}>Next</button>`); nav.innerHTML=items.join('');
- nav.querySelectorAll('button[data-page]').forEach(btn=>btn.addEventListener('click',()=>{const p=Number(btn.dataset.page);if(p>=1&&p<=totalPages&&p!==currentPage){currentPage=p;render();document.querySelector('#participants').scrollIntoView({behavior:'smooth',block:'start'})}}));
+ $('#participantCount').textContent=`Showing ${filtered.length} of ${records.length} registered participant${records.length===1?'':'s'}.`;
 }
 async function load(){
  try{
@@ -138,7 +119,7 @@ function exportCsv(){
  const quote=v=>`"${String(v??'').replace(/"/g,'""')}"`,csv=[cols.join(','),...records.map(r=>cols.map(c=>quote(r[c])).join(','))].join('\n');
  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='slr-workshop-participants.csv';a.click();URL.revokeObjectURL(a.href);
 }
-['participantSearch','filterParticipantType','filterResearchGroup'].forEach(id=>$('#'+id).addEventListener(id==='participantSearch'?'input':'change',()=>{currentPage=1;render()}));
+['participantSearch','filterParticipantType','filterResearchGroup'].forEach(id=>$('#'+id).addEventListener(id==='participantSearch'?'input':'change',render));
 $('#participantExport').addEventListener('click',exportCsv);load();
 })();
 </script>
