@@ -85,7 +85,6 @@
 <script>
 (()=>{const cfg=window.SLR_CONFIG||{},groups=['ALIAS','IASRG','IIRG','ISSIRG','PCRG','SERG','VICUBELAB'];let records=[];
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const properCase=v=>String(v??'').trim().toLowerCase().replace(/\b[a-z]/g,c=>c.toUpperCase());
 const $=s=>document.querySelector(s);
 function metrics(){
  const students=records.filter(r=>r.participantType==='Postgraduate Student').length,staff=records.filter(r=>r.participantType==='Academic Staff').length,activeGroups=new Set(records.map(r=>r.researchGroup).filter(Boolean)).size;
@@ -100,7 +99,7 @@ function metrics(){
 function render(){
  const q=$('#participantSearch').value.trim().toLowerCase(),type=$('#filterParticipantType').value,group=$('#filterResearchGroup').value;
  const filtered=records.filter(r=>(!type||r.participantType===type)&&(!group||r.researchGroup===group)&&(!q||[r.registrationId,r.fullName,r.email,r.researchGroup,r.identityNumber].join(' ').toLowerCase().includes(q)));
- $('#participantRows').innerHTML=filtered.map(r=>`<tr><td>${esc(r.registrationId)}</td><td><strong>${esc(properCase(r.fullName))}</strong><small>${esc(r.email)}</small></td><td>${esc(r.participantType)}</td><td>${r.participantType==='Postgraduate Student'?`${esc(r.levelOfStudy)}<small>${esc(/^semester\s/i.test(r.currentSemester||'')?r.currentSemester:(r.currentSemester?'Semester '+r.currentSemester:''))}</small>`:'—'}</td><td>${esc(r.researchGroup)}</td><td><span class="status-pill">${esc(r.registrationStatus||'Registered')}</span></td></tr>`).join('');
+ $('#participantRows').innerHTML=filtered.map(r=>`<tr><td>${esc(r.registrationId)}</td><td><strong>${esc(r.fullName)}</strong><small>${esc(r.email)}</small></td><td>${esc(r.participantType)}</td><td>${r.participantType==='Postgraduate Student'?`${esc(r.levelOfStudy)}<small>${esc(/^semester\s/i.test(r.currentSemester||'')?r.currentSemester:(r.currentSemester?'Semester '+r.currentSemester:''))}</small>`:'—'}</td><td>${esc(r.researchGroup)}</td><td><span class="status-pill">${esc(r.registrationStatus||'Registered')}</span></td></tr>`).join('');
  $('#participantEmpty').style.display=filtered.length?'none':'block';
  $('#participantCount').textContent=`Showing ${filtered.length} of ${records.length} registered participant${records.length===1?'':'s'}.`;
 }
