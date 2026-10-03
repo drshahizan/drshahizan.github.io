@@ -1,0 +1,10 @@
+.event-meta{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:24px;padding:16px 18px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:12px;box-shadow:0 8px 24px rgba(16,42,67,.06)}
+.event-meta div{display:flex;gap:9px;align-items:flex-start}
+.event-meta strong{display:block;color:var(--navy);font-size:.83rem}
+.event-meta span{display:block;color:var(--muted);font-size:.86rem}
+.event-icon{color:var(--red);font-weight:900}
+.course-facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.course-fact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+.course-fact small{display:block;color:var(--red);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.course-fact strong{display:block;margin-top:5px;color:var(--navy);font:700 1.02rem Manrope}
+@media(max-width:620px){.course-facts{grid-template-columns:1fr}.event-meta{display:block}.event-meta div+div{margin-top:10px}}

@@ -1,0 +1,5 @@
+document.querySelector('.public-menu')?.addEventListener('click',()=>document.querySelector('.public-header')?.classList.toggle('menu-open'));
+document.querySelectorAll('[data-course-filter]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-course-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=b.dataset.courseFilter;document.querySelectorAll('.course-card').forEach(c=>c.hidden=f!=='all'&&c.dataset.type!==f)}));
+const registration=document.querySelector('#publicRegistration');if(registration)registration.addEventListener('submit',e=>{e.preventDefault();const ref='DKR-2026-'+String(Math.floor(10000+Math.random()*89999));try{localStorage.setItem('daftarkitaPublicRef',ref)}catch{}location.href='berjaya.html?ref='+encodeURIComponent(ref)});
+const refOutput=document.querySelector('#referenceNumber');if(refOutput){const q=new URLSearchParams(location.search);refOutput.textContent=q.get('ref')||'DKR-2026-00125'}
+const statusForm=document.querySelector('#statusForm');if(statusForm)statusForm.addEventListener('submit',e=>{e.preventDefault();document.querySelector('#statusResult').hidden=false});
