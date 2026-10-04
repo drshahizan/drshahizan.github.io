@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Panduan Pemasangan | JalanCare DB</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/db.css">
+  <style>
+    .guide{max-width:980px;margin:auto;padding:38px 24px}.guide h1{margin:.3rem 0}.guide h2{margin-top:0}.step{margin:20px 0;padding:24px;border:1px solid var(--line);border-radius:14px;background:#fff}.step-no{display:inline-grid;place-items:center;width:34px;height:34px;margin-right:10px;border-radius:50%;background:var(--orange);color:#fff;font-weight:900}.code{padding:14px;border-radius:8px;background:#fff7d6;color:#512044;overflow:auto}.checklist li{margin:9px 0}.warning{padding:15px;border-left:4px solid var(--orange);background:#fff8e7;border-radius:8px}.guide table{width:100%}@media(max-width:650px){.guide{padding:24px 14px}.step{padding:18px}}
+  </style>
+</head>
+<body class="public-page">
+  <header class="public-header"><a class="brand" href="index.html"><span class="brand-mark">JKR</span><span><b>JalanCare DB</b><small>Panduan peserta</small></span></a><nav><a href="index.html">Portal Awam</a><a href="login.html">Log Masuk</a></nav><button class="public-menu">☰</button></header>
+  <main class="guide">
+    <span class="eyebrow">PROJEK 1 · FASA 2</span>
+    <h1>Sambungkan website kepada Google Sheets</h1>
+    <p>Ikuti langkah mengikut urutan. Anda hanya perlu menyalin fail, menampal kod dan menukar satu URL.</p>
+
+    <section class="step"><h2><span class="step-no">1</span>Sediakan Google Sheets</h2>
+      <ol class="checklist"><li>Buka Google Drive.</li><li>Klik <b>New > File upload</b>.</li><li>Pilih <code>dokumen/Pangkalan_Data_Portal_Aduan_JalanCare.xlsx</code>.</li><li>Selepas muat naik, klik kanan fail dan pilih <b>Open with > Google Sheets</b>.</li><li>Pilih <b>File > Save as Google Sheets</b>.</li></ol>
+      <p class="warning"><b>Penting:</b> Jangan ubah nama tab seperti ADUAN, PENGGUNA, SESI dan LOG_AKTIVITI. Kod menggunakan nama ini.</p>
+    </section>
+
+    <section class="step"><h2><span class="step-no">2</span>Masukkan Google Apps Script</h2>
+      <ol class="checklist"><li>Dalam Google Sheets, pilih <b>Extensions > Apps Script</b>.</li><li>Di sebelah kiri, buka <b>Code.gs</b>.</li><li>Padam kod contoh.</li><li>Buka fail <code>google-apps-script/Code.gs</code> daripada pakej ini.</li><li>Salin semua kod, tampal ke editor Apps Script dan klik ikon <b>Save</b>.</li></ol>
+    </section>
+
+    <section class="step"><h2><span class="step-no">3</span>Terbitkan sebagai Web App</h2>
+      <ol class="checklist"><li>Klik <b>Deploy > New deployment</b>.</li><li>Klik ikon gear dan pilih <b>Web app</b>.</li><li>Description: <code>JalanCare API v1</code>.</li><li>Execute as: <b>Me</b>.</li><li>Who has access: <b>Anyone</b>.</li><li>Klik <b>Deploy</b> dan beri kebenaran yang diminta.</li><li>Salin <b>Web app URL</b> yang berakhir dengan <code>/exec</code>.</li></ol>
+      <p class="warning">Jika Google memaparkan “This app isn't verified”, pilih <b>Advanced</b>, kemudian teruskan ke projek anda. Ini berlaku kerana skrip itu milik akaun anda sendiri.</p>
+    </section>
+
+    <section class="step"><h2><span class="step-no">4</span>Uji API</h2>
+      <p>Buka URL berikut dalam pelayar. Gantikan bahagian pertama dengan URL Web App anda:</p>
+      <div class="code">https://script.google.com/macros/s/ID_ANDA/exec?action=ping</div>
+      <p>Jika berjaya, skrin memaparkan respons yang mengandungi <code>"ok":true</code> dan <code>JalanCare API aktif</code>.</p>
+    </section>
+
+    <section class="step"><h2><span class="step-no">5</span>Sambungkan website</h2>
+      <ol class="checklist"><li>Buka fail <code>js/config.js</code> menggunakan Notepad atau VS Code.</li><li>Cari teks <code>MASUKKAN_URL_GOOGLE_APPS_SCRIPT_WEB_APP</code>.</li><li>Gantikan teks itu dengan URL <code>/exec</code> daripada Langkah 3.</li><li>Simpan fail.</li></ol>
+      <div class="code">window.JALANCARE_CONFIG = { API_URL: "https://script.google.com/macros/s/ID_ANDA/exec", REQUEST_TIMEOUT_MS: 20000 };</div>
+    </section>
+
+    <section class="step"><h2><span class="step-no">6</span>Uji fungsi utama</h2>
+      <ol class="checklist"><li>Buka website melalui pelayan web atau GitHub Pages.</li><li>Hantar satu aduan melalui <b>Buat Aduan</b>.</li><li>Salin nombor rujukan dan kod empat digit.</li><li>Gunakan <b>Semak Status</b>.</li><li>Log masuk sebagai <code>admin</code> / <code>Admin@123</code>.</li><li>Semak dashboard, senarai aduan dan butiran aduan.</li><li>Kemas kini status; pastikan tab ADUAN, TINDAKAN dan LOG_AKTIVITI berubah.</li></ol>
+    </section>
+
+    <section class="step"><h2><span class="step-no">7</span>Terbitkan di GitHub Pages</h2>
+      <ol class="checklist"><li>Ekstrak folder projek.</li><li>Buka GitHub Desktop dan pilih <b>File > New repository</b>.</li><li>Nama repositori: <code>projek1-db</code>. Pilih folder projek sebagai Local path.</li><li>Klik <b>Create repository</b>.</li><li>Masukkan ringkasan <code>Projek 1 DB JalanCare</code>, kemudian klik <b>Commit to main</b>.</li><li>Klik <b>Publish repository</b> dan pastikan pilihan private tidak ditanda jika menggunakan GitHub Pages percuma.</li><li>Di github.com, buka repositori > <b>Settings > Pages</b>.</li><li>Source: <b>Deploy from a branch</b>; Branch: <b>main</b>; Folder: <b>/(root)</b>; klik <b>Save</b>.</li><li>Tunggu beberapa minit dan buka URL yang diberi oleh GitHub Pages.</li></ol>
+    </section>
+
+    <section class="step"><h2>Akaun latihan</h2>
+      <div class="table-wrap"><table><thead><tr><th>Peranan</th><th>Pengguna</th><th>Kata laluan</th></tr></thead><tbody><tr><td>Pentadbir</td><td>admin</td><td>Admin@123</td></tr><tr><td>Pegawai Aduan</td><td>pegawai</td><td>Pegawai@123</td></tr><tr><td>Penyelia</td><td>penyelia</td><td>Penyelia@123</td></tr><tr><td>Pasukan Lapangan</td><td>lapangan</td><td>Lapangan@123</td></tr><tr><td>Kontraktor</td><td>kontraktor</td><td>Kontraktor@123</td></tr><tr><td>Pengurusan</td><td>pengurusan</td><td>Laporan@123</td></tr></tbody></table></div>
+      <p class="warning"><b>Untuk latihan sahaja:</b> Tukar semua kata laluan sebelum menggunakan data sebenar. Elakkan data peribadi atau rahsia dalam demonstrasi awam.</p>
+    </section>
+  </main>
+  <footer class="public-footer"><span>© 2026 JalanCare JKR Daerah Rembau</span><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a></footer>
+  <script src="js/public.js"></script>
+</body>
+</html>
