@@ -1,0 +1,1 @@
+document.querySelector('#loginForm')?.addEventListener('submit',e=>{e.preventDefault();const role=document.querySelector('#role').value;sessionStorage.setItem('jcrRole',role);location.href='dashboard.html'});
