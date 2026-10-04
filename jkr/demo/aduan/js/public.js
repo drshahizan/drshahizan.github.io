@@ -1,4 +1,0 @@
-document.querySelectorAll('.public-menu').forEach(b=>b.onclick=()=>document.querySelector('.public-header nav')?.classList.toggle('open'));
-const form=document.querySelector('#complaintForm');if(form)form.addEventListener('submit',e=>{e.preventDefault();const ref='JCR-2026-'+String(Math.floor(10000+Math.random()*89999));sessionStorage.setItem('jcrRef',ref);location.href='berjaya.html?ref='+ref});
-const refEl=document.querySelector('#referenceNumber');if(refEl){const p=new URLSearchParams(location.search);refEl.textContent=p.get('ref')||sessionStorage.getItem('jcrRef')||'JCR-2026-10482'}
-const statusForm=document.querySelector('#statusForm');if(statusForm)statusForm.addEventListener('submit',e=>{e.preventDefault();document.querySelector('#statusResult').hidden=false;document.querySelector('#statusResult').scrollIntoView({behavior:'smooth'});});

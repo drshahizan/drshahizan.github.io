@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Butiran Aduan | JalanCare DB</title>
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/db.css">
+</head>
+<body class="embed-page">
+  <main class="content">
+    <div id="dataNotice" class="data-notice">Sedang mendapatkan butiran aduan…</div>
+    <div id="detailContent" hidden>
+      <div class="page-head">
+        <div><span id="detailReference" class="eyebrow">—</span><h1 id="detailTitle">Butiran Aduan</h1><p id="detailDate">—</p></div>
+        <div><span id="detailPriority" class="status red">—</span> <span id="detailStatus" class="status orange">—</span></div>
+      </div>
+      <div class="detail-grid">
+        <section class="card">
+          <div class="card-head"><h2>Maklumat aduan</h2></div>
+          <div class="card-body">
+            <p id="detailDescription">—</p>
+            <ul class="detail-list">
+              <li><span>Kategori</span><b id="detailCategory">—</b></li>
+              <li><span>Lokasi</span><b id="detailLocation">—</b></li>
+              <li><span>Koordinat</span><b id="detailCoordinates">—</b></li>
+              <li><span>Pengadu</span><b id="detailReporter">—</b></li>
+            </ul>
+          </div>
+        </section>
+        <aside>
+          <section class="card">
+            <div class="card-head"><h2>Tindakan pegawai</h2></div>
+            <form id="statusUpdateForm" class="card-body">
+              <div class="field"><label>Status</label><select id="statusSelect" name="status"><option>Baharu</option><option>Dalam semakan</option><option>Pemeriksaan tapak</option><option>Dalam tindakan</option><option>Maklumat tambahan diperlukan</option><option>Selesai</option><option>Ditutup</option></select></div>
+              <div class="field" style="margin-top:13px"><label>Catatan untuk pengadu</label><textarea id="publicNote" name="publicNote" placeholder="Catatan ini dipaparkan dalam semakan awam"></textarea></div>
+              <div class="field" style="margin-top:13px"><label>Catatan dalaman</label><textarea id="internalNote" name="internalNote" placeholder="Catatan untuk kegunaan staf sahaja"></textarea></div>
+              <p id="updateMessage" class="form-message"></p>
+              <button class="primary wide" type="submit">Simpan Kemas Kini</button>
+            </form>
+          </section>
+          <section class="card" style="margin-top:16px"><div class="card-head"><h2>Jejak masa</h2></div><div class="card-body"><ul id="timeline" class="timeline"></ul></div></section>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer"><span>© 2026 JalanCare JKR Daerah Rembau</span><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a></footer>
+  <script src="../js/config.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/internal.js"></script>
+  <script>document.querySelector('#statusUpdateForm').addEventListener('submit',saveComplaintStatus);loadComplaintDetail()</script>
+</body>
+</html>
