@@ -1,1 +1,32 @@
-<!doctype html><html lang="ms"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard | JalanCare DB</title><link rel="stylesheet" href="css/theme.css"><link rel="stylesheet" href="css/db.css"></head><body class="dashboard-page"><div class="dashboard"><aside class="sidebar"><div class="sidebar-head"><span class="brand-mark">JKR</span><span class="side-brand"><b>JalanCare DB</b><span>Google Sheets Edition</span></span><button id="collapse" class="collapse">«</button></div><nav class="side-nav"><div class="nav-label">UTAMA</div><a class="active" data-page data-title="Papan Pemuka" href="home.html"><span class="nav-icon">▦</span><span class="nav-text">Papan Pemuka</span></a><div class="nav-label">ADUAN</div><a data-page data-title="Senarai Aduan" href="aduan/senarai.html"><span class="nav-icon">☷</span><span class="nav-text">Senarai Aduan</span></a><a data-page data-title="Pengesahan Aduan" href="aduan/pengesahan.html"><span class="nav-icon">◇</span><span class="nav-text">Pengesahan Aduan</span></a><a data-page data-title="Peta Aduan" href="peta/index.html"><span class="nav-icon">⌖</span><span class="nav-text">Peta Aduan</span></a><div class="nav-label">OPERASI</div><a data-page data-title="Pengurusan Tugasan" href="tugasan/index.html"><span class="nav-icon">✓</span><span class="nav-text">Tugasan</span></a><a data-page data-title="Pemeriksaan Tapak" href="lapangan/pemeriksaan.html"><span class="nav-icon">⌕</span><span class="nav-text">Pemeriksaan Tapak</span></a><a data-page data-title="Bukti Kerja" href="lapangan/bukti-kerja.html"><span class="nav-icon">▧</span><span class="nav-text">Bukti Kerja</span></a><a data-page data-title="Pemantauan SLA" href="sla/index.html"><span class="nav-icon">◷</span><span class="nav-text">Pemantauan SLA</span></a><div class="nav-label">PENGURUSAN</div><a data-page data-title="Laporan" href="laporan/index.html"><span class="nav-icon">▥</span><span class="nav-text">Laporan</span></a><a data-page data-title="Pengguna" href="pengguna/index.html"><span class="nav-icon">♙</span><span class="nav-text">Pengguna</span></a><a data-page data-title="Kategori" href="konfigurasi/kategori.html"><span class="nav-icon">⚙</span><span class="nav-text">Kategori</span></a></nav><div class="side-user"><span class="avatar">NA</span><span class="user-copy"><b>Pengguna</b><span>Peranan</span></span></div></aside><main class="dashboard-main"><header class="topbar"><button class="mobile-toggle" id="mobileToggle">☰</button><div><h1 id="viewTitle">Papan Pemuka</h1><small id="currentDate">JalanCare DB</small></div><div class="top-actions"><span class="api-pill">● Google Sheets</span><a class="secondary" href="index.html">Portal Awam</a><button class="secondary" id="logout">Log Keluar</button></div></header><iframe id="contentFrame" class="content-frame" src="home.html" title="Kandungan JalanCare"></iframe><footer class="site-footer"><span>© 2026 JalanCare JKR Daerah Rembau</span><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a></footer></main></div><script src="js/config.js"></script><script src="js/api.js"></script><script src="js/dashboard.js"></script></body></html>
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Papan Pemuka | JalanCare DB</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/db.css">
+</head>
+<body class="embed-page">
+  <main class="content">
+    <div class="page-head"><div><span class="eyebrow">DATA GOOGLE SHEETS</span><h1>Papan Pemuka</h1><p>Statistik semasa sistem pengurusan aduan JalanCare.</p></div></div>
+    <div id="dataNotice" class="data-notice">Sedang mendapatkan statistik…</div>
+    <section class="stats">
+      <div class="stat"><strong data-stat="total">—</strong><small>Jumlah aduan</small></div>
+      <div class="stat"><strong data-stat="new">—</strong><small>Aduan baharu</small></div>
+      <div class="stat"><strong data-stat="active">—</strong><small>Dalam tindakan</small></div>
+      <div class="stat"><strong data-stat="completed">—</strong><small>Selesai</small></div>
+    </section>
+    <section class="grid-2">
+      <div class="card"><div class="card-head"><h2>Ringkasan sistem</h2><a class="ghost" data-roles="Pentadbir|Pegawai Aduan|Penyelia" href="aduan/senarai.html">Lihat aduan</a></div><div class="card-body"><ul class="detail-list"><li><span>Dalam semakan</span><b data-stat="review">—</b></li><li><span>Keutamaan kritikal</span><b data-stat="critical">—</b></li><li><span>Sumber data</span><b>Google Sheets</b></li><li><span>Sambungan</span><b>Google Apps Script</b></li></ul></div></div>
+      <div class="card"><div class="card-head"><h2>Tindakan pantas</h2></div><div class="card-body"><div class="quick-links"><a class="secondary wide" data-roles="Pentadbir|Pegawai Aduan|Penyelia" href="aduan/senarai.html">Senarai Aduan</a><a class="secondary wide" data-roles="Pentadbir|Pegawai Aduan|Penyelia|Pasukan Lapangan|Kontraktor" href="tugasan/index.html">Pengurusan Tugasan</a><a class="secondary wide" data-roles="Pentadbir|Pegawai Aduan|Penyelia" href="peta/index.html">Peta Aduan</a><a class="secondary wide" data-roles="Pentadbir|Pegawai Aduan|Penyelia|Pengurusan" href="sla/index.html">Pemantauan SLA</a></div></div></div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>© 2026 JalanCare JKR Daerah Rembau</span><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a></footer>
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/internal.js"></script>
+  <script>loadStats()</script>
+</body>
+</html>
