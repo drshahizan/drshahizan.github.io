@@ -60,8 +60,7 @@ async function loadComplaintDetail() {
   const notice = document.querySelector('#dataNotice');
   const reference = new URLSearchParams(location.search).get('ref');
   if (!reference) {
-    notice.textContent = 'Pilih satu aduan daripada halaman Senarai Aduan.';
-    notice.className = 'data-notice error';
+    location.replace('senarai.html');
     return;
   }
   try {

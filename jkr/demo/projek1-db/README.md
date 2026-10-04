@@ -5,7 +5,12 @@ Versi Fasa 2 Projek 1. Website statik dihoskan pada GitHub Pages, manakala data 
 ## Kandungan
 
 - `index.html` — portal awam
-- `dashboard.html` — portal dalaman
+- `dashboard.html` — kerangka portal dalaman, sidebar dan ruang paparan
+- `home.html` — statistik dashboard daripada Google Sheets
+- `aduan/senarai.html` — senarai aduan; klik nombor rujukan untuk membuka butiran
+- `aduan/butiran.html` — butiran dan kemas kini satu aduan berdasarkan parameter `?ref=`
+- `tugasan/index.html` — senarai tugasan
+- `pengguna/index.html` — senarai pengguna untuk pentadbir
 - `js/config.js` — tempat memasukkan URL Web App
 - `google-apps-script/Code.gs` — API Google Apps Script
 - `dokumen/Pangkalan_Data_Portal_Aduan_JalanCare.xlsx` — templat pangkalan data
