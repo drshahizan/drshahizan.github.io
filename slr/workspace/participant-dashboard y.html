@@ -43,8 +43,6 @@
 .page-btn{min-width:36px;height:36px;padding:0 10px;border:1px solid #d9dde2;border-radius:9px;background:#fff;color:#34383e;font:inherit;font-weight:700;cursor:pointer}
 .page-btn:hover:not(:disabled){border-color:#7a1730;color:#7a1730}.page-btn.active{background:#7a1730;border-color:#7a1730;color:#fff}.page-btn:disabled{opacity:.42;cursor:not-allowed}.page-ellipsis{padding:0 4px;color:#7b8188}
 @media(max-width:760px){.pagination-wrap{align-items:flex-start;flex-direction:column}.pagination-controls{width:100%}}
-
-.participant-table{border-collapse:separate!important;border-spacing:0!important}.participant-table thead th{padding:10px 12px!important;border-bottom:1px solid #dfe2e5!important}.participant-table tbody td{padding:9px 12px!important;border-top:0!important;border-bottom:0!important;line-height:1.3!important;vertical-align:middle!important}.participant-table tbody tr,.participant-table tbody tr+tr td{border:0!important}.table-wrap{margin-top:10px!important}.dashboard-repository .filter-bar{margin-bottom:6px!important}.pagination-wrap{margin-top:12px!important}
 </style>
 </head>
 <body>
@@ -76,7 +74,7 @@
 <section class="dashboard-repository" id="participants">
 <div class="page-heading row-heading"><div><h2>Participant Registration Records</h2><p>Search and filter workshop registrations.</p></div></div>
 <div class="filter-bar">
-<div class="search-field"><span>⌕</span><input aria-label="Search participants" id="participantSearch" placeholder="Search name, registration ID, or research group"/></div>
+<div class="search-field"><span>⌕</span><input aria-label="Search participants" id="participantSearch" placeholder="Search name, registration ID, email, or research group"/></div>
 <select aria-label="Filter by workshop cohort" id="filterWorkshopCohort"><option value="">All cohorts</option><option value="V1">V1 · 21–22 Oct 2026</option><option value="V2">V2 · 28–29 Oct 2026</option></select><select class="participant-type" aria-label="Filter by participant type" id="filterParticipantType"><option value="">All participants</option><option>Postgraduate Student</option><option>Academic Staff</option></select>
 <select aria-label="Filter by research group" id="filterResearchGroup"><option value="">All research groups</option><option>ALIAS</option><option>IASRG</option><option>IIRG</option><option>ISSIRG</option><option>PCRG</option><option>SERG</option><option>VICUBELAB</option></select>
 </div>
@@ -108,10 +106,10 @@ function metrics(){
 }
 function render(){
  const q=$('#participantSearch').value.trim().toLowerCase(),cohort=$('#filterWorkshopCohort').value,type=$('#filterParticipantType').value,group=$('#filterResearchGroup').value;
- const filtered=records.filter(r=>(!cohort||r.workshopCohort===cohort)&&(!type||r.participantType===type)&&(!group||r.researchGroup===group)&&(!q||[r.registrationId,r.fullName,r.researchGroup,r.identityNumber].join(' ').toLowerCase().includes(q)));
+ const filtered=records.filter(r=>(!cohort||r.workshopCohort===cohort)&&(!type||r.participantType===type)&&(!group||r.researchGroup===group)&&(!q||[r.registrationId,r.fullName,r.email,r.researchGroup,r.identityNumber].join(' ').toLowerCase().includes(q)));
  const totalPages=Math.max(1,Math.ceil(filtered.length/PAGE_SIZE)); if(currentPage>totalPages)currentPage=totalPages;
  const start=(currentPage-1)*PAGE_SIZE,end=Math.min(start+PAGE_SIZE,filtered.length),pageRecords=filtered.slice(start,end);
- $('#participantRows').innerHTML=pageRecords.map(r=>`<tr><td>${esc(r.registrationId)}</td><td>${esc(r.workshopCohort||'V1')}</td><td><strong>${esc(properCase(r.fullName))}</strong></td><td>${esc(r.participantType)}</td><td>${r.participantType==='Postgraduate Student'?`${esc(r.levelOfStudy)}<small>${r.currentSemester?'Semester '+esc(r.currentSemester):''}</small>`:'—'}</td><td>${esc(r.researchGroup)}</td></tr>`).join('');
+ $('#participantRows').innerHTML=pageRecords.map(r=>`<tr><td>${esc(r.registrationId)}</td><td>${esc(r.workshopCohort||'V1')}</td><td><strong>${esc(properCase(r.fullName))}</strong><small>${esc(r.email)}</small></td><td>${esc(r.participantType)}</td><td>${r.participantType==='Postgraduate Student'?`${esc(r.levelOfStudy)}<small>${r.currentSemester?'Semester '+esc(r.currentSemester):''}</small>`:'—'}</td><td>${esc(r.researchGroup)}</td></tr>`).join('');
  $('#participantEmpty').style.display=filtered.length?'none':'block';
  $('#participantCount').textContent=filtered.length?`Showing ${start+1}–${end} of ${filtered.length} participants`:'Showing 0 participants';
  renderPagination(totalPages,filtered.length);
