@@ -75,10 +75,10 @@
 <div class="page-heading row-heading"><div><h2>Participant Registration Records</h2><p>Search and filter workshop registrations.</p></div></div>
 <div class="filter-bar">
 <div class="search-field"><span>⌕</span><input aria-label="Search participants" id="participantSearch" placeholder="Search name, registration ID, email, or research group"/></div>
-<select aria-label="Filter by workshop cohort" id="filterWorkshopCohort"><option value="">All cohorts</option><option value="V1">V1 · 21–22 Oct 2026</option><option value="V2">V2 · 28–29 Oct 2026</option></select><select class="participant-type" aria-label="Filter by participant type" id="filterParticipantType"><option value="">All participants</option><option>Postgraduate Student</option><option>Academic Staff</option></select>
+<select class="participant-type" aria-label="Filter by participant type" id="filterParticipantType"><option value="">All participants</option><option>Postgraduate Student</option><option>Academic Staff</option></select>
 <select aria-label="Filter by research group" id="filterResearchGroup"><option value="">All research groups</option><option>ALIAS</option><option>IASRG</option><option>IIRG</option><option>ISSIRG</option><option>PCRG</option><option>SERG</option><option>VICUBELAB</option></select>
 </div>
-<div class="table-wrap"><table class="participant-table"><thead><tr><th>Registration ID</th><th>Cohort</th><th>Participant</th><th>Type</th><th>Study</th><th>Research Group</th></tr></thead><tbody id="participantRows"></tbody></table>
+<div class="table-wrap"><table class="participant-table"><thead><tr><th>Registration ID</th><th>Participant</th><th>Type</th><th>Study</th><th>Research Group</th><th>Status</th></tr></thead><tbody id="participantRows"></tbody></table>
 <div class="empty-state" id="participantEmpty"><strong>No participants found</strong><p>Register a participant or adjust the filters.</p></div></div>
 <div class="pagination-wrap"><p class="pagination-info" id="participantCount"></p><nav class="pagination-controls" id="participantPagination" aria-label="Participant records pagination"></nav></div>
 </section>
@@ -105,11 +105,11 @@ function metrics(){
  $('#researchGroupBars').innerHTML=groups.map(g=>{const pct=Math.round(counts[g]/den*100);return `<div class="participant-bar"><strong>${g}</strong><div class="track"><span style="width:${pct}%"></span></div><em>${counts[g]} · ${pct}%</em></div>`}).join('');
 }
 function render(){
- const q=$('#participantSearch').value.trim().toLowerCase(),cohort=$('#filterWorkshopCohort').value,type=$('#filterParticipantType').value,group=$('#filterResearchGroup').value;
- const filtered=records.filter(r=>(!cohort||r.workshopCohort===cohort)&&(!type||r.participantType===type)&&(!group||r.researchGroup===group)&&(!q||[r.registrationId,r.fullName,r.email,r.researchGroup,r.identityNumber].join(' ').toLowerCase().includes(q)));
+ const q=$('#participantSearch').value.trim().toLowerCase(),type=$('#filterParticipantType').value,group=$('#filterResearchGroup').value;
+ const filtered=records.filter(r=>(!type||r.participantType===type)&&(!group||r.researchGroup===group)&&(!q||[r.registrationId,r.fullName,r.email,r.researchGroup,r.identityNumber].join(' ').toLowerCase().includes(q)));
  const totalPages=Math.max(1,Math.ceil(filtered.length/PAGE_SIZE)); if(currentPage>totalPages)currentPage=totalPages;
  const start=(currentPage-1)*PAGE_SIZE,end=Math.min(start+PAGE_SIZE,filtered.length),pageRecords=filtered.slice(start,end);
- $('#participantRows').innerHTML=pageRecords.map(r=>`<tr><td>${esc(r.registrationId)}</td><td>${esc(r.workshopCohort||'V1')}</td><td><strong>${esc(properCase(r.fullName))}</strong><small>${esc(r.email)}</small></td><td>${esc(r.participantType)}</td><td>${r.participantType==='Postgraduate Student'?`${esc(r.levelOfStudy)}<small>${r.currentSemester?'Semester '+esc(r.currentSemester):''}</small>`:'—'}</td><td>${esc(r.researchGroup)}</td></tr>`).join('');
+ $('#participantRows').innerHTML=pageRecords.map(r=>`<tr><td>${esc(r.registrationId)}</td><td><strong>${esc(properCase(r.fullName))}</strong><small>${esc(r.email)}</small></td><td>${esc(r.participantType)}</td><td>${r.participantType==='Postgraduate Student'?`${esc(r.levelOfStudy)}<small>${esc((()=>{const sem=String(r.currentSemester||'').trim();return !sem?'':(/^semester\s+/i.test(sem)?sem:'Semester '+sem)})())}</small>`:'—'}</td><td>${esc(r.researchGroup)}</td><td><span class="status-pill">${esc(r.registrationStatus||'Registered')}</span></td></tr>`).join('');
  $('#participantEmpty').style.display=filtered.length?'none':'block';
  $('#participantCount').textContent=filtered.length?`Showing ${start+1}–${end} of ${filtered.length} participants`:'Showing 0 participants';
  renderPagination(totalPages,filtered.length);
@@ -128,17 +128,17 @@ async function load(){
   if(!cfg.apiUrl) throw new Error('API URL is not configured.');
   const r=await fetch(`${cfg.apiUrl}?action=participants`,{cache:'no-store'}),data=await r.json();
   if(!r.ok||data.ok===false)throw new Error(data.error||'Unable to load participants.');
-  records=data.records||data.participants||[];metrics();render();
+  records=data.records||[];metrics();render();
   const d=new Date(data.generatedAt||Date.now());$('#participantUpdated').textContent=`Data refreshed · ${d.toLocaleString('en-MY',{dateStyle:'medium',timeStyle:'short'})}`;
  }catch(e){$('#participantUpdated').textContent='Live participant data is temporarily unavailable.';$('#participantEmpty').style.display='block';$('#participantEmpty').innerHTML='<strong>Participant data unavailable</strong><p>Check the Apps Script deployment and try again.</p>';}
 }
 function exportCsv(){
  if(!records.length)return;
- const cols=['registrationId','workshopCohort','fullName','email','participantType','identityNumber','phoneNumber','levelOfStudy','currentSemester','supervisorName','researchGroup'];
+ const cols=['registrationId','fullName','email','participantType','identityNumber','phoneNumber','levelOfStudy','currentSemester','supervisorName','researchGroup','registrationStatus'];
  const quote=v=>`"${String(v??'').replace(/"/g,'""')}"`,csv=[cols.join(','),...records.map(r=>cols.map(c=>quote(r[c])).join(','))].join('\n');
  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='slr-workshop-participants.csv';a.click();URL.revokeObjectURL(a.href);
 }
-['participantSearch','filterWorkshopCohort','filterParticipantType','filterResearchGroup'].forEach(id=>$('#'+id).addEventListener(id==='participantSearch'?'input':'change',()=>{currentPage=1;render()}));
+['participantSearch','filterParticipantType','filterResearchGroup'].forEach(id=>$('#'+id).addEventListener(id==='participantSearch'?'input':'change',()=>{currentPage=1;render()}));
 $('#participantExport').addEventListener('click',exportCsv);load();
 })();
 </script>
