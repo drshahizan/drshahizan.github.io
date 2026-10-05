@@ -45,127 +45,6 @@
 @media(max-width:760px){.pagination-wrap{align-items:flex-start;flex-direction:column}.pagination-controls{width:100%}}
 
 .participant-table{border-collapse:separate!important;border-spacing:0!important}.participant-table thead th{padding:10px 12px!important;border-bottom:1px solid #dfe2e5!important}.participant-table tbody td{padding:9px 12px!important;border-top:0!important;border-bottom:0!important;line-height:1.3!important;vertical-align:middle!important}.participant-table tbody tr,.participant-table tbody tr+tr td{border:0!important}.table-wrap{margin-top:10px!important}.dashboard-repository .filter-bar{margin-bottom:6px!important}.pagination-wrap{margin-top:12px!important}
-.cohort-summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 24px}.cohort-summary-card{background:#fff;border:1px solid #e4e6e8;border-radius:16px;padding:18px}.cohort-summary-card span{display:block;color:#7a1730;font-size:.76rem;font-weight:800;text-transform:uppercase;margin-bottom:8px}.cohort-summary-card strong{display:block;font-size:2rem;line-height:1;margin-bottom:9px}.cohort-summary-card h3{margin:0 0 4px;font-size:.95rem}.cohort-summary-card p{margin:0;color:#747a80;font-size:.83rem}.cohort-summary-card.selected{border-color:#b48a2c}.cohort-selector-wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin:0 0 18px}.cohort-selector-wrap h2{margin:2px 0 0;font-size:1.15rem}.cohort-tabs{display:flex;gap:5px;padding:4px;border:1px solid #e1e3e5;border-radius:11px;background:#f7f8f8}.cohort-tab{border:0;background:transparent;padding:9px 12px;border-radius:8px;font:inherit;font-size:.82rem;font-weight:700;cursor:pointer}.cohort-tab.active{background:#7a1730;color:#fff}.cohort-comparison-card{background:#fff;border:1px solid #e4e6e8;border-radius:16px;padding:20px;margin:26px 0 30px}.comparison-table{width:100%;border-collapse:collapse}.comparison-table th{padding:9px 12px;text-align:left;border-bottom:1px solid #e2e4e6;font-size:.77rem;color:#686e73;text-transform:uppercase}.comparison-table td{padding:10px 12px;border:0}.comparison-table td:not(:first-child){font-weight:800}.cohort-badge{display:inline-flex;padding:4px 8px;border-radius:999px;background:#f1ecee;color:#7a1730;font-size:.73rem;font-weight:800}.cohort-badge.v2{background:#f8f1df;color:#765a13}@media(max-width:900px){.cohort-summary-grid{grid-template-columns:1fr}.cohort-selector-wrap{align-items:flex-start;flex-direction:column}.cohort-tabs{width:100%;overflow:auto}}
-/* Refined two-cohort dashboard — compact metrics + comparison */
-.dashboard-metrics{
-  display:grid!important;
-  grid-template-columns:repeat(4,minmax(0,1fr))!important;
-  gap:14px!important;
-  margin:18px 0 26px!important;
-}
-.dashboard-metrics .metric-card{
-  display:block!important;
-  min-width:0!important;
-  padding:17px 18px!important;
-  background:#fff!important;
-  border:1px solid #e5e7e9!important;
-  border-radius:14px!important;
-  box-shadow:none!important;
-}
-.dashboard-metrics .metric-card span{
-  display:block!important;
-  margin:0 0 7px!important;
-  color:#6b7176!important;
-  font-size:.76rem!important;
-  font-weight:800!important;
-  letter-spacing:.055em!important;
-  line-height:1.2!important;
-  text-transform:uppercase!important;
-}
-.dashboard-metrics .metric-card strong{
-  display:block!important;
-  margin:0 0 5px!important;
-  color:#23262b!important;
-  font-size:1.75rem!important;
-  font-weight:800!important;
-  line-height:1!important;
-}
-.dashboard-metrics .metric-card small{
-  display:block!important;
-  margin:0!important;
-  color:#7b8085!important;
-  font-size:.79rem!important;
-  line-height:1.3!important;
-}
-.cohort-comparison-card{
-  padding:20px 22px!important;
-  margin:24px 0 28px!important;
-}
-.cohort-comparison-card .panel-title{
-  margin-bottom:12px!important;
-}
-.cohort-comparison-card .panel-title h2{
-  margin:3px 0 0!important;
-  font-size:1.35rem!important;
-  line-height:1.2!important;
-}
-.cohort-comparison-card .card-kicker{
-  margin:0!important;
-  font-size:.73rem!important;
-  letter-spacing:.12em!important;
-}
-.comparison-table-wrap{
-  margin-top:4px!important;
-  overflow-x:auto!important;
-}
-.comparison-table{
-  width:100%!important;
-  table-layout:fixed!important;
-  border-collapse:collapse!important;
-}
-.comparison-table th,
-.comparison-table td{
-  padding:10px 12px!important;
-  vertical-align:middle!important;
-}
-.comparison-table th{
-  border-bottom:1px solid #e1e4e6!important;
-  color:#6a7075!important;
-  font-size:.75rem!important;
-  letter-spacing:.045em!important;
-}
-.comparison-table th:first-child,
-.comparison-table td:first-child{width:50%!important}
-.comparison-table th:nth-child(2),
-.comparison-table th:nth-child(3),
-.comparison-table td:nth-child(2),
-.comparison-table td:nth-child(3){
-  width:25%!important;
-  text-align:center!important;
-}
-.comparison-table td{
-  border:0!important;
-  color:#292d31!important;
-  font-size:.9rem!important;
-  line-height:1.25!important;
-}
-.comparison-table td:first-child{font-weight:650!important}
-.comparison-table td:not(:first-child){
-  font-size:1rem!important;
-  font-weight:800!important;
-}
-@media(max-width:900px){
-  .dashboard-metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-}
-@media(max-width:560px){
-  .dashboard-metrics{grid-template-columns:1fr!important}
-  .cohort-comparison-card{padding:17px 15px!important}
-  .comparison-table th,.comparison-table td{padding:9px 7px!important}
-  .comparison-table th:first-child,.comparison-table td:first-child{width:44%!important}
-  .comparison-table th:nth-child(2),.comparison-table th:nth-child(3),
-  .comparison-table td:nth-child(2),.comparison-table td:nth-child(3){width:28%!important}
-}
-
-
-/* Refined hero and cohort overview */
-.dashboard-hero{position:relative!important;overflow:hidden!important;min-height:300px!important;padding:42px 48px!important;border-radius:28px!important;background:radial-gradient(circle at 96% 14%,rgba(211,165,73,.22) 0 8%,transparent 8.2%),radial-gradient(circle at 96% 14%,transparent 0 13%,rgba(211,165,73,.14) 13.2% 18%,transparent 18.2%),linear-gradient(120deg,#5f0c22 0%,#81152f 56%,#9e3650 100%)!important;box-shadow:0 14px 34px rgba(80,18,38,.10)!important}
-.dashboard-hero:after{content:""!important;position:absolute!important;right:42px!important;top:38px!important;width:94px!important;height:70px!important;opacity:.22!important;background-image:radial-gradient(#e2b85c 1.5px,transparent 1.5px)!important;background-size:12px 12px!important;pointer-events:none!important}
-.dashboard-hero .eyebrow,.dashboard-hero .hero-kicker{color:#f2cb70!important;letter-spacing:.12em!important;font-weight:800!important}
-.dashboard-hero h1{max-width:900px!important;margin:12px 0!important;color:#fff!important;font-size:clamp(2.7rem,5vw,4.6rem)!important;line-height:.98!important;letter-spacing:-.045em!important}
-.dashboard-hero p{max-width:1040px!important;color:rgba(255,255,255,.90)!important}.dashboard-hero .dashboard-updated{margin-top:20px!important;color:rgba(255,255,255,.78)!important;font-size:.9rem!important}
-.dashboard-hero .dashboard-actions{position:absolute!important;right:48px!important;bottom:42px!important;display:flex!important;gap:10px!important}.dashboard-hero .button.primary{background:#fff!important;color:#7a1730!important;border-color:#fff!important}.dashboard-hero .button.ghost{color:#fff!important;border-color:rgba(255,255,255,.38)!important;background:rgba(255,255,255,.06)!important}
-.cohort-summary-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important;margin-top:18px!important;margin-bottom:28px!important}.cohort-summary-card{position:relative!important;min-height:178px!important;padding:22px 24px!important;border:1px solid #e3e5e7!important;border-radius:20px!important;background:#fff!important;box-shadow:0 8px 20px rgba(35,40,45,.045)!important}.cohort-summary-card.selected{border-color:#c99b32!important}.cohort-summary-card span{margin-bottom:13px!important;color:#7a1730!important;font-size:.76rem!important;letter-spacing:.045em!important}.cohort-summary-card strong{margin:0 0 16px!important;font-size:2.25rem!important;line-height:.9!important}.cohort-summary-card h3{margin:0 0 6px!important;font-size:.95rem!important}.cohort-summary-card p{margin:0!important;color:#7b8085!important;font-size:.82rem!important}
-@media(max-width:980px){.dashboard-hero{padding:34px!important;min-height:auto!important}.dashboard-hero .dashboard-actions{position:static!important;margin-top:24px!important}.cohort-summary-grid{grid-template-columns:1fr!important}}@media(max-width:560px){.dashboard-hero{padding:27px 22px!important;border-radius:20px!important}.dashboard-hero h1{font-size:2.55rem!important}.dashboard-hero .dashboard-actions{flex-direction:column!important}.dashboard-hero .button{width:100%!important;text-align:center!important}}
 </style>
 </head>
 <body>
@@ -181,7 +60,7 @@
 <div class="dashboard-actions"><a class="button primary" href="register-participant.html">+ Register Participant</a><button class="button ghost" id="participantExport" type="button">Export CSV</button></div>
 </div>
 
-<section class="cohort-overview"><div class="cohort-summary-grid" id="cohortSummary"></div><div class="cohort-selector-wrap"><div><p class="card-kicker">Dashboard view</p><h2>Explore participant data by cohort</h2></div><div class="cohort-tabs"><button class="cohort-tab active" data-cohort="">All Cohorts</button><button class="cohort-tab" data-cohort="V1">Cohort 1 (V1)</button><button class="cohort-tab" data-cohort="V2">Cohort 2 (V2)</button></div></div><div class="metric-grid dashboard-metrics" id="participantMetrics"></div></section>
+<div class="metric-grid dashboard-metrics" id="participantMetrics"></div>
 
 <div class="dashboard-grid primary-grid">
 <article class="chart-card">
@@ -213,26 +92,26 @@
 <script src="../assets/config.js"></script>
 <script src="../assets/app.js"></script>
 <script>
-(()=>{const cfg=window.SLR_CONFIG||{},groups=['ALIAS','IASRG','IIRG','ISSIRG','PCRG','SERG','VICUBELAB'];let records=[],currentPage=1,activeCohort="";const PAGE_SIZE=15;
+(()=>{const cfg=window.SLR_CONFIG||{},groups=['ALIAS','IASRG','IIRG','ISSIRG','PCRG','SERG','VICUBELAB'];let records=[],currentPage=1;const PAGE_SIZE=15;
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const properCase=v=>String(v??'').trim().toLowerCase().replace(/\b[a-z]/g,c=>c.toUpperCase());
 const $=s=>document.querySelector(s);
-function stats(data){return{total:data.length,students:data.filter(r=>r.participantType==='Postgraduate Student').length,staff:data.filter(r=>r.participantType==='Academic Staff').length,groups:new Set(data.map(r=>r.researchGroup).filter(Boolean)).size}}
 function metrics(){
- const v1d=records.filter(r=>(r.workshopCohort||'V1')==='V1'),v2d=records.filter(r=>r.workshopCohort==='V2'),v1=stats(v1d),v2=stats(v2d),all=stats(records),data=activeCohort==='V1'?v1d:activeCohort==='V2'?v2d:records,st=stats(data);
- $('#cohortSummary').innerHTML=[['','All Cohorts',all.total,'V1 + V2','Combined participation'],['V1','Cohort 1 (V1)',v1.total,'21–22 October 2026','Registration Closed'],['V2','Cohort 2 (V2)',v2.total,'28–29 October 2026','Registration Open']].map(x=>`<article class="cohort-summary-card ${activeCohort===x[0]?'selected':''}"><span>${x[1]}</span><strong>${x[2]}</strong><h3>${x[3]}</h3><p>${x[4]}</p></article>`).join('');
- $('#participantMetrics').innerHTML=[['Participants',st.total,'Registered participants'],['Students',st.students,'Postgraduate participants'],['Academic Staff',st.staff,'Academic participants'],['Research Groups',st.groups,'Groups represented']].map(x=>`<div class="metric-card"><span>${x[0]}</span><strong>${x[1]}</strong><small>${x[2]}</small></div>`).join('');
- const phd=data.filter(r=>r.participantType==='Postgraduate Student'&&/^phd$/i.test(r.levelOfStudy||'')).length,masters=data.filter(r=>r.participantType==='Postgraduate Student'&&/^master/i.test(r.levelOfStudy||'')).length,pg=phd+masters;
- $('#postgraduateComposition').innerHTML=[['PhD',phd],['Master',masters]].map(([l,n])=>{const pct=pg?Math.round(n/pg*100):0;return `<div class="composition-row"><strong>${l}</strong><em>${n} participant${n===1?'':'s'} · ${pct}%</em><div class="track"><span style="width:${pct}%"></span></div></div>`}).join('');
- const sem=Array(8).fill(0);data.filter(r=>r.participantType==='Postgraduate Student').forEach(r=>{const m=String(r.currentSemester||'').match(/(\d+)/);if(m){const n=+m[1];if(n>=1&&n<=7)sem[n-1]++;else if(n>=8)sem[7]++}});$('#semesterDistribution').innerHTML=sem.map((n,i)=>`<div class="semester-cell"><strong>${n}</strong><span>${i===7?'S8+':'S'+(i+1)}</span></div>`).join('');
- const counts=Object.fromEntries(groups.map(g=>[g,data.filter(r=>r.researchGroup===g).length])),den=Math.max(1,data.filter(r=>r.researchGroup).length);$('#researchGroupBars').innerHTML=groups.map(g=>{const pct=Math.round(counts[g]/den*100);return `<div class="participant-bar"><strong>${g}</strong><div class="track"><span style="width:${pct}%"></span></div><em>${counts[g]} · ${pct}%</em></div>`}).join('');
+ const students=records.filter(r=>r.participantType==='Postgraduate Student').length,staff=records.filter(r=>r.participantType==='Academic Staff').length,activeGroups=new Set(records.map(r=>r.researchGroup).filter(Boolean)).size;
+ $('#participantMetrics').innerHTML=[['Total Participants',records.length,'All registered participants'],['Students',students,'Postgraduate participants'],['Lecturers',staff,'Academic staff participants'],['Research Groups',activeGroups,'Groups represented']].map((m,i)=>`<article class="metric dashboard-metric tone-${['maroon','gold','slate','maroon'][i]}"><div class="metric-top"><span>${m[0]}</span><b>0${i+1}</b></div><strong>${m[1]}</strong><small>${m[2]}</small></article>`).join('');
+ const phd=records.filter(r=>r.participantType==='Postgraduate Student'&&/^phd$/i.test(r.levelOfStudy||'')).length,masters=records.filter(r=>r.participantType==='Postgraduate Student'&&/^master/i.test(r.levelOfStudy||'')).length;
+ const pg=phd+masters;$('#postgraduateComposition').innerHTML=[['PhD',phd],['Master',masters]].map(([l,n])=>{const pct=pg?Math.round(n/pg*100):0;return `<div class="composition-row"><strong>${l}</strong><em>${n} participant${n===1?'':'s'} · ${pct}%</em><div class="track"><span style="width:${pct}%"></span></div></div>`}).join('');
+ const sem=Array(8).fill(0);records.filter(r=>r.participantType==='Postgraduate Student').forEach(r=>{const m=String(r.currentSemester||'').match(/(\d+)/);if(m){const n=+m[1];if(n>=1&&n<=7)sem[n-1]++;else if(n>=8)sem[7]++}});
+ $('#semesterDistribution').innerHTML=sem.map((n,i)=>`<div class="semester-cell"><strong>${n}</strong><span>${i===7?'S8+':'S'+(i+1)}</span></div>`).join('');
+ const counts=Object.fromEntries(groups.map(g=>[g,records.filter(r=>r.researchGroup===g).length])),den=Math.max(1,records.filter(r=>r.researchGroup).length);
+ $('#researchGroupBars').innerHTML=groups.map(g=>{const pct=Math.round(counts[g]/den*100);return `<div class="participant-bar"><strong>${g}</strong><div class="track"><span style="width:${pct}%"></span></div><em>${counts[g]} · ${pct}%</em></div>`}).join('');
 }
 function render(){
- const q=$('#participantSearch').value.trim().toLowerCase(),cohort=activeCohort||$('#filterWorkshopCohort').value,type=$('#filterParticipantType').value,group=$('#filterResearchGroup').value;
+ const q=$('#participantSearch').value.trim().toLowerCase(),cohort=$('#filterWorkshopCohort').value,type=$('#filterParticipantType').value,group=$('#filterResearchGroup').value;
  const filtered=records.filter(r=>(!cohort||r.workshopCohort===cohort)&&(!type||r.participantType===type)&&(!group||r.researchGroup===group)&&(!q||[r.registrationId,r.fullName,r.researchGroup,r.identityNumber].join(' ').toLowerCase().includes(q)));
  const totalPages=Math.max(1,Math.ceil(filtered.length/PAGE_SIZE)); if(currentPage>totalPages)currentPage=totalPages;
  const start=(currentPage-1)*PAGE_SIZE,end=Math.min(start+PAGE_SIZE,filtered.length),pageRecords=filtered.slice(start,end);
- $('#participantRows').innerHTML=pageRecords.map(r=>`<tr><td>${esc(r.registrationId)}</td><td><span class="cohort-badge ${(r.workshopCohort||'V1')==='V2'?'v2':''}">${esc(r.workshopCohort||'V1')}</span></td><td><strong>${esc(properCase(r.fullName))}</strong></td><td>${esc(r.participantType)}</td><td>${r.participantType==='Postgraduate Student'?`${esc(r.levelOfStudy)}<small>${r.currentSemester?'Semester '+esc(r.currentSemester):''}</small>`:'—'}</td><td>${esc(r.researchGroup)}</td></tr>`).join('');
+ $('#participantRows').innerHTML=pageRecords.map(r=>`<tr><td>${esc(r.registrationId)}</td><td>${esc(r.workshopCohort||'V1')}</td><td><strong>${esc(properCase(r.fullName))}</strong></td><td>${esc(r.participantType)}</td><td>${r.participantType==='Postgraduate Student'?`${esc(r.levelOfStudy)}<small>${r.currentSemester?'Semester '+esc(r.currentSemester):''}</small>`:'—'}</td><td>${esc(r.researchGroup)}</td></tr>`).join('');
  $('#participantEmpty').style.display=filtered.length?'none':'block';
  $('#participantCount').textContent=filtered.length?`Showing ${start+1}–${end} of ${filtered.length} participants`:'Showing 0 participants';
  renderPagination(totalPages,filtered.length);
@@ -261,7 +140,6 @@ function exportCsv(){
  const quote=v=>`"${String(v??'').replace(/"/g,'""')}"`,csv=[cols.join(','),...records.map(r=>cols.map(c=>quote(r[c])).join(','))].join('\n');
  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='slr-workshop-participants.csv';a.click();URL.revokeObjectURL(a.href);
 }
-document.querySelectorAll('.cohort-tab').forEach(btn=>btn.addEventListener('click',()=>{activeCohort=btn.dataset.cohort||'';document.querySelectorAll('.cohort-tab').forEach(b=>b.classList.toggle('active',b===btn));$('#filterWorkshopCohort').value=activeCohort;currentPage=1;metrics();render()}));
 ['participantSearch','filterWorkshopCohort','filterParticipantType','filterResearchGroup'].forEach(id=>$('#'+id).addEventListener(id==='participantSearch'?'input':'change',()=>{currentPage=1;render()}));
 $('#participantExport').addEventListener('click',exportCsv);load();
 })();
