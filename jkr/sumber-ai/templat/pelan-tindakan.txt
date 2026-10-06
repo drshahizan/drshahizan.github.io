@@ -1,0 +1,17 @@
+Tajuk pelan: [TAJUK]
+Tempoh: [TEMPOH]
+Objektif: [OBJEKTIF]
+
+Bagi setiap tindakan, lengkapkan:
+- Tindakan
+- Hasil yang dijangka
+- Pemilik
+- Tarikh mula
+- Tarikh akhir
+- Kebergantungan
+- Risiko dan mitigasi
+- Bukti siap
+- Status
+
+Semakan kemajuan: [KEKERAPAN]
+Pihak meluluskan: [NAMA/JAWATAN]

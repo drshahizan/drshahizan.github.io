@@ -1,0 +1,19 @@
+Nama proses: [PROSES]
+Pemilik proses: [UNIT/PEGAWAI]
+Tarikh sasaran: [TARIKH]
+
+SEBELUM
+☐ Tujuan dan skop disahkan
+☐ Dokumen dan sumber lengkap
+☐ Data sensitif dilindungi
+
+SEMASA
+☐ Langkah proses dipatuhi
+☐ Pengecualian direkod
+☐ Semakan penyelia dibuat
+
+SELEPAS
+☐ Hasil disahkan
+☐ Kelulusan diperoleh
+☐ Rekod difailkan
+☐ Tindakan susulan ditetapkan

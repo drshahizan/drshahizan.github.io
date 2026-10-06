@@ -1,0 +1,16 @@
+Tajuk: [TAJUK PEMERIKSAAN]
+Tarikh / lokasi: [BUTIRAN]
+Pegawai / pasukan: [BUTIRAN]
+
+1. Tujuan dan skop
+2. Kaedah pemeriksaan
+3. Dapatan dan bukti
+4. Lokasi dan jenis kerosakan
+5. Risiko dan tahap keutamaan
+6. Tindakan segera
+7. Cadangan susulan
+8. Perkara untuk pengesahan
+9. Lampiran dan foto
+
+Disediakan oleh: [NAMA]
+Disemak oleh: [NAMA]

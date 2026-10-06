@@ -1,0 +1,16 @@
+Tajuk: [TAJUK]
+Tempoh laporan: [TEMPOH]
+Disediakan untuk: [PENERIMA]
+
+1. Ringkasan eksekutif
+2. Tujuan dan skop
+3. Sumber data
+4. Dapatan utama
+5. Isu atau risiko
+6. Tindakan dilaksanakan
+7. Tindakan susulan
+8. Pemilik dan tarikh sasaran
+9. Status keseluruhan
+
+Semakan fakta oleh: [NAMA]
+Tarikh semakan: [TARIKH]
