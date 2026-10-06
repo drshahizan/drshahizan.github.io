@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ms">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Prompt Builder Website — AI untuk Web</title><meta name="description" content="Bina prompt lengkap untuk menghasilkan website rasmi menggunakan AI."><link rel="icon" href="../assets/favicon.svg"><link rel="stylesheet" href="../assets/style.css"><link rel="stylesheet" href="../assets/course.css"><link rel="stylesheet" href="../assets/prompt-builder.css"></head>
+<body>
+<div class="topbar"><div class="container"><span>Portal Latihan Digital JKR</span><span>8 Oktober 2026 (Khamis) · CREaTE</span></div></div>
+<header class="site-header"><nav class="nav container"><a class="brand" href="../"><span class="brand-mark">JKR</span><span><strong>AI untuk Web</strong><small>Kursus Aplikasi AI dalam Tugas Rasmi</small></span></a><button class="menu-btn" aria-label="Buka menu">Menu</button><div class="nav-links"><a href="../">Utama</a><a href="../modul/">Modul</a><a href="../latihan/">Latihan</a><a href="../projek/">Projek</a><a class="active" href="../prompt/">Prompt</a><a href="../sumber/">Sumber</a><a href="../tentatif/">Tentatif</a></div></nav></header>
+<main>
+<section class="builder-hero"><div class="container"><span class="eyebrow">Bina prompt website langkah demi langkah</span><h1>Daripada idea kepada <span>prompt lengkap.</span></h1><p>Isi keperluan projek anda. Prompt Builder akan menyusun peranan AI, skop, halaman, fungsi, reka bentuk, struktur fail, kekangan dan ujian dalam satu arahan yang boleh terus digunakan.</p><div class="builder-pills"><span>Tujuan</span><span>Pengguna</span><span>Struktur</span><span>Fungsi</span><span>Reka bentuk</span><span>GitHub Pages</span></div></div></section>
+<section class="section"><div class="container"><div class="builder-shell">
+<form class="builder-form" id="builderForm"><div class="builder-head"><div><span class="eyebrow">Langkah 01</span><h2>Takrifkan website</h2><p>Maklumat bertanda * wajib diisi.</p></div><button class="clear-builder" id="clearBuilder" type="button">Kosongkan</button></div><div class="builder-fields">
+<div class="builder-field"><label for="type">Jenis website *</label><select id="type" required><option>portal perkhidmatan awam</option><option>sistem pengurusan dalaman</option><option>portal pendaftaran kursus</option><option>laman informasi jabatan</option><option>dashboard pemantauan</option><option>portfolio projek</option></select></div>
+<div class="builder-field"><label for="name">Nama website *</label><input id="name" required placeholder="Contoh: JalanCare"></div>
+<div class="builder-field full"><label for="purpose">Tujuan utama *</label><textarea id="purpose" required placeholder="Contoh: membolehkan orang awam menghantar aduan kerosakan jalan dan menyemak status tindakan"></textarea></div>
+<div class="builder-field full"><label for="audience">Pengguna sasaran *</label><input id="audience" required placeholder="Contoh: orang awam, pegawai penyelia dan pasukan lapangan"></div>
+<div class="builder-field full"><label for="pages">Halaman atau seksyen *</label><textarea id="pages" required placeholder="Contoh: Utama, Buat Aduan, Semak Status, Log Masuk, Dashboard, Laporan"></textarea></div>
+<div class="builder-field full"><label for="content">Kandungan wajib</label><textarea id="content" placeholder="Masukkan tajuk, maklumat organisasi, data contoh, medan borang atau teks khusus"></textarea></div>
+<div class="builder-field full"><label>Fungsi utama</label><div class="choice-grid"><label><input type="checkbox" name="feature" value="Borang dengan pengesahan input">Borang</label><label><input type="checkbox" name="feature" value="Carian, tapis dan susun rekod">Carian & tapis</label><label><input type="checkbox" name="feature" value="Dashboard dengan kad statistik dan jadual">Dashboard</label><label><input type="checkbox" name="feature" value="Log masuk demonstrasi mengikut peranan">Log masuk demo</label><label><input type="checkbox" name="feature" value="Simpan data demonstrasi menggunakan localStorage">localStorage</label><label><input type="checkbox" name="feature" value="Paparan cetak atau eksport laporan demo">Laporan</label></div></div>
+<div class="builder-field full"><label for="extra">Fungsi tambahan</label><textarea id="extra" placeholder="Contoh: jana nombor rujukan, modal pengesahan dan penunjuk status"></textarea></div>
+<div class="builder-field"><label for="style">Gaya visual</label><select id="style"><option>profesional, moden dan mesra sektor awam</option><option>minimal dan korporat</option><option>dashboard padat data</option><option>mesra pengguna dan cerah</option></select></div>
+<div class="builder-field"><label for="colors">Warna</label><input id="colors" value="merah marun, kuning emas, biru gelap dan putih"></div>
+<div class="builder-field full"><label for="constraints">Kekangan atau arahan khas</label><textarea id="constraints" placeholder="Contoh: tanpa framework, tanpa API, elakkan data sebenar dan gunakan gambar tempatan"></textarea></div>
+<button class="builder-submit" type="submit">Jana prompt website</button>
+</div></form>
+<aside class="builder-result"><div class="builder-head"><div><span class="eyebrow">Prompt dijana</span><h2>Sedia untuk digunakan</h2><p>Semak dan salin ke alat AI pilihan anda.</p></div><div class="result-tools"><button id="copyPrompt" type="button">Salin</button><button id="downloadPrompt" type="button">Muat turun</button></div></div><pre class="prompt-output empty" id="promptOutput" tabindex="0">Prompt website anda akan dipaparkan di sini
+
+Lengkapkan medan wajib, kemudian tekan “Jana prompt website”.</pre></aside>
+</div><div class="builder-note"><strong>Petua fasilitator:</strong> Minta AI menghasilkan satu fail pada satu masa. Uji fail tersebut sebelum menaip “TERUSKAN”. Kaedah ini memudahkan peserta bukan IT mengenal pasti bahagian yang bermasalah.</div></div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-bottom"><span>© 2026 Kursus Aplikasi AI dalam Tugas Rasmi · JKR</span></div></div></footer>
+<script src="../assets/site.js"></script><script src="../assets/prompt-builder.js"></script>
+</body></html>

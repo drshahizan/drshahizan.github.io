@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Projek 1 Fasa 2 — JalanCare DB</title>
+  <link rel="icon" href="../../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../../assets/style.css">
+  <link rel="stylesheet" href="../../../assets/course.css">
+  <link rel="stylesheet" href="../../../assets/tutorial.css">
+</head>
+<body>
+  <div class="topbar"><div class="container"><span>Portal Latihan Digital JKR</span><span>8 Oktober 2026 (Khamis) · CREaTE</span></div></div>
+  <header class="site-header"><nav class="nav container"><a class="brand" href="../../../"><span class="brand-mark">JKR</span><span><strong>AI untuk Web</strong><small>Kursus Aplikasi AI dalam Tugas Rasmi</small></span></a><button class="menu-btn">Menu</button><div class="nav-links"><a href="../../../">Utama</a><a href="../../../modul/">Modul</a><a href="../../../latihan/">Latihan</a><a href="../../">Projek</a><a href="../../../prompt/">Prompt</a><a href="../../../sumber/">Sumber</a></div></nav></header>
+
+  <main>
+    <section class="page-hero"><div class="container"><span class="eyebrow">Projek 1 · Fasa 2 · Google Sheets</span><h1>Sambungkan JalanCare kepada pangkalan data</h1><p>Ikuti setiap langkah mengikut turutan. Pada akhir latihan, aduan daripada GitHub Pages akan disimpan dalam Google Sheets dan boleh diurus melalui portal staf.</p></div></section>
+    <section class="section"><div class="container">
+      <div class="tutorial-intro"><div><span class="eyebrow">HASIL AKHIR</span><h2>Portal Aduan JalanCare DB</h2><p>Website GitHub Pages → Google Apps Script Web App → Google Sheets.</p><div class="tutorial-actions"><a class="btn btn-primary" href="../../../demo/projek1-db/" target="_blank" rel="noopener">Buka website Projek 1 DB</a><a class="btn btn-secondary" href="../../../muat-turun/projek1-db.zip" download>Muat turun pakej lengkap</a></div></div><div class="progress-ring"><span>10 langkah</span></div></div>
+      <div class="exact-note"><strong>Sebelum bermula:</strong> Pastikan anda mempunyai akaun Google, akaun GitHub, GitHub Desktop dan folder <code>demo/projek1-db</code> dalam repositori <code>jkr</code>.</div>
+
+      <div class="tutorial-shell">
+        <aside class="tutorial-nav"><strong>Kandungan</strong><a href="#aliran">Aliran sistem</a><a href="#langkah-1">1. Salin website</a><a href="#langkah-2">2. Salin pangkalan data</a><a href="#langkah-3">3. Semak tab</a><a href="#langkah-4">4. Buka Apps Script</a><a href="#langkah-5">5. Kemas kini kod</a><a href="#langkah-6">6. Deploy Web App</a><a href="#langkah-7">7. Uji API</a><a href="#langkah-8">8. Sambung website</a><a href="#langkah-9">9. GitHub Desktop</a><a href="#langkah-10">10. Ujian akhir</a><a href="#masalah">Penyelesaian masalah</a></aside>
+        <div class="tutorial-main">
+          <section class="lesson" id="aliran"><div class="lesson-head"><span class="lesson-number">00</span><div><h2>Fahami aliran sistem</h2><p>Empat komponen yang digunakan dalam Projek 1 Fasa 2.</p></div></div><div class="lesson-body"><div class="file-tree">Pengguna
+   ↓
+Website GitHub Pages
+   ↓ permintaan data
+Google Apps Script Web App
+   ↓ baca / simpan / kemas kini
+Google Sheets</div><h3>Fungsi yang akan diuji</h3><ul class="checklist"><li>Hantar aduan awam</li><li>Jana nombor rujukan dan kod semakan</li><li>Semak status aduan</li><li>Log masuk staf</li><li>Lihat dashboard dan senarai aduan</li><li>Kemas kini status serta catatan</li></ul></div></section>
+
+          <section class="lesson" id="langkah-1"><div class="lesson-head"><span class="lesson-number">01</span><div><h2>Salin website Projek 1 DB</h2><p>Letakkan semua fail pada lokasi yang betul dalam repositori.</p></div></div><div class="lesson-body"><ol><li>Muat turun pakej Projek 1 DB.</li><li>Ekstrak fail ZIP.</li><li>Salin keseluruhan folder <code>projek1-db</code> ke dalam folder <code>demo</code>.</li><li>Pastikan fail <code>demo/projek1-db/index.html</code> wujud.</li></ol><div class="file-tree">jkr/
+└── demo/
+    └── projek1-db/
+        ├── index.html
+        ├── dashboard.html
+        ├── dokumen/
+        ├── google-apps-script/
+        ├── js/
+        └── css/</div><div class="result-box">✓ Website boleh dibuka melalui <code>https://drshahizan.github.io/jkr/demo/projek1-db/</code> selepas dihantar ke GitHub.</div></div></section>
+
+          <section class="lesson" id="langkah-2"><div class="lesson-head"><span class="lesson-number">02</span><div><h2>Salin pangkalan data ke Google Drive</h2><p>Gunakan templat yang telah mempunyai tab, tajuk medan dan data latihan.</p></div></div><div class="lesson-body"><div class="tutorial-actions"><a class="btn btn-primary" href="../../../demo/projek1-db/dokumen/Pangkalan_Data_Portal_Aduan_JalanCare.xlsx" download>Muat turun templat pangkalan data</a></div><ol><li>Buka Google Drive dan klik <b>New > File upload</b>.</li><li>Pilih fail <code>Pangkalan_Data_Portal_Aduan_JalanCare.xlsx</code>.</li><li>Klik kanan fail yang telah dimuat naik.</li><li>Pilih <b>Open with > Google Sheets</b>.</li><li>Pilih <b>File > Save as Google Sheets</b>.</li><li>Namakan fail <b>JalanCare Projek 1 DB — Nama Peserta</b>.</li></ol><div class="result-box">✓ Anda mempunyai salinan Google Sheets sendiri. Jangan gunakan fail milik peserta lain.</div></div></section>
+
+          <section class="lesson" id="langkah-3"><div class="lesson-head"><span class="lesson-number">03</span><div><h2>Semak struktur Google Sheets</h2><p>Nama tab mesti dikekalkan kerana Apps Script merujuk nama tersebut.</p></div></div><div class="lesson-body"><div class="lesson-grid"><div><h3>Tab operasi</h3><ul class="checklist"><li>DASHBOARD</li><li>ADUAN</li><li>TINDAKAN</li><li>TUGASAN</li></ul></div><div><h3>Tab sistem</h3><ul class="checklist"><li>TETAPAN</li><li>PENGGUNA</li><li>KATEGORI</li><li>SESI</li><li>LOG_AKTIVITI</li></ul></div></div><p><strong>Jangan</strong> menukar nama tab, memadam baris tajuk atau menyusun semula kolum pada peringkat ini.</p><div class="result-box">✓ Kesemua sembilan tab wujud dan data contoh boleh dilihat.</div></div></section>
+
+          <section class="lesson" id="langkah-4"><div class="lesson-head"><span class="lesson-number">04</span><div><h2>Buka Google Apps Script</h2><p>Cipta bahagian perantara antara website dan Google Sheets.</p></div></div><div class="lesson-body"><ol><li>Dalam Google Sheets, klik <b>Extensions > Apps Script</b>.</li><li>Tukar nama projek kepada <b>JalanCare Projek 1 DB</b>.</li><li>Buka fail <code>Code.gs</code>.</li><li>Padam fungsi contoh <code>myFunction()</code>.</li></ol><div class="result-box">✓ Editor Apps Script kosong dan bersedia menerima kod Projek 1.</div></div></section>
+
+          <section class="lesson" id="langkah-5"><div class="lesson-head"><span class="lesson-number">05</span><div><h2>Kemas kini Code.gs</h2><p>Salin kod API yang telah disediakan dalam website Projek 1.</p></div></div><div class="lesson-body"><div class="tutorial-actions"><a class="btn btn-secondary" href="../../../demo/projek1-db/google-apps-script/Code.gs" target="_blank">Buka fail Code.gs</a></div><ol><li>Buka fail <code>demo/projek1-db/google-apps-script/Code.gs</code>.</li><li>Salin keseluruhan kandungan fail.</li><li>Tampal ke editor Apps Script.</li><li>Klik <b>Save</b>.</li><li>Pastikan tiada tanda merah atau mesej ralat sintaks.</li></ol><h3>Prompt bantuan jika berlaku ralat</h3><div class="prompt-box"><button class="copy-prompt">Salin prompt</button>Saya sedang menyambungkan website JalanCare kepada Google Sheets menggunakan Google Apps Script. Semak ralat berikut tanpa menukar nama tab, nama fungsi API, urutan kolum atau struktur respons JSON. Terangkan pembetulan langkah demi langkah untuk peserta bukan IT. Ralat: [TAMPAL RALAT DI SINI]</div><div class="result-box">✓ <code>Code.gs</code> telah disimpan tanpa ralat sintaks.</div></div></section>
+
+          <section class="lesson" id="langkah-6"><div class="lesson-head"><span class="lesson-number">06</span><div><h2>Terbitkan sebagai Web App</h2><p>Benarkan website menghantar dan membaca data melalui URL Web App.</p></div></div><div class="lesson-body"><ol><li>Klik <b>Deploy > New deployment</b>.</li><li>Klik ikon gear dan pilih <b>Web app</b>.</li><li>Description: <code>JalanCare API v1</code>.</li><li>Execute as: <b>Me</b>.</li><li>Who has access: <b>Anyone</b>.</li><li>Klik <b>Deploy</b> dan benarkan akses yang diminta.</li><li>Salin URL yang berakhir dengan <code>/exec</code>.</li></ol><div class="exact-note"><strong>Penting:</strong> Gunakan URL <code>/exec</code>, bukan URL <code>/dev</code>. Simpan URL ini sementara kerana ia akan dimasukkan ke dalam website.</div><div class="result-box">✓ Google memberikan satu Web App URL kepada anda.</div></div></section>
+
+          <section class="lesson" id="langkah-7"><div class="lesson-head"><span class="lesson-number">07</span><div><h2>Uji sambungan API</h2><p>Pastikan Apps Script aktif sebelum mengubah website.</p></div></div><div class="lesson-body"><p>Tambah <code>?action=ping</code> selepas URL Web App:</p><div class="file-tree">https://script.google.com/macros/s/ID_ANDA/exec?action=ping</div><p>Buka URL tersebut dalam pelayar. Respons yang betul ialah:</p><div class="file-tree">{"ok":true,"message":"JalanCare API aktif","version":"2.0"}</div><div class="result-box">✓ Jika <code>"ok":true</code> dipaparkan, Google Sheets dan Apps Script telah berjaya disambungkan.</div></div></section>
+
+          <section class="lesson" id="langkah-8"><div class="lesson-head"><span class="lesson-number">08</span><div><h2>Sambungkan website kepada Web App</h2><p>Masukkan URL Web App ke dalam satu fail konfigurasi sahaja.</p></div></div><div class="lesson-body"><ol><li>Buka <code>demo/projek1-db/js/config.js</code> menggunakan VS Code atau penyunting teks.</li><li>Cari <code>MASUKKAN_URL_GOOGLE_APPS_SCRIPT_WEB_APP</code>.</li><li>Gantikan teks tersebut dengan URL <code>/exec</code> anda.</li><li>Jangan padam tanda petik.</li><li>Simpan fail.</li></ol><div class="file-tree">window.JALANCARE_CONFIG = {
+  API_URL: "https://script.google.com/macros/s/ID_ANDA/exec",
+  APP_NAME: "JalanCare",
+  API_VERSION: "2.0",
+  REQUEST_TIMEOUT_MS: 20000
+};</div><div class="result-box">✓ Website kini mengetahui lokasi Google Apps Script anda.</div></div></section>
+
+          <section class="lesson" id="langkah-9"><div class="lesson-head"><span class="lesson-number">09</span><div><h2>Hantar perubahan melalui GitHub Desktop</h2><p>Kemas kini GitHub Pages menggunakan proses visual.</p></div></div><div class="lesson-body"><ol><li>Buka GitHub Desktop dan pilih repositori <code>jkr</code>.</li><li>Pastikan perubahan pada folder <code>demo/projek1-db</code> disenaraikan.</li><li>Masukkan Summary: <code>Tambah Projek 1 DB Google Sheets</code>.</li><li>Klik <b>Commit to main</b>.</li><li>Klik <b>Push origin</b>.</li><li>Tunggu GitHub Pages mengemas kini website.</li></ol><div class="result-box">✓ Website diterbitkan pada <code>https://drshahizan.github.io/jkr/demo/projek1-db/</code>.</div></div></section>
+
+          <section class="lesson" id="langkah-10"><div class="lesson-head"><span class="lesson-number">10</span><div><h2>Laksanakan ujian akhir</h2><p>Uji keseluruhan perjalanan pengguna dan pastikan Google Sheets berubah.</p></div></div><div class="lesson-body"><h3>Ujian awam</h3><ol><li>Buka <b>Buat Aduan</b> dan hantar satu aduan.</li><li>Catat nombor rujukan dan kod semakan empat digit.</li><li>Semak tab <code>ADUAN</code> dalam Google Sheets.</li><li>Gunakan halaman <b>Semak Status</b>.</li></ol><h3>Ujian staf</h3><ol><li>Log masuk menggunakan <code>admin</code> / <code>Admin@123</code>.</li><li>Semak dashboard dan senarai aduan.</li><li>Buka butiran aduan dan kemas kini status.</li><li>Pastikan tab <code>ADUAN</code>, <code>TINDAKAN</code> dan <code>LOG_AKTIVITI</code> berubah.</li></ol><div class="result-box">✓ Projek 1 Fasa 2 selesai apabila data boleh dihantar, dibaca dan dikemas kini dari GitHub Pages.</div></div></section>
+
+          <section class="lesson" id="masalah"><div class="lesson-head"><span class="lesson-number">?</span><div><h2>Penyelesaian masalah biasa</h2><p>Semak bahagian ini sebelum mengubah kod.</p></div></div><div class="lesson-body"><div class="lesson-grid"><div><h3>“URL belum dikonfigurasi”</h3><p>Semak <code>js/config.js</code> dan pastikan URL berakhir dengan <code>/exec</code>.</p><h3>“Authorization required”</h3><p>Deploy semula dengan Execute as <b>Me</b> dan akses <b>Anyone</b>.</p><h3>Data tidak masuk</h3><p>Pastikan nama sembilan tab tidak berubah dan fail telah disimpan sebagai Google Sheets.</p></div><div><h3>Kod diubah tetapi tiada kesan</h3><p>Pilih <b>Deploy > Manage deployments > Edit > New version > Deploy</b>.</p><h3>Website masih versi lama</h3><p>Pastikan GitHub Desktop sudah <b>Push origin</b>, tunggu beberapa minit dan muat semula halaman.</p><h3>Login gagal</h3><p>Gunakan huruf besar/kecil kata laluan dengan tepat: <code>Admin@123</code>.</p></div></div><h3>Prompt audit akhir</h3><div class="prompt-box"><button class="copy-prompt">Salin prompt</button>Audit integrasi Projek 1 JalanCare berikut. Semak URL Web App, kaedah fetch, nama action API, nama tab Google Sheets, urutan kolum, login, sesi, penghantaran aduan, semakan status dan kemas kini aduan. Jangan ubah reka bentuk atau nama fail. Berikan pembetulan paling kecil dan terangkan cara mengujinya kepada peserta bukan IT. [TAMPAL KOD ATAU RALAT DI SINI]</div><div class="tutorial-actions"><a class="btn btn-primary" href="../../../demo/projek1-db/panduan.html" target="_blank">Buka panduan dalam projek</a><a class="btn btn-secondary" href="../../">Kembali ke semua projek</a></div></div></section>
+        </div>
+      </div>
+    </div></section>
+  </main>
+  <footer class="footer"><div class="container"><div class="footer-bottom"><span>© 2026 Kursus Aplikasi AI dalam Tugas Rasmi · JKR</span><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a></div></div></footer>
+  <script src="../../../assets/site.js"></script>
+  <script>document.querySelectorAll('.copy-prompt').forEach(button=>button.addEventListener('click',async()=>{const box=button.parentElement;await navigator.clipboard.writeText(box.innerText.replace('Salin prompt','').trim());button.textContent='Disalin';setTimeout(()=>button.textContent='Salin prompt',1400)}));</script>
+</body>
+</html>
