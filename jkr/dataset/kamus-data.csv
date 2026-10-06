@@ -1,0 +1,12 @@
+Dataset,Medan,Penerangan
+Aduan,Rujukan,Nombor rujukan rekaan latihan
+Aduan,Tarikh,Tarikh aduan diterima
+Aduan,Mukim,Mukim operasi
+Aduan,Kategori,Jenis aduan jalan
+Aduan,Keutamaan,Tahap keutamaan latihan
+Aduan,SLA_Hari,Sasaran hari tindakan
+Pemeriksaan,Panjang_km,Panjang laluan diperiksa
+Pemeriksaan,Bilangan,Bilangan kejadian kerosakan
+Pemeriksaan,Tahap,Tahap kerosakan latihan
+Projek,Kemajuan_Peratus,Peratus kemajuan yang dilaporkan
+Projek,Isu,Halangan atau catatan semasa
