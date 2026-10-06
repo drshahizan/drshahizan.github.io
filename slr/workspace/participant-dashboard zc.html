@@ -41,21 +41,6 @@
 .participant-table th:nth-child(2),.participant-table td:nth-child(2){width:72px!important;text-align:center!important}
 .cohort-number-cell{vertical-align:middle!important}
 .cohort-number{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:30px!important;height:30px!important;padding:0!important;border-radius:9px!important;background:#f3e9ed!important;color:#811630!important;font-size:.82rem!important;font-weight:800!important;line-height:1!important}
-
-.participant-table-footer{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:16px}
-.participant-table-footer .table-note{margin:0}
-.participant-pagination{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-.page-btn{min-width:34px;height:34px;padding:0 10px;border:1px solid #dfe2e5;border-radius:8px;background:#fff;color:#555d65;font:inherit;font-size:.8rem;font-weight:750;cursor:pointer}
-.page-btn:hover:not(:disabled){border-color:#811630;color:#811630}
-.page-btn.active{background:#811630;border-color:#811630;color:#fff}
-.page-btn:disabled{opacity:.38;cursor:not-allowed}
-.mobile-page-status{display:none;color:#666d75;font-size:.8rem;font-weight:700;padding:0 4px}
-@media(max-width:680px){
- .participant-table-footer{align-items:flex-start;flex-direction:column}
- .participant-pagination{width:100%;justify-content:space-between}
- .page-number-btn{display:none}
- .mobile-page-status{display:inline}
-}
 </style>
 </head>
 <body>
@@ -102,10 +87,7 @@
 </div>
 <div class="table-wrap"><table class="participant-table"><thead><tr><th>Registration ID</th><th>Cohort</th><th>Participant</th><th>Type</th><th>Study</th><th>Research Group</th><th>Status</th></tr></thead><tbody id="participantRows"></tbody></table>
 <div class="empty-state" id="participantEmpty"><strong>No participants found</strong><p>Register a participant or adjust the filters.</p></div></div>
-<div class="participant-table-footer">
 <p class="table-note" id="participantCount"></p>
-<nav class="participant-pagination" id="participantPagination" aria-label="Participant records pagination"></nav>
-</div>
 </section>
 </section></main>
 
@@ -115,12 +97,9 @@
 <script src="../assets/config.js"></script>
 <script src="../assets/app.js"></script>
 <script>
-(()=>{const cfg=window.SLR_CONFIG||{},groups=['ALIAS','IASRG','IIRG','ISSIRG','PCRG','SERG','VICUBELAB'];let records=[],activeCohort='V2',currentPage=1;const pageSize=15;
+(()=>{const cfg=window.SLR_CONFIG||{},groups=['ALIAS','IASRG','IIRG','ISSIRG','PCRG','SERG','VICUBELAB'];let records=[],activeCohort='V2';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const $=s=>document.querySelector(s);
-
-const properCaseName=value=>String(value||'').trim().toLowerCase().replace(/(^|[\s\-'/])([a-z])/g,(m,p,c)=>p+c.toUpperCase());
-
 const cohortOf=r=>String(r.workshopCohort||'V1').toUpperCase();
 const cohortName=v=>v==='V2'?'Cohort 2':v==='V1'?'Cohort 1':'All Cohorts';
 const viewRecords=()=>activeCohort?records.filter(r=>cohortOf(r)===activeCohort):records;
@@ -144,25 +123,12 @@ function render(){
  const q=$('#participantSearch').value.trim().toLowerCase(),filterCohort=$('#filterWorkshopCohort').value,type=$('#filterParticipantType').value,group=$('#filterResearchGroup').value;
  const cohort=activeCohort||filterCohort;
  const filtered=records.filter(r=>(!cohort||cohortOf(r)===cohort)&&(!type||r.participantType===type)&&(!group||r.researchGroup===group)&&(!q||[r.registrationId,r.fullName,r.researchGroup,r.identityNumber].join(' ').toLowerCase().includes(q)));
- const totalPages=Math.max(1,Math.ceil(filtered.length/pageSize));if(currentPage>totalPages)currentPage=totalPages;
- const startIndex=(currentPage-1)*pageSize,endIndex=Math.min(startIndex+pageSize,filtered.length),pageRows=filtered.slice(startIndex,endIndex);
- $('#participantRows').innerHTML=pageRows.map(r=>`<tr><td>${esc(r.registrationId)}</td><td class="cohort-number-cell"><span class="cohort-number">${cohortOf(r)==='V2'?'2':'1'}</span></td><td><strong>${esc(properCaseName(r.fullName))}</strong></td><td>${esc(r.participantType)}</td><td>${r.participantType==='Postgraduate Student'?`${esc(r.levelOfStudy)}<small>${esc(/^semester\s/i.test(r.currentSemester||'')?r.currentSemester:(r.currentSemester?'Semester '+r.currentSemester:''))}</small>`:'—'}</td><td>${esc(r.researchGroup)}</td><td><span class="status-pill">${esc(r.registrationStatus||'Registered')}</span></td></tr>`).join('');
+ $('#participantRows').innerHTML=filtered.map(r=>`<tr><td>${esc(r.registrationId)}</td><td class="cohort-number-cell"><span class="cohort-number">${cohortOf(r)==='V2'?'2':'1'}</span></td><td><strong>${esc(r.fullName)}</strong></td><td>${esc(r.participantType)}</td><td>${r.participantType==='Postgraduate Student'?`${esc(r.levelOfStudy)}<small>${esc(/^semester\s/i.test(r.currentSemester||'')?r.currentSemester:(r.currentSemester?'Semester '+r.currentSemester:''))}</small>`:'—'}</td><td>${esc(r.researchGroup)}</td><td><span class="status-pill">${esc(r.registrationStatus||'Registered')}</span></td></tr>`).join('');
  $('#participantEmpty').style.display=filtered.length?'none':'block';
- $('#participantCount').textContent=filtered.length?`Showing ${startIndex+1}–${endIndex} of ${filtered.length} participants`:`Showing 0 participants`;
- renderPagination(totalPages);
-}
-function renderPagination(totalPages){
- const nav=$('#participantPagination');if(!nav)return;
- if(totalPages<=1){nav.innerHTML='';return}
- let html=`<button class="page-btn" data-page="${currentPage-1}" ${currentPage===1?'disabled':''} aria-label="Previous page">‹ Previous</button>`;
- html+=`<span class="mobile-page-status">Page ${currentPage} of ${totalPages}</span>`;
- for(let p=1;p<=totalPages;p++)html+=`<button class="page-btn page-number-btn ${p===currentPage?'active':''}" data-page="${p}" ${p===currentPage?'aria-current="page"':''}>${p}</button>`;
- html+=`<button class="page-btn" data-page="${currentPage+1}" ${currentPage===totalPages?'disabled':''} aria-label="Next page">Next ›</button>`;
- nav.innerHTML=html;
- nav.querySelectorAll('button[data-page]').forEach(btn=>btn.addEventListener('click',()=>{const p=Number(btn.dataset.page);if(p>=1&&p<=totalPages&&p!==currentPage){currentPage=p;render();document.querySelector('#participants')?.scrollIntoView({behavior:'smooth',block:'start'})}}));
+ $('#participantCount').textContent=`Showing ${filtered.length} participant${filtered.length===1?'':'s'} in ${cohortName(cohort)}.`;
 }
 function selectCohort(value){
- activeCohort=value;currentPage=1;document.querySelectorAll('.cohort-tab').forEach(b=>b.classList.toggle('active',(b.dataset.cohort||'')===value));
+ activeCohort=value;document.querySelectorAll('.cohort-tab').forEach(b=>b.classList.toggle('active',(b.dataset.cohort||'')===value));
  $('#filterWorkshopCohort').value=value;updateCohortHeader();metrics();render();
 }
 async function load(){
@@ -172,7 +138,7 @@ async function load(){
 }
 function exportCsv(){const data=viewRecords();if(!data.length)return;const cols=['registrationId','workshopCohort','fullName','email','participantType','identityNumber','phoneNumber','levelOfStudy','currentSemester','supervisorName','researchGroup'];const quote=v=>`"${String(v??'').replace(/"/g,'""')}"`,csv=[cols.join(','),...data.map(r=>cols.map(c=>quote(r[c])).join(','))].join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download=`slr-${cohortName(activeCohort).toLowerCase().replace(/\s+/g,'-')}-participants.csv`;a.click();URL.revokeObjectURL(a.href)}
 document.querySelectorAll('.cohort-tab').forEach(b=>b.addEventListener('click',()=>selectCohort(b.dataset.cohort||'')));
-['participantSearch','filterWorkshopCohort','filterParticipantType','filterResearchGroup'].forEach(id=>$('#'+id).addEventListener(id==='participantSearch'?'input':'change',()=>{currentPage=1;if(id==='filterWorkshopCohort'){activeCohort=$('#filterWorkshopCohort').value;document.querySelectorAll('.cohort-tab').forEach(b=>b.classList.toggle('active',(b.dataset.cohort||'')===activeCohort));updateCohortHeader();metrics()}render()}));
+['participantSearch','filterWorkshopCohort','filterParticipantType','filterResearchGroup'].forEach(id=>$('#'+id).addEventListener(id==='participantSearch'?'input':'change',()=>{if(id==='filterWorkshopCohort'){activeCohort=$('#filterWorkshopCohort').value;document.querySelectorAll('.cohort-tab').forEach(b=>b.classList.toggle('active',(b.dataset.cohort||'')===activeCohort));updateCohortHeader();metrics()}render()}));
 $('#participantExport').addEventListener('click',exportCsv);updateCohortHeader();load();
 })();
 </script>
