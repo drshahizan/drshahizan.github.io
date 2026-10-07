@@ -14,6 +14,30 @@ if(nav){
   document.addEventListener('click',e=>document.querySelectorAll('.nav-more[open]').forEach(d=>{if(!d.contains(e.target))d.removeAttribute('open')}));
 }
 document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{await navigator.clipboard.writeText(b.parentElement.innerText.replace('Salin','').trim());const old=b.textContent;b.textContent='Disalin';setTimeout(()=>b.textContent=old,1400)}));
+
+// Butang salin seragam untuk kotak prompt statik.
+const copyText=async text=>{
+  if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(text);
+  const area=document.createElement('textarea');
+  area.value=text;area.setAttribute('readonly','');area.style.cssText='position:fixed;opacity:0;pointer-events:none';
+  document.body.appendChild(area);area.select();
+  const copied=document.execCommand('copy');area.remove();
+  if(!copied)throw new Error('Salinan tidak dibenarkan oleh pelayar');
+};
+document.querySelectorAll('.copyable-prompt').forEach((box,index)=>{
+  if(box.querySelector('.copy-prompt-auto'))return;
+  const button=document.createElement('button');
+  button.type='button';button.className='copy-prompt-auto';button.textContent='Salin Prompt';
+  button.setAttribute('aria-label',`Salin prompt ${index+1}`);
+  box.prepend(button);
+  button.addEventListener('click',async()=>{
+    const clone=box.cloneNode(true);clone.querySelector('.copy-prompt-auto')?.remove();
+    try{
+      await copyText(clone.innerText.trim());button.textContent='Disalin ✓';button.classList.add('copied');
+    }catch{button.textContent='Gagal disalin';}
+    setTimeout(()=>{button.textContent='Salin Prompt';button.classList.remove('copied')},1600);
+  });
+});
 document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=b.dataset.filter;document.querySelectorAll('[data-level]').forEach(c=>c.style.display=f==='semua'||c.dataset.level===f?'block':'none')}));
 
 // Footer konsisten untuk semua halaman portal kursus.
