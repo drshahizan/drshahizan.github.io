@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800" role="img" aria-labelledby="title desc">
+  <title id="title">Data simulasi aduan jalan JKR</title>
+  <desc id="desc">Jadual aduan jalan mengikut kawasan dan kategori untuk latihan transformasi visual data.</desc>
+  <rect width="1400" height="800" fill="#f5f7f9"/>
+  <rect x="65" y="55" width="1270" height="690" rx="28" fill="#fff" stroke="#d8dee5" stroke-width="3"/>
+  <rect x="65" y="55" width="1270" height="145" rx="28" fill="#123047"/>
+  <rect x="65" y="170" width="1270" height="30" fill="#123047"/>
+  <rect x="95" y="82" width="86" height="86" rx="14" fill="#f2b632"/>
+  <text x="138" y="138" text-anchor="middle" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#123047">JKR</text>
+  <text x="212" y="117" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#fff">DATA ADUAN JALAN</text>
+  <text x="212" y="157" font-family="Arial, sans-serif" font-size="22" fill="#dbe5eb">Set data simulasi untuk latihan AI · Bukan rekod rasmi</text>
+  <g font-family="Arial, sans-serif" font-size="24">
+    <rect x="95" y="235" width="1210" height="72" rx="10" fill="#e8eef2"/>
+    <g font-weight="700" fill="#123047">
+      <text x="130" y="280">Kawasan</text><text x="450" y="280">Jalan berlubang</text><text x="730" y="280">Longkang</text><text x="950" y="280">Bahu jalan</text><text x="1190" y="280">Jumlah</text>
+    </g>
+    <g fill="#273746">
+      <text x="130" y="365">Rembau</text><text x="520" y="365">18</text><text x="780" y="365">7</text><text x="1010" y="365">5</text><text x="1210" y="365">30</text>
+      <line x1="95" y1="397" x2="1305" y2="397" stroke="#e2e7eb" stroke-width="2"/>
+      <text x="130" y="455">Chembong</text><text x="520" y="455">12</text><text x="780" y="455">5</text><text x="1010" y="455">4</text><text x="1210" y="455">21</text>
+      <line x1="95" y1="487" x2="1305" y2="487" stroke="#e2e7eb" stroke-width="2"/>
+      <text x="130" y="545">Pedas</text><text x="520" y="545">15</text><text x="780" y="545">8</text><text x="1010" y="545">6</text><text x="1210" y="545">29</text>
+      <line x1="95" y1="577" x2="1305" y2="577" stroke="#e2e7eb" stroke-width="2"/>
+      <text x="130" y="635">Kota</text><text x="520" y="635">9</text><text x="780" y="635">6</text><text x="1010" y="635">5</text><text x="1210" y="635">20</text>
+    </g>
+    <rect x="95" y="670" width="1210" height="54" rx="8" fill="#fff4d6"/>
+    <g font-weight="700" fill="#7b1f2b"><text x="130" y="706">Jumlah</text><text x="520" y="706">54</text><text x="780" y="706">26</text><text x="1010" y="706">20</text><text x="1200" y="706">100</text></g>
+  </g>
+</svg>
