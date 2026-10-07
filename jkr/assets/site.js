@@ -1,6 +1,19 @@
-const nav=document.querySelector('.nav-links');document.querySelector('.menu-btn')?.addEventListener('click',()=>nav.classList.toggle('open'));
+const nav=document.querySelector('.nav-links');
+if(nav){
+  const script=[...document.scripts].find(s=>s.src.includes('/assets/site.js'));
+  const root=script?new URL('../',script.src):new URL('./',location.href);
+  const item=(path,label)=>`<a href="${new URL(path,root).href}">${label}</a>`;
+  nav.innerHTML=`${item('','Utama')}${item('tentatif/','Tentatif')}${item('pembelajaran-ai/','Pembelajaran')}${item('latihan-ai/','Latihan')}${item('prompt-jkr/','Prompt JKR')}${item('alat-ai/','Alat AI')}${item('projek/','Projek Web')}<details class="nav-more"><summary>Lagi <span aria-hidden="true">⌄</span></summary><div class="nav-more-menu">${item('sumber-ai/','Sumber AI')}${item('dataset/','Dataset')}${item('kajian-kes/','Kajian Kes')}${item('rubrik/','Rubrik')}${item('hantar-hasil/','Hantar Hasil')}${item('fasilitator/','Fasilitator')}</div></details><a class="nav-search" href="${new URL('carian/',root).href}" aria-label="Carian" title="Carian">⌕</a>`;
+  const clean=p=>p.replace(/index\.html$/,'').replace(/\/$/,'');
+  const pagePath=clean(location.pathname);
+  nav.querySelectorAll('a').forEach(a=>{const linkPath=clean(new URL(a.href,location.href).pathname);if(linkPath===pagePath||(pagePath.includes('/gemini-notebook')&&linkPath.endsWith('/alat-ai')))a.classList.add('active')});
+  if(nav.querySelector('.nav-more-menu .active'))nav.querySelector('.nav-more summary')?.classList.add('active');
+  const menuButton=document.querySelector('.menu-btn');
+  menuButton?.setAttribute('aria-expanded','false');
+  menuButton?.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open))});
+  document.addEventListener('click',e=>document.querySelectorAll('.nav-more[open]').forEach(d=>{if(!d.contains(e.target))d.removeAttribute('open')}));
+}
 document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{await navigator.clipboard.writeText(b.parentElement.innerText.replace('Salin','').trim());const old=b.textContent;b.textContent='Disalin';setTimeout(()=>b.textContent=old,1400)}));
-const pagePath=location.pathname.replace(/index\.html$/,'').replace(/\/$/,'');document.querySelectorAll('.nav-links a').forEach(a=>{const linkPath=new URL(a.href,location.href).pathname.replace(/index\.html$/,'').replace(/\/$/,'');if(linkPath===pagePath)a.classList.add('active')});
 document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=b.dataset.filter;document.querySelectorAll('[data-level]').forEach(c=>c.style.display=f==='semua'||c.dataset.level===f?'block':'none')}));
 
 // Footer konsisten untuk semua halaman portal kursus.

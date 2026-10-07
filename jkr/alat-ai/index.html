@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="../assets/course-2026.css">
 <link rel="stylesheet" href="../assets/jkr-ai.css">
 <style>.tool-controls{display:grid;grid-template-columns:2fr 1fr auto;gap:10px;margin:22px 0}.tool-controls input,.tool-controls select{width:100%;padding:12px;border:1px solid var(--line);border-radius:9px;background:#fff}.tool-directory{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.tool-card{display:flex;flex-direction:column;padding:22px;border:1px solid var(--line);border-radius:15px;background:#fff;transition:.2s}.tool-card:hover{border-color:var(--orange);transform:translateY(-2px)}.tool-icon{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:#f6edf2;color:var(--plum);font-weight:900;font-size:1.15rem}.tool-card h3{margin:13px 0 6px}.tool-card p{margin:0 0 12px}.tool-tags{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 14px}.tool-tags span{font-size:.7rem;font-weight:800;padding:5px 8px;border-radius:999px;background:#f7f3f5;color:var(--plum)}.tool-use{padding:11px;border-left:3px solid var(--orange);background:#fff8ed;font-size:.82rem;margin-bottom:13px}.tool-card .actions{margin-top:auto}.tool-card .btn{padding:9px 12px;font-size:.78rem}.tool-count{font-weight:850;color:var(--plum)}@media(max-width:950px){.tool-directory{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.tool-controls,.tool-directory{grid-template-columns:1fr}}</style>
+<style>
+.gemini-hub{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}.gemini-panel{border:1px solid var(--line);border-radius:17px;background:#fff;padding:25px;box-shadow:0 8px 30px rgba(16,42,67,.055)}.gemini-panel:first-child{border-top:4px solid #4285f4}.gemini-panel:last-child{border-top:4px solid var(--orange)}.gemini-kicker{display:inline-block;margin-bottom:9px;color:var(--plum);font-size:.74rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.gemini-panel h3{font-size:1.28rem;margin-bottom:8px}.gemini-panel p{margin:0 0 16px;color:var(--muted)}.gemini-links{display:flex;flex-wrap:wrap;gap:9px}@media(max-width:650px){.gemini-hub{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <div class="topbar">
@@ -84,7 +87,39 @@
 </div>
 </div>
 </section>
-<section class="section" id="directory">
+<section class="section" id="gemini">
+<div class="container">
+<div class="section-head">
+<div>
+<span class="eyebrow">Ekosistem Gemini</span>
+<h2>Google Gemini &amp; Gemini Notebook</h2>
+<p>Dua ruang kerja yang saling melengkapi: Gemini membantu menghasilkan dan memperkemas kandungan, manakala Gemini Notebook menumpukan analisis berdasarkan sumber yang dipilih.</p>
+</div>
+</div>
+<div class="gemini-hub">
+<article class="gemini-panel">
+<span class="gemini-kicker">01 · Cipta dan perkemas</span>
+<h3>Google Gemini</h3>
+<p>Gunakan untuk mencetus idea, menyediakan draf, meringkaskan teks, menganalisis data awal serta menghasilkan visual dan audio bagi tugasan rasmi.</p>
+<div class="gemini-links">
+<a class="btn btn-primary" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">Buka Google Gemini ↗</a>
+<a class="btn btn-secondary" href="../prompt-jkr/">Lihat Prompt JKR</a>
+</div>
+</article>
+<article class="gemini-panel">
+<span class="gemini-kicker">02 · Kerja berasaskan sumber</span>
+<h3>Gemini Notebook</h3>
+<p>Gunakan dokumen rujukan untuk membina ringkasan, soalan, laporan, slaid dan kandungan Studio dengan jejak sumber yang lebih jelas.</p>
+<div class="gemini-links">
+<a class="btn btn-primary" href="../gemini-notebook/">Buka Hab Pembelajaran</a>
+<a class="btn btn-secondary" href="../gemini-notebook/prompt-sumber/">30 Prompt Sumber</a>
+<a class="btn btn-secondary" href="../gemini-notebook/studio-prompt/">24 Prompt Studio</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="section white" id="directory">
 <div class="container">
 <div class="section-head">
 <div>
