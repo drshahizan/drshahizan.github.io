@@ -1,0 +1,15 @@
+Nama mesyuarat: [NAMA]
+Tarikh / masa / tempat: [BUTIRAN]
+Pengerusi: [NAMA/JAWATAN]
+Kehadiran: [RUJUK SENARAI]
+
+AGENDA [NO.]: [TAJUK]
+Perbincangan: [RINGKASAN]
+Keputusan: [KEPUTUSAN SEBENAR]
+Tindakan: [PERKARA]
+Pemilik: [PEGAWAI/UNIT]
+Tarikh siap: [TARIKH]
+Status: [STATUS]
+
+Disediakan oleh: [NAMA]
+Disemak oleh: [NAMA]

@@ -1,0 +1,7 @@
+ID,Tarikh,Laluan,Panjang_km,Jenis_Kerosakan,Bilangan,Tahap,Status_Susulan
+P001,2026-10-06,Jalan Kampung Sentosa,2.4,Lubang,12,Tinggi,Tindakan segera
+P002,2026-10-06,Jalan Kampung Sentosa,2.4,Takungan air,3,Sederhana,Pembersihan saliran
+P003,2026-10-06,Jalan Kampung Sentosa,2.4,Retak permukaan,5,Sederhana,Penilaian turapan
+P004,2026-10-02,Jalan Industri,1.8,Retak memanjang,7,Sederhana,Dalam semakan
+P005,2026-10-03,Jalan Sekolah,1.2,Lubang,4,Tinggi,Tugasan dikeluarkan
+P006,2026-10-04,Jalan Balai Raya,0.9,Bahu jalan,2,Rendah,Pemantauan

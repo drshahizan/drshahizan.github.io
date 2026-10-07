@@ -1,0 +1,13 @@
+Rujukan,Tarikh,Mukim,Lokasi_Umum,Kategori,Keutamaan,Status,Tarikh_Tindakan,SLA_Hari,Pasukan,Kontraktor
+JKR-A001,2026-09-01,Rembau,Jalan Kampung Sentosa,Lubang,Tinggi,Selesai,2026-09-02,3,Pasukan Jalan 1,-
+JKR-A002,2026-09-02,Chembong,Jalan Industri,Saliran,Sederhana,Dalam Tindakan,2026-09-05,5,Pasukan Jalan 2,Kontraktor Latihan
+JKR-A003,2026-09-03,Kota,Jalan Sekolah,Retak,Rendah,Baharu,,7,Pasukan Jalan 1,-
+JKR-A004,2026-09-04,Pedas,Jalan Utama,Lubang,Kritikal,Selesai,2026-09-04,1,Pasukan Jalan 2,-
+JKR-A005,2026-09-05,Rembau,Jalan Pasar,Lampu Isyarat,Tinggi,Dalam Semakan,2026-09-08,3,Pasukan Teknikal,-
+JKR-A006,2026-09-07,Chembong,Jalan Kampung Baru,Saliran,Sederhana,Selesai,2026-09-14,5,Pasukan Jalan 1,Kontraktor Latihan
+JKR-A007,2026-09-09,Kota,Jalan Balai Raya,Bahu Jalan,Sederhana,Baharu,,5,Pasukan Jalan 2,-
+JKR-A008,2026-09-10,Pedas,Jalan Stesen,Lubang,Tinggi,Selesai,2026-09-15,3,Pasukan Jalan 2,-
+JKR-A009,2026-09-12,Rembau,Jalan Kampung Sentosa,Saliran,Tinggi,Dalam Tindakan,2026-09-16,3,Pasukan Jalan 1,-
+JKR-A010,2026-09-15,Chembong,Jalan Industri,Retak,Rendah,Dalam Semakan,2026-09-20,7,Pasukan Jalan 2,Kontraktor Latihan
+JKR-A011,2026-09-18,Kota,Jalan Sekolah,Lubang,Kritikal,Selesai,2026-09-19,1,Pasukan Jalan 1,-
+JKR-A012,2026-09-20,Pedas,Jalan Utama,Saliran,Sederhana,Baharu,,5,Pasukan Jalan 2,-

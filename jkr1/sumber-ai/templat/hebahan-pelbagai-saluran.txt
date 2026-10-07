@@ -1,0 +1,15 @@
+MAKLUMAT INDUK
+Program/perkara: [TAJUK]
+Audiens: [SASARAN]
+Tarikh/masa/tempat: [BUTIRAN]
+Tindakan/CTA: [TINDAKAN]
+Pautan: [PAUTAN]
+
+E-MEL
+Subjek + penerangan lengkap + tindakan.
+
+WHATSAPP
+Pembuka ringkas + butiran + CTA.
+
+MEDIA SOSIAL
+Konteks + manfaat + butiran + pautan + hashtag diluluskan.
