@@ -1,5 +1,5 @@
-const directory={'03':[],'04':[]};
-let activeSection='03';
+const directory={'01':[],'02':[],'03':[],'04':[]};
+let activeSection='01';
 let loaded=false;
 const rows=document.getElementById('studentRows');
 const search=document.getElementById('studentSearch');
@@ -20,10 +20,9 @@ function surveyStatus(value){
 }
 
 function updateCounts(){
-  const section03=directory['03'].length,section04=directory['04'].length;
-  document.getElementById('section03Count').textContent=section03;
-  document.getElementById('section04Count').textContent=section04;
-  document.getElementById('totalStudents').textContent=section03+section04;
+  const sections=['01','02','03','04'];
+  sections.forEach(section=>document.getElementById(`section${section}Count`).textContent=directory[section].length);
+  document.getElementById('totalStudents').textContent=sections.reduce((total,section)=>total+directory[section].length,0);
 }
 
 function render(){
@@ -44,8 +43,7 @@ async function loadDirectory(){
     const response=await fetch(url,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action:'student-directory'})});
     const result=await response.json();
     if(!response.ok||result.ok===false)throw new Error(result.message||result.error||'Unable to retrieve the student list.');
-    directory['03']=Array.isArray(result.students?.['03'])?result.students['03']:[];
-    directory['04']=Array.isArray(result.students?.['04'])?result.students['04']:[];
+    ['01','02','03','04'].forEach(section=>directory[section]=Array.isArray(result.students?.[section])?result.students[section]:[]);
     loaded=true;updateCounts();render();
   }catch(error){showLoadError(error.message||'Unable to connect to Google Sheets.');}
 }

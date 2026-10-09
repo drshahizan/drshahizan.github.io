@@ -202,7 +202,7 @@ function getStudentDirectory_() {
     const matricIndex = responseHeaders.indexOf('MatricNumber');
     if (matricIndex >= 0) responseValues.forEach(row => submitted[normalizeMatric_(row[matricIndex])] = true);
   }
-  const directory = {'03':[],'04':[]};
+  const directory = {'01':[],'02':[],'03':[],'04':[]};
   values.forEach(row => {
     const section = String(row[index('Section')] || '').padStart(2,'0');
     if (!directory[section]) return;
