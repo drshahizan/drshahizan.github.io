@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SCST1133 Data Engineering Ecosystem Entry Survey">
+  <title>SCST1133 Entry Survey</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237b1734'/%3E%3Cpath d='M17 20h30v7H36v22h-8V27H17z' fill='%23d4a72c'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/entry.css">
+</head>
+<body>
+<header><a class="course-brand" href="../index.html"><div class="utm">UTM</div><div><b>SCST1133</b><span>Data Engineering Ecosystem</span></div></a><div class="semester">Semester 1, 2026/2027</div></header>
+<main>
+  <section id="verify" class="entry-shell">
+    <div class="entry-intro">
+      <a class="back-link" href="../index.html">← Back to course website</a>
+      <p class="kicker">SCST1133 · Course Entry Survey</p>
+      <h1>Help us understand your learning background</h1>
+      <p class="lead">All students enrolled in SCST1133 are required to complete this survey. Your responses will help the lecturers plan suitable learning activities, software support and laboratory guidance.</p>
+      <div class="survey-facts">
+        <div><strong>8</strong><span>survey sections</span></div>
+        <div><strong>10–15</strong><span>minutes to complete</span></div>
+        <div><strong>Auto</strong><span>progress saving</span></div>
+      </div>
+      <p class="privacy-note"><b>Before you start:</b> Prepare your SPM results and the detailed specifications of your main computer, including processor model, RAM and storage.</p>
+    </div>
+    <div class="panel verification-card">
+      <div class="step-badge">Step 1 · Student verification</div>
+      <h2>Enter your matric number</h2>
+      <p>We will retrieve your name, section and programme from the registered student list.</p>
+      <label for="matric">Matric Number <span class="required">Required</span></label>
+      <input id="matric" maxlength="9" placeholder="Example: A26CS0014" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="matricHelp">
+      <p id="matricHelp" class="input-help">Use the matric number registered for Section 03 or Section 04.</p>
+      <button class="verify-button" id="verifyBtn" onclick="verifyStudent()">Verify and Continue</button>
+      <div id="verifyMessage" class="message" aria-live="polite"></div>
+      <div id="studentCard" class="student-card" hidden></div>
+    </div>
+  </section>
+
+  <section id="survey" hidden>
+    <div class="survey-top"><div><p class="kicker">SCST1133 Entry Survey</p><h2 id="sectionTitle"></h2></div><div id="studentChip"></div></div>
+    <div class="progress"><span id="progressBar"></span></div>
+    <div class="layout"><nav id="stepNav"></nav><form id="surveyForm"><div id="fields"></div><div class="actions"><button type="button" class="secondary" id="prevBtn" onclick="move(-1)">Previous</button><button type="button" id="nextBtn" onclick="move(1)">Save & Continue</button><button type="button" id="submitBtn" onclick="submitAll()" hidden>Submit Survey</button></div><div id="formMessage" class="message"></div></form></div>
+  </section>
+
+  <section id="success" class="panel narrow success" hidden><div class="success-icon">✓</div><h1>Survey submitted</h1><p>Thank you for completing the SCST1133 Entry Survey.</p><p id="responseId" class="response-id"></p><a class="return-link" href="../index.html">Return to course website</a></section>
+</main>
+<footer class="survey-footer"><div class="survey-footer-inner"><div><b>SCST1133 · Data Engineering Ecosystem</b><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><div><p>© 2026 Dr MSO · Universiti Teknologi Malaysia.<a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Site visitors"></a></p></div></div></footer>
+<script src="assets/config.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
