@@ -8,33 +8,24 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237b1734'/%3E%3Cpath d='M17 20h30v7H36v22h-8V27H17z' fill='%23d4a72c'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/entry.css">
+  <link rel="stylesheet" href="assets/compact.css">
+  <link rel="stylesheet" href="assets/form-grid.css">
 </head>
 <body>
 <header><a class="course-brand" href="../index.html"><div class="utm">UTM</div><div><b>SCST1133</b><span>Data Engineering Ecosystem</span></div></a><div class="semester">Semester 1, 2026/2027</div></header>
 <main>
-  <section id="verify" class="entry-shell">
-    <div class="entry-intro">
-      <a class="back-link" href="../index.html">← Back to course website</a>
-      <p class="kicker">SCST1133 · Course Entry Survey</p>
-      <h1>Help us understand your learning background</h1>
-      <p class="lead">All students enrolled in SCST1133 are required to complete this survey. Your responses will help the lecturers plan suitable learning activities, software support and laboratory guidance.</p>
-      <div class="survey-facts">
-        <div><strong>8</strong><span>survey sections</span></div>
-        <div><strong>10–15</strong><span>minutes to complete</span></div>
-        <div><strong>Auto</strong><span>progress saving</span></div>
-      </div>
-      <p class="privacy-note"><b>Before you start:</b> Prepare your SPM results and the detailed specifications of your main computer, including processor model, RAM and storage.</p>
-    </div>
+  <section id="verify" class="compact-start">
+    <a class="back-link" href="../index.html">← Back to course website</a>
     <div class="panel verification-card">
-      <div class="step-badge">Step 1 · Student verification</div>
-      <h2>Enter your matric number</h2>
-      <p>We will retrieve your name, section and programme from the registered student list.</p>
-      <label for="matric">Matric Number <span class="required">Required</span></label>
-      <input id="matric" maxlength="9" placeholder="Example: A26CS0014" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="matricHelp">
-      <p id="matricHelp" class="input-help">Use the matric number registered for Section 03 or Section 04.</p>
-      <button class="verify-button" id="verifyBtn" onclick="verifyStudent()">Verify and Continue</button>
+      <p class="kicker">SCST1133 Entry Survey</p>
+      <h1>Enter your matric number</h1>
+      <p>Enter your registered matric number to start or continue the survey.</p>
+      <div class="matric-row">
+        <div><label for="matric">Matric Number</label><input id="matric" maxlength="9" placeholder="A26CS0014" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="matricHelp"></div>
+        <button class="verify-button" id="verifyBtn" onclick="verifyStudent()">Start Survey</button>
+      </div>
+      <p id="matricHelp" class="input-help">For registered students in Section 03 and Section 04.</p>
       <div id="verifyMessage" class="message" aria-live="polite"></div>
-      <div id="studentCard" class="student-card" hidden></div>
     </div>
   </section>
 
