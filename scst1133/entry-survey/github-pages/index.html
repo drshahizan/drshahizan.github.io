@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="SCST1133 Data Engineering Ecosystem entry survey">
+  <title>SCST1133 Entry Survey</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand-mark">UTM</div>
+    <div><strong>SCST1133</strong><span>Data Engineering Ecosystem</span></div>
+  </header>
+  <main>
+    <section id="setup" class="setup-card" hidden>
+      <p class="eyebrow">Configuration required</p>
+      <h1>Entry Survey</h1>
+      <p>Set the deployed Google Apps Script Web App URL in <code>assets/config.js</code>, then reload this page.</p>
+    </section>
+    <iframe id="surveyFrame" title="SCST1133 Entry Survey" allow="clipboard-write"></iframe>
+  </main>
+  <script src="assets/config.js"></script>
+  <script>
+    const frame = document.getElementById('surveyFrame');
+    const setup = document.getElementById('setup');
+    if (!window.SURVEY_APP_URL || window.SURVEY_APP_URL.includes('PASTE_')) {
+      setup.hidden = false;
+      frame.hidden = true;
+    } else {
+      frame.src = window.SURVEY_APP_URL;
+    }
+  </script>
+</body>
+</html>
