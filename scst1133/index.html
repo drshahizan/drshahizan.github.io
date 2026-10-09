@@ -2,34 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="SCST1133 Data Engineering Ecosystem entry survey">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SCST1133 Data Engineering Ecosystem Entry Survey">
   <title>SCST1133 Entry Survey</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237b1734'/%3E%3Cpath d='M17 20h30v7H36v22h-8V27H17z' fill='%23d4a72c'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand-mark">UTM</div>
-    <div><strong>SCST1133</strong><span>Data Engineering Ecosystem</span></div>
-  </header>
-  <main>
-    <section id="setup" class="setup-card" hidden>
-      <p class="eyebrow">Configuration required</p>
-      <h1>Entry Survey</h1>
-      <p>Set the deployed Google Apps Script Web App URL in <code>assets/config.js</code>, then reload this page.</p>
-    </section>
-    <iframe id="surveyFrame" title="SCST1133 Entry Survey" allow="clipboard-write"></iframe>
-  </main>
-  <script src="assets/config.js?v=2"></script>
-  <script>
-    const frame = document.getElementById('surveyFrame');
-    const setup = document.getElementById('setup');
-    if (!window.SURVEY_APP_URL || window.SURVEY_APP_URL.includes('PASTE_')) {
-      setup.hidden = false;
-      frame.hidden = true;
-    } else {
-      frame.src = window.SURVEY_APP_URL;
-    }
-  </script>
+<header><div class="utm">UTM</div><div><b>SCST1133</b><span>Data Engineering Ecosystem</span></div><div class="semester">Semester 1, 2026/2027</div></header>
+<main>
+  <section id="verify" class="panel narrow">
+    <p class="kicker">Course Entry and Student Profile Survey</p>
+    <h1>Verify your student record</h1>
+    <p>Enter your matric number to begin or continue the survey.</p>
+    <label>Matric Number<input id="matric" maxlength="9" placeholder="A26CS0014" autocomplete="off"></label>
+    <button id="verifyBtn" onclick="verifyStudent()">Verify Student</button>
+    <div id="verifyMessage" class="message" aria-live="polite"></div>
+    <div id="studentCard" class="student-card" hidden></div>
+  </section>
+
+  <section id="survey" hidden>
+    <div class="survey-top"><div><p class="kicker">SCST1133 Entry Survey</p><h2 id="sectionTitle"></h2></div><div id="studentChip"></div></div>
+    <div class="progress"><span id="progressBar"></span></div>
+    <div class="layout"><nav id="stepNav"></nav><form id="surveyForm"><div id="fields"></div><div class="actions"><button type="button" class="secondary" id="prevBtn" onclick="move(-1)">Previous</button><button type="button" id="nextBtn" onclick="move(1)">Save & Continue</button><button type="button" id="submitBtn" onclick="submitAll()" hidden>Submit Survey</button></div><div id="formMessage" class="message"></div></form></div>
+  </section>
+
+  <section id="success" class="panel narrow" hidden><div class="success-icon">✓</div><h1>Survey submitted</h1><p>Thank you for completing the SCST1133 Entry Survey.</p><p id="responseId" class="response-id"></p></section>
+</main>
+<script src="assets/config.js"></script>
+<script src="assets/app.js"></script>
 </body>
 </html>
