@@ -1,1 +1,0 @@
-.section-tabs{max-width:100%;overflow-x:auto;padding-bottom:2px}.section-tabs button{flex:0 0 auto;white-space:nowrap}@media(max-width:620px){.section-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible}.section-tabs button{width:100%}}
