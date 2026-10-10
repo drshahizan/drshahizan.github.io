@@ -9,4 +9,12 @@ if(siteNav&&![...siteNav.querySelectorAll('a')].some(link=>link.textContent.trim
   const announcements=[...siteNav.querySelectorAll('a')].find(link=>link.textContent.trim()==='Announcements');
   siteNav.insertBefore(studentLink,announcements||siteNav.querySelector('.survey-link'));
 }
+if(siteNav&&![...siteNav.querySelectorAll('a')].some(link=>link.textContent.trim()==='Tools')){
+  const homeHref=siteNav.querySelector('a')?.getAttribute('href')||'index.html';
+  const toolsHref=homeHref.startsWith('../')?'../tools/index.html':'tools/index.html';
+  const toolsLink=document.createElement('a');
+  toolsLink.href=toolsHref;toolsLink.textContent='Tools';
+  const students=[...siteNav.querySelectorAll('a')].find(link=>link.textContent.trim()==='Students');
+  siteNav.insertBefore(toolsLink,students||siteNav.querySelector('.survey-link'));
+}
 document.querySelector('.menu')?.addEventListener('click',()=>siteNav?.classList.toggle('open'));
