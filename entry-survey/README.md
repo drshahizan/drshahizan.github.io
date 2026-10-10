@@ -1,32 +1,31 @@
-# SCST1133 Entry Survey Dashboard
+# SCST1133 Course Website
 
-Public dashboard URL after uploading the website to GitHub Pages:
+GitHub Pages website for **SCST1133 - Data Engineering Ecosystem**, Semester 1, Session 2026/2027.
 
-`https://drshahizan.github.io/scst1133/survey-dashboard/`
+## Upload to GitHub Pages
 
-## Dashboard pages
+Upload the contents of this folder to:
 
-- `index.html` — survey participation overview
-- `academic.html` — academic background
-- `computing.html` — computing and Internet readiness
-- `learning.html` — learning preferences and confidence
-- `digital-tools.html` — previous digital tool experience
-- `knowledge.html` — baseline data engineering knowledge
-- `student-profile.html` — character, interests, programme motivation and computing exposure
-- `support-needs.html` — current situation, support themes and recommended next steps
-- `teaching-insights.html` — aggregated teaching suggestions
+`scst1133/`
 
-The dashboard is intentionally not linked from the main course website. GitHub Pages remains public, so the dashboard displays aggregated statistics only. The Apps Script Web App URL is stored in `assets/config.js`.
+The main page is `index.html`. The expected address is:
 
-## Required Apps Script update
+`https://drshahizan.github.io/scst1133/`
 
-1. Open the Google Sheet used by the SCST1133 Entry Survey.
-2. Select **Extensions → Apps Script**.
-3. Replace the existing `Code.gs` with the latest file from `apps-script/Code.gs`.
-4. Select **Deploy → Manage deployments**.
-5. Edit the current Web App deployment.
-6. Select **New version** and deploy it.
-7. Keep **Execute as: Me** and the existing access setting used by the survey website.
-8. Reload the dashboard after deployment.
+The Entry Survey is available at:
 
-The new `survey-dashboard` API action returns counts and grouped distributions only. It does not return student names, matric numbers, contact details or individual answers.
+`https://drshahizan.github.io/scst1133/entry-survey/`
+
+## Google Apps Script for Entry Survey
+
+The survey uses the Web App URL already configured in:
+
+`entry-survey/assets/config.js`
+
+The backend code is provided in:
+
+`apps-script/Code.gs`
+
+Copy this file into the Google Apps Script project, then update the existing Web App deployment using **New version**, **Execute as Me**, and **Who has access: Anyone**.
+
+If the `/exec` URL changes, update `entry-survey/assets/config.js`.

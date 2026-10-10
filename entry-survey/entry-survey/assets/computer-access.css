@@ -1,0 +1,21 @@
+.computer-access-note {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: .3rem;
+  margin: -.1rem 0 .25rem;
+  padding: .85rem 1rem;
+  border: 1px solid #e9cf83;
+  border-left: 4px solid #c28b00;
+  border-radius: .7rem;
+  background: #fff9e8;
+  color: #59430b;
+}
+
+.computer-access-note b {
+  color: #402f06;
+}
+
+.computer-access-note span {
+  font-size: .9rem;
+  line-height: 1.45;
+}
