@@ -16,11 +16,6 @@ function social(value,type){
   return `<a class="social-link" href="${safe(href)}" target="_blank" rel="noopener" aria-label="Open ${type}">${label}</a>`;
 }
 
-function surveyStatus(value){
-  const done=String(value||'').toLowerCase()==='done';
-  return `<span class="survey-status ${done?'survey-done':'survey-pending'}">${done?'Done':'Pending'}</span>`;
-}
-
 function updateCounts(){
   const sections=['01','02','03','04'];
   sections.forEach(section=>document.getElementById(`section${section}Count`).textContent=directory[section].length);
@@ -35,7 +30,7 @@ function render(){
   currentPage=Math.min(currentPage,totalPages);
   const start=(currentPage-1)*pageSize;
   const visible=list.slice(start,start+pageSize);
-  rows.innerHTML=visible.map((item,index)=>`<tr><td>${start+index+1}</td><td><div class="student-name"><span class="avatar">${safe(initials(item.name))}</span><div><b>${safe(item.name)}</b></div></div></td><td>${social(item.github,'github')}</td><td>${social(item.linkedin,'linkedin')}</td><td>${social(item.portfolio,'portfolio')}</td><td>${surveyStatus(item.survey)}</td></tr>`).join('');
+  rows.innerHTML=visible.map((item,index)=>`<tr><td>${start+index+1}</td><td><div class="student-name"><span class="avatar">${safe(initials(item.name))}</span><div><b>${safe(item.name)}</b></div></div></td><td>${social(item.github,'github')}</td><td>${social(item.linkedin,'linkedin')}</td><td>${social(item.portfolio,'portfolio')}</td></tr>`).join('');
   document.getElementById('sectionHeading').textContent=`Section ${activeSection}`;
   document.getElementById('resultCount').textContent=`${list.length} ${list.length===1?'student':'students'}`;
   empty.hidden=list.length!==0;
@@ -59,7 +54,10 @@ async function loadDirectory(){
     const response=await fetch(url,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action:'student-directory'})});
     const result=await response.json();
     if(!response.ok||result.ok===false)throw new Error(result.message||result.error||'Unable to retrieve the student list.');
-    ['01','02','03','04'].forEach(section=>directory[section]=Array.isArray(result.students?.[section])?result.students[section]:[]);
+    ['01','02','03','04'].forEach(section=>{
+      const students=Array.isArray(result.students?.[section])?result.students[section]:[];
+      directory[section]=students.filter(student=>String(student.survey||'').trim().toLowerCase()==='done');
+    });
     loaded=true;updateCounts();render();
   }catch(error){showLoadError(error.message||'Unable to connect to Google Sheets.');}
 }

@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="assets/students.css">
   <link rel="stylesheet" href="assets/profile.css">
-  <link rel="stylesheet" href="assets/status.css">
   <link rel="stylesheet" href="assets/sections.css">
   <link rel="stylesheet" href="assets/pagination.css">
 </head>
@@ -19,7 +18,7 @@
 <section class="student-hero"><div class="student-hero-inner"><div><p class="eyebrow">Session 2026/2027 · Semester 1</p><h1>Student Information</h1><p>Meet the SCST1133 Data Engineering Ecosystem community and connect through GitHub, LinkedIn and student portfolios.</p></div><div class="community-stats"><div><b id="totalStudents">—</b><span>Students</span></div><div><b>4</b><span>Sections</span></div><div><b>SCSTH</b><span>Programme</span></div></div></div></section>
 
 <main id="main" class="students-main">
-  <section class="directory-intro"><div><p class="eyebrow">Student directory</p><h2>Sections 01–04</h2><p>Select a section or search by name. Social and portfolio links will appear as students update their profiles.</p></div><div class="profile-action"><p><b>Student actions</b><span>Update your links or review survey completion.</span></p><a href="update.html">Update Profile</a><a href="survey-status.html">Survey Status</a></div></section>
+  <section class="directory-intro"><div><p class="eyebrow">Student directory</p><h2>Sections 01–04</h2><p>Only students who have completed the entry survey are shown. Select a section or search by name.</p></div><div class="profile-action"><p><b>Student actions</b><span>Update your social and portfolio links.</span></p><a href="update.html">Update Profile</a><a href="survey-status.html">Survey Status</a></div></section>
 
   <section class="directory-controls" aria-label="Student directory controls">
     <div class="section-tabs" role="tablist" aria-label="Select section"><button class="active" type="button" data-section="01" role="tab" aria-selected="true">Section 01 <span id="section01Count">—</span></button><button type="button" data-section="02" role="tab" aria-selected="false">Section 02 <span id="section02Count">—</span></button><button type="button" data-section="03" role="tab" aria-selected="false">Section 03 <span id="section03Count">—</span></button><button type="button" data-section="04" role="tab" aria-selected="false">Section 04 <span id="section04Count">—</span></button></div>
@@ -28,7 +27,7 @@
 
   <section class="directory-panel" aria-live="polite">
     <div class="directory-heading"><div><p class="directory-label">Current view</p><h2 id="sectionHeading">Section 01</h2></div><span id="resultCount" class="result-count">Loading…</span></div>
-    <div class="table-wrap"><table class="student-table"><thead><tr><th>No.</th><th>Student</th><th>GitHub</th><th>LinkedIn</th><th>Portfolio</th><th>Survey</th></tr></thead><tbody id="studentRows"></tbody></table></div>
+    <div class="table-wrap"><table class="student-table"><thead><tr><th>No.</th><th>Student</th><th>GitHub</th><th>LinkedIn</th><th>Portfolio</th></tr></thead><tbody id="studentRows"></tbody></table></div>
     <div id="emptyState" class="empty-state" hidden><b>No student found</b><p>Try another student name.</p></div>
     <nav id="studentPagination" class="student-pagination" aria-label="Student directory pages" hidden></nav>
   </section>
