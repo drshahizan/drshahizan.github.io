@@ -1,0 +1,1 @@
+.survey-status{display:inline-flex;align-items:center;justify-content:center;min-width:68px;padding:5px 9px;border-radius:99px;font-size:.72rem;font-weight:850}.survey-done{background:#e5f6ec;color:#17643c}.survey-done:before{content:'✓';margin-right:5px}.survey-pending{background:#fff3d6;color:#825d00}.survey-pending:before{content:'•';margin-right:5px}
