@@ -1,3 +1,129 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc"><title id="title">Week 2 Digital Tools Workflow</title><desc id="desc">Build, design, generate and communicate one connected project. Every tool contributes evidence to the same learning portfolio.</desc><defs><marker id="arrow" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0 0L14 7L0 14Z" fill="#d8ad36"/></marker><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#243142" flood-opacity=".12"/></filter><style>.title{font:800 48px Arial,sans-serif;fill:#4e0d22}.sub{font:23px Arial,sans-serif;fill:#5f6b7a}.boxTitle{font:700 25px Arial,sans-serif;fill:#4e0d22}.body{font:20px Arial,sans-serif;fill:#253244}.small{font:18px Arial,sans-serif;fill:#5f6b7a}.label{font:700 21px Arial,sans-serif;fill:#fff}.num{font:700 22px Arial,sans-serif;fill:#fff}.foot{font:700 23px Arial,sans-serif;fill:#245c78}</style></defs><rect width="1600" height="900" fill="#fbf7f8"/><text x="800" y="68" class="title" text-anchor="middle">Week 2 Digital Tools Workflow</text><text x="800" y="112" class="sub" text-anchor="middle">Build, design, generate and communicate one connected project</text><g><rect x="70" y="260" width="330" height="330" rx="24" fill="#fff" stroke="#245c78" stroke-width="3"/><rect x="70" y="260" width="330" height="14" rx="7" fill="#245c78"/><text x="235" y="322" class="boxTitle" text-anchor="middle"><tspan x="235" dy="0">GitHub</tspan></text><text x="235" y="376" class="body" text-anchor="middle"><tspan x="235" dy="0">Manage · Document
-Publish</tspan></text></g><g><rect x="515" y="205" width="570" height="440" rx="24" fill="#fff" stroke="#7b1734" stroke-width="3"/><rect x="515" y="205" width="570" height="14" rx="7" fill="#7b1734"/><text x="800" y="267" class="boxTitle" text-anchor="middle"><tspan x="800" dy="0">Design &amp; Generate</tspan></text><text x="800" y="321" class="body" text-anchor="middle"><tspan x="800" dy="0">Figma structures the prototype.</tspan><tspan x="800" dy="27">Google Stitch explores an</tspan><tspan x="800" dy="27">AI-assisted alternative.</tspan></text></g><g><rect x="1200" y="260" width="330" height="330" rx="24" fill="#fff" stroke="#287c62" stroke-width="3"/><rect x="1200" y="260" width="330" height="14" rx="7" fill="#287c62"/><text x="1365" y="322" class="boxTitle" text-anchor="middle"><tspan x="1365" dy="0">Google Vids</tspan></text><text x="1365" y="376" class="body" text-anchor="middle"><tspan x="1365" dy="0">Explain · Reflect
-Share</tspan></text></g><path d="M405 425 L500 425" stroke="#d8ad36" stroke-width="10" fill="none" marker-end="url(#arrow)"/><path d="M1090 425 L1185 425" stroke="#d8ad36" stroke-width="10" fill="none" marker-end="url(#arrow)"/><rect x="645" y="350" width="140" height="90" rx="18" fill="#fff"/><rect x="820" y="350" width="140" height="90" rx="18" fill="#fff"/><text x="715" y="404" class="boxTitle" text-anchor="middle"><tspan x="715" dy="0">Figma</tspan></text><text x="890" y="404" class="boxTitle" text-anchor="middle"><tspan x="890" dy="0">Stitch</tspan></text><rect x="120" y="818" width="1360" height="55" rx="18" fill="#fff7e4" stroke="#d8ad36" stroke-width="2"/><circle cx="157" cy="845" r="16" fill="#d8ad36"/><path d="M149 845l6 6 11-14" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/><text x="190" y="853" class="foot" text-anchor="start"><tspan x="190" dy="0">Every tool contributes evidence to the same learning portfolio.</tspan></text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="desc">
+  <desc id="desc">A connected workflow from GitHub to Figma and Google Stitch, then to Google Vids. Every tool contributes evidence to the same learning portfolio.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbf7f8"/>
+      <stop offset=".52" stop-color="#fff"/>
+      <stop offset="1" stop-color="#f1faf7"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e6384"/><stop offset="1" stop-color="#123f62"/>
+    </linearGradient>
+    <linearGradient id="wine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9f1746"/><stop offset="1" stop-color="#5b102b"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#13906e"/><stop offset="1" stop-color="#17664f"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f7c84b"/><stop offset="1" stop-color="#d79a16"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="13" stdDeviation="15" flood-color="#263747" flood-opacity=".15"/>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#263747" flood-opacity=".12"/>
+    </filter>
+    <style>
+      .step{font:700 17px Arial,sans-serif;letter-spacing:2px;fill:#fff}
+      .heading{font:800 34px Arial,sans-serif;fill:#172638}
+      .body{font:21px Arial,sans-serif;fill:#425166}
+      .tool{font:800 27px Arial,sans-serif}
+      .caption{font:18px Arial,sans-serif;fill:#425166}
+      .footer{font:700 25px Arial,sans-serif;fill:#184f6c}
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="94" cy="78" r="154" fill="#8c173c" opacity=".045"/>
+  <circle cx="1530" cy="70" r="180" fill="#dba426" opacity=".07"/>
+  <circle cx="1532" cy="766" r="150" fill="#178065" opacity=".05"/>
+  <g fill="#7b1734" opacity=".14">
+    <circle cx="58" cy="92" r="6"/><circle cx="84" cy="92" r="6"/><circle cx="110" cy="92" r="6"/><circle cx="58" cy="118" r="6"/><circle cx="84" cy="118" r="6"/><circle cx="110" cy="118" r="6"/>
+  </g>
+  <g fill="#d79a16" opacity=".26">
+    <circle cx="1500" cy="98" r="6"/><circle cx="1526" cy="98" r="6"/><circle cx="1552" cy="98" r="6"/><circle cx="1500" cy="124" r="6"/><circle cx="1526" cy="124" r="6"/><circle cx="1552" cy="124" r="6"/>
+  </g>
+
+  <!-- GitHub -->
+  <g>
+    <rect x="70" y="160" width="360" height="500" rx="32" fill="#fff" stroke="#b9d9e8" stroke-width="3"/>
+    <path d="M70 192a32 32 0 0 1 32-32h296a32 32 0 0 1 32 32v82H70z" fill="url(#blue)"/>
+    <rect x="98" y="188" width="112" height="35" rx="17.5" fill="#fff" opacity=".18"/>
+    <text x="154" y="212" class="step" text-anchor="middle">STEP 01</text>
+    <circle cx="250" cy="287" r="58" fill="#fff" stroke="#1e6384" stroke-width="5"/>
+    <path d="M220 286h58M221 286l24-25m-24 25l24 25m33-25l-24-25m24 25l-24 25" fill="none" stroke="#1e6384" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="220" cy="286" r="9" fill="#1e6384"/><circle cx="249" cy="256" r="9" fill="#1e6384"/><circle cx="249" cy="316" r="9" fill="#1e6384"/><circle cx="279" cy="286" r="9" fill="#1e6384"/>
+    <text x="250" y="390" class="heading" text-anchor="middle">GitHub</text>
+    <text x="250" y="432" class="body" text-anchor="middle">Manage · Document · Publish</text>
+    <rect x="105" y="477" width="290" height="132" rx="22" fill="#edf7fb"/>
+    <rect x="133" y="509" width="86" height="69" rx="10" fill="#fff" stroke="#9cc9dd" stroke-width="2"/>
+    <path d="M149 528h52M149 544h40M149 560h46" stroke="#337899" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+    <rect x="240" y="502" width="126" height="84" rx="13" fill="#1e6384" opacity=".12"/>
+    <path d="M275 526l-17 18 17 18m55-36l17 18-17 18m-18-49l-18 62" fill="none" stroke="#1e6384" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Design and Generate -->
+  <g>
+    <rect x="510" y="105" width="580" height="610" rx="36" fill="#fff" stroke="#e8b8c7" stroke-width="3"/>
+    <path d="M510 141a36 36 0 0 1 36-36h508a36 36 0 0 1 36 36v100H510z" fill="url(#wine)"/>
+    <rect x="541" y="138" width="112" height="35" rx="17.5" fill="#fff" opacity=".18"/>
+    <text x="597" y="162" class="step" text-anchor="middle">STEP 02</text>
+    <circle cx="800" cy="246" r="57" fill="#fff" stroke="#8b183d" stroke-width="5"/>
+    <path d="M779 244c0-14 9-25 21-25s21 11 21 25c0 10-5 15-11 21-4 4-5 8-5 13h-10c0-5-1-9-5-13-6-6-11-11-11-21z" fill="#8b183d"/>
+    <path d="M791 286h18M793 296h14" stroke="#8b183d" stroke-width="5" stroke-linecap="round"/>
+    <text x="800" y="341" class="heading" text-anchor="middle">Design &amp; Generate</text>
+    <text x="800" y="380" class="body" text-anchor="middle">Shape the prototype and explore UI alternatives</text>
+
+    <rect x="548" y="418" width="240" height="230" rx="25" fill="#fff2f6" stroke="#f0c8d4" stroke-width="2"/>
+    <rect x="573" y="448" width="190" height="105" rx="14" fill="#fff" stroke="#e4a6b9" stroke-width="2"/>
+    <rect x="573" y="448" width="190" height="24" rx="12" fill="#a21d4c"/>
+    <circle cx="588" cy="460" r="4" fill="#fff"/><circle cx="601" cy="460" r="4" fill="#fff" opacity=".75"/><circle cx="614" cy="460" r="4" fill="#fff" opacity=".55"/>
+    <rect x="593" y="490" width="46" height="45" rx="8" fill="#f4b4c8"/><path d="M650 525l25-28 18 19 13-12 30 33h-86z" fill="#cf4c78" opacity=".75"/>
+    <text x="668" y="598" class="tool" fill="#8b183d" text-anchor="middle">Figma</text>
+    <text x="668" y="625" class="caption" text-anchor="middle">Structure the prototype</text>
+
+    <rect x="812" y="418" width="240" height="230" rx="25" fill="#f4f1ff" stroke="#d9cdf5" stroke-width="2"/>
+    <rect x="837" y="448" width="190" height="105" rx="14" fill="#fff" stroke="#cbbcec" stroke-width="2"/>
+    <rect x="837" y="448" width="190" height="24" rx="12" fill="#6750bd"/>
+    <circle cx="852" cy="460" r="4" fill="#fff"/><circle cx="865" cy="460" r="4" fill="#fff" opacity=".75"/><circle cx="878" cy="460" r="4" fill="#fff" opacity=".55"/>
+    <rect x="857" y="489" width="63" height="47" rx="8" fill="#b8a9ec"/><rect x="932" y="489" width="75" height="11" rx="5" fill="#9c89df"/><rect x="932" y="508" width="58" height="9" rx="4" fill="#d0c7f1"/><rect x="932" y="525" width="67" height="9" rx="4" fill="#d0c7f1"/>
+    <path d="M1002 432l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" fill="#8a72dc"/>
+    <text x="932" y="598" class="tool" fill="#5841aa" text-anchor="middle">Google Stitch</text>
+    <text x="932" y="625" class="caption" text-anchor="middle">Explore UI alternatives</text>
+  </g>
+
+  <!-- Google Vids -->
+  <g>
+    <rect x="1170" y="160" width="360" height="500" rx="32" fill="#fff" stroke="#acdccc" stroke-width="3"/>
+    <path d="M1170 192a32 32 0 0 1 32-32h296a32 32 0 0 1 32 32v82h-360z" fill="url(#green)"/>
+    <rect x="1198" y="188" width="112" height="35" rx="17.5" fill="#fff" opacity=".18"/>
+    <text x="1254" y="212" class="step" text-anchor="middle">STEP 03</text>
+    <circle cx="1350" cy="287" r="58" fill="#fff" stroke="#178065" stroke-width="5"/>
+    <path d="M1335 258l42 29-42 29z" fill="#178065"/>
+    <text x="1350" y="390" class="heading" text-anchor="middle">Google Vids</text>
+    <text x="1350" y="432" class="body" text-anchor="middle">Explain · Reflect · Share</text>
+    <rect x="1205" y="477" width="290" height="132" rx="22" fill="#ecf9f5"/>
+    <rect x="1235" y="500" width="205" height="86" rx="13" fill="#fff" stroke="#8ecfbb" stroke-width="2"/>
+    <rect x="1235" y="500" width="205" height="23" rx="11" fill="#178065"/>
+    <path d="M1311 536l35 23-35 23z" fill="#178065"/>
+    <rect x="1404" y="536" width="62" height="49" rx="10" fill="#fff" stroke="#8ecfbb" stroke-width="2"/>
+    <path d="M1418 552h34M1418 563h27M1418 574h31" stroke="#48a98c" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- Connectors -->
+  <g>
+    <path d="M438 410h50" stroke="url(#gold)" stroke-width="15" stroke-linecap="round"/>
+    <path d="M476 378l38 32-38 32z" fill="#e3a520"/>
+    <path d="M1112 410h36" stroke="url(#gold)" stroke-width="15" stroke-linecap="round"/>
+    <path d="M1138 378l38 32-38 32z" fill="#e3a520"/>
+  </g>
+
+  <!-- Footer statement -->
+  <g>
+    <rect x="120" y="772" width="1360" height="78" rx="25" fill="#fff8e8" stroke="#dfa51c" stroke-width="2.5"/>
+    <circle cx="176" cy="811" r="25" fill="url(#gold)"/>
+    <path d="M164 811l8 8 17-20" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="220" y="820" class="footer">Every tool contributes evidence to the same learning portfolio.</text>
+  </g>
+</svg>
