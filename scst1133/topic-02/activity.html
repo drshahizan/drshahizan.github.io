@@ -1,3 +1,310 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Integrated Activity | Topic 2</title><link rel="stylesheet" href="assets/module.css"></head><body><header class="site-header"><div class="header-inner"><a class="brand" href="../index.html"><span class="brand-mark">FC</span><span class="brand-text"><b>SCST1133</b><span>Data Engineering Ecosystem</span></span></a><button class="menu">Menu</button><nav class="top-nav"><a href="../index.html">Home</a><a href="../topics/index.html">Topics</a><a class="active" href="index.html">Topic 2</a><a href="../tools/index.html">Tools</a><a href="../students/index.html">Students</a><a href="../entry-survey/index.html">Entry Survey</a></nav></div><div class="progress-track"><span></span></div></header><section class="module-hero"><div class="hero-inner"><div><p class="eyebrow">Step 14 · Apply</p><h1>Digital Tools Mini Challenge</h1><p>Combine all four platforms into one documented learning portfolio.</p></div><div class="topic-chip"><b>14</b><span>Activity</span></div></div></section><main class="module-shell"><aside class="module-nav"></aside><article class="lesson"><header class="lesson-head"><span class="pill">Hands-on activity</span><h2>Data Pipeline Monitoring Dashboard</h2><p>Your team has been asked to propose a simple dashboard for monitoring data collected from several university systems.</p></header><figure class="lesson-visual"><img src="assets/images/integrated-topic-02-project.svg" alt="Six connected outputs in the integrated Topic 2 project" loading="lazy"><figcaption>Connect every artefact through one repository and a coherent project story.</figcaption></figure>
-<section class="card"><h3>Your mission</h3><p>Produce a coherent digital solution that demonstrates design thinking, technical documentation, web publishing and technical communication.</p></section><section class="steps"><h3>Complete the challenge</h3><div class="step"><h4>Set up GitHub</h4><p>Create the repository, complete README, prepare your project folders and record your GitHub Student Developer Pack application status.</p></div><div class="step"><h4>Study, plan and analyse</h4><p>Evaluate professional profile examples, create your developer roadmap and complete the two-organisation GitHub case study.</p></div><div class="step"><h4>Generate an initial concept</h4><p>Use Google Stitch with the supplied framework. Save your final prompt and screenshot.</p></div><div class="step"><h4>Design the interface</h4><p>Refine the dashboard in Figma using frames, components, Auto Layout and a prototype interaction.</p></div><div class="step"><h4>Build and publish</h4><p>Create a simple website, manage it through GitHub Desktop and publish it using GitHub Pages.</p></div><div class="step"><h4>Present the journey</h4><p>Create a 60–90 second Google Vids presentation showing the process and result.</p></div><div class="step"><h4>Document everything</h4><p>Add every link, screenshot and reflection to README.</p></div></section>
-<section class="card"><h3>Required evidence</h3><table><thead><tr><th>Tool</th><th>Evidence</th></tr></thead><tbody><tr><td>GitHub</td><td>Profile, repository, commit history and README</td></tr><tr><td>GitHub Education</td><td>Application status only: Not started, Submitted, Pending or Approved</td></tr><tr><td>Profile showcase</td><td>Improved profile and short reflection</td></tr><tr><td>Developer roadmap</td><td><code>topic-02/developer-roadmap.md</code></td></tr><tr><td>GitHub case study</td><td><code>topic-02/github-case-study.md</code></td></tr><tr><td>GitHub Pages</td><td>Published website URL</td></tr><tr><td>Figma</td><td>View-only prototype URL</td></tr><tr><td>Google Stitch</td><td>Final prompt, screenshot and comparison</td></tr><tr><td>Google Vids</td><td>Tested video URL</td></tr></tbody></table></section><div class="callout warning"><div>!</div><p><strong>Do not submit private documents.</strong> Student cards, transcripts, authentication codes and GitHub recovery codes are not coursework evidence.</p></div><div class="callout tip"><div>✓</div><p><strong>Quality matters more than decoration.</strong> Focus on clear structure, readable content, consistent design and working links.</p></div><nav class="lesson-nav"><a href="further-learning.html">← Further Learning</a><a class="next" href="submission.html">Submission Checklist →</a></nav></article></main><footer><div class="footer-inner"><div><b>SCST1133 · Data Engineering Ecosystem</b><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><p>© 2026 Dr MSO · Universiti Teknologi Malaysia.<a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Site visitors"></a></p></div></footer><script src="assets/module.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Integrated Activity | Topic 2</title>
+<link rel="stylesheet" href="assets/module.css">
+</head>
+<body>
+<header class="site-header">
+<div class="header-inner">
+<a class="brand" href="../index.html">
+<span class="brand-mark">FC</span>
+<span class="brand-text">
+<b>SCST1133</b>
+<span>Data Engineering Ecosystem</span>
+</span>
+</a>
+<button class="menu">Menu</button>
+<nav class="top-nav">
+<a href="../index.html">Home</a>
+<a href="../topics/index.html">Topics</a>
+<a class="active" href="index.html">Topic 2</a>
+<a href="../tools/index.html">Tools</a>
+<a href="../students/index.html">Students</a>
+<a href="../entry-survey/index.html">Entry Survey</a>
+</nav>
+</div>
+<div class="progress-track">
+<span>
+</span>
+</div>
+</header>
+<section class="module-hero">
+<div class="hero-inner">
+<div>
+<p class="eyebrow">Step 14 · Apply</p>
+<h1>Digital Tools Mini Challenge</h1>
+<p>Combine all four platforms into one documented learning portfolio.</p>
+</div>
+<div class="topic-chip">
+<b>14</b>
+<span>Activity</span>
+</div>
+</div>
+</section>
+<main class="module-shell">
+<aside class="module-nav">
+</aside>
+<article class="lesson">
+<header class="lesson-head">
+<span class="pill">Hands-on activity</span>
+<h2>Data Pipeline Monitoring Dashboard</h2>
+<p>Your team has been asked to propose a simple dashboard for monitoring data collected from several university systems.</p>
+</header>
+<figure class="lesson-visual">
+<img src="assets/images/integrated-topic-02-project.webp" alt="Five connected outputs in the integrated Topic 2 project" loading="lazy">
+<figcaption>Connect every artefact through one repository and a coherent project story.</figcaption>
+</figure>
+<section class="card">
+<h3>Your mission</h3>
+<p>Produce a coherent digital solution that demonstrates design thinking, technical documentation, web publishing and technical communication.</p>
+</section>
+<section class="steps">
+<h3>Complete the challenge</h3>
+<div class="step">
+<h4>Set up GitHub</h4>
+<p>Create the repository, complete README, prepare your project folders and record your GitHub Student Developer Pack application status.</p>
+</div>
+<div class="step">
+<h4>Study, plan and analyse</h4>
+<p>Evaluate professional profile examples, create your developer roadmap and complete the two-organisation GitHub case study.</p>
+</div>
+<div class="step">
+<h4>Generate an initial concept</h4>
+<p>Use Google Stitch with the supplied framework. Save your final prompt and screenshot.</p>
+</div>
+<div class="step">
+<h4>Design the interface</h4>
+<p>Refine the dashboard in Figma using frames, components, Auto Layout and a prototype interaction.</p>
+</div>
+<div class="step">
+<h4>Build and publish</h4>
+<p>Create a simple website, manage it through GitHub Desktop and publish it using GitHub Pages.</p>
+</div>
+<div class="step">
+<h4>Present the journey</h4>
+<p>Create a 60–90 second Google Vids presentation showing the process and result.</p>
+</div>
+<div class="step">
+<h4>Document everything</h4>
+<p>Add every link, screenshot and reflection to README.</p>
+</div>
+</section>
+<section class="card">
+<h3>GitHub foundation pathway</h3>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Practice</th>
+<th>Completion evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td>Create and verify an account</td>
+<td>Professional username and secured account</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>Follow the lecturer or course profile</td>
+<td>Profile appears in the following list</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>Complete your profile</td>
+<td>Name, bio, institution and relevant links</td>
+</tr>
+<tr>
+<td>B1</td>
+<td>Create the course repository</td>
+<td>Public repository with a clear description</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>Write the project README</td>
+<td>Purpose, setup, usage, evidence and reflection</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>Practise Markdown</td>
+<td>Headings, lists, links, images, code, table and checklist</td>
+</tr>
+<tr>
+<td>B4</td>
+<td>Upload project files</td>
+<td>Logical folders and meaningful commit messages</td>
+</tr>
+<tr>
+<td>B5</td>
+<td>Add images to README</td>
+<td>Working relative paths and useful alternative text</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>Install and sign in to GitHub Desktop</td>
+<td>Authenticated desktop application</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>Clone the repository</td>
+<td>Working local copy in a known folder</td>
+</tr>
+<tr>
+<td>C3</td>
+<td>Edit, commit and push</td>
+<td>Local change visible online in commit history</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="card">
+<h3>Plan collaborative work visibly</h3>
+<p>GitHub Projects can organise Issues and pull requests around outcomes, owners and progress. Begin with a small number of meaningful fields and statuses so the board supports decisions rather than becoming additional administration.</p>
+</section>
+<figure class="lesson-visual"><img src="assets/images/github-projects.webp" alt="Conceptual overview of GitHub Projects for planning collaborative work" loading="lazy"><figcaption>Connect planned work to the Issues and pull requests that provide evidence of completion.</figcaption></figure>
+<section class="card">
+<h3>Use a project board consistently</h3>
+<p>A simple To Do, In Progress, Review and Done workflow is sufficient for the mini project. Every card should have a clear owner and acceptance condition, and its status should be updated as work progresses.</p>
+</section>
+<figure class="lesson-visual"><img src="assets/images/github-projects-board.webp" alt="GitHub Projects board with work moving through defined stages" loading="lazy"><figcaption>A board is useful only when its status reflects the actual state of the work.</figcaption></figure>
+<section class="card">
+<h3>Coordinate the collaboration cycle</h3>
+<p>Effective collaboration connects discussion, ownership, branches, commits, review and merging. Team members should know where decisions are recorded and who is responsible for the next action.</p>
+</section>
+<figure class="lesson-visual"><img src="assets/images/github-collaboration-workflow.webp" alt="GitHub collaboration workflow connecting team tasks and code review" loading="lazy"><figcaption>Shared visibility reduces duplicated work and makes individual contributions easier to evaluate.</figcaption></figure>
+<figure class="lesson-visual"><img src="assets/images/github-project-collaboration-flow.webp" alt="End-to-end GitHub project collaboration flow" loading="lazy"><figcaption>Move from an agreed task to a reviewed and documented result through a traceable workflow.</figcaption></figure>
+<section class="card">
+<h3>Introduce automation carefully</h3>
+<p>GitHub Actions runs a defined workflow when events such as a push or pull request occur. Begin with a simple automated check, understand its trigger and result, and never expose credentials directly in a workflow file.</p>
+</section>
+<figure class="lesson-visual"><img src="assets/images/github-actions-conceptual-workflow.webp" alt="Conceptual GitHub Actions workflow from trigger to automated result" loading="lazy"><figcaption>Automation should provide repeatable feedback without replacing human review and responsibility.</figcaption></figure>
+<section class="steps">
+<h3>Team GitHub mini project · four members · about one hour</h3>
+<div class="step">
+<h4>1 · Repository and access</h4>
+<p>One member creates the repository, adds a README and invites the other three members as collaborators. Agree on a short project goal and contribution rules.</p>
+</div>
+<div class="step">
+<h4>2 · Issues and ownership</h4>
+<p>Create at least four Issues. Give each a clear title, description, acceptance condition and assignee.</p>
+</div>
+<div class="step">
+<h4>3 · Project board</h4>
+<p>Create columns named <b>To Do</b>, <b>In Progress</b>, <b>Review</b> and <b>Done</b>. Add every Issue and move it as work progresses.</p>
+</div>
+<div class="step">
+<h4>4 · Individual contribution</h4>
+<p>Create an <code>ahli/</code> folder. Each member adds one Markdown file containing a brief profile, assigned role, completed task and reflection.</p>
+</div>
+<div class="step">
+<h4>5 · Branch and pull request</h4>
+<p>Complete at least one task on a separate branch. Open a pull request that explains the change and links its Issue.</p>
+</div>
+<div class="step">
+<h4>6 · Peer review and merge</h4>
+<p>A different member checks the content, provides useful feedback and approves the pull request. Merge only after corrections are complete, then close the linked Issue.</p>
+</div>
+<div class="step">
+<h4>7 · Final README</h4>
+<p>Update the README with project purpose, team roles, folder guide, progress summary, screenshots or demo, and a short team reflection.</p>
+</div>
+</section>
+<section class="card">
+<h3>GitHub mini-project evidence</h3>
+<ul class="checklist">
+<li>Four collaborators and four assigned Issues.</li>
+<li>A Project board showing movement across all four stages.</li>
+<li>Four individual Markdown files in <code>ahli/</code>.</li>
+<li>At least one branch, reviewed pull request and merge.</li>
+<li>A complete README and meaningful commit history.</li>
+</ul>
+</section>
+<section class="card">
+<h3>Required evidence</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub</td>
+<td>Profile, repository, commit history and README</td>
+</tr>
+<tr>
+<td>GitHub Education</td>
+<td>Application status only: Not started, Submitted, Pending or Approved</td>
+</tr>
+<tr>
+<td>Profile showcase</td>
+<td>Improved profile and short reflection</td>
+</tr>
+<tr>
+<td>Developer roadmap</td>
+<td>
+<code>topic-02/developer-roadmap.md</code>
+</td>
+</tr>
+<tr>
+<td>GitHub case study</td>
+<td>
+<code>topic-02/github-case-study.md</code>
+</td>
+</tr>
+<tr>
+<td>GitHub Pages</td>
+<td>Published website URL</td>
+</tr>
+<tr>
+<td>Figma</td>
+<td>View-only prototype URL</td>
+</tr>
+<tr>
+<td>Google Stitch</td>
+<td>Final prompt, screenshot and comparison</td>
+</tr>
+<tr>
+<td>Google Vids</td>
+<td>Tested video URL</td>
+</tr>
+</tbody>
+</table>
+</section>
+<div class="callout warning">
+<div>!</div>
+<p>
+<strong>Do not submit private documents.</strong> Student cards, transcripts, authentication codes and GitHub recovery codes are not coursework evidence.</p>
+</div>
+<div class="callout tip">
+<div>✓</div>
+<p>
+<strong>Quality matters more than decoration.</strong> Focus on clear structure, readable content, consistent design and working links.</p>
+</div>
+<nav class="lesson-nav">
+<a href="further-learning.html">← Further Learning</a>
+<a class="next" href="submission.html">Submission Checklist →</a>
+</nav>
+</article>
+</main>
+<footer>
+<div class="footer-inner">
+<div>
+<b>SCST1133 · Data Engineering Ecosystem</b>
+<p>Faculty of Computing · Universiti Teknologi Malaysia</p>
+</div>
+<p>© 2026 Dr MSO · Universiti Teknologi Malaysia.<a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener">
+<img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Site visitors">
+</a>
+</p>
+</div>
+</footer>
+<script src="assets/module.js">
+</script>
+</body>
+</html>
