@@ -1,0 +1,1 @@
+SLR Foundations: nine new pages in slr-foundations/, two editable DOCX templates, JS quiz, CSS. Links added to index.html, stages/stage-1.html and stage-1/before-you-start.html. No Google Apps Script changes. Existing website assets retained.

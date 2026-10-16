@@ -1,1 +1,29 @@
-.resource-toolbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0}.resource-toolbar label{display:grid;gap:7px;font-size:13px;font-weight:700;color:#54333b}.resource-toolbar select,.resource-toolbar input{width:100%;padding:11px;border:1px solid #d9c8cd;border-radius:9px;background:white;font:inherit}.resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.resource-card{background:#fff;border:1px solid #ead9de;border-radius:13px;padding:19px;box-shadow:0 3px 12px #4e1c2908}.resource-card h3{font-size:19px;margin:12px 0 5px;color:#6d1830}.resource-card p{font-size:14px;line-height:1.6;margin:10px 0}.resource-card .resource-source{font-size:12px;color:#765d66}.resource-meta{display:flex;gap:6px;flex-wrap:wrap}.resource-meta span{font-size:11px;border-radius:20px;padding:5px 9px;background:#f4edf0;color:#6d1830}.resource-meta .resource-essential{background:#fff0d5;color:#6d4b10}.resource-card a{display:inline-block;margin-top:8px;color:#791b35;font-weight:700;text-decoration:underline;text-underline-offset:3px}.resource-actions{display:flex;gap:10px;flex-wrap:wrap}@media(max-width:720px){.resource-grid,.resource-toolbar{grid-template-columns:1fr}}
+/* Stage 1 Learning Resources — readable single-column cards */
+.resource-toolbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0}
+.resource-toolbar label{display:grid;gap:7px;font-size:13px;font-weight:700;color:#54333b;min-width:0}
+.resource-toolbar select,.resource-toolbar input{width:100%;min-width:0;padding:11px;border:1px solid #d9c8cd;border-radius:9px;background:#fff;font:inherit}
+.resource-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;width:100%;min-width:0}
+.resource-card{display:block;min-width:0;width:100%;background:#fff;border:1px solid #ead9de;border-radius:13px;padding:22px 25px;box-shadow:0 3px 12px #4e1c2908;overflow-wrap:break-word;word-break:normal;white-space:normal}
+.resource-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.resource-meta span{display:inline-block;flex:none;max-width:100%;font-size:12px;line-height:1.4;border-radius:999px;padding:5px 11px;background:#f4edf0;color:#6d1830;white-space:normal}
+.resource-meta .resource-essential{background:#fff0d5;color:#6d4b10}
+.resource-card h3{font-size:clamp(18px,2vw,22px);line-height:1.35;margin:0 0 5px;color:#6d1830;letter-spacing:normal;overflow-wrap:break-word}
+.resource-card .resource-source{font-size:13px;line-height:1.5;color:#765d66;margin:0 0 13px}
+.resource-card p{font-size:15px;line-height:1.65;margin:9px 0;color:#342b2f;overflow-wrap:break-word}
+.resource-card p strong{color:#6d1830;font-weight:700}
+.resource-card a{display:inline-flex;align-items:center;max-width:100%;margin-top:13px;color:#791b35;font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.resource-actions{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:760px){.resource-toolbar{grid-template-columns:1fr}.resource-card{padding:18px}.resource-card p{font-size:14px}}
+
+/* Override legacy global .resource-card p uppercase styling. */
+.resource-grid .resource-card p,
+.resource-grid .resource-card .resource-source {
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+.resource-grid .resource-card p strong {
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 700;
+}

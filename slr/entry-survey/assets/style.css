@@ -55,19 +55,3 @@ main{max-width:1100px;padding-top:22px}
 .visitor-badge img{display:block;max-height:24px;width:auto}
 .footer-links{justify-content:flex-start}
 .site-footer{margin-top:36px;width:100%;background:linear-gradient(110deg,#5b1024,#8b1635);color:#fff;text-align:left;padding:0}.site-footer .footer-inner{max-width:1240px;margin:auto;padding:34px 28px 26px;display:grid;grid-template-columns:1.5fr 1fr;gap:30px;align-items:center}.site-footer .footer-links{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px 16px}.site-footer .footer-links a{color:#f4e9ec;text-decoration:none;font-size:13px}.site-footer .footer-brand strong{color:#fff}.site-footer .footer-brand p{color:#cfc8cc}.site-footer .footer-brand .footer-gold{color:#e7b852!important;font-weight:700}.site-footer .footer-rule{height:1px;background:rgba(255,255,255,.12);max-width:1184px;margin:auto}.site-footer .footer-bottom{max-width:1240px;margin:auto;padding:15px 28px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px;color:#e4d5da;font-size:12px}.site-footer .visitor-badge img{display:block;max-height:24px;width:auto}@media(max-width:800px){.site-footer .footer-inner{grid-template-columns:1fr}.site-footer .footer-links{justify-content:flex-start}.site-footer .footer-bottom{flex-direction:column;align-items:flex-start}}
-/* Compact Entry Survey fields */
-.survey-question-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px;align-items:start}
-.survey-question-grid .question{margin:0;min-width:0;padding:14px;border:1px solid #e8e3e6;border-radius:12px;background:#fff}
-.survey-question-grid .question h3{font-size:0.94rem;line-height:1.45;margin:0 0 10px}
-.survey-question-grid select,.survey-question-grid .multi-picker{width:100%;box-sizing:border-box;min-height:43px;border:1px solid #d6cdd2;border-radius:9px;background:#fff;color:#25202a;font:inherit}
-.survey-question-grid select{padding:9px 12px}
-.multi-picker{position:relative}
-.multi-picker summary{cursor:pointer;padding:10px 13px;list-style:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:30px}
-.multi-picker summary::-webkit-details-marker{display:none}
-.multi-picker summary::after{content:'▾';position:absolute;right:12px;color:#781b38}
-.multi-picker[open] summary{border-bottom:1px solid #e9e2e6}
-.multi-options{max-height:230px;overflow:auto;padding:7px 10px}
-.multi-options .option{display:flex;align-items:flex-start;gap:8px;margin:0;padding:7px 5px;cursor:pointer;line-height:1.35}
-.multi-options .option input{flex:0 0 auto;margin-top:3px}
-.survey-question-grid .help{font-size:.8rem;margin:7px 0 0}
-@media(max-width:720px){.survey-question-grid{grid-template-columns:1fr}}
