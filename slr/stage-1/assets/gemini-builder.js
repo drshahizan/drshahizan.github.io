@@ -1,0 +1,16 @@
+(()=>{'use strict';const form=document.getElementById('geminiPromptForm');if(!form)return;const byId=id=>document.getElementById(id);const fields=['topic','discipline','context','problem','concepts','seeds','limits','goal'];const value=name=>{const el=form.elements.namedItem(name);return el?String(el.value||'').trim():''};const clean=()=>{form.reset();byId('generatedGeminiPrompt').value='';byId('generatedGeminiPrompt').style.height='';byId('generatedGeminiPrompt').hidden=true;byId('geminiPromptEmpty').hidden=false;byId('copyGeminiPrompt').disabled=true;};byId('generateGeminiPrompt').addEventListener('click',()=>{const topic=byId('gbTopic');if(!topic.value.trim()){topic.setCustomValidity('Please enter a broad topic or research interest.');topic.reportValidity();topic.addEventListener('input',()=>topic.setCustomValidity(''),{once:true});return}const lines=[];const add=(label,key)=>{const v=value(key);if(v)lines.push(label+': '+v)};add('Broad topic or interest area','topic');add('Field or discipline','discipline');add('Target context or population','context');add('Motivation or observed problem','problem');add('Technology, phenomenon or approach','concepts');add('Known seed papers supplied by me','seeds');add('Scope preferences or constraints','limits');const goal=value('goal');const prompt=`You are an academic scoping assistant helping me prepare Stage 1 of a Systematic Literature Review (SLR). Help me think through a reviewable topic. Do not write the review or claim that a research gap is confirmed.
+
+MY INFORMATION
+${lines.join('\n')}
+
+TASK
+${goal}. Use only the information I supplied as context. If important details are missing, state your assumptions and ask focused follow-up questions rather than inventing facts.
+
+For each candidate direction (up to three, unless I asked you to refine one topic):
+1. State the phenomenon/technology, problem or outcome, and context/population clearly.
+2. Explain the proposed scope and what would remain outside it.
+3. Suggest a concise working SLR title and one draft review question.
+4. List 2–4 search concept groups and useful synonyms, acronyms or spelling variants for later database searching.
+5. Explain why the direction appears manageable and what must still be checked in the literature.
+
+Finish with a short comparison table and identify the direction that best matches my stated interests and constraints. Label this as a provisional suggestion, not a verified research gap. Do not invent references, DOIs, studies, findings or database coverage. If I supplied seed papers, use only their details as written and tell me to verify them at their original records. Distinguish your suggestions from evidence. End with a checklist of items I should verify in Scopus, Web of Science or other databases relevant to my field.`;const out=byId('generatedGeminiPrompt');out.value=prompt;out.hidden=false;out.style.height='auto';out.style.height=Math.min(Math.max(out.scrollHeight,240),420)+'px';byId('geminiPromptEmpty').hidden=true;byId('copyGeminiPrompt').disabled=false;out.scrollTop=0;});byId('clearGeminiForm').addEventListener('click',clean);})();
