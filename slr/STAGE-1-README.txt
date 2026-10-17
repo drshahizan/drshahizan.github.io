@@ -12,3 +12,8 @@ New Stage 1 practice pages:
 - stage-1/search-readiness.html: locally saved search-quality checklist and print view.
 - stage-1/database-coverage.html: locally saved database/source coverage matrix with CSV export and print view.
 The learning-resources page now includes the PRESS checklist and university library video tutorials.
+
+Cross-stage tools directory:
+- tools.html contains the searchable SLR tool catalogue organised by purpose, stage and relevance.
+- tools/ contains local learning pages for each listed tool; Stage 1 tool guides are reused through local links.
+- Provider links are used only to access the tool. Tool directory and learning content are hosted in this SLR website.
