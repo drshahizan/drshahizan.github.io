@@ -1,0 +1,9 @@
+﻿Record ID,Full-text simulation note (release after abstract screening)
+P01,"The full text confirms an IoT context, machine-learning classifiers, evaluated feature-selection methods and extractable performance results. Include."
+P02,The full text confirms empirical evaluation of feature-extraction pipelines for IoT botnet detection and reports relevant outcomes. Include.
+P03,The full text confirms a smart-home IoT intrusion-detection study with an evaluated feature-ranking method and relevant results. Include.
+P08,The full text confirms an empirical IoT edge intrusion-detection study and reports feature-selection and model outcomes. Include.
+P11,The full text confirms an IoT DDoS study evaluating a learned feature representation with relevant experimental results. Include.
+P18,"Feature ranking is mentioned, but the paper reports only post-hoc model importance. It does not evaluate feature selection or extraction as required by the protocol. Exclude: wrong method/focus."
+P19,The full text confirms a wired industrial-control study with no IoT devices or IoT traffic. Exclude: wrong context.
+P20,The full text confirms a resource-constrained IoT device context and evaluates learned feature extraction with relevant attack-detection metrics. Include.
