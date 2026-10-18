@@ -340,3 +340,10 @@ main .course-outcomes{
   .view,.view.active{padding-bottom:46px !important}
   .content-panel{padding-top:22px !important;padding-bottom:22px !important}
 }
+
+
+/* Stage 2 visual guides */
+.stage2-visual{max-width:1040px;margin:12px auto 20px;padding:10px;border:1px solid #eadadd;border-radius:14px;background:#fff;box-shadow:0 8px 24px rgba(44,26,31,.06)}
+.stage2-visual img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;border-radius:8px;background:#fff}
+.stage2-visual figcaption{padding:9px 8px 2px;color:#5d5960;font-size:.9rem;line-height:1.5;text-align:center}
+@media(max-width:720px){.stage2-visual{margin:10px 0 16px;padding:6px;border-radius:10px}.stage2-visual figcaption{padding:8px 5px 2px;font-size:.82rem}}
