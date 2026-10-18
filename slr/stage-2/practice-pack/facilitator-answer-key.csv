@@ -1,24 +1,2 @@
-﻿Record ID,Deduplication key,Title/abstract decision,Primary reason at abstract stage,Full-text decision,Primary reason at full-text stage
-P01,Retain P01; P21 is duplicate,Include,"In scope: IoT intrusion detection, ML and feature selection",Include,—
-P02,Retain P02,Include,In scope: IoT botnet detection and evaluated feature extraction,Include,—
-P03,Retain P03,Include,In scope: smart-home IoT intrusion detection and feature ranking,Include,—
-P04,Retain P04; P23 is duplicate,Exclude,"Wrong context: cloud data-centre security, not IoT",—,—
-P05,Retain P05,Exclude,Wrong focus: no feature selection or extraction,—,—
-P06,Retain P06,Exclude,Wrong method: no machine learning,—,—
-P07,Retain P07,Exclude,"Wrong outcome: energy forecasting, not intrusion detection",—,—
-P08,Retain P08,Include,In scope: empirical edge IoT intrusion detection and feature selection,Include,—
-P09,Retain P09,Exclude,"Wrong publication type: review, not a primary empirical study",—,—
-P10,Retain P10,Exclude,Outside the specified publication period,—,—
-P11,Retain P11; P22 is duplicate,Include,In scope: IoT DDoS detection and evaluated feature representation,Include,—
-P12,Retain P12,Exclude,"Wrong context: wired industrial-control system, not IoT",—,—
-P13,Retain P13,Exclude,"Wrong context: Android malware, not IoT intrusion detection",—,—
-P14,Retain P14,Exclude,"Wrong publication type: editorial, no original empirical study",—,—
-P15,Retain P15,Exclude,No empirical evaluation of feature selection/extraction,—,—
-P16,Retain P16,Exclude,IoT-specific evidence is not separately extractable,—,—
-P17,Retain P17,Exclude,"Wrong outcome: user acceptance, not intrusion detection",—,—
-P18,Retain P18,Include,Abstract indicates a potentially eligible feature-ranking study,Exclude,Wrong method/focus: no evaluated feature-selection or extraction method
-P19,Retain P19,Uncertain,Abstract does not establish whether the context is IoT,Exclude,"Wrong context: wired industrial controllers, no IoT devices/traffic"
-P20,Retain P20,Uncertain,Abstract omits device context and feature-extraction details,Include,Full text confirms IoT context and evaluated feature extraction
-P21,Duplicate of P01,Duplicate,Duplicate record; exclude duplicate instance before screening,—,—
-P22,Duplicate of P11,Duplicate,Duplicate record; exclude duplicate instance before screening,—,—
-P23,Duplicate of P04,Duplicate,Duplicate record; exclude duplicate instance before screening,—,—
+Notice
+"Facilitator answer key is distributed separately and is not published on the participant website."
