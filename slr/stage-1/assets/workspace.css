@@ -9,3 +9,14 @@
 .stage1-visual img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;border-radius:9px;background:#fff}
 .stage1-visual figcaption{padding:8px 8px 2px;color:#566273;font-size:13px;font-weight:600;line-height:1.45}
 @media(max-width:700px){.stage1-visual{margin:12px 0 18px;padding:5px;border-radius:10px}.stage1-visual figcaption{font-size:12px;padding:7px 5px 1px}}
+
+
+/* Stage 1 mirrored workspace: output and image left, step navigation right. */
+.s1-top{max-width:1180px;margin:0 auto 23px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+.s1-layout{max-width:1180px;margin:0 auto;grid-template-columns:minmax(0,1fr) 260px;gap:22px}
+.s1-workarea{display:grid;min-width:0;gap:0}
+.s1-workarea .stage1-visual{width:100%;max-width:none;margin:0 0 16px;padding:8px}
+.s1-workarea .stage1-visual img{max-height:420px;object-fit:contain}
+.s1-sidebar{grid-column:2;grid-row:1}
+.s1-workarea{grid-column:1;grid-row:1}
+@media(max-width:750px){.s1-layout{grid-template-columns:1fr}.s1-sidebar{grid-column:1;grid-row:1;position:static}.s1-workarea{grid-column:1;grid-row:2}.s1-workarea .stage1-visual img{max-height:none}}
