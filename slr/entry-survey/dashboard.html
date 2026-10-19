@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Live aggregate dashboard for SLR Entry Survey responses.">
+  <title>Entry Survey Dashboard · SLR Workshop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@600;700&display=swap" rel="stylesheet">
+  <link href="assets/style.css" rel="stylesheet">
+  <link href="assets/footer-match.css" rel="stylesheet">
+  <link href="assets/dashboard.css" rel="stylesheet">
+</head>
+<body>
+  <header><a class="brand" href="../index.html"><span class="brandmark">SLR</span><span><strong>Systematic Literature Review</strong><small>From Literature Discovery to Publication</small></span></a><nav><a href="../index.html">Home</a><a href="index.html">Entry Survey</a><a class="active" href="dashboard.html">Survey Dashboard</a></nav></header>
+  <main class="dashboard-main">
+    <a class="back-link" href="index.html">← Back to Entry Survey</a>
+    <section class="dash-heading"><div><p class="eyebrow">COHORT 1 · FACILITATOR VIEW</p><h1>Entry Survey Dashboard</h1><p>Live summary of submitted participant responses to help plan workshop activities.</p></div><span class="privacy-badge"><span>●</span> Aggregate responses</span></section>
+    <section class="live-status" aria-live="polite"><span class="live-dot"></span><span id="liveStatus">Connecting to survey responses…</span><button class="refresh-button" id="refreshBtn" type="button">↻ Refresh</button></section>
+    <section class="empty-state" id="emptyState"><div class="empty-icon" aria-hidden="true">▤</div><h2 id="emptyTitle">Loading survey dashboard</h2><p id="emptyMessage">The dashboard is retrieving submitted responses. Individual participant records and identifiers are not sent to this page.</p></section>
+
+    <div class="dashboard-content hidden" id="dashboardContent">
+      <section class="filter-row"><div><p class="eyebrow">RESPONSE SUMMARY</p><h2>What participants bring to the workshop</h2></div><label class="filter-control">Participant group<select id="groupFilter"><option value="all">All participants</option><option value="students">Postgraduate students</option><option value="staff">Academic staff</option></select></label></section>
+      <section class="kpi-grid" id="kpiGrid" aria-label="Survey summary statistics"></section>
+      <section class="insight-grid">
+        <article class="dash-card"><div class="card-heading"><div><p class="eyebrow">BACKGROUND</p><h3>SLR and publication experience</h3></div><span class="card-icon">01</span></div><div class="chart" id="experienceSlrChart"></div><div class="chart-separator"></div><div class="chart" id="experiencePublicationChart"></div></article>
+        <article class="dash-card"><div class="card-heading"><div><p class="eyebrow">DISCOVERY WORKFLOW</p><h3>Databases and reference tools</h3></div><span class="card-icon">02</span></div><div class="chart" id="databaseChart"></div><div class="chart-separator"></div><div class="chart" id="referenceChart"></div></article>
+        <article class="dash-card"><div class="card-heading"><div><p class="eyebrow">AI PRACTICE</p><h3>AI use in research</h3></div><span class="card-icon">03</span></div><div class="chart" id="aiChart"></div><div class="chart-separator"></div><div class="chart" id="aiFrequencyChart"></div><div class="chart-separator"></div><div class="chart" id="aiActivityChart"></div></article>
+        <article class="dash-card"><div class="card-heading"><div><p class="eyebrow">LEARNING NEEDS</p><h3>Confidence and review practice</h3></div><span class="card-icon">04</span></div><div class="chart" id="confidenceChart"></div><div class="chart-separator"></div><div class="chart" id="criteriaChart"></div><div class="chart" id="qualityChart"></div></article>
+        <article class="dash-card"><div class="card-heading"><div><p class="eyebrow">EXPECTATIONS</p><h3>Workshop goals</h3></div><span class="card-icon">05</span></div><div class="chart" id="goalChart"></div></article>
+        <article class="dash-card"><div class="card-heading"><div><p class="eyebrow">PRIORITIES</p><h3>Most challenging SLR tasks</h3></div><span class="card-icon">06</span></div><div class="chart" id="challengeChart"></div></article>
+      </section>
+      <section class="profile-section"><div class="section-title"><div><p class="eyebrow">PARTICIPANT CONTEXT</p><h2>Different starting points by group</h2></div><p>These questions differ for postgraduate students and academic staff, so each group is shown separately.</p></div><div class="insight-grid">
+        <article class="dash-card" id="studentCard"><div class="card-heading"><div><p class="eyebrow">POSTGRADUATE STUDENTS</p><h3>Research readiness</h3></div><span class="card-icon">PG</span></div><div class="chart" id="studentStage"></div><div class="chart" id="studentPlan"></div><div class="chart" id="studentTopic"></div><div class="chart" id="studentSupervisor"></div><div class="chart" id="studentChallenge"></div></article>
+        <article class="dash-card" id="staffCard"><div class="card-heading"><div><p class="eyebrow">ACADEMIC STAFF</p><h3>Publication and application</h3></div><span class="card-icon">AS</span></div><div class="chart" id="staffPublication"></div><div class="chart" id="staffSlr"></div><div class="chart" id="staffSupervision"></div><div class="chart" id="staffApply"></div><div class="chart" id="staffChallenge"></div></article>
+      </div></section>
+      <section class="dash-card knowledge-card"><div class="card-heading"><div><p class="eyebrow">KNOWLEDGE CHECK · AGGREGATED</p><h3>Baseline knowledge responses</h3><p class="card-subtitle">Answer choices are summarised across submitted surveys; no individual response or score is shown.</p></div><span class="card-icon">07</span></div><div class="knowledge-grid"><article class="knowledge-item"><strong>Boolean search</strong><span id="q24Coverage">0 responses</span><div class="chart" id="q24Chart"></div></article><article class="knowledge-item"><strong>Eligibility criteria</strong><span id="q25Coverage">0 responses</span><div class="chart" id="q25Chart"></div></article><article class="knowledge-item"><strong>PRISMA flow</strong><span id="q26Coverage">0 responses</span><div class="chart" id="q26Chart"></div></article><article class="knowledge-item"><strong>Evidence synthesis</strong><span id="q27Coverage">0 responses</span><div class="chart" id="q27Chart"></div></article><article class="knowledge-item"><strong>Responsible AI</strong><span id="q28Coverage">0 responses</span><div class="chart" id="q28Chart"></div></article></div></section>
+      <p class="data-note" id="dataNote"></p>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><strong>SYSTEMATIC LITERATURE REVIEW</strong><p class="footer-gold">FROM LITERATURE DISCOVERY TO PUBLICATION</p><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><div class="footer-links"><a href="../index.html">Home</a><a href="../programme/index.html">Programme</a><a href="index.html">Entry Survey</a><a href="dashboard.html">Survey Dashboard</a></div></div><div class="footer-rule"></div><div class="footer-bottom"><span>© 2026 Dr MSO · Universiti Teknologi Malaysia. All rights reserved.</span></div></footer>
+  <script src="assets/questions.js"></script><script src="assets/dashboard.js"></script>
+</body>
+</html>
