@@ -1,4 +1,4 @@
-/* Shared footer styling based on the SLR main page. */
+/* Shared SLR footer styling, based on the main page. */
 .site-footer{display:block;width:100%;margin-top:36px;padding:0;background:linear-gradient(110deg,#5b1024,#8b1635);color:#fff;text-align:left;font-family:inherit;font-size:13px}
 .site-footer *{box-sizing:border-box}
 .site-footer .footer-inner{max-width:1240px;margin:0 auto;padding:34px 28px 26px;display:grid;grid-template-columns:1.5fr 1fr;gap:30px;align-items:center}
