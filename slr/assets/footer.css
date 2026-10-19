@@ -1,0 +1,16 @@
+/* Shared footer styling based on the SLR main page. */
+.site-footer{display:block;width:100%;margin-top:36px;padding:0;background:linear-gradient(110deg,#5b1024,#8b1635);color:#fff;text-align:left;font-family:inherit;font-size:13px}
+.site-footer *{box-sizing:border-box}
+.site-footer .footer-inner{max-width:1240px;margin:0 auto;padding:34px 28px 26px;display:grid;grid-template-columns:1.5fr 1fr;gap:30px;align-items:center}
+.site-footer .footer-brand strong{display:block;margin-bottom:7px;color:#fff;font-family:"Libre Franklin",sans-serif;font-size:16px;font-weight:700}
+.site-footer .footer-brand p{margin:3px 0;color:#cfc8cc}
+.site-footer .footer-brand .footer-gold{color:#e7b852;font-weight:700;letter-spacing:.05em}
+.site-footer .footer-links{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px 16px}
+.site-footer .footer-links a{color:#f4e9ec;text-decoration:none;font-size:13px}
+.site-footer .footer-links a:hover{color:#f1c96f}
+.site-footer .footer-rule{height:1px;max-width:1184px;margin:0 auto;background:rgba(255,255,255,.12)}
+.site-footer .footer-bottom{max-width:1240px;margin:0 auto;padding:15px 28px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px;color:#e4d5da;font-size:12px}
+.site-footer .visitor-badge{display:inline-flex;align-items:center;flex:0 0 auto;line-height:0}
+.site-footer .visitor-badge img{display:block;width:auto;max-width:100%;max-height:24px}
+@media(max-width:800px){.site-footer .footer-inner{grid-template-columns:1fr}.site-footer .footer-links{justify-content:flex-start}}
+@media(max-width:720px){.site-footer .footer-bottom{align-items:flex-start;flex-direction:column}}
