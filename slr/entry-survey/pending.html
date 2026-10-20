@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Facilitator view of Cohort 1 participants who have not completed the SLR Entry Survey.">
+  <title>Incomplete Surveys · Cohort 1 · SLR Workshop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@600;700&display=swap" rel="stylesheet">
+  <link href="assets/style.css" rel="stylesheet">
+  <link href="assets/footer-match.css" rel="stylesheet">
+  <link href="assets/dashboard.css" rel="stylesheet">
+  <link href="assets/pending.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/footer.css">
+</head>
+<body>
+  <header><a class="brand" href="../index.html"><span class="brandmark">SLR</span><span><strong>Systematic Literature Review</strong><small>From Literature Discovery to Publication</small></span></a><nav><a href="../index.html">Home</a><a href="index.html">Entry Survey</a><a href="dashboard.html">Survey Dashboard</a><a class="active" href="pending.html">Incomplete Surveys</a></nav></header>
+  <main class="pending-main">
+    <a class="back-link" href="dashboard.html">← Back to Survey Dashboard</a>
+    <section class="pending-heading"><div><p class="eyebrow">COHORT 1 · FACILITATOR VIEW</p><h1>Incomplete Entry Surveys</h1><p>Check which registered participants have not submitted their survey. Draft responses are counted as incomplete.</p></div><span class="privacy-badge"><span>●</span> Facilitator access</span></section>
+    <section class="access-card" id="accessCard">
+      <div class="access-icon" aria-hidden="true">🔒</div>
+      <div class="access-copy"><h2>Facilitator sign-in</h2><p>Enter the access key configured in the Apps Script project. The key is kept only for this browser session.</p>
+        <form id="accessForm" class="access-form"><label for="facilitatorKey">Facilitator access key</label><div class="key-field"><input id="facilitatorKey" type="password" autocomplete="current-password" required><button class="primary" id="loadButton" type="submit">View list</button></div><p class="access-message" id="accessMessage" role="status"></p></form>
+      </div>
+    </section>
+    <section class="pending-results hidden" id="pendingResults">
+      <div class="pending-status" aria-live="polite"><span class="live-dot"></span><span id="statusText">Loading participant status…</span><button class="refresh-button" id="refreshBtn" type="button">↻ Refresh</button></div>
+      <div class="pending-kpis" id="pendingKpis"></div>
+      <section class="list-card"><div class="list-heading"><div><p class="eyebrow">FOLLOW-UP LIST</p><h2>Participants who have not submitted</h2><p>Submitted participants are omitted. Survey answers, identification numbers and contact details are not displayed.</p></div><button class="text-button" id="changeKeyBtn" type="button">Change access key</button></div>
+        <div class="list-controls"><label class="search-control" for="nameSearch"><span aria-hidden="true">⌕</span><input id="nameSearch" type="search" placeholder="Search participant name" autocomplete="off"></label><label class="filter-control">Status<select id="statusFilter"><option value="all">All incomplete</option><option value="Not started">Not started</option><option value="Draft">Draft saved</option></select></label></div>
+        <div class="table-wrap"><table><thead><tr><th>Participant</th><th>Category</th><th>Status</th><th>Last saved</th></tr></thead><tbody id="participantRows"></tbody></table><div class="empty-list hidden" id="emptyList">No participants match these filters.</div></div>
+        <p class="generated-note" id="generatedNote"></p>
+      </section>
+    </section>
+    <section class="pending-error hidden" id="pageError" role="alert"><strong>Could not load the participant list</strong><p id="errorMessage"></p><button class="outline" id="retryBtn" type="button">Try again</button></section>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><strong>SYSTEMATIC LITERATURE REVIEW</strong><p class="footer-gold">FROM LITERATURE DISCOVERY TO PUBLICATION</p><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><div class="footer-links"><a href="../index.html">Home</a><a href="../programme/index.html">Programme</a><a href="../stages/stage-1.html">Stage 1</a><a href="../stages/stage-2.html">Stage 2</a><a href="../stages/stage-3.html">Stage 3</a><a href="../stages/stage-4.html">Stage 4</a><a href="../workspace/index.html">SLR Workspace</a><a href="../resources/index.html">Resources</a><a href="index.html">Entry Survey</a><a href="dashboard.html">Survey Dashboard</a></div></div><div class="footer-rule"></div><div class="footer-bottom"><span>© 2026 Dr MSO · Universiti Teknologi Malaysia. All rights reserved.</span><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" rel="noopener noreferrer" target="_blank"><img alt="Bilangan pelawat laman" src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic"></a></div></footer>
+  <script src="../assets/config.js"></script>
+  <script src="assets/pending.js"></script>
+</body>
+</html>

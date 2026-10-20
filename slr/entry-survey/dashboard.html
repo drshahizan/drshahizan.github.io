@@ -13,15 +13,16 @@
   <link rel="stylesheet" href="../assets/footer.css">
 </head>
 <body>
-  <header><a class="brand" href="../index.html"><span class="brandmark">SLR</span><span><strong>Systematic Literature Review</strong><small>From Literature Discovery to Publication</small></span></a><nav><a href="../index.html">Home</a><a href="index.html">Entry Survey</a><a class="active" href="dashboard.html">Survey Dashboard</a></nav></header>
+  <header><a class="brand" href="../index.html"><span class="brandmark">SLR</span><span><strong>Systematic Literature Review</strong><small>From Literature Discovery to Publication</small></span></a><nav><a href="../index.html">Home</a><a href="index.html">Entry Survey</a><a class="active" href="dashboard.html">Survey Dashboard</a><a href="pending.html">Incomplete Surveys</a></nav></header>
   <main class="dashboard-main">
     <a class="back-link" href="index.html">← Back to Entry Survey</a>
-    <section class="dash-heading"><div><p class="eyebrow">COHORT 1 · FACILITATOR VIEW</p><h1>Entry Survey Dashboard</h1><p>Live summary of submitted participant responses to help plan workshop activities.</p></div><span class="privacy-badge"><span>●</span> Aggregate responses</span></section>
+    <section class="dash-heading"><div><p class="eyebrow">COHORT 1 · FACILITATOR VIEW</p><h1>Entry Survey Dashboard</h1><p>Live summary of Cohort 1 responses to help plan workshop activities. Participants from other cohorts are excluded.</p></div><span class="privacy-badge"><span>●</span> Aggregate responses</span></section>
     <section class="live-status" aria-live="polite"><span class="live-dot"></span><span id="liveStatus">Connecting to survey responses…</span><button class="refresh-button" id="refreshBtn" type="button">↻ Refresh</button></section>
+    <section class="pending-cta"><div><span class="cta-icon" aria-hidden="true">✓</span><span><strong>Follow up on Cohort 1 participants</strong><small>View who has not submitted the Entry Survey. Facilitator access key required.</small></span></div><a href="pending.html">View incomplete surveys <span aria-hidden="true">→</span></a></section>
     <section class="empty-state" id="emptyState"><div class="empty-icon" aria-hidden="true">▤</div><h2 id="emptyTitle">Loading survey dashboard</h2><p id="emptyMessage">The dashboard is retrieving submitted responses. Individual participant records and identifiers are not sent to this page.</p></section>
 
     <div class="dashboard-content hidden" id="dashboardContent">
-      <section class="filter-row"><div><p class="eyebrow">RESPONSE SUMMARY</p><h2>What participants bring to the workshop</h2></div><label class="filter-control">Participant group<select id="groupFilter"><option value="all">All participants</option><option value="students">Postgraduate students</option><option value="staff">Academic staff</option></select></label></section>
+      <section class="filter-row"><div><p class="eyebrow">COHORT 1 RESPONSE SUMMARY</p><h2>What participants bring to the workshop</h2></div><label class="filter-control">Cohort 1 participant group<select id="groupFilter"><option value="all">All Cohort 1 participants</option><option value="students">Cohort 1 · Postgraduate students</option><option value="staff">Cohort 1 · Academic staff</option></select></label></section>
       <section class="kpi-grid" id="kpiGrid" aria-label="Survey summary statistics"></section>
       <section class="insight-grid">
         <article class="dash-card"><div class="card-heading"><div><p class="eyebrow">BACKGROUND</p><h3>SLR and publication experience</h3></div><span class="card-icon">01</span></div><div class="chart" id="experienceSlrChart"></div><div class="chart-separator"></div><div class="chart" id="experiencePublicationChart"></div></article>
