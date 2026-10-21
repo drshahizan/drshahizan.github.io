@@ -5,15 +5,15 @@
 <meta name="description" content="Build and export a PRISMA 2020-style flow diagram from your verified review counts.">
 <title>PRISMA Flow Diagram Builder | UTM SLR Stage 2</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@600;700&display=swap" rel="stylesheet">
-<link href="../assets/styles.css" rel="stylesheet"><link href="assets/workspace.css" rel="stylesheet"><link href="assets/prisma-builder.css?v=20261019-2" rel="stylesheet">
+<link href="../assets/styles.css" rel="stylesheet"><link href="assets/workspace.css" rel="stylesheet"><link href="assets/prisma-builder.css?v=20261021-1" rel="stylesheet">
   <link rel="stylesheet" href="../assets/footer.css">
 </head>
 <body><a class="skip-link" href="#main">Skip to content</a>
 <header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark">SLR</span><span><strong>Systematic Literature Review</strong><small>From Literature Discovery to Publication</small></span></a><button aria-expanded="false" aria-label="Open navigation" class="menu-button" id="menuButton">☰</button><nav id="mainNav"><a class="nav-link" href="../index.html">Home</a><a class="nav-link" href="../programme/index.html">Programme</a><a class="nav-link" href="../stages/stage-1.html">Stage 1</a><a class="nav-link" href="../stages/stage-2.html">Stage 2</a><a class="nav-link" href="../stages/stage-3.html">Stage 3</a><a class="nav-link" href="../stages/stage-4.html">Stage 4</a><a class="nav-link" href="../workspace/index.html">SLR Workspace</a><a class="nav-link" href="../tools.html">Research Tools</a><a class="nav-link" href="../resources/index.html">Resources</a></nav></header>
 <main id="main" class="prisma-main">
-<div class="prisma-heading"><a href="step-05-prisma.html" class="prisma-back">← Stage 2 · PRISMA Count Check</a><p class="eyebrow">STAGE 2 · INTERACTIVE TOOL</p><h1>PRISMA Flow Diagram Builder</h1><p class="prisma-lead">Enter verified counts to build a review flow diagram. The builder checks the arithmetic and creates a two-column flow diagram like the example, including source names and counts.</p></div>
+<div class="prisma-heading"><a href="step-05-prisma.html" class="prisma-back">← Stage 2 · PRISMA Count Check</a> <a href="hands-on-guide.html" class="prisma-back">Stage 2 Hands-on Guide</a><p class="eyebrow">STAGE 2 · INTERACTIVE TOOL</p><h1>PRISMA Flow Diagram Builder</h1><p class="prisma-lead">Enter verified counts to build a review flow diagram. The builder checks the arithmetic and creates a two-column flow diagram like the example, including source names and counts.</p></div>
 <div class="prisma-notice"><strong>Use verified review records.</strong> This builder uses the database/register pathway shown in the example. It checks count consistency but cannot validate your screening decisions. If your review also identifies studies through other methods, use the matching official PRISMA template. Entries stay in this browser.</div>
-<div class="prisma-toolbar" aria-label="Diagram actions"><div class="prisma-toolbar-main"><button class="button secondary" id="loadExample" type="button">Load worked example</button><button class="button primary" id="exportSvg" type="button">Download SVG</button><button class="button secondary" id="exportPng" type="button">Download PNG</button><button class="button ghost" id="printDiagram" type="button">Print / Save as PDF</button></div><div class="prisma-toolbar-file"><button class="button ghost" id="exportCsv" type="button">Export CSV</button><button class="button ghost" id="exportJson" type="button">Backup JSON</button><label class="button ghost file-button">Import CSV / JSON<input id="importFile" type="file" accept=".csv,.json,application/json,text/csv"></label><button class="button ghost" id="resetForm" type="button">Reset</button></div></div>
+<div class="prisma-toolbar" aria-label="Diagram actions"><div class="prisma-toolbar-main"><button class="button primary" id="exportSvg" type="button">Download SVG</button><button class="button secondary" id="exportPng" type="button">Download PNG</button><button class="button ghost" id="printDiagram" type="button">Print / Save as PDF</button></div><div class="prisma-toolbar-file"><button class="button ghost" id="exportCsv" type="button">Export CSV</button><button class="button ghost" id="exportJson" type="button">Backup JSON</button><label class="button ghost file-button">Import CSV / JSON<input id="importFile" type="file" accept=".csv,.json,application/json,text/csv"></label><button class="button ghost" id="resetForm" type="button">Reset</button></div></div>
 <div id="validationSummary" class="prisma-validation" role="status" aria-live="polite"></div>
 <div class="prisma-builder-grid">
 <section class="prisma-entry" aria-labelledby="entryTitle"><div class="prisma-section-title"><p class="eyebrow">01 · DATA ENTRY</p><h2 id="entryTitle">Enter your counts</h2><p>Enter zero where a category does not apply. Totals in the diagram are calculated automatically.</p></div>
@@ -31,7 +31,82 @@
 <div class="privacy-note">The page starts with an illustrative example. Replace it with your own verified counts. Work is saved in this browser only; export CSV or JSON before changing devices or browsers.</div></section>
 <section class="prisma-preview-section" aria-labelledby="previewTitle"><div class="prisma-section-title preview-title"><p class="eyebrow">02 · LIVE PREVIEW</p><h2 id="previewTitle">Flow diagram</h2><p id="diagramStatus">Enter your verified counts to update the diagram.</p></div><div class="diagram-frame"><div id="diagramCanvas" aria-label="Generated PRISMA 2020 flow diagram"></div></div><div class="diagram-caption">PRISMA 2020-style draft based on the database/register pathway. Verify every count against the search log and screening record before reporting.</div></section>
 </div>
+<section class="prisma-article-examples" aria-labelledby="articleExamplesTitle">
+  <div class="prisma-section-title">
+    <p class="eyebrow">03 · LEARN FROM PUBLISHED REVIEWS</p>
+    <h2 id="articleExamplesTitle">Five article examples</h2>
+    <p>Choose an article to view a PRISMA-style diagram generated with this builder. These examples are read-only and will not replace the counts in your own builder.</p>
+  </div>
+  <div class="article-tablist" role="tablist" aria-label="Published article PRISMA examples">
+    <button class="article-tab" id="article-tab-smart" role="tab" aria-selected="true" aria-controls="article-panel-smart" tabindex="0">Smart villages</button>
+    <button class="article-tab" id="article-tab-genai" role="tab" aria-selected="false" aria-controls="article-panel-genai" tabindex="-1">Generative AI</button>
+    <button class="article-tab" id="article-tab-mt" role="tab" aria-selected="false" aria-controls="article-panel-mt" tabindex="-1">Machine translation</button>
+    <button class="article-tab" id="article-tab-learning" role="tab" aria-selected="false" aria-controls="article-panel-learning" tabindex="-1">Learning-style ML</button>
+    <button class="article-tab" id="article-tab-edge" role="tab" aria-selected="false" aria-controls="article-panel-edge" tabindex="-1">Agriculture & edge</button>
+  </div>
+  <article class="article-panel is-active" id="article-panel-smart" role="tabpanel" aria-labelledby="article-tab-smart" tabindex="0">
+    <div class="article-panel-heading"><div><p class="eyebrow">REPORTED FLOW · COUNTS RECONCILE</p><h3>Smart villages: A systematic review of trends, models, and metrics</h3><p>Junaidi et al. (2025) · Cogent Social Sciences, 11(1), Article 2492833</p></div><a class="button ghost article-pdf" href="../stage-1/articles/smart-villages-systematic-review.pdf" target="_blank" rel="noopener">Open article PDF ↗</a></div>
+    <div class="article-diagram" id="article-diagram-smart" aria-label="Generated PRISMA flow for the smart villages review"></div>
+    <p class="article-note"><strong>Count check:</strong> 1,598 identified − 487 removed before screening = 1,111 screened; 1,111 − 1,057 excluded = 54 included. The 487 pre-screening removals combine 328 outside the year range, 150 duplicates and 9 inaccessible or corrupted records.</p>
+  </article>
+  <article class="article-panel" id="article-panel-genai" role="tabpanel" aria-labelledby="article-tab-genai" tabindex="0" hidden>
+    <div class="article-panel-heading"><div><p class="eyebrow">RECONSTRUCTION FROM ARTICLE NARRATIVE</p><h3>Generative AI in higher education: A systematic review with emphasis on programming and computer science education</h3><p>Yalwa et al. (2026) · International Journal of Advanced Computer Science and Applications, 17(5)</p></div><a class="button ghost article-pdf" href="../stage-1/articles/generative-ai-higher-education-review.pdf" target="_blank" rel="noopener">Open article PDF ↗</a></div>
+    <div class="article-diagram" id="article-diagram-genai" aria-label="Generated PRISMA flow for the generative AI review"></div>
+    <p class="article-note article-note-warn"><strong>Read with care:</strong> the article narrative reports 104 full texts assessed and 60 retained, so 44 exclusions are calculated for this builder diagram (104 − 60); the article does not report that 44 as a single count. Figure 1 instead shows 72 assessed, 32 excluded for no empirical evidence and 12 for insufficient methodology, which does not reconcile with the stated 60 included. Check the source PDF before citing these stages.</p>
+  </article>
+  <article class="article-panel" id="article-panel-mt" role="tabpanel" aria-labelledby="article-tab-mt" tabindex="0" hidden>
+    <div class="article-panel-heading"><div><p class="eyebrow">REPORTED COUNTS · GROUPED BY BUILDER STAGE</p><h3>Machine translation performance for low-resource languages: A systematic literature review</h3><p>Tafa et al. (2025) · IEEE Access, 13, 72486–72505</p></div><a class="button ghost article-pdf" href="../stage-1/articles/machine-translation-low-resource-review.pdf" target="_blank" rel="noopener">Open article PDF ↗</a></div>
+    <div class="article-diagram" id="article-diagram-mt" aria-label="Generated PRISMA flow for the machine translation review"></div>
+    <p class="article-note"><strong>Mapping note:</strong> the 571 records filtered before quality assessment are grouped in the builder’s title/abstract exclusion box because its input form does not represent every intermediate filter separately. The paper reports 108 duplicates, 359 outside the year range and 296 non-journal papers before this group; 200 reached quality assessment, 131 were excluded, and 69 remained.</p>
+  </article>
+  <article class="article-panel" id="article-panel-learning" role="tabpanel" aria-labelledby="article-tab-learning" tabindex="0" hidden>
+    <div class="article-panel-heading"><div><p class="eyebrow">ARITHMETIC RECONSTRUCTION · INFERRED GAP MARKED</p><h3>A deployment-oriented framework for machine learning-based learning style identification: A systematic computational analysis</h3><p>Adeyemo et al. (2026) · International Journal of Advanced Computer Science and Applications, 17(3), 564–576</p></div><a class="button ghost article-pdf" href="../stage-1/articles/learning-style-identification-review.pdf" target="_blank" rel="noopener">Open article PDF ↗</a></div>
+    <div class="article-diagram" id="article-diagram-learning" aria-label="Arithmetic reconstruction for the learning-style identification review"></div>
+    <p class="article-note article-note-warn"><strong>Do not treat the inferred value as reported data:</strong> the paper reports 2,816 records and 671 duplicates, leaving 2,145; its figure says 671 records screened and lists 417 screening exclusions, which leads to 254 full texts. The builder therefore labels the unexplained 1,474-record gap as <em>inferred, not reported</em> to reproduce the figure’s later counts. The reported full-text exclusions (176 + 21 = 197) reconcile with 57 included.</p>
+  </article>
+  <article class="article-panel" id="article-panel-edge" role="tabpanel" aria-labelledby="article-tab-edge" tabindex="0" hidden>
+    <div class="article-panel-heading"><div><p class="eyebrow">DATABASE FLOW · OTHER-METHOD RECORDS SHOWN SEPARATELY</p><h3>Deep learning and edge computing in agriculture: A comprehensive review of recent trends and innovations</h3><p>Junaidi et al. (2025) · IEEE Access, 13, 137464–137490</p></div><a class="button ghost article-pdf" href="../stage-1/articles/deep-learning-edge-agriculture-review.pdf" target="_blank" rel="noopener">Open article PDF ↗</a></div>
+    <div class="article-diagram" id="article-diagram-edge" aria-label="Generated PRISMA database flow for the agriculture and edge computing review"></div>
+    <p class="article-note"><strong>Other-method note:</strong> this builder displays the 71 studies from the database flow. The article adds 4 studies through snowballing, giving 75 in the methods/results. Snowballing is not represented in this database/register-only builder. The article abstract also reports 76, so verify the final figure in the source PDF.</p>
+  </article>
+  <p class="article-examples-footnote">Diagrams are generated from article counts using the same PRISMA Flow Diagram Builder above. They are teaching reconstructions, not replacements for the articles’ own figures or official PRISMA templates. Open each PDF to verify the source context.</p>
+</section>
 <section class="prisma-howto"><h2>Before you export</h2><ol><li>Reconcile source totals and duplicate removals with your database exports.</li><li>Check that screening exclusions, reports not retrieved and full-text exclusion reasons match your decision log.</li><li>Confirm the final number of included studies. Keep study counts separate from report counts.</li><li>Export the SVG for publication-quality editing, PNG for slides, or print to PDF. Keep a CSV/JSON backup of the entered data.</li></ol><p>For publication, compare this draft with the <a href="https://www.prisma-statement.org/prisma-2020-flow-diagram" target="_blank" rel="noopener noreferrer">official PRISMA 2020 flow diagram templates</a>. This page is for new reviews using databases and registers.</p></section>
 <div class="prisma-footer-actions"><a class="button ghost" href="step-05-prisma.html">← Return to PRISMA Count Check</a><a class="button primary" href="portfolio.html">Continue to Stage 2 Portfolio →</a></div>
 </main><footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><strong>SYSTEMATIC LITERATURE REVIEW</strong><p class="footer-gold">FROM LITERATURE DISCOVERY TO PUBLICATION</p><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><div class="footer-links"><a href="../index.html">Home</a><a href="../programme/index.html">Programme</a><a href="../stages/stage-1.html">Stage 1</a><a href="../stages/stage-2.html">Stage 2</a><a href="../stages/stage-3.html">Stage 3</a><a href="../stages/stage-4.html">Stage 4</a><a href="../workspace/index.html">SLR Workspace</a><a href="../resources/index.html">Resources</a><a href="../entry-survey/index.html">Entry Survey</a></div></div><div class="footer-rule"></div><div class="footer-bottom"><span>© 2026 Dr MSO · Universiti Teknologi Malaysia. All rights reserved.</span><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" rel="noopener noreferrer" target="_blank"><img alt="Bilangan pelawat laman" src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic"/></a></div></footer>
-<script src="assets/prisma-builder.js?v=20261019-2"></script><script src="../assets/app.js"></script></body></html>
+<script src="assets/prisma-builder.js?v=20261021-1"></script>
+<script>
+(() => {
+  const examples = {
+    smart: {sources:[{name:'Web of Science',count:178},{name:'Scopus',count:137},{name:'ScienceDirect',count:284},{name:'Google Scholar',count:999}],registerRecords:0,duplicates:150,automationRemoved:0,otherRemoved:337,recordsExcluded:1057,reportsNotRetrieved:0,studiesIncluded:54,reasons:[{label:'Quality assessment excluded',count:0}]},
+    genai: {sources:[{name:'Web of Science',count:197},{name:'Scopus',count:1690},{name:'IEEE Xplore',count:53},{name:'SpringerLink',count:1220}],registerRecords:0,duplicates:956,automationRemoved:0,otherRemoved:0,recordsExcluded:2100,reportsNotRetrieved:0,studiesIncluded:60,reasons:[{label:'Full-text exclusions (calculated from narrative)',count:44}]},
+    mt: {sources:[{name:'ScienceDirect',count:317},{name:'Web of Science',count:299},{name:'Scopus',count:251},{name:'SpringerLink',count:458},{name:'IEEE Xplore',count:209}],registerRecords:0,duplicates:108,automationRemoved:0,otherRemoved:655,recordsExcluded:571,reportsNotRetrieved:0,studiesIncluded:69,reasons:[{label:'Excluded at quality assessment',count:131}]},
+    learning: {sources:[{name:'IEEE Xplore',count:204},{name:'Scopus',count:325},{name:'Web of Science',count:178},{name:'Google Scholar',count:773},{name:'ScienceDirect',count:1336}],registerRecords:0,duplicates:671,automationRemoved:0,otherRemoved:1474,otherRemovedLabel:'Unexplained gap (inferred, not reported)',recordsExcluded:417,reportsNotRetrieved:0,studiesIncluded:57,reasons:[{label:'Quality score below threshold',count:176},{label:'Not focused on learning-style identification',count:21}]},
+    edge: {sources:[{name:'Web of Science',count:124},{name:'Scopus',count:192},{name:'ScienceDirect',count:879},{name:'ACM Digital Library',count:578},{name:'IEEE Xplore',count:299}],registerRecords:0,duplicates:109,automationRemoved:0,otherRemoved:1180,recordsExcluded:712,reportsNotRetrieved:0,studiesIncluded:71,reasons:[]}
+  };
+  const titles = {smart:'Smart villages review',genai:'Generative AI review',mt:'Machine translation review',learning:'Learning-style identification review',edge:'Agriculture and edge computing review'};
+  Object.entries(examples).forEach(([key,data]) => {
+    const prefix = `article-${key}`;
+    document.getElementById(`article-diagram-${key}`).innerHTML = window.PrismaBuilderExamples.render(data, prefix, titles[key]);
+  });
+  const tabs = [...document.querySelectorAll('.article-tab')];
+  const activate = tab => {
+    tabs.forEach(item => {
+      const selected = item === tab;
+      item.setAttribute('aria-selected', String(selected));
+      item.tabIndex = selected ? 0 : -1;
+      document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+      document.getElementById(item.getAttribute('aria-controls')).classList.toggle('is-active', selected);
+    });
+  };
+  tabs.forEach((tab,index) => {
+    tab.addEventListener('click', () => activate(tab));
+    tab.addEventListener('keydown', event => {
+      if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+      event.preventDefault();
+      const next = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
+      tabs[next].focus(); activate(tabs[next]);
+    });
+  });
+})();
+</script><script src="../assets/app.js"></script></body></html>

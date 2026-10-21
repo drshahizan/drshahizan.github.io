@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A step-by-step Stage 2 guide for practising screening, quality assessment, data extraction and PRISMA reporting.">
+  <meta name="theme-color" content="#7a1730">
+  <title>Stage 2 Hands-on Guide | SLR Workshop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@600;700&display=swap" rel="stylesheet">
+  <link href="../assets/styles.css" rel="stylesheet">
+  <link href="../assets/footer.css" rel="stylesheet">
+  <style>
+    :root{--wine:#7a1730;--ink:#252a32;--muted:#626a75;--line:#e8e2e3;--cream:#fff9ed;--green:#edf7f1;--blue:#f4f7fb}
+    .guide{max-width:1120px;margin:0 auto;padding:26px 22px 54px;color:var(--ink)}
+    .crumb{margin:0 0 13px;color:var(--muted);font-size:.88rem}.crumb a{color:var(--wine);font-weight:700}
+    .hero{padding:22px 26px;border:1px solid #eadadd;border-radius:16px;background:linear-gradient(135deg,#fff 58%,#fbf0f1)}
+    .eyebrow{margin:0 0 7px;color:var(--wine);font-size:.73rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+    .hero h1{margin:0 0 9px;font:700 clamp(1.8rem,3vw,2.5rem)/1.16 "Libre Franklin",sans-serif;color:#28232a}
+    .hero p:not(.eyebrow){max-width:900px;margin:0;color:#505660;line-height:1.6}
+    .handoff{margin-top:13px;padding:12px 14px;border-left:4px solid #d2a044;border-radius:8px;background:var(--cream);color:#5e4c2b;line-height:1.55;font-size:.91rem}
+    .tabs{display:flex;gap:8px;margin:17px 0 12px;padding-bottom:4px;overflow:auto}
+    .tab{flex:0 0 auto;padding:10px 15px;border:1px solid #d9d0d2;border-radius:999px;background:#fff;color:#45434a;font:700 .9rem "DM Sans",sans-serif;cursor:pointer}
+    .tab[aria-selected="true"]{border-color:var(--wine);background:var(--wine);color:#fff}
+    .tab:focus-visible{outline:3px solid #e5b64f;outline-offset:2px}
+    .panel{border:1px solid var(--line);border-radius:14px;background:#fff;padding:18px;box-shadow:0 7px 22px #30101a0b}
+    .panel[hidden]{display:none}
+    .panel-intro{margin:0 0 14px;color:#545b64;line-height:1.55}
+    .steps{display:grid;gap:10px}
+    .step{display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:12px;align-items:center;padding:13px;border:1px solid var(--line);border-radius:11px;background:#fff}
+    .num{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#f7eef0;color:var(--wine);font-weight:800}
+    .step h3{margin:0 0 4px;font:700 1rem "Libre Franklin",sans-serif;color:#332d32}
+    .step p{margin:0;color:#5b626b;font-size:.88rem;line-height:1.5}
+    .step a{display:inline-flex;align-items:center;justify-content:center;padding:8px 11px;border-radius:8px;background:var(--wine);color:#fff;text-decoration:none;font-size:.82rem;font-weight:700;white-space:nowrap}
+    .step a.secondary{background:#f2e8ea;color:var(--wine)}
+    .step-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:7px}
+    .output{margin-top:14px;padding:13px 15px;border-radius:10px;background:var(--green);color:#315846;font-size:.9rem;line-height:1.6}
+    .caution{margin-top:12px;padding:13px 15px;border:1px solid #ead7ad;border-radius:10px;background:var(--cream);color:#5e4c2b;font-size:.89rem;line-height:1.6}
+    .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+    .actions a{display:inline-flex;padding:9px 12px;border-radius:8px;background:var(--wine);color:#fff;text-decoration:none;font-size:.84rem;font-weight:700}
+    .actions a.secondary{background:#f2e8ea;color:var(--wine)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:760px){.step{grid-template-columns:34px minmax(0,1fr)}.step>a,.step-actions{grid-column:2;justify-self:start}.step-actions{justify-content:flex-start}.guide{padding:20px 14px 42px}.hero{padding:18px}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark">SLR</span><span><strong>Systematic Literature Review</strong><small>From Literature Discovery to Publication</small></span></a><button aria-expanded="false" aria-label="Open navigation" class="menu-button" id="menuButton">☰</button><nav id="mainNav"><a class="nav-link" href="../index.html">Home</a><a class="nav-link" href="../programme/index.html">Programme</a><a class="nav-link" href="../stages/stage-1.html">Stage 1</a><a class="nav-link" href="../stages/stage-2.html">Stage 2</a><a class="nav-link" href="../stages/stage-3.html">Stage 3</a><a class="nav-link" href="../stages/stage-4.html">Stage 4</a><a class="nav-link" href="../workspace/index.html">SLR Workspace</a><a class="nav-link" href="../tools.html">Research Tools</a><a class="nav-link" href="../resources/index.html">Resources</a></nav></header>
+  <main id="main" class="guide">
+    <p class="crumb"><a href="../stages/stage-2.html">Stage 2</a> / Hands-on Guide</p>
+    <section class="hero">
+      <p class="eyebrow">STAGE 2 · FROM PROTOCOL TO EVIDENCE</p>
+      <h1>Stage 2 Hands-on Guide</h1>
+      <p>Follow the sequence to practise screening, quality assessment, data extraction and PRISMA reporting. Start with the workshop exercise, then repeat the workflow using records from your own review.</p>
+      <div class="handoff"><strong>Bring your Stage 1 protocol.</strong> Use its eligibility criteria, screening rules, quality-assessment plan and extraction fields. Record any change as a protocol amendment before applying it.</div>
+    </section>
+    <div class="tabs" role="tablist" aria-label="Choose a Stage 2 learning path">
+      <button class="tab" id="tab-workshop" role="tab" aria-selected="true" aria-controls="panel-workshop" tabindex="0">Workshop practice</button>
+      <button class="tab" id="tab-review" role="tab" aria-selected="false" aria-controls="panel-review" tabindex="-1">My SLR</button>
+    </div>
+    <section class="panel" id="panel-workshop" role="tabpanel" aria-labelledby="tab-workshop" tabindex="0">
+      <p class="panel-intro">Use each material for its intended task. The synthetic records teach screening decisions; the published review articles teach evidence tracking and reporting.</p>
+      <div class="steps">
+        <article class="step"><span class="num">1</span><div><h3>Screen the shared practice set</h3><p>Preserve the original CSV, identify duplicate copies, screen independently, then compare disagreements and record one supported reason for each exclusion.</p></div><a href="practice-pack.html">Open practice pack</a></article>
+        <article class="step"><span class="num">2</span><div><h3>Study how published reviews report evidence</h3><p>Use the five article PDFs to locate selection counts, appraisal methods, extraction fields and synthesis details. Record page, table or figure evidence.</p></div><a class="secondary" href="article-evidence-lab.html">Open Article Evidence Lab</a></article>
+        <article class="step"><span class="num">3</span><div><h3>Build and inspect a PRISMA example</h3><p>Open the builder and start with the Smart villages example, whose reported counts reconcile. Compare other tabs to practise spotting reporting discrepancies.</p></div><a class="secondary" href="prisma-flow-builder.html">Open PRISMA builder</a></article>
+      </div>
+      <div class="caution"><strong>Keep the sets separate.</strong> The five published review articles are examples for learning how to report a review. Do not combine their counts or add their included papers to the synthetic screening set.</div>
+      <div class="output"><strong>Workshop evidence to keep:</strong> independent screening decisions, reconciled decision log, full-text exclusion reasons, evidence notes from the Article Evidence Lab, and a PRISMA diagram generated from one verified count set.</div>
+      <div class="actions"><a href="../stage-1/protocol-examples.html">Review Stage 1 protocol examples</a><a class="secondary" href="../stage-1/SLR-Protocol-Template.docx" download>Open SLR Protocol Template</a></div>
+    </section>
+    <section class="panel" id="panel-review" role="tabpanel" aria-labelledby="tab-review" tabindex="0" hidden>
+      <p class="panel-intro">Apply the same sequence to your own review. Every number in the PRISMA diagram should be traceable to a search export or decision log.</p>
+      <div class="steps">
+        <article class="step"><span class="num">1</span><div><h3>Confirm your protocol and search records</h3><p>Check that the current criteria and search strategy are versioned. Keep the original database exports and record each database’s result count and search date.</p></div><a class="secondary" href="../stage-1/SLR-Protocol-Template.docx" download>Open protocol</a></article>
+        <article class="step"><span class="num">2</span><div><h3>Deduplicate and screen titles and abstracts</h3><p>Keep a duplicate log, screen against the written criteria, mark uncertain records for full-text checking, and resolve reviewer disagreements transparently.</p></div><a href="step-03-screening.html">Open screening step</a></article>
+        <article class="step"><span class="num">3</span><div><h3>Retrieve and assess full texts</h3><p>Record reports that could not be retrieved. For every full-text exclusion, assign a clear primary reason from your protocol.</p></div><a class="secondary" href="step-04-full-text.html">Open full-text step</a></article>
+        <article class="step"><span class="num">4</span><div><h3>Complete quality assessment and data extraction</h3><p>Apply the planned appraisal criteria to eligible studies. Extract the fields in your protocol and attach evidence locations for key findings.</p></div><div class="step-actions"><a class="secondary" href="step-06-quality-assessment.html">Open QA step</a><a href="step-07-extraction.html">Open extraction step</a></div></article>
+        <article class="step"><span class="num">5</span><div><h3>Reconcile counts and create your PRISMA diagram</h3><p>Enter counts from this review only. Save the diagram and a CSV/JSON backup. Use the official template if your review includes records from other methods.</p></div><a class="secondary" href="prisma-flow-builder.html">Open PRISMA builder</a></article>
+      </div>
+      <div class="caution"><strong>The builder formats counts; it does not make screening or quality decisions.</strong> If quality assessment determines final eligibility, document that rule in the protocol and reflect the exclusions transparently.</div>
+      <div class="output"><strong>Stage 2 handoff:</strong> versioned protocol and amendments, search log and untouched exports, deduplication/screening log, full-text exclusion list, completed quality assessments, data-extraction table, and final PRISMA diagram.</div>
+      <div class="actions"><a href="portfolio.html">Open Stage 2 Portfolio</a><a class="secondary" href="../stages/stage-3.html">See Stage 3</a></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><strong>SYSTEMATIC LITERATURE REVIEW</strong><p class="footer-gold">FROM LITERATURE DISCOVERY TO PUBLICATION</p><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><div class="footer-links"><a href="../index.html">Home</a><a href="../programme/index.html">Programme</a><a href="../stages/stage-1.html">Stage 1</a><a href="../stages/stage-2.html">Stage 2</a><a href="../stages/stage-3.html">Stage 3</a><a href="../stages/stage-4.html">Stage 4</a><a href="../workspace/index.html">SLR Workspace</a><a href="../resources/index.html">Resources</a><a href="../entry-survey/index.html">Entry Survey</a></div></div><div class="footer-rule"></div><div class="footer-bottom"><span>© 2026 Dr MSO · Universiti Teknologi Malaysia. All rights reserved.</span><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" rel="noopener noreferrer" target="_blank"><img alt="Visitor count" src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic"></a></div></footer>
+  <script src="../assets/app.js"></script>
+  <script>
+    const tabs=[...document.querySelectorAll('[role="tab"]')];
+    function activate(tab){tabs.forEach(item=>{const selected=item===tab;item.setAttribute('aria-selected',String(selected));item.tabIndex=selected?0:-1;const panel=document.getElementById(item.getAttribute('aria-controls'));panel.hidden=!selected;});}
+    tabs.forEach((tab,index)=>{tab.addEventListener('click',()=>activate(tab));tab.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?tabs.length-1:(index+(event.key==='ArrowRight'?1:tabs.length-1))%tabs.length;tabs[next].focus();activate(tabs[next]);});});
+  </script>
+</body>
+</html>
