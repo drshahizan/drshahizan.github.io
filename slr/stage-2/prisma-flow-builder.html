@@ -5,7 +5,7 @@
 <meta name="description" content="Build and export a PRISMA 2020-style flow diagram from your verified review counts.">
 <title>PRISMA Flow Diagram Builder | UTM SLR Stage 2</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@600;700&display=swap" rel="stylesheet">
-<link href="../assets/styles.css" rel="stylesheet"><link href="assets/workspace.css" rel="stylesheet"><link href="assets/prisma-builder.css?v=20261021-1" rel="stylesheet">
+<link href="../assets/styles.css" rel="stylesheet"><link href="assets/workspace.css" rel="stylesheet"><link href="assets/prisma-builder.css?v=20261021-4" rel="stylesheet">
   <link rel="stylesheet" href="../assets/footer.css">
 </head>
 <body><a class="skip-link" href="#main">Skip to content</a>
@@ -34,8 +34,8 @@
 <section class="prisma-article-examples" aria-labelledby="articleExamplesTitle">
   <div class="prisma-section-title">
     <p class="eyebrow">03 · LEARN FROM PUBLISHED REVIEWS</p>
-    <h2 id="articleExamplesTitle">Five article examples</h2>
-    <p>Choose an article to view a PRISMA-style diagram generated with this builder. These examples are read-only and will not replace the counts in your own builder.</p>
+    <h2 id="articleExamplesTitle">Six article examples</h2>
+    <p>Choose an article to view a teaching reconstruction generated with this builder. The examples are read-only and will not replace your own counts. Check the source figure and notes, especially where the article reports inconsistent values.</p>
   </div>
   <div class="article-tablist" role="tablist" aria-label="Published article PRISMA examples">
     <button class="article-tab" id="article-tab-smart" role="tab" aria-selected="true" aria-controls="article-panel-smart" tabindex="0">Smart villages</button>
@@ -43,6 +43,7 @@
     <button class="article-tab" id="article-tab-mt" role="tab" aria-selected="false" aria-controls="article-panel-mt" tabindex="-1">Machine translation</button>
     <button class="article-tab" id="article-tab-learning" role="tab" aria-selected="false" aria-controls="article-panel-learning" tabindex="-1">Learning-style ML</button>
     <button class="article-tab" id="article-tab-edge" role="tab" aria-selected="false" aria-controls="article-panel-edge" tabindex="-1">Agriculture & edge</button>
+    <button class="article-tab" id="article-tab-iot" role="tab" aria-selected="false" aria-controls="article-panel-iot" tabindex="-1">IoT security · Li et al. (2024)</button>
   </div>
   <article class="article-panel is-active" id="article-panel-smart" role="tabpanel" aria-labelledby="article-tab-smart" tabindex="0">
     <div class="article-panel-heading"><div><p class="eyebrow">REPORTED FLOW · COUNTS RECONCILE</p><h3>Smart villages: A systematic review of trends, models, and metrics</h3><p>Junaidi et al. (2025) · Cogent Social Sciences, 11(1), Article 2492833</p></div><a class="button ghost article-pdf" href="../stage-1/articles/smart-villages-systematic-review.pdf" target="_blank" rel="noopener">Open article PDF ↗</a></div>
@@ -69,6 +70,12 @@
     <div class="article-diagram" id="article-diagram-edge" aria-label="Generated PRISMA database flow for the agriculture and edge computing review"></div>
     <p class="article-note"><strong>Other-method note:</strong> this builder displays the 71 studies from the database flow. The article adds 4 studies through snowballing, giving 75 in the methods/results. Snowballing is not represented in this database/register-only builder. The article abstract also reports 76, so verify the final figure in the source PDF.</p>
   </article>
+  <article class="article-panel" id="article-panel-iot" role="tabpanel" aria-labelledby="article-tab-iot" tabindex="0" hidden>
+    <div class="article-panel-heading"><div><p class="eyebrow">RECONSTRUCTION · REPORTING DISCREPANCIES TO AUDIT</p><h3>A critical review of feature selection methods for machine learning in IoT security</h3><p>Li, Othman, Chen, &amp; Yusuf (2024) · International Journal of Communication Networks and Distributed Systems, 30(3), 264–312</p></div><div class="iot-links"><a class="button ghost article-pdf" href="assets/lijing2024/2024_IJCNDS-144802mso.pdf" target="_blank" rel="noopener">Open article PDF ↗</a><a class="button primary" href="assets/lijing2024.zip" download>Download supplementary materials ZIP ↓</a><a class="doi-link" href="https://doi.org/10.1504/IJCNDS.2024.138214" target="_blank" rel="noopener noreferrer">Publisher record ↗</a></div></div>
+    <div class="article-diagram" id="article-diagram-iot" aria-label="Teaching reconstruction of the PRISMA flow reported in the IoT security feature-selection review"></div>
+    <details class="iot-source-figure"><summary>Compare with the published Figure 2</summary><img src="assets/lijing2024/published-prisma-figure-2.png" alt="Published Figure 2 PRISMA diagram from Li et al. (2024)"></details>
+    <p class="article-note article-note-warn"><strong>Audit the source before using these counts.</strong> Table 3 sums to 1,272 using Wiley = 34; Figure 2 shows Wiley = 25 while retaining 1,272 (the displayed source counts sum to 1,263). The reconstruction groups 582 pre-screening removals, then uses 460 screening exclusions, 152 QA-score exclusions and 19 final-topic exclusions to reproduce 59 included. Figure 2 labels 78 as assessed for quality assessment, while the abstract and results report 63 included studies. These reported figures do not form one unambiguous flow. Section 2.5 also says scores greater than 3 were included, while Figure 2 says scores below 3 were excluded. Treat the diagram above as a teaching reconstruction; do not present it as the article’s reported PRISMA figure.</p>
+  </article>
   <p class="article-examples-footnote">Diagrams are generated from article counts using the same PRISMA Flow Diagram Builder above. They are teaching reconstructions, not replacements for the articles’ own figures or official PRISMA templates. Open each PDF to verify the source context.</p>
 </section>
 <section class="prisma-howto"><h2>Before you export</h2><ol><li>Reconcile source totals and duplicate removals with your database exports.</li><li>Check that screening exclusions, reports not retrieved and full-text exclusion reasons match your decision log.</li><li>Confirm the final number of included studies. Keep study counts separate from report counts.</li><li>Export the SVG for publication-quality editing, PNG for slides, or print to PDF. Keep a CSV/JSON backup of the entered data.</li></ol><p>For publication, compare this draft with the <a href="https://www.prisma-statement.org/prisma-2020-flow-diagram" target="_blank" rel="noopener noreferrer">official PRISMA 2020 flow diagram templates</a>. This page is for new reviews using databases and registers.</p></section>
@@ -82,9 +89,10 @@
     genai: {sources:[{name:'Web of Science',count:197},{name:'Scopus',count:1690},{name:'IEEE Xplore',count:53},{name:'SpringerLink',count:1220}],registerRecords:0,duplicates:956,automationRemoved:0,otherRemoved:0,recordsExcluded:2100,reportsNotRetrieved:0,studiesIncluded:60,reasons:[{label:'Full-text exclusions (calculated from narrative)',count:44}]},
     mt: {sources:[{name:'ScienceDirect',count:317},{name:'Web of Science',count:299},{name:'Scopus',count:251},{name:'SpringerLink',count:458},{name:'IEEE Xplore',count:209}],registerRecords:0,duplicates:108,automationRemoved:0,otherRemoved:655,recordsExcluded:571,reportsNotRetrieved:0,studiesIncluded:69,reasons:[{label:'Excluded at quality assessment',count:131}]},
     learning: {sources:[{name:'IEEE Xplore',count:204},{name:'Scopus',count:325},{name:'Web of Science',count:178},{name:'Google Scholar',count:773},{name:'ScienceDirect',count:1336}],registerRecords:0,duplicates:671,automationRemoved:0,otherRemoved:1474,otherRemovedLabel:'Unexplained gap (inferred, not reported)',recordsExcluded:417,reportsNotRetrieved:0,studiesIncluded:57,reasons:[{label:'Quality score below threshold',count:176},{label:'Not focused on learning-style identification',count:21}]},
-    edge: {sources:[{name:'Web of Science',count:124},{name:'Scopus',count:192},{name:'ScienceDirect',count:879},{name:'ACM Digital Library',count:578},{name:'IEEE Xplore',count:299}],registerRecords:0,duplicates:109,automationRemoved:0,otherRemoved:1180,recordsExcluded:712,reportsNotRetrieved:0,studiesIncluded:71,reasons:[]}
+    edge: {sources:[{name:'Web of Science',count:124},{name:'Scopus',count:192},{name:'ScienceDirect',count:879},{name:'ACM Digital Library',count:578},{name:'IEEE Xplore',count:299}],registerRecords:0,duplicates:109,automationRemoved:0,otherRemoved:1180,recordsExcluded:712,reportsNotRetrieved:0,studiesIncluded:71,reasons:[]},
+    iot: {sources:[{name:'Web of Science',count:178},{name:'IEEE Xplore',count:113},{name:'Scopus',count:258},{name:'ScienceDirect',count:168},{name:'ACM Digital Library',count:338},{name:'SpringerLink',count:183},{name:'Wiley Online Library',count:34}],registerRecords:0,duplicates:0,automationRemoved:0,otherRemoved:582,otherRemovedLabel:'Duplicates, access and title removals (grouped)',recordsExcluded:460,reportsNotRetrieved:0,studiesIncluded:59,reasons:[{label:'Quality score below threshold (figure)',count:152},{label:'Not focused on topic at final check',count:19}]}
   };
-  const titles = {smart:'Smart villages review',genai:'Generative AI review',mt:'Machine translation review',learning:'Learning-style identification review',edge:'Agriculture and edge computing review'};
+  const titles = {smart:'Smart villages review',genai:'Generative AI review',mt:'Machine translation review',learning:'Learning-style identification review',edge:'Agriculture and edge computing review',iot:'IoT security feature-selection review'};
   Object.entries(examples).forEach(([key,data]) => {
     const prefix = `article-${key}`;
     document.getElementById(`article-diagram-${key}`).innerHTML = window.PrismaBuilderExamples.render(data, prefix, titles[key]);

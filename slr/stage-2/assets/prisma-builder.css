@@ -2,8 +2,8 @@
 #loadExample{background:#fff3cc!important;border:2px solid #d59d00!important;color:#513900!important;font-weight:800!important;box-shadow:0 2px 8px rgba(110,78,0,.14)}#loadExample:hover{background:#ffe69a!important}
 .prisma-article-examples{margin:3.25rem 0 2.5rem;padding-top:2.25rem;border-top:1px solid #dfe5ec}
 .prisma-article-examples>.prisma-section-title{max-width:850px;margin-bottom:1.25rem}
-.article-tablist{display:flex;gap:.55rem;overflow-x:auto;padding:.15rem .1rem .8rem;margin-bottom:.35rem;scrollbar-width:thin}
-.article-tab{flex:0 0 auto;border:1px solid #cbd5e1;border-radius:999px;background:#fff;color:#334155;padding:.65rem 1rem;font-family:inherit;font-size:.92rem;font-weight:600;line-height:1.2;cursor:pointer;white-space:nowrap;transition:background .16s ease,color .16s ease,border-color .16s ease}
+.article-tablist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem;padding:.15rem .1rem .8rem;margin-bottom:.35rem}
+.article-tab{min-width:0;min-height:52px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;color:#334155;padding:.7rem .9rem;font-family:inherit;font-size:.9rem;font-weight:650;line-height:1.3;text-align:left;cursor:pointer;white-space:normal;transition:background .16s ease,color .16s ease,border-color .16s ease}
 .article-tab:hover{border-color:#1e5b8c;color:#17466d}
 .article-tab[aria-selected="true"]{background:#17466d;border-color:#17466d;color:#fff}
 .article-tab:focus-visible{outline:3px solid #f2b544;outline-offset:3px}
@@ -19,5 +19,8 @@
 .article-note{margin:1rem 0 0;padding:.85rem 1rem;border-left:4px solid #368064;border-radius:0 8px 8px 0;background:#f0f8f4;color:#304c41;font-size:.9rem;line-height:1.65}
 .article-note-warn{border-left-color:#d69622;background:#fff8e8;color:#59471f}
 .article-examples-footnote{margin:.85rem .15rem 0;color:#687789;font-size:.83rem;line-height:1.55}
-@media(max-width:720px){.article-panel{padding:.85rem}.article-panel-heading{display:block}.article-pdf{display:inline-flex;margin-top:.75rem}.article-diagram svg{min-width:700px}.article-tablist{margin-right:-.85rem;padding-right:.85rem}}
+@media(max-width:720px){.article-panel{padding:.85rem}.article-panel-heading{display:block}.article-panel-heading>div:first-child{min-width:0}.article-pdf{display:inline-flex;margin-top:.75rem}.article-diagram svg{min-width:700px}.article-tablist{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:460px){.article-tablist{grid-template-columns:1fr}.article-tab{min-height:46px}}
 @media print{.article-tablist,.article-pdf{display:none}.article-panel[hidden]{display:none!important}.article-panel:not([hidden]){box-shadow:none;break-inside:avoid}}
+.iot-links{display:flex;flex:0 1 350px;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:.45rem;max-width:350px;min-width:0}.iot-links .article-pdf{margin:0}.iot-links .button.primary{display:inline-flex;align-items:center;justify-content:center;padding:.55rem .75rem;border-radius:8px;text-decoration:none;font-size:.82rem;line-height:1.3;white-space:normal;text-align:center}.doi-link{font-size:.82rem;font-weight:700;color:#7a1730}.iot-source-figure{margin:1rem auto;max-width:760px;border:1px solid #dbe3eb;border-radius:10px;background:#fbfcfd}.iot-source-figure summary{padding:.75rem .9rem;color:#394d60;font-weight:700;cursor:pointer}.iot-source-figure img{display:block;width:min(calc(100% - 1.5rem),640px);height:auto;margin:0 auto 1rem;border:1px solid #e0e4e8;background:white}.article-note-warn{line-height:1.55}
+@media(max-width:720px){.iot-links{margin-top:.75rem;max-width:none;justify-content:flex-start}}
