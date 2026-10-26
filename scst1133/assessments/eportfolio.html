@@ -125,7 +125,11 @@
     .pages-step::before { content: counter(pages-step); position: absolute; top: 18px; left: 17px; display: grid; place-items: center; width: 29px; height: 29px; color: #fff; background: var(--utm); border-radius: 9px; font-weight: 850; }
     .pages-step p { margin: 0; color: var(--muted); font-size: .9rem; }
     .code-example { margin-top: 18px; overflow: hidden; border: 1px solid #273849; border-radius: 14px; background: #172333; }
-    .code-example-header { display: flex; justify-content: space-between; gap: 12px; padding: 10px 15px; color: #d8e2ec; background: #223246; font-size: .78rem; font-weight: 800; }
+    .code-example-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 15px; color: #d8e2ec; background: #223246; font-size: .78rem; font-weight: 800; }
+    .code-example-meta { display: flex; align-items: center; gap: 10px; }
+    .copy-code { min-width: 72px; padding: 6px 11px; border: 1px solid #6e8298; border-radius: 8px; color: #fff; background: #31475e; cursor: pointer; font-size: .76rem; font-weight: 850; }
+    .copy-code:hover, .copy-code:focus-visible { border-color: #f1cf72; background: #405b76; outline: none; }
+    .copy-code.copied { border-color: #7fd0a6; color: #d8ffea; background: #236345; }
     .code-example pre { margin: 0; overflow-x: auto; padding: 20px; color: #edf6ff; font: .84rem/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre; }
     .pages-note { margin-top: 17px; padding: 15px 17px; border-radius: 12px; color: #5f4610; background: #fff7df; }
 
@@ -157,6 +161,8 @@
     .portfolio-example:nth-child(2), .portfolio-example:nth-child(5) { border-top-color: var(--blue); }
     .portfolio-example:nth-child(3) { border-top-color: var(--teal); }
     .portfolio-example:nth-child(4) { border-top-color: var(--gold); }
+    .portfolio-example.featured { grid-column: 1 / -1; border-top-color: var(--gold); background: linear-gradient(135deg, #fffaf0, #fff); }
+    .portfolio-example.featured .portfolio-example-number { color: var(--ink); background: var(--gold); }
     .portfolio-example-head { display: flex; align-items: center; gap: 11px; margin-bottom: 11px; }
     .portfolio-example-number { display: grid; flex: 0 0 auto; place-items: center; width: 31px; height: 31px; color: #fff; background: var(--ink); border-radius: 9px; font-size: .78rem; font-weight: 850; }
     .portfolio-example h3 { margin: 0; }
@@ -210,6 +216,7 @@
       nav.toc { position: static; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 18px; }
       .toc strong { grid-column: 1 / -1; }
       .clo-grid, .journey, .github-guide-grid, .pages-steps, .portfolio-example-grid { grid-template-columns: 1fr; }
+      .portfolio-example.featured { grid-column: auto; }
     }
     @media (max-width: 650px) {
       .topbar { min-height: 64px; padding: 10px 16px; }
@@ -285,7 +292,7 @@
       <div class="summary-item"><span>Course contribution</span><strong>6% of course assessment</strong></div>
       <div class="summary-item"><span>Portfolio score</span><strong>Marked out of 100</strong></div>
       <div class="summary-item"><span>Suggested platform</span><strong>GitHub Pages</strong></div>
-      <div class="summary-item"><span>Final submission</span><strong>URL through e-Learning</strong></div>
+      <div class="summary-item"><span>Final submission</span><strong>URL through Website Class</strong></div>
     </section>
 
     <div class="layout">
@@ -430,8 +437,8 @@ Sources and Acknowledgements</code>
           </div>
 
           <div class="code-example">
-            <div class="code-example-header"><span>Starter code</span><span>index.html</span></div>
-            <pre><code>&lt;!DOCTYPE html&gt;
+            <div class="code-example-header"><span>Starter code</span><span class="code-example-meta"><span>index.html</span><button class="copy-code" type="button" data-copy-target="starterHtml">Copy</button></span></div>
+            <pre><code id="starterHtml">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
@@ -478,8 +485,8 @@ Sources and Acknowledgements</code>
           </div>
 
           <div class="code-example">
-            <div class="code-example-header"><span>Basic styling</span><span>style.css</span></div>
-            <pre><code>* { box-sizing: border-box; }
+            <div class="code-example-header"><span>Basic styling</span><span class="code-example-meta"><span>style.css</span><button class="copy-code" type="button" data-copy-target="starterCss">Copy</button></span></div>
+            <pre><code id="starterCss">* { box-sizing: border-box; }
 body {
   margin: 0;
   color: #1f2937;
@@ -536,7 +543,7 @@ a { color: #8a1538; }</code></pre>
             <li>Use clear headings, consistent navigation and readable text. Add alternative text or captions where useful.</li>
             <li>Do not publish passwords, tokens, private details, restricted datasets or another person's work without permission.</li>
             <li>Update the portfolio throughout the semester so it shows your learning progress.</li>
-            <li>Submit the final portfolio URL through e-Learning by the announced deadline.</li>
+            <li>Submit the final portfolio URL through the Website Class by the announced deadline.</li>
           </ul>
           <div class="submission">
             <div><strong>Your portfolio files remain on your chosen hosting platform.</strong><p>The SCST1133 Student Information page stores and displays only your public portfolio link.</p></div>
@@ -549,9 +556,19 @@ a { color: #8a1538; }</code></pre>
           <h2>Portfolio examples and resources</h2>
           <p class="lead">Explore these published GitHub Pages websites to understand different ways of organising a professional profile, course artifacts and learning reflections. Use them as references for structure and presentation only. Do not copy their content or design directly.</p>
 
-          <div class="portfolio-example-grid" aria-label="Five published student e-portfolio examples">
+          <div class="portfolio-example-grid" aria-label="Six published GitHub Pages portfolio examples">
+            <article class="portfolio-example featured">
+              <div class="portfolio-example-head"><span class="portfolio-example-number">01</span><h3>Dr Shahizan's Portfolio</h3></div>
+              <div class="profile-label">Lecturer and professional portfolio</div>
+              <p>A professional GitHub Pages portfolio presenting an academic profile, teaching, research, publications, projects and professional activities. Use it as a reference for organising a long-term portfolio that grows beyond a single course.</p>
+              <div class="portfolio-example-actions">
+                <a href="https://drshahizan.github.io/" target="_blank" rel="noopener">View Portfolio ↗</a>
+                <a class="secondary" href="https://github.com/drshahizan/drshahizan.github.io" target="_blank" rel="noopener">View Source Code ↗</a>
+              </div>
+            </article>
+
             <article class="portfolio-example">
-              <div class="portfolio-example-head"><span class="portfolio-example-number">01</span><h3>Nurulhanisa</h3></div>
+              <div class="portfolio-example-head"><span class="portfolio-example-number">02</span><h3>Nurulhanisa</h3></div>
               <div class="profile-label">Course artifacts and reflection</div>
               <p>A course-focused portfolio showing posters, an industry talk, an industry visit video, a newsletter, PC maintenance, design thinking work and a dedicated reflection.</p>
               <div class="portfolio-example-actions">
@@ -561,14 +578,14 @@ a { color: #8a1538; }</code></pre>
             </article>
 
             <article class="portfolio-example">
-              <div class="portfolio-example-head"><span class="portfolio-example-number">02</span><h3>Kisyorran Gunasekaran</h3></div>
+              <div class="portfolio-example-head"><span class="portfolio-example-number">03</span><h3>Kisyorran Gunasekaran</h3></div>
               <div class="profile-label">Organised learning evidence</div>
               <p>A concise portfolio that organises PC assembly, industry talks, industry visits and a design thinking project as separate learning artifacts.</p>
               <div class="portfolio-example-actions"><a href="https://kisyorrann.github.io/E-Portfolio/index.html" target="_blank" rel="noopener">View E-Portfolio ↗</a></div>
             </article>
 
             <article class="portfolio-example">
-              <div class="portfolio-example-head"><span class="portfolio-example-number">03</span><h3>Lee Lai Queen</h3></div>
+              <div class="portfolio-example-head"><span class="portfolio-example-number">04</span><h3>Lee Lai Queen</h3></div>
               <div class="profile-label">Activity-based learning journey</div>
               <p>A simple project-oriented portfolio covering industry talks, a UTM Digital visit, PC assembly and a design thinking application project.</p>
               <div class="portfolio-example-actions">
@@ -578,7 +595,7 @@ a { color: #8a1538; }</code></pre>
             </article>
 
             <article class="portfolio-example">
-              <div class="portfolio-example-head"><span class="portfolio-example-number">04</span><h3>Leong Jia Ling</h3></div>
+              <div class="portfolio-example-head"><span class="portfolio-example-number">05</span><h3>Leong Jia Ling</h3></div>
               <div class="profile-label">Professional and academic profile</div>
               <p>A Data Engineering student portfolio combining a professional introduction, education, skills, achievements, leadership and an organised record of university courses.</p>
               <div class="portfolio-example-actions">
@@ -588,7 +605,7 @@ a { color: #8a1538; }</code></pre>
             </article>
 
             <article class="portfolio-example">
-              <div class="portfolio-example-head"><span class="portfolio-example-number">05</span><h3>Puteri Anis Annisa</h3></div>
+              <div class="portfolio-example-head"><span class="portfolio-example-number">06</span><h3>Puteri Anis Annisa</h3></div>
               <div class="profile-label">Data Engineering profile and projects</div>
               <p>A Data Engineering student portfolio presenting education, leadership, technical and soft skills, competition achievements and a project with an explanation of personal contribution.</p>
               <div class="portfolio-example-actions"><a href="https://puterianisannisa.github.io/personal-website/" target="_blank" rel="noopener">View E-Portfolio ↗</a></div>
@@ -639,7 +656,7 @@ a { color: #8a1538; }</code></pre>
             <label class="check-item"><input type="checkbox"><span>My selected work is labelled and connected to course learning.</span></label>
             <label class="check-item"><input type="checkbox"><span>My reflections explain what I learned and what I would improve.</span></label>
             <label class="check-item"><input type="checkbox"><span>My sources and tool use are acknowledged, and private information is removed.</span></label>
-            <label class="check-item"><input type="checkbox"><span>I submitted the final URL through e-Learning.</span></label>
+            <label class="check-item"><input type="checkbox"><span>I submitted the final URL through the Website Class.</span></label>
           </div>
           <div class="checklist-progress" aria-live="polite">
             <div class="progress"><span id="progressBar"></span></div>
@@ -672,6 +689,37 @@ a { color: #8a1538; }</code></pre>
         localStorage.setItem(key, JSON.stringify(states));
       }
       document.getElementById('printButton').addEventListener('click', () => window.print());
+      document.querySelectorAll('.copy-code').forEach(button => {
+        button.addEventListener('click', async () => {
+          const code = document.getElementById(button.dataset.copyTarget);
+          if (!code) return;
+          const originalLabel = button.textContent;
+          try {
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(code.textContent);
+            } else {
+              const area = document.createElement('textarea');
+              area.value = code.textContent;
+              area.setAttribute('readonly', '');
+              area.style.position = 'fixed';
+              area.style.opacity = '0';
+              document.body.appendChild(area);
+              area.select();
+              document.execCommand('copy');
+              area.remove();
+            }
+            button.textContent = 'Copied!';
+            button.classList.add('copied');
+            window.setTimeout(() => {
+              button.textContent = originalLabel;
+              button.classList.remove('copied');
+            }, 1800);
+          } catch (error) {
+            button.textContent = 'Try again';
+            window.setTimeout(() => { button.textContent = originalLabel; }, 1800);
+          }
+        });
+      });
       update();
     })();
   </script>
