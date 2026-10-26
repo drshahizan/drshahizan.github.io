@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SCST1133 Data Engineering Ecosystem e-portfolio assignment guidelines, resources, rubric and submission checklist.">
+  <title>SCST1133 Data Engineering E-Portfolio Assignment</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    :root {
+      --ink: #182333;
+      --muted: #5d6876;
+      --paper: #ffffff;
+      --canvas: #f4f7fa;
+      --line: #dce3ea;
+      --utm: #8a1538;
+      --utm-dark: #64102a;
+      --gold: #d6a437;
+      --blue: #1671a6;
+      --teal: #147d78;
+      --shadow: 0 16px 42px rgba(28, 42, 58, .09);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--canvas);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: var(--utm); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: var(--utm-dark); }
+    button, input { font: inherit; }
+    .skip-link { position: fixed; left: 16px; top: -60px; z-index: 20; padding: 10px 14px; color: #fff; background: var(--ink); border-radius: 8px; }
+    .skip-link:focus { top: 12px; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      min-height: 72px;
+      padding: 12px max(24px, calc((100vw - 1180px) / 2));
+      background: rgba(255, 255, 255, .96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
+    .brand-mark { display: grid; place-items: center; width: 44px; height: 44px; color: #fff; background: var(--utm); border-radius: 13px; font-weight: 800; letter-spacing: .03em; }
+    .brand strong, .brand small { display: block; }
+    .brand strong { font-size: .95rem; }
+    .brand small { color: var(--muted); font-size: .75rem; }
+    .top-actions { display: flex; gap: 9px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 40px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 10px; color: var(--ink); background: #fff; text-decoration: none; cursor: pointer; font-weight: 750; }
+    .button:hover { border-color: var(--utm); color: var(--utm); }
+    .button.primary { border-color: var(--utm); color: #fff; background: var(--utm); }
+    .button.primary:hover { background: var(--utm-dark); }
+
+    .hero { position: relative; overflow: hidden; color: #fff; background: linear-gradient(130deg, #65102b 0%, #8a1538 52%, #aa3654 100%); }
+    .hero::after { content: ""; position: absolute; right: -90px; bottom: -170px; width: 480px; height: 480px; border: 80px solid rgba(255,255,255,.08); border-radius: 50%; }
+    .hero-inner { position: relative; z-index: 1; display: block; max-width: 1180px; margin: auto; padding: 54px 24px 76px; }
+    .eyebrow { margin: 0 0 13px; color: #f5d889; font-size: .78rem; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { max-width: 820px; margin: 0; font-size: clamp(2.35rem, 6vw, 4.7rem); line-height: 1.02; letter-spacing: -.05em; }
+    .hero-copy { max-width: 790px; margin: 18px 0 0; color: #f6e9ed; font-size: clamp(1rem, 2vw, 1.17rem); }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+    .hero-tag { padding: 7px 11px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; background: rgba(255,255,255,.1); font-size: .82rem; font-weight: 720; }
+
+    .page { max-width: 1180px; margin: -42px auto 0; padding: 0 24px 58px; position: relative; z-index: 2; }
+    .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .summary-item { min-height: 105px; padding: 19px 22px; border-right: 1px solid var(--line); }
+    .summary-item:last-child { border-right: 0; }
+    .summary-item span { display: block; color: var(--muted); font-size: .76rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+    .summary-item strong { display: block; margin-top: 8px; color: var(--utm); font-size: 1.24rem; line-height: 1.25; }
+
+    .layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 22px; margin-top: 24px; }
+    nav.toc { position: sticky; top: 96px; align-self: start; display: block; width: auto; margin: 0; padding: 21px; background: #fff; border: 1px solid var(--line); border-radius: 16px; }
+    .toc strong { display: block; margin-bottom: 11px; color: var(--utm); font-size: .76rem; letter-spacing: .12em; text-transform: uppercase; }
+    .toc a { display: block; padding: 7px 0; color: var(--muted); text-decoration: none; font-size: .88rem; font-weight: 650; }
+    .toc a:hover { color: var(--utm); }
+    .content { min-width: 0; }
+    .section { scroll-margin-top: 96px; margin-bottom: 20px; padding: clamp(22px, 3vw, 32px); background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 8px 24px rgba(28,42,58,.045); }
+    .section-number { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 30px; padding: 0 9px; border-radius: 8px; color: #fff; background: var(--utm); font-size: .76rem; font-weight: 850; letter-spacing: .06em; }
+    h2 { margin: 12px 0 9px; font-size: clamp(1.55rem, 3vw, 2.2rem); line-height: 1.16; letter-spacing: -.03em; }
+    h3 { margin: 0 0 7px; font-size: 1.08rem; line-height: 1.35; }
+    p { margin: 0 0 14px; }
+    .lead { max-width: 760px; color: var(--muted); }
+    .clean-list { padding-left: 1.2rem; }
+    .clean-list li { margin: 9px 0; padding-left: 5px; }
+
+    .clo-grid { display: grid; grid-template-columns: repeat(3, 1fr); align-items: stretch; gap: 14px; margin-top: 22px; }
+    .clo { display: block; height: 100%; padding: 19px; border: 1px solid var(--line); border-top: 4px solid var(--utm); border-radius: 14px; background: #fbfcfd; }
+    .clo:nth-child(2) { border-top-color: var(--blue); }
+    .clo:nth-child(3) { border-top-color: var(--teal); }
+    .clo-grid .clo:last-child { border: 1px solid var(--line); border-top: 4px solid var(--teal); }
+    .clo b { display: block; margin-bottom: 8px; color: var(--utm); font-size: .78rem; letter-spacing: .08em; }
+    .clo p { margin: 0; color: var(--ink); font-size: .94rem; line-height: 1.55; }
+    .clo:nth-child(2) b { color: var(--blue); }
+    .clo:nth-child(3) b { color: var(--teal); }
+
+    .requirement-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 24px; }
+    .requirement { position: relative; padding: 23px 23px 21px 61px; border: 1px solid var(--line); border-radius: 15px; background: #fff; }
+    .requirement .letter { position: absolute; top: 21px; left: 20px; display: grid; place-items: center; width: 29px; height: 29px; color: #fff; background: var(--utm); border-radius: 9px; font-weight: 850; }
+    .requirement p { margin: 0; color: var(--muted); font-size: .92rem; }
+
+    .reflection-steps { display: grid; gap: 0; margin: 23px 0 0; counter-reset: reflection; }
+    .reflection-step { position: relative; min-height: 65px; padding: 9px 0 18px 58px; counter-increment: reflection; }
+    .reflection-step::before { content: counter(reflection); position: absolute; left: 0; top: 2px; display: grid; place-items: center; width: 38px; height: 38px; color: var(--utm); background: #f6e9ee; border-radius: 11px; font-weight: 850; }
+    .reflection-step:not(:last-child)::after { content: ""; position: absolute; left: 19px; top: 44px; bottom: 2px; width: 1px; background: var(--line); }
+
+    .example { margin-top: 25px; padding: 24px; border-left: 5px solid var(--gold); border-radius: 0 14px 14px 0; background: #fffaf0; }
+    .example-label { display: block; margin-bottom: 10px; color: #765310; font-size: .76rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .artifact-line { margin-bottom: 15px; font-weight: 750; }
+    .muted { color: var(--muted); }
+
+    .journey { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; align-items: stretch; gap: 12px; margin-top: 20px; }
+    .journey div { display: flex; min-width: 0; height: 100%; padding: 17px; flex-direction: column; justify-content: center; border-radius: 13px; color: #fff; background: var(--ink); }
+    .journey div:nth-child(2), .journey div:nth-child(5) { background: var(--utm); }
+    .journey div:nth-child(3), .journey div:nth-child(6) { background: var(--blue); }
+    .journey strong { display: block; margin-bottom: 5px; font-size: .9rem; }
+    .journey span { display: block; min-width: 0; margin: 0; padding: 0; color: rgba(255,255,255,.86); background: transparent; border: 0; border-radius: 0; font-size: .8rem; font-weight: 500; line-height: 1.45; }
+
+    .resource-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; margin-top: 22px; }
+    .resource { display: flex; justify-content: space-between; gap: 16px; padding: 18px; border: 1px solid var(--line); border-radius: 13px; color: var(--ink); text-decoration: none; }
+    .resource:hover { border-color: var(--utm); transform: translateY(-2px); }
+    .resource b { display: block; }
+    .resource small { color: var(--muted); }
+    .resource .arrow { color: var(--utm); font-weight: 900; }
+
+    .table-scroll { overflow-x: auto; margin-top: 22px; border: 1px solid var(--line); border-radius: 14px; }
+    table { width: 100%; min-width: 780px; border-collapse: collapse; background: #fff; }
+    th, td { padding: 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: #fff; background: var(--ink); font-size: .82rem; }
+    th:nth-child(2), td:nth-child(2) { width: 72px; text-align: center; font-weight: 800; }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:nth-child(even) { background: #f8fafb; }
+    td:first-child { font-weight: 760; }
+    .table-scroll td:last-child { color: inherit; font-weight: 400; }
+    .formula { margin-top: 18px; padding: 18px 20px; border-radius: 12px; background: #eef4f8; }
+    .formula strong { color: var(--blue); }
+
+    .checklist { display: grid; gap: 10px; margin-top: 21px; }
+    .check-item { display: flex; gap: 13px; align-items: flex-start; padding: 15px 16px; border: 1px solid var(--line); border-radius: 12px; cursor: pointer; }
+    .check-item:hover { border-color: #bdc8d3; }
+    .check-item input { flex: 0 0 auto; width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--utm); }
+    .check-item:has(input:checked) { border-color: #9cc9b1; background: #f2faf5; }
+    .check-item:has(input:checked) span { color: #347052; text-decoration: line-through; }
+    .progress { height: 9px; margin-top: 18px; overflow: hidden; background: #e8edf1; border-radius: 999px; }
+    .progress span { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--utm), var(--gold)); transition: width .25s ease; }
+    .progress-copy { margin-top: 8px; color: var(--muted); font-size: .84rem; font-weight: 700; }
+
+    .submission { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-top: 25px; padding: 24px; color: #fff; background: linear-gradient(130deg, var(--ink), #31465e); border-radius: 16px; }
+    .submission p { margin: 4px 0 0; color: #dbe4ec; }
+    .submission .button { flex: 0 0 auto; border-color: var(--gold); color: var(--ink); background: var(--gold); }
+
+    footer { padding: 34px 24px; color: #cfd8e2; background: #111a25; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 24px; max-width: 1180px; margin: auto; }
+    footer strong { color: #fff; }
+    footer p { margin: 5px 0 0; font-size: .84rem; }
+    footer a { color: #f4d275; }
+
+    @media (max-width: 900px) {
+      .summary-grid { grid-template-columns: repeat(2, 1fr); }
+      .summary-item:nth-child(2) { border-right: 0; }
+      .summary-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .layout { grid-template-columns: 1fr; }
+      nav.toc { position: static; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 18px; }
+      .toc strong { grid-column: 1 / -1; }
+      .clo-grid, .journey { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 650px) {
+      .topbar { min-height: 64px; padding: 10px 16px; }
+      .brand small { display: none; }
+      .top-actions .home-label, .top-actions .print-label { display: none; }
+      .hero-inner { padding: 58px 19px 100px; }
+      .page { padding: 0 14px 54px; }
+      .summary-grid, .requirement-grid, .resource-grid { grid-template-columns: 1fr; }
+      .summary-item { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+      .summary-item:last-child { border-bottom: 0; }
+      .toc { grid-template-columns: 1fr; }
+      .section { padding: 24px 19px; }
+      .submission, .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    /* Match the shared SCST1133 website shell */
+    .site-header{background:#fff;border-bottom:4px solid var(--gold);position:sticky;top:0;z-index:20;box-shadow:0 2px 14px #17203310}
+    .site-header .header-inner{max-width:1200px;margin:auto;min-height:76px;padding:0 20px;display:flex;align-items:center;gap:28px}
+    .site-header .brand{text-decoration:none;display:flex;align-items:center;gap:12px;color:inherit}
+    .site-header .brand-mark{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#7b1734;border:3px solid #d8ad36;color:#fff;font-weight:900}
+    .site-header .brand-text{display:grid;line-height:1.15}.site-header .brand-text b{color:#7b1734;font-size:1.05rem}.site-header .brand-text span{font-size:.78rem;color:#667085}
+    .site-header nav{margin-left:auto;display:flex;align-items:center;gap:5px}.site-header nav a{padding:9px 10px;border-radius:8px;text-decoration:none;font-size:.88rem;font-weight:700;color:#4b5563}.site-header nav a:hover,.site-header nav a.active{background:#f8eaf0;color:#7b1734}
+    .site-header .menu{display:none;margin-left:auto;border:0;background:#7b1734;color:#fff;border-radius:8px;padding:9px 12px;font-weight:800}
+    .hero-print{cursor:pointer;color:#fff}.site-footer{padding:0;background:#2b1620;color:#eadfe3}.site-footer .footer-inner{max-width:1200px;margin:auto;padding:34px 20px;display:flex;justify-content:space-between;gap:25px;align-items:center}.site-footer p{margin:0;font-size:.86rem}.site-footer .visitor-badge img{vertical-align:middle;margin-left:12px}
+    @media(max-width:930px){.site-header .menu{display:block}.site-header nav{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;padding:12px 20px;border-bottom:1px solid #dde2e7;flex-direction:column;align-items:stretch}.site-header nav.open{display:flex}}
+    @media(max-width:620px){.site-header .brand-text span{display:none}.site-header .header-inner{padding-left:14px;padding-right:14px}.site-footer .footer-inner{align-items:flex-start;flex-direction:column}}
+
+    @media print {
+      @page { size: A4; margin: 14mm; }
+      body { background: #fff; font-size: 10.5pt; }
+      .site-header, .toc, .top-actions, .hero-print, .checklist-progress, .submission .button { display: none !important; }
+      .hero { color: #000; background: #fff; border-bottom: 2px solid #8a1538; }
+      .hero::after { display: none; }
+      .hero-inner { padding: 0 0 18px; }
+      .eyebrow, .hero-copy { color: #333; }
+      .hero-tag { color: #000; border-color: #aaa; background: #fff; }
+      .page { max-width: none; margin: 18px 0 0; padding: 0; }
+      .summary-grid, .section { box-shadow: none; break-inside: avoid; }
+      .layout { display: block; }
+      .section { margin-bottom: 14px; padding: 18px; }
+      .resource { color: #000; }
+      footer { padding: 18px 0 0; color: #333; background: #fff; border-top: 1px solid #bbb; }
+      footer strong { color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to assignment content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">FC</span><span class="brand-text"><b>SCST1133</b><span>Data Engineering Ecosystem</span></span></a>
+      <button class="menu" type="button">Menu</button>
+      <nav><a href="../index.html">Home</a><a href="../course/index.html">Course</a><a href="../topics/index.html">Topics</a><a class="active" href="index.html">Assessments</a><a href="../resources/index.html">Resources</a><a href="../tools/index.html">Tools</a><a href="../students/index.html">Students</a><a href="../announcements/index.html">Announcements</a></nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Individual Coursework · Semester 1 · Session 2026/2027</p>
+      <h1>Data Engineering E-Portfolio</h1>
+      <p class="hero-copy">Create a public, well-organised portfolio that demonstrates your learning progress—from computing and data foundations to responsible data engineering practice.</p>
+      <div class="hero-tags" aria-label="Assignment highlights">
+        <span class="hero-tag">Individual Project</span>
+        <span class="hero-tag">6% Course Contribution</span>
+        <span class="hero-tag">100-Mark Rubric</span>
+        <span class="hero-tag">Public Portfolio URL</span>
+        <button class="hero-tag hero-print" id="printButton" type="button">Print or Save PDF</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="page" id="main">
+    <section class="summary-grid" aria-label="Assignment summary">
+      <div class="summary-item"><span>Course contribution</span><strong>6% of course assessment</strong></div>
+      <div class="summary-item"><span>Portfolio score</span><strong>Marked out of 100</strong></div>
+      <div class="summary-item"><span>Suggested platform</span><strong>GitHub Pages</strong></div>
+      <div class="summary-item"><span>Final submission</span><strong>URL through e-Learning</strong></div>
+    </section>
+
+    <div class="layout">
+      <nav class="toc" aria-label="Page contents">
+        <strong>On this page</strong>
+        <a href="#purpose">Purpose</a>
+        <a href="#outcomes">Learning outcomes</a>
+        <a href="#sections">Required sections</a>
+        <a href="#reflection">Reflection guide</a>
+        <a href="#requirements">Requirements</a>
+        <a href="#resources">Examples and resources</a>
+        <a href="#rubric">Assessment rubric</a>
+        <a href="#checklist">Before you submit</a>
+      </nav>
+
+      <div class="content">
+        <section class="section" id="purpose">
+          <span class="section-number">01</span>
+          <h2>Purpose of the assignment</h2>
+          <p class="lead">Your e-portfolio should use selected work, evidence and reflection to explain how your understanding develops throughout SCST1133. It should function as both an assessment submission and a professional record of your learning.</p>
+          <div class="journey" aria-label="Course learning journey">
+            <div><strong>Foundations</strong><span>Computing concepts and digital tools</span></div>
+            <div><strong>Landscape</strong><span>Data engineering and the data landscape</span></div>
+            <div><strong>Ecosystem</strong><span>Industry roles, components and collaboration</span></div>
+            <div><strong>Lifecycle</strong><span>Data acquisition and engineering workflow</span></div>
+            <div><strong>Responsibility</strong><span>Management, governance and ethics</span></div>
+            <div><strong>Innovation</strong><span>Emerging areas and design thinking</span></div>
+          </div>
+        </section>
+
+        <section class="section" id="outcomes">
+          <span class="section-number">02</span>
+          <h2>Learning outcomes</h2>
+          <p class="lead">Your portfolio should provide clear evidence related to the three course learning outcomes.</p>
+          <div class="clo-grid">
+            <article class="clo"><b>CLO1 · EXPLAIN</b><p>Explain basic information technology concepts and their role in data-driven systems using systems thinking.</p></article>
+            <article class="clo"><b>CLO2 · CONSTRUCT</b><p>Construct a basic data engineering lifecycle using appropriate technologies, practices and industry standards.</p></article>
+            <article class="clo"><b>CLO3 · DEVELOP</b><p>Develop a prototype that addresses the data engineering ecosystem and lifecycle while demonstrating ethical principles and professional responsibility.</p></article>
+          </div>
+        </section>
+
+        <section class="section" id="sections">
+          <span class="section-number">03</span>
+          <h2>Required portfolio sections</h2>
+          <p class="lead">Include all six sections. You may organise them as separate pages or as clearly labelled sections within one website.</p>
+          <div class="requirement-grid">
+            <article class="requirement"><span class="letter">A</span><h3>Home and professional profile</h3><p>Introduce yourself as a computing student interested in data engineering. Include your programme, relevant skills or interests and GitHub profile. LinkedIn is optional. Display the official UTM Faculty of Computing logo without changing its proportions or colours. Do not publish private contact details.</p></article>
+            <article class="requirement"><span class="letter">B</span><h3>Learning journey</h3><p>Organise your work around the SCST1133 topics or course themes. Show connections between foundations, tools, the data landscape, industry, lifecycle, acquisition, governance, ethics and emerging areas.</p></article>
+            <article class="requirement"><span class="letter">C</span><h3>Selected work and evidence</h3><p>Present substantial artifacts from course activities and assessments. Examples include a Figma prototype, industry talk or visit work, lifecycle video, data acquisition work and project presentation materials.</p></article>
+            <article class="requirement"><span class="letter">D</span><h3>Reflection on artifacts</h3><p>For every major artifact, explain what you learned, a challenge or decision, its connection to a course concept or CLO and what you would improve. Do not merely list the steps completed.</p></article>
+            <article class="requirement"><span class="letter">E</span><h3>Course learning summary</h3><p>Summarise the knowledge and skills you gained. Explain how the course changed your understanding of data engineering and identify areas you want to develop further.</p></article>
+            <article class="requirement"><span class="letter">F</span><h3>Sources and acknowledgements</h3><p>Credit data, images, code, text, templates and other materials. State when and how digital or AI tools supported your work, following the course instructions.</p></article>
+          </div>
+        </section>
+
+        <section class="section" id="reflection">
+          <span class="section-number">04</span>
+          <h2>Reflection guide</h2>
+          <p class="lead">Use these questions to shape a concise, connected reflection. You do not need to present your response as a numbered list.</p>
+          <div class="reflection-steps">
+            <div class="reflection-step"><strong>Contribution and purpose</strong><br><span class="muted">What did I create or contribute, and what was its purpose?</span></div>
+            <div class="reflection-step"><strong>Learning and application</strong><br><span class="muted">What data engineering concept, tool or practice did I learn or apply?</span></div>
+            <div class="reflection-step"><strong>Challenge and decision</strong><br><span class="muted">What challenge or decision affected my work, and how did I respond?</span></div>
+            <div class="reflection-step"><strong>CLO evidence</strong><br><span class="muted">How does this work demonstrate one or more course learning outcomes?</span></div>
+            <div class="reflection-step"><strong>Next improvement</strong><br><span class="muted">What would I change, improve or investigate next?</span></div>
+          </div>
+          <div class="example">
+            <span class="example-label">Example artifact entry</span>
+            <p class="artifact-line">Data Engineering Lifecycle Video · CLO2 · Video link · Explanation · Reflection · Source credits</p>
+            <p><strong>Example reflection:</strong> Preparing the lifecycle video helped me understand how data acquisition, storage and transformation connect. I found it challenging to explain where validation should take place. If I revised the video, I would add a clear example showing how a data quality check affects the next stage.</p>
+            <p class="muted"><strong>Important:</strong> Use this only as a model for structure. Write your own reflection.</p>
+          </div>
+        </section>
+
+        <section class="section" id="requirements">
+          <span class="section-number">05</span>
+          <h2>Quality and submission requirements</h2>
+          <ul class="clean-list">
+            <li>Use your own words and submit original work. Acknowledge any text, code or design created by others.</li>
+            <li>Keep the portfolio public and accessible to the assessor. Test every link and media item before submission.</li>
+            <li>Host the portfolio on GitHub Pages or another approved platform.</li>
+            <li>Register or update your public portfolio link using <strong>Update Profile</strong> on the SCST1133 Student Information page.</li>
+            <li>Use clear headings, consistent navigation and readable text. Add alternative text or captions where useful.</li>
+            <li>Do not publish passwords, tokens, private details, restricted datasets or another person's work without permission.</li>
+            <li>Update the portfolio throughout the semester so it shows your learning progress.</li>
+            <li>Submit the final portfolio URL through e-Learning by the announced deadline.</li>
+          </ul>
+          <div class="submission">
+            <div><strong>Your portfolio files remain on your chosen hosting platform.</strong><p>The SCST1133 Student Information page stores and displays only your public portfolio link.</p></div>
+            <a class="button" href="../students/update.html">Update Profile →</a>
+          </div>
+        </section>
+
+        <section class="section" id="resources">
+          <span class="section-number">06</span>
+          <h2>Portfolio examples and resources</h2>
+          <p class="lead">Use these resources to understand the expected format and quality. They are learning references, not material to copy.</p>
+          <div class="resource-grid">
+            <a class="resource" href="https://docs.github.com/en/account-and-profile/tutorials/personalize-your-profile" target="_blank" rel="noopener"><span><b>GitHub Profile Guide</b><small>Build and personalise your profile</small></span><span class="arrow">↗</span></a>
+            <a class="resource" href="https://docs.github.com/en/pages/quickstart" target="_blank" rel="noopener"><span><b>GitHub Pages Quickstart</b><small>Publish your portfolio website</small></span><span class="arrow">↗</span></a>
+            <a class="resource" href="https://github.com/topics/e-portfolio" target="_blank" rel="noopener"><span><b>GitHub E-Portfolio Examples</b><small>Explore public repository examples</small></span><span class="arrow">↗</span></a>
+            <a class="resource" href="../students/index.html"><span><b>Student Information Directory</b><small>View registered student portfolio links</small></span><span class="arrow">→</span></a>
+            <a class="resource" href="../students/update.html"><span><b>Update Your Profile Links</b><small>Register or revise your public URL</small></span><span class="arrow">→</span></a>
+            <a class="resource" href="index.html"><span><b>SCST1133 Assessment Page</b><small>Refer to current assessment information</small></span><span class="arrow">→</span></a>
+          </div>
+        </section>
+
+        <section class="section" id="rubric">
+          <span class="section-number">07</span>
+          <h2>Assessment rubric</h2>
+          <p class="lead">The portfolio is scored out of 100 marks. Marks are awarded according to how closely your work meets each descriptor.</p>
+          <div class="table-scroll" role="region" aria-label="Assessment rubric" tabindex="0">
+            <table>
+              <thead><tr><th>Criterion</th><th>Marks</th><th>Meets the criterion strongly</th><th>Needs improvement</th></tr></thead>
+              <tbody>
+                <tr><td>Course evidence and completeness</td><td>25</td><td>Selected artifacts are substantial, clearly explained and cover the course learning journey.</td><td>Evidence is limited, unclear, incomplete or weakly connected to SCST1133.</td></tr>
+                <tr><td>Reflection and analysis</td><td>25</td><td>Reflections explain learning, decisions and challenges, and identify specific improvements.</td><td>Reflections are missing, mostly descriptive or provide little analysis of learning.</td></tr>
+                <tr><td>Understanding and CLO alignment</td><td>20</td><td>Explanations are accurate and explicitly connect work to data engineering concepts and relevant CLOs.</td><td>Explanations include inaccuracies or do not show how work relates to course concepts or CLOs.</td></tr>
+                <tr><td>Organisation and navigation</td><td>10</td><td>Sections are easy to find, links work and content has a logical flow.</td><td>Navigation is confusing, links are broken or the structure makes evidence difficult to locate.</td></tr>
+                <tr><td>Visual and communication quality</td><td>10</td><td>The design is readable, consistent and suitable for a professional learning portfolio.</td><td>The design or writing makes the portfolio difficult to read or understand.</td></tr>
+                <tr><td>Professionalism and academic integrity</td><td>10</td><td>Work is original, sources and tool use are acknowledged, and privacy is protected.</td><td>Sources or tool use are not acknowledged, copied work appears, or privacy is not handled responsibly.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="formula"><strong>Course-weight conversion:</strong> Portfolio mark ÷ 100 × 6. For example, 80/100 contributes 4.8 percentage points to the course total.</p>
+        </section>
+
+        <section class="section" id="checklist">
+          <span class="section-number">08</span>
+          <h2>Before you submit</h2>
+          <p class="lead">Complete this final check before submitting your URL. Your selections are saved only in this browser.</p>
+          <div class="checklist" id="submissionChecklist">
+            <label class="check-item"><input type="checkbox"><span>My portfolio URL opens without requesting access.</span></label>
+            <label class="check-item"><input type="checkbox"><span>I registered my public portfolio URL through Update Profile on the SCST1133 Student Information page.</span></label>
+            <label class="check-item"><input type="checkbox"><span>My selected work is labelled and connected to course learning.</span></label>
+            <label class="check-item"><input type="checkbox"><span>My reflections explain what I learned and what I would improve.</span></label>
+            <label class="check-item"><input type="checkbox"><span>My sources and tool use are acknowledged, and private information is removed.</span></label>
+            <label class="check-item"><input type="checkbox"><span>I submitted the final URL through e-Learning.</span></label>
+          </div>
+          <div class="checklist-progress" aria-live="polite">
+            <div class="progress"><span id="progressBar"></span></div>
+            <p class="progress-copy" id="progressCopy">0 of 6 checks completed</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><div><b>SCST1133 · Data Engineering Ecosystem</b><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><div><p>© 2026 Dr MSO · Universiti Teknologi Malaysia.<a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Site visitors"></a></p></div></div></footer>
+
+  <script src="../assets/app.js"></script>
+  <script>
+    (() => {
+      const key = 'scst1133-eportfolio-checklist';
+      const boxes = [...document.querySelectorAll('#submissionChecklist input')];
+      const bar = document.getElementById('progressBar');
+      const copy = document.getElementById('progressCopy');
+      const saved = JSON.parse(localStorage.getItem(key) || '[]');
+      boxes.forEach((box, index) => {
+        box.checked = Boolean(saved[index]);
+        box.addEventListener('change', update);
+      });
+      function update() {
+        const states = boxes.map(box => box.checked);
+        const complete = states.filter(Boolean).length;
+        bar.style.width = `${complete / boxes.length * 100}%`;
+        copy.textContent = complete === boxes.length ? 'All checks completed. Your portfolio is ready for final submission.' : `${complete} of ${boxes.length} checks completed`;
+        localStorage.setItem(key, JSON.stringify(states));
+      }
+      document.getElementById('printButton').addEventListener('click', () => window.print());
+      update();
+    })();
+  </script>
+</body>
+</html>
