@@ -108,6 +108,27 @@
     .requirement .letter { position: absolute; top: 21px; left: 20px; display: grid; place-items: center; width: 29px; height: 29px; color: #fff; background: var(--utm); border-radius: 9px; font-weight: 850; }
     .requirement p { margin: 0; color: var(--muted); font-size: .92rem; }
 
+    .github-guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); align-items: stretch; gap: 14px; margin-top: 22px; }
+    .github-guide-card { height: 100%; padding: 20px; border: 1px solid var(--line); border-radius: 14px; background: #fbfcfd; }
+    .github-guide-card:nth-child(1) { border-top: 4px solid var(--utm); }
+    .github-guide-card:nth-child(2) { border-top: 4px solid var(--blue); }
+    .github-guide-card:nth-child(3) { border-top: 4px solid var(--teal); }
+    .github-guide-card h3 { margin-bottom: 10px; }
+    .github-guide-card ul { margin: 0; padding-left: 1.15rem; }
+    .github-guide-card li { margin: 7px 0; color: var(--muted); font-size: .9rem; }
+    .github-structure { margin-top: 18px; padding: 18px 20px; border-radius: 12px; background: #eef4f8; }
+    .github-structure code { display: block; overflow-x: auto; color: #24465b; font-size: .85rem; line-height: 1.65; white-space: pre; }
+
+    .pages-explainer { margin-top: 20px; padding: 20px; border-left: 5px solid var(--blue); border-radius: 0 14px 14px 0; background: #f2f8fc; }
+    .pages-steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; margin-top: 20px; counter-reset: pages-step; }
+    .pages-step { position: relative; min-height: 112px; padding: 19px 19px 17px 58px; border: 1px solid var(--line); border-radius: 14px; background: #fff; counter-increment: pages-step; }
+    .pages-step::before { content: counter(pages-step); position: absolute; top: 18px; left: 17px; display: grid; place-items: center; width: 29px; height: 29px; color: #fff; background: var(--utm); border-radius: 9px; font-weight: 850; }
+    .pages-step p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .code-example { margin-top: 18px; overflow: hidden; border: 1px solid #273849; border-radius: 14px; background: #172333; }
+    .code-example-header { display: flex; justify-content: space-between; gap: 12px; padding: 10px 15px; color: #d8e2ec; background: #223246; font-size: .78rem; font-weight: 800; }
+    .code-example pre { margin: 0; overflow-x: auto; padding: 20px; color: #edf6ff; font: .84rem/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre; }
+    .pages-note { margin-top: 17px; padding: 15px 17px; border-radius: 12px; color: #5f4610; background: #fff7df; }
+
     .reflection-steps { display: grid; gap: 0; margin: 23px 0 0; counter-reset: reflection; }
     .reflection-step { position: relative; min-height: 65px; padding: 9px 0 18px 58px; counter-increment: reflection; }
     .reflection-step::before { content: counter(reflection); position: absolute; left: 0; top: 2px; display: grid; place-items: center; width: 38px; height: 38px; color: var(--utm); background: #f6e9ee; border-radius: 11px; font-weight: 850; }
@@ -131,6 +152,23 @@
     .resource b { display: block; }
     .resource small { color: var(--muted); }
     .resource .arrow { color: var(--utm); font-weight: 900; }
+    .portfolio-example-grid { display: grid; grid-template-columns: repeat(2, 1fr); align-items: stretch; gap: 14px; margin-top: 22px; }
+    .portfolio-example { display: flex; min-width: 0; height: 100%; padding: 21px; flex-direction: column; border: 1px solid var(--line); border-top: 4px solid var(--utm); border-radius: 15px; background: #fbfcfd; }
+    .portfolio-example:nth-child(2), .portfolio-example:nth-child(5) { border-top-color: var(--blue); }
+    .portfolio-example:nth-child(3) { border-top-color: var(--teal); }
+    .portfolio-example:nth-child(4) { border-top-color: var(--gold); }
+    .portfolio-example-head { display: flex; align-items: center; gap: 11px; margin-bottom: 11px; }
+    .portfolio-example-number { display: grid; flex: 0 0 auto; place-items: center; width: 31px; height: 31px; color: #fff; background: var(--ink); border-radius: 9px; font-size: .78rem; font-weight: 850; }
+    .portfolio-example h3 { margin: 0; }
+    .portfolio-example .profile-label { margin: -2px 0 10px; color: var(--utm); font-size: .75rem; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; }
+    .portfolio-example p { flex: 1; margin-bottom: 17px; color: var(--muted); font-size: .91rem; }
+    .portfolio-example-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: auto; }
+    .portfolio-example-actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; padding: 7px 12px; border: 1px solid var(--utm); border-radius: 9px; color: #fff; background: var(--utm); text-decoration: none; font-size: .82rem; font-weight: 800; }
+    .portfolio-example-actions a:hover { border-color: var(--utm-dark); color: #fff; background: var(--utm-dark); }
+    .portfolio-example-actions a.secondary { color: var(--utm); background: #fff; }
+    .portfolio-example-actions a.secondary:hover { color: #fff; background: var(--utm); }
+    .reference-note { margin-top: 18px; padding: 17px 19px; border-left: 5px solid var(--gold); border-radius: 0 12px 12px 0; background: #fff8e7; }
+    .reference-note p { margin: 0; color: #624b17; font-size: .9rem; }
 
     .table-scroll { overflow-x: auto; margin-top: 22px; border: 1px solid var(--line); border-radius: 14px; }
     table { width: 100%; min-width: 780px; border-collapse: collapse; background: #fff; }
@@ -171,7 +209,7 @@
       .layout { grid-template-columns: 1fr; }
       nav.toc { position: static; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 18px; }
       .toc strong { grid-column: 1 / -1; }
-      .clo-grid, .journey { grid-template-columns: 1fr; }
+      .clo-grid, .journey, .github-guide-grid, .pages-steps, .portfolio-example-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 650px) {
       .topbar { min-height: 64px; padding: 10px 16px; }
@@ -256,6 +294,8 @@
         <a href="#purpose">Purpose</a>
         <a href="#outcomes">Learning outcomes</a>
         <a href="#sections">Required sections</a>
+        <a href="#github-content">GitHub content guide</a>
+        <a href="#github-pages">GitHub Pages guide</a>
         <a href="#reflection">Reflection guide</a>
         <a href="#requirements">Requirements</a>
         <a href="#resources">Examples and resources</a>
@@ -303,8 +343,171 @@
           </div>
         </section>
 
-        <section class="section" id="reflection">
+        <section class="section" id="github-content">
           <span class="section-number">04</span>
+          <h2>GitHub e-portfolio content guide</h2>
+          <p class="lead">Develop your e-portfolio using GitHub and publish it through GitHub Pages. Your portfolio should combine a professional profile, organised SCST1133 work and meaningful reflection.</p>
+          <div class="github-guide-grid">
+            <article class="github-guide-card">
+              <h3>1. Professional profile</h3>
+              <ul>
+                <li><strong>Introduction:</strong> suitable profile picture, professional headline and short summary.</li>
+                <li><strong>Core information:</strong> programme, education, relevant position or role, technical skills and interests.</li>
+                <li><strong>Recommended:</strong> relevant courses, certificates, workshops or badges.</li>
+                <li><strong>Additional:</strong> honours, awards, projects, volunteering or leadership experience.</li>
+                <li>Add links to your GitHub profile, published e-portfolio website and LinkedIn profile, if available.</li>
+                <li>Do not display your private phone number, home address, password, token or other sensitive information.</li>
+              </ul>
+            </article>
+            <article class="github-guide-card">
+              <h3>2. SCST1133 work and evidence</h3>
+              <ul>
+                <li><strong>Design Thinking and Figma project:</strong> problem, idea, prototype link, screenshots and your contribution.</li>
+                <li><strong>Industry Talk:</strong> poster, notes or report, key lessons and connection to data engineering practice.</li>
+                <li><strong>Industry Visit:</strong> approved photographs or evidence, observations, report and professional lessons.</li>
+                <li><strong>Data Engineering Lifecycle video:</strong> video link, storyboard or slides and explanation of lifecycle decisions.</li>
+                <li><strong>Data acquisition work:</strong> dataset, collection method, tools, data quality considerations and output.</li>
+                <li><strong>Presentation and other selected activities:</strong> slides, demonstration, result or link to externally hosted work.</li>
+              </ul>
+            </article>
+            <article class="github-guide-card">
+              <h3>3. Reflection for each artifact</h3>
+              <ul>
+                <li>Summarise what you created, contributed and learned.</li>
+                <li>Explain the relevant data engineering concept, tool or practice.</li>
+                <li>Describe one meaningful challenge, decision or limitation.</li>
+                <li>Connect the artifact to the appropriate SCST1133 CLO.</li>
+                <li>Suggest a specific improvement or next step.</li>
+                <li>You may add personal insights, ideas and creative presentation, provided that the reflection remains relevant and professional.</li>
+              </ul>
+            </article>
+          </div>
+          <div class="github-structure">
+            <h3>Suggested website structure</h3>
+            <code>Home / Professional Profile
+Learning Journey
+Selected Work / Artifacts
+  ├── Design Thinking and Figma
+  ├── Industry Talk
+  ├── Industry Visit
+  ├── Data Engineering Lifecycle Video
+  └── Other Selected Evidence
+Course Learning Summary
+Sources and Acknowledgements</code>
+          </div>
+        </section>
+
+        <section class="section" id="github-pages">
+          <span class="section-number">05</span>
+          <h2>Build and publish with GitHub Pages</h2>
+          <p class="lead">GitHub Pages is a free static website hosting service provided by GitHub. It converts the HTML, CSS, JavaScript and media files in a repository into a public website. For this assignment, your repository stores the portfolio source files, while GitHub Pages displays them as a website that can be opened using a normal web address.</p>
+
+          <div class="pages-explainer">
+            <h3>Repository and website are related, but not the same</h3>
+            <p><strong>The repository</strong> displays your files, folders, commits and source code on GitHub. <strong>GitHub Pages</strong> renders those files as the finished e-portfolio. The home page must normally be named <code>index.html</code>. GitHub Pages is suitable for a portfolio because it supports HTML, CSS, JavaScript, images and downloadable documents without requiring a database or server-side programming.</p>
+          </div>
+
+          <div class="pages-steps" aria-label="Steps to publish a GitHub Pages website">
+            <article class="pages-step"><h3>Create the repository</h3><p>Create a public repository, for example <code>scst1133-eportfolio</code>. Add a short description and a <code>README.md</code> file.</p></article>
+            <article class="pages-step"><h3>Add the website files</h3><p>Place <code>index.html</code> in the repository root. Add <code>style.css</code> and folders such as <code>images</code> or <code>assets</code> when needed.</p></article>
+            <article class="pages-step"><h3>Commit and push</h3><p>Commit the files with a meaningful message, such as <code>Create e-portfolio home page</code>, and push the changes to the <code>main</code> branch.</p></article>
+            <article class="pages-step"><h3>Enable GitHub Pages</h3><p>Open <strong>Settings → Pages</strong>. Under <strong>Build and deployment</strong>, choose <strong>Deploy from a branch</strong>, select <code>main</code> and <code>/(root)</code>, then save.</p></article>
+            <article class="pages-step"><h3>Open the published site</h3><p>After deployment completes, open <code>https://USERNAME.github.io/REPOSITORY/</code>. Replace the capitalised parts with your GitHub username and repository name.</p></article>
+            <article class="pages-step"><h3>Test and maintain</h3><p>Check navigation, images, videos and mobile readability. Commit and push later improvements; GitHub Pages will redeploy the updated website.</p></article>
+          </div>
+
+          <div class="github-structure">
+            <h3>Recommended repository structure</h3>
+            <code>scst1133-eportfolio/
+├── index.html
+├── style.css
+├── README.md
+├── images/
+│   ├── profile-photo.jpg
+│   └── project-screenshot.png
+└── artifacts/
+    └── industry-talk.pdf</code>
+          </div>
+
+          <div class="code-example">
+            <div class="code-example-header"><span>Starter code</span><span>index.html</span></div>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;My SCST1133 E-Portfolio&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Your Name&lt;/h1&gt;
+    &lt;p&gt;SCST1133 Data Engineering Ecosystem&lt;/p&gt;
+    &lt;nav&gt;
+      &lt;a href="#about"&gt;About&lt;/a&gt;
+      &lt;a href="#work"&gt;Selected Work&lt;/a&gt;
+      &lt;a href="#reflection"&gt;Reflection&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section id="about"&gt;
+      &lt;h2&gt;Professional Profile&lt;/h2&gt;
+      &lt;p&gt;Write a short professional introduction here.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id="work"&gt;
+      &lt;h2&gt;Selected Work&lt;/h2&gt;
+      &lt;article&gt;
+        &lt;h3&gt;Design Thinking and Figma&lt;/h3&gt;
+        &lt;img src="images/project-screenshot.png"
+             alt="Screenshot of my Figma prototype"&gt;
+        &lt;p&gt;Explain the artifact and your contribution.&lt;/p&gt;
+      &lt;/article&gt;
+    &lt;/section&gt;
+
+    &lt;section id="reflection"&gt;
+      &lt;h2&gt;Course Reflection&lt;/h2&gt;
+      &lt;p&gt;Explain what you learned and what you would improve.&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;&lt;p&gt;© 2026 Your Name&lt;/p&gt;&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+
+          <div class="code-example">
+            <div class="code-example-header"><span>Basic styling</span><span>style.css</span></div>
+            <pre><code>* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: #1f2937;
+  background: #f5f7fa;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+header, main, footer {
+  width: min(960px, 92%);
+  margin: auto;
+}
+header { padding: 48px 0 24px; }
+nav { display: flex; flex-wrap: wrap; gap: 16px; }
+section {
+  margin: 20px 0;
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+}
+img { max-width: 100%; height: auto; }
+a { color: #8a1538; }</code></pre>
+          </div>
+
+          <p class="pages-note"><strong>Common problem:</strong> file and folder names are case-sensitive. If the file is stored as <code>images/project-screenshot.png</code>, use that exact spelling in the HTML. Avoid spaces in filenames, use relative links and never upload passwords, tokens or confidential information.</p>
+        </section>
+
+        <section class="section" id="reflection">
+          <span class="section-number">06</span>
           <h2>Reflection guide</h2>
           <p class="lead">Use these questions to shape a concise, connected reflection. You do not need to present your response as a numbered list.</p>
           <div class="reflection-steps">
@@ -323,7 +526,7 @@
         </section>
 
         <section class="section" id="requirements">
-          <span class="section-number">05</span>
+          <span class="section-number">07</span>
           <h2>Quality and submission requirements</h2>
           <ul class="clean-list">
             <li>Use your own words and submit original work. Acknowledge any text, code or design created by others.</li>
@@ -342,13 +545,64 @@
         </section>
 
         <section class="section" id="resources">
-          <span class="section-number">06</span>
+          <span class="section-number">08</span>
           <h2>Portfolio examples and resources</h2>
-          <p class="lead">Use these resources to understand the expected format and quality. They are learning references, not material to copy.</p>
+          <p class="lead">Explore these published GitHub Pages websites to understand different ways of organising a professional profile, course artifacts and learning reflections. Use them as references for structure and presentation only. Do not copy their content or design directly.</p>
+
+          <div class="portfolio-example-grid" aria-label="Five published student e-portfolio examples">
+            <article class="portfolio-example">
+              <div class="portfolio-example-head"><span class="portfolio-example-number">01</span><h3>Nurulhanisa</h3></div>
+              <div class="profile-label">Course artifacts and reflection</div>
+              <p>A course-focused portfolio showing posters, an industry talk, an industry visit video, a newsletter, PC maintenance, design thinking work and a dedicated reflection.</p>
+              <div class="portfolio-example-actions">
+                <a href="https://hanisaikhsan.github.io/" target="_blank" rel="noopener">View E-Portfolio ↗</a>
+                <a class="secondary" href="https://github.com/hanisaIkhsan/hanisaikhsan.github.io" target="_blank" rel="noopener">View Source Code ↗</a>
+              </div>
+            </article>
+
+            <article class="portfolio-example">
+              <div class="portfolio-example-head"><span class="portfolio-example-number">02</span><h3>Kisyorran Gunasekaran</h3></div>
+              <div class="profile-label">Organised learning evidence</div>
+              <p>A concise portfolio that organises PC assembly, industry talks, industry visits and a design thinking project as separate learning artifacts.</p>
+              <div class="portfolio-example-actions"><a href="https://kisyorrann.github.io/E-Portfolio/index.html" target="_blank" rel="noopener">View E-Portfolio ↗</a></div>
+            </article>
+
+            <article class="portfolio-example">
+              <div class="portfolio-example-head"><span class="portfolio-example-number">03</span><h3>Lee Lai Queen</h3></div>
+              <div class="profile-label">Activity-based learning journey</div>
+              <p>A simple project-oriented portfolio covering industry talks, a UTM Digital visit, PC assembly and a design thinking application project.</p>
+              <div class="portfolio-example-actions">
+                <a href="https://laiqueenlee.github.io/index.html" target="_blank" rel="noopener">View E-Portfolio ↗</a>
+                <a class="secondary" href="https://github.com/laiqueenlee/laiqueenlee.github.io" target="_blank" rel="noopener">View Source Code ↗</a>
+              </div>
+            </article>
+
+            <article class="portfolio-example">
+              <div class="portfolio-example-head"><span class="portfolio-example-number">04</span><h3>Leong Jia Ling</h3></div>
+              <div class="profile-label">Professional and academic profile</div>
+              <p>A Data Engineering student portfolio combining a professional introduction, education, skills, achievements, leadership and an organised record of university courses.</p>
+              <div class="portfolio-example-actions">
+                <a href="https://jialing221.github.io/" target="_blank" rel="noopener">View E-Portfolio ↗</a>
+                <a class="secondary" href="https://github.com/JiaLing221/JiaLing221.github.io" target="_blank" rel="noopener">View Source Code ↗</a>
+              </div>
+            </article>
+
+            <article class="portfolio-example">
+              <div class="portfolio-example-head"><span class="portfolio-example-number">05</span><h3>Puteri Anis Annisa</h3></div>
+              <div class="profile-label">Data Engineering profile and projects</div>
+              <p>A Data Engineering student portfolio presenting education, leadership, technical and soft skills, competition achievements and a project with an explanation of personal contribution.</p>
+              <div class="portfolio-example-actions"><a href="https://puterianisannisa.github.io/personal-website/" target="_blank" rel="noopener">View E-Portfolio ↗</a></div>
+            </article>
+          </div>
+
+          <div class="reference-note">
+            <p><strong>Privacy reminder:</strong> Some public examples may contain personal contact details. You are not required to publish your phone number, home address or other sensitive information. Use only professional and appropriate contact links.</p>
+          </div>
+
+          <h3 style="margin-top:28px">Guides and course links</h3>
           <div class="resource-grid">
             <a class="resource" href="https://docs.github.com/en/account-and-profile/tutorials/personalize-your-profile" target="_blank" rel="noopener"><span><b>GitHub Profile Guide</b><small>Build and personalise your profile</small></span><span class="arrow">↗</span></a>
             <a class="resource" href="https://docs.github.com/en/pages/quickstart" target="_blank" rel="noopener"><span><b>GitHub Pages Quickstart</b><small>Publish your portfolio website</small></span><span class="arrow">↗</span></a>
-            <a class="resource" href="https://github.com/topics/e-portfolio" target="_blank" rel="noopener"><span><b>GitHub E-Portfolio Examples</b><small>Explore public repository examples</small></span><span class="arrow">↗</span></a>
             <a class="resource" href="../students/index.html"><span><b>Student Information Directory</b><small>View registered student portfolio links</small></span><span class="arrow">→</span></a>
             <a class="resource" href="../students/update.html"><span><b>Update Your Profile Links</b><small>Register or revise your public URL</small></span><span class="arrow">→</span></a>
             <a class="resource" href="index.html"><span><b>SCST1133 Assessment Page</b><small>Refer to current assessment information</small></span><span class="arrow">→</span></a>
@@ -356,7 +610,7 @@
         </section>
 
         <section class="section" id="rubric">
-          <span class="section-number">07</span>
+          <span class="section-number">09</span>
           <h2>Assessment rubric</h2>
           <p class="lead">The portfolio is scored out of 100 marks. Marks are awarded according to how closely your work meets each descriptor.</p>
           <div class="table-scroll" role="region" aria-label="Assessment rubric" tabindex="0">
@@ -376,7 +630,7 @@
         </section>
 
         <section class="section" id="checklist">
-          <span class="section-number">08</span>
+          <span class="section-number">10</span>
           <h2>Before you submit</h2>
           <p class="lead">Complete this final check before submitting your URL. Your selections are saved only in this browser.</p>
           <div class="checklist" id="submissionChecklist">
