@@ -1,5 +1,5 @@
 (()=>{'use strict';
-const $=id=>document.getElementById(id),api=window.SLR_CONFIG?.apiUrl||'',keyStorage='slr_cohort1_facilitator_key';
+const $=id=>document.getElementById(id),api=window.SLR_CONFIG?.apiUrl||'',keyStorage='slr_cohort2_facilitator_key';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let participants=[];
 function setMessage(text,kind=''){const el=$('accessMessage');el.textContent=text;el.className='access-message'+(kind?' '+kind:'')}
@@ -15,8 +15,8 @@ function showData(data){
  participants=data.participants;
  const counts=data.counts||{},total=Number(data.total??participants.length);
  $('pendingKpis').innerHTML=`<article class="pending-kpi"><span>Incomplete participants</span><strong>${total}</strong></article><article class="pending-kpi draft"><span>Draft saved</span><strong>${Number(counts.draft||0)}</strong></article><article class="pending-kpi started"><span>Not started</span><strong>${Number(counts.notStarted||0)}</strong></article>`;
- $('statusText').textContent=`${data.cohort||'Cohort 1'} · Updated ${new Date(data.generatedAt||Date.now()).toLocaleString()}`;
- $('generatedNote').textContent='This list includes registered Cohort 1 participants with a Draft or Not started status. Submitted responses are excluded.';
+ $('statusText').textContent=`${data.cohort||'Cohort 2'} · Updated ${new Date(data.generatedAt||Date.now()).toLocaleString()}`;
+ $('generatedNote').textContent='This list includes registered Cohort 2 participants with a Draft or Not started status. Submitted responses are excluded.';
  $('pendingResults').classList.remove('hidden');$('pageError').classList.add('hidden');render();
 }
 async function load(key){
