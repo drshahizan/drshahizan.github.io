@@ -1,0 +1,33 @@
+﻿semester,kategori_isu,bilangan_pertanyaan,bilangan_selesai_5_hari,purata_hari_selesai,status_data
+2023-S1,Pendaftaran kursus,38,28,3.0,SINTETIK
+2023-S1,Jadual kuliah,18,13,3.8,SINTETIK
+2023-S1,Peperiksaan,28,18,4.6,SINTETIK
+2023-S1,Keputusan akademik,14,9,5.0,SINTETIK
+2023-S2,Pendaftaran kursus,44,34,3.0,SINTETIK
+2023-S2,Jadual kuliah,17,12,3.9,SINTETIK
+2023-S2,Peperiksaan,28,20,4.2,SINTETIK
+2023-S2,Keputusan akademik,18,12,5.0,SINTETIK
+2024-S1,Pendaftaran kursus,44,35,3.1,SINTETIK
+2024-S1,Jadual kuliah,21,16,3.4,SINTETIK
+2024-S1,Peperiksaan,27,19,4.2,SINTETIK
+2024-S1,Keputusan akademik,17,12,5.0,SINTETIK
+2024-S2,Pendaftaran kursus,49,40,2.6,SINTETIK
+2024-S2,Jadual kuliah,20,16,3.5,SINTETIK
+2024-S2,Peperiksaan,31,23,4.3,SINTETIK
+2024-S2,Keputusan akademik,15,11,4.6,SINTETIK
+2025-S1,Pendaftaran kursus,51,42,2.7,SINTETIK
+2025-S1,Jadual kuliah,25,20,3.5,SINTETIK
+2025-S1,Peperiksaan,32,24,3.8,SINTETIK
+2025-S1,Keputusan akademik,20,14,4.6,SINTETIK
+2025-S2,Pendaftaran kursus,47,39,2.7,SINTETIK
+2025-S2,Jadual kuliah,22,17,3.0,SINTETIK
+2025-S2,Peperiksaan,34,26,3.9,SINTETIK
+2025-S2,Keputusan akademik,17,12,4.7,SINTETIK
+2026-S1,Pendaftaran kursus,55,47,2.3,SINTETIK
+2026-S1,Jadual kuliah,22,18,3.1,SINTETIK
+2026-S1,Peperiksaan,35,27,3.9,SINTETIK
+2026-S1,Keputusan akademik,22,16,4.2,SINTETIK
+2026-S2,Pendaftaran kursus,51,44,2.3,SINTETIK
+2026-S2,Jadual kuliah,24,20,3.1,SINTETIK
+2026-S2,Peperiksaan,31,24,3.5,SINTETIK
+2026-S2,Keputusan akademik,19,14,4.3,SINTETIK

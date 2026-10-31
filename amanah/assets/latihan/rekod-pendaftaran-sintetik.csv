@@ -1,0 +1,121 @@
+﻿ID_SIMULASI,Tahap_Program,Isu,Status_Tindakan
+SIM-0001,Sarjana,Pindaan pendaftaran kursus,Dirujuk kepada fakulti
+SIM-0002,Diploma,Semakan keputusan akademik,Dirujuk kepada fakulti
+SIM-0003,Prasiswazah,Kursus tidak kelihatan,Menunggu maklumat
+SIM-0004,Sarjana,Pindaan pendaftaran kursus,Dirujuk kepada fakulti
+SIM-0005,Prasiswazah,Kursus tidak kelihatan,Ditutup
+SIM-0006,Kedoktoran,Jadual peperiksaan,Ditutup
+SIM-0007,Sarjana,Pindaan pendaftaran kursus,Selesai
+SIM-0008,Sarjana,Semakan keputusan akademik,Dalam semakan
+SIM-0009,Diploma,Kursus tidak kelihatan,Selesai
+SIM-0010,Sarjana,Semakan keputusan akademik,Selesai
+SIM-0011,Sarjana,Pindaan pendaftaran kursus,Menunggu maklumat
+SIM-0012,Sarjana,Jadual peperiksaan,Selesai
+SIM-0013,Kedoktoran,Kursus tidak kelihatan,Dalam semakan
+SIM-0014,Kedoktoran,Kalendar akademik,Selesai
+SIM-0015,Prasiswazah,Kalendar akademik,Dalam semakan
+SIM-0016,Kedoktoran,Kursus tidak kelihatan,Selesai
+SIM-0017,Prasiswazah,Jadual peperiksaan,Dirujuk kepada fakulti
+SIM-0018,Kedoktoran,Pindaan pendaftaran kursus,Selesai
+SIM-0019,Sarjana,Rekod akademik,Dalam semakan
+SIM-0020,Sarjana,Kursus tidak kelihatan,Dirujuk kepada fakulti
+SIM-0021,Prasiswazah,Kursus tidak kelihatan,Selesai
+SIM-0022,Sarjana,Kursus tidak kelihatan,Menunggu maklumat
+SIM-0023,Prasiswazah,Semakan keputusan akademik,Dirujuk kepada fakulti
+SIM-0024,Kedoktoran,Rekod akademik,Dalam semakan
+SIM-0025,Prasiswazah,Rekod akademik,Selesai
+SIM-0026,Prasiswazah,Pindaan pendaftaran kursus,Menunggu maklumat
+SIM-0027,Diploma,Rekod akademik,Ditutup
+SIM-0028,Kedoktoran,Jadual peperiksaan,Menunggu maklumat
+SIM-0029,Kedoktoran,Jadual peperiksaan,Selesai
+SIM-0030,Prasiswazah,Kursus tidak kelihatan,Dalam semakan
+SIM-0031,Sarjana,Jadual peperiksaan,Selesai
+SIM-0032,Diploma,Kursus tidak kelihatan,Selesai
+SIM-0033,Diploma,Semakan keputusan akademik,Ditutup
+SIM-0034,Kedoktoran,Semakan keputusan akademik,Menunggu maklumat
+SIM-0035,Diploma,Kursus tidak kelihatan,Menunggu maklumat
+SIM-0036,Diploma,Kalendar akademik,Menunggu maklumat
+SIM-0037,Sarjana,Jadual peperiksaan,Selesai
+SIM-0038,Prasiswazah,Rekod akademik,Dirujuk kepada fakulti
+SIM-0039,Diploma,Kursus tidak kelihatan,Selesai
+SIM-0040,Kedoktoran,Jadual peperiksaan,Menunggu maklumat
+SIM-0041,Sarjana,Kursus tidak kelihatan,Selesai
+SIM-0042,Prasiswazah,Jadual peperiksaan,Selesai
+SIM-0043,Sarjana,Semakan keputusan akademik,Dalam semakan
+SIM-0044,Kedoktoran,Semakan keputusan akademik,Dalam semakan
+SIM-0045,Kedoktoran,Kursus tidak kelihatan,Dirujuk kepada fakulti
+SIM-0046,Diploma,Semakan keputusan akademik,Menunggu maklumat
+SIM-0047,Sarjana,Rekod akademik,Menunggu maklumat
+SIM-0048,Prasiswazah,Kursus tidak kelihatan,Dirujuk kepada fakulti
+SIM-0049,Sarjana,Semakan keputusan akademik,Selesai
+SIM-0050,Prasiswazah,Jadual peperiksaan,Dalam semakan
+SIM-0051,Diploma,Kursus tidak kelihatan,Dalam semakan
+SIM-0052,Sarjana,Semakan keputusan akademik,Selesai
+SIM-0053,Kedoktoran,Semakan keputusan akademik,Dirujuk kepada fakulti
+SIM-0054,Prasiswazah,Semakan keputusan akademik,Ditutup
+SIM-0055,Prasiswazah,Jadual peperiksaan,Selesai
+SIM-0056,Diploma,Semakan keputusan akademik,Menunggu maklumat
+SIM-0057,Kedoktoran,Kursus tidak kelihatan,Menunggu maklumat
+SIM-0058,Kedoktoran,Semakan keputusan akademik,Selesai
+SIM-0059,Prasiswazah,Semakan keputusan akademik,Dalam semakan
+SIM-0060,Sarjana,Semakan keputusan akademik,Dirujuk kepada fakulti
+SIM-0061,Sarjana,Kursus tidak kelihatan,Ditutup
+SIM-0062,Prasiswazah,Semakan keputusan akademik,Selesai
+SIM-0063,Prasiswazah,Rekod akademik,Menunggu maklumat
+SIM-0064,Sarjana,Kursus tidak kelihatan,Menunggu maklumat
+SIM-0065,Kedoktoran,Jadual peperiksaan,Dalam semakan
+SIM-0066,Diploma,Pindaan pendaftaran kursus,Menunggu maklumat
+SIM-0067,Diploma,Pindaan pendaftaran kursus,Menunggu maklumat
+SIM-0068,Kedoktoran,Kursus tidak kelihatan,Selesai
+SIM-0069,Prasiswazah,Kursus tidak kelihatan,Dalam semakan
+SIM-0070,Prasiswazah,Kursus tidak kelihatan,Menunggu maklumat
+SIM-0071,Sarjana,Kalendar akademik,Dalam semakan
+SIM-0072,Kedoktoran,Kalendar akademik,Dalam semakan
+SIM-0073,Diploma,Jadual peperiksaan,Dirujuk kepada fakulti
+SIM-0074,Diploma,Rekod akademik,Menunggu maklumat
+SIM-0075,Kedoktoran,Semakan keputusan akademik,Menunggu maklumat
+SIM-0076,Sarjana,Pindaan pendaftaran kursus,Selesai
+SIM-0077,Sarjana,Kursus tidak kelihatan,Dirujuk kepada fakulti
+SIM-0078,Prasiswazah,Kursus tidak kelihatan,Dalam semakan
+SIM-0079,Kedoktoran,Jadual peperiksaan,Dalam semakan
+SIM-0080,Prasiswazah,Pindaan pendaftaran kursus,Dalam semakan
+SIM-0081,Kedoktoran,Kursus tidak kelihatan,Dirujuk kepada fakulti
+SIM-0082,Sarjana,Pindaan pendaftaran kursus,Selesai
+SIM-0083,Prasiswazah,Kursus tidak kelihatan,Selesai
+SIM-0084,Prasiswazah,Kursus tidak kelihatan,Dirujuk kepada fakulti
+SIM-0085,Prasiswazah,Semakan keputusan akademik,Selesai
+SIM-0086,Sarjana,Kalendar akademik,Menunggu maklumat
+SIM-0087,Diploma,Kalendar akademik,Dalam semakan
+SIM-0088,Kedoktoran,Jadual peperiksaan,Selesai
+SIM-0089,Diploma,Semakan keputusan akademik,Dalam semakan
+SIM-0090,Sarjana,Jadual peperiksaan,Selesai
+SIM-0091,Kedoktoran,Kursus tidak kelihatan,Selesai
+SIM-0092,Kedoktoran,Kursus tidak kelihatan,Selesai
+SIM-0093,Sarjana,Rekod akademik,Dalam semakan
+SIM-0094,Diploma,Kalendar akademik,Selesai
+SIM-0095,Kedoktoran,Jadual peperiksaan,Ditutup
+SIM-0096,Kedoktoran,Kursus tidak kelihatan,Menunggu maklumat
+SIM-0097,Kedoktoran,Kursus tidak kelihatan,Selesai
+SIM-0098,Kedoktoran,Jadual peperiksaan,Ditutup
+SIM-0099,Diploma,Jadual peperiksaan,Menunggu maklumat
+SIM-0100,Prasiswazah,Jadual peperiksaan,Dirujuk kepada fakulti
+SIM-0101,Kedoktoran,Jadual peperiksaan,Selesai
+SIM-0102,Prasiswazah,Pindaan pendaftaran kursus,Dirujuk kepada fakulti
+SIM-0103,Prasiswazah,Semakan keputusan akademik,Dalam semakan
+SIM-0104,Kedoktoran,Rekod akademik,Dirujuk kepada fakulti
+SIM-0105,Kedoktoran,Kalendar akademik,Menunggu maklumat
+SIM-0106,Prasiswazah,Jadual peperiksaan,Dalam semakan
+SIM-0107,Sarjana,Semakan keputusan akademik,Selesai
+SIM-0108,Prasiswazah,Semakan keputusan akademik,Dalam semakan
+SIM-0109,Kedoktoran,Kalendar akademik,Dalam semakan
+SIM-0110,Prasiswazah,Kalendar akademik,Dirujuk kepada fakulti
+SIM-0111,Kedoktoran,Kursus tidak kelihatan,Dalam semakan
+SIM-0112,Prasiswazah,Kalendar akademik,Ditutup
+SIM-0113,Sarjana,Rekod akademik,Dirujuk kepada fakulti
+SIM-0114,Sarjana,Jadual peperiksaan,Dalam semakan
+SIM-0115,Diploma,Jadual peperiksaan,Ditutup
+SIM-0116,Diploma,Jadual peperiksaan,Dirujuk kepada fakulti
+SIM-0117,Sarjana,Semakan keputusan akademik,Dalam semakan
+SIM-0118,Diploma,Jadual peperiksaan,Dirujuk kepada fakulti
+SIM-0119,Prasiswazah,Rekod akademik,Dirujuk kepada fakulti
+SIM-0120,Kedoktoran,Jadual peperiksaan,Dalam semakan
