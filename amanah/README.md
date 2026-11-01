@@ -7,6 +7,8 @@ Laman program statik untuk GitHub Pages.
 - `index.html` — halaman utama dan sinopsis (kekal di akar repositori untuk GitHub Pages)
 - `pages/` — halaman tentatif, bahan pengajaran, persediaan peserta, direktori alat AI, pusat prompt, semakan hasil dan panduan fasilitator
 - `pages/prinsip-etika-ai.html`, `pages/klasifikasi-data.html`, `pages/kuiz-kendiri.html` — nota Sesi 1–4 dan glosari, panduan klasifikasi data, kuiz kendiri
+- `pages/pembina-kerja.html`, `pages/pembina-studio.html`, `pages/pembina-multimedia.html`, `pages/pembina-analisis-data.html` — empat pembina prompt (logik dalam `js/prompt-builders.js`)
+- `pages/latihan/` — 24 latihan (A1–H6) dalam 8 kategori; direktori penuh 35 latihan di `pages/bahan-pengajaran.html`
 - `pages/kunci-jawapan.html` — kunci jawapan Modul 01–08 untuk fasilitator (tidak dipautkan dari menu utama)
 - `pages/modul/` — halaman latihan Modul 01 hingga Modul 11
 - `css/style.css` dan `js/main.js` — gaya responsif dan interaksi salin prompt
