@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The big picture · CAI 461 · Topic 8</title>
+<meta name="description" content="How agent evaluation fits together: an interactive ecosystem map, a 1980–2026 timeline, one system followed through four layers, and a metric picker.">
+<meta name="theme-color" content="#0f3446">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The big picture · CAI 461 · Topic 8">
+<meta property="og:description" content="How agent evaluation fits together: an interactive ecosystem map, a 1980–2026 timeline, one system followed through four layers, and a metric picker.">
+<meta property="og:site_name" content="Performance Evaluation of Agent-Based Systems">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="3" width="32" height="6" rx="1.5" fill="#0f3446"/><rect x="4" y="11" width="28" height="6" rx="1.5" fill="#0070c0"/><rect x="6" y="19" width="24" height="6" rx="1.5" fill="#04767f"/><rect x="8" y="27" width="20" height="6" rx="1.5" fill="#4f9ea2"/></svg><span class="brand-text"><b>CAI 461 · Topic 8</b><span>Agent Evaluation</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul><li><a href="index.html">Home</a></li><li><a href="big-picture.html" aria-current="page">Big Picture</a></li><li><a href="programme.html">Programme</a></li><li><a href="modules.html">Modules</a></li><li><a href="tools.html">Tools</a></li><li><a href="case-studies.html">Cases</a></li><li><a href="lab.html">Lab</a></li><li><a href="resources.html">Resources</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Big Picture</nav><h1>The big picture</h1>
+    <p class="lede">Before the details, see how everything fits: who is involved in evaluating agent systems, how the ideas grew from 1980 to today, one system followed through all four layers, and a quick way to choose metrics for your own project.</p>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <nav class="jump" aria-label="On this page"><a href="#ecosystem">The evaluation ecosystem</a><a href="#timeline">From 1980 to today</a><a href="#walkthrough">One system, four layers</a><a href="#picker">Choose your metrics</a></nav>
+    <div>
+
+<div class="block" id="ecosystem">
+  <h2>The evaluation ecosystem</h2>
+  <p class="prose">Evaluating an agent system is not one tool or one paper. It is a chain: theory says what success means, platforms build the system, instruments record it, benchmarks test it, methods turn the results into fair comparisons, and people decide. <strong>Select any item to see what it is and where you learn it.</strong></p>
+  <div class="eco">
+    <div class="eco-map" aria-label="Six-stage ecosystem map">
+      <div class="eco-band b1">
+  <div class="eco-label"><span class="eco-n">1</span><b>Theory and foundations</b><small>defines what success means</small></div>
+  <div class="eco-chips"><button type="button" class="chip" data-node="wooldridge" aria-pressed="false">Utility and task specifications</button><button type="button" class="chip" data-node="rationality" aria-pressed="false">Rationality and performance measures</button><button type="button" class="chip" data-node="gametheory" aria-pressed="false">Game theory</button><button type="button" class="chip" data-node="simmethod" aria-pressed="false">Simulation methodology</button></div>
+</div><div class="eco-arrow" aria-hidden="true"></div><div class="eco-band b2">
+  <div class="eco-label"><span class="eco-n">2</span><b>Platforms</b><small>builds the system</small></div>
+  <div class="eco-chips"><button type="button" class="chip" data-node="jade" aria-pressed="false">JADE</button><button type="button" class="chip" data-node="netlogo" aria-pressed="false">NetLogo</button><button type="button" class="chip" data-node="llmframeworks" aria-pressed="false">LLM agent frameworks</button><button type="button" class="chip" data-node="marble" aria-pressed="false">MARBLE</button></div>
+</div><div class="eco-arrow" aria-hidden="true"></div><div class="eco-band b3">
+  <div class="eco-label"><span class="eco-n">3</span><b>Instrumentation and standards</b><small>records what happens</small></div>
+  <div class="eco-chips"><button type="button" class="chip" data-node="fipa" aria-pressed="false">FIPA-ACL fields</button><button type="button" class="chip" data-node="jadetools" aria-pressed="false">JADE Sniffer and RMA</button><button type="button" class="chip" data-node="behaviorspace" aria-pressed="false">BehaviorSpace</button><button type="button" class="chip" data-node="otel" aria-pressed="false">OpenTelemetry GenAI</button><button type="button" class="chip" data-node="langsmith" aria-pressed="false">LangSmith</button></div>
+</div><div class="eco-arrow" aria-hidden="true"></div><div class="eco-band b4">
+  <div class="eco-label"><span class="eco-n">4</span><b>Benchmarks and datasets</b><small>supplies standard tests</small></div>
+  <div class="eco-chips"><button type="button" class="chip" data-node="agentbench" aria-pressed="false">AgentBench</button><button type="button" class="chip" data-node="gaia" aria-pressed="false">GAIA</button><button type="button" class="chip" data-node="swebench" aria-pressed="false">SWE-bench</button><button type="button" class="chip" data-node="taubench" aria-pressed="false">τ-bench</button><button type="button" class="chip" data-node="mab" aria-pressed="false">MultiAgentBench</button><button type="button" class="chip" data-node="mastdata" aria-pressed="false">MAST-Data</button></div>
+</div><div class="eco-arrow" aria-hidden="true"></div><div class="eco-band b5">
+  <div class="eco-label"><span class="eco-n">5</span><b>Evaluation methods and leaderboards</b><small>turns results into fair comparisons</small></div>
+  <div class="eco-chips"><button type="button" class="chip" data-node="passk" aria-pressed="false">pass^k</button><button type="button" class="chip" data-node="judge" aria-pressed="false">LLM-as-a-judge</button><button type="button" class="chip" data-node="frontier" aria-pressed="false">Cost-accuracy frontier</button><button type="button" class="chip" data-node="mast" aria-pressed="false">MAST taxonomy</button><button type="button" class="chip" data-node="hal" aria-pressed="false">HAL leaderboard</button></div>
+</div><div class="eco-arrow" aria-hidden="true"></div><div class="eco-band b6">
+  <div class="eco-label"><span class="eco-n">6</span><b>Decision makers</b><small>chooses what to build and deploy</small></div>
+  <div class="eco-chips"><button type="button" class="chip" data-node="students" aria-pressed="false">You, in CAI 461</button><button type="button" class="chip" data-node="developers" aria-pressed="false">Developers</button><button type="button" class="chip" data-node="organisations" aria-pressed="false">Organisations</button><button type="button" class="chip" data-node="researchers" aria-pressed="false">Researchers</button></div>
+</div>
+      <div class="eco-loop"><span aria-hidden="true">↺</span><p><b>The loop closes.</b> Failures found after deployment become new benchmark tasks and new research questions, which feed back into stage 1.</p></div>
+    </div>
+    <aside class="eco-detail panel" id="eco-detail" aria-live="polite"></aside>
+  </div>
+  <div class="note"><p><b>How to read it with the four layers.</b> The ecosystem shows <em>who and what</em> is involved. The four-layer framework shows <em>what you measure</em>. Each item’s detail lists the layers it serves, so you can see, for example, that pass^k and MAST both live in Layer 4.</p></div>
+</div>
+
+<div class="block" id="timeline">
+  <h2>From 1980 to today</h2>
+  <p class="prose">The ideas you learn in CAI 461 are not old history replaced by LLMs. Each new method re-uses an older one: pass^k is P(Ψ) measured repeatedly, the cost frontier is Pareto efficiency, and OpenTelemetry traces do what FIPA conversation IDs did.</p>
+  <div class="legend"><span><i style="background:var(--teal)"></i>Classic multi-agent systems</span><span><i style="background:var(--blue)"></i>LLM-based agents</span></div>
+  <ol class="timeline"><li class="tl-classic"><span class="tl-year">1980</span><div><h3>Contract Net Protocol</h3><p>Smith publishes task sharing by announce, bid and award.</p><p class="tl-now"><b>Used today for:</b> Messages per task and allocation quality · <a href="module-2-society-of-agents.html">Module 2</a></p></div></li><li class="tl-classic"><span class="tl-year">1995</span><div><h3>Bounded optimality</h3><p>Russell and Subramanian define the best agent that can actually run on a given machine.</p><p class="tl-now"><b>Used today for:</b> The realistic target for a rational agent · <a href="module-1-performing-well.html">Module 1</a></p></div></li><li class="tl-classic"><span class="tl-year">1999</span><div><h3>Price of anarchy</h3><p>Koutsoupias and Papadimitriou measure how much selfish behaviour costs a system.</p><p class="tl-now"><b>Used today for:</b> Deciding whether a coordinator is worth it · <a href="module-2-society-of-agents.html">Module 2</a></p></div></li><li class="tl-classic"><span class="tl-year">2002</span><div><h3>FIPA ACL message structure</h3><p>The standard adds conversation-id, reply-with and in-reply-to to every agent message.</p><p class="tl-now"><b>Used today for:</b> Correlation IDs in today’s traces · <a href="module-3-measuring-the-system.html">Module 3</a></p></div></li><li class="tl-classic"><span class="tl-year">2006</span><div><h3>ODD protocol</h3><p>Grimm and colleagues standardise how agent-based models are described. Updated in 2020.</p><p class="tl-now"><b>Used today for:</b> Replicable simulation reports · <a href="module-4-agent-based-models.html">Module 4</a></p></div></li><li class="tl-classic"><span class="tl-year">2009</span><div><h3>Utility over runs</h3><p>Wooldridge’s second edition formalises expected utility and task predicates for agents.</p><p class="tl-now"><b>Used today for:</b> Every success rate on every benchmark · <a href="module-1-performing-well.html">Module 1</a></p></div></li><li class="tl-llm"><span class="tl-year">2023</span><div><h3>LLM-as-a-judge</h3><p>Zheng and colleagues show strong models agree with human preferences over 80% of the time, and document their biases.</p><p class="tl-now"><b>Used today for:</b> Scoring open-ended outputs at scale · <a href="module-5-llm-agents.html">Module 5</a></p></div></li><li class="tl-llm"><span class="tl-year">2024</span><div><h3>Agent benchmarks</h3><p>AgentBench, GAIA and SWE-bench appear at ICLR. “AI Agents That Matter” argues for reporting cost.</p><p class="tl-now"><b>Used today for:</b> Standard tests and cost-aware comparison · <a href="module-5-llm-agents.html">Module 5</a></p></div></li><li class="tl-llm"><span class="tl-year">2025</span><div><h3>Reliability and failure</h3><p>τ-bench introduces pass^k, MultiAgentBench compares topologies, and MAST names 14 failure modes.</p><p class="tl-now"><b>Used today for:</b> Layer 4: trust and deployment · <a href="module-5-llm-agents.html">Module 5</a></p></div></li><li class="tl-llm"><span class="tl-year">2026</span><div><h3>Holistic leaderboards</h3><p>HAL runs many benchmarks with one harness and reads agent logs at scale.</p><p class="tl-now"><b>Used today for:</b> Third-party, cost-aware evaluation · <a href="module-5-llm-agents.html">Module 5</a></p></div></li></ol>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Old idea</th><th>New form</th><th>What stayed the same</th></tr></thead>
+      <tbody>
+        <tr><td>Success probability P(Ψ)</td><td>pass^k</td><td>Count how often the task predicate is true, now across repeated trials</td></tr>
+        <tr><td>Pareto efficiency</td><td>Cost-accuracy frontier</td><td>Keep only options that nothing else beats on every criterion</td></tr>
+        <tr><td>FIPA conversation-id</td><td>OpenTelemetry trace and span IDs</td><td>One ID joins every step of one task across agents</td></tr>
+        <tr><td>JADE Sniffer</td><td>LangSmith and tracing dashboards</td><td>Watch the messages to find where coordination breaks</td></tr>
+        <tr><td>Verification and validation</td><td>MAST failure labels and judge validation</td><td>Check that what you measure means what you think it means</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="block" id="walkthrough">
+  <h2>One system, four layers: the PNU Smart Shuttle</h2>
+  <p class="prose">Eight shuttle agents bid for ride requests with Contract Net. Follow the same system from the bottom layer to the top and watch each layer catch a problem the one below missed.</p>
+  <p class="small muted">The numbers are illustrative, chosen to show how each measurement is read. Your own simulation will give different values.</p>
+  <ol class="walk">
+    <li class="w1">
+      <div class="walk-head"><span class="walk-n">1</span><div><p class="walk-layer">Layer 1 · Individual agent</p><h3>Does each request succeed?</h3></div></div>
+      <div class="walk-body">
+        <p><b>Measure.</b> Ψ for one simulated morning = every student is picked up within 10 minutes (achievement) and no shuttle ever exceeds its seats (maintenance). Run 30 mornings.</p>
+        <div class="readout"><div><small>Mornings that succeed</small><b>90%</b></div><div><small>95% interval</small><b>± 10.7%</b></div><div><small>Seat violations</small><b>0</b></div></div>
+        <p><b>Reading.</b> Good, but the interval is wide: 30 runs cannot tell 90% from 80%. Layer 1 alone says “fine”.</p>
+        <p class="walk-links"><a href="module-1-performing-well.html#tasks">Module 1: task predicates</a> · <a href="tools.html#eu">Expected utility tool</a></p>
+      </div>
+    </li>
+    <li class="w2">
+      <div class="walk-head"><span class="walk-n">2</span><div><p class="walk-layer">Layer 2 · Interaction</p><h3>Is the group outcome good and fair?</h3></div></div>
+      <div class="walk-body">
+        <p><b>Measure.</b> Messages per request, total waiting time against an optimal assignment, and the longest single wait.</p>
+        <div class="readout"><div><small>Messages per request</small><b>25</b></div><div><small>Total wait vs optimal</small><b>1.12×</b></div><div><small>Longest wait</small><b>14 min</b></div></div>
+        <p><b>Reading.</b> 3 × 8 + 1 = 25 messages is affordable. Waiting is only 12% above the optimum. But one student waited 14 minutes, so the egalitarian view finds a fairness problem the average hid.</p>
+        <p class="walk-links"><a href="module-2-society-of-agents.html#criteria">Module 2: group criteria</a> · <a href="tools.html#cnp">Contract Net tool</a></p>
+      </div>
+    </li>
+    <li class="w3">
+      <div class="walk-head"><span class="walk-n">3</span><div><p class="walk-layer">Layer 3 · System</p><h3>Does it hold up at peak time and when a shuttle fails?</h3></div></div>
+      <div class="walk-body">
+        <p><b>Measure.</b> p95 time to award a request as demand rises; success when one shuttle is removed at minute 3.</p>
+        <div class="table-wrap"><table><thead><tr><th>Requests per 5 min</th><th class="num">p95 time to award</th></tr></thead><tbody><tr><td>10</td><td class="num">0.4 s</td></tr><tr><td>30</td><td class="num">0.9 s</td></tr><tr><td>50 (class change)</td><td class="num">3.1 s</td></tr></tbody></table></div>
+        <div class="readout"><div><small>Success, all shuttles</small><b>90%</b></div><div><small>Success, one removed</small><b>71%</b></div></div>
+        <p><b>Reading.</b> The knee is at the class-change peak. Worse, losing one shuttle drops success by 19 points, because a request awarded to the failed shuttle is never re-announced.</p>
+        <p class="walk-links"><a href="module-3-measuring-the-system.html#curves">Module 3: curves, not points</a></p>
+      </div>
+    </li>
+    <li class="w4">
+      <div class="walk-head"><span class="walk-n">4</span><div><p class="walk-layer">Layer 4 · Trust and deployment</p><h3>Would students trust it every day?</h3></div></div>
+      <div class="walk-body">
+        <p><b>Measure.</b> Replay each of the 30 mornings 5 times with different seeds. A morning passes only if all 5 replays succeed (pass^5). Search the traces for awards with no pickup.</p>
+        <div class="readout"><div><small>pass^1</small><b>90%</b></div><div><small>pass^5</small><b>62%</b></div><div><small>Award, no pickup</small><b>12 of 1,500</b></div></div>
+        <p><b>Reading.</b> The same 90% system is fully reliable on only 62% of mornings, so in more than one week in three a student will meet a missed pickup. The traces name the cause: an award without a timeout. Fix it with a re-auction after 2 minutes, then measure all four layers again.</p>
+        <p class="walk-links"><a href="module-5-llm-agents.html#passk">Module 5: pass^k</a> · <a href="tools.html#passk">pass^k tool</a></p>
+      </div>
+    </li>
+  </ol>
+  <div class="note amber"><p><b>The lesson.</b> Layer 1 said 90% and stopped there. Layers 2 to 4 found a fairness problem, a peak-time knee and a missing timeout. <strong>Lower layers are necessary but not sufficient.</strong> Try the same exercise with Case B or C on the <a href="case-studies.html">case studies page</a>.</p></div>
+</div>
+
+<div class="block" id="picker">
+  <h2>Choose your metrics</h2>
+  <p class="prose">Answer five questions about your own system, for the lab or your project. You get a starting set of metrics for each layer, a tracing tool, a baseline and a failure mode to watch for.</p>
+  <div class="tool">
+    <div class="tool-grid" style="grid-template-columns:minmax(260px,360px) minmax(0,1fr)">
+      <form id="picker" class="picker">
+        <fieldset data-q="type"><legend>1. What are you evaluating?</legend>
+          <label><input type="radio" name="type" value="single"> One rule-based agent</label>
+          <label><input type="radio" name="type" value="classic" checked> Several classic agents that exchange messages</label>
+          <label><input type="radio" name="type" value="sim"> An agent-based simulation model</label>
+          <label><input type="radio" name="type" value="llm1"> One LLM agent with tools</label>
+          <label><input type="radio" name="type" value="llmteam"> A team of LLM agents</label>
+        </fieldset>
+        <fieldset data-q="rel"><legend>2. How do the agents relate?</legend>
+          <label><input type="radio" name="rel" value="shared" checked> One team with a shared goal</label>
+          <label><input type="radio" name="rel" value="self"> Self-interested, each with its own goal</label>
+        </fieldset>
+        <fieldset data-q="check"><legend>3. How is success checked?</legend>
+          <label><input type="radio" name="check" value="auto" checked> Automatically: a test, a final state or an exact answer</label>
+          <label><input type="radio" name="check" value="judgement"> It needs judgement: text, plans or explanations</label>
+        </fieldset>
+        <fieldset data-q="users"><legend>4. Who depends on it?</legend>
+          <label><input type="radio" name="users" value="me" checked> Only me: an assignment or experiment</label>
+          <label><input type="radio" name="users" value="real"> Real users, every day</label>
+        </fieldset>
+        <fieldset data-q="size"><legend>5. How large could it get?</legend>
+          <label><input type="radio" name="size" value="small" checked> Stays small, under about 10 agents</label>
+          <label><input type="radio" name="size" value="large"> Could grow to hundreds</label>
+        </fieldset>
+        <button class="btn btn-plain" type="reset">Start again</button>
+      </form>
+      <div id="picker-out" aria-live="polite"></div>
+    </div>
+  </div>
+  <p class="small muted mt-1">This is a starting point, not a rule. Add or remove metrics and say why in your report.</p>
+</div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Performance Evaluation of Agent-Based Systems</h4>
+        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
+        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
+      </div>
+      <div>
+        <h4>Practise</h4>
+        <ul>
+          <li><a href="big-picture.html">The big picture</a></li>
+          <li><a href="tools.html">Interactive tools</a></li>
+          <li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
+          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Session</h4>
+        <ul>
+          <li><a href="programme.html">Programme and timings</a></li>
+          <li><a href="resources.html">Reading list</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fine">
+      <p>Speaker: Assoc. Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Cited works belong to their authors.</p>
+      <a class="visitors" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/bigpicture.js" defer></script>
+</body>
+</html>

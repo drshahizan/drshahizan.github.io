@@ -445,3 +445,74 @@ p a, li a { overflow-wrap: anywhere; }
 .site-footer .fine { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.75rem 1.5rem; }
 .site-footer .fine p { margin: 0; max-width: 80ch; }
 .site-footer .visitors img { display: block; }
+
+/* ---------- Big Picture: ecosystem map ---------- */
+.eco { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 1.25rem; align-items: start; }
+@media (max-width: 960px) { .eco { grid-template-columns: minmax(0, 1fr); } }
+.eco-map { display: flex; flex-direction: column; }
+.eco-band { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 1rem; align-items: center; background: var(--white); border: 1px solid var(--line); border-left-width: 6px; border-radius: var(--radius-m); padding: 0.85rem 1rem; }
+.eco-band.b1 { border-left-color: #4f9ea2; } .eco-band.b2 { border-left-color: var(--teal); } .eco-band.b3 { border-left-color: var(--blue); }
+.eco-band.b4 { border-left-color: #00508a; } .eco-band.b5 { border-left-color: var(--ink); } .eco-band.b6 { border-left-color: var(--amber); }
+.eco-label { display: grid; grid-template-columns: 30px minmax(0,1fr); column-gap: 0.6rem; align-items: start; }
+.eco-n { grid-row: span 2; width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; font-weight: 600; font-size: 0.9rem; }
+.eco-label b { font-size: 0.98rem; line-height: 1.25; }
+.eco-label small { color: var(--muted); font-size: 0.85rem; }
+.eco-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.chip { font: inherit; font-size: 0.9rem; padding: 0.38em 0.8em; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer; }
+.chip:hover { border-color: var(--teal); background: var(--teal-soft); }
+.chip[aria-pressed="true"] { background: var(--teal); border-color: var(--teal); color: #fff; }
+.eco-arrow { height: 22px; position: relative; }
+.eco-arrow::before { content: ""; position: absolute; left: 30px; top: 3px; bottom: 3px; width: 2px; background: #9fb3ba; }
+.eco-arrow::after { content: ""; position: absolute; left: 25px; bottom: 1px; border: 6px solid transparent; border-top-color: #9fb3ba; border-bottom: 0; }
+.eco-loop { display: flex; gap: 0.8rem; align-items: flex-start; margin-top: 0.75rem; padding: 0.8rem 1rem; border: 1.5px dashed var(--amber); border-radius: var(--radius-m); background: #fffaf2; font-size: 0.95rem; }
+.eco-loop span { font-size: 1.5rem; line-height: 1; color: #b86f12; }
+.eco-loop p { margin: 0; }
+.eco-detail { position: sticky; top: 84px; min-height: 260px; }
+.eco-detail h3 { margin-top: 0.1rem; }
+.eco-kind { font-size: 0.85rem; font-weight: 600; color: var(--teal-deep); margin-bottom: 0.2rem; }
+.eco-meta { font-size: 0.92rem; color: var(--ink-2); }
+@media (max-width: 960px) { .eco-detail { position: static; min-height: 0; } }
+@media (max-width: 640px) { .eco-band { grid-template-columns: minmax(0,1fr); gap: 0.6rem; } }
+
+/* Timeline */
+.timeline { list-style: none; padding: 0; margin: 1rem 0 1.5rem; position: relative; max-width: 860px; }
+.timeline::before { content: ""; position: absolute; left: 66px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+.timeline li { display: grid; grid-template-columns: 56px minmax(0,1fr); gap: 1.6rem; margin: 0 0 1.1rem; position: relative; }
+.timeline li::before { content: ""; position: absolute; left: 60px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--teal); border: 3px solid var(--paper); }
+.timeline li.tl-llm::before { background: var(--blue); }
+.tl-year { font-family: var(--mono); font-weight: 600; color: var(--ink); padding-top: 1px; }
+.timeline h3 { font-size: 1.05rem; margin-bottom: 0.2rem; }
+.timeline p { margin: 0 0 0.25rem; color: var(--ink-2); }
+.tl-now { font-size: 0.92rem; }
+
+/* Walkthrough */
+.walk { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: 1rem; }
+.walk li { margin: 0; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-m); overflow: hidden; }
+.walk-head { display: flex; gap: 0.9rem; align-items: center; padding: 0.9rem 1.2rem; color: #fff; }
+.walk-head h3 { color: #fff; margin: 0; }
+.walk-layer { margin: 0; font-size: 0.88rem; opacity: 0.9; }
+.walk-n { width: 36px; height: 36px; flex: none; border-radius: 50%; background: rgba(255,255,255,0.18); display: grid; place-items: center; font-weight: 600; font-size: 1.1rem; }
+.w1 .walk-head { background: #4f9ea2; } .w2 .walk-head { background: var(--teal); } .w3 .walk-head { background: var(--blue); } .w4 .walk-head { background: var(--ink); }
+.walk-body { padding: 1rem 1.2rem 0.4rem; }
+.walk-body .table-wrap { max-width: 420px; }
+.walk-links { font-size: 0.92rem; }
+
+/* Metric picker */
+.picker fieldset { border: 0; padding: 0; margin: 0 0 1rem; }
+.picker legend { font-weight: 600; margin-bottom: 0.35rem; padding: 0; }
+.picker label { display: flex; gap: 0.55em; align-items: flex-start; padding: 0.3em 0.5em; border-radius: var(--radius-s); cursor: pointer; font-size: 0.95rem; }
+.picker label:hover { background: var(--paper); }
+.picker input { margin-top: 0.3em; accent-color: var(--teal); }
+.picker fieldset.off { opacity: 0.45; }
+.pick-layer { border-left: 5px solid var(--line); padding: 0.3rem 0 0.3rem 1rem; margin-bottom: 0.9rem; }
+.pick-layer h4 { margin-bottom: 0.3rem; }
+.pick-layer ul { margin-bottom: 0; }
+.pick-layer.l4 { border-left-color: var(--ink); } .pick-layer.l3 { border-left-color: var(--blue); }
+.pick-layer.l2 { border-left-color: var(--teal); } .pick-layer.l1 { border-left-color: #4f9ea2; }
+#picker-out .panel h4 { margin-bottom: 0.3rem; }
+#picker-out .panel p { font-size: 0.95rem; }
+.jump { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+.jump a { padding: 0.45em 0.9em; border: 1px solid var(--line); border-radius: 999px; background: var(--white); text-decoration: none; color: var(--ink-2); font-size: 0.93rem; font-weight: 500; }
+.jump a:hover { border-color: var(--teal); color: var(--ink); }
+#walkthrough .walk, #timeline .timeline { max-width: 900px; }
+.eco-map > .eco-detail { margin: 0.6rem 0 0; border-color: var(--teal); }
