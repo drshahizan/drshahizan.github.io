@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Classroom prototype for a fictional Mersing homestay booking journey.">
+  <title>Mersing Coastal Homestay | Training App</title>
+  <link rel="stylesheet" href="assets/css/app.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="#top">Mersing <span>Coastal Homestay</span></a><a class="top-link" href="#manager">Manager sign in</a></header>
+  <main id="top">
+    <section class="hero"><div class="hero-copy"><p class="eyebrow">FICTIONAL TRAINING CASE · MERSING, JOHOR</p><h1>Make room for a little more coast.</h1><p>Explore a sample stay, choose a package and send a practice enquiry. Package details are training examples and are not live offers.</p><a class="button button-light" href="#packages">View sample packages</a></div><div class="hero-mark" aria-hidden="true">M<br><span>· JOHOR ·</span></div></section>
+    <div class="page-wrap">
+      <div id="appNotice" class="notice" role="status">Connecting to the assigned training project…</div>
+      <section id="packages" class="section"><div class="section-heading"><div><p class="eyebrow">SAMPLE OFFERS</p><h2>Choose a starting point.</h2></div><p>Replace these sample labels with the approved package names and visuals from Day 3.</p></div>
+        <div class="package-grid">
+          <article class="package-card"><div class="package-image image-coast"><span>Replace with a Day 3 visual</span></div><span class="package-icon">01</span><h3>Coastal Rest</h3><p>A fictional short stay for a small group.</p><button class="text-button choose-package" data-package="Coastal Rest" type="button">Ask about this package →</button></article>
+          <article class="package-card"><div class="package-image image-island"><span>Replace with a Day 3 visual</span></div><span class="package-icon">02</span><h3>Island Explorer</h3><p>A fictional local-experience package.</p><button class="text-button choose-package" data-package="Island Explorer" type="button">Ask about this package →</button></article>
+          <article class="package-card"><div class="package-image image-family"><span>Replace with a Day 3 visual</span></div><span class="package-icon">03</span><h3>Family Escape</h3><p>A fictional option for a family group.</p><button class="text-button choose-package" data-package="Family Escape" type="button">Ask about this package →</button></article>
+        </div>
+      </section>
+      <section class="section enquiry-layout" id="enquiry"><div><p class="eyebrow">VISITOR FORM</p><h2>Send a practice enquiry.</h2><p>This classroom form collects only a check-in date, package, guest count and country. It does not collect names, phone numbers, addresses or payment information.</p><div class="privacy-note"><strong>Practice only</strong><span>Use fictional values. Do not enter personal information.</span></div></div>
+        <form id="enquiryForm" class="panel form-grid">
+          <label>Check-in date<input name="check_in_date" type="date" required></label>
+          <label>Package<select name="package_type" required><option value="">Choose a package</option><option>Coastal Rest</option><option>Island Explorer</option><option>Family Escape</option></select></label>
+          <label>Number of guests<input name="guest_count" type="number" min="1" max="12" value="2" required></label>
+          <label>Visitor country<select name="visitor_country" required><option value="">Choose a country</option><option>Malaysia</option><option>Singapore</option><option>Indonesia</option><option>Thailand</option><option>Brunei</option><option>China</option><option>India</option><option>Australia</option><option>Japan</option><option>South Korea</option><option>United Kingdom</option><option>Saudi Arabia</option><option>Germany</option></select></label>
+          <button class="button button-primary form-submit" type="submit">Send practice enquiry</button><p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+      <section class="section manager" id="manager"><div class="section-heading"><div><p class="eyebrow">MANAGER VIEW</p><h2>Review booking requests.</h2></div><p>Manager actions require the lecturer-provided training account.</p></div>
+        <form id="loginForm" class="panel login-form"><label>Email<input name="email" type="email" autocomplete="username" required></label><label>Password<input name="password" type="password" autocomplete="current-password" required></label><button class="button button-primary" type="submit">Sign in</button><p id="loginMessage" class="form-message" role="status"></p></form>
+        <div id="managerPanel" class="panel manager-panel" hidden><div class="manager-toolbar"><div><strong id="managerIdentity">Signed in as manager</strong><p>Fictional training records</p></div><button id="signOutButton" class="button button-quiet" type="button">Sign out</button></div><div id="managerMessage" class="form-message" role="status" aria-live="polite"></div><div class="table-scroll"><table><thead><tr><th>Check-in</th><th>Package</th><th>Guests</th><th>Country</th><th>Channel</th><th>Status</th><th>Actions</th></tr></thead><tbody id="bookingRows"><tr><td colspan="7">Sign in to view the practice list.</td></tr></tbody></table></div></div>
+      </section>
+    </div>
+  </main>
+  <footer><span>Training prototype · Synthetic data only</span><a href="#top">Back to top ↑</a></footer>
+</body>
+</html>
