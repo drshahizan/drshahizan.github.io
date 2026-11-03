@@ -1,6 +1,6 @@
 # Performance Evaluation of Agent-Based Systems
 
-Website for the CAI 461 Topic 8 guest lecture at Princess Nourah bint Abdulrahman University (PNU × UTM), delivered by Prof. Dr. Mohd Shahizan Othman and hosted by Dr. Eman Aljabarti.
+Website for the CAI 461 Topic 8 guest lecture at Princess Nourah bint Abdulrahman University (PNU × UTM), delivered by Assoc. Prof. Dr. Mohd Shahizan Othman and hosted by Dr. Eman Aljabarti.
 
 A static site: plain HTML, CSS and JavaScript with no build step, ready for GitHub Pages.
 
@@ -38,3 +38,4 @@ To put it inside an existing site instead, copy the folder into that repository 
 
 - Set the session date: the home page shows “To be announced”. Search for `To be announced` in `index.html` and replace it.
 - Check the speaker and host details on `index.html`.
+- Visitor counter: the footer uses the same visitorbadge.io badge as drshahizan.github.io/bdc (path github.com/drshahizan), so visits add to the same count.

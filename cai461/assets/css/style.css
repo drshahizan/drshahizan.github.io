@@ -95,9 +95,9 @@ code, kbd, .mono { font-family: var(--mono); font-size: 0.92em; }
 .site-nav a:hover { background: var(--teal-soft); color: var(--ink); }
 .site-nav a[aria-current="page"] { color: var(--teal-deep); box-shadow: inset 0 -2px 0 var(--teal); border-radius: 0; }
 
-@media (max-width: 1100px) {
+@media (max-width: 860px) {
   .nav-toggle { display: block; }
-  .site-nav { display: none; position: absolute; left: 0; right: 0; top: 64px; background: var(--white); border-bottom: 1px solid var(--line); }
+  .site-nav { display: none; position: absolute; left: 0; right: 0; top: 58px; background: var(--white); border-bottom: 1px solid var(--line); }
   .site-nav.open { display: block; }
   .site-nav ul { flex-direction: column; padding: 0.5rem clamp(16px, 4vw, 40px) 1rem; }
   .site-nav a { padding: 0.7em 0.5em; }
@@ -435,3 +435,13 @@ details.reveal > div { padding: 0 1.1rem 1.1rem; }
 
 .with-index > *, .grid-2 > *, .grid-3 > *, .tool-grid > * { min-width: 0; }
 p a, li a { overflow-wrap: anywhere; }
+
+/* Compact header (v2) and visitor badge */
+.site-header .wrap { min-height: 58px; }
+.brand-mark { width: 30px; height: 30px; }
+.brand-text b { font-size: 1rem; }
+.site-nav a { padding: 0.4em 0.75em; }
+.page-hero { padding: clamp(2rem, 4.5vw, 3.25rem) 0 clamp(1.75rem, 4vw, 2.75rem); }
+.site-footer .fine { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.75rem 1.5rem; }
+.site-footer .fine p { margin: 0; max-width: 80ch; }
+.site-footer .visitors img { display: block; }
