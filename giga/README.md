@@ -14,6 +14,7 @@ pages/
   exercises/day-4.html
   exercises/day-5.html
   resources/ai-tools.html
+  resources/resources.html
 assets/
   css/site.css
   css/themes/light-professional.css
@@ -42,6 +43,7 @@ The site uses relative asset and page links, so it works from a repository path 
 - The Day 5 exercise page links to a starter/reference app bundle with setup SQL, a scoped RLS example, seed records and lecturer instructions. Day 4 uses a separate Google Sheets practice app; its visitor-session analytics data is not booking data.
 - Day pages include copyable worked prompts for image generation, data analysis, Apps Script and Supabase tasks.
 - The AI tools directory groups 34 optional AI tools and four supporting workshop platforms by task, maps them to the five-day programme and includes responsible-use reminders.
+- The Resources hub groups whitepapers, tutorials, YouTube videos, editable templates, dashboard examples, Behance inspiration and day-by-day workshop materials.
 - The Day 4 exercise guide includes a simulated 6,000-session visitor CSV covering January–December 2025 and 13 countries.
 - The guide describes participant activities; no working booking form, customer database or external AI service is connected to this course information site.
 
