@@ -1,6 +1,8 @@
 # Page categories
 
 - `../index.html` — course overview and navigation entry point.
+- `prepare/start-here.html` — participant preparation, learning route, downloads, troubleshooting and glossary.
+- `exercises/day-1.html` and `exercises/day-2.html` — step-by-step prompts and expected outputs for the first two days.
 - `programme/programme.html` — five-day training programme and timetable.
 - `capstone/capstone.html` — Malaysian case study and capstone project brief.
 

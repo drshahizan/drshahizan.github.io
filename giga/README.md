@@ -7,9 +7,12 @@ Static, responsive GitHub Pages website for the five-day workshop **Practical Ge
 ```text
 index.html
 pages/
+  prepare/start-here.html
   programme/programme.html
   capstone/capstone.html
   exercises/exercises.html
+  exercises/day-1.html
+  exercises/day-2.html
   exercises/day-3.html
   exercises/day-4.html
   exercises/day-5.html
@@ -41,7 +44,8 @@ The site uses relative asset and page links, so it works from a repository path 
 - Day 4 guides participants through a dashboard, static website and Google Sheets-backed Apps Script web app.
 - Day 5 completes the Mersing homestay capstone: reuse Day 3 visuals, connect an enquiry form to Supabase, and manage fictional booking requests with CRUD and RLS checks.
 - The Day 5 exercise page links to a starter/reference app bundle with setup SQL, a scoped RLS example, seed records and lecturer instructions. Day 4 uses a separate Google Sheets practice app; its visitor-session analytics data is not booking data.
-- Day pages include copyable worked prompts for image generation, data analysis, Apps Script and Supabase tasks.
+- All five day pages include step-by-step participant guidance, copyable prompts and expected outputs. Day 1 covers responsible prompt workflows and the agent case study; Day 2 covers video planning, production and showcase.
+- The Start Here page explains participant preparation, the learning route, downloads, common troubleshooting and a plain-language glossary.
 - The AI tools directory groups 34 optional AI tools and four supporting workshop platforms by task, maps them to the five-day programme and includes responsible-use reminders.
 - The Resources hub groups whitepapers, tutorials, YouTube videos, editable templates, dashboard examples, Behance inspiration and day-by-day workshop materials.
 - The Day 4 exercise guide includes a simulated 6,000-session visitor CSV covering January–December 2025 and 13 countries.
