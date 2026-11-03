@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt library · Polishing Your Draft Article Using AI Tools</title>
+<meta name="description" content="Prompt templates for polishing each section of an academic article.">
+<meta name="theme-color" content="#7A1631">
+<meta property="og:title" content="Prompt library · Polishing Your Draft Article Using AI Tools">
+<meta property="og:description" content="Prompt templates for polishing each section of an academic article.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Winning Journal Writing Workshop 2026">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,700;1,6..72,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">P</span><span>Polishing with AI<small>Winning Journal Writing Workshop 2026</small></span></a>
+    <nav class="nav" id="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="session.html">Session</a><a href="modules.html">Modules</a><a href="prompts.html" aria-current="page">Prompts</a><a href="tools.html">AI Tools</a><a href="activities.html">Activities</a><a href="checklist.html">Checklist</a><a href="resources.html">Resources</a></nav>
+    <div class="nav-tools">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark theme">Theme</button>
+      <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-head"><div class="wrap"><p class="crumbs"><a href="index.html">Home</a> / Prompts</p><h1>Prompt library</h1><p>Ready-to-use templates for English-language manuscripts. Replace everything in [BRACKETS] with your own details before use.</p></div></section>
+<div class="wrap" style="padding-bottom:3rem">
+  <div class="note" style="margin-bottom:2rem"><h3>Before you paste</h3><p>Do not paste sensitive data or participant information. Check every output, especially facts, figures and references.</p></div>
+  <div class="filters" role="group" aria-label="Filter prompts"><button class="chip" type="button" data-filter="all" aria-pressed="true">All</button><button class="chip" type="button" data-filter="language" aria-pressed="false">Language</button><button class="chip" type="button" data-filter="sections" aria-pressed="false">Article sections</button><button class="chip" type="button" data-filter="argument" aria-pressed="false">Argument</button><button class="chip" type="button" data-filter="references" aria-pressed="false">References</button><button class="chip" type="button" data-filter="review" aria-pressed="false">Peer review</button><button class="chip" type="button" data-filter="submission" aria-pressed="false">Submission</button></div>
+  <article class="prompt" data-cat="language"><header><h3>Polish without changing meaning</h3><button class="copy" type="button" data-target="p1">Copy</button></header><p class="use">For a paragraph whose ideas are complete but whose language needs work.</p><pre id="p1">Act as an academic editor for a Q1 journal in [FIELD].
+Improve the clarity, grammar and flow of the paragraph below.
+Rules:
+- Do not change the meaning or add new claims, data or citations.
+- Keep technical terms exactly as written.
+- Use [British/American] English.
+Return: (1) the revised paragraph, (2) a short table listing each change and why.
+
+Paragraph:
+[PASTE PARAGRAPH]</pre></article><article class="prompt" data-cat="sections"><header><h3>Structured abstract</h3><button class="copy" type="button" data-target="p2">Copy</button></header><p class="use">Ensures every essential element of the abstract is present.</p><pre id="p2">Act as the handling editor of [JOURNAL NAME].
+Review my abstract against this structure: background, aim, method, key findings, contribution.
+1. Identify any missing or weak element.
+2. Suggest a revised abstract within [WORD LIMIT] words.
+3. Do not invent results; use only the information in my text.
+
+Abstract:
+[PASTE ABSTRACT]</pre></article><article class="prompt" data-cat="sections"><header><h3>Alternative titles</h3><button class="copy" type="button" data-target="p3">Copy</button></header><p class="use">Generates title options to compare.</p><pre id="p3">Suggest 8 alternative titles for the article summarised below.
+Mix styles: descriptive, question, and finding-led.
+Each title must be under [N] words and include at least one of these keywords: [KEYWORDS].
+After the list, recommend the 2 strongest titles for [JOURNAL NAME] and explain why.
+
+Summary:
+[PASTE ABSTRACT]</pre></article><article class="prompt" data-cat="sections"><header><h3>Research gap in the introduction</h3><button class="copy" type="button" data-target="p4">Copy</button></header><p class="use">Makes the gap and contribution explicit.</p><pre id="p4">Read my introduction and answer:
+1. What research gap does it claim? Quote the sentence.
+2. Is the gap supported by cited literature, or only asserted?
+3. Are the objectives and contributions stated explicitly?
+Then suggest how to restructure the final two paragraphs so the gap leads directly to the objectives.
+Do not add citations.
+
+Introduction:
+[PASTE TEXT]</pre></article><article class="prompt" data-cat="sections"><header><h3>From summary to synthesis</h3><button class="copy" type="button" data-target="p5">Copy</button></header><p class="use">Rewrites “Author A found… Author B found…” paragraphs.</p><pre id="p5">The paragraph below summarises studies one by one.
+Rewrite it as a synthesis organised by theme or argument, not by author.
+Keep every citation exactly as given and do not add new sources.
+Highlight any point where the studies disagree.
+
+Paragraph:
+[PASTE PARAGRAPH]</pre></article><article class="prompt" data-cat="argument"><header><h3>Alignment check</h3><button class="copy" type="button" data-target="p6">Copy</button></header><p class="use">Tests consistency from objectives to conclusions.</p><pre id="p6">Below are my research objectives, research questions, main findings and conclusion.
+Build a table that maps each objective to its research question, finding and conclusion.
+Flag any objective without a finding, any finding without an objective, and any conclusion not supported by the findings.
+
+[PASTE SECTIONS]</pre></article><article class="prompt" data-cat="argument"><header><h3>Reverse outline</h3><button class="copy" type="button" data-target="p7">Copy</button></header><p class="use">Reveals the overall flow of the argument.</p><pre id="p7">Summarise each paragraph of the text below in one sentence, numbered.
+Then tell me:
+- which paragraphs repeat the same point,
+- where the logical flow breaks,
+- which paragraph could be cut with the least loss.
+
+Text:
+[PASTE SECTION]</pre></article><article class="prompt" data-cat="language"><header><h3>Hedging and overclaiming</h3><button class="copy" type="button" data-target="p8">Copy</button></header><p class="use">Finds claims stronger than the evidence allows.</p><pre id="p8">Identify every sentence in the text below that makes a claim stronger than the evidence supports (e.g., &quot;proves&quot;, &quot;clearly shows&quot;, &quot;always&quot;).
+For each, suggest a more appropriately hedged version.
+Do not change sentences that are already appropriately cautious.
+
+Text:
+[PASTE TEXT]</pre></article><article class="prompt" data-cat="language"><header><h3>Remove AI-sounding style</h3><button class="copy" type="button" data-target="p9">Copy</button></header><p class="use">Strips clichés and repetitive phrasing.</p><pre id="p9">Review the text below for wording that sounds generic or machine-generated: overused words, filler transitions, inflated adjectives and repetitive sentence openings.
+List each instance with a plainer alternative.
+Keep my original sentence structure where possible.
+
+Text:
+[PASTE TEXT]</pre></article><article class="prompt" data-cat="review"><header><h3>Demanding reviewer simulation</h3><button class="copy" type="button" data-target="p10">Copy</button></header><p class="use">Anticipates criticism before submission.</p><pre id="p10">Act as a critical but fair reviewer for [JOURNAL NAME], a Q1 journal in [FIELD].
+Evaluate the manuscript summary below on: novelty, theoretical contribution, methodological rigour, clarity and fit with the journal scope.
+Give: (1) major concerns, (2) minor concerns, (3) a likely recommendation (accept / minor / major / reject) with justification.
+
+Summary:
+[PASTE ABSTRACT + KEY METHOD + KEY FINDINGS]</pre></article><article class="prompt" data-cat="review"><header><h3>Response to reviewers</h3><button class="copy" type="button" data-target="p11">Copy</button></header><p class="use">Structures a reply to each reviewer comment.</p><pre id="p11">Help me draft a point-by-point response to the reviewer comment below.
+Tone: respectful, concise and confident.
+Structure: thank the reviewer, state what was changed (with page/line placeholders), and explain briefly.
+If I disagree, phrase it politely with evidence.
+
+Reviewer comment:
+[PASTE COMMENT]
+My planned change or position:
+[DESCRIBE]</pre></article><article class="prompt" data-cat="submission"><header><h3>Cover letter</h3><button class="copy" type="button" data-target="p12">Copy</button></header><p class="use">A first draft to tailor yourself.</p><pre id="p12">Draft a cover letter to the editor of [JOURNAL NAME] for the manuscript &quot;[TITLE]&quot;.
+Include: the problem addressed, the main contribution in 2 sentences, why it fits the journal scope, confirmation that it is original and not under review elsewhere.
+Maximum 250 words. Avoid exaggerated language.
+
+Abstract:
+[PASTE ABSTRACT]</pre></article><article class="prompt" data-cat="submission"><header><h3>AI disclosure statement</h3><button class="copy" type="button" data-target="p13">Copy</button></header><p class="use">An accurate, concise disclosure.</p><pre id="p13">Write a short AI-use disclosure statement for a journal manuscript.
+Facts:
+- Tool(s) used: [TOOL AND VERSION]
+- Purpose: [e.g., language editing and readability of selected sections]
+- Sections affected: [SECTIONS]
+- Authors reviewed and edited all output and take full responsibility.
+Keep it under 70 words and neutral in tone.</pre></article><article class="prompt" data-cat="references"><header><h3>Reference consistency check</h3><button class="copy" type="button" data-target="p14">Copy</button></header><p class="use">Checks formatting only; it does not confirm that sources exist.</p><pre id="p14">Check the reference list below for formatting consistency with [APA 7 / IEEE / Vancouver].
+List inconsistencies only (author format, italics, capitalisation, missing DOI, year placement).
+Do not invent or correct any bibliographic details; mark uncertain items for manual checking.
+
+References:
+[PASTE LIST]</pre></article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>Polishing Your Draft Article Using AI Tools</h3>
+        <p>A session of the Winning Journal Writing Workshop 2026, a collaborative programme between Universiti Teknologi Malaysia (UTM) and Ho Chi Minh City University of Technology (HCMUT), Vietnam.</p>
+      </div>
+      <div><h3>Session</h3><ul><li><a href="session.html">Session</a></li><li><a href="modules.html">Modules</a></li><li><a href="prompts.html">Prompts</a></li><li><a href="tools.html">AI Tools</a></li></ul></div>
+      <div><h3>Materials</h3><ul><li><a href="activities.html">Activities</a></li><li><a href="checklist.html">Checklist</a></li><li><a href="resources.html">Resources</a></li></ul></div>
+      <div><h3>Event</h3><ul><li>Friday, 6 November 2026</li><li>9:00 AM – 1:00 PM (MYT)</li><li>Cisco Webex (online)</li></ul></div>
+    </div>
+    <p class="copyright">© 2026 Winning Journal Writing Workshop 2026 · UTM and HCMUT. Speaker: Assoc. Prof. Dr. Mohd Shahizan, Universiti Teknologi Malaysia (UTM). Always check publishers' current AI policies before submitting a manuscript.</p>
+    <p class="visitors"><a href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Site visitor count" height="20" loading="lazy"></a></p>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
