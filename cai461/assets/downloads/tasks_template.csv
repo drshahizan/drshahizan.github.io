@@ -1,0 +1,4 @@
+id,question,expected
+T01,"Can I register for CAI 461 if I have not passed its prerequisite?","no"
+T02,"What is the last day to drop a course without a W grade this semester?","[date from the official calendar]"
+T03,"How many credit hours can a student on academic probation register for?","[number from the regulations]"

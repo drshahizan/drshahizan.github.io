@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Performance Evaluation of Agent-Based Systems · CAI 461 · Topic 8</title>
+<meta name="description" content="Guest lecture website for CAI 461 Topic 8 at PNU: performance evaluation of agent-based systems, from rational agents to LLM multi-agent systems.">
+<meta name="theme-color" content="#0f3446">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Performance Evaluation of Agent-Based Systems · CAI 461 · Topic 8">
+<meta property="og:description" content="Guest lecture website for CAI 461 Topic 8 at PNU: performance evaluation of agent-based systems, from rational agents to LLM multi-agent systems.">
+<meta property="og:site_name" content="Performance Evaluation of Agent-Based Systems">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="3" width="32" height="6" rx="1.5" fill="#0f3446"/><rect x="4" y="11" width="28" height="6" rx="1.5" fill="#0070c0"/><rect x="6" y="19" width="24" height="6" rx="1.5" fill="#04767f"/><rect x="8" y="27" width="20" height="6" rx="1.5" fill="#4f9ea2"/></svg><span class="brand-text"><b>Evaluating Agent Systems</b><span>CAI 461 Topic 8 · PNU × UTM</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul><li><a href="index.html" aria-current="page">Home</a></li><li><a href="programme.html">Programme</a></li><li><a href="modules.html">Modules</a></li><li><a href="tools.html">Interactive Tools</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="lab.html">Lab</a></li><li><a href="resources.html">Resources</a></li><li><a href="glossary.html">Glossary</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="home-hero">
+  <div class="wrap grid">
+    <div>
+      <p class="kicker" style="color:#8fd1d6;font-weight:500;margin-bottom:.75rem">Guest lecture for CAI 461, Topic 8</p>
+      <h1>Performance Evaluation of Agent-Based Systems</h1>
+      <p class="lede">How do you know a multi-agent system is working well? This session builds one evaluation method that runs from Wooldridge’s rational agents to today’s LLM agent teams, and gives you the tools to apply it in your lab and projects.</p>
+      <dl class="meta">
+        <div><dt>Course</dt><dd>CAI 461 Multi-Agent Systems, Topic 8</dd></div>
+        <div><dt>Format</dt><dd>Online guest lecture with breakout rooms</dd></div>
+        <div><dt>Duration</dt><dd>110 minutes</dd></div>
+        <div><dt>Date</dt><dd>To be announced</dd></div>
+      </dl>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="module-1-performing-well.html">Start with Module 1</a>
+        <a class="btn btn-ghost" href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Download the slides (PDF)</a>
+      </div>
+    </div>
+    
+<div>
+  <div class="stack stack-load" aria-label="The four-layer evaluation framework">
+    <a class="l4" href="module-5-llm-agents.html"><b>Layer 4: Trust and deployment</b><span>pass^k · cost · policy violations · MAST</span></a>
+    <a class="l3" href="module-3-measuring-the-system.html"><b>Layer 3: System</b><span>latency · throughput · scalability · robustness</span></a>
+    <a class="l2" href="module-2-society-of-agents.html"><b>Layer 2: Interaction</b><span>welfare · Pareto · stability · PoA · messages</span></a>
+    <a class="l1" href="module-1-performing-well.html"><b>Layer 1: Individual agent</b><span>performance measure · EU · P(Ψ)</span></a>
+  </div>
+  <p class="stack-caption">Each layer of the framework links to the module that teaches it. Lower layers are necessary but not sufficient.</p>
+</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid-2" style="align-items:start;gap:2.5rem">
+      <div class="prose">
+        <span class="label">Why this topic</span>
+        <h2>A system of rational agents can still be slow, unstable or unreliable</h2>
+        <p>Earlier in CAI 461 you designed agents, made them talk, made them negotiate and simulated them in NetLogo. Topic 8 asks the question that sits on top of all of that: <strong>how do we prove the system performs well?</strong></p>
+        <p>The answer is never a single number. A trading agent can be rational and still lose money for the group. A Contract Net can find good allocations and still drown in messages at 500 agents. An LLM agent can pass a benchmark on the first try and fail the same customer on the fourth.</p>
+        <p>This site follows the lecture in six modules, adds interactive tools you can use to check the worked examples, and prepares you for the two-hour practical lab.</p>
+      </div>
+      <div>
+        <div class="panel teal">
+          <h3>Today’s question re-uses every earlier topic</h3>
+          <div class="table-wrap" style="margin:.5rem 0 0;border:0">
+            <table>
+              <tbody>
+                <tr><td><span class="tag">Topic 2</span></td><td>Performance measure, rationality, utility</td></tr>
+                <tr><td><span class="tag">Topics 3–4</span></td><td>What to log inside an agent and in its messages</td></tr>
+                <tr><td><span class="tag">Topic 5</span></td><td>Social welfare, Pareto efficiency, Nash stability</td></tr>
+                <tr><td><span class="tag">Topic 7</span></td><td>Verification, validation, sensitivity analysis</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white" id="outcomes">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Learning outcomes</span>
+      <h2>By the end of the session you will be able to</h2>
+    </div>
+    <div class="grid-3">
+      <div class="panel teal"><h3>Specify success</h3><p>Write a performance measure, utility function or task predicate Ψ that measures the environment rather than the agent’s behaviour.</p></div>
+      <div class="panel teal"><h3>Judge group outcomes</h3><p>Evaluate a protocol on social welfare, Pareto efficiency, stability and price of anarchy, and explain why stable is not the same as good.</p></div>
+      <div class="panel blue"><h3>Measure a running system</h3><p>Choose metrics from six families, design a repeated, controlled experiment and read scalability and robustness curves.</p></div>
+      <div class="panel blue"><h3>Evaluate a simulation model</h3><p>Plan verification, validation, replication and a sensitivity sweep, and report the model with ODD.</p></div>
+      <div class="panel ink"><h3>Evaluate LLM agents</h3><p>Use pass^k reliability, cost-aware comparison, MAST failure labels and a validated LLM judge, all built on tracing.</p></div>
+      <div class="panel amber"><h3>Write an evaluation plan</h3><p>Combine all of the above into a four-layer evaluation plan for a real system, as in the case activity and the lab.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Six modules</span>
+      <h2>Follow the lecture, one module at a time</h2>
+      <p>Each module has the key ideas, worked examples, a link back to earlier CAI 461 topics and a short self-check quiz.</p>
+    </div>
+    <ul class="module-list"><li><a href="module-1-performing-well.html"><span class="n">1</span><span><b>What does “performing well” mean?</b><span class="d">Performance measures, rationality, expected utility, achievement and maintenance tasks.</span></span><span class="t">15 min</span></a></li><li><a href="module-2-society-of-agents.html"><span class="n">2</span><span><b>Evaluating a society of agents</b><span class="d">Social welfare, Pareto efficiency, Nash stability, price of anarchy and protocol criteria.</span></span><span class="t">18 min</span></a></li><li><a href="module-3-measuring-the-system.html"><span class="n">3</span><span><b>Measuring the system</b><span class="d">Six metric families, scalability and robustness curves, tracing, JADE tools and sound experiments.</span></span><span class="t">15 min</span></a></li><li><a href="module-4-agent-based-models.html"><span class="n">4</span><span><b>Evaluating agent-based models</b><span class="d">Verification, validation, replication, sensitivity analysis and the ODD protocol.</span></span><span class="t">12 min</span></a></li><li><a href="module-5-llm-agents.html"><span class="n">5</span><span><b>Evaluating LLM-based agents</b><span class="d">Benchmarks, pass^k reliability, cost, MultiAgentBench, MAST, LLM-as-a-judge and tracing.</span></span><span class="t">22 min</span></a></li><li><a href="module-6-bringing-it-together.html"><span class="n">6</span><span><b>Bringing it together</b><span class="d">The four-layer evaluation framework, the case activity and key takeaways.</span></span><span class="t">22 min</span></a></li></ul>
+    <p class="mt-1"><a href="programme.html">See the full programme with timings</a></p>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="wrap">
+    <div class="grid-3">
+      <div>
+        <span class="label">Before the session</span>
+        <h3>Come prepared</h3>
+        <ul>
+          <li>Re-read the PEAS description from Topic 2 and the Prisoner’s Dilemma from Topic 5.</li>
+          <li>Have your NetLogo Project 1 model nearby; you will plan a sensitivity sweep for it.</li>
+          <li>Skim the <a href="glossary.html">glossary</a> for terms you have not met yet: pass^k, MAST, span.</li>
+        </ul>
+      </div>
+      <div>
+        <span class="label">During the session</span>
+        <h3>Take part</h3>
+        <ul>
+          <li>Answer the achievement or maintenance quick check in the chat or poll.</li>
+          <li>Work in a breakout room on one of the three <a href="case-studies.html">case studies</a>.</li>
+          <li>Keep the <a href="tools.html">interactive tools</a> open to test the worked examples yourself.</li>
+        </ul>
+      </div>
+      <div>
+        <span class="label">After the session</span>
+        <h3>Apply it</h3>
+        <ul>
+          <li>Complete the two-hour <a href="lab.html">lab</a>: instrument, trace and evaluate a small multi-agent system.</li>
+          <li>Use the <a href="resources.html">reading list</a> for your project report.</li>
+          <li>Try each module’s self-check quiz before the next class.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="speakers">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Speaker and host</span>
+      <h2>Who is leading the session</h2>
+    </div>
+    <div class="people">
+      <div class="person">
+        <div class="avatar" aria-hidden="true">MSO</div>
+        <div>
+          <h3>Prof. Dr. Mohd Shahizan Othman</h3>
+          <p class="role">Guest speaker, Universiti Teknologi Malaysia</p>
+          <p>Delivers the lecture and the case activity as part of the PNU × UTM High-Impact Academic Practices programme. More of his short courses and teaching material are on <a href="https://github.com/drshahizan">github.com/drshahizan</a>.</p>
+        </div>
+      </div>
+      <div class="person">
+        <div class="avatar blue" aria-hidden="true">EA</div>
+        <div>
+          <h3>Dr. Eman Aljabarti</h3>
+          <p class="role">Host, Course Coordinator for CAI 461, Princess Nourah bint Abdulrahman University</p>
+          <p>Coordinates CAI 461 and the Topic 8 practical lab in which students instrument, trace and evaluate their own multi-agent system.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Questions</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <details><summary>Do I need to know LLMs before the session?</summary><p>No. Modules 1 to 4 use only material from earlier CAI 461 topics. Module 5 explains each LLM evaluation idea from scratch and links it back to an older concept, for example pass^k back to success probability P(Ψ).</p></details>
+    <details><summary>Is the lab graded?</summary><p>The lab follows the course specification for the Topic 8 practical. Your course coordinator will confirm how it is assessed. The <a href="lab.html">lab page</a> lists what the report must contain.</p></details>
+    <details><summary>Which tools will we use in the lab?</summary><p>A small Python multi-agent system with tracing. The lecture uses LangSmith as the example tool, but any OpenTelemetry-compatible tracer works. The method matters more than the tool.</p></details>
+    <details><summary>What should my group submit in the case activity?</summary><p>One slide or one chat message containing one metric per layer, one baseline, one experiment, what you will trace and one likely failure mode with how you would detect it. Templates and model answers are on the <a href="case-studies.html">case studies page</a>.</p></details>
+    <details><summary>Where are the slides?</summary><p><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Download the lecture slides as a PDF</a>. The full reference list is on the <a href="resources.html">resources page</a>.</p></details>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Performance Evaluation of Agent-Based Systems</h4>
+        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
+        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
+      </div>
+      <div>
+        <h4>Practise</h4>
+        <ul>
+          <li><a href="tools.html">Interactive tools</a></li>
+          <li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
+          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Session</h4>
+        <ul>
+          <li><a href="programme.html">Programme and timings</a></li>
+          <li><a href="resources.html">Reading list</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Speaker: Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Material prepared for CAI 461 students; cited works belong to their authors.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

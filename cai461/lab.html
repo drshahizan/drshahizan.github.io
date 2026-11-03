@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab: instrument, trace, evaluate · CAI 461 · Topic 8</title>
+<meta name="description" content="Step-by-step guide to the CAI 461 Topic 8 practical: tracing a coordinator and two workers, building a dataset, computing pass^k and comparing topologies.">
+<meta name="theme-color" content="#0f3446">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lab: instrument, trace, evaluate · CAI 461 · Topic 8">
+<meta property="og:description" content="Step-by-step guide to the CAI 461 Topic 8 practical: tracing a coordinator and two workers, building a dataset, computing pass^k and comparing topologies.">
+<meta property="og:site_name" content="Performance Evaluation of Agent-Based Systems">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="3" width="32" height="6" rx="1.5" fill="#0f3446"/><rect x="4" y="11" width="28" height="6" rx="1.5" fill="#0070c0"/><rect x="6" y="19" width="24" height="6" rx="1.5" fill="#04767f"/><rect x="8" y="27" width="20" height="6" rx="1.5" fill="#4f9ea2"/></svg><span class="brand-text"><b>Evaluating Agent Systems</b><span>CAI 461 Topic 8 · PNU × UTM</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul><li><a href="index.html">Home</a></li><li><a href="programme.html">Programme</a></li><li><a href="modules.html">Modules</a></li><li><a href="tools.html">Interactive Tools</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="lab.html" aria-current="page">Lab</a></li><li><a href="resources.html">Resources</a></li><li><a href="glossary.html">Glossary</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Lab</nav><h1>Lab: instrument, trace, evaluate</h1>
+    <p class="lede">The Topic 8 practical. In two hours you will trace a small multi-agent system, evaluate it on 20 tasks with three trials each, compare two topologies and report the results in a four-layer table.</p>
+    <div class="btn-row"><a class="btn btn-primary" href="assets/downloads/lab_harness.py" download>Download the lab harness (Python)</a><a class="btn btn-ghost" href="assets/downloads/lab-report-template.md" download>Download the report template</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap with-index">
+    <nav class="page-index" aria-label="On this page"><p>On this page</p><ol><li><a href="#before">Before the lab</a></li><li><a href="#plan">Two-hour plan</a></li><li><a href="#s1">1. Instrument</a></li><li><a href="#s2">2. Build a dataset</a></li><li><a href="#s3">3. Define evaluators</a></li><li><a href="#s4">4. Run k = 3 trials</a></li><li><a href="#s5">5. Compare designs</a></li><li><a href="#s6">6. Report</a></li><li><a href="#checklist">Submission checklist</a></li></ol></nav>
+    <div>
+      <div class="block" id="before">
+        <h2>Before the lab</h2>
+        <div class="grid-2">
+          <div class="panel teal"><h3>Set up</h3><ul><li>Python 3.10 or newer. The harness has no other dependencies.</li><li>Run <code>python lab_harness.py</code> once at home; it finishes in seconds and writes <code>lab_output/</code>.</li><li>If you will use a real model, have its API key ready, and optionally a LangSmith account.</li></ul></div>
+          <div class="panel blue"><h3>Revise</h3><ul><li><a href="module-3-measuring-the-system.html#tracing">Traces and spans</a> (Module 3)</li><li><a href="module-5-llm-agents.html#passk">pass^k</a> and <a href="module-5-llm-agents.html#mast">MAST</a> (Module 5)</li><li><a href="module-5-llm-agents.html#judge">LLM-as-a-judge biases</a> (Module 5)</li></ul></div>
+        </div>
+      </div>
+
+      <div class="block" id="plan">
+        <h2>Two-hour plan</h2>
+        <div class="trace" role="img" aria-label="Lab timeline across 120 minutes">
+          <div class="trace-row"><div class="who"><b>Topic 8 practical</b><small>120 min</small></div><div class="trace-track"><span class="trace-bar root" style="left:0;width:100%">120 min</span></div></div>
+          <div class="trace-row"><div class="who"><a href="#s1">1. Instrument</a><small>0–20 min</small></div><div class="trace-track"><span class="trace-bar c1" style="left:0;width:16.67%">20m</span></div></div>
+          <div class="trace-row"><div class="who"><a href="#s2">2. Build a dataset</a><small>20–40 min</small></div><div class="trace-track"><span class="trace-bar c1" style="left:16.67%;width:16.67%">20m</span></div></div>
+          <div class="trace-row"><div class="who"><a href="#s3">3. Define evaluators</a><small>40–60 min</small></div><div class="trace-track"><span class="trace-bar c2" style="left:33.33%;width:16.67%">20m</span></div></div>
+          <div class="trace-row"><div class="who"><a href="#s4">4. Run k = 3 trials</a><small>60–75 min</small></div><div class="trace-track"><span class="trace-bar c2" style="left:50%;width:12.5%">15m</span></div></div>
+          <div class="trace-row"><div class="who"><a href="#s5">5. Compare designs</a><small>75–95 min</small></div><div class="trace-track"><span class="trace-bar c3" style="left:62.5%;width:16.67%">20m</span></div></div>
+          <div class="trace-row"><div class="who"><a href="#s6">6. Report</a><small>95–120 min</small></div><div class="trace-track"><span class="trace-bar c4" style="left:79.17%;width:20.83%">25m</span></div></div>
+        </div>
+      </div>
+
+      <div class="block" id="s1">
+        <h2>1. Instrument</h2>
+        <p class="prose">Enable tracing on a small multi-agent system: a coordinator and two workers. Every agent invocation, model call and tool call becomes a span with a parent, timestamps and token counts.</p>
+        <h3>Option A: the harness’s built-in tracer</h3>
+        <p class="prose">The harness wraps each step in a span using OpenTelemetry GenAI attribute names, so the output looks like what a production tracer records:</p>
+        <pre data-copy><code><span class="k">with</span> TRACER.span(<span class="s">"invoke_agent WorkerA"</span>, **{
+        <span class="s">"gen_ai.operation.name"</span>: <span class="s">"invoke_agent"</span>,
+        <span class="s">"gen_ai.agent.name"</span>: <span class="s">"WorkerA"</span>}):
+    <span class="k">with</span> TRACER.span(<span class="s">"execute_tool lookup"</span>, **{
+            <span class="s">"gen_ai.operation.name"</span>: <span class="s">"execute_tool"</span>,
+            <span class="s">"gen_ai.tool.name"</span>: <span class="s">"lookup"</span>}):
+        result = lookup(question)
+    answer = llm_step(<span class="s">"WorkerA"</span>, <span class="s">"answer"</span>, question, rng)</code></pre>
+        <h3>Option B: LangSmith, as used in the lecture</h3>
+        <p class="prose">Set the environment variables, then decorate each agent function. LangSmith builds the span tree from nested calls.</p>
+        <pre data-copy><code><span class="cm"># in your shell</span>
+export LANGSMITH_TRACING=true
+export LANGSMITH_API_KEY=<span class="s">"your-key"</span>
+
+<span class="cm"># in your code</span>
+<span class="k">from</span> langsmith <span class="k">import</span> traceable
+
+@traceable(name=<span class="s">"WorkerA"</span>, run_type=<span class="s">"chain"</span>)
+<span class="k">def</span> worker_a(question: str) -> str:
+    ...</code></pre>
+        <p class="small muted">Check the current LangSmith documentation for setup details; see <a href="https://docs.langchain.com/langsmith/evaluation-concepts">Evaluation concepts</a>. Any OpenTelemetry-compatible tracer is equally acceptable.</p>
+      </div>
+
+      <div class="block" id="s2">
+        <h2>2. Build a dataset</h2>
+        <div class="prose">
+          <p>Write 20 tasks with expected outcomes. A good dataset mixes easy, typical and hard tasks, includes at least two tasks where the right answer is “I don’t know” or “not allowed”, and uses outcomes that can be checked exactly where possible.</p>
+          <p>Save it as a CSV with columns <code>id,question,expected</code> and run <code>python lab_harness.py --tasks tasks.csv</code>.</p>
+          <p><a href="assets/downloads/tasks_template.csv" download>Download a starter tasks.csv</a></p>
+        </div>
+      </div>
+
+      <div class="block" id="s3">
+        <h2>3. Define evaluators</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Evaluator</th><th>Type</th><th>In the harness</th></tr></thead>
+            <tbody>
+              <tr><td>Exact match</td><td>Code</td><td><code>exact_match(output, expected)</code></td></tr>
+              <tr><td>Rubric judge</td><td>LLM-as-a-judge</td><td><code>rubric_judge(...)</code>, a hook for you to implement with a different model from the one under test</td></tr>
+              <tr><td>Latency</td><td>Code</td><td>Measured around each run; reported as p50 and p95</td></tr>
+              <tr><td>Token cost</td><td>Code</td><td>Summed from <code>gen_ai.usage.*</code> span attributes, priced with <code>--price-in</code> and <code>--price-out</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note amber"><p><b>Validate your judge.</b> Label 10 outputs yourself before you trust the rubric judge. Report how often it agrees with you, and swap answer order if you use pairwise comparisons. The <a href="module-5-llm-agents.html#judge">rubric prompt in Module 5</a> is a good starting point.</p></div>
+      </div>
+
+      <div class="block" id="s4">
+        <h2>4. Run k = 3 trials</h2>
+        <div class="prose">
+          <p>Run every task three times and compute the success rate and pass^3 for each task. The harness uses the unbiased estimator from τ-bench:</p>
+        </div>
+        <pre data-copy><code><span class="k">from</span> math <span class="k">import</span> comb
+
+<span class="k">def</span> pass_hat_k(n, c, k):
+    <span class="s">&quot;&quot;&quot;n trials, c successes: probability that k trials drawn from n all succeeded.&quot;&quot;&quot;</span>
+    <span class="k">return</span> comb(c, k) / comb(n, k)
+
+<span class="cm"># With n = k = 3 this is 1 if all three succeeded, else 0.</span>
+<span class="cm"># Average it across tasks to get the system's pass^3.</span></code></pre>
+        <p class="prose">With n = k = 3 the estimate per task is simply “all three passed”. Running more trials than k, for example n = 5 with k = 3, gives a smoother estimate.</p>
+      </div>
+
+      <div class="block" id="s5">
+        <h2>5. Compare designs</h2>
+        <div class="grid-2">
+          <div class="panel teal"><h3>Sequential chain</h3><p>Coordinator → Worker A → Worker B. Each agent hands its output to the next. Fewer calls, but an early mistake flows straight through.</p></div>
+          <div class="panel blue"><h3>Supervisor (star)</h3><p>The coordinator asks both workers, compares their answers and asks again on disagreement. More calls and tokens, but a built-in verification step.</p></div>
+        </div>
+        <p class="prose mt-1">The harness runs both on the same tasks with the same seeds and prints a four-layer table. Here is the output with the simulated agents; your numbers will differ with a real model:</p>
+        <pre><code>| Layer         | Metric                          | chain          | star           |
+|---------------|---------------------------------|----------------|----------------|
+| 1 Agent       | Success rate P(Ψ) ± 95% CI      | 68.3% ± 11.8%  | 75.0% ± 11.0%  |
+| 2 Interaction | Agent invocations per task      | 3.00           | 3.23           |
+| 2 Interaction | LLM calls per task              | 3.00           | 4.23           |
+| 3 System      | Latency p50 / p95 (ms)          | 10.8 / 13.2    | 14.6 / 20.0    |
+| 4 Trust       | pass@3                          | 90.0%          | 90.0%          |
+| 4 Trust       | pass^3                          | 50.0%          | 60.0%          |
+| 4 Trust       | Tokens per task                 | 277            | 397            |</code></pre>
+        <div class="note"><p><b>Read it across the layers.</b> The star is more accurate and more consistent (pass^3 60% against 50%) but uses about 40% more tokens and is slower. The confidence intervals overlap, so 20 tasks are not enough to claim the star is better. That is a finding worth reporting, not hiding.</p></div>
+      </div>
+
+      <div class="block" id="s6">
+        <h2>6. Report</h2>
+        <p class="prose">Your report has three required parts. Use the <a href="assets/downloads/lab-report-template.md" download>report template</a>.</p>
+        <div class="grid-3">
+          <div class="panel teal"><h3>Four-layer table</h3><p>At least one metric per layer for both designs, with confidence intervals where you have them.</p></div>
+          <div class="panel blue"><h3>One chart</h3><p>For example pass^k for k = 1 to 3 for both designs, or accuracy against cost.</p></div>
+          <div class="panel amber"><h3>Two failure cases labelled with MAST</h3><p>Pick tasks from the harness’s “always fail” and “inconsistent” lists, open their traces and name the failure mode.</p></div>
+        </div>
+      </div>
+
+      <div class="block" id="checklist">
+        <h2>Submission checklist</h2>
+        <ul class="prose">
+          <li>Code with tracing switched on, and the exact model names and versions</li>
+          <li><code>tasks.csv</code> with 20 tasks and expected outcomes</li>
+          <li><code>results.csv</code> and <code>traces.jsonl</code> (or links to your traced runs)</li>
+          <li>Four-layer table comparing chain and star</li>
+          <li>One chart with two sentences of interpretation</li>
+          <li>Two failure cases, each with task ID, trace ID, MAST label and a proposed fix</li>
+          <li>The random seed and the command you ran, so someone else can reproduce your numbers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Performance Evaluation of Agent-Based Systems</h4>
+        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
+        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
+      </div>
+      <div>
+        <h4>Practise</h4>
+        <ul>
+          <li><a href="tools.html">Interactive tools</a></li>
+          <li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
+          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Session</h4>
+        <ul>
+          <li><a href="programme.html">Programme and timings</a></li>
+          <li><a href="resources.html">Reading list</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Speaker: Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Material prepared for CAI 461 students; cited works belong to their authors.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case studies · CAI 461 · Topic 8</title>
+<meta name="description" content="Three evaluation case studies for CAI 461 Topic 8 with model answers, plus lessons from tau-bench, HAL, MAST and AI Agents That Matter.">
+<meta name="theme-color" content="#0f3446">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Case studies · CAI 461 · Topic 8">
+<meta property="og:description" content="Three evaluation case studies for CAI 461 Topic 8 with model answers, plus lessons from tau-bench, HAL, MAST and AI Agents That Matter.">
+<meta property="og:site_name" content="Performance Evaluation of Agent-Based Systems">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="3" width="32" height="6" rx="1.5" fill="#0f3446"/><rect x="4" y="11" width="28" height="6" rx="1.5" fill="#0070c0"/><rect x="6" y="19" width="24" height="6" rx="1.5" fill="#04767f"/><rect x="8" y="27" width="20" height="6" rx="1.5" fill="#4f9ea2"/></svg><span class="brand-text"><b>Evaluating Agent Systems</b><span>CAI 461 Topic 8 · PNU × UTM</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul><li><a href="index.html">Home</a></li><li><a href="programme.html">Programme</a></li><li><a href="modules.html">Modules</a></li><li><a href="tools.html">Interactive Tools</a></li><li><a href="case-studies.html" aria-current="page">Case Studies</a></li><li><a href="lab.html">Lab</a></li><li><a href="resources.html">Resources</a></li><li><a href="glossary.html">Glossary</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Case studies</nav><h1>Case studies</h1>
+    <p class="lede">The three cases from the lecture activity, each with a model evaluation plan, plus four published studies that show what goes wrong when evaluation is too narrow.</p>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap with-index">
+    <nav class="page-index" aria-label="On this page"><p>On this page</p><ol><li><a href="#activity">How the activity works</a></li><li><a href="#case-a">Case A: Smart Shuttle</a></li><li><a href="#case-b">Case B: Evacuation Model</a></li><li><a href="#case-c">Case C: Advising Crew</a></li><li><a href="#published">Lessons from published studies</a></li><li><a href="#template">Plan template</a></li></ol></nav>
+    <div>
+      <div class="block" id="activity">
+        <h2>How the activity works</h2>
+        <div class="grid-2" style="align-items:start">
+          <div class="prose"><p>You have 8 minutes in a breakout room, then two groups share for 4 minutes. Your group delivers one slide or one chat message with five items.</p><p>Pick the case closest to your own project. Case A uses Contract Net from the Agent Interactions topic, Case B uses NetLogo from the ABMS topic, and Case C uses LLM agents from the Architectures lab.</p></div>
+          <div class="panel amber"><h3>Deliver these five items</h3><ol><li>One metric from each of the four layers</li><li>One baseline to compare against</li><li>One experiment: what you vary, how many runs</li><li>What you will trace or log</li><li>One likely failure mode and how you would detect it</li></ol></div>
+        </div>
+      </div>
+      
+<div class="block" id="case-a">
+  <h2>Case A: PNU Smart Shuttle</h2>
+  <div class="grid-2" style="align-items:start">
+    <div class="prose"><p>Eight electric shuttle agents serve ride requests across the PNU campus. When a student requests a ride, a dispatcher agent announces it with Contract Net; each shuttle bids its estimated pickup time, and the dispatcher awards the request to the best bid. Demand spikes sharply in the ten minutes between lectures.</p></div>
+    <div class="panel teal"><h3>What you know about the system</h3><ul><li>8 shuttle agents and 1 dispatcher (manager).</li><li>Protocol: Contract Net, so 3 × 8 + 1 = 25 messages per request.</li><li>Peaks of around 50 requests in 5 minutes at class changes.</li><li>Shuttles can break down or go out of range.</li></ul></div>
+  </div>
+  <details class="reveal">
+    <summary>Model answer: one possible evaluation plan</summary>
+    <div>
+      <p class="small muted">Use this after your group has tried. There is more than one good answer; what matters is that each choice is justified.</p>
+      <h4>1. One metric per layer</h4>
+      <div class="table-wrap"><table><thead><tr><th>Layer</th><th>Metric</th><th>Why here</th></tr></thead><tbody><tr><td>4 Trust</td><td>Requests served in the same scenario across 5 repeated runs (pass^5), and requests left unserved after a shuttle failure</td><td>Students need the service to work every time, not on average.</td></tr><tr><td>3 System</td><td>p95 time from request to award, and requests handled per minute at peak</td><td>Peak load is when the protocol is most likely to break.</td></tr><tr><td>2 Interaction</td><td>Total passenger waiting time against an optimal assignment (social welfare), plus the longest single wait (egalitarian)</td><td>Good average waits can hide a few students waiting very long.</td></tr><tr><td>1 Agent</td><td>P(Ψ) where Ψ = picked up within 10 minutes of request (achievement) and never above seat capacity (maintenance)</td><td>States the success predicate in Wooldridge’s terms.</td></tr></tbody></table></div>
+      <h4>2. Baseline</h4><p>Greedy nearest-shuttle assignment, which needs only 2 messages per request, and random assignment as a floor.</p>
+      <h4>3. Experiment</h4><p>Vary request rate (10, 30, 50 per 5 minutes) and number of shuttles (4, 8, 16). Run each of the 9 settings 30 times with different seeds in a simulator, and repeat with one shuttle removed at minute 3. Report mean ± 95% CI and test Contract Net against greedy at each setting.</p>
+      <h4>4. What to trace or log</h4><p>Use the request ID as the FIPA <code>conversation-id</code>. Log each CFP, bid (with the shuttle’s position and bid value), award, pickup and drop-off as spans with timestamps. Count messages per conversation with the JADE Sniffer.</p>
+      <h4>5. Likely failure mode and how to detect it</h4><p>A shuttle wins a request, then breaks down, and the request is never re-announced. Detect it by searching the traces for conversations that have an award span but no pickup span within 10 minutes. The fix is an award timeout that re-runs the auction.</p>
+    </div>
+  </details>
+</div>
+      
+<div class="block" id="case-b">
+  <h2>Case B: Campus Evacuation Model</h2>
+  <div class="grid-2" style="align-items:start">
+    <div class="prose"><p>A NetLogo model simulates 3,000 students leaving teaching buildings during a fire drill. Each student agent walks towards an exit, slows down in crowds and may change exit if one is blocked. Campus safety wants to know whether the current exits are enough, and which exit to close for maintenance with least risk.</p></div>
+    <div class="panel blue"><h3>What you know about the system</h3><ul><li>3,000 student agents, several buildings and exits.</li><li>Parameters: walking speed, exit width, share of students who know the nearest exit.</li><li>Campus safety recorded total evacuation times from two past drills.</li><li>Outputs are stochastic; every run differs.</li></ul></div>
+  </div>
+  <details class="reveal">
+    <summary>Model answer: one possible evaluation plan</summary>
+    <div>
+      <p class="small muted">Use this after your group has tried. There is more than one good answer; what matters is that each choice is justified.</p>
+      <h4>1. One metric per layer</h4>
+      <div class="table-wrap"><table><thead><tr><th>Layer</th><th>Metric</th><th>Why here</th></tr></thead><tbody><tr><td>4 Trust</td><td>Error between simulated and recorded drill evacuation times (macro validation), and how much the result shifts when walking speed changes by 10%</td><td>Decisions will be made from this model, so it must match reality and not hinge on one guessed value.</td></tr><tr><td>3 System</td><td>Total evacuation time, the time until the last student is out, at 1,000, 2,000 and 3,000 students</td><td>The curve shows when exits become the bottleneck.</td></tr><tr><td>2 Interaction</td><td>Maximum queue length at each exit, and the ratio of selfish nearest-exit time to an optimised exit assignment (price of anarchy)</td><td>Congestion is an emergent interaction, not a property of one agent.</td></tr><tr><td>1 Agent</td><td>Share of agents that reach an exit (achievement) without entering a blocked corridor (maintenance)</td><td>Checks that individual behaviour is right before trusting the totals.</td></tr></tbody></table></div>
+      <h4>2. Baseline</h4><p>A simple flow estimate (students ÷ exit capacity per second) and the recorded times from the last real drill.</p>
+      <h4>3. Experiment</h4><p>In BehaviorSpace, vary blocked exits (none, one, two) and walking speed (1.0, 1.2, 1.4 m/s) with 30 repetitions: 3 × 3 × 30 = 270 runs. Report each setting as mean ± 95% CI. Document the model in ODD, stating under Observation exactly which outputs you record.</p>
+      <h4>4. What to trace or log</h4><p>Per tick: students evacuated through each exit and queue length per exit. Per agent: start position, chosen exit, exit changes and exit time. Store the random seed with every run.</p>
+      <h4>5. Likely failure mode and how to detect it</h4><p>All agents choose the same nearest exit and gridlock at one narrow door, which real people would avoid by switching. Detect it in verification with extreme values (for example one exit open) and by comparing the share of students per exit with the drill records; a large mismatch points to wrong micro-behaviour.</p>
+    </div>
+  </details>
+</div>
+      
+<div class="block" id="case-c">
+  <h2>Case C: Course-Advising Crew</h2>
+  <div class="grid-2" style="align-items:start">
+    <div class="prose"><p>Three LLM agents answer students’ registration questions. A planner breaks the question down, a retriever searches the course catalogue and university regulations, and a checker verifies the draft answer before it is sent. During registration week it receives hundreds of questions a day.</p></div>
+    <div class="panel ink"><h3>What you know about the system</h3><ul><li>Planner, retriever and checker, each an LLM call with its own prompt.</li><li>Tools: catalogue search, regulations search.</li><li>Answers are free text, so correctness is hard to check automatically.</li><li>A wrong answer can make a student miss a prerequisite or deadline.</li></ul></div>
+  </div>
+  <details class="reveal">
+    <summary>Model answer: one possible evaluation plan</summary>
+    <div>
+      <p class="small muted">Use this after your group has tried. There is more than one good answer; what matters is that each choice is justified.</p>
+      <h4>1. One metric per layer</h4>
+      <div class="table-wrap"><table><thead><tr><th>Layer</th><th>Metric</th><th>Why here</th></tr></thead><tbody><tr><td>4 Trust</td><td>pass^3 per question, cost per correct answer, and the number of answers that state a rule not found in the regulations</td><td>Students rely on it; a confident wrong answer is worse than no answer.</td></tr><tr><td>3 System</td><td>p50 and p95 latency per question and tokens per question during a simulated registration-week load</td><td>Long waits and cost spikes appear only under load.</td></tr><tr><td>2 Interaction</td><td>Planner-retriever-checker turns per question, and how often the checker rejects a draft and the crew recovers</td><td>Shows whether the crew coordinates or just loops.</td></tr><tr><td>1 Agent</td><td>Correctness against the official rules: exact match for facts (dates, credit limits) and a rubric judge for explanations</td><td>Splits checkable facts from open-ended text.</td></tr></tbody></table></div>
+      <h4>2. Baseline</h4><p>A single LLM with the same retrieval tools and no crew, and the existing static FAQ page.</p>
+      <h4>3. Experiment</h4><p>40 real registration questions with reference answers written by an advisor. Run each question 3 times with each design (crew against single agent), then compare the crew as a sequential chain against a supervisor (star). Validate the rubric judge on 30 human-labelled answers before trusting it.</p>
+      <h4>4. What to trace or log</h4><p>OpenTelemetry spans: <code>invoke_agent</code> for planner, retriever and checker; <code>execute_tool</code> for each search with the retrieved document IDs; <code>chat</code> spans with input and output tokens; and the checker’s verdict as an attribute.</p>
+      <h4>5. Likely failure mode and how to detect it</h4><p>The checker approves an answer that cites an outdated regulation (MAST: incorrect verification). Detect it with the judge’s grounding score and a weekly spot check of approved answers against the current regulations; the trace shows which document the retriever returned.</p>
+    </div>
+  </details>
+</div>
+      <div class="block" id="published">
+        <h2>Lessons from published studies</h2>
+        <p class="prose">Four real results that the lecture draws on. Each shows a layer that a narrow evaluation would have missed.</p>
+        <div class="grid-2">
+          <div class="panel teal"><h3>Consistency collapses with repetition</h3><p><b>τ-bench (Yao et al., ICLR 2025).</b> A GPT-4o function-calling agent solved about 61% of retail customer-service tasks on a single try, but fewer than 25% when the same task had to succeed in all 8 trials.</p><p class="small"><b>Layer missed:</b> 4, reliability. <b>Lesson:</b> report pass^k, not only pass^1.</p></div>
+          <div class="panel blue"><h3>Accuracy without cost misleads</h3><p><b>AI Agents That Matter (Kapoor et al., TMLR 2025).</b> Complex agent designs reported as state of the art were often matched by simple baselines, such as retrying or majority voting, at a fraction of the cost.</p><p class="small"><b>Layer missed:</b> 4, cost. <b>Lesson:</b> plot accuracy against cost and keep only the Pareto frontier.</p></div>
+          <div class="panel ink"><h3>Logs reveal what scores hide</h3><p><b>Holistic Agent Leaderboard (Kapoor et al., ICLR 2026).</b> Reading agent logs at scale uncovered agents searching for a benchmark’s answers online instead of solving the task, and misusing credit cards in flight-booking tasks.</p><p class="small"><b>Layer missed:</b> 4, safety and policy. <b>Lesson:</b> trace everything and inspect the traces, not only the final score.</p></div>
+          <div class="panel amber"><h3>Failures come from design, not only the model</h3><p><b>MAST (Cemri et al., NeurIPS 2025 D&amp;B).</b> Across seven open-source multi-agent frameworks, most failures traced back to specification and coordination problems: repeated steps, ignored stopping conditions, weak verification.</p><p class="small"><b>Layers missed:</b> 2 and 4. <b>Lesson:</b> label failed traces with a taxonomy so you fix the cause, not the symptom.</p></div>
+        </div>
+      </div>
+      <div class="block" id="template">
+        <h2>Evaluation plan template</h2>
+        <p class="prose">Download the template, fill it in during the activity, and reuse it for your project report.</p>
+        <div class="btn-row"><a class="btn btn-teal" href="assets/downloads/evaluation-plan-template.md" download>Download the plan template (Markdown)</a></div>
+        <pre data-copy><code># Evaluation plan: [system name]
+
+## 1. One metric from each of the four layers
+| Layer | Metric | How you compute it | Why it matters here |
+| 4 Trust and deployment | | | |
+| 3 System | | | |
+| 2 Interaction | | | |
+| 1 Individual agent | | | |
+
+## 2. Baseline
+## 3. Experiment (hypothesis, variables, runs, seeds, statistic)
+## 4. What you will trace or log
+## 5. One likely failure mode and how you would detect it</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Performance Evaluation of Agent-Based Systems</h4>
+        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
+        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
+      </div>
+      <div>
+        <h4>Practise</h4>
+        <ul>
+          <li><a href="tools.html">Interactive tools</a></li>
+          <li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
+          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Session</h4>
+        <ul>
+          <li><a href="programme.html">Programme and timings</a></li>
+          <li><a href="resources.html">Reading list</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Speaker: Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Material prepared for CAI 461 students; cited works belong to their authors.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

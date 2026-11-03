@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 6: Bringing it together · CAI 461 · Topic 8</title>
+<meta name="description" content="The four-layer evaluation framework, the case activity, the lab preview and key takeaways for CAI 461 Topic 8.">
+<meta name="theme-color" content="#0f3446">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Module 6: Bringing it together · CAI 461 · Topic 8">
+<meta property="og:description" content="The four-layer evaluation framework, the case activity, the lab preview and key takeaways for CAI 461 Topic 8.">
+<meta property="og:site_name" content="Performance Evaluation of Agent-Based Systems">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="3" width="32" height="6" rx="1.5" fill="#0f3446"/><rect x="4" y="11" width="28" height="6" rx="1.5" fill="#0070c0"/><rect x="6" y="19" width="24" height="6" rx="1.5" fill="#04767f"/><rect x="8" y="27" width="20" height="6" rx="1.5" fill="#4f9ea2"/></svg><span class="brand-text"><b>Evaluating Agent Systems</b><span>CAI 461 Topic 8 · PNU × UTM</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul><li><a href="index.html">Home</a></li><li><a href="programme.html">Programme</a></li><li><a href="modules.html" aria-current="page">Modules</a></li><li><a href="tools.html">Interactive Tools</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="lab.html">Lab</a></li><li><a href="resources.html">Resources</a></li><li><a href="glossary.html">Glossary</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="modules.html">Modules</a> / Module 6</nav><p class="kicker">Module 6 of 6 · 22 minutes in the lecture · slides 37–44</p><h1>Bringing it together</h1>
+    <p class="lede">The four-layer evaluation framework, the case activity and key takeaways.</p>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap with-index">
+    <nav class="page-index" aria-label="On this page"><p>On this page</p><ol><li><a href="#framework">Four-layer framework</a></li><li><a href="#checklist">From framework to plan</a></li><li><a href="#activity">Case activity</a></li><li><a href="#lab">Lab preview</a></li><li><a href="#takeaways">Key takeaways</a></li><li><a href="#discussion">Questions for discussion</a></li><li><a href="#quiz">Self-check quiz</a></li></ol></nav>
+    <div>
+      
+<div class="block" id="framework">
+  <h2>A four-layer evaluation framework</h2>
+  <p class="prose">Every module filled one layer. Read the stack from the bottom up: each layer assumes the one below it works, and adds questions the lower layer cannot answer.</p>
+  <div class="stack" style="max-width:820px" aria-label="Four-layer evaluation framework">
+    <a class="l4" href="module-5-llm-agents.html"><b>Layer 4: Trust and deployment</b><span>pass^k reliability · cost · safety and policy violations · failure modes (MAST)</span></a>
+    <a class="l3" href="module-3-measuring-the-system.html"><b>Layer 3: System</b><span>latency · throughput · scalability curves · robustness to failures</span></a>
+    <a class="l2" href="module-2-society-of-agents.html"><b>Layer 2: Interaction</b><span>social welfare · Pareto efficiency · stability · price of anarchy · messages per task</span></a>
+    <a class="l1" href="module-1-performing-well.html"><b>Layer 1: Individual agent</b><span>performance measure · expected utility · task success P(Ψ)</span></a>
+  </div>
+  <p class="prose mt-1"><strong>Lower layers are necessary but not sufficient: a system of rational agents can still be slow, unstable or unreliable.</strong></p>
+</div>
+
+<div class="block" id="checklist">
+  <h2>Turn the framework into a plan</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Layer</th><th>Ask</th><th>Pick at least one</th></tr></thead>
+      <tbody>
+        <tr><td>4 Trust</td><td>Will it work every time, cheaply enough, without breaking rules?</td><td>pass^k at k = 3 or more · cost per successful task · policy violations per 100 tasks · MAST labels on failed traces</td></tr>
+        <tr><td>3 System</td><td>Is it fast, and does it survive scale and failure?</td><td>p50 and p95 latency · throughput · latency against number of agents · success with one agent killed</td></tr>
+        <tr><td>2 Interaction</td><td>Is the group outcome good and stable?</td><td>Social welfare against optimal · egalitarian welfare · messages per task · duplicated work</td></tr>
+        <tr><td>1 Agent</td><td>Does each agent do the right thing?</td><td>Success rate P(Ψ) with a confidence interval · expected utility under a stated u</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="block" id="activity">
+  <h2>Case activity: design an evaluation plan</h2>
+  <div class="grid-2" style="align-items:start">
+    <div>
+      <p>Your group takes one case:</p>
+      <ul>
+        <li><b>Case A, PNU Smart Shuttle</b>: 8 shuttle agents bid for ride requests across campus using Contract Net.</li>
+        <li><b>Case B, Campus Evacuation Model</b>: a NetLogo model of 3,000 students leaving buildings during a fire drill.</li>
+        <li><b>Case C, Course-Advising Crew</b>: three LLM agents (planner, retriever, checker) answer students’ registration questions.</li>
+      </ul>
+      <p class="small muted">8 minutes in breakout rooms, then 4 minutes for two groups to share.</p>
+    </div>
+    <div class="panel amber">
+      <h3>Each group delivers one slide or one chat message</h3>
+      <ol>
+        <li>One metric from each of the four layers</li>
+        <li>One baseline to compare against</li>
+        <li>One experiment: what you vary and how many runs</li>
+        <li>What you will trace or log</li>
+        <li>One likely failure mode and how you would detect it</li>
+      </ol>
+      <p><a class="btn btn-teal" href="case-studies.html">Open the full cases and model answers</a></p>
+    </div>
+  </div>
+</div>
+
+<div class="block" id="lab">
+  <h2>Lab preview: instrument, trace, evaluate</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="num">Step</th><th>Task</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td><b>Instrument</b></td><td>Enable tracing on a small multi-agent system: a coordinator and two workers.</td></tr>
+        <tr><td class="num">2</td><td><b>Build a dataset</b></td><td>Write 20 tasks with expected outcomes.</td></tr>
+        <tr><td class="num">3</td><td><b>Define evaluators</b></td><td>Exact-match check, LLM-judge rubric, latency and token cost.</td></tr>
+        <tr><td class="num">4</td><td><b>Run k = 3 trials</b></td><td>Compute success rate and pass^3 for each task.</td></tr>
+        <tr><td class="num">5</td><td><b>Compare designs</b></td><td>Sequential chain against supervisor (star) topology.</td></tr>
+        <tr><td class="num">6</td><td><b>Report</b></td><td>Four-layer table, one chart, two failure cases labelled with MAST.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><a class="btn btn-plain" href="lab.html">Read the full lab guide and download the harness</a></p>
+  <p class="linkback">Link back: course specification, Topic 8 practical (2 hours).</p>
+</div>
+
+<div class="block" id="takeaways">
+  <h2>Key takeaways</h2>
+  <ol class="prose">
+    <li><b>Decide what “good” means first.</b> Measure the environment, not the agent’s behaviour.</li>
+    <li><b>Expected utility and success probability are the foundation.</b> Modern benchmarks still estimate them.</li>
+    <li><b>For societies of agents, report welfare and stability together.</b> The price of anarchy shows the cost of selfishness.</li>
+    <li><b>Measure curves, not points.</b> Scalability and robustness need repeated, controlled experiments.</li>
+    <li><b>For models, verify, validate and replicate,</b> and report with ODD.</li>
+    <li><b>For LLM agents, add reliability (pass^k), cost, failure modes and validated judges,</b> all built on tracing.</li>
+  </ol>
+</div>
+
+<div class="block" id="discussion">
+  <h2>Questions for discussion</h2>
+  <div class="grid-2">
+    <div class="panel"><h3>Choosing the utility</h3><p>In the shuttle case, is a late ride worth half a successful one, or nothing? Who should decide: the students, the university or the designer?</p></div>
+    <div class="panel"><h3>When is a coordinator worth it?</h3><p>If a central allocator has a price of anarchy of 1 but is a single point of failure, how would you weigh the two in one report?</p></div>
+    <div class="panel"><h3>Trusting a judge</h3><p>How many human-labelled examples would you need before you trust an LLM judge for course advice, and what agreement level would you accept?</p></div>
+    <div class="panel"><h3>Benchmarks and the real world</h3><p>An agent scores 90% on a benchmark but students still complain. Which layer of the framework did the benchmark miss?</p></div>
+  </div>
+</div>
+
+      <div class="block" id="quiz">
+        <h2>Self-check quiz</h2>
+        <p class="prose">Choose an answer for each question, then check. Every answer comes with a short explanation.</p>
+        <form class="quiz" id="q6"><fieldset><legend>1. Which layer does “latency grows sharply after 80 agents” belong to?</legend><label><input type="radio" name="q6-q0" value="0"><span>Layer 1, individual agent</span></label><label><input type="radio" name="q6-q0" value="1" data-correct><span>Layer 3, system</span></label><label><input type="radio" name="q6-q0" value="2"><span>Layer 4, trust</span></label><p class="why">Latency and scalability curves are system-level measurements.</p></fieldset><fieldset><legend>2. Why are lower layers “necessary but not sufficient”?</legend><label><input type="radio" name="q6-q1" value="0"><span>They are cheaper to measure</span></label><label><input type="radio" name="q6-q1" value="1" data-correct><span>A system of rational agents can still be slow, unstable or unreliable</span></label><label><input type="radio" name="q6-q1" value="2"><span>Higher layers replace them</span></label><p class="why">Each layer adds questions that the layer below cannot answer.</p></fieldset><fieldset><legend>3. In the case activity, what must every group include besides metrics?</legend><label><input type="radio" name="q6-q2" value="0"><span>A full implementation</span></label><label><input type="radio" name="q6-q2" value="1" data-correct><span>A baseline, an experiment, what to trace and one failure mode</span></label><label><input type="radio" name="q6-q2" value="2"><span>A literature review</span></label><p class="why">The five deliverables are metrics per layer, baseline, experiment, tracing plan and a failure mode with detection.</p></fieldset><fieldset><legend>4. In the lab, which two designs do you compare?</legend><label><input type="radio" name="q6-q3" value="0"><span>Graph and tree</span></label><label><input type="radio" name="q6-q3" value="1" data-correct><span>Sequential chain and supervisor (star)</span></label><label><input type="radio" name="q6-q3" value="2"><span>Single agent and debate</span></label><p class="why">The lab compares a sequential chain with a supervisor, or star, topology.</p></fieldset><div><button class="btn btn-teal" type="submit">Check answers</button> <button class="btn btn-plain" type="reset">Clear</button><span class="quiz-result" aria-live="polite"></span></div></form>
+      </div>
+      <nav class="pager" aria-label="Module navigation"><a class="prev" href="module-5-llm-agents.html"><small>Previous</small><b>Module 5: Evaluating LLM-based agents</b></a><a class="next" href="tools.html"><small>Next</small><b>Interactive tools</b></a></nav>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Performance Evaluation of Agent-Based Systems</h4>
+        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
+        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
+      </div>
+      <div>
+        <h4>Practise</h4>
+        <ul>
+          <li><a href="tools.html">Interactive tools</a></li>
+          <li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
+          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Session</h4>
+        <ul>
+          <li><a href="programme.html">Programme and timings</a></li>
+          <li><a href="resources.html">Reading list</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Speaker: Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Material prepared for CAI 461 students; cited works belong to their authors.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

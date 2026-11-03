@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resources · CAI 461 · Topic 8</title>
+<meta name="description" content="Reading list for CAI 461 Topic 8: textbooks, classic papers, LLM agent benchmarks, evaluation practice and tracing tools.">
+<meta name="theme-color" content="#0f3446">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Resources · CAI 461 · Topic 8">
+<meta property="og:description" content="Reading list for CAI 461 Topic 8: textbooks, classic papers, LLM agent benchmarks, evaluation practice and tracing tools.">
+<meta property="og:site_name" content="Performance Evaluation of Agent-Based Systems">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="3" width="32" height="6" rx="1.5" fill="#0f3446"/><rect x="4" y="11" width="28" height="6" rx="1.5" fill="#0070c0"/><rect x="6" y="19" width="24" height="6" rx="1.5" fill="#04767f"/><rect x="8" y="27" width="20" height="6" rx="1.5" fill="#4f9ea2"/></svg><span class="brand-text"><b>Evaluating Agent Systems</b><span>CAI 461 Topic 8 · PNU × UTM</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul><li><a href="index.html">Home</a></li><li><a href="programme.html">Programme</a></li><li><a href="modules.html">Modules</a></li><li><a href="tools.html">Interactive Tools</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="lab.html">Lab</a></li><li><a href="resources.html" aria-current="page">Resources</a></li><li><a href="glossary.html">Glossary</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Resources</nav><h1>Resources</h1>
+    <p class="lede">Every reference from the lecture, grouped by purpose, with a line on why each is worth your time and links to papers, code and datasets.</p>
+    <div class="btn-row"><a class="btn btn-primary" href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Download the lecture slides (PDF)</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="search-box"><label class="visually-hidden" for="res-search">Search resources</label><input id="res-search" type="search" placeholder="Search by title, author or topic, for example pass^k or ODD"></div>
+    <div class="filter-row" role="group" aria-label="Filter by category"><button type="button" data-cat="all" aria-pressed="true">All</button><button type="button" data-cat="textbooks" aria-pressed="false">Course textbooks</button><button type="button" data-cat="classic" aria-pressed="false">Classic papers and standards</button><button type="button" data-cat="benchmarks" aria-pressed="false">LLM agent benchmarks</button><button type="button" data-cat="evaluation" aria-pressed="false">Evaluation practice and failure analysis</button><button type="button" data-cat="tools" aria-pressed="false">Tools and specifications</button></div>
+    <p class="empty-state">No resources match that search. Try a shorter word, or choose All.</p>
+    <div class="res-group" id="textbooks"><h2>Course textbooks</h2><ul class="res-list"><li data-cat="textbooks"><span class="r-title">Wooldridge, M. (2009). <i>An Introduction to MultiAgent Systems</i>, 2nd ed. Wiley.</span><span class="r-meta">Book</span><span class="r-why">Ch. 2 for utility over runs and task specifications; Ch. 8 and 11 and Part III for cooperation and protocol properties. The backbone of Modules 1 and 2.</span></li><li data-cat="textbooks"><span class="r-title">Russell, S. &amp; Norvig, P. (2020). <i>Artificial Intelligence: A Modern Approach</i>, 4th ed. Pearson.</span><span class="r-meta">Book</span><span class="r-why">Ch. 2 §2.2 on rationality and performance measures; Ch. 18 on multiagent decision making.</span><span class=r-links><a href="https://aima.cs.berkeley.edu/">Book site</a></span></li><li data-cat="textbooks"><span class="r-title">Shoham, Y. &amp; Leyton-Brown, K. (2008). <i>Multiagent Systems: Algorithmic, Game-Theoretic, and Logical Foundations</i>. Cambridge University Press.</span><span class="r-meta">Book</span><span class="r-why">Ch. 3 on game theory and §6.4 on selfish routing and the price of anarchy. The authors offer the book as a free PDF.</span><span class=r-links><a href="http://www.masfoundations.org/">Free PDF</a></span></li><li data-cat="textbooks"><span class="r-title">Wilensky, U. &amp; Rand, W. (2015). <i>An Introduction to Agent-Based Modeling</i>. MIT Press.</span><span class="r-meta">Book</span><span class="r-why">Ch. 6 on analysing models and BehaviorSpace; Ch. 7 on verification, validation and replication.</span></li><li data-cat="textbooks"><span class="r-title">Bellifemine, F., Caire, G. &amp; Greenwood, D. (2007). <i>Developing Multi-Agent Systems with JADE</i>. Wiley.</span><span class="r-meta">Book</span><span class="r-why">The chapter on JADE tools covers the Sniffer, Introspector, RMA and Log Manager agents.</span><span class=r-links><a href="https://jade.tilab.com/">JADE</a></span></li></ul></div><div class="res-group" id="classic"><h2>Classic papers and standards</h2><ul class="res-list"><li data-cat="classic"><span class="r-title">Smith, R. G. (1980). The Contract Net Protocol. <i>IEEE Transactions on Computers</i>, C-29(12), 1104–1113.</span><span class="r-meta">Paper</span><span class="r-why">The original Contract Net paper behind the message-count example.</span></li><li data-cat="classic"><span class="r-title">Koutsoupias, E. &amp; Papadimitriou, C. (1999). Worst-case equilibria. STACS 1999.</span><span class="r-meta">Paper</span><span class="r-why">Introduces the idea later named the price of anarchy.</span></li><li data-cat="classic"><span class="r-title">FIPA (2002). ACL Message Structure Specification, SC00061G.</span><span class="r-meta">Standard</span><span class="r-why">Defines conversation-id, reply-with, in-reply-to and protocol, the correlation fields for tracing.</span><span class=r-links><a href="http://www.fipa.org/specs/fipa00061/">Specification</a></span></li><li data-cat="classic"><span class="r-title">Grimm, V. et al. (2020). The ODD protocol for describing agent-based and other simulation models: a second update. <i>JASSS</i> 23(2), 7.</span><span class="r-meta">Paper</span><span class="r-why">The current version of ODD, with guidance for every element.</span><span class=r-links><a href="https://www.jasss.org/23/2/7.html">Read online</a></span></li><li data-cat="classic"><span class="r-title">Wilensky, U. &amp; Rand, W. (2007). Making models match: replicating an agent-based model. <i>JASSS</i> 10(4), 2.</span><span class="r-meta">Paper</span><span class="r-why">A worked replication study and practical advice on docking two implementations.</span><span class=r-links><a href="https://www.jasss.org/10/4/2.html">Read online</a></span></li></ul></div><div class="res-group" id="benchmarks"><h2>LLM agent benchmarks</h2><ul class="res-list"><li data-cat="benchmarks"><span class="r-title">Liu, X. et al. (2024). AgentBench: Evaluating LLMs as Agents. ICLR 2024.</span><span class="r-meta">Benchmark</span><span class="r-why">Eight environments, from operating systems to games, with task-specific success scores.</span><span class=r-links><a href="https://arxiv.org/abs/2308.03688">Paper</a><a href="https://github.com/THUDM/AgentBench">Code</a></span></li><li data-cat="benchmarks"><span class="r-title">Mialon, G. et al. (2024). GAIA: A Benchmark for General AI Assistants. ICLR 2024.</span><span class="r-meta">Benchmark</span><span class="r-why">466 real-world questions that need tools and browsing, scored by exact final answer.</span><span class=r-links><a href="https://arxiv.org/abs/2311.12983">Paper</a><a href="https://huggingface.co/gaia-benchmark">Dataset</a></span></li><li data-cat="benchmarks"><span class="r-title">Jimenez, C. E. et al. (2024). SWE-bench: Can Language Models Resolve Real-World GitHub Issues? ICLR 2024.</span><span class="r-meta">Benchmark</span><span class="r-why">2,294 real issues; a patch counts only if the project’s tests pass.</span><span class=r-links><a href="https://arxiv.org/abs/2310.06770">Paper</a><a href="https://www.swebench.com/">Leaderboard</a></span></li><li data-cat="benchmarks"><span class="r-title">Yao, S., Shinn, N., Razavi, P. &amp; Narasimhan, K. (2025). τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains. ICLR 2025.</span><span class="r-meta">Benchmark</span><span class="r-why">Introduces pass^k. The repository now points to τ²-bench, which adds a telecom domain and fixes.</span><span class=r-links><a href="https://arxiv.org/abs/2406.12045">Paper</a><a href="https://github.com/sierra-research/tau-bench">τ-bench code</a><a href="https://github.com/sierra-research/tau2-bench">τ²-bench code</a></span></li><li data-cat="benchmarks"><span class="r-title">Zhu, K. et al. (2025). MultiAgentBench: Evaluating the Collaboration and Competition of LLM Agents. ACL 2025.</span><span class="r-meta">Benchmark</span><span class="r-why">Star, chain, tree and graph topologies with milestone KPIs and coordination scores.</span><span class=r-links><a href="https://aclanthology.org/2025.acl-long.421/">Paper</a><a href="https://github.com/ulab-uiuc/MARBLE">MARBLE code</a></span></li></ul></div><div class="res-group" id="evaluation"><h2>Evaluation practice and failure analysis</h2><ul class="res-list"><li data-cat="evaluation"><span class="r-title">Kapoor, S., Stroebl, B., Siegel, Z. S., Nadgir, N. &amp; Narayanan, A. (2025). AI Agents That Matter. <i>TMLR</i>.</span><span class="r-meta">Paper</span><span class="r-why">Why agent evaluations must report cost, use hold-out sets and compare against simple baselines.</span><span class=r-links><a href="https://arxiv.org/abs/2407.01502">Paper</a></span></li><li data-cat="evaluation"><span class="r-title">Kapoor, S. et al. (2026). Holistic Agent Leaderboard: The Missing Infrastructure for AI Agent Evaluation. ICLR 2026.</span><span class="r-meta">Paper</span><span class="r-why">A cost-aware, third-party leaderboard and harness, with findings from reading agent logs at scale.</span><span class=r-links><a href="https://hal.cs.princeton.edu/">Leaderboard</a><a href="https://arxiv.org/abs/2510.11977">Paper</a></span></li><li data-cat="evaluation"><span class="r-title">Cemri, M., Pan, M. Z., Yang, S. et al. (2025). Why Do Multi-Agent LLM Systems Fail? NeurIPS 2025 Datasets and Benchmarks.</span><span class="r-meta">Paper</span><span class="r-why">MAST: 14 failure modes in 3 categories, an LLM annotator and MAST-Data.</span><span class=r-links><a href="https://arxiv.org/abs/2503.13657">Paper</a><a href="https://github.com/multi-agent-systems-failure-taxonomy/MAST">Code and data</a></span></li><li data-cat="evaluation"><span class="r-title">Zheng, L. et al. (2023). Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena. NeurIPS 2023 Datasets and Benchmarks.</span><span class="r-meta">Paper</span><span class="r-why">Evidence that strong judges agree with humans, and the position, verbosity and self-enhancement biases to control.</span><span class=r-links><a href="https://arxiv.org/abs/2306.05685">Paper</a></span></li><li data-cat="evaluation"><span class="r-title">Anthropic (2026). Demystifying evals for AI agents.</span><span class="r-meta">Article</span><span class="r-why">A practitioner’s guide to agent evals: task design, code, model and human graders, and pass@k against pass^k.</span><span class=r-links><a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Article</a></span></li><li data-cat="evaluation"><span class="r-title">Anthropic (2024). Building effective agents.</span><span class="r-meta">Article</span><span class="r-why">When to use workflows versus agents, and the simple patterns that most systems need. Useful for choosing your baseline.</span><span class=r-links><a href="https://www.anthropic.com/engineering/building-effective-agents">Article</a></span></li></ul></div><div class="res-group" id="tools"><h2>Tools and specifications</h2><ul class="res-list"><li data-cat="tools"><span class="r-title">OpenTelemetry. Semantic Conventions for Generative AI.</span><span class="r-meta">Tool</span><span class="r-why">The standard span names and gen_ai.* attributes used in Module 5 and the lab. Still marked as in development.</span><span class=r-links><a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/">Specification</a><a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-agent-spans/">Agent spans</a><a href="https://github.com/open-telemetry/semantic-conventions-genai">Repository</a></span></li><li data-cat="tools"><span class="r-title">LangChain. LangSmith documentation: Evaluation concepts.</span><span class="r-meta">Tool</span><span class="r-why">Datasets, experiments, code and LLM-as-a-judge evaluators, offline and online evaluation.</span><span class=r-links><a href="https://docs.langchain.com/langsmith/evaluation-concepts">Documentation</a></span></li><li data-cat="tools"><span class="r-title">NetLogo and the Wolf Sheep Predation model (Wilensky, 1997).</span><span class="r-meta">Tool</span><span class="r-why">The model used in the sensitivity analysis example, with BehaviorSpace built in.</span><span class=r-links><a href="https://ccl.northwestern.edu/netlogo/">NetLogo</a><a href="https://ccl.northwestern.edu/netlogo/models/WolfSheepPredation">Wolf Sheep Predation</a></span></li><li data-cat="tools"><span class="r-title">JADE: Java Agent DEvelopment Framework.</span><span class="r-meta">Tool</span><span class="r-why">FIPA-compliant agent platform with the monitoring agents covered in Module 3.</span><span class=r-links><a href="https://jade.tilab.com/">Website</a></span></li></ul></div>
+    <div class="note"><p><b>Downloads for this session.</b> <a href="assets/downloads/evaluation-plan-template.md" download>Evaluation plan template</a> · <a href="assets/downloads/lab_harness.py" download>Lab harness</a> · <a href="assets/downloads/lab-report-template.md" download>Lab report template</a> · <a href="assets/downloads/tasks_template.csv" download>Starter tasks.csv</a></p></div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Performance Evaluation of Agent-Based Systems</h4>
+        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
+        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
+      </div>
+      <div>
+        <h4>Practise</h4>
+        <ul>
+          <li><a href="tools.html">Interactive tools</a></li>
+          <li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
+          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Session</h4>
+        <ul>
+          <li><a href="programme.html">Programme and timings</a></li>
+          <li><a href="resources.html">Reading list</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Speaker: Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Material prepared for CAI 461 students; cited works belong to their authors.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

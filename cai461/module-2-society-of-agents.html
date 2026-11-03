@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 2: Evaluating a society of agents · CAI 461 · Topic 8</title>
+<meta name="description" content="Social welfare, Pareto efficiency, Nash stability, price of anarchy and protocol evaluation for multi-agent systems.">
+<meta name="theme-color" content="#0f3446">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Module 2: Evaluating a society of agents · CAI 461 · Topic 8">
+<meta property="og:description" content="Social welfare, Pareto efficiency, Nash stability, price of anarchy and protocol evaluation for multi-agent systems.">
+<meta property="og:site_name" content="Performance Evaluation of Agent-Based Systems">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="3" width="32" height="6" rx="1.5" fill="#0f3446"/><rect x="4" y="11" width="28" height="6" rx="1.5" fill="#0070c0"/><rect x="6" y="19" width="24" height="6" rx="1.5" fill="#04767f"/><rect x="8" y="27" width="20" height="6" rx="1.5" fill="#4f9ea2"/></svg><span class="brand-text"><b>Evaluating Agent Systems</b><span>CAI 461 Topic 8 · PNU × UTM</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul><li><a href="index.html">Home</a></li><li><a href="programme.html">Programme</a></li><li><a href="modules.html" aria-current="page">Modules</a></li><li><a href="tools.html">Interactive Tools</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="lab.html">Lab</a></li><li><a href="resources.html">Resources</a></li><li><a href="glossary.html">Glossary</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="modules.html">Modules</a> / Module 2</nav><p class="kicker">Module 2 of 6 · 18 minutes in the lecture · slides 10–16</p><h1>Evaluating a society of agents</h1>
+    <p class="lede">Social welfare, Pareto efficiency, Nash stability, price of anarchy and protocol criteria.</p>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap with-index">
+    <nav class="page-index" aria-label="On this page"><p>On this page</p><ol><li><a href="#harder">Why it is harder</a></li><li><a href="#criteria">Group criteria</a></li><li><a href="#pd">Stable is not efficient</a></li><li><a href="#poa">Price of anarchy</a></li><li><a href="#protocol">Protocol checklist</a></li><li><a href="#cnp">Measuring Contract Net</a></li><li><a href="#quiz">Self-check quiz</a></li></ol></nav>
+    <div>
+      
+<div class="block" id="harder">
+  <h2>Why multi-agent evaluation is harder</h2>
+  <p class="prose">With one agent, you can score its runs. With many agents, the thing you care about often lives <em>between</em> them.</p>
+  <div class="grid-3">
+    <div class="panel teal"><h3>Emergence</h3><p>System behaviour arises from interactions and is not written in any single agent.</p></div>
+    <div class="panel blue"><h3>Self-interest</h3><p>Each agent maximises its own utility; the group outcome can still be poor.</p></div>
+    <div class="panel teal"><h3>Distribution</h3><p>No agent sees the whole system, so there is no single place to measure.</p></div>
+    <div class="panel blue"><h3>Non-determinism</h3><p>Message timing, concurrency and, for LLMs, sampling change results from run to run.</p></div>
+    <div class="panel teal"><h3>Scale</h3><p>A protocol that works for 5 agents may collapse at 500.</p></div>
+    <div class="panel blue"><h3>Openness</h3><p>Agents may join, leave or fail during a run.</p></div>
+  </div>
+  <p class="source">Source: Wooldridge (2009), Ch. 1 and Ch. 11; Shoham &amp; Leyton-Brown (2008), <i>Multiagent Systems</i>, Ch. 1.</p>
+</div>
+
+<div class="block" id="criteria">
+  <h2>Criteria for judging group outcomes</h2>
+  <p class="prose">Let ω be an outcome and u<sub>i</sub>(ω) the utility agent i gets from it. Five criteria answer five different questions, and a good report states which ones it uses.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Criterion</th><th>Question it answers</th><th>How to compute</th></tr></thead>
+      <tbody>
+        <tr><td><b>Utilitarian social welfare</b></td><td>Is the total benefit as large as possible?</td><td><code>sw(ω) = Σ<sub>i</sub> u<sub>i</sub>(ω)</code></td></tr>
+        <tr><td><b>Egalitarian social welfare</b></td><td>How well off is the worst-off agent?</td><td><code>min<sub>i</sub> u<sub>i</sub>(ω)</code></td></tr>
+        <tr><td><b>Pareto efficiency</b></td><td>Can anyone be made better off without making someone worse off?</td><td>ω is efficient if no ω′ is at least as good for all and better for one</td></tr>
+        <tr><td><b>Stability (Nash equilibrium)</b></td><td>Does any agent want to deviate on its own?</td><td>No agent gains by changing only its own strategy</td></tr>
+        <tr><td><b>Individual rationality</b></td><td>Is every agent better off participating than staying out?</td><td><code>u<sub>i</sub>(ω) ≥</code> utility of not participating</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="source">Source: Wooldridge (2009), Ch. 11; Russell &amp; Norvig (2020), Ch. 18; Shoham &amp; Leyton-Brown (2008), Ch. 3.</p>
+  <p class="linkback">Link back: Agent Interactions lecture — competition and game theory.</p>
+</div>
+
+<div class="block" id="pd">
+  <h2>Worked example: when stable is not efficient</h2>
+  <p class="prose">The Prisoner’s Dilemma with Wooldridge’s payoff values. Each cell shows (row agent i, column agent j).</p>
+  <div class="table-wrap" style="max-width:560px">
+    <table>
+      <thead><tr><th></th><th>j cooperates</th><th>j defects</th></tr></thead>
+      <tbody>
+        <tr><th scope="row" style="background:var(--teal);color:#fff">i cooperates</th><td><b>3, 3</b><br><span class="small muted">sw = 6 · Pareto efficient</span></td><td><b>0, 5</b><br><span class="small muted">sw = 5</span></td></tr>
+        <tr><th scope="row" style="background:var(--teal);color:#fff">i defects</th><td><b>5, 0</b><br><span class="small muted">sw = 5</span></td><td style="background:var(--amber-soft)"><b>2, 2</b><br><span class="small muted">sw = 4 · Nash equilibrium</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prose">
+    <ul>
+      <li>Whatever j does, i earns more by defecting (5 &gt; 3 and 2 &gt; 0). The same holds for j. So (Defect, Defect) is the only Nash equilibrium: it is stable.</li>
+      <li>It is not Pareto efficient. (Cooperate, Cooperate) makes both agents better off.</li>
+      <li>Social welfare is 4 at the equilibrium against 6 at the best outcome.</li>
+    </ul>
+    <p><strong>Lesson for evaluation: a protocol can be stable and still waste value. Report both stability and welfare.</strong></p>
+    <p><a class="btn btn-plain" href="tools.html#game">Change the payoffs in the game explorer</a></p>
+  </div>
+  <p class="source">Source: Wooldridge (2009), Ch. 11: the Prisoner’s Dilemma.</p>
+</div>
+
+<div class="block" id="poa">
+  <h2>Price of anarchy: the cost of selfishness</h2>
+  <div class="formula">PoA = cost of the worst equilibrium ÷ cost of the optimal outcome</div>
+  <div class="prose">
+    <p>PoA = 1 means selfish agents reach the best outcome on their own. PoA &gt; 1 means decentralisation has a price. Use it to decide whether a central coordinator is worth its overhead.</p>
+    <h3>Pigou’s routing network</h3>
+    <p>One unit of traffic travels from s to t. Road 1 is wide and always costs 1. Road 2 is narrow and costs x, where x is the share of traffic on it.</p>
+    <ul>
+      <li><b>Selfish equilibrium.</b> Road 2 never costs more than 1, so every driver prefers it. Everyone takes Road 2 and the average cost is 1.</li>
+      <li><b>Optimum.</b> With a share x on Road 2 the average cost is (1 − x)·1 + x·x. It is smallest at x = ½, giving ½ + ¼ = ¾.</li>
+      <li><b>Price of anarchy</b> = 1 ÷ ¾ = 4/3 ≈ 1.33. Selfish routing costs a third more than coordinated routing.</li>
+    </ul>
+    <p>Roughgarden and Tardos showed that for any network whose road costs are linear like these, selfish routing is never worse than 4/3 of the optimum. Steeper, non-linear costs push the price higher; the interactive version lets you see that.</p>
+    <p><a class="btn btn-plain" href="tools.html#pigou">Move the traffic in the Pigou simulator</a></p>
+  </div>
+  <p class="source">Source: Shoham &amp; Leyton-Brown (2008), Ch. 6 §6.4 “Selfish routing and the price of anarchy”; Koutsoupias &amp; Papadimitriou (1999), STACS; Roughgarden &amp; Tardos (2002), “How bad is selfish routing?”, Journal of the ACM.</p>
+</div>
+
+<div class="block" id="protocol">
+  <h2>Evaluating a protocol or mechanism</h2>
+  <p class="prose">Use these seven properties as a checklist when you compare auctions, voting rules or negotiation protocols in a report.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Property</th><th>Question</th></tr></thead>
+      <tbody>
+        <tr><td><b>Guaranteed success</b></td><td>Does the protocol always reach an agreement?</td></tr>
+        <tr><td><b>Maximises social welfare</b></td><td>Is the agreed outcome the best for the group?</td></tr>
+        <tr><td><b>Pareto efficiency</b></td><td>Is no value left on the table?</td></tr>
+        <tr><td><b>Individual rationality</b></td><td>Do agents gain by following the protocol?</td></tr>
+        <tr><td><b>Stability</b></td><td>Do agents have an incentive to follow it honestly?</td></tr>
+        <tr><td><b>Simplicity</b></td><td>Are computation and communication low for each agent?</td></tr>
+        <tr><td><b>Distribution</b></td><td>Can it run without a single point of failure?</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="source">Source: Wooldridge (2009), Part III “Multiagent Decision Making” (protocol properties, after Rosenschein &amp; Zlotkin, 1994 and Sandholm, 1999).</p>
+  <p class="linkback">Link back: Agent Interactions lecture — auctions and negotiation.</p>
+</div>
+
+<div class="block" id="cnp">
+  <h2>Worked example: measuring Contract Net</h2>
+  <div class="grid-2" style="align-items:start">
+    <div>
+      <p>Count the messages for one task with one manager and n contractors:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Step</th><th>Direction</th><th class="num">Messages</th></tr></thead>
+          <tbody>
+            <tr><td>1. Call for proposals</td><td>Manager → contractors</td><td class="num">n</td></tr>
+            <tr><td>2. Proposals (bids)</td><td>Contractors → manager</td><td class="num">n</td></tr>
+            <tr><td>3. Award and reject</td><td>Manager → contractors</td><td class="num">n</td></tr>
+            <tr><td>4. Result</td><td>Winner → manager</td><td class="num">1</td></tr>
+            <tr><td colspan="2"><b>Total per task</b></td><td class="num"><b>3n + 1</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div class="note amber" style="margin-top:0"><p><b>Read the chart carefully.</b> The lecture plots n = 5, 10, 20, 40, 80. Each step doubles n, so the straight line 3n + 1 looks like it curves upward. Message growth is <em>linear</em>, not exponential. The interactive version lets you switch between the two axis styles.</p></div>
+      <p>A central allocator needs about 2 messages per task, but it is a single point of failure and it needs global information. That is exactly the trade-off the protocol checklist asks you to report.</p>
+      <p><b>Also measure:</b> allocation cost compared with the optimal allocation, time to award, and success when a contractor fails after winning.</p>
+    </div>
+  </div>
+  <p><a class="btn btn-plain" href="tools.html#cnp">Open the Contract Net message counter</a></p>
+  <p class="source">Source: Smith (1980), IEEE Trans. Computers — the Contract Net Protocol; Wooldridge (2009), Ch. 8 “Working Together”. Message counts derived from the protocol steps.</p>
+  <p class="linkback">Link back: Agent Interactions lecture — task sharing with Contract Net.</p>
+</div>
+
+      <div class="block" id="quiz">
+        <h2>Self-check quiz</h2>
+        <p class="prose">Choose an answer for each question, then check. Every answer comes with a short explanation.</p>
+        <form class="quiz" id="q2"><fieldset><legend>1. In the Prisoner’s Dilemma, (Defect, Defect) is…</legend><label><input type="radio" name="q2-q0" value="0"><span>Pareto efficient and stable</span></label><label><input type="radio" name="q2-q0" value="1" data-correct><span>Stable but not Pareto efficient</span></label><label><input type="radio" name="q2-q0" value="2"><span>Neither stable nor efficient</span></label><p class="why">No agent gains by deviating alone, so it is stable. (Cooperate, Cooperate) is better for both, so it is not Pareto efficient.</p></fieldset><fieldset><legend>2. Which criterion asks how well off the worst-off agent is?</legend><label><input type="radio" name="q2-q1" value="0"><span>Utilitarian welfare</span></label><label><input type="radio" name="q2-q1" value="1" data-correct><span>Egalitarian welfare</span></label><label><input type="radio" name="q2-q1" value="2"><span>Individual rationality</span></label><p class="why">Egalitarian welfare is the minimum utility across agents, a fairness measure.</p></fieldset><fieldset><legend>3. In Pigou’s network the selfish cost is 1 and the optimal cost is ¾. The price of anarchy is…</legend><label><input type="radio" name="q2-q2" value="0"><span>0.75</span></label><label><input type="radio" name="q2-q2" value="1" data-correct><span>1.33</span></label><label><input type="radio" name="q2-q2" value="2"><span>1.0</span></label><p class="why">PoA = 1 ÷ ¾ = 4/3 ≈ 1.33.</p></fieldset><fieldset><legend>4. How many messages does one Contract Net task need with 20 contractors?</legend><label><input type="radio" name="q2-q3" value="0"><span>41</span></label><label><input type="radio" name="q2-q3" value="1" data-correct><span>61</span></label><label><input type="radio" name="q2-q3" value="2"><span>400</span></label><p class="why">3n + 1 = 3 × 20 + 1 = 61.</p></fieldset><fieldset><legend>5. A protocol keeps working when any one agent crashes. Which checklist property does that show?</legend><label><input type="radio" name="q2-q4" value="0"><span>Simplicity</span></label><label><input type="radio" name="q2-q4" value="1" data-correct><span>Distribution</span></label><label><input type="radio" name="q2-q4" value="2"><span>Individual rationality</span></label><p class="why">Distribution means no single point of failure.</p></fieldset><div><button class="btn btn-teal" type="submit">Check answers</button> <button class="btn btn-plain" type="reset">Clear</button><span class="quiz-result" aria-live="polite"></span></div></form>
+      </div>
+      <nav class="pager" aria-label="Module navigation"><a class="prev" href="module-1-performing-well.html"><small>Previous</small><b>Module 1: What does “performing well” mean?</b></a><a class="next" href="module-3-measuring-the-system.html"><small>Next</small><b>Module 3: Measuring the system</b></a></nav>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Performance Evaluation of Agent-Based Systems</h4>
+        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
+        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
+      </div>
+      <div>
+        <h4>Practise</h4>
+        <ul>
+          <li><a href="tools.html">Interactive tools</a></li>
+          <li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
+          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Session</h4>
+        <ul>
+          <li><a href="programme.html">Programme and timings</a></li>
+          <li><a href="resources.html">Reading list</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Speaker: Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Material prepared for CAI 461 students; cited works belong to their authors.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

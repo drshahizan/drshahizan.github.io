@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 1: What does performing well mean? · CAI 461 · Topic 8</title>
+<meta name="description" content="Performance measures, rationality, expected utility and achievement versus maintenance tasks for agent evaluation.">
+<meta name="theme-color" content="#0f3446">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Module 1: What does performing well mean? · CAI 461 · Topic 8">
+<meta property="og:description" content="Performance measures, rationality, expected utility and achievement versus maintenance tasks for agent evaluation.">
+<meta property="og:site_name" content="Performance Evaluation of Agent-Based Systems">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="3" width="32" height="6" rx="1.5" fill="#0f3446"/><rect x="4" y="11" width="28" height="6" rx="1.5" fill="#0070c0"/><rect x="6" y="19" width="24" height="6" rx="1.5" fill="#04767f"/><rect x="8" y="27" width="20" height="6" rx="1.5" fill="#4f9ea2"/></svg><span class="brand-text"><b>Evaluating Agent Systems</b><span>CAI 461 Topic 8 · PNU × UTM</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul><li><a href="index.html">Home</a></li><li><a href="programme.html">Programme</a></li><li><a href="modules.html" aria-current="page">Modules</a></li><li><a href="tools.html">Interactive Tools</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="lab.html">Lab</a></li><li><a href="resources.html">Resources</a></li><li><a href="glossary.html">Glossary</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="modules.html">Modules</a> / Module 1</nav><p class="kicker">Module 1 of 6 · 15 minutes in the lecture · slides 4–9</p><h1>What does “performing well” mean?</h1>
+    <p class="lede">Performance measures, rationality, expected utility, achievement and maintenance tasks.</p>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap with-index">
+    <nav class="page-index" aria-label="On this page"><p>On this page</p><ol><li><a href="#measure">The performance measure</a></li><li><a href="#rational">Rational is not perfect</a></li><li><a href="#utility">Utility functions</a></li><li><a href="#tasks">Achievement and maintenance</a></li><li><a href="#quick-check">Quick check</a></li><li><a href="#quiz">Self-check quiz</a></li></ol></nav>
+    <div>
+      
+<div class="block" id="measure">
+  <h2>The performance measure</h2>
+  <div class="prose">
+    <p>A performance measure scores the <strong>sequence of environment states</strong> that an agent’s actions produce. It is chosen by the designer, not by the agent, and it is the “P” in the PEAS description you wrote in Topic 2.</p>
+    <p>The design rule is short and easy to break: <strong>measure what you actually want in the environment, not how you think the agent should behave.</strong> If you reward behaviour, a rational agent will find a way to produce the behaviour without the outcome.</p>
+  </div>
+  <div class="grid-2 mt-1">
+    <div class="panel red"><h3>Bad measure: dirt picked up</h3><p>A rational vacuum agent can clean a square, dump the dirt back, and clean it again. It scores very high and the room is no cleaner.</p></div>
+    <div class="panel teal"><h3>Better measure: clean squares per time step</h3><p>Count the clean squares at each time step, then subtract a penalty for energy and noise. Now the only way to score is to keep the room clean cheaply.</p></div>
+  </div>
+  <div class="note amber"><p><b>Why this matters for LLM agents.</b> The same failure appears today as “reward hacking” or “benchmark gaming”. In the Holistic Agent Leaderboard study, some agents searched for a benchmark’s answers online instead of solving the task. The measure rewarded a correct answer, not a correct process.</p></div>
+  <p class="source">Source: Russell &amp; Norvig (2020), <i>Artificial Intelligence: A Modern Approach</i>, 4th ed., Ch. 2 §2.2; Kapoor et al. (2026), Holistic Agent Leaderboard, ICLR 2026.</p>
+  <p class="linkback">Link back: Lecture 2, PEAS — the “P” is the performance measure.</p>
+</div>
+
+<div class="block" id="rational">
+  <h2>Rational is not the same as perfect</h2>
+  <p class="prose">A rational agent selects the action that is <em>expected</em> to maximise its performance measure, given four things: the performance measure itself, its prior knowledge of the environment, the actions available to it, and the percept sequence it has seen so far.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Kind of agent</th><th>What it does</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><b>Omniscient</b></td><td>Knows the real outcome of every action before acting.</td><td>Impossible to build</td></tr>
+        <tr><td><b>Rational</b></td><td>Maximises expected performance with the information it has.</td><td>Our design target</td></tr>
+        <tr><td><b>Bounded-optimal</b></td><td>The best program that can actually run on the given machine, within its time and memory limits.</td><td>Realistic target</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prose">
+    <p>For evaluation this has a direct consequence: <strong>do not penalise an agent for an outcome it could not have foreseen.</strong> Judge the decision against the information available at the time, and judge the agent over many runs, not one unlucky one.</p>
+  </div>
+  <p class="source">Source: Russell &amp; Norvig (2020), Ch. 2 §2.2; Wooldridge (2009), <i>An Introduction to MultiAgent Systems</i>, 2nd ed., Ch. 2 (bounded optimal agents, after Russell &amp; Subramanian, 1995).</p>
+</div>
+
+<div class="block" id="utility">
+  <h2>From measure to number: utility functions</h2>
+  <div class="prose">
+    <p>Wooldridge makes the measure precise. A <strong>run</strong> r is a sequence of environment states and agent actions. A <strong>utility function</strong> u assigns a real number to every run, u : R → ℝ. Because environments are uncertain, an agent produces a distribution over runs, so we score it by its <strong>expected utility</strong>.</p>
+  </div>
+  <div class="formula">EU(Ag, Env) = Σ<sub>r ∈ R(Ag, Env)</sub> u(r) · P(r | Ag, Env)<br>Ag<sub>opt</sub> = arg max<sub>Ag ∈ AG</sub> EU(Ag, Env)</div>
+  <h3>Worked example</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Agent</th><th class="num">P(success)</th><th class="num">u(success)</th><th class="num">u(failure)</th><th class="num">EU</th></tr></thead>
+      <tbody>
+        <tr><td>A: short route</td><td class="num">0.7</td><td class="num">10</td><td class="num">0</td><td class="num">0.7 × 10 = <b>7.0</b></td></tr>
+        <tr><td>B: long, safe route</td><td class="num">0.9</td><td class="num">7</td><td class="num">0</td><td class="num">0.9 × 7 = <b>6.3</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prose">
+    <p>Under this utility, A is better even though B succeeds more often. Change u, for example by giving failure a large negative value because a failed delivery angers a customer, and the ranking can flip. <strong>The utility function is part of the evaluation design, so write it down and justify it.</strong></p>
+    <p><a class="btn btn-plain" href="tools.html#eu">Try it in the expected utility calculator</a></p>
+  </div>
+  <p class="source">Source: Wooldridge (2009), Ch. 2 “Intelligent Agents”: utility functions over runs and optimal agents.</p>
+</div>
+
+<div class="block" id="tasks">
+  <h2>Achievement and maintenance tasks</h2>
+  <p class="prose">Often we only care whether a run succeeds or fails. A <strong>predicate task specification</strong> Ψ(r) returns true or false for each run. Two shapes cover most requirements.</p>
+  <div class="grid-2">
+    <div class="panel teal"><h3>Achievement task: reach G</h3><p>Success if <em>some</em> state in the goal set G is reached.</p><ul><li>Vacuum: all squares clean.</li><li>Delivery robot: parcel delivered to Room 2B.</li></ul></div>
+    <div class="panel blue"><h3>Maintenance task: always avoid B</h3><p>Success if <em>no</em> state in the bad set B ever occurs.</p><ul><li>Vacuum: never collide with a person.</li><li>Data-centre agent: temperature never above 30 °C.</li></ul></div>
+  </div>
+  <div class="prose mt-1">
+    <p>The metric that follows directly is <strong>P(Ψ | Ag, Env)</strong>, the probability that the agent succeeds. In practice you estimate it as the success rate over many runs, and you should say how precise that estimate is.</p>
+  </div>
+  <div class="note"><p><b>How many runs?</b> With n independent runs and observed success rate p̂, an approximate 95% interval is p̂ ± 1.96 √(p̂(1 − p̂)/n). For p̂ = 0.7 and n = 30 that is 0.7 ± 0.16, so a single 30-run experiment cannot separate 0.70 from 0.80. Plan the number of runs before you compare agents.</p></div>
+  <p class="source">Source: Wooldridge (2009), Ch. 2: predicate task specifications; achievement and maintenance tasks.</p>
+</div>
+
+<div class="block" id="quick-check">
+  <h2>Quick check: achievement or maintenance?</h2>
+  <p class="prose">These are the four requirements from the lecture slide plus three more. Choose A or M for each. Watch for words like “never” and “at all times”.</p>
+  <div class="tool sorter" id="tool-sorter">
+    <div class="sort-row" data-answer="A" data-why="It ends once a goal state is reached: all 12 panels photographed."><p>A drone agent must photograph all 12 solar panels on the roof.</p><div class="sort-btns"><button type="button" data-choice="A">Achievement</button><button type="button" data-choice="M">Maintenance</button></div><p class="fb" aria-live="polite"></p></div>
+    <div class="sort-row" data-answer="M" data-why="“Never” defines a bad set B (any state with more than 20% in one stock) that must be avoided in every state of the run."><p>A trading agent must never hold more than 20% of the budget in one stock.</p><div class="sort-btns"><button type="button" data-choice="A">Achievement</button><button type="button" data-choice="M">Maintenance</button></div><p class="fb" aria-live="polite"></p></div>
+    <div class="sort-row" data-answer="M" data-why="“At all times” means the privacy property must hold in every state; one leak fails the whole run."><p>A tutoring agent must keep each student’s answers private at all times.</p><div class="sort-btns"><button type="button" data-choice="A">Achievement</button><button type="button" data-choice="M">Maintenance</button></div><p class="fb" aria-live="polite"></p></div>
+    <div class="sort-row" data-answer="A" data-why="Success is reaching a state in which an accepted slot exists."><p>A meeting-scheduler agent must find a slot that all five members accept.</p><div class="sort-btns"><button type="button" data-choice="A">Achievement</button><button type="button" data-choice="M">Maintenance</button></div><p class="fb" aria-live="polite"></p></div>
+    <div class="sort-row" data-answer="M" data-why="The run fails if a bad state (robot in the bay while a forklift moves) ever occurs."><p>A warehouse robot must never enter the loading bay while a forklift is moving.</p><div class="sort-btns"><button type="button" data-choice="A">Achievement</button><button type="button" data-choice="M">Maintenance</button></div><p class="fb" aria-live="polite"></p></div>
+    <div class="sort-row" data-answer="A" data-why="It is still achievement: reach a “deal signed” state, with a deadline added to the goal set."><p>A negotiation agent must close a deal with the supplier before Friday.</p><div class="sort-btns"><button type="button" data-choice="A">Achievement</button><button type="button" data-choice="M">Maintenance</button></div><p class="fb" aria-live="polite"></p></div>
+    <div class="sort-row" data-answer="M" data-why="Keeping the level inside a band is a classic maintenance task: avoid every state outside the band."><p>A water-tank controller must keep the level between 40% and 90%.</p><div class="sort-btns"><button type="button" data-choice="A">Achievement</button><button type="button" data-choice="M">Maintenance</button></div><p class="fb" aria-live="polite"></p></div>
+  </div>
+  <p class="small muted mt-1">Real requirements often combine both: “deliver the parcel (achievement) without ever entering a restricted zone (maintenance)”. Then Ψ is the conjunction, and you report each part separately so you can see which one fails.</p>
+</div>
+
+      <div class="block" id="quiz">
+        <h2>Self-check quiz</h2>
+        <p class="prose">Choose an answer for each question, then check. Every answer comes with a short explanation.</p>
+        <form class="quiz" id="q1"><fieldset><legend>1. Who chooses an agent’s performance measure?</legend><label><input type="radio" name="q1-q0" value="0"><span>The agent, based on its goals</span></label><label><input type="radio" name="q1-q0" value="1" data-correct><span>The designer of the system</span></label><label><input type="radio" name="q1-q0" value="2"><span>The environment</span></label><p class="why">The designer chooses the measure. The agent tries to maximise it, which is exactly why a badly chosen measure gets exploited.</p></fieldset><fieldset><legend>2. A vacuum agent is scored on “amount of dirt picked up”. What is the problem?</legend><label><input type="radio" name="q1-q1" value="0"><span>It is too hard to measure</span></label><label><input type="radio" name="q1-q1" value="1" data-correct><span>It rewards a behaviour the agent can repeat without making the room cleaner</span></label><label><input type="radio" name="q1-q1" value="2"><span>It ignores energy use only</span></label><p class="why">The agent can dump dirt and pick it up again. Measure the environment (clean squares over time), not the behaviour.</p></fieldset><fieldset><legend>3. Agent A: P = 0.7, u = 10. Agent B: P = 0.9, u = 7. Failure gives u = 0 for both. Which has higher expected utility?</legend><label><input type="radio" name="q1-q2" value="0" data-correct><span>A, with 7.0</span></label><label><input type="radio" name="q1-q2" value="1"><span>B, with 6.3</span></label><label><input type="radio" name="q1-q2" value="2"><span>They are equal</span></label><p class="why">EU(A) = 0.7 × 10 = 7.0 and EU(B) = 0.9 × 7 = 6.3. A wins under this utility, even though B succeeds more often.</p></fieldset><fieldset><legend>4. “The data-centre temperature must never exceed 30 °C” is…</legend><label><input type="radio" name="q1-q3" value="0"><span>An achievement task</span></label><label><input type="radio" name="q1-q3" value="1" data-correct><span>A maintenance task</span></label><label><input type="radio" name="q1-q3" value="2"><span>A utility function</span></label><p class="why">It defines a bad set of states that must never occur in the run.</p></fieldset><fieldset><legend>5. What does bounded optimality add to rationality?</legend><label><input type="radio" name="q1-q4" value="0"><span>The agent knows every outcome in advance</span></label><label><input type="radio" name="q1-q4" value="1" data-correct><span>The best program that can actually run within the machine’s limits</span></label><label><input type="radio" name="q1-q4" value="2"><span>The agent always reaches the goal</span></label><p class="why">Bounded optimality accepts that computation is limited and asks for the best program that fits the machine.</p></fieldset><div><button class="btn btn-teal" type="submit">Check answers</button> <button class="btn btn-plain" type="reset">Clear</button><span class="quiz-result" aria-live="polite"></span></div></form>
+      </div>
+      <nav class="pager" aria-label="Module navigation"><a class="prev" href="modules.html"><small>Previous</small><b>All modules</b></a><a class="next" href="module-2-society-of-agents.html"><small>Next</small><b>Module 2: Evaluating a society of agents</b></a></nav>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Performance Evaluation of Agent-Based Systems</h4>
+        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
+        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
+      </div>
+      <div>
+        <h4>Practise</h4>
+        <ul>
+          <li><a href="tools.html">Interactive tools</a></li>
+          <li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
+          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Session</h4>
+        <ul>
+          <li><a href="programme.html">Programme and timings</a></li>
+          <li><a href="resources.html">Reading list</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Speaker: Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Material prepared for CAI 461 students; cited works belong to their authors.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/tools.js" defer></script>
+</body>
+</html>

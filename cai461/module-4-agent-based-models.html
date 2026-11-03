@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 4: Evaluating agent-based models · CAI 461 · Topic 8</title>
+<meta name="description" content="Verification, validation, replication, sensitivity analysis with NetLogo BehaviorSpace, and the ODD reporting protocol.">
+<meta name="theme-color" content="#0f3446">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Module 4: Evaluating agent-based models · CAI 461 · Topic 8">
+<meta property="og:description" content="Verification, validation, replication, sensitivity analysis with NetLogo BehaviorSpace, and the ODD reporting protocol.">
+<meta property="og:site_name" content="Performance Evaluation of Agent-Based Systems">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="3" width="32" height="6" rx="1.5" fill="#0f3446"/><rect x="4" y="11" width="28" height="6" rx="1.5" fill="#0070c0"/><rect x="6" y="19" width="24" height="6" rx="1.5" fill="#04767f"/><rect x="8" y="27" width="20" height="6" rx="1.5" fill="#4f9ea2"/></svg><span class="brand-text"><b>Evaluating Agent Systems</b><span>CAI 461 Topic 8 · PNU × UTM</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul><li><a href="index.html">Home</a></li><li><a href="programme.html">Programme</a></li><li><a href="modules.html" aria-current="page">Modules</a></li><li><a href="tools.html">Interactive Tools</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="lab.html">Lab</a></li><li><a href="resources.html">Resources</a></li><li><a href="glossary.html">Glossary</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="modules.html">Modules</a> / Module 4</nav><p class="kicker">Module 4 of 6 · 12 minutes in the lecture · slides 23–26</p><h1>Evaluating agent-based models</h1>
+    <p class="lede">Verification, validation, replication, sensitivity analysis and the ODD protocol.</p>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap with-index">
+    <nav class="page-index" aria-label="On this page"><p>On this page</p><ol><li><a href="#vvr">Verification, validation, replication</a></li><li><a href="#sensitivity">Sensitivity analysis</a></li><li><a href="#odd">The ODD protocol</a></li><li><a href="#quiz">Self-check quiz</a></li></ol></nav>
+    <div>
+      
+<div class="block" id="vvr">
+  <h2>Verification, validation and replication</h2>
+  <p class="prose">An agent-based model is only useful if you can trust it. Three questions establish that trust, and they are not interchangeable.</p>
+  <div class="grid-3">
+    <div class="panel teal">
+      <h3>Verification</h3>
+      <p><b>Did we build the model right?</b></p>
+      <ul><li>Does the code match the conceptual model?</li><li>Unit tests, step-by-step runs, extreme parameter values.</li></ul>
+    </div>
+    <div class="panel blue">
+      <h3>Validation</h3>
+      <p><b>Did we build the right model?</b></p>
+      <ul><li>Micro-face: do individual agents behave realistically?</li><li>Macro-face: do overall patterns look like reality?</li><li>Empirical: compare outputs with real data.</li></ul>
+    </div>
+    <div class="panel ink">
+      <h3>Replication</h3>
+      <p><b>Can someone else get the same results?</b></p>
+      <ul><li>Re-implement the model independently and compare outputs statistically.</li><li>The strongest test of both verification and validation.</li></ul>
+    </div>
+  </div>
+  <h3 class="mt-2">Verification checks you can run today</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Check</th><th>What you do</th><th>What a bug looks like</th></tr></thead>
+      <tbody>
+        <tr><td><b>Extreme values</b></td><td>Set wolf gain from food to 0.</td><td>Wolves survive for hundreds of ticks.</td></tr>
+        <tr><td><b>Conservation</b></td><td>Count agents born and died each tick.</td><td>The population changes by a different amount than births minus deaths.</td></tr>
+        <tr><td><b>Step-through</b></td><td>Run one tick at a time and inspect one agent.</td><td>An agent moves twice or eats food that is not on its patch.</td></tr>
+        <tr><td><b>Seed repeatability</b></td><td>Fix the random seed and run twice.</td><td>Outputs differ, so something is not controlled by the seed.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="source">Source: Wilensky &amp; Rand (2015), Ch. 7 “Verification, Validation, and Replication”; Wilensky &amp; Rand (2007), JASSS 10(4):2.</p>
+  <p class="linkback">Link back: ABMS lecture and Project 1 (NetLogo).</p>
+</div>
+
+<div class="block" id="sensitivity">
+  <h2>Sensitivity analysis and parameter sweeps</h2>
+  <div class="prose">
+    <ul>
+      <li>Change one parameter at a time across a range and keep the others fixed (one-factor-at-a-time).</li>
+      <li>Run each setting many times; agent-based models are stochastic.</li>
+      <li>Look for parameters where small changes cause large output changes. These need the most careful justification in your report.</li>
+      <li>In NetLogo, BehaviorSpace automates sweeps and repetitions and exports results to CSV.</li>
+    </ul>
+  </div>
+  <h3>Example experiment: NetLogo Wolf Sheep Predation</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="num">Wolf gain from food</th><th class="num">Runs</th><th>Measured output</th></tr></thead>
+      <tbody>
+        <tr><td class="num">10</td><td class="num">30</td><td>% of runs where wolves survive 500 ticks</td></tr>
+        <tr><td class="num">20</td><td class="num">30</td><td>Mean and SD of the sheep population</td></tr>
+        <tr><td class="num">30</td><td class="num">30</td><td>Period of the population cycles</td></tr>
+        <tr><td class="num">40</td><td class="num">30</td><td>Ticks until one species goes extinct</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="prose">4 settings × 30 runs = 120 simulations in one BehaviorSpace experiment. In practice you record every output for every setting; the table spreads them out to show the range of things you can measure.</p>
+  <h3>Setting it up in BehaviorSpace</h3>
+  <p class="prose">Open <b>Tools → BehaviorSpace → New</b> and fill in the fields like this:</p>
+  <pre data-copy><code><span class="cm">; Vary variables as follows</span>
+["wolf-gain-from-food" 10 20 30 40]
+
+<span class="cm">; Repetitions</span>
+30
+
+<span class="cm">; Measure runs using these reporters (one per line)</span>
+count sheep
+count wolves
+
+<span class="cm">; Stop condition</span>
+not any? wolves or not any? sheep
+
+<span class="cm">; Time limit</span>
+500</code></pre>
+  <p class="prose">Run it with table output, then load the CSV into Python or a spreadsheet to compute survival rates, means and confidence intervals for each setting.</p>
+  <div class="note"><p><b>Beyond one factor at a time.</b> OFAT misses interactions, for example when wolf gain only matters if grass regrowth is slow. When you have time, sweep two parameters together as a grid, or use a global method such as Latin hypercube sampling with variance-based (Sobol) indices.</p></div>
+  <p class="source">Source: Wilensky &amp; Rand (2015), Ch. 6 “Analyzing Agent-Based Models”; Wilensky (1997), NetLogo Wolf Sheep Predation model.</p>
+  <p class="linkback">Link back: ABMS lab — constructing, simulating and analysing models.</p>
+</div>
+
+<div class="block" id="odd">
+  <h2>Reporting models: the ODD protocol</h2>
+  <p class="prose">ODD (Overview, Design concepts, Details) is the most widely used standard for describing agent-based models. A model reported in ODD can be replicated and reviewed by someone who never saw your code. The 2020 update organises it into seven elements.</p>
+  <div class="grid-3">
+    <div class="panel teal"><h3>Overview</h3><ul><li>Purpose and patterns</li><li>Entities, state variables and scales</li><li>Process overview and scheduling</li></ul></div>
+    <div class="panel blue"><h3>Design concepts</h3><ul><li>Basic principles, emergence, adaptation, objectives</li><li>Learning, prediction, sensing, interaction</li><li>Stochasticity, collectives, observation</li></ul></div>
+    <div class="panel ink"><h3>Details</h3><ul><li>Initialization</li><li>Input data</li><li>Submodels</li></ul></div>
+  </div>
+  <div class="note blue"><p><b>Where evaluation lives in ODD.</b> The “Observation” design concept states exactly what is measured and when. Write it before you run the sweep, so your metrics are chosen in advance rather than picked after you see the results.</p></div>
+  <p class="source">Source: Grimm et al. (2006), Ecological Modelling 198:115–126; Grimm et al. (2020), JASSS 23(2):7 “The ODD protocol for describing agent-based and other simulation models: a second update”.</p>
+</div>
+
+      <div class="block" id="quiz">
+        <h2>Self-check quiz</h2>
+        <p class="prose">Choose an answer for each question, then check. Every answer comes with a short explanation.</p>
+        <form class="quiz" id="q4"><fieldset><legend>1. “Did we build the right model?” is the question of…</legend><label><input type="radio" name="q4-q0" value="0"><span>Verification</span></label><label><input type="radio" name="q4-q0" value="1" data-correct><span>Validation</span></label><label><input type="radio" name="q4-q0" value="2"><span>Replication</span></label><p class="why">Validation compares the model with reality. Verification checks the code against the conceptual model.</p></fieldset><fieldset><legend>2. Setting a parameter to an extreme value to see if the model breaks is a…</legend><label><input type="radio" name="q4-q1" value="0" data-correct><span>Verification technique</span></label><label><input type="radio" name="q4-q1" value="1"><span>Validation technique</span></label><label><input type="radio" name="q4-q1" value="2"><span>Reporting standard</span></label><p class="why">Extreme-value tests check that the code does what the conceptual model says.</p></fieldset><fieldset><legend>3. A BehaviorSpace experiment has 5 settings and 30 repetitions. How many simulations run?</legend><label><input type="radio" name="q4-q2" value="0"><span>35</span></label><label><input type="radio" name="q4-q2" value="1" data-correct><span>150</span></label><label><input type="radio" name="q4-q2" value="2"><span>30</span></label><p class="why">5 × 30 = 150 runs.</p></fieldset><fieldset><legend>4. In ODD, where do you state what is measured?</legend><label><input type="radio" name="q4-q3" value="0"><span>Purpose and patterns</span></label><label><input type="radio" name="q4-q3" value="1" data-correct><span>Observation, under design concepts</span></label><label><input type="radio" name="q4-q3" value="2"><span>Submodels</span></label><p class="why">The Observation design concept describes what data are collected and when.</p></fieldset><fieldset><legend>5. Why is replication called the strongest test?</legend><label><input type="radio" name="q4-q4" value="0"><span>It uses more runs</span></label><label><input type="radio" name="q4-q4" value="1" data-correct><span>An independent re-implementation tests both the code and the description of the model</span></label><label><input type="radio" name="q4-q4" value="2"><span>It needs real data</span></label><p class="why">If someone else can build the model from your description and match your results, both the code and the specification are sound.</p></fieldset><div><button class="btn btn-teal" type="submit">Check answers</button> <button class="btn btn-plain" type="reset">Clear</button><span class="quiz-result" aria-live="polite"></span></div></form>
+      </div>
+      <nav class="pager" aria-label="Module navigation"><a class="prev" href="module-3-measuring-the-system.html"><small>Previous</small><b>Module 3: Measuring the system</b></a><a class="next" href="module-5-llm-agents.html"><small>Next</small><b>Module 5: Evaluating LLM-based agents</b></a></nav>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Performance Evaluation of Agent-Based Systems</h4>
+        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
+        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
+      </div>
+      <div>
+        <h4>Practise</h4>
+        <ul>
+          <li><a href="tools.html">Interactive tools</a></li>
+          <li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
+          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Session</h4>
+        <ul>
+          <li><a href="programme.html">Programme and timings</a></li>
+          <li><a href="resources.html">Reading list</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Speaker: Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Material prepared for CAI 461 students; cited works belong to their authors.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

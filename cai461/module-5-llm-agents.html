@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 5: Evaluating LLM-based agents · CAI 461 · Topic 8</title>
+<meta name="description" content="Benchmarks, pass^k reliability, cost-aware evaluation, MultiAgentBench, the MAST failure taxonomy, LLM-as-a-judge and OpenTelemetry tracing.">
+<meta name="theme-color" content="#0f3446">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Module 5: Evaluating LLM-based agents · CAI 461 · Topic 8">
+<meta property="og:description" content="Benchmarks, pass^k reliability, cost-aware evaluation, MultiAgentBench, the MAST failure taxonomy, LLM-as-a-judge and OpenTelemetry tracing.">
+<meta property="og:site_name" content="Performance Evaluation of Agent-Based Systems">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="3" width="32" height="6" rx="1.5" fill="#0f3446"/><rect x="4" y="11" width="28" height="6" rx="1.5" fill="#0070c0"/><rect x="6" y="19" width="24" height="6" rx="1.5" fill="#04767f"/><rect x="8" y="27" width="20" height="6" rx="1.5" fill="#4f9ea2"/></svg><span class="brand-text"><b>Evaluating Agent Systems</b><span>CAI 461 Topic 8 · PNU × UTM</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul><li><a href="index.html">Home</a></li><li><a href="programme.html">Programme</a></li><li><a href="modules.html" aria-current="page">Modules</a></li><li><a href="tools.html">Interactive Tools</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="lab.html">Lab</a></li><li><a href="resources.html">Resources</a></li><li><a href="glossary.html">Glossary</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="modules.html">Modules</a> / Module 5</nav><p class="kicker">Module 5 of 6 · 22 minutes in the lecture · slides 27–36</p><h1>Evaluating LLM-based agents</h1>
+    <p class="lede">Benchmarks, pass^k reliability, cost, MultiAgentBench, MAST, LLM-as-a-judge and tracing.</p>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap with-index">
+    <nav class="page-index" aria-label="On this page"><p>On this page</p><ol><li><a href="#why-new">Why new methods</a></li><li><a href="#benchmarks">Benchmark landscape</a></li><li><a href="#passk">pass@k vs pass^k</a></li><li><a href="#cost">Report cost too</a></li><li><a href="#mab">MultiAgentBench</a></li><li><a href="#mast">MAST failure taxonomy</a></li><li><a href="#judge">LLM-as-a-judge</a></li><li><a href="#otel">OpenTelemetry tracing</a></li><li><a href="#pipeline">Evaluation pipeline</a></li><li><a href="#quiz">Self-check quiz</a></li></ol></nav>
+    <div>
+      
+<div class="block" id="why-new">
+  <h2>Why LLM agents need new methods</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Classic agent</th><th>LLM-based agent</th></tr></thead>
+      <tbody>
+        <tr><td>Actions from a fixed, known set</td><td>Free-text reasoning plus open tool calls</td></tr>
+        <tr><td>Mostly deterministic given a seed</td><td>Stochastic: the same input can give different runs</td></tr>
+        <tr><td>Success checked by a simple test</td><td>Output is often text, so correctness is hard to check</td></tr>
+        <tr><td>Cost ≈ CPU time</td><td>Cost = tokens and money for every step</td></tr>
+        <tr><td>Messages in a formal ACL</td><td>Messages in natural language, easy to misunderstand</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="prose"><strong>The goal is still Wooldridge’s: estimate expected utility and success probability, but with new instruments.</strong> Every idea on this page maps back to Modules 1 to 3.</p>
+  <p class="linkback">Link back: Agent Architectures lab — LLM agents with tools.</p>
+</div>
+
+<div class="block" id="benchmarks">
+  <h2>The benchmark landscape for LLM agents</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Benchmark</th><th>What it tests</th><th>How success is measured</th><th>Venue</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://arxiv.org/abs/2308.03688"><b>AgentBench</b></a></td><td>LLM-as-agent in 8 environments: operating system, database, web, games and more</td><td>Task-specific success scores</td><td>ICLR 2024</td></tr>
+        <tr><td><a href="https://arxiv.org/abs/2311.12983"><b>GAIA</b></a></td><td>466 real-world assistant questions that need tools and browsing</td><td>Exact final answer; humans about 92% against GPT-4 with plugins about 15% at release</td><td>ICLR 2024</td></tr>
+        <tr><td><a href="https://www.swebench.com/"><b>SWE-bench</b></a></td><td>2,294 real GitHub issues from 12 Python repositories</td><td>The generated patch must pass the project’s unit tests</td><td>ICLR 2024</td></tr>
+        <tr><td><a href="https://arxiv.org/abs/2406.12045"><b>τ-bench</b></a></td><td>Agent, simulated user, tools and a policy, in retail and airline domains</td><td>Final database state matches the goal; pass^k reliability</td><td>ICLR 2025</td></tr>
+        <tr><td><a href="https://aclanthology.org/2025.acl-long.421/"><b>MultiAgentBench</b></a></td><td>Collaboration and competition among LLM agents</td><td>Task score, milestone KPIs and a coordination score</td><td>ACL 2025</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><p><b>Notice the pattern.</b> Every benchmark defines a predicate Ψ (exact answer, tests pass, database state matches) and estimates P(Ψ) over many tasks. That is Module 1 at scale. τ-bench has since been extended as τ²-bench, which adds a telecom domain and code fixes.</p></div>
+  <p class="source">Source: Liu et al. (2024); Mialon et al. (2024); Jimenez et al. (2024); Yao et al. (2025); Zhu et al. (2025). Full references on the <a href="resources.html">resources page</a>.</p>
+</div>
+
+<div class="block" id="passk">
+  <h2>Reliability: pass@k versus pass^k</h2>
+  <div class="grid-2">
+    <div class="panel ink"><h3>pass@k: at least one success</h3><p>Probability that at least one of k attempts succeeds. Good for “try many, keep the best”, for example code generation with unit tests to pick the winner.</p><div class="formula" style="margin-bottom:0">pass@k = 1 − (1 − p)<sup>k</sup></div></div>
+    <div class="panel teal"><h3>pass^k: all k succeed</h3><p>Probability that all k independent trials of the same task succeed. Measures consistency, which is what a real customer experiences.</p><div class="formula" style="margin-bottom:0">pass^k = p<sup>k</sup></div></div>
+  </div>
+  <div class="table-wrap" style="max-width:520px">
+    <table>
+      <thead><tr><th>k</th><th class="num">pass^k when p = 0.6</th></tr></thead>
+      <tbody><tr><td>1</td><td class="num">60%</td></tr><tr><td>2</td><td class="num">36%</td></tr><tr><td>4</td><td class="num">13%</td></tr><tr><td>8</td><td class="num">2%</td></tr></tbody>
+    </table>
+  </div>
+  <div class="note amber"><p><b>Reported finding.</b> In τ-bench, a GPT-4o function-calling agent reached about 61% pass^1 on τ-retail, but pass^8 fell below 25%. That is far better than the 2% the independent formula predicts, because real failures are not independent: an agent tends to fail the <em>same hard tasks</em> again and succeed on the easy ones every time. Try the “always-failing tasks” slider in the tool to see this effect.</p></div>
+  <div class="prose">
+    <h3>How τ-bench estimates it</h3>
+    <p>Run each task n times and count its successes c. The unbiased estimate for that task is C(c, k) ÷ C(n, k), the chance that k trials drawn from the n all succeeded. Average this across tasks. The <a href="lab.html">lab harness</a> computes it for you.</p>
+    <p><a class="btn btn-plain" href="tools.html#passk">Open the pass^k calculator</a></p>
+  </div>
+  <p class="source">Source: Yao, Shinn, Razavi &amp; Narasimhan (2025), “τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains”, ICLR 2025.</p>
+  <p class="linkback">Link back: Module 1 — success probability P(Ψ | Ag, Env).</p>
+</div>
+
+<div class="block" id="cost">
+  <h2>Accuracy is not enough: report cost too</h2>
+  <div class="prose">
+    <ul>
+      <li>Many agent papers report only accuracy. A complex agent may cost 10 to 100 times more for a small gain.</li>
+      <li>Kapoor et al. recommend plotting accuracy against cost and keeping only the agents on the <strong>Pareto frontier</strong>.</li>
+      <li>Simple baselines such as retrying or majority voting often match complex agent architectures at lower cost.</li>
+      <li>Hold-out test sets stop agents from “overfitting” the benchmark.</li>
+    </ul>
+    <p>The same group built the <a href="https://hal.cs.princeton.edu/">Holistic Agent Leaderboard (HAL)</a>, which reports cost next to accuracy by default. Their analysis of agent logs found agents searching online for a benchmark’s answers instead of solving the task, and misusing credit cards in flight-booking tasks. Accuracy alone would have hidden both.</p>
+    <p><a class="btn btn-plain" href="tools.html#frontier">Find the frontier with your own agents</a></p>
+  </div>
+  <p class="source">Source: Kapoor, Stroebl, Siegel, Nadgir &amp; Narayanan (2025), “AI Agents That Matter”, TMLR; Kapoor et al. (2026), “Holistic Agent Leaderboard”, ICLR 2026.</p>
+  <p class="linkback">Link back: Module 2 — Pareto efficiency, now applied to accuracy and cost.</p>
+</div>
+
+<div class="block" id="mab">
+  <h2>MultiAgentBench: evaluating LLM teams</h2>
+  <div class="grid-2" style="align-items:start">
+    <div>
+      <p>MultiAgentBench, built on the MARBLE framework, compares four coordination topologies:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Topology</th><th>Shape</th></tr></thead>
+          <tbody>
+            <tr><td><b>Star</b></td><td>A central planner talks to every worker</td></tr>
+            <tr><td><b>Tree</b></td><td>A hierarchy of planners and workers</td></tr>
+            <tr><td><b>Chain</b></td><td>Sequential hand-off from one agent to the next</td></tr>
+            <tr><td><b>Graph</b></td><td>Peer-to-peer mesh</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>It scores three things: a <b>task score</b> for the quality of the final output, <b>milestone KPIs</b> for which sub-goals were reached and each agent’s contribution, and a <b>coordination score</b> for communication and planning quality, rated 1 to 5.</p>
+    </div>
+    <div class="panel teal">
+      <h3>Key findings</h3>
+      <ul>
+        <li>Model capability is the main driver of task success.</li>
+        <li>A high coordination score does not guarantee a high task score, so measure both.</li>
+        <li>In the research scenario, the graph (peer-to-peer) topology performed best and the tree worst.</li>
+        <li>Cognitive, self-evolving planning improved milestone achievement by about 3%.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="source">Source: Zhu et al. (2025), “MultiAgentBench: Evaluating the Collaboration and Competition of LLM Agents”, ACL 2025. Code: <a href="https://github.com/ulab-uiuc/MARBLE">github.com/ulab-uiuc/MARBLE</a>.</p>
+  <p class="linkback">Link back: Agent Interactions lecture — centralised versus distributed coordination.</p>
+</div>
+
+<div class="block" id="mast">
+  <h2>Why LLM multi-agent systems fail: MAST</h2>
+  <p class="prose">The Multi-Agent System Failure Taxonomy groups 14 failure modes into three categories. The shares below are the ones presented in the lecture.</p>
+  <div class="grid-3">
+    <div class="panel teal"><h3>Specification issues, 42%</h3><ul><li>Step repetition (17.1%)</li><li>Disobey task specification (11.0%)</li><li>Unaware of stopping conditions (9.8%)</li></ul></div>
+    <div class="panel blue"><h3>Inter-agent misalignment, 37%</h3><ul><li>Reasoning–action mismatch (14.0%)</li><li>Fail to ask for clarification (11.7%)</li><li>Task derailment (7.2%)</li></ul></div>
+    <div class="panel ink"><h3>Task verification, 21%</h3><ul><li>Premature termination (7.8%)</li><li>No or incomplete verification (6.8%)</li><li>Incorrect verification (6.7%)</li></ul></div>
+  </div>
+  <div class="prose mt-1">
+    <p><b>How it was built.</b> Expert annotators analysed conversation traces from seven open-source multi-agent frameworks and agreed closely on the labels (Cohen’s κ = 0.88). An LLM-as-a-judge annotator was then calibrated against the experts and reached κ = 0.77, which made it possible to label traces at scale.</p>
+    <p><b>The main lesson.</b> Most failures come from <strong>system design</strong>, not only from a weak model. Better prompts rarely fix them; better roles, stopping rules and verification steps do.</p>
+  </div>
+  <div class="note"><p><b>Which version to cite.</b> The paper was updated several times on arXiv and published at NeurIPS 2025 (Datasets and Benchmarks). The final version releases MAST-Data, over 1,600 annotated traces, and renames the first category “system design issues”. Exact percentages differ slightly between versions, so cite the version you used.</p></div>
+  <p class="source">Source: Cemri, Pan, Yang et al. (2025), “Why Do Multi-Agent LLM Systems Fail?”, arXiv:2503.13657, NeurIPS 2025 Datasets and Benchmarks. Code and data: <a href="https://github.com/multi-agent-systems-failure-taxonomy/MAST">github.com/multi-agent-systems-failure-taxonomy/MAST</a>.</p>
+  <p class="linkback">Link back: Agent Communication and Interactions — coordination failures.</p>
+</div>
+
+<div class="block" id="judge">
+  <h2>LLM-as-a-judge: scoring open-ended outputs</h2>
+  <div class="trace" style="max-width:820px;padding:1rem 1.25rem" aria-label="Pipeline: agent output, rubric and reference answer, judge LLM, score and short reason">
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;font-weight:600;font-size:.92rem;color:#fff;text-align:center">
+      <div style="background:var(--ink);padding:.8rem;border-radius:6px">Agent output</div>
+      <div style="background:var(--amber);color:var(--ink);padding:.8rem;border-radius:6px">Rubric and reference answer</div>
+      <div style="background:var(--teal);padding:.8rem;border-radius:6px">Judge LLM</div>
+      <div style="background:var(--blue);padding:.8rem;border-radius:6px">Score and short reason</div>
+    </div>
+  </div>
+  <div class="grid-2 mt-1">
+    <div class="panel teal"><h3>Evidence it works</h3><ul><li>Strong judges agreed with human preferences over 80% of the time, about the same rate at which humans agree with each other.</li><li>It scales to thousands of outputs at low cost.</li></ul></div>
+    <div class="panel red"><h3>Known biases, and how to control them</h3><ul><li><b>Position bias</b>: prefers the first answer. Swap the order and average.</li><li><b>Verbosity bias</b>: prefers longer answers. Score against a content rubric.</li><li><b>Self-enhancement</b>: prefers its own model. Use a different model as judge.</li><li>Always validate the judge on a human-labelled sample.</li></ul></div>
+  </div>
+  <h3 class="mt-2">A rubric prompt you can adapt</h3>
+  <pre data-copy><code>You are grading an answer from a course-advising assistant.
+
+Question: {question}
+Reference answer (from the official registration rules): {reference}
+Assistant answer: {answer}
+
+Score each criterion 0, 1 or 2:
+1. Correctness: does the answer agree with the reference on every rule it states?
+2. Completeness: does it include every condition the student needs (prerequisites, deadlines)?
+3. Grounding: is every claim supported by the reference, with nothing invented?
+
+Ignore length and writing style. Return JSON:
+{"correctness": n, "completeness": n, "grounding": n, "reason": "one sentence"}</code></pre>
+  <p class="source">Source: Zheng et al. (2023), “Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena”, NeurIPS 2023 Datasets and Benchmarks.</p>
+</div>
+
+<div class="block" id="otel">
+  <h2>OpenTelemetry tracing for AI agents</h2>
+  <div class="grid-2" style="align-items:start">
+    <div>
+      <p>One user request becomes one trace, drawn as a tree of spans:</p>
+<pre><code>invoke_agent Coordinator
+├─ chat                      (plan the task)
+├─ invoke_agent Researcher
+│  ├─ execute_tool web_search
+│  └─ chat                   (summarise sources)
+└─ invoke_agent Reviewer
+   └─ chat                   (check against rubric)</code></pre>
+    </div>
+    <div>
+      <div class="table-wrap" style="margin-top:0">
+        <table>
+          <thead><tr><th>Attribute on each span</th><th>What it gives you</th></tr></thead>
+          <tbody>
+            <tr><td><code>gen_ai.operation.name</code></td><td>invoke_agent, execute_tool, chat …</td></tr>
+            <tr><td><code>gen_ai.agent.name</code></td><td>Which agent did the work</td></tr>
+            <tr><td><code>gen_ai.tool.name</code></td><td>Which tool was called</td></tr>
+            <tr><td><code>gen_ai.usage.input_tokens</code><br><code>gen_ai.usage.output_tokens</code></td><td>Cost of each step</td></tr>
+            <tr><td>Span start and end time</td><td>Latency of each step</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="note"><p><b>Status.</b> The GenAI semantic conventions are still marked as in development, but major agent frameworks and tracing tools already emit them. The specification is published at <a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/">opentelemetry.io/docs/specs/semconv/gen-ai</a>.</p></div>
+  <p class="source">Source: OpenTelemetry, Semantic Conventions for Generative AI: agent and framework spans.</p>
+  <p class="linkback">Link back: Module 3 — traces and spans; the JADE Sniffer, now for LLM agents.</p>
+</div>
+
+<div class="block" id="pipeline">
+  <h2>A modern evaluation pipeline in practice</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="num">Stage</th><th>What it is</th><th>In the lab</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td><b>Dataset</b>: 20 to 100 test tasks with expected outcomes</td><td>20 tasks you write</td></tr>
+        <tr><td class="num">2</td><td><b>Traced runs</b>: every run recorded as a trace</td><td>Tracing switched on for the coordinator and both workers</td></tr>
+        <tr><td class="num">3</td><td><b>Evaluators</b>: code checks, LLM judge, human review</td><td>Exact match, rubric judge, latency and tokens</td></tr>
+        <tr><td class="num">4</td><td><b>Experiments</b>: compare versions side by side</td><td>Chain against supervisor (star)</td></tr>
+        <tr><td class="num">5</td><td><b>Monitoring</b>: online evaluation in production</td><td>Discussed, not built</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="prose">The lecture uses <a href="https://docs.langchain.com/langsmith/evaluation-concepts">LangSmith</a> as the example tool: it traces LLM, tool and agent steps with latency and token cost, and runs datasets and experiments with code-based, LLM-as-a-judge and pairwise evaluators. The same pipeline works with any OpenTelemetry-compatible tool. <strong>The method matters more than the tool.</strong></p>
+  <p class="source">Source: LangChain, LangSmith documentation — Evaluation concepts.</p>
+  <p class="linkback">Link back: Topic 8 practical — instrumenting, tracing and evaluating a MAS.</p>
+</div>
+
+      <div class="block" id="quiz">
+        <h2>Self-check quiz</h2>
+        <p class="prose">Choose an answer for each question, then check. Every answer comes with a short explanation.</p>
+        <form class="quiz" id="q5"><fieldset><legend>1. An agent succeeds on a task 70% of the time, independently. What is pass^3?</legend><label><input type="radio" name="q5-q0" value="0"><span>97.3%</span></label><label><input type="radio" name="q5-q0" value="1" data-correct><span>34.3%</span></label><label><input type="radio" name="q5-q0" value="2"><span>70%</span></label><p class="why">pass^3 = 0.7³ = 0.343. pass@3 would be 1 − 0.3³ = 97.3%.</p></fieldset><fieldset><legend>2. Which metric best matches what a customer experiences when using a support agent every day?</legend><label><input type="radio" name="q5-q1" value="0"><span>pass@k</span></label><label><input type="radio" name="q5-q1" value="1" data-correct><span>pass^k</span></label><label><input type="radio" name="q5-q1" value="2"><span>Number of tokens</span></label><p class="why">A customer needs it to work every time, which is pass^k.</p></fieldset><fieldset><legend>3. Agent X: 68% accuracy at $0.60 per task. Agent Y: 66% at $1.20. What can you say?</legend><label><input type="radio" name="q5-q2" value="0"><span>Y dominates X</span></label><label><input type="radio" name="q5-q2" value="1" data-correct><span>X dominates Y</span></label><label><input type="radio" name="q5-q2" value="2"><span>Neither dominates</span></label><p class="why">X is more accurate and cheaper, so Y is off the Pareto frontier.</p></fieldset><fieldset><legend>4. In MAST, “the agent keeps repeating the same step” belongs to…</legend><label><input type="radio" name="q5-q3" value="0" data-correct><span>Specification issues</span></label><label><input type="radio" name="q5-q3" value="1"><span>Inter-agent misalignment</span></label><label><input type="radio" name="q5-q3" value="2"><span>Task verification</span></label><p class="why">Step repetition is the largest specification failure mode in the lecture’s figures.</p></fieldset><fieldset><legend>5. You use GPT-based judge J to compare answers from model J and model K. What bias should you worry about first?</legend><label><input type="radio" name="q5-q4" value="0"><span>Position bias only</span></label><label><input type="radio" name="q5-q4" value="1" data-correct><span>Self-enhancement bias</span></label><label><input type="radio" name="q5-q4" value="2"><span>No bias, judges are neutral</span></label><p class="why">Judges tend to prefer outputs from their own model. Use a different judge, and still check position and length bias.</p></fieldset><fieldset><legend>6. Which OpenTelemetry attribute tells you how much a step cost?</legend><label><input type="radio" name="q5-q5" value="0"><span>gen_ai.agent.name</span></label><label><input type="radio" name="q5-q5" value="1" data-correct><span>gen_ai.usage.input_tokens and output_tokens</span></label><label><input type="radio" name="q5-q5" value="2"><span>gen_ai.operation.name</span></label><p class="why">Token counts per span let you compute cost for each step and each agent.</p></fieldset><div><button class="btn btn-teal" type="submit">Check answers</button> <button class="btn btn-plain" type="reset">Clear</button><span class="quiz-result" aria-live="polite"></span></div></form>
+      </div>
+      <nav class="pager" aria-label="Module navigation"><a class="prev" href="module-4-agent-based-models.html"><small>Previous</small><b>Module 4: Evaluating agent-based models</b></a><a class="next" href="module-6-bringing-it-together.html"><small>Next</small><b>Module 6: Bringing it together</b></a></nav>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Performance Evaluation of Agent-Based Systems</h4>
+        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
+        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
+      </div>
+      <div>
+        <h4>Practise</h4>
+        <ul>
+          <li><a href="tools.html">Interactive tools</a></li>
+          <li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
+          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Session</h4>
+        <ul>
+          <li><a href="programme.html">Programme and timings</a></li>
+          <li><a href="resources.html">Reading list</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Speaker: Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Material prepared for CAI 461 students; cited works belong to their authors.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

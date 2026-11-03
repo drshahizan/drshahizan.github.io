@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 3: Measuring the system · CAI 461 · Topic 8</title>
+<meta name="description" content="Metric families, scalability and robustness curves, tracing with FIPA-ACL correlation fields, JADE tools and experiment design.">
+<meta name="theme-color" content="#0f3446">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Module 3: Measuring the system · CAI 461 · Topic 8">
+<meta property="og:description" content="Metric families, scalability and robustness curves, tracing with FIPA-ACL correlation fields, JADE tools and experiment design.">
+<meta property="og:site_name" content="Performance Evaluation of Agent-Based Systems">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="3" width="32" height="6" rx="1.5" fill="#0f3446"/><rect x="4" y="11" width="28" height="6" rx="1.5" fill="#0070c0"/><rect x="6" y="19" width="24" height="6" rx="1.5" fill="#04767f"/><rect x="8" y="27" width="20" height="6" rx="1.5" fill="#4f9ea2"/></svg><span class="brand-text"><b>Evaluating Agent Systems</b><span>CAI 461 Topic 8 · PNU × UTM</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul><li><a href="index.html">Home</a></li><li><a href="programme.html">Programme</a></li><li><a href="modules.html" aria-current="page">Modules</a></li><li><a href="tools.html">Interactive Tools</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="lab.html">Lab</a></li><li><a href="resources.html">Resources</a></li><li><a href="glossary.html">Glossary</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="modules.html">Modules</a> / Module 3</nav><p class="kicker">Module 3 of 6 · 15 minutes in the lecture · slides 17–22</p><h1>Measuring the system</h1>
+    <p class="lede">Six metric families, scalability and robustness curves, tracing, JADE tools and sound experiments.</p>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap with-index">
+    <nav class="page-index" aria-label="On this page"><p>On this page</p><ol><li><a href="#families">Six metric families</a></li><li><a href="#curves">Curves, not points</a></li><li><a href="#tracing">Instrumentation and tracing</a></li><li><a href="#jade">JADE monitoring</a></li><li><a href="#experiment">Sound experiments</a></li><li><a href="#quiz">Self-check quiz</a></li></ol></nav>
+    <div>
+      
+<div class="block" id="families">
+  <h2>Six families of MAS performance metrics</h2>
+  <p class="prose">Pick at least one metric from each family that matters for your system, and say why you left the others out.</p>
+  <div class="grid-3">
+    <div class="panel teal"><h3>Effectiveness</h3><ul><li>Task success rate</li><li>Solution quality against the optimum</li><li>Social welfare</li></ul></div>
+    <div class="panel blue"><h3>Efficiency</h3><ul><li>Latency or time to complete</li><li>Throughput (tasks per minute)</li><li>CPU, memory, tokens, money</li></ul></div>
+    <div class="panel ink"><h3>Coordination</h3><ul><li>Messages per task</li><li>Conflicts and duplicated work</li><li>Idle or waiting time</li></ul></div>
+    <div class="panel teal"><h3>Scalability</h3><ul><li>How each metric grows with agents or tasks</li><li>The breaking point</li></ul></div>
+    <div class="panel blue"><h3>Robustness</h3><ul><li>Success when agents fail or messages are lost</li><li>Recovery time</li></ul></div>
+    <div class="panel ink"><h3>Fairness and trust</h3><ul><li>Egalitarian welfare</li><li>Consistency across repeated runs</li><li>Policy or safety violations</li></ul></div>
+  </div>
+  <p class="source">Source: synthesised from Wooldridge (2009) Ch. 8 and 11; Bellifemine, Caire &amp; Greenwood (2007), chapter on JADE tools; Kapoor et al. (2025), TMLR.</p>
+</div>
+
+<div class="block" id="curves">
+  <h2>Scalability and robustness: curves, not points</h2>
+  <div class="grid-2" style="align-items:start">
+    <div class="prose">
+      <ol>
+        <li>Run the same system while increasing one factor: number of agents, number of tasks, or message delay.</li>
+        <li>Plot each metric against that factor and look for the <strong>knee</strong> where performance breaks.</li>
+        <li>For robustness, remove k agents or drop p% of messages during a run, then record success rate and recovery time.</li>
+        <li><strong>Report the curve and the breaking point, not just one good run.</strong></li>
+      </ol>
+    </div>
+    <div>
+      <svg class="chart" viewBox="0 0 600 300" role="img" aria-label="Illustrative chart: a central coordinator is faster below 80 agents but its latency rises sharply after that, while a peer-to-peer system grows slowly.">
+        <g class="grid-lines">
+          <line class="grid" x1="56" x2="582" y1="256" y2="256"/><line class="grid" x1="56" x2="582" y1="196" y2="196"/><line class="grid" x1="56" x2="582" y1="136" y2="136"/><line class="grid" x1="56" x2="582" y1="76" y2="76"/><line class="grid" x1="56" x2="582" y1="18" y2="18"/>
+        </g>
+        <text x="48" y="260" text-anchor="end">0</text><text x="48" y="200" text-anchor="end">3</text><text x="48" y="140" text-anchor="end">6</text><text x="48" y="80" text-anchor="end">9</text><text x="48" y="22" text-anchor="end">12</text>
+        <text x="100" y="274">10</text><text x="188" y="274">20</text><text x="276" y="274">40</text><text x="364" y="274">80</text><text x="452" y="274">160</text><text x="540" y="274">320</text>
+        <text x="319" y="295" text-anchor="middle" font-weight="500">Number of agents (each step doubles)</text>
+        <text x="14" y="137" text-anchor="middle" font-weight="500" transform="rotate(-90 14 137)">Mean latency (s)</text>
+        <path d="M100 252 L188 250 L276 246 L364 234 L452 180 L540 6" fill="none" stroke="#e8962e" stroke-width="2.5"/>
+        <path d="M100 248 L188 246 L276 242 L364 238 L452 230 L540 218" fill="none" stroke="#04767f" stroke-width="2.5"/>
+        <circle cx="364" cy="234" r="6" fill="none" stroke="#0f3446" stroke-width="2"/><text x="372" y="222" text-anchor="start" font-weight="600" fill="#0f3446">knee</text>
+      </svg>
+      <div class="legend"><span><i style="background:#e8962e"></i>System A, central coordinator</span><span><i style="background:#04767f"></i>System B, peer-to-peer</span></div>
+      <p class="small muted">Illustrative values, to show how to read a scalability curve. A is faster at small scale; B wins after the knee.</p>
+    </div>
+  </div>
+  <p class="linkback">Link back: Agent Interactions lecture — centralised versus distributed coordination.</p>
+</div>
+
+<div class="block" id="tracing">
+  <h2>Instrumentation and tracing</h2>
+  <div class="prose">
+    <p><strong>Instrumentation</strong> is code that records events with timestamps: perceptions, decisions, actions, messages and errors. A <strong>trace</strong> is the full story of one task across all agents. Each step in a trace is a <strong>span</strong> with a start time, an end time and a parent. <strong>Correlation IDs</strong> link the steps of one conversation across agents.</p>
+    <p>You already know the correlation fields: FIPA-ACL defines them. If every message carries them, you can rebuild the trace from the logs.</p>
+  </div>
+  <pre data-copy><code>(cfp
+  :sender      (agent-identifier :name manager@platform)
+  :receiver    (set (agent-identifier :name contractor-a@platform))
+  :content     "((action contractor-a (deliver parcel-17 room-2B)))"
+  :protocol    fipa-contract-net
+  :conversation-id  task-17
+  :reply-with  cfp-17-a
+  :reply-by    20261103T120000000)
+
+(propose
+  :sender      (agent-identifier :name contractor-a@platform)
+  :protocol    fipa-contract-net
+  :conversation-id  task-17      <span class="cm">; same conversation = same trace</span>
+  :in-reply-to cfp-17-a          <span class="cm">; links this span to its parent</span>
+  :content     "((cost 42))")</code></pre>
+  <div class="trace" style="max-width:760px" role="img" aria-label="One task as a trace: manager span, call for proposals, two bids, award, execution and result.">
+    <div class="trace-row"><div class="who"><b>Manager: handle task</b><small>conversation-id task-17</small></div><div class="trace-track"><span class="trace-bar root" style="left:0;width:100%">120 ms</span></div></div>
+    <div class="trace-row"><div class="who">CFP broadcast</div><div class="trace-track"><span class="trace-bar c2" style="left:1%;width:13%"></span></div></div>
+    <div class="trace-row"><div class="who">Contractor A: bid</div><div class="trace-track"><span class="trace-bar c1" style="left:14%;width:19%"></span></div></div>
+    <div class="trace-row"><div class="who">Contractor B: bid</div><div class="trace-track"><span class="trace-bar c1" style="left:15%;width:24%"></span></div></div>
+    <div class="trace-row"><div class="who">Award decision</div><div class="trace-track"><span class="trace-bar c2" style="left:40%;width:8%"></span></div></div>
+    <div class="trace-row"><div class="who">Contractor B: execute</div><div class="trace-track"><span class="trace-bar c1" style="left:50%;width:33%"></span></div></div>
+    <div class="trace-row"><div class="who">Result message</div><div class="trace-track"><span class="trace-bar c2" style="left:94%;width:5%"></span></div></div>
+  </div>
+  <p class="source">Source: FIPA (2002), ACL Message Structure Specification SC00061G; Bellifemine, Caire &amp; Greenwood (2007), <i>Developing Multi-Agent Systems with JADE</i>.</p>
+  <p class="linkback">Link back: Agent Communication lecture — ACL message parameters.</p>
+</div>
+
+<div class="block" id="jade">
+  <h2>Monitoring agents on the JADE platform</h2>
+  <div class="grid-2">
+    <div class="panel teal"><h3>Sniffer Agent</h3><p>Draws the messages exchanged between selected agents as a sequence diagram. Ideal for checking protocols and counting messages.</p></div>
+    <div class="panel blue"><h3>Introspector Agent</h3><p>Shows the internal state of one agent: its behaviours and its incoming and outgoing message queues.</p></div>
+    <div class="panel teal"><h3>Remote Monitoring Agent (RMA)</h3><p>The platform console: containers, agents and life-cycle control (start, suspend, kill). Useful for robustness tests.</p></div>
+    <div class="panel blue"><h3>Log Manager Agent</h3><p>Changes logging levels at run time, so you can collect detailed logs without restarting.</p></div>
+  </div>
+  <p class="source">Source: Bellifemine, Caire &amp; Greenwood (2007), Wiley — chapter on JADE tools.</p>
+  <p class="linkback">Link back: Communication lab — messaging on a standards-based platform.</p>
+</div>
+
+<div class="block" id="experiment">
+  <h2>Designing a sound evaluation experiment</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="num">Step</th><th>Element</th><th>Example for Contract Net</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td><b>Hypothesis</b></td><td>“Contract Net completes tasks faster than random assignment for n ≥ 20.”</td></tr>
+        <tr><td class="num">2</td><td><b>Variables</b></td><td>Independent: protocol, n. Dependent: latency, success rate. Controlled: task set, hardware.</td></tr>
+        <tr><td class="num">3</td><td><b>Baseline</b></td><td>Always compare with something simple: random, greedy, or a single agent.</td></tr>
+        <tr><td class="num">4</td><td><b>Repetitions</b></td><td>Run each setting many times, for example 30, with different random seeds.</td></tr>
+        <tr><td class="num">5</td><td><b>Statistics</b></td><td>Report mean ± standard deviation or a 95% confidence interval, and test the difference.</td></tr>
+        <tr><td class="num">6</td><td><b>Reproducibility</b></td><td>Publish code, parameters, seeds and model versions.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><p><b>Reporting a difference.</b> “Contract Net: 1.82 s ± 0.21 (95% CI, 30 runs). Random: 2.47 s ± 0.35. Welch’s t-test p &lt; 0.01.” Latency is often skewed, so a Mann–Whitney U test or a bootstrap interval is a safe alternative to the t-test.</p></div>
+  <p class="source">Source: Wilensky &amp; Rand (2015), <i>An Introduction to Agent-Based Modeling</i>, Ch. 6; Kapoor et al. (2025), TMLR.</p>
+</div>
+
+      <div class="block" id="quiz">
+        <h2>Self-check quiz</h2>
+        <p class="prose">Choose an answer for each question, then check. Every answer comes with a short explanation.</p>
+        <form class="quiz" id="q3"><fieldset><legend>1. “Messages per task” belongs to which metric family?</legend><label><input type="radio" name="q3-q0" value="0"><span>Efficiency</span></label><label><input type="radio" name="q3-q0" value="1" data-correct><span>Coordination</span></label><label><input type="radio" name="q3-q0" value="2"><span>Robustness</span></label><p class="why">Messages, conflicts and waiting time describe how well agents coordinate.</p></fieldset><fieldset><legend>2. Why should you report a scalability curve rather than one number?</legend><label><input type="radio" name="q3-q1" value="0"><span>Curves are easier to draw</span></label><label><input type="radio" name="q3-q1" value="1" data-correct><span>A single point hides where performance breaks</span></label><label><input type="radio" name="q3-q1" value="2"><span>Reviewers prefer charts</span></label><p class="why">The knee, where the metric starts to degrade, is the most useful finding and only a curve shows it.</p></fieldset><fieldset><legend>3. Which FIPA-ACL field links a reply to the message it answers?</legend><label><input type="radio" name="q3-q2" value="0"><span>protocol</span></label><label><input type="radio" name="q3-q2" value="1" data-correct><span>in-reply-to</span></label><label><input type="radio" name="q3-q2" value="2"><span>ontology</span></label><p class="why">in-reply-to points at the reply-with value of the earlier message, giving each span its parent.</p></fieldset><fieldset><legend>4. Which JADE tool would you use to kill an agent in the middle of a robustness test?</legend><label><input type="radio" name="q3-q3" value="0"><span>Sniffer Agent</span></label><label><input type="radio" name="q3-q3" value="1" data-correct><span>Remote Monitoring Agent</span></label><label><input type="radio" name="q3-q3" value="2"><span>Introspector Agent</span></label><p class="why">The RMA controls agent life-cycles: start, suspend and kill.</p></fieldset><fieldset><legend>5. You compare two protocols with one run each. What is missing?</legend><label><input type="radio" name="q3-q4" value="0"><span>A hypothesis only</span></label><label><input type="radio" name="q3-q4" value="1" data-correct><span>Repetitions with different seeds and a statistical test</span></label><label><input type="radio" name="q3-q4" value="2"><span>A larger font on the chart</span></label><p class="why">Multi-agent systems are stochastic. One run each cannot show a real difference.</p></fieldset><div><button class="btn btn-teal" type="submit">Check answers</button> <button class="btn btn-plain" type="reset">Clear</button><span class="quiz-result" aria-live="polite"></span></div></form>
+      </div>
+      <nav class="pager" aria-label="Module navigation"><a class="prev" href="module-2-society-of-agents.html"><small>Previous</small><b>Module 2: Evaluating a society of agents</b></a><a class="next" href="module-4-agent-based-models.html"><small>Next</small><b>Module 4: Evaluating agent-based models</b></a></nav>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Performance Evaluation of Agent-Based Systems</h4>
+        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
+        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
+      </div>
+      <div>
+        <h4>Practise</h4>
+        <ul>
+          <li><a href="tools.html">Interactive tools</a></li>
+          <li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
+          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Session</h4>
+        <ul>
+          <li><a href="programme.html">Programme and timings</a></li>
+          <li><a href="resources.html">Reading list</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Speaker: Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Material prepared for CAI 461 students; cited works belong to their authors.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

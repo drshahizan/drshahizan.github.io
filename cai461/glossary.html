@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossary · CAI 461 · Topic 8</title>
+<meta name="description" content="Definitions of the key terms in CAI 461 Topic 8, from performance measure to pass^k and MAST.">
+<meta name="theme-color" content="#0f3446">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Glossary · CAI 461 · Topic 8">
+<meta property="og:description" content="Definitions of the key terms in CAI 461 Topic 8, from performance measure to pass^k and MAST.">
+<meta property="og:site_name" content="Performance Evaluation of Agent-Based Systems">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="3" width="32" height="6" rx="1.5" fill="#0f3446"/><rect x="4" y="11" width="28" height="6" rx="1.5" fill="#0070c0"/><rect x="6" y="19" width="24" height="6" rx="1.5" fill="#04767f"/><rect x="8" y="27" width="20" height="6" rx="1.5" fill="#4f9ea2"/></svg><span class="brand-text"><b>Evaluating Agent Systems</b><span>CAI 461 Topic 8 · PNU × UTM</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul><li><a href="index.html">Home</a></li><li><a href="programme.html">Programme</a></li><li><a href="modules.html">Modules</a></li><li><a href="tools.html">Interactive Tools</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="lab.html">Lab</a></li><li><a href="resources.html">Resources</a></li><li><a href="glossary.html" aria-current="page">Glossary</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Glossary</nav><h1>Glossary</h1>
+    <p class="lede">Thirty terms used in the lecture, each with a plain definition and a link to the module that explains it.</p>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <nav class="az" aria-label="Jump to letter"><a href="#g-A">A</a><a href="#g-B">B</a><a href="#g-C">C</a><a href="#g-E">E</a><a href="#g-I">I</a><a href="#g-L">L</a><a href="#g-M">M</a><a href="#g-N">N</a><a href="#g-O">O</a><a href="#g-P">P</a><a href="#g-R">R</a><a href="#g-S">S</a><a href="#g-T">T</a><a href="#g-V">V</a></nav>
+    <dl class="glossary"><div><dt id="g-A">Achievement task</dt><dd>A task that succeeds if some state in a goal set G is reached during the run. <a class="tag" href="module-1-performing-well.html">Module 1</a></dd></div><div><dt id="g-B">Baseline</dt><dd>A simple alternative, such as random, greedy or a single agent, that a new system must beat to be worth its complexity. <a class="tag" href="module-3-measuring-the-system.html">Module 3</a></dd></div><div><dt>BehaviorSpace</dt><dd>NetLogo’s tool for running parameter sweeps with repetitions and exporting the results to CSV. <a class="tag" href="module-4-agent-based-models.html">Module 4</a></dd></div><div><dt>Bounded optimality</dt><dd>The property of being the best program that can actually run within a given machine’s time and memory limits. <a class="tag" href="module-1-performing-well.html">Module 1</a></dd></div><div><dt id="g-C">Cohen’s kappa (κ)</dt><dd>Agreement between two annotators corrected for chance. MAST reports κ = 0.88 between experts and 0.77 for its LLM annotator. <a class="tag" href="module-5-llm-agents.html">Module 5</a></dd></div><div><dt>Contract Net Protocol</dt><dd>A task-sharing protocol: a manager announces a task, contractors bid, the manager awards it. Costs about 3n + 1 messages per task. <a class="tag" href="module-2-society-of-agents.html">Module 2</a></dd></div><div><dt>Correlation ID</dt><dd>An identifier carried by every message in one conversation, so its steps can be joined into one trace. In FIPA-ACL, conversation-id. <a class="tag" href="module-3-measuring-the-system.html">Module 3</a></dd></div><div><dt id="g-E">Egalitarian social welfare</dt><dd>The utility of the worst-off agent, min over i of u_i(ω). A fairness measure. <a class="tag" href="module-2-society-of-agents.html">Module 2</a></dd></div><div><dt>Expected utility</dt><dd>The average utility of an agent’s runs, weighted by their probability: Σ u(r) · P(r | Ag, Env). <a class="tag" href="module-1-performing-well.html">Module 1</a></dd></div><div><dt id="g-I">Individual rationality</dt><dd>Every agent is at least as well off taking part in a protocol as staying out. <a class="tag" href="module-2-society-of-agents.html">Module 2</a></dd></div><div><dt id="g-L">LLM-as-a-judge</dt><dd>Using a language model with a rubric to score open-ended outputs. Must be checked for position, verbosity and self-enhancement bias. <a class="tag" href="module-5-llm-agents.html">Module 5</a></dd></div><div><dt id="g-M">Maintenance task</dt><dd>A task that succeeds if no state in a bad set B ever occurs during the run. <a class="tag" href="module-1-performing-well.html">Module 1</a></dd></div><div><dt>MAST</dt><dd>Multi-Agent System Failure Taxonomy: 14 failure modes in three categories, specification, inter-agent misalignment and task verification. <a class="tag" href="module-5-llm-agents.html">Module 5</a></dd></div><div><dt id="g-N">Nash equilibrium</dt><dd>An outcome in which no agent can gain by changing only its own strategy. A measure of stability. <a class="tag" href="module-2-society-of-agents.html">Module 2</a></dd></div><div><dt id="g-O">ODD protocol</dt><dd>Overview, Design concepts, Details: the standard structure for describing agent-based models so they can be replicated. <a class="tag" href="module-4-agent-based-models.html">Module 4</a></dd></div><div><dt id="g-P">Pareto efficiency</dt><dd>An outcome where no agent can be made better off without making another worse off. <a class="tag" href="module-2-society-of-agents.html">Module 2</a></dd></div><div><dt>pass@k</dt><dd>Probability that at least one of k attempts succeeds: 1 − (1 − p)^k for independent trials. <a class="tag" href="module-5-llm-agents.html">Module 5</a></dd></div><div><dt>pass^k</dt><dd>Probability that all k trials of the same task succeed: p^k for independent trials. Measures consistency. <a class="tag" href="module-5-llm-agents.html">Module 5</a></dd></div><div><dt>Performance measure</dt><dd>The designer’s score for the sequence of environment states an agent produces. The “P” in PEAS. <a class="tag" href="module-1-performing-well.html">Module 1</a></dd></div><div><dt>Price of anarchy</dt><dd>Cost of the worst equilibrium divided by the cost of the optimal outcome. 1 means selfishness costs nothing. <a class="tag" href="module-2-society-of-agents.html">Module 2</a></dd></div><div><dt id="g-R">Rational agent</dt><dd>An agent that chooses the action expected to maximise its performance measure, given what it knows and has perceived. <a class="tag" href="module-1-performing-well.html">Module 1</a></dd></div><div><dt>Replication</dt><dd>Re-implementing a model independently and checking that it produces statistically similar results. <a class="tag" href="module-4-agent-based-models.html">Module 4</a></dd></div><div><dt>Run</dt><dd>A sequence of environment states and agent actions, written r. <a class="tag" href="module-1-performing-well.html">Module 1</a></dd></div><div><dt id="g-S">Sensitivity analysis</dt><dd>Varying model parameters to see how much the outputs change, to find the parameters that need the most careful justification. <a class="tag" href="module-4-agent-based-models.html">Module 4</a></dd></div><div><dt>Social welfare (utilitarian)</dt><dd>The sum of all agents’ utilities for an outcome, sw(ω) = Σ u_i(ω). <a class="tag" href="module-2-society-of-agents.html">Module 2</a></dd></div><div><dt>Span</dt><dd>One step in a trace, with a name, start time, end time, parent and attributes such as agent name and tokens. <a class="tag" href="module-3-measuring-the-system.html">Module 3</a></dd></div><div><dt id="g-T">Task predicate Ψ</dt><dd>A function that returns true or false for each run. P(Ψ | Ag, Env) is the agent’s probability of success. <a class="tag" href="module-1-performing-well.html">Module 1</a></dd></div><div><dt>Trace</dt><dd>The complete record of one task across all agents, made of nested spans. <a class="tag" href="module-3-measuring-the-system.html">Module 3</a></dd></div><div><dt id="g-V">Validation</dt><dd>Checking that a model represents reality: “did we build the right model?” <a class="tag" href="module-4-agent-based-models.html">Module 4</a></dd></div><div><dt>Verification</dt><dd>Checking that the code matches the conceptual model: “did we build the model right?” <a class="tag" href="module-4-agent-based-models.html">Module 4</a></dd></div></dl>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Performance Evaluation of Agent-Based Systems</h4>
+        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
+        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
+      </div>
+      <div>
+        <h4>Practise</h4>
+        <ul>
+          <li><a href="tools.html">Interactive tools</a></li>
+          <li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
+          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Session</h4>
+        <ul>
+          <li><a href="programme.html">Programme and timings</a></li>
+          <li><a href="resources.html">Reading list</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Speaker: Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Material prepared for CAI 461 students; cited works belong to their authors.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interactive tools · CAI 461 · Topic 8</title>
+<meta name="description" content="Interactive calculators for expected utility, Nash and Pareto analysis, price of anarchy, pass^k reliability, Contract Net messages and cost-accuracy frontiers.">
+<meta name="theme-color" content="#0f3446">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Interactive tools · CAI 461 · Topic 8">
+<meta property="og:description" content="Interactive calculators for expected utility, Nash and Pareto analysis, price of anarchy, pass^k reliability, Contract Net messages and cost-accuracy frontiers.">
+<meta property="og:site_name" content="Performance Evaluation of Agent-Based Systems">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="3" width="32" height="6" rx="1.5" fill="#0f3446"/><rect x="4" y="11" width="28" height="6" rx="1.5" fill="#0070c0"/><rect x="6" y="19" width="24" height="6" rx="1.5" fill="#04767f"/><rect x="8" y="27" width="20" height="6" rx="1.5" fill="#4f9ea2"/></svg><span class="brand-text"><b>Evaluating Agent Systems</b><span>CAI 461 Topic 8 · PNU × UTM</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul><li><a href="index.html">Home</a></li><li><a href="programme.html">Programme</a></li><li><a href="modules.html">Modules</a></li><li><a href="tools.html" aria-current="page">Interactive Tools</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="lab.html">Lab</a></li><li><a href="resources.html">Resources</a></li><li><a href="glossary.html">Glossary</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Interactive tools</nav><h1>Interactive tools</h1>
+    <p class="lede">Six small calculators for the worked examples in the lecture. Change the numbers, watch the verdict change, and use them to check your own answers in the case activity.</p>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap with-index">
+    <nav class="page-index" aria-label="Tools on this page"><p>Tools</p><ol>
+      <li><a href="#eu">Expected utility</a></li><li><a href="#game">Two-agent game explorer</a></li><li><a href="#pigou">Price of anarchy</a></li>
+      <li><a href="#passk">pass@k and pass^k</a></li><li><a href="#cnp">Contract Net messages</a></li><li><a href="#frontier">Accuracy against cost</a></li></ol></nav>
+    <div>
+
+<div class="block" id="eu">
+  <span class="label">Module 1</span>
+  <h2>Expected utility calculator</h2>
+  <p class="prose">Two agents, one success probability and two utilities each. The lecture’s example is pre-filled: A wins 7.0 to 6.3. Try giving failure a negative utility and see when B takes over.</p>
+  <div class="tool" id="tool-eu">
+    <div class="tool-grid">
+      <div>
+        <p class="fieldset-title">Agent A</p>
+        <div class="field"><label for="euA-p">P(success)</label><input id="euA-p" type="number" min="0" max="1" step="0.05" value="0.7"></div>
+        <div class="field"><label for="euA-u">u(success)</label><input id="euA-u" type="number" step="1" value="10"></div>
+        <div class="field"><label for="euA-f">u(failure)</label><input id="euA-f" type="number" step="1" value="0"></div>
+        <p class="fieldset-title">Agent B</p>
+        <div class="field"><label for="euB-p">P(success)</label><input id="euB-p" type="number" min="0" max="1" step="0.05" value="0.9"></div>
+        <div class="field"><label for="euB-u">u(success)</label><input id="euB-u" type="number" step="1" value="7"></div>
+        <div class="field"><label for="euB-f">u(failure)</label><input id="euB-f" type="number" step="1" value="0"></div>
+      </div>
+      <div>
+        <div class="readout" aria-live="polite">
+          <div><small>EU(A)</small><b id="euA-out">7.00</b></div>
+          <div><small>EU(B)</small><b id="euB-out">6.30</b></div>
+          <div><small>A succeeds</small><b id="euA-ps">70%</b></div>
+          <div><small>B succeeds</small><b id="euB-ps">90%</b></div>
+        </div>
+        <div class="formula">EU = P(success)·u(success) + (1 − P(success))·u(failure)</div>
+        <p class="verdict" id="eu-verdict" aria-live="polite"></p>
+        <p class="small muted">Try: u(failure) = −10 for both. A drops to 4.0 and B rises above it at 5.3, because B fails less often.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="block" id="game">
+  <span class="label">Module 2</span>
+  <h2>Two-agent game explorer</h2>
+  <p class="prose">Edit any payoff. The explorer marks pure Nash equilibria in amber, outlines Pareto-efficient outcomes in teal and computes social welfare for every cell.</p>
+  <div class="tool" id="tool-game">
+    <div class="field" style="max-width:320px"><label for="game-preset">Load a classic game</label>
+      <select id="game-preset"><option value="pd">Prisoner’s Dilemma (Wooldridge)</option><option value="coord">Coordination game</option><option value="chicken">Chicken</option><option value="harmony">Harmony (no dilemma)</option></select></div>
+    <div class="table-wrap" style="border:0;background:none">
+      <table class="payoff">
+        <thead><tr><th></th><th>j cooperates</th><th>j defects</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">i cooperates</th>
+            <td id="g-cc"><input id="g-cc-i" type="number" value="3" aria-label="Payoff to i when both cooperate">, <input id="g-cc-j" type="number" value="3" aria-label="Payoff to j when both cooperate"><span class="cell-meta" id="g-cc-meta"></span></td>
+            <td id="g-cd"><input id="g-cd-i" type="number" value="0" aria-label="Payoff to i when i cooperates and j defects">, <input id="g-cd-j" type="number" value="5" aria-label="Payoff to j when i cooperates and j defects"><span class="cell-meta" id="g-cd-meta"></span></td></tr>
+          <tr><th scope="row">i defects</th>
+            <td id="g-dc"><input id="g-dc-i" type="number" value="5" aria-label="Payoff to i when i defects and j cooperates">, <input id="g-dc-j" type="number" value="0" aria-label="Payoff to j when i defects and j cooperates"><span class="cell-meta" id="g-dc-meta"></span></td>
+            <td id="g-dd"><input id="g-dd-i" type="number" value="2" aria-label="Payoff to i when both defect">, <input id="g-dd-j" type="number" value="2" aria-label="Payoff to j when both defect"><span class="cell-meta" id="g-dd-meta"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="legend"><span><i style="background:var(--amber-soft);outline:2px solid var(--amber)"></i>Nash equilibrium</span><span><i style="box-shadow:inset 0 0 0 2px var(--teal)"></i>Pareto efficient</span></div>
+    <p class="verdict mt-1" id="game-verdict" aria-live="polite"></p>
+    <p class="small">Best outcome for the worst-off agent (egalitarian): <b id="game-eg"></b></p>
+  </div>
+</div>
+
+<div class="block" id="pigou">
+  <span class="label">Module 2</span>
+  <h2>Price of anarchy in Pigou’s network</h2>
+  <p class="prose">One unit of traffic. Road 1 always costs 1. Road 2 costs x<sup>d</sup>, where x is its share of traffic. Selfish drivers all take Road 2. Move the slider to find the optimum, then make Road 2 steeper and watch the price of anarchy grow.</p>
+  <div class="tool" id="tool-pigou">
+    <div class="tool-grid">
+      <div>
+        <div class="field"><label for="pg-share">Traffic split <output id="pg-share-out"></output></label><input id="pg-share" type="range" min="0" max="100" value="50"></div>
+        <div class="field"><label for="pg-deg">Road 2 cost <output id="pg-deg-out"></output></label><input id="pg-deg" type="range" min="1" max="8" value="1"></div>
+        <div class="readout" aria-live="polite">
+          <div><small>Average cost at this split</small><b id="pg-cost"></b></div>
+          <div><small>Selfish (Nash) cost</small><b>1.000</b></div>
+          <div><small>Optimal cost</small><b id="pg-opt" style="font-size:1.05rem"></b></div>
+          <div><small>Price of anarchy</small><b id="pg-poa"></b></div>
+        </div>
+      </div>
+      <div><svg class="chart" id="pg-chart" role="img" aria-label="Average travel cost against the share of traffic on Road 2"></svg></div>
+    </div>
+  </div>
+</div>
+
+<div class="block" id="passk">
+  <span class="label">Module 5</span>
+  <h2>pass@k and pass^k</h2>
+  <p class="prose">The dashed grey line is pass@k (at least one success). The teal line is pass^k (every trial succeeds) when trials are independent. Add a share of tasks the agent never solves to see the amber line: the same average success rate, but failures concentrated on the same tasks.</p>
+  <div class="tool" id="tool-passk">
+    <div class="tool-grid">
+      <div>
+        <div class="field"><label for="pk-p">Average success per trial, p <output id="pk-p-out"></output></label><input id="pk-p" type="range" min="1" max="99" value="60"></div>
+        <div class="field"><label for="pk-k">Trials, k <output id="pk-k-out"></output></label><input id="pk-k" type="range" min="1" max="16" value="8"></div>
+        <div class="field"><label for="pk-h">Tasks the agent never solves <output id="pk-h-out"></output></label><input id="pk-h" type="range" min="0" max="60" value="0"></div>
+        <div class="readout" aria-live="polite">
+          <div><small>pass@k</small><b id="pk-at"></b></div>
+          <div><small>pass^k, independent</small><b id="pk-hat"></b></div>
+          <div><small>pass^k, with hard tasks</small><b id="pk-het"></b></div>
+        </div>
+      </div>
+      <div>
+        <svg class="chart" id="pk-chart" role="img" aria-label="pass@k and pass^k against k"></svg>
+        <div class="legend"><span><i style="background:#5b7380"></i>pass@k</span><span><i style="background:#04767f"></i>pass^k, independent trials</span><span><i style="background:#e8962e"></i>pass^k, with always-failing tasks</span></div>
+      </div>
+    </div>
+    <p class="verdict mt-1" id="pk-verdict" aria-live="polite"></p>
+    <p class="small muted">Try p = 61% and 30% never-solved tasks. pass^8 lands near 25%, much closer to τ-bench’s reported GPT-4o result than the independent formula’s 2%.</p>
+  </div>
+</div>
+
+<div class="block" id="cnp">
+  <span class="label">Module 2</span>
+  <h2>Contract Net message counter</h2>
+  <p class="prose">Each task costs 3n + 1 messages with n contractors. Switch the axis to the lecture’s doubling scale to see why a straight line can look like a curve.</p>
+  <div class="tool" id="tool-cnp">
+    <div class="tool-grid">
+      <div>
+        <div class="field"><label for="cnp-n">Contractors, n <output id="cnp-n-out"></output></label><input id="cnp-n" type="range" min="1" max="160" value="8"></div>
+        <div class="field"><label for="cnp-t">Tasks per hour <output id="cnp-t-out"></output></label><input id="cnp-t" type="range" min="1" max="500" value="120"></div>
+        <div class="field"><label for="cnp-scale">Horizontal axis</label><select id="cnp-scale"><option value="even">Evenly spaced n</option><option value="doubling">Doubling n, as on the slide</option></select></div>
+        <div class="readout" aria-live="polite">
+          <div><small>Messages per task</small><b id="cnp-per"></b></div>
+          <div><small>Contract Net per hour</small><b id="cnp-total"></b></div>
+          <div><small>Central allocator per hour</small><b id="cnp-central"></b></div>
+        </div>
+      </div>
+      <div>
+        <svg class="chart" id="cnp-chart" role="img" aria-label="Messages per task against number of contractors"></svg>
+        <div class="legend"><span><i style="background:#04767f"></i>Contract Net, 3n + 1</span><span><i style="background:#e8962e"></i>Central allocator, 2</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="block" id="frontier">
+  <span class="label">Module 5</span>
+  <h2>Accuracy against cost: find the Pareto frontier</h2>
+  <p class="prose">Enter the agents you are comparing. The tool marks every agent that another agent beats on both accuracy and cost. The pre-filled values are illustrative, matching the shape of the lecture’s chart.</p>
+  <div class="tool" id="tool-frontier">
+    <div class="tool-grid" style="grid-template-columns:1fr">
+      <div>
+        <div class="table-wrap" style="margin-top:0">
+          <table class="agent-table">
+            <thead><tr><th>Agent</th><th>US$ / task</th><th>Accuracy %</th><th>Status</th></tr></thead>
+            <tbody id="fr-body"></tbody>
+          </table>
+        </div>
+        <div class="btn-row" style="margin-top:.5rem"><button class="btn btn-plain" type="button" id="fr-add">Add an agent</button><button class="btn btn-plain" type="button" id="fr-reset">Reset values</button></div>
+      </div>
+      <div>
+        <svg class="chart" id="fr-chart" role="img" aria-label="Accuracy against cost per task, with the Pareto frontier"></svg>
+        <p class="verdict mt-1" id="fr-summary" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Performance Evaluation of Agent-Based Systems</h4>
+        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
+        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
+      </div>
+      <div>
+        <h4>Practise</h4>
+        <ul>
+          <li><a href="tools.html">Interactive tools</a></li>
+          <li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
+          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Session</h4>
+        <ul>
+          <li><a href="programme.html">Programme and timings</a></li>
+          <li><a href="resources.html">Reading list</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Speaker: Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Material prepared for CAI 461 students; cited works belong to their authors.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/tools.js" defer></script>
+</body>
+</html>
