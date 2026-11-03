@@ -70,11 +70,19 @@
     <aside class="eco-detail panel" id="eco-detail" aria-live="polite"></aside>
   </div>
   <div class="note"><p><b>How to read it with the four layers.</b> The ecosystem shows <em>who and what</em> is involved. The four-layer framework shows <em>what you measure</em>. Each item’s detail lists the layers it serves, so you can see, for example, that pass^k and MAST both live in Layer 4.</p></div>
+  <h3>Jump to the module for each layer</h3>
+  <div class="stack stack-small" aria-label="The four layers, each linked to its module">
+    <a class="l4" href="module-5-llm-agents.html"><b>Layer 4: Trust and deployment</b><span>pass^k · cost · policy violations · MAST</span></a>
+    <a class="l3" href="module-3-measuring-the-system.html"><b>Layer 3: System</b><span>latency · throughput · scalability · robustness</span></a>
+    <a class="l2" href="module-2-society-of-agents.html"><b>Layer 2: Interaction</b><span>welfare · Pareto · stability · PoA · messages</span></a>
+    <a class="l1" href="module-1-performing-well.html"><b>Layer 1: Individual agent</b><span>performance measure · EU · P(Ψ)</span></a>
+  </div>
 </div>
 
 <div class="block" id="timeline">
   <h2>From 1980 to today</h2>
-  <p class="prose">The ideas you learn in CAI 461 are not old history replaced by LLMs. Each new method re-uses an older one: pass^k is P(Ψ) measured repeatedly, the cost frontier is Pareto efficiency, and OpenTelemetry traces do what FIPA conversation IDs did.</p>
+  <figure class="ig wide" id="ig-from-1980-to-today"><a class="ig-open" href="assets/img/infographics/from-1980-to-today.webp" aria-label="Enlarge: From 1980 to today"><img src="assets/img/infographics/from-1980-to-today.webp" alt="Timeline in five eras from foundations and agent communication to LLM benchmarks and reliability, from the 1980 Contract Net Protocol to 2026 holistic leaderboards." width="1672" height="941" decoding="async"></a><figcaption><span>Infographic: From 1980 to today</span><a href="assets/img/infographics/from-1980-to-today.webp" download>Download</a></figcaption></figure>
+  <p class="prose">The ideas you learn in CAI 461 are not old history replaced by LLMs. Each new method re-uses an older one: pass^k is P(Ψ) measured repeatedly, the cost frontier is Pareto efficiency, and OpenTelemetry traces do what FIPA conversation IDs did. Each event below links to the module that teaches it.</p>
   <div class="legend"><span><i style="background:var(--teal)"></i>Classic multi-agent systems</span><span><i style="background:var(--blue)"></i>LLM-based agents</span></div>
   <ol class="timeline"><li class="tl-classic"><span class="tl-year">1980</span><div><h3>Contract Net Protocol</h3><p>Smith publishes task sharing by announce, bid and award.</p><p class="tl-now"><b>Used today for:</b> Messages per task and allocation quality · <a href="module-2-society-of-agents.html">Module 2</a></p></div></li><li class="tl-classic"><span class="tl-year">1995</span><div><h3>Bounded optimality</h3><p>Russell and Subramanian define the best agent that can actually run on a given machine.</p><p class="tl-now"><b>Used today for:</b> The realistic target for a rational agent · <a href="module-1-performing-well.html">Module 1</a></p></div></li><li class="tl-classic"><span class="tl-year">1999</span><div><h3>Price of anarchy</h3><p>Koutsoupias and Papadimitriou measure how much selfish behaviour costs a system.</p><p class="tl-now"><b>Used today for:</b> Deciding whether a coordinator is worth it · <a href="module-2-society-of-agents.html">Module 2</a></p></div></li><li class="tl-classic"><span class="tl-year">2002</span><div><h3>FIPA ACL message structure</h3><p>The standard adds conversation-id, reply-with and in-reply-to to every agent message.</p><p class="tl-now"><b>Used today for:</b> Correlation IDs in today’s traces · <a href="module-3-measuring-the-system.html">Module 3</a></p></div></li><li class="tl-classic"><span class="tl-year">2006</span><div><h3>ODD protocol</h3><p>Grimm and colleagues standardise how agent-based models are described. Updated in 2020.</p><p class="tl-now"><b>Used today for:</b> Replicable simulation reports · <a href="module-4-agent-based-models.html">Module 4</a></p></div></li><li class="tl-classic"><span class="tl-year">2009</span><div><h3>Utility over runs</h3><p>Wooldridge’s second edition formalises expected utility and task predicates for agents.</p><p class="tl-now"><b>Used today for:</b> Every success rate on every benchmark · <a href="module-1-performing-well.html">Module 1</a></p></div></li><li class="tl-llm"><span class="tl-year">2023</span><div><h3>LLM-as-a-judge</h3><p>Zheng and colleagues show strong models agree with human preferences over 80% of the time, and document their biases.</p><p class="tl-now"><b>Used today for:</b> Scoring open-ended outputs at scale · <a href="module-5-llm-agents.html">Module 5</a></p></div></li><li class="tl-llm"><span class="tl-year">2024</span><div><h3>Agent benchmarks</h3><p>AgentBench, GAIA and SWE-bench appear at ICLR. “AI Agents That Matter” argues for reporting cost.</p><p class="tl-now"><b>Used today for:</b> Standard tests and cost-aware comparison · <a href="module-5-llm-agents.html">Module 5</a></p></div></li><li class="tl-llm"><span class="tl-year">2025</span><div><h3>Reliability and failure</h3><p>τ-bench introduces pass^k, MultiAgentBench compares topologies, and MAST names 14 failure modes.</p><p class="tl-now"><b>Used today for:</b> Layer 4: trust and deployment · <a href="module-5-llm-agents.html">Module 5</a></p></div></li><li class="tl-llm"><span class="tl-year">2026</span><div><h3>Holistic leaderboards</h3><p>HAL runs many benchmarks with one harness and reads agent logs at scale.</p><p class="tl-now"><b>Used today for:</b> Third-party, cost-aware evaluation · <a href="module-5-llm-agents.html">Module 5</a></p></div></li></ol>
   <div class="table-wrap">
@@ -181,40 +189,9 @@
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <div class="cols">
-      <div>
-        <h4>Performance Evaluation of Agent-Based Systems</h4>
-        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
-        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
-      </div>
-      <div>
-        <h4>Learn</h4>
-        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
-      </div>
-      <div>
-        <h4>Practise</h4>
-        <ul>
-          <li><a href="big-picture.html">The big picture</a></li>
-          <li><a href="tools.html">Interactive tools</a></li>
-          <li><a href="case-studies.html">Case studies</a></li>
-          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
-          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Session</h4>
-        <ul>
-          <li><a href="programme.html">Programme and timings</a></li>
-          <li><a href="resources.html">Reading list</a></li>
-          <li><a href="glossary.html">Glossary</a></li>
-          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="fine">
-      <p>Speaker: Assoc. Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Cited works belong to their authors.</p>
-      <a class="visitors" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a>
-    </div>
+    <p class="f-title"><b>Performance Evaluation of Agent-Based Systems</b> <span>CAI 461 Topic 8 · Princess Nourah bint Abdulrahman University × Universiti Teknologi Malaysia</span></p>
+    <nav class="f-links" aria-label="Footer"><a href="index.html">Home</a><a href="big-picture.html">Big Picture</a><a href="programme.html">Programme</a><a href="modules.html">Modules</a><a href="tools.html">Tools</a><a href="case-studies.html">Cases</a><a href="lab.html">Lab</a><a href="resources.html">Resources</a><a href="glossary.html">Glossary</a><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Slides (PDF)</a></nav>
+    <div class="f-fine"><p>Speaker: Assoc. Prof. Dr. Mohd Shahizan Othman, UTM. Host: Dr. Eman Aljabarti, CAI 461 Course Coordinator, PNU.</p><a class="visitors" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a></div>
   </div>
 </footer>
 <script src="assets/js/main.js" defer></script>

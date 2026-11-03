@@ -516,3 +516,70 @@ p a, li a { overflow-wrap: anywhere; }
 .jump a:hover { border-color: var(--teal); color: var(--ink); }
 #walkthrough .walk, #timeline .timeline { max-width: 900px; }
 .eco-map > .eco-detail { margin: 0.6rem 0 0; border-color: var(--teal); }
+
+/* ---------- Infographic figures, gallery and viewer ---------- */
+figure.ig { margin: 0.5rem 0 1.5rem; max-width: 900px; }
+figure.ig a.ig-open { display: block; border: 1px solid var(--line); border-radius: var(--radius-m); overflow: hidden; background: var(--white); cursor: zoom-in; }
+figure.ig img { width: 100%; height: auto; }
+figure.ig figcaption { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.88rem; color: var(--muted); margin-top: 0.45rem; }
+.gallery { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem; }
+.g-card { margin: 0; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-m); overflow: hidden; display: flex; flex-direction: column; }
+.g-thumb { display: block; cursor: zoom-in; border-bottom: 1px solid var(--line); background: var(--paper); }
+.g-thumb img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: top; }
+.g-card h2 { font-size: 1.05rem; margin: 0.9rem 1rem 0.4rem; }
+.g-links { display: flex; justify-content: space-between; gap: 1rem; margin: auto 1rem 0.9rem; font-size: 0.92rem; padding-top: 0.3rem; }
+dialog.ig-viewer { border: 0; padding: 0; max-width: min(96vw, 1800px); max-height: 94vh; background: transparent; }
+dialog.ig-viewer::backdrop { background: rgba(9, 25, 33, 0.88); }
+dialog.ig-viewer img { max-width: 96vw; max-height: 86vh; width: auto; height: auto; border-radius: 6px; background: #fff; }
+dialog.ig-viewer .ig-bar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; color: #e6f0f2; padding: 0 0 0.5rem; font-size: 0.95rem; }
+dialog.ig-viewer button { font: inherit; background: #fff; color: var(--ink); border: 0; border-radius: var(--radius-s); padding: 0.4em 0.9em; cursor: pointer; font-weight: 600; }
+
+/* ---------- v3: compact heroes, home hero image, images inside text ---------- */
+.page-hero { padding: 1.5rem 0 1.4rem; }
+.page-hero h1 { font-size: clamp(1.6rem, 3.2vw, 2.3rem); margin-bottom: 0.3em; }
+.page-hero .lede { font-size: 1.02rem; margin-bottom: 0; }
+.page-hero .crumbs { margin-bottom: 0.4rem; }
+.page-hero .kicker { margin-bottom: 0.3rem; font-size: 0.9rem; }
+.page-hero .btn-row { margin-top: 0.9rem; }
+
+.home-hero { padding: 1.75rem 0 1.9rem; }
+.home-hero .grid { grid-template-columns: 1fr minmax(0, 470px); gap: clamp(1.5rem, 4vw, 3rem); }
+.home-hero h1 { font-size: clamp(1.75rem, 3.4vw, 2.5rem); margin-bottom: 0.35em; }
+.home-hero .kicker { color: #8fd1d6; font-weight: 500; margin: 0 0 0.4rem; font-size: 0.92rem; }
+.home-hero .lede { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.hero-meta { color: #9fbdc6; font-size: 0.92rem; margin: 0; }
+.home-hero .btn-row { margin-top: 1rem; }
+.hero-fig figure.ig { float: none; width: 100%; margin: 0; }
+.hero-fig figure.ig a.ig-open { border-color: #2b4f60; }
+.hero-fig figure.ig figcaption { color: #9fbdc6; }
+.hero-fig figure.ig figcaption a { color: #9fd8ff; }
+.hero-fig-links { font-size: 0.86rem; color: #9fbdc6; margin: 0.35rem 0 0; display: flex; flex-wrap: wrap; gap: 0.2rem 0.8rem; }
+.hero-fig-links a { color: #9fd8ff; }
+@media (max-width: 860px) { .home-hero .grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Infographics sit beside the paragraphs that explain them */
+figure.ig { float: right; width: 46%; max-width: 46%; margin: 0.3rem 0 1rem 1.5rem; }
+figure.ig figcaption { font-size: 0.8rem; flex-wrap: wrap; gap: 0.2rem 0.8rem; }
+.block { display: flow-root; }
+.block > .table-wrap, .block > .grid-2, .block > .grid-3, .block > pre, .block > .tool, .block > .trace,
+.block > .note, .block > .formula, .block > .walk, .block > .readout, .block > h3 { clear: both; }
+@media (max-width: 760px) { figure.ig { float: none; width: 100%; max-width: 100%; margin: 0.5rem 0 1rem; } }
+.hero-fig figure.ig { max-width: 100%; }
+
+/* v4: larger images; dense ones full width; small clickable stack */
+figure.ig { width: 56%; max-width: 56%; }
+figure.ig.wide { float: none; width: 100%; max-width: 100%; margin: 0.5rem 0 1.25rem; }
+.stack-small { max-width: 640px; margin-bottom: 1rem; }
+.stack-small a { padding: 0.7rem 1rem; }
+.stack-small b { font-size: 0.98rem; }
+.stack-small span { font-size: 0.82rem; }
+
+/* v5: three-line footer */
+.site-footer { padding: 1.4rem 0 1.3rem; font-size: 0.9rem; }
+.site-footer .f-title { margin: 0 0 0.55rem; color: #b9cfd5; display: flex; flex-wrap: wrap; gap: 0.2rem 0.8rem; align-items: baseline; }
+.site-footer .f-title b { color: #fff; font-weight: 600; }
+.site-footer .f-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; margin-bottom: 0.7rem; }
+.site-footer .f-links a { color: #d5e6ea; text-decoration: none; }
+.site-footer .f-links a:hover { color: #fff; text-decoration: underline; }
+.site-footer .f-fine { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem 1.5rem; border-top: 1px solid #2b4f60; padding-top: 0.7rem; font-size: 0.84rem; color: #8fb3bd; }
+.site-footer .f-fine p { margin: 0; }

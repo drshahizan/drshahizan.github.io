@@ -43,6 +43,7 @@
       
 <div class="block" id="families">
   <h2>Six families of MAS performance metrics</h2>
+  <figure class="ig" id="ig-system-metrics"><a class="ig-open" href="assets/img/infographics/system-metrics.webp" aria-label="Enlarge: How do we measure a multi-agent system?"><img src="assets/img/infographics/system-metrics.webp" alt="Six metric families around a campus robot: effectiveness, efficiency, coordination, robustness, scalability, and fairness and trust, with a performance curve showing a breaking point." width="1536" height="1024" decoding="async"></a><figcaption><span>Infographic: How do we measure a multi-agent system?</span><a href="assets/img/infographics/system-metrics.webp" download>Download</a></figcaption></figure>
   <p class="prose">Pick at least one metric from each family that matters for your system, and say why you left the others out.</p>
   <div class="grid-3">
     <div class="panel teal"><h3>Effectiveness</h3><ul><li>Task success rate</li><li>Solution quality against the optimum</li><li>Social welfare</li></ul></div>
@@ -88,10 +89,8 @@
 
 <div class="block" id="tracing">
   <h2>Instrumentation and tracing</h2>
-  <div class="prose">
-    <p><strong>Instrumentation</strong> is code that records events with timestamps: perceptions, decisions, actions, messages and errors. A <strong>trace</strong> is the full story of one task across all agents. Each step in a trace is a <strong>span</strong> with a start time, an end time and a parent. <strong>Correlation IDs</strong> link the steps of one conversation across agents.</p>
-    <p>You already know the correlation fields: FIPA-ACL defines them. If every message carries them, you can rebuild the trace from the logs.</p>
-  </div>
+  <figure class="ig wide" id="ig-messages-to-traces"><a class="ig-open" href="assets/img/infographics/messages-to-traces.webp" aria-label="Enlarge: From messages to traces"><img src="assets/img/infographics/messages-to-traces.webp" alt="Timeline of one Contract Net task across a manager and two contractors, FIPA-ACL correlation fields, and four JADE observability tools: Sniffer, Introspector, RMA and Log Manager." width="1536" height="1024" decoding="async"></a><figcaption><span>Infographic: From messages to traces</span><a href="assets/img/infographics/messages-to-traces.webp" download>Download</a></figcaption></figure>
+  <p class="prose">Here is what the FIPA-ACL correlation fields from the infographic look like in two real messages. If every message carries them, you can rebuild the trace from the logs.</p>
   <pre data-copy><code>(cfp
   :sender      (agent-identifier :name manager@platform)
   :receiver    (set (agent-identifier :name contractor-a@platform))
@@ -107,17 +106,8 @@
   :conversation-id  task-17      <span class="cm">; same conversation = same trace</span>
   :in-reply-to cfp-17-a          <span class="cm">; links this span to its parent</span>
   :content     "((cost 42))")</code></pre>
-  <div class="trace" style="max-width:760px" role="img" aria-label="One task as a trace: manager span, call for proposals, two bids, award, execution and result.">
-    <div class="trace-row"><div class="who"><b>Manager: handle task</b><small>conversation-id task-17</small></div><div class="trace-track"><span class="trace-bar root" style="left:0;width:100%">120 ms</span></div></div>
-    <div class="trace-row"><div class="who">CFP broadcast</div><div class="trace-track"><span class="trace-bar c2" style="left:1%;width:13%"></span></div></div>
-    <div class="trace-row"><div class="who">Contractor A: bid</div><div class="trace-track"><span class="trace-bar c1" style="left:14%;width:19%"></span></div></div>
-    <div class="trace-row"><div class="who">Contractor B: bid</div><div class="trace-track"><span class="trace-bar c1" style="left:15%;width:24%"></span></div></div>
-    <div class="trace-row"><div class="who">Award decision</div><div class="trace-track"><span class="trace-bar c2" style="left:40%;width:8%"></span></div></div>
-    <div class="trace-row"><div class="who">Contractor B: execute</div><div class="trace-track"><span class="trace-bar c1" style="left:50%;width:33%"></span></div></div>
-    <div class="trace-row"><div class="who">Result message</div><div class="trace-track"><span class="trace-bar c2" style="left:94%;width:5%"></span></div></div>
-  </div>
-  <p class="source">Source: FIPA (2002), ACL Message Structure Specification SC00061G; Bellifemine, Caire &amp; Greenwood (2007), <i>Developing Multi-Agent Systems with JADE</i>.</p>
-  <p class="linkback">Link back: Agent Communication lecture — ACL message parameters.</p>
+  <p class="source">Source: FIPA (2002), ACL Message Structure Specification SC00061G; Bellifemine, Caire &amp; Greenwood (2007), <i>Developing Multi-Agent Systems with JADE</i>, chapter on JADE tools.</p>
+  <p class="linkback">Link back: Agent Communication lecture — ACL message parameters; Communication lab — the JADE Sniffer and RMA.</p>
 </div>
 
 <div class="block" id="jade">
@@ -134,19 +124,7 @@
 
 <div class="block" id="experiment">
   <h2>Designing a sound evaluation experiment</h2>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th class="num">Step</th><th>Element</th><th>Example for Contract Net</th></tr></thead>
-      <tbody>
-        <tr><td class="num">1</td><td><b>Hypothesis</b></td><td>“Contract Net completes tasks faster than random assignment for n ≥ 20.”</td></tr>
-        <tr><td class="num">2</td><td><b>Variables</b></td><td>Independent: protocol, n. Dependent: latency, success rate. Controlled: task set, hardware.</td></tr>
-        <tr><td class="num">3</td><td><b>Baseline</b></td><td>Always compare with something simple: random, greedy, or a single agent.</td></tr>
-        <tr><td class="num">4</td><td><b>Repetitions</b></td><td>Run each setting many times, for example 30, with different random seeds.</td></tr>
-        <tr><td class="num">5</td><td><b>Statistics</b></td><td>Report mean ± standard deviation or a 95% confidence interval, and test the difference.</td></tr>
-        <tr><td class="num">6</td><td><b>Reproducibility</b></td><td>Publish code, parameters, seeds and model versions.</td></tr>
-      </tbody>
-    </table>
-  </div>
+  <figure class="ig" id="ig-experiment-six-steps"><a class="ig-open" href="assets/img/infographics/experiment-six-steps.webp" aria-label="Enlarge: Designing a sound experiment: six steps"><img src="assets/img/infographics/experiment-six-steps.webp" alt="Six numbered steps: state a hypothesis, define variables, choose a baseline, repeat the runs, report statistics, enable reproduction, with the example hypothesis about Contract Net for n of at least 20." width="1536" height="1024" decoding="async"></a><figcaption><span>Infographic: Designing a sound experiment: six steps</span><a href="assets/img/infographics/experiment-six-steps.webp" download>Download</a></figcaption></figure>
   <div class="note"><p><b>Reporting a difference.</b> “Contract Net: 1.82 s ± 0.21 (95% CI, 30 runs). Random: 2.47 s ± 0.35. Welch’s t-test p &lt; 0.01.” Latency is often skewed, so a Mann–Whitney U test or a bootstrap interval is a safe alternative to the t-test.</p></div>
   <p class="source">Source: Wilensky &amp; Rand (2015), <i>An Introduction to Agent-Based Modeling</i>, Ch. 6; Kapoor et al. (2025), TMLR.</p>
 </div>
@@ -164,40 +142,9 @@
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <div class="cols">
-      <div>
-        <h4>Performance Evaluation of Agent-Based Systems</h4>
-        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
-        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
-      </div>
-      <div>
-        <h4>Learn</h4>
-        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
-      </div>
-      <div>
-        <h4>Practise</h4>
-        <ul>
-          <li><a href="big-picture.html">The big picture</a></li>
-          <li><a href="tools.html">Interactive tools</a></li>
-          <li><a href="case-studies.html">Case studies</a></li>
-          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
-          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Session</h4>
-        <ul>
-          <li><a href="programme.html">Programme and timings</a></li>
-          <li><a href="resources.html">Reading list</a></li>
-          <li><a href="glossary.html">Glossary</a></li>
-          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="fine">
-      <p>Speaker: Assoc. Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Cited works belong to their authors.</p>
-      <a class="visitors" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a>
-    </div>
+    <p class="f-title"><b>Performance Evaluation of Agent-Based Systems</b> <span>CAI 461 Topic 8 · Princess Nourah bint Abdulrahman University × Universiti Teknologi Malaysia</span></p>
+    <nav class="f-links" aria-label="Footer"><a href="index.html">Home</a><a href="big-picture.html">Big Picture</a><a href="programme.html">Programme</a><a href="modules.html">Modules</a><a href="tools.html">Tools</a><a href="case-studies.html">Cases</a><a href="lab.html">Lab</a><a href="resources.html">Resources</a><a href="glossary.html">Glossary</a><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Slides (PDF)</a></nav>
+    <div class="f-fine"><p>Speaker: Assoc. Prof. Dr. Mohd Shahizan Othman, UTM. Host: Dr. Eman Aljabarti, CAI 461 Course Coordinator, PNU.</p><a class="visitors" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a></div>
   </div>
 </footer>
 <script src="assets/js/main.js" defer></script>

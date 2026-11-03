@@ -62,6 +62,20 @@
       <div class="table-wrap"><table><thead><tr><th>Layer</th><th>Metric</th><th>Why here</th></tr></thead><tbody><tr><td>4 Trust</td><td>Requests served in the same scenario across 5 repeated runs (pass^5), and requests left unserved after a shuttle failure</td><td>Students need the service to work every time, not on average.</td></tr><tr><td>3 System</td><td>p95 time from request to award, and requests handled per minute at peak</td><td>Peak load is when the protocol is most likely to break.</td></tr><tr><td>2 Interaction</td><td>Total passenger waiting time against an optimal assignment (social welfare), plus the longest single wait (egalitarian)</td><td>Good average waits can hide a few students waiting very long.</td></tr><tr><td>1 Agent</td><td>P(Ψ) where Ψ = picked up within 10 minutes of request (achievement) and never above seat capacity (maintenance)</td><td>States the success predicate in Wooldridge’s terms.</td></tr></tbody></table></div>
       <h4>2. Baseline</h4><p>Greedy nearest-shuttle assignment, which needs only 2 messages per request, and random assignment as a floor.</p>
       <h4>3. Experiment</h4><p>Vary request rate (10, 30, 50 per 5 minutes) and number of shuttles (4, 8, 16). Run each of the 9 settings 30 times with different seeds in a simulator, and repeat with one shuttle removed at minute 3. Report mean ± 95% CI and test Contract Net against greedy at each setting.</p>
+      <h4>Worked example: the six experiment steps for Contract Net</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th class="num">Step</th><th>Element</th><th>Example for Contract Net</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td><b>Hypothesis</b></td><td>“Contract Net completes tasks faster than random assignment for n ≥ 20.”</td></tr>
+            <tr><td class="num">2</td><td><b>Variables</b></td><td>Independent: protocol, n. Dependent: latency, success rate. Controlled: task set, hardware.</td></tr>
+            <tr><td class="num">3</td><td><b>Baseline</b></td><td>Random, greedy, or a single agent.</td></tr>
+            <tr><td class="num">4</td><td><b>Repetitions</b></td><td>30 runs per setting with different random seeds.</td></tr>
+            <tr><td class="num">5</td><td><b>Statistics</b></td><td>Mean ± standard deviation or a 95% confidence interval, and a test of the difference.</td></tr>
+            <tr><td class="num">6</td><td><b>Reproducibility</b></td><td>Publish code, parameters, seeds and model versions.</td></tr>
+          </tbody>
+        </table>
+      </div>
       <h4>4. What to trace or log</h4><p>Use the request ID as the FIPA <code>conversation-id</code>. Log each CFP, bid (with the shuttle’s position and bid value), award, pickup and drop-off as spans with timestamps. Count messages per conversation with the JADE Sniffer.</p>
       <h4>5. Likely failure mode and how to detect it</h4><p>A shuttle wins a request, then breaks down, and the request is never re-announced. Detect it by searching the traces for conversations that have an award span but no pickup span within 10 minutes. The fix is an award timeout that re-runs the auction.</p>
     </div>
@@ -142,40 +156,9 @@
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <div class="cols">
-      <div>
-        <h4>Performance Evaluation of Agent-Based Systems</h4>
-        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
-        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
-      </div>
-      <div>
-        <h4>Learn</h4>
-        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
-      </div>
-      <div>
-        <h4>Practise</h4>
-        <ul>
-          <li><a href="big-picture.html">The big picture</a></li>
-          <li><a href="tools.html">Interactive tools</a></li>
-          <li><a href="case-studies.html">Case studies</a></li>
-          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
-          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Session</h4>
-        <ul>
-          <li><a href="programme.html">Programme and timings</a></li>
-          <li><a href="resources.html">Reading list</a></li>
-          <li><a href="glossary.html">Glossary</a></li>
-          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="fine">
-      <p>Speaker: Assoc. Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Cited works belong to their authors.</p>
-      <a class="visitors" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a>
-    </div>
+    <p class="f-title"><b>Performance Evaluation of Agent-Based Systems</b> <span>CAI 461 Topic 8 · Princess Nourah bint Abdulrahman University × Universiti Teknologi Malaysia</span></p>
+    <nav class="f-links" aria-label="Footer"><a href="index.html">Home</a><a href="big-picture.html">Big Picture</a><a href="programme.html">Programme</a><a href="modules.html">Modules</a><a href="tools.html">Tools</a><a href="case-studies.html">Cases</a><a href="lab.html">Lab</a><a href="resources.html">Resources</a><a href="glossary.html">Glossary</a><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Slides (PDF)</a></nav>
+    <div class="f-fine"><p>Speaker: Assoc. Prof. Dr. Mohd Shahizan Othman, UTM. Host: Dr. Eman Aljabarti, CAI 461 Course Coordinator, PNU.</p><a class="visitors" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a></div>
   </div>
 </footer>
 <script src="assets/js/main.js" defer></script>

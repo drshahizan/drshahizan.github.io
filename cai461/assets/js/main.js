@@ -88,3 +88,27 @@
     });
   }
 })();
+
+/* Infographic viewer: enlarge on click, close with the button, Esc or a click outside the image. */
+(function () {
+  "use strict";
+  var links = document.querySelectorAll("a.ig-open");
+  if (!links.length || typeof HTMLDialogElement === "undefined") return;
+  var dlg = document.createElement("dialog");
+  dlg.className = "ig-viewer";
+  dlg.innerHTML = '<div class="ig-bar"><span class="ig-title"></span><button type="button">Close</button></div><img alt="">';
+  document.body.appendChild(dlg);
+  var img = dlg.querySelector("img"), title = dlg.querySelector(".ig-title");
+  dlg.querySelector("button").addEventListener("click", function () { dlg.close(); });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+  links.forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var src = a.querySelector("img");
+      img.src = a.getAttribute("href");
+      img.alt = src ? src.alt : "";
+      title.textContent = (a.getAttribute("aria-label") || "").replace(/^Enlarge: /, "");
+      dlg.showModal();
+    });
+  });
+})();

@@ -38,13 +38,30 @@
 
 <section class="section">
   <div class="wrap with-index">
-    <nav class="page-index" aria-label="On this page"><p>On this page</p><ol><li><a href="#before">Before the lab</a></li><li><a href="#plan">Two-hour plan</a></li><li><a href="#s1">1. Instrument</a></li><li><a href="#s2">2. Build a dataset</a></li><li><a href="#s3">3. Define evaluators</a></li><li><a href="#s4">4. Run k = 3 trials</a></li><li><a href="#s5">5. Compare designs</a></li><li><a href="#s6">6. Report</a></li><li><a href="#checklist">Submission checklist</a></li></ol></nav>
+    <nav class="page-index" aria-label="On this page"><p>On this page</p><ol><li><a href="#before">Before the lab</a></li><li><a href="#pipeline-map">Lab and the pipeline</a></li><li><a href="#plan">Two-hour plan</a></li><li><a href="#s1">1. Instrument</a></li><li><a href="#s2">2. Build a dataset</a></li><li><a href="#s3">3. Define evaluators</a></li><li><a href="#s4">4. Run k = 3 trials</a></li><li><a href="#s5">5. Compare designs</a></li><li><a href="#s6">6. Report</a></li><li><a href="#checklist">Submission checklist</a></li></ol></nav>
     <div>
       <div class="block" id="before">
         <h2>Before the lab</h2>
         <div class="grid-2">
           <div class="panel teal"><h3>Set up</h3><ul><li>Python 3.10 or newer. The harness has no other dependencies.</li><li>Run <code>python lab_harness.py</code> once at home; it finishes in seconds and writes <code>lab_output/</code>.</li><li>If you will use a real model, have its API key ready, and optionally a LangSmith account.</li></ul></div>
           <div class="panel blue"><h3>Revise</h3><ul><li><a href="module-3-measuring-the-system.html#tracing">Traces and spans</a> (Module 3)</li><li><a href="module-5-llm-agents.html#passk">pass^k</a> and <a href="module-5-llm-agents.html#mast">MAST</a> (Module 5)</li><li><a href="module-5-llm-agents.html#judge">LLM-as-a-judge biases</a> (Module 5)</li></ul></div>
+        </div>
+      </div>
+
+      <div class="block" id="pipeline-map">
+        <h2>How this lab follows the evaluation pipeline</h2>
+        <p class="prose">Module 5 introduced a five-stage pipeline. This lab builds the first four stages on a small system.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th class="num">Stage</th><th>Pipeline stage</th><th>In this lab</th></tr></thead>
+            <tbody>
+              <tr><td class="num">1</td><td><b>Dataset</b>: 20 to 100 test tasks with expected outcomes</td><td>20 tasks you write (<a href="#s2">step 2</a>)</td></tr>
+              <tr><td class="num">2</td><td><b>Traced runs</b>: every run recorded as a trace</td><td>Tracing switched on for the coordinator and both workers (<a href="#s1">step 1</a>)</td></tr>
+              <tr><td class="num">3</td><td><b>Evaluators</b>: code checks, LLM judge, human review</td><td>Exact match, rubric judge, latency and tokens (<a href="#s3">step 3</a>)</td></tr>
+              <tr><td class="num">4</td><td><b>Experiments</b>: compare versions side by side</td><td>Chain against supervisor (star) (<a href="#s5">step 5</a>)</td></tr>
+              <tr><td class="num">5</td><td><b>Monitoring</b>: online evaluation in production</td><td>Discussed, not built</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -64,6 +81,17 @@
       <div class="block" id="s1">
         <h2>1. Instrument</h2>
         <p class="prose">Enable tracing on a small multi-agent system: a coordinator and two workers. Every agent invocation, model call and tool call becomes a span with a parent, timestamps and token counts.</p>
+        <h3>What a finished trace looks like</h3>
+        <p class="prose">This is one Contract Net task traced end to end. Your coordinator and two workers should produce the same shape: one root span, one child span per step, timed so you can see waiting and overlap.</p>
+        <div class="trace" style="max-width:760px" role="img" aria-label="One task as a trace: manager span, call for proposals, two bids, award, execution and result.">
+          <div class="trace-row"><div class="who"><b>Manager: handle task</b><small>conversation-id task-17</small></div><div class="trace-track"><span class="trace-bar root" style="left:0;width:100%">120 ms</span></div></div>
+          <div class="trace-row"><div class="who">CFP broadcast</div><div class="trace-track"><span class="trace-bar c2" style="left:1%;width:13%"></span></div></div>
+          <div class="trace-row"><div class="who">Contractor A: bid</div><div class="trace-track"><span class="trace-bar c1" style="left:14%;width:19%"></span></div></div>
+          <div class="trace-row"><div class="who">Contractor B: bid</div><div class="trace-track"><span class="trace-bar c1" style="left:15%;width:24%"></span></div></div>
+          <div class="trace-row"><div class="who">Award decision</div><div class="trace-track"><span class="trace-bar c2" style="left:40%;width:8%"></span></div></div>
+          <div class="trace-row"><div class="who">Contractor B: execute</div><div class="trace-track"><span class="trace-bar c1" style="left:50%;width:33%"></span></div></div>
+          <div class="trace-row"><div class="who">Result message</div><div class="trace-track"><span class="trace-bar c2" style="left:94%;width:5%"></span></div></div>
+        </div>
         <h3>Option A: the harness’s built-in tracer</h3>
         <p class="prose">The harness wraps each step in a span using OpenTelemetry GenAI attribute names, so the output looks like what a production tracer records:</p>
         <pre data-copy><code><span class="k">with</span> TRACER.span(<span class="s">"invoke_agent WorkerA"</span>, **{
@@ -132,6 +160,7 @@ export LANGSMITH_API_KEY=<span class="s">"your-key"</span>
 
       <div class="block" id="s5">
         <h2>5. Compare designs</h2>
+  <figure class="ig" id="ig-experiment-plan-run-report"><a class="ig-open" href="assets/img/infographics/experiment-plan-run-report.webp" aria-label="Enlarge: Plan, run, report"><img src="assets/img/infographics/experiment-plan-run-report.webp" alt="Three stages of a fair multi-agent comparison: plan the hypothesis, variables and baseline; run repeated simulations under the same conditions; report statistics and publish for reproducibility." width="1536" height="1024" decoding="async"></a><figcaption><span>Infographic: Plan, run, report</span><a href="assets/img/infographics/experiment-plan-run-report.webp" download>Download</a></figcaption></figure>
         <div class="grid-2">
           <div class="panel teal"><h3>Sequential chain</h3><p>Coordinator → Worker A → Worker B. Each agent hands its output to the next. Fewer calls, but an early mistake flows straight through.</p></div>
           <div class="panel blue"><h3>Supervisor (star)</h3><p>The coordinator asks both workers, compares their answers and asks again on disagreement. More calls and tokens, but a built-in verification step.</p></div>
@@ -178,40 +207,9 @@ export LANGSMITH_API_KEY=<span class="s">"your-key"</span>
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <div class="cols">
-      <div>
-        <h4>Performance Evaluation of Agent-Based Systems</h4>
-        <p>Guest lecture for CAI 461 Topic 8, from rational agents to LLM multi-agent systems.</p>
-        <p>Princess Nourah bint Abdulrahman University, College of Computer and Information Sciences, with Universiti Teknologi Malaysia.</p>
-      </div>
-      <div>
-        <h4>Learn</h4>
-        <ul><li><a href="module-1-performing-well.html">Module 1: What does performing well mean?</a></li><li><a href="module-2-society-of-agents.html">Module 2: Evaluating a society of agents</a></li><li><a href="module-3-measuring-the-system.html">Module 3: Measuring the system</a></li><li><a href="module-4-agent-based-models.html">Module 4: Evaluating agent-based models</a></li><li><a href="module-5-llm-agents.html">Module 5: Evaluating LLM-based agents</a></li><li><a href="module-6-bringing-it-together.html">Module 6: Bringing it together</a></li></ul>
-      </div>
-      <div>
-        <h4>Practise</h4>
-        <ul>
-          <li><a href="big-picture.html">The big picture</a></li>
-          <li><a href="tools.html">Interactive tools</a></li>
-          <li><a href="case-studies.html">Case studies</a></li>
-          <li><a href="lab.html">Lab: instrument, trace, evaluate</a></li>
-          <li><a href="modules.html#self-check">Self-check quizzes</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Session</h4>
-        <ul>
-          <li><a href="programme.html">Programme and timings</a></li>
-          <li><a href="resources.html">Reading list</a></li>
-          <li><a href="glossary.html">Glossary</a></li>
-          <li><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Lecture slides (PDF)</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="fine">
-      <p>Speaker: Assoc. Prof. Dr. Mohd Shahizan Othman, Universiti Teknologi Malaysia. Host: Dr. Eman Aljabarti, Course Coordinator, CAI 461, PNU. Cited works belong to their authors.</p>
-      <a class="visitors" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a>
-    </div>
+    <p class="f-title"><b>Performance Evaluation of Agent-Based Systems</b> <span>CAI 461 Topic 8 · Princess Nourah bint Abdulrahman University × Universiti Teknologi Malaysia</span></p>
+    <nav class="f-links" aria-label="Footer"><a href="index.html">Home</a><a href="big-picture.html">Big Picture</a><a href="programme.html">Programme</a><a href="modules.html">Modules</a><a href="tools.html">Tools</a><a href="case-studies.html">Cases</a><a href="lab.html">Lab</a><a href="resources.html">Resources</a><a href="glossary.html">Glossary</a><a href="assets/downloads/CAI461_Topic8_Performance_Evaluation_Slides.pdf">Slides (PDF)</a></nav>
+    <div class="f-fine"><p>Speaker: Assoc. Prof. Dr. Mohd Shahizan Othman, UTM. Host: Dr. Eman Aljabarti, CAI 461 Course Coordinator, PNU.</p><a class="visitors" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman"></a></div>
   </div>
 </footer>
 <script src="assets/js/main.js" defer></script>

@@ -17,6 +17,7 @@ A static site: plain HTML, CSS and JavaScript with no build step, ready for GitH
 | `module-4-agent-based-models.html` | Verification, validation, replication, BehaviorSpace, ODD |
 | `module-5-llm-agents.html` | Benchmarks, pass^k, cost, MultiAgentBench, MAST, LLM-as-a-judge, OpenTelemetry |
 | `module-6-bringing-it-together.html` | Four-layer framework, case activity, lab preview, takeaways |
+| `big-picture.html` | Ecosystem map, timeline, one system across four layers, metric picker |
 | `tools.html` | Six interactive calculators |
 | `case-studies.html` | Cases A, B and C with model answers, plus four published studies |
 | `lab.html` | Two-hour practical guide |
@@ -24,7 +25,7 @@ A static site: plain HTML, CSS and JavaScript with no build step, ready for GitH
 | `glossary.html` | 30 key terms |
 | `404.html` | Not-found page |
 
-`assets/css/style.css` holds all styles, `assets/js/main.js` the shared behaviour (menu, quizzes, copy buttons, resource search) and `assets/js/tools.js` the calculators. `assets/downloads/` contains the slides, the lab harness (`lab_harness.py`, Python 3.10+, no dependencies) and the Markdown templates.
+`assets/css/style.css` holds all styles, `assets/js/main.js` the shared behaviour (menu, quizzes, copy buttons, resource search) and `assets/js/tools.js` the calculators. `assets/img/infographics/` holds the 14 infographic images (WebP), each shown once beside the text that explains it. `assets/downloads/` contains the slides, the lab harness (`lab_harness.py`, Python 3.10+, no dependencies) and the Markdown templates.
 
 ## Publish on GitHub Pages
 
@@ -36,6 +37,6 @@ To put it inside an existing site instead, copy the folder into that repository 
 
 ## Before publishing
 
-- Set the session date: the home page shows “To be announced”. Search for `To be announced` in `index.html` and replace it.
+- Session date set to Wednesday, 4 November 2026, 8.30 pm Malaysia time (3.30 pm Riyadh time). To change it, edit the line on `index.html`.
 - Check the speaker and host details on `index.html`.
 - Visitor counter: the footer uses the same visitorbadge.io badge as drshahizan.github.io/bdc (path github.com/drshahizan), so visits add to the same count.
