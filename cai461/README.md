@@ -38,5 +38,6 @@ To put it inside an existing site instead, copy the folder into that repository 
 ## Before publishing
 
 - Session date set to Wednesday, 4 November 2026, 8.30 pm Malaysia time (3.30 pm Riyadh time). To change it, edit the line on `index.html`.
+- Online meeting: Microsoft Teams link on the home page (main button and FAQ), the Programme page and every footer. To change it, replace the `teams.microsoft.com/meet/...` address in all pages.
 - Check the speaker and host details on `index.html`.
 - Visitor counter: the footer uses the same visitorbadge.io badge as drshahizan.github.io/bdc (path github.com/drshahizan), so visits add to the same count.
