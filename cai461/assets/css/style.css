@@ -583,3 +583,12 @@ figure.ig.wide { float: none; width: 100%; max-width: 100%; margin: 0.5rem 0 1.2
 .site-footer .f-links a:hover { color: #fff; text-decoration: underline; }
 .site-footer .f-fine { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem 1.5rem; border-top: 1px solid #2b4f60; padding-top: 0.7rem; font-size: 0.84rem; color: #8fb3bd; }
 .site-footer .f-fine p { margin: 0; }
+
+/* Learn more lists */
+.learn-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; clear: both; }
+.learn-item { margin: 0; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-m); padding: 0.9rem 1.1rem; display: flex; flex-direction: column; gap: 0.2rem; }
+.learn-type { font-size: 0.8rem; font-weight: 600; color: var(--teal-deep); }
+.learn-title { font-weight: 600; font-size: 1.02rem; }
+.learn-src { font-size: 0.85rem; color: var(--muted); }
+.learn-why { font-size: 0.93rem; color: var(--ink-2); margin-top: 0.2rem; }
+@media (max-width: 760px) { .learn-list { grid-template-columns: minmax(0, 1fr); } }
