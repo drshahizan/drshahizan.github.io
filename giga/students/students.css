@@ -1,3 +1,36 @@
-.students-hero{padding:64px 0 54px;background:#17283b;color:#fff}.students-hero h1{font-size:clamp(42px,5.2vw,64px)}.students-hero h1 em{color:#c8ed67}.students-hero p:not(.eyebrow){max-width:680px;color:#d0d9e0;font-size:17px;line-height:1.7}.students-content{padding:52px 0 82px}.students-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:22px}.students-heading h2{margin:0;font-size:clamp(28px,3vw,38px)}.students-heading>p{margin:0;color:#65717c}.student-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}.student-stat{display:flex;align-items:baseline;gap:10px;padding:14px 17px;border:1px solid #e3e8e0;border-radius:7px;background:#fff}.student-stat strong{color:#26384b;font:750 27px/1 var(--display)}.student-stat span{color:#63707b;font-size:13px}.student-controls{display:grid;grid-template-columns:1fr 230px;gap:14px;padding:16px;border:1px solid #e3e8e0;border-radius:8px;background:#f7f8f4}.student-search,.student-filter{display:grid;gap:6px;color:#354252;font-size:13px;font-weight:700}.student-search input,.student-filter select{width:100%;min-height:45px;padding:9px 12px;border:1px solid #cfd7ce;border-radius:5px;background:#fff;color:#25364a;font:inherit}.student-search input:focus,.student-filter select:focus{outline:3px solid #c8ed675c;border-color:#839a50}.student-status{min-height:24px;margin:18px 0 10px;color:#5c6874;font-size:13px}.student-table-wrap{overflow:auto;border:1px solid #e0e6de;border-radius:8px;background:#fff;box-shadow:0 10px 30px rgba(16,27,43,.05)}.student-table{width:100%;border-collapse:collapse;min-width:650px}.student-table th,.student-table td{padding:14px 16px;border-bottom:1px solid #edf0eb;text-align:left;vertical-align:middle;font-size:14px}.student-table thead th{background:#f2f5ee;color:#4f5d67;font-size:11px;letter-spacing:.08em;text-transform:uppercase}.student-table tbody th{width:56%;color:#26384b;font-weight:700}.student-table tbody tr:last-child th,.student-table tbody tr:last-child td{border-bottom:0}.student-table tbody tr:hover{background:#fbfcf9}.student-site-link{display:inline-flex;align-items:center;gap:7px;color:#506c1c;font-weight:700}.student-site-link:after{content:'↗'}.student-link-pending{color:#78838b;font-size:13px}.student-empty{padding:18px;border:1px dashed #cbd5c5;border-radius:7px;background:#f8faf6;color:#5b6772}.student-empty[hidden]{display:none}.student-note{margin-top:20px;padding:15px 18px;border-left:3px solid #c8ed67;background:#f5f7ef;color:#4b5864;font-size:14px;line-height:1.65}.site-header .nav-wrap{gap:18px}.site-nav{gap:22px}
+/* Student directory styling follows the shared light-professional site theme. */
+.students-hero{min-height:0;padding:50px 0 42px}
+.students-hero:after{width:280px;height:280px;top:-54px}
+.students-hero h1{max-width:720px;font-size:clamp(39px,4.8vw,60px);line-height:1.06}
+.students-hero .page-hero-inner>p:not(.eyebrow){max-width:680px;margin-bottom:0;font-size:16px;line-height:1.65}
+.students-hero .page-hero-shape{font-size:clamp(96px,12vw,150px)}
+.students-hero .page-hero-meta{margin-top:22px}
+.students-content{padding:52px 0 76px;background:#fff}
+.students-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:22px}
+.students-heading h2{margin:0;font-size:clamp(28px,3vw,38px);color:var(--ink)}
+.students-heading>p{margin:0;color:#647587}
+.student-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.student-stat{display:flex;align-items:baseline;gap:10px;padding:14px 17px;border:1px solid #dce5eb;border-radius:6px;background:#fff}
+.student-stat strong{color:var(--ink);font:750 27px/1 var(--display)}
+.student-stat span{color:#647587;font-size:13px}
+.student-controls{display:grid;grid-template-columns:1fr 230px;gap:14px;padding:16px;border:1px solid #dce5eb;border-radius:7px;background:#f4f7fa}
+.student-search,.student-filter{display:grid;gap:6px;color:#354d62;font-size:13px;font-weight:700}
+.student-search input,.student-filter select{width:100%;min-height:45px;padding:9px 12px;border:1px solid #cbd9e1;border-radius:5px;background:#fff;color:#253b50;font:inherit}
+.student-search input:focus,.student-filter select:focus{outline:3px solid rgba(24,125,135,.16);border-color:#187d87}
+.student-status{min-height:24px;margin:18px 0 10px;color:#607587;font-size:13px}
+.student-table-wrap{overflow:auto;border:1px solid #dce5eb;border-radius:7px;background:#fff;box-shadow:0 10px 28px rgba(24,52,79,.06)}
+.student-table{width:100%;border-collapse:collapse;min-width:650px}
+.student-table th,.student-table td{padding:14px 16px;border-bottom:1px solid #e8eef1;text-align:left;vertical-align:middle;font-size:14px}
+.student-table thead th{background:#f1f6f8;color:#526a7e;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.student-table tbody th{width:56%;color:#253b50;font-weight:700}
+.student-table tbody tr:last-child th,.student-table tbody tr:last-child td{border-bottom:0}
+.student-table tbody tr:hover{background:#f8fbfc}
+.student-site-link{display:inline-flex;align-items:center;gap:7px;color:#187d87;font-weight:700}
+.student-site-link:hover{color:#126a73;text-decoration:underline;text-underline-offset:3px}
+.student-site-link:after{content:'↗'}
+.student-link-pending{color:#788896;font-size:13px}
+.student-empty{padding:18px;border:1px dashed #cbd9e1;border-radius:6px;background:#f7fafb;color:#5b6e7c}
+.student-empty[hidden]{display:none}
+.student-note{margin-top:20px;padding:15px 18px;border-left:3px solid #187d87;background:#edf5f3;color:#4f6878;font-size:14px;line-height:1.65}
 @media(max-width:900px){.students-heading{align-items:flex-start;flex-direction:column}.site-nav{gap:16px}}
-@media(max-width:760px){.site-header .nav-wrap{gap:12px}.site-nav{gap:0}.students-hero{padding:49px 0 42px}.students-content{padding:38px 0 60px}.students-heading{align-items:flex-start;flex-direction:column}.student-stats{grid-template-columns:1fr}.student-controls{grid-template-columns:1fr}.student-table th,.student-table td{padding:11px 12px}}
+@media(max-width:760px){.site-header .nav-wrap{gap:12px}.students-hero{padding:38px 0 32px}.students-content{padding:38px 0 60px}.student-stats{grid-template-columns:1fr}.student-controls{grid-template-columns:1fr}.student-table th,.student-table td{padding:11px 12px}.students-hero .page-hero-meta{gap:9px}}
