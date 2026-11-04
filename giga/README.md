@@ -6,6 +6,12 @@ Static, responsive GitHub Pages website for the five-day workshop **Practical Ge
 
 ```text
 index.html
+students/
+  index.html
+  student-data.js
+  student-list.js
+  students.css
+  README.md
 pages/
   prepare/start-here.html
   programme/programme.html
@@ -21,9 +27,11 @@ pages/
 assets/
   css/site.css
   css/themes/light-professional.css
+  css/participant-hub.css
   js/site.js
   img/mark.svg
   data/mersing-visitor-sessions.csv
+  downloads/day-5-supabase-starter.zip
 ```
 
 ## Publish with GitHub Pages
@@ -49,5 +57,6 @@ The site uses relative asset and page links, so it works from a repository path 
 - The AI tools directory groups 34 optional AI tools and four supporting workshop platforms by task, maps them to the five-day programme and includes responsible-use reminders.
 - The Resources hub groups whitepapers, tutorials, YouTube videos, editable templates, dashboard examples, Behance inspiration and day-by-day workshop materials.
 - The Day 4 exercise guide includes a simulated 6,000-session visitor CSV covering January–December 2025 and 13 countries.
+- The Students directory is a static list maintained in `students/student-data.js`. It includes only the student names, institutions and GitHub Pages link supplied for publication. Add new links by editing that file and republishing the site; there is no Apps Script update form.
 - The guide describes participant activities; no working booking form, customer database or external AI service is connected to this course information site.
 
