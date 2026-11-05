@@ -21,6 +21,7 @@ pages/
   exercises/day-2.html
   exercises/day-3.html
   exercises/day-4.html
+  exercises/day-4-sheets-homestay.html
   exercises/day-5.html
   resources/ai-tools.html
   resources/resources.html
@@ -50,6 +51,7 @@ The site uses relative asset and page links, so it works from a repository path 
 - The capstone business, Mersing Coastal Homestay, is fictional. Booking records are intended to be simulated training data.
 - The tourism figures on the capstone page are historical context from DOSM's 2023 Domestic Tourism Survey and are linked to the source.
 - Day 4 guides participants through a dashboard, static website and Google Sheets-backed Apps Script web app.
+- Day 4 includes a separate beginner mini exercise for a Mersing homestay request form and manager list backed by Google Sheets.
 - Day 5 completes the Mersing homestay capstone: reuse Day 3 visuals, connect an enquiry form to Supabase, and manage fictional booking requests with CRUD and RLS checks.
 - The Day 5 exercise page links to a starter/reference app bundle with setup SQL, a scoped RLS example, seed records and lecturer instructions. Day 4 uses a separate Google Sheets practice app; its visitor-session analytics data is not booking data.
 - All five day pages include step-by-step participant guidance, copyable prompts and expected outputs. Day 1 covers responsible prompt workflows and the agent case study; Day 2 covers video planning, production and showcase.
