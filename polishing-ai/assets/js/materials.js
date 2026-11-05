@@ -26,7 +26,8 @@
   fetch(root + "assets/files/links.json", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (j) {
     if (j.slides) {
       var href = /^https?:/.test(j.slides) ? j.slides : root + j.slides;
-      document.querySelector("#slides-card [data-pending]").outerHTML = '<p>Slides from the session.</p><a class="btn" href="' + esc(href) + '" target="_blank" rel="noopener">Open the slides</a>';
+      var page = j.slides_page ? '<a class="btn" href="' + esc(root + j.slides_page) + '">View slides online</a> ' : "";
+      document.querySelector("#slides-card [data-pending]").outerHTML = '<p>All 54 slides from the session, to view online or download as a PDF.</p><p style="display:flex;gap:.5rem;flex-wrap:wrap">' + page + '<a class="btn ghost" href="' + esc(href) + '" download>Download PDF</a></p>';
     }
     if (j.recording) {
       document.querySelector("#recording-card [data-pending]").outerHTML = '<p>Recording of the Webex session.</p><a class="btn" href="' + esc(j.recording) + '" target="_blank" rel="noopener">Watch the recording</a>';

@@ -23,7 +23,7 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">P</span><span class="brand-text"><span class="b1">Polishing with AI</span><small><span>Winning Journal Writing</span><span>Workshop 2026</span></small></span></a>
-    <nav class="nav" id="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="session.html">Session</a><a href="modules.html">Modules</a><a href="toolkit.html">Toolkit</a><a href="guides.html">Guides</a><a href="prompts.html" aria-current="page">Prompts</a><a href="tools.html">AI Tools</a><a href="materials.html">Materials</a></nav>
+    <nav class="nav" id="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="session.html">Session</a><a href="modules.html">Modules</a><a href="toolkit.html">Toolkit</a><a href="guides.html">Guides</a><a href="prompts.html" aria-current="page">Prompts</a><a href="tools.html">AI Tools</a><a href="slides.html">Slides</a><a href="materials.html">Materials</a></nav>
     <div class="nav-tools">
       <a class="btn btn-sm" href="https://forms.gle/gkNi6a5dqNoLiU2EA" target="_blank" rel="noopener">Register</a>
       <button class="icon-btn" id="search-open" type="button" aria-haspopup="dialog" aria-label="Search this site">Search</button>
@@ -118,7 +118,40 @@ Facts:
 - Purpose: [e.g., language editing and readability of selected sections]
 - Sections affected: [SECTIONS]
 - Authors reviewed and edited all output and take full responsibility.
-Keep it under 70 words and neutral in tone.</pre></article><article class="prompt" data-cat="references"><header><h3>Reference consistency check</h3><button class="copy" type="button" data-target="p14">Copy</button></header><p class="use">Checks formatting only; it does not confirm that sources exist.</p><pre id="p14">Check the reference list below for formatting consistency with [APA 7 / IEEE / Vancouver].
+Keep it under 70 words and neutral in tone.</pre></article><article class="prompt" data-cat="review"><header><h3>Journal-fit evaluator</h3><button class="copy" type="button" data-target="p14">Copy</button></header><p class="use">Review perspective 1 of 5: is the manuscript suitable for the target journal?</p><pre id="p14">Act as the editor-in-chief of [JOURNAL NAME]. Read the journal&#x27;s aims and scope below and my abstract.
+1. Is this manuscript within scope? Quote the scope statement that supports or rules it out.
+2. Would readers of this journal care about the contribution? Why or why not?
+3. Name the single biggest risk of desk rejection.
+Do not rewrite the abstract.
+
+Aims and scope:
+[PASTE]
+Abstract:
+[PASTE]</pre></article><article class="prompt" data-cat="review"><header><h3>Methodology reviewer</h3><button class="copy" type="button" data-target="p15">Copy</button></header><p class="use">Review perspective 2 of 5: are the methods sound, appropriate and sufficiently described?</p><pre id="p15">Act as a methodology reviewer in [FIELD]. Read my Methods section.
+List (1) anything another researcher would need in order to replicate the study but cannot find, (2) design choices that need justification, (3) threats to validity I have not acknowledged.
+Do not suggest analyses I did not do unless you label them as optional.
+
+Methods:
+[PASTE]</pre></article><article class="prompt" data-cat="review"><header><h3>Evidence and argument reviewer</h3><button class="copy" type="button" data-target="p16">Copy</button></header><p class="use">Review perspective 3 of 5: do the results support the claims and advance the field?</p><pre id="p16">Act as a reviewer checking the argument of my manuscript.
+For each main claim in the Discussion and Conclusion below, state whether it is supported by the results given, partly supported, or not supported. Quote the claim and the result.
+Flag any claim of causation from correlational data.
+
+Results:
+[PASTE]
+Discussion and Conclusion:
+[PASTE]</pre></article><article class="prompt" data-cat="review"><header><h3>Academic language editor</h3><button class="copy" type="button" data-target="p17">Copy</button></header><p class="use">Review perspective 4 of 5: is the language clear, precise and academically appropriate?</p><pre id="p17">Act as an academic language editor for a Q1 journal in [FIELD].
+List sentences in the text below that are unclear, wordy, imprecise or too informal, with a suggested revision for each.
+Do not change technical terms, numbers or citations. Use [British/American] English.
+
+Text:
+[PASTE]</pre></article><article class="prompt" data-cat="review"><header><h3>Pre-submission quality auditor</h3><button class="copy" type="button" data-target="p18">Copy</button></header><p class="use">Review perspective 5 of 5: are all key requirements met for a strong submission?</p><pre id="p18">Act as a pre-submission auditor for [JOURNAL NAME]. Using the author guidelines below, check my manuscript package for:
+word limits, required sections and statements (ethics, funding, conflicts, data availability, AI disclosure, CRediT), reference style, figure and table requirements, and anonymisation.
+Return a checklist marked Done / Missing / Unclear.
+
+Author guidelines:
+[PASTE]
+Manuscript summary and statements:
+[PASTE]</pre></article><article class="prompt" data-cat="references"><header><h3>Reference consistency check</h3><button class="copy" type="button" data-target="p19">Copy</button></header><p class="use">Checks formatting only; it does not confirm that sources exist.</p><pre id="p19">Check the reference list below for formatting consistency with [APA 7 / IEEE / Vancouver].
 List inconsistencies only (author format, italics, capitalisation, missing DOI, year placement).
 Do not invent or correct any bibliographic details; mark uncertain items for manual checking.
 
@@ -135,7 +168,7 @@ References:
         <p><b style="color:var(--ink)">Organised by</b><br>Universiti Teknologi Malaysia (UTM)<br>Ho Chi Minh City University of Technology (HCMUT), Vietnam</p>
         <p><b style="color:var(--ink)">In collaboration with</b><br>Faculty of Computing, UTM<br>Postgraduate Student Society – Faculty of Computing (PGSS-FC), UTM</p>
       </div>
-      <div><h3>Learn</h3><ul><li><a href="session.html">Session outline</a></li><li><a href="modules.html">12 modules</a></li><li><a href="example.html">Worked example</a></li><li><a href="activities.html">Activities</a></li><li><a href="vi.html">Tiếng Việt</a></li></ul></div><div><h3>Toolkit</h3><ul><li><a href="prompt-builder.html">Prompt builder</a></li><li><a href="checker.html">Language checker</a></li><li><a href="disclosure.html">Disclosure generator</a></li><li><a href="doi-checker.html">Reference checker</a></li><li><a href="checklist.html">Pre-submission checklist</a></li></ul></div><div><h3>Guides</h3><ul><li><a href="policies.html">Publisher AI policies</a></li><li><a href="phrasebank.html">Phrasebank</a></li><li><a href="sections.html">Section examples</a></li><li><a href="pitfalls.html">AI pitfalls and cases</a></li><li><a href="response-letter.html">Response letter</a></li><li><a href="resources.html">Resources</a></li></ul></div>
+      <div><h3>Learn</h3><ul><li><a href="session.html">Session outline</a></li><li><a href="modules.html">12 modules</a></li><li><a href="slides.html">Session slides</a></li><li><a href="example.html">Worked example</a></li><li><a href="activities.html">Activities</a></li><li><a href="vi.html">Tiếng Việt</a></li></ul></div><div><h3>Toolkit</h3><ul><li><a href="prompt-builder.html">Prompt builder</a></li><li><a href="checker.html">Language checker</a></li><li><a href="disclosure.html">Disclosure generator</a></li><li><a href="doi-checker.html">Reference checker</a></li><li><a href="checklist.html">Pre-submission checklist</a></li></ul></div><div><h3>Guides</h3><ul><li><a href="policies.html">Publisher AI policies</a></li><li><a href="phrasebank.html">Phrasebank</a></li><li><a href="sections.html">Section examples</a></li><li><a href="verify.html">Verify before you submit</a></li><li><a href="pitfalls.html">AI pitfalls and retractions</a></li><li><a href="response-letter.html">Response letter</a></li><li><a href="resources.html">Resources</a></li></ul></div>
     </div>
     <p class="foot-event">Friday, 6 November 2026 · 9:00 AM – 1:00 PM (MYT) · Cisco Webex (online) · <a href="https://forms.gle/gkNi6a5dqNoLiU2EA" target="_blank" rel="noopener">Register</a> · <a href="https://utm1.webex.com/utm1/j.php?MTID=m02a124f191746799b4c8bf1c037963ab" target="_blank" rel="noopener">Webex meeting link</a></p>
     <p class="copyright">© 2026 Winning Journal Writing Workshop 2026 · UTM and HCMUT. Speaker: Assoc. Prof. Dr. Mohd Shahizan, Universiti Teknologi Malaysia (UTM). Always check publishers' current AI policies before submitting a manuscript.</p>

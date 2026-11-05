@@ -9,7 +9,11 @@ One-stop website for the session at the **Winning Journal Writing Workshop 2026*
 - **Register:** https://forms.gle/gkNi6a5dqNoLiU2EA
 - **Organised by:** UTM and HCMUT, in collaboration with the Faculty of Computing, UTM and PGSS-FC, UTM
 
-## After the session: add slides, recording and Q&A
+## Slides
+
+The slides are on `slides.html` (images in `assets/slides/`, PDF in `assets/files/polishing-your-draft-article-slides.pdf`). To replace them, overwrite the PDF and the `slide-NN.jpg` / `thumb-NN.jpg` images.
+
+## After the session: add recording and Q&A
 
 Edit `assets/files/links.json` on GitHub. The Materials page updates automatically.
 
@@ -29,9 +33,9 @@ To publish the slides, upload `slides.pdf` into `assets/files/` and set `"slides
 
 | Section | Pages |
 |---|---|
-| Learn | `index.html`, `session.html`, `modules.html` + `modules/` (12), `example.html`, `activities.html`, `vi.html` (Tiếng Việt) |
+| Learn | `index.html`, `slides.html`, `session.html`, `modules.html` + `modules/` (12), `example.html`, `activities.html`, `vi.html` (Tiếng Việt) |
 | Toolkit | `toolkit.html`, `prompt-builder.html`, `checker.html`, `disclosure.html`, `doi-checker.html`, `checklist.html` |
-| Guides | `guides.html`, `sections.html`, `phrasebank.html`, `policies.html`, `reporting.html`, `pitfalls.html`, `response-letter.html`, `resources.html` |
+| Guides | `guides.html`, `sections.html`, `phrasebank.html`, `policies.html`, `reporting.html`, `verify.html`, `pitfalls.html`, `response-letter.html`, `resources.html` |
 | Other | `prompts.html`, `tools.html`, `materials.html`, `404.html` |
 
 Assets:
