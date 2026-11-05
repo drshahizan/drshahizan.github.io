@@ -86,18 +86,31 @@
     });
   });
 
-  /* ---- Prompt filters ---- */
+  /* ---- Prompt filters and search ---- */
   var chips = document.querySelectorAll(".chip[data-filter]");
-  if (chips.length) {
+  var pq = document.getElementById("prompt-q");
+  if (chips.length || pq) {
+    var pcat = "all";
+    function applyPrompts() {
+      var q = pq ? pq.value.trim().toLowerCase() : "", any = false;
+      document.querySelectorAll(".prompt-phase").forEach(function (sec) {
+        var shown = 0, catOk = pcat === "all" || sec.dataset.cat === pcat;
+        sec.querySelectorAll(".prompt[data-search]").forEach(function (p) {
+          var ok = catOk && (!q || p.dataset.search.indexOf(q) !== -1);
+          p.hidden = !ok; if (ok) shown++;
+        });
+        sec.hidden = shown === 0; if (shown) any = true;
+      });
+      var em = document.getElementById("prompt-empty"); if (em) em.hidden = any;
+    }
     chips.forEach(function (chip) {
       chip.addEventListener("click", function () {
-        var f = chip.dataset.filter;
+        pcat = chip.dataset.filter;
         chips.forEach(function (c) { c.setAttribute("aria-pressed", c === chip ? "true" : "false"); });
-        document.querySelectorAll(".prompt[data-cat]").forEach(function (p) {
-          p.hidden = !(f === "all" || p.dataset.cat === f);
-        });
+        applyPrompts();
       });
     });
+    if (pq) pq.addEventListener("input", applyPrompts);
   }
 
   /* ---- Tools search and category filter ---- */

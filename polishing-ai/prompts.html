@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Prompt library · Polishing Your Draft Article Using AI Tools</title>
-<meta name="description" content="Prompt templates for polishing each section of an academic article.">
+<meta name="description" content="Prompts for positioning, polishing, checking, submitting and revising a journal article.">
 <meta name="theme-color" content="#7A1631">
 <meta property="og:title" content="Prompt library · Polishing Your Draft Article Using AI Tools">
-<meta property="og:description" content="Prompt templates for polishing each section of an academic article.">
+<meta property="og:description" content="Prompts for positioning, polishing, checking, submitting and revising a journal article.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/images/winning-journal-writing-workshop-2026-poster.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -33,11 +33,24 @@
   </div>
 </header>
 <main id="main">
-<section class="page-head"><div class="wrap"><p class="crumbs"><a href="index.html">Home</a> / Prompts</p><h1>Prompt library</h1><p>Ready-to-use templates for English-language manuscripts. Replace everything in [BRACKETS] with your own details before use.</p></div></section>
+<section class="page-head"><div class="wrap"><p class="crumbs"><a href="index.html">Home</a> / Prompts</p><h1>Prompt library</h1><p>50 prompts organised by publication phase, from positioning the article to responding to reviewers. Paste the setup instruction first, then any prompt, then your text.</p></div></section>
 <div class="wrap" style="padding-bottom:3rem">
-  <div class="note" style="margin-bottom:2rem"><h3>Before you paste</h3><p>Do not paste sensitive data or participant information. Check every output, especially facts, figures and references.</p></div>
-  <div class="filters" role="group" aria-label="Filter prompts"><button class="chip" type="button" data-filter="all" aria-pressed="true">All</button><button class="chip" type="button" data-filter="language" aria-pressed="false">Language</button><button class="chip" type="button" data-filter="sections" aria-pressed="false">Article sections</button><button class="chip" type="button" data-filter="argument" aria-pressed="false">Argument</button><button class="chip" type="button" data-filter="references" aria-pressed="false">References</button><button class="chip" type="button" data-filter="review" aria-pressed="false">Peer review</button><button class="chip" type="button" data-filter="submission" aria-pressed="false">Submission</button></div>
-  <article class="prompt" data-cat="language"><header><h3>Polish without changing meaning</h3><button class="copy" type="button" data-target="p1">Copy</button></header><p class="use">For a paragraph whose ideas are complete but whose language needs work.</p><pre id="p1">Act as an academic editor for a Q1 journal in [FIELD].
+  <article class="prompt configure" id="configure"><header><div><span class="pcode">Step 1</span><h3>Configure once: set the context</h3></div><button class="copy" type="button" data-target="p-config">Copy setup</button></header>
+    <p class="use">Complete the bracketed fields, paste this instruction at the start of the chat, then use any prompt below. The <a href="prompt-builder.html">prompt builder</a> can fill it in for you.</p>
+    <pre id="p-config">Act as a senior academic researcher, journal editor and peer reviewer in [FIELD]. I am preparing a [ARTICLE TYPE] for [TARGET JOURNAL OR JOURNAL LEVEL]. My study examines [TOPIC] using [METHOD] in [CONTEXT]. Use only the manuscript text, verified evidence and references that I provide. Do not fabricate citations, data, results or journal requirements. Clearly label assumptions, weaknesses and items requiring author verification. Preserve my intended meaning and disciplinary terminology. Provide precise, actionable recommendations aligned with ethical scholarly publishing and the target journal&#x27;s requirements.</pre></article>
+  <div class="note" style="margin:1.5rem 0 2rem"><h3>Before you paste</h3><p>Do not paste sensitive data or participant information. Prompts marked “[PASTE]” expect your own text. Check every output, especially facts, figures and references.</p></div>
+  <div class="tool-search"><label for="prompt-q">Search prompts</label><input id="prompt-q" class="search" type="search" placeholder="Try “abstract”, “citation” or “reviewer”" autocomplete="off"></div>
+  <div class="filters" role="group" aria-label="Filter prompts by phase"><button class="chip" type="button" data-filter="all" aria-pressed="true">All</button><button class="chip" type="button" data-filter="polish" aria-pressed="false">Polish the language</button><button class="chip" type="button" data-filter="plan" aria-pressed="false">01 Plan &amp; Position</button><button class="chip" type="button" data-filter="develop" aria-pressed="false">02 Develop Manuscript</button><button class="chip" type="button" data-filter="quality" aria-pressed="false">03 Strengthen Quality</button><button class="chip" type="button" data-filter="journal" aria-pressed="false">04 Select Journal</button><button class="chip" type="button" data-filter="submit" aria-pressed="false">05 Prepare &amp; Submit</button><button class="chip" type="button" data-filter="respond" aria-pressed="false">06 Respond &amp; Resubmit</button></div>
+  <section class="prompt-phase" data-cat="polish" id="polish"><h2>Polish the language <span class="n">4</span></h2><p class="lede">Workshop prompts for improving language without changing meaning.</p><article class="prompt" data-cat="polish" data-search="polish without changing meaning for a paragraph whose ideas are complete but whose language needs work. w-01 act as an academic editor for a q1 journal in [field].
+improve the clarity, grammar and flow of the paragraph below.
+rules:
+- do not change the meaning or add new claims, data or citations.
+- keep technical terms exactly as written.
+- use [british/american] english.
+return: (1) the revised paragraph, (2) a short table listing each change and why.
+
+paragraph:
+[paste paragraph]"><header><div><span class="pcode">W-01</span><h3>Polish without changing meaning</h3></div><button class="copy" type="button" data-target="p1">Copy</button></header><p class="use">For a paragraph whose ideas are complete but whose language needs work.</p><pre id="p1">Act as an academic editor for a Q1 journal in [FIELD].
 Improve the clarity, grammar and flow of the paragraph below.
 Rules:
 - Do not change the meaning or add new claims, data or citations.
@@ -46,79 +59,236 @@ Rules:
 Return: (1) the revised paragraph, (2) a short table listing each change and why.
 
 Paragraph:
-[PASTE PARAGRAPH]</pre></article><article class="prompt" data-cat="sections"><header><h3>Structured abstract</h3><button class="copy" type="button" data-target="p2">Copy</button></header><p class="use">Ensures every essential element of the abstract is present.</p><pre id="p2">Act as the handling editor of [JOURNAL NAME].
-Review my abstract against this structure: background, aim, method, key findings, contribution.
-1. Identify any missing or weak element.
-2. Suggest a revised abstract within [WORD LIMIT] words.
-3. Do not invent results; use only the information in my text.
+[PASTE PARAGRAPH]</pre></article><article class="prompt" data-cat="polish" data-search="hedging and overclaiming finds claims stronger than the evidence allows. w-02 identify every sentence in the text below that makes a claim stronger than the evidence supports (e.g., &quot;proves&quot;, &quot;clearly shows&quot;, &quot;always&quot;).
+for each, suggest a more appropriately hedged version.
+do not change sentences that are already appropriately cautious.
 
-Abstract:
-[PASTE ABSTRACT]</pre></article><article class="prompt" data-cat="sections"><header><h3>Alternative titles</h3><button class="copy" type="button" data-target="p3">Copy</button></header><p class="use">Generates title options to compare.</p><pre id="p3">Suggest 8 alternative titles for the article summarised below.
-Mix styles: descriptive, question, and finding-led.
-Each title must be under [N] words and include at least one of these keywords: [KEYWORDS].
-After the list, recommend the 2 strongest titles for [JOURNAL NAME] and explain why.
+text:
+[paste text]"><header><div><span class="pcode">W-02</span><h3>Hedging and overclaiming</h3></div><button class="copy" type="button" data-target="p2">Copy</button></header><p class="use">Finds claims stronger than the evidence allows.</p><pre id="p2">Identify every sentence in the text below that makes a claim stronger than the evidence supports (e.g., &quot;proves&quot;, &quot;clearly shows&quot;, &quot;always&quot;).
+For each, suggest a more appropriately hedged version.
+Do not change sentences that are already appropriately cautious.
 
-Summary:
-[PASTE ABSTRACT]</pre></article><article class="prompt" data-cat="sections"><header><h3>Research gap in the introduction</h3><button class="copy" type="button" data-target="p4">Copy</button></header><p class="use">Makes the gap and contribution explicit.</p><pre id="p4">Read my introduction and answer:
-1. What research gap does it claim? Quote the sentence.
-2. Is the gap supported by cited literature, or only asserted?
-3. Are the objectives and contributions stated explicitly?
-Then suggest how to restructure the final two paragraphs so the gap leads directly to the objectives.
-Do not add citations.
+Text:
+[PASTE TEXT]</pre></article><article class="prompt" data-cat="polish" data-search="remove ai-sounding style strips clichés and repetitive phrasing. w-03 review the text below for wording that sounds generic or machine-generated: overused words, filler transitions, inflated adjectives and repetitive sentence openings.
+list each instance with a plainer alternative.
+keep my original sentence structure where possible.
 
-Introduction:
-[PASTE TEXT]</pre></article><article class="prompt" data-cat="sections"><header><h3>From summary to synthesis</h3><button class="copy" type="button" data-target="p5">Copy</button></header><p class="use">Rewrites “Author A found… Author B found…” paragraphs.</p><pre id="p5">The paragraph below summarises studies one by one.
-Rewrite it as a synthesis organised by theme or argument, not by author.
-Keep every citation exactly as given and do not add new sources.
-Highlight any point where the studies disagree.
+text:
+[paste text]"><header><div><span class="pcode">W-03</span><h3>Remove AI-sounding style</h3></div><button class="copy" type="button" data-target="p3">Copy</button></header><p class="use">Strips clichés and repetitive phrasing.</p><pre id="p3">Review the text below for wording that sounds generic or machine-generated: overused words, filler transitions, inflated adjectives and repetitive sentence openings.
+List each instance with a plainer alternative.
+Keep my original sentence structure where possible.
 
-Paragraph:
-[PASTE PARAGRAPH]</pre></article><article class="prompt" data-cat="argument"><header><h3>Alignment check</h3><button class="copy" type="button" data-target="p6">Copy</button></header><p class="use">Tests consistency from objectives to conclusions.</p><pre id="p6">Below are my research objectives, research questions, main findings and conclusion.
-Build a table that maps each objective to its research question, finding and conclusion.
-Flag any objective without a finding, any finding without an objective, and any conclusion not supported by the findings.
+Text:
+[PASTE TEXT]</pre></article><article class="prompt" data-cat="polish" data-search="reverse outline reveals the overall flow of the argument. w-04 summarise each paragraph of the text below in one sentence, numbered.
+then tell me:
+- which paragraphs repeat the same point,
+- where the logical flow breaks,
+- which paragraph could be cut with the least loss.
 
-[PASTE SECTIONS]</pre></article><article class="prompt" data-cat="argument"><header><h3>Reverse outline</h3><button class="copy" type="button" data-target="p7">Copy</button></header><p class="use">Reveals the overall flow of the argument.</p><pre id="p7">Summarise each paragraph of the text below in one sentence, numbered.
+text:
+[paste section]"><header><div><span class="pcode">W-04</span><h3>Reverse outline</h3></div><button class="copy" type="button" data-target="p4">Copy</button></header><p class="use">Reveals the overall flow of the argument.</p><pre id="p4">Summarise each paragraph of the text below in one sentence, numbered.
 Then tell me:
 - which paragraphs repeat the same point,
 - where the logical flow breaks,
 - which paragraph could be cut with the least loss.
 
 Text:
-[PASTE SECTION]</pre></article><article class="prompt" data-cat="language"><header><h3>Hedging and overclaiming</h3><button class="copy" type="button" data-target="p8">Copy</button></header><p class="use">Finds claims stronger than the evidence allows.</p><pre id="p8">Identify every sentence in the text below that makes a claim stronger than the evidence supports (e.g., &quot;proves&quot;, &quot;clearly shows&quot;, &quot;always&quot;).
-For each, suggest a more appropriately hedged version.
-Do not change sentences that are already appropriately cautious.
+[PASTE SECTION]</pre></article></section><section class="prompt-phase" data-cat="plan" id="plan"><h2>01 Plan &amp; Position <span class="n">4</span></h2><p class="lede">Position the article before you polish it: one focus, one defensible contribution.</p><article class="prompt" data-cat="plan" data-search="test the article&#x27;s focus checks that the article has one coherent, publishable focus. 01-positioning-p03 evaluate whether my proposed article has one coherent and publishable focus. identify scope creep, competing messages and unnecessary material, then recommend a precise focus statement and boundaries.
 
-Text:
-[PASTE TEXT]</pre></article><article class="prompt" data-cat="language"><header><h3>Remove AI-sounding style</h3><button class="copy" type="button" data-target="p9">Copy</button></header><p class="use">Strips clichés and repetitive phrasing.</p><pre id="p9">Review the text below for wording that sounds generic or machine-generated: overused words, filler transitions, inflated adjectives and repetitive sentence openings.
-List each instance with a plainer alternative.
-Keep my original sentence structure where possible.
+article summary or outline:
+[paste]"><header><div><span class="pcode">01-Positioning-P03</span><h3>Test the article&#x27;s focus</h3></div><button class="copy" type="button" data-target="p5">Copy</button></header><p class="use">Checks that the article has one coherent, publishable focus.</p><pre id="p5">Evaluate whether my proposed article has one coherent and publishable focus. Identify scope creep, competing messages and unnecessary material, then recommend a precise focus statement and boundaries.
 
-Text:
-[PASTE TEXT]</pre></article><article class="prompt" data-cat="review"><header><h3>Demanding reviewer simulation</h3><button class="copy" type="button" data-target="p10">Copy</button></header><p class="use">Anticipates criticism before submission.</p><pre id="p10">Act as a critical but fair reviewer for [JOURNAL NAME], a Q1 journal in [FIELD].
-Evaluate the manuscript summary below on: novelty, theoretical contribution, methodological rigour, clarity and fit with the journal scope.
-Give: (1) major concerns, (2) minor concerns, (3) a likely recommendation (accept / minor / major / reject) with justification.
+Article summary or outline:
+[PASTE]</pre></article><article class="prompt" data-cat="plan" data-search="distinguish novelty from significance separates what is new from why it matters. 01-novelty-p01 separate the study&#x27;s novelty, theoretical contribution, methodological contribution, empirical contribution and practical significance. use only the supplied evidence and identify unsupported claims.
 
-Summary:
-[PASTE ABSTRACT + KEY METHOD + KEY FINDINGS]</pre></article><article class="prompt" data-cat="review"><header><h3>Response to reviewers</h3><button class="copy" type="button" data-target="p11">Copy</button></header><p class="use">Structures a reply to each reviewer comment.</p><pre id="p11">Help me draft a point-by-point response to the reviewer comment below.
-Tone: respectful, concise and confident.
-Structure: thank the reviewer, state what was changed (with page/line placeholders), and explain briefly.
-If I disagree, phrase it politely with evidence.
+abstract, gap statement and key findings:
+[paste]"><header><div><span class="pcode">01-Novelty-P01</span><h3>Distinguish novelty from significance</h3></div><button class="copy" type="button" data-target="p6">Copy</button></header><p class="use">Separates what is new from why it matters.</p><pre id="p6">Separate the study&#x27;s novelty, theoretical contribution, methodological contribution, empirical contribution and practical significance. Use only the supplied evidence and identify unsupported claims.
 
-Reviewer comment:
-[PASTE COMMENT]
-My planned change or position:
-[DESCRIBE]</pre></article><article class="prompt" data-cat="submission"><header><h3>Cover letter</h3><button class="copy" type="button" data-target="p12">Copy</button></header><p class="use">A first draft to tailor yourself.</p><pre id="p12">Draft a cover letter to the editor of [JOURNAL NAME] for the manuscript &quot;[TITLE]&quot;.
-Include: the problem addressed, the main contribution in 2 sentences, why it fits the journal scope, confirmation that it is original and not under review elsewhere.
-Maximum 250 words. Avoid exaggerated language.
+Abstract, gap statement and key findings:
+[PASTE]</pre></article><article class="prompt" data-cat="plan" data-search="stress-test the contribution a sceptical editor challenges your claimed contribution. 01-novelty-p03 act as a sceptical editor. challenge the claimed contribution against the supplied literature and findings. list the strongest objections, evidence needed and a revised defensible claim.
+
+contribution statement, key findings and closest studies:
+[paste]"><header><div><span class="pcode">01-Novelty-P03</span><h3>Stress-test the contribution</h3></div><button class="copy" type="button" data-target="p7">Copy</button></header><p class="use">A sceptical editor challenges your claimed contribution.</p><pre id="p7">Act as a sceptical editor. Challenge the claimed contribution against the supplied literature and findings. List the strongest objections, evidence needed and a revised defensible claim.
+
+Contribution statement, key findings and closest studies:
+[PASTE]</pre></article><article class="prompt" data-cat="plan" data-search="check narrative coherence finds broken logic and sections that do not serve the central claim. 01-storyline-p03 review my outline for broken logic, repetition, missing steps and sections that do not serve the central claim. return a revised outline with reasons for each structural change.
+
+outline:
+[paste]"><header><div><span class="pcode">01-Storyline-P03</span><h3>Check narrative coherence</h3></div><button class="copy" type="button" data-target="p8">Copy</button></header><p class="use">Finds broken logic and sections that do not serve the central claim.</p><pre id="p8">Review my outline for broken logic, repetition, missing steps and sections that do not serve the central claim. Return a revised outline with reasons for each structural change.
+
+Outline:
+[PASTE]</pre></article></section><section class="prompt-phase" data-cat="develop" id="develop"><h2>02 Develop Manuscript <span class="n">18</span></h2><p class="lede">Section-by-section prompts that review and refine text you have already written.</p><article class="prompt" data-cat="develop" data-search="generate accurate titles title options that reflect the study without hype. 02-title-p01 propose ten concise, informative titles that accurately reflect the topic, design, population or context and main contribution. avoid hype, ambiguity and claims beyond the evidence. then recommend the two strongest titles for [journal name] and explain why.
+
+abstract:
+[paste]"><header><div><span class="pcode">02-Title-P01</span><h3>Generate accurate titles</h3></div><button class="copy" type="button" data-target="p9">Copy</button></header><p class="use">Title options that reflect the study without hype.</p><pre id="p9">Propose ten concise, informative titles that accurately reflect the topic, design, population or context and main contribution. Avoid hype, ambiguity and claims beyond the evidence. Then recommend the two strongest titles for [JOURNAL NAME] and explain why.
 
 Abstract:
-[PASTE ABSTRACT]</pre></article><article class="prompt" data-cat="submission"><header><h3>AI disclosure statement</h3><button class="copy" type="button" data-target="p13">Copy</button></header><p class="use">An accurate, concise disclosure.</p><pre id="p13">Write a short AI-use disclosure statement for a journal manuscript.
-Facts:
-- Tool(s) used: [TOOL AND VERSION]
-- Purpose: [e.g., language editing and readability of selected sections]
-- Sections affected: [SECTIONS]
-- Authors reviewed and edited all output and take full responsibility.
-Keep it under 70 words and neutral in tone.</pre></article><article class="prompt" data-cat="review"><header><h3>Journal-fit evaluator</h3><button class="copy" type="button" data-target="p14">Copy</button></header><p class="use">Review perspective 1 of 5: is the manuscript suitable for the target journal?</p><pre id="p14">Act as the editor-in-chief of [JOURNAL NAME]. Read the journal&#x27;s aims and scope below and my abstract.
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="evaluate title quality scores your current title and suggests alternatives. 02-title-p02 score my title for accuracy, specificity, discoverability, readability and fit with the target journal. explain weaknesses and provide five improved alternatives.
+
+title and abstract:
+[paste]"><header><div><span class="pcode">02-Title-P02</span><h3>Evaluate title quality</h3></div><button class="copy" type="button" data-target="p10">Copy</button></header><p class="use">Scores your current title and suggests alternatives.</p><pre id="p10">Score my title for accuracy, specificity, discoverability, readability and fit with the target journal. Explain weaknesses and provide five improved alternatives.
+
+Title and abstract:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="optimise keywords indexing-friendly keywords that do not repeat the title. 02-title-p03 recommend 5–8 indexing-friendly keywords not unnecessarily duplicated in the title. explain how each keyword supports discoverability and flag terms requiring field-specific verification.
+
+title, abstract and current keywords:
+[paste]"><header><div><span class="pcode">02-Title-P03</span><h3>Optimise keywords</h3></div><button class="copy" type="button" data-target="p11">Copy</button></header><p class="use">Indexing-friendly keywords that do not repeat the title.</p><pre id="p11">Recommend 5–8 indexing-friendly keywords not unnecessarily duplicated in the title. Explain how each keyword supports discoverability and flag terms requiring field-specific verification.
+
+Title, abstract and current keywords:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="strengthen an existing abstract revises your abstract and logs every change. 02-abstract-p02 critically revise my abstract for completeness, clarity, internal consistency and journal fit. preserve all findings and return the revised abstract plus a concise change log. respect [word limit].
+
+abstract:
+[paste]"><header><div><span class="pcode">02-Abstract-P02</span><h3>Strengthen an existing abstract</h3></div><button class="copy" type="button" data-target="p12">Copy</button></header><p class="use">Revises your abstract and logs every change.</p><pre id="p12">Critically revise my abstract for completeness, clarity, internal consistency and journal fit. Preserve all findings and return the revised abstract plus a concise change log. Respect [WORD LIMIT].
+
+Abstract:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="check abstract–manuscript alignment finds numbers or claims in the abstract that do not match the paper. 02-abstract-p03 compare the abstract with the manuscript. identify claims, numbers, methods or conclusions that are missing, inconsistent or overstated, then propose exact corrections.
+
+abstract:
+[paste]
+
+methods, results and conclusion:
+[paste]"><header><div><span class="pcode">02-Abstract-P03</span><h3>Check abstract–manuscript alignment</h3></div><button class="copy" type="button" data-target="p13">Copy</button></header><p class="use">Finds numbers or claims in the abstract that do not match the paper.</p><pre id="p13">Compare the abstract with the manuscript. Identify claims, numbers, methods or conclusions that are missing, inconsistent or overstated, then propose exact corrections.
+
+Abstract:
+[PASTE]
+
+Methods, results and conclusion:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="diagnose introduction logic maps each paragraph&#x27;s job and the weak transitions. 02-introduction-p02 map each paragraph of my introduction to its function. identify weak transitions, unsupported claims, excessive background and an unclear gap, then propose a revised paragraph sequence.
+
+introduction:
+[paste]"><header><div><span class="pcode">02-Introduction-P02</span><h3>Diagnose introduction logic</h3></div><button class="copy" type="button" data-target="p14">Copy</button></header><p class="use">Maps each paragraph&#x27;s job and the weak transitions.</p><pre id="p14">Map each paragraph of my introduction to its function. Identify weak transitions, unsupported claims, excessive background and an unclear gap, then propose a revised paragraph sequence.
+
+Introduction:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="sharpen the research gap makes the gap specific, justified and linked to your study. 02-introduction-p03 rewrite the gap paragraph so it distinguishes what is known, what remains unresolved, why the gap matters and how this study addresses it. do not imply that no research exists unless verified. keep every citation exactly as given.
+
+gap paragraph:
+[paste]"><header><div><span class="pcode">02-Introduction-P03</span><h3>Sharpen the research gap</h3></div><button class="copy" type="button" data-target="p15">Copy</button></header><p class="use">Makes the gap specific, justified and linked to your study.</p><pre id="p15">Rewrite the gap paragraph so it distinguishes what is known, what remains unresolved, why the gap matters and how this study addresses it. Do not imply that no research exists unless verified. Keep every citation exactly as given.
+
+Gap paragraph:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="synthesize evidence by theme turns source-by-source summaries into a critical synthesis. 02-literature-p01 organise the supplied verified sources into meaningful themes. compare agreements, contradictions, methods and limitations, then draft a critical synthesis rather than a source-by-source summary. keep every citation exactly as given and do not add new sources.
+
+literature review paragraphs or source notes:
+[paste]"><header><div><span class="pcode">02-Literature-P01</span><h3>Synthesize evidence by theme</h3></div><button class="copy" type="button" data-target="p16">Copy</button></header><p class="use">Turns source-by-source summaries into a critical synthesis.</p><pre id="p16">Organise the supplied verified sources into meaningful themes. Compare agreements, contradictions, methods and limitations, then draft a critical synthesis rather than a source-by-source summary. Keep every citation exactly as given and do not add new sources.
+
+Literature review paragraphs or source notes:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="identify evidence gaps separates genuine gaps from topics you have under-cited. 02-literature-p03 using only the supplied literature, identify conceptual, methodological, population, context and evidence gaps. distinguish genuine gaps from topics that are merely under-cited in my draft.
+
+literature notes or review section:
+[paste]"><header><div><span class="pcode">02-Literature-P03</span><h3>Identify evidence gaps</h3></div><button class="copy" type="button" data-target="p17">Copy</button></header><p class="use">Separates genuine gaps from topics you have under-cited.</p><pre id="p17">Using only the supplied literature, identify conceptual, methodological, population, context and evidence gaps. Distinguish genuine gaps from topics that are merely under-cited in my draft.
+
+Literature notes or review section:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="audit methodological completeness a reviewer&#x27;s view of what is missing for replication. 02-methodology-p02 review my methodology as a peer reviewer. identify missing information affecting reproducibility, validity, ethics or interpretation and organise recommendations into critical and optional revisions.
+
+methods:
+[paste]"><header><div><span class="pcode">02-Methodology-P02</span><h3>Audit methodological completeness</h3></div><button class="copy" type="button" data-target="p18">Copy</button></header><p class="use">A reviewer&#x27;s view of what is missing for replication.</p><pre id="p18">Review my methodology as a peer reviewer. Identify missing information affecting reproducibility, validity, ethics or interpretation and organise recommendations into critical and optional revisions.
+
+Methods:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="align methods with objectives checks that the design can answer every objective. 02-methodology-p03 create an alignment table connecting each objective or question to data, variables, sampling, instrument, analysis and expected output. flag any objective that the design cannot answer.
+
+objectives and methods:
+[paste]"><header><div><span class="pcode">02-Methodology-P03</span><h3>Align methods with objectives</h3></div><button class="copy" type="button" data-target="p19">Copy</button></header><p class="use">Checks that the design can answer every objective.</p><pre id="p19">Create an alignment table connecting each objective or question to data, variables, sampling, instrument, analysis and expected output. Flag any objective that the design cannot answer.
+
+Objectives and methods:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="structure the results narrative factual results in the order of the research questions. 02-results-p01 organise my verified results according to the research questions. draft a factual results narrative that highlights essential patterns without interpretation or duplication of tables.
+
+research questions and results:
+[paste]"><header><div><span class="pcode">02-Results-P01</span><h3>Structure the results narrative</h3></div><button class="copy" type="button" data-target="p20">Copy</button></header><p class="use">Factual results in the order of the research questions.</p><pre id="p20">Organise my verified results according to the research questions. Draft a factual results narrative that highlights essential patterns without interpretation or duplication of tables.
+
+Research questions and results:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="improve statistical reporting checks completeness and consistency of statistics. 02-results-p02 check the supplied results for complete and consistent statistical reporting, including sample sizes, estimates, uncertainty and exact values where appropriate. do not calculate or invent missing statistics.
+
+results section and tables:
+[paste]"><header><div><span class="pcode">02-Results-P02</span><h3>Improve statistical reporting</h3></div><button class="copy" type="button" data-target="p21">Copy</button></header><p class="use">Checks completeness and consistency of statistics.</p><pre id="p21">Check the supplied results for complete and consistent statistical reporting, including sample sizes, estimates, uncertainty and exact values where appropriate. Do not calculate or invent missing statistics.
+
+Results section and tables:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="calibrate interpretation and claims finds causal overreach and unsupported generalisation. 02-discussion-p02 review my discussion for causal overreach, unsupported generalisation, selective interpretation and claims that exceed the design or data. provide precise, appropriately qualified revisions.
+
+study design:
+[paste]
+
+discussion:
+[paste]"><header><div><span class="pcode">02-Discussion-P02</span><h3>Calibrate interpretation and claims</h3></div><button class="copy" type="button" data-target="p22">Copy</button></header><p class="use">Finds causal overreach and unsupported generalisation.</p><pre id="p22">Review my discussion for causal overreach, unsupported generalisation, selective interpretation and claims that exceed the design or data. Provide precise, appropriately qualified revisions.
+
+Study design:
+[PASTE]
+
+Discussion:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="integrate conflicting evidence explains agreement and disagreement with other studies fairly. 02-discussion-p03 compare my findings with the supplied supporting and conflicting studies. develop balanced explanations for convergence and divergence without dismissing contradictory evidence.
+
+key findings:
+[paste]
+
+supporting and conflicting studies:
+[paste]"><header><div><span class="pcode">02-Discussion-P03</span><h3>Integrate conflicting evidence</h3></div><button class="copy" type="button" data-target="p23">Copy</button></header><p class="use">Explains agreement and disagreement with other studies fairly.</p><pre id="p23">Compare my findings with the supplied supporting and conflicting studies. Develop balanced explanations for convergence and divergence without dismissing contradictory evidence.
+
+Key findings:
+[PASTE]
+
+Supporting and conflicting studies:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="draft a proportionate conclusion a conclusion that matches the strength of your design. 02-conclusion-p01 write a concise conclusion that answers the objective, states the principal contribution and practical or scholarly implications, while remaining proportionate to the design and results. use only the supplied text.
+
+objectives, key findings and current conclusion:
+[paste]"><header><div><span class="pcode">02-Conclusion-P01</span><h3>Draft a proportionate conclusion</h3></div><button class="copy" type="button" data-target="p24">Copy</button></header><p class="use">A conclusion that matches the strength of your design.</p><pre id="p24">Write a concise conclusion that answers the objective, states the principal contribution and practical or scholarly implications, while remaining proportionate to the design and results. Use only the supplied text.
+
+Objectives, key findings and current conclusion:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="strengthen limitations and future work constructive limitations and specific future research. 02-conclusion-p03 rewrite the limitations constructively, explaining their likely effect on interpretation and transferability. derive specific future research priorities without using generic statements.
+
+limitations paragraph:
+[paste]"><header><div><span class="pcode">02-Conclusion-P03</span><h3>Strengthen limitations and future work</h3></div><button class="copy" type="button" data-target="p25">Copy</button></header><p class="use">Constructive limitations and specific future research.</p><pre id="p25">Rewrite the limitations constructively, explaining their likely effect on interpretation and transferability. Derive specific future research priorities without using generic statements.
+
+Limitations paragraph:
+[PASTE]</pre></article><article class="prompt" data-cat="develop" data-search="draft publication-ready captions self-contained captions for tables and figures. 02-tables-p02 write concise, self-contained captions for the supplied tables and figures. define abbreviations and symbols, describe the content accurately and avoid interpreting results in the caption.
+
+tables and figures with current captions:
+[paste]"><header><div><span class="pcode">02-Tables-P02</span><h3>Draft publication-ready captions</h3></div><button class="copy" type="button" data-target="p26">Copy</button></header><p class="use">Self-contained captions for tables and figures.</p><pre id="p26">Write concise, self-contained captions for the supplied tables and figures. Define abbreviations and symbols, describe the content accurately and avoid interpreting results in the caption.
+
+Tables and figures with current captions:
+[PASTE]</pre></article></section><section class="prompt-phase" data-cat="quality" id="quality"><h2>03 Strengthen Quality <span class="n">16</span></h2><p class="lede">Check alignment, evidence, citations and reporting, and review the manuscript from five perspectives.</p><article class="prompt" data-cat="quality" data-search="run a full alignment audit mismatches from title to conclusion, with the smallest fix for each. 03-alignment-p01 create an alignment matrix for title, abstract, gap, objectives, methods, results, discussion and conclusion. identify every mismatch and propose the smallest defensible correction.
+
+manuscript:
+[paste]"><header><div><span class="pcode">03-Alignment-P01</span><h3>Run a full alignment audit</h3></div><button class="copy" type="button" data-target="p27">Copy</button></header><p class="use">Mismatches from title to conclusion, with the smallest fix for each.</p><pre id="p27">Create an alignment matrix for title, abstract, gap, objectives, methods, results, discussion and conclusion. Identify every mismatch and propose the smallest defensible correction.
+
+Manuscript:
+[PASTE]</pre></article><article class="prompt" data-cat="quality" data-search="trace claims to evidence maps every major claim to its results and references. 03-alignment-p02 extract the manuscript&#x27;s major claims and map each to supporting results and verified references. flag unsupported, duplicated, contradictory or overextended claims.
+
+manuscript:
+[paste]"><header><div><span class="pcode">03-Alignment-P02</span><h3>Trace claims to evidence</h3></div><button class="copy" type="button" data-target="p28">Copy</button></header><p class="use">Maps every major claim to its results and references.</p><pre id="p28">Extract the manuscript&#x27;s major claims and map each to supporting results and verified references. Flag unsupported, duplicated, contradictory or overextended claims.
+
+Manuscript:
+[PASTE]</pre></article><article class="prompt" data-cat="quality" data-search="check terminology and numbers catches terminology drift and inconsistent values. 03-alignment-p03 audit terminology, abbreviations, sample sizes, dates, variable names and numerical values across all sections, tables and figures. report inconsistencies without guessing the correct value.
+
+manuscript:
+[paste]"><header><div><span class="pcode">03-Alignment-P03</span><h3>Check terminology and numbers</h3></div><button class="copy" type="button" data-target="p29">Copy</button></header><p class="use">Catches terminology drift and inconsistent values.</p><pre id="p29">Audit terminology, abbreviations, sample sizes, dates, variable names and numerical values across all sections, tables and figures. Report inconsistencies without guessing the correct value.
+
+Manuscript:
+[PASTE]</pre></article><article class="prompt" data-cat="quality" data-search="simulate an editorial review the handling editor&#x27;s proceed, revise or reject decision. 03-review-p01 act as the handling editor of [journal name]. assess fit, originality, methodological credibility, clarity, significance and reporting quality, then recommend proceed, revise or reject with reasons.
+
+abstract, key methods and key findings:
+[paste]"><header><div><span class="pcode">03-Review-P01</span><h3>Simulate an editorial review</h3></div><button class="copy" type="button" data-target="p30">Copy</button></header><p class="use">The handling editor&#x27;s proceed, revise or reject decision.</p><pre id="p30">Act as the handling editor of [JOURNAL NAME]. Assess fit, originality, methodological credibility, clarity, significance and reporting quality, then recommend proceed, revise or reject with reasons.
+
+Abstract, key methods and key findings:
+[PASTE]</pre></article><article class="prompt" data-cat="quality" data-search="simulate a rigorous peer review a full constructive review report. 03-review-p02 write a constructive peer-review report with summary, major issues, minor issues and recommendation. prioritise issues that affect validity, interpretation, transparency or contribution.
+
+manuscript or detailed summary:
+[paste]"><header><div><span class="pcode">03-Review-P02</span><h3>Simulate a rigorous peer review</h3></div><button class="copy" type="button" data-target="p31">Copy</button></header><p class="use">A full constructive review report.</p><pre id="p31">Write a constructive peer-review report with summary, major issues, minor issues and recommendation. Prioritise issues that affect validity, interpretation, transparency or contribution.
+
+Manuscript or detailed summary:
+[PASTE]</pre></article><article class="prompt" data-cat="quality" data-search="create a revision priority plan turns weaknesses into a prioritised action list. 03-review-p03 convert the manuscript weaknesses into a prioritised action plan using critical, important and enhancement levels. for each item, state the location, problem, action and evidence needed.
+
+review comments or list of weaknesses:
+[paste]"><header><div><span class="pcode">03-Review-P03</span><h3>Create a revision priority plan</h3></div><button class="copy" type="button" data-target="p32">Copy</button></header><p class="use">Turns weaknesses into a prioritised action list.</p><pre id="p32">Convert the manuscript weaknesses into a prioritised action plan using Critical, Important and Enhancement levels. For each item, state the location, problem, action and evidence needed.
+
+Review comments or list of weaknesses:
+[PASTE]</pre></article><article class="prompt" data-cat="quality" data-search="journal-fit evaluator review perspective 1 of 5: is the manuscript suitable for the target journal? w-05 act as the editor-in-chief of [journal name]. read the journal&#x27;s aims and scope below and my abstract.
+1. is this manuscript within scope? quote the scope statement that supports or rules it out.
+2. would readers of this journal care about the contribution? why or why not?
+3. name the single biggest risk of desk rejection.
+do not rewrite the abstract.
+
+aims and scope:
+[paste]
+abstract:
+[paste]"><header><div><span class="pcode">W-05</span><h3>Journal-fit evaluator</h3></div><button class="copy" type="button" data-target="p33">Copy</button></header><p class="use">Review perspective 1 of 5: is the manuscript suitable for the target journal?</p><pre id="p33">Act as the editor-in-chief of [JOURNAL NAME]. Read the journal&#x27;s aims and scope below and my abstract.
 1. Is this manuscript within scope? Quote the scope statement that supports or rules it out.
 2. Would readers of this journal care about the contribution? Why or why not?
 3. Name the single biggest risk of desk rejection.
@@ -127,36 +297,192 @@ Do not rewrite the abstract.
 Aims and scope:
 [PASTE]
 Abstract:
-[PASTE]</pre></article><article class="prompt" data-cat="review"><header><h3>Methodology reviewer</h3><button class="copy" type="button" data-target="p15">Copy</button></header><p class="use">Review perspective 2 of 5: are the methods sound, appropriate and sufficiently described?</p><pre id="p15">Act as a methodology reviewer in [FIELD]. Read my Methods section.
+[PASTE]</pre></article><article class="prompt" data-cat="quality" data-search="methodology reviewer review perspective 2 of 5: are the methods sound, appropriate and sufficiently described? w-06 act as a methodology reviewer in [field]. read my methods section.
+list (1) anything another researcher would need in order to replicate the study but cannot find, (2) design choices that need justification, (3) threats to validity i have not acknowledged.
+do not suggest analyses i did not do unless you label them as optional.
+
+methods:
+[paste]"><header><div><span class="pcode">W-06</span><h3>Methodology reviewer</h3></div><button class="copy" type="button" data-target="p34">Copy</button></header><p class="use">Review perspective 2 of 5: are the methods sound, appropriate and sufficiently described?</p><pre id="p34">Act as a methodology reviewer in [FIELD]. Read my Methods section.
 List (1) anything another researcher would need in order to replicate the study but cannot find, (2) design choices that need justification, (3) threats to validity I have not acknowledged.
 Do not suggest analyses I did not do unless you label them as optional.
 
 Methods:
-[PASTE]</pre></article><article class="prompt" data-cat="review"><header><h3>Evidence and argument reviewer</h3><button class="copy" type="button" data-target="p16">Copy</button></header><p class="use">Review perspective 3 of 5: do the results support the claims and advance the field?</p><pre id="p16">Act as a reviewer checking the argument of my manuscript.
+[PASTE]</pre></article><article class="prompt" data-cat="quality" data-search="evidence and argument reviewer review perspective 3 of 5: do the results support the claims and advance the field? w-07 act as a reviewer checking the argument of my manuscript.
+for each main claim in the discussion and conclusion below, state whether it is supported by the results given, partly supported, or not supported. quote the claim and the result.
+flag any claim of causation from correlational data.
+
+results:
+[paste]
+discussion and conclusion:
+[paste]"><header><div><span class="pcode">W-07</span><h3>Evidence and argument reviewer</h3></div><button class="copy" type="button" data-target="p35">Copy</button></header><p class="use">Review perspective 3 of 5: do the results support the claims and advance the field?</p><pre id="p35">Act as a reviewer checking the argument of my manuscript.
 For each main claim in the Discussion and Conclusion below, state whether it is supported by the results given, partly supported, or not supported. Quote the claim and the result.
 Flag any claim of causation from correlational data.
 
 Results:
 [PASTE]
 Discussion and Conclusion:
-[PASTE]</pre></article><article class="prompt" data-cat="review"><header><h3>Academic language editor</h3><button class="copy" type="button" data-target="p17">Copy</button></header><p class="use">Review perspective 4 of 5: is the language clear, precise and academically appropriate?</p><pre id="p17">Act as an academic language editor for a Q1 journal in [FIELD].
+[PASTE]</pre></article><article class="prompt" data-cat="quality" data-search="academic language editor review perspective 4 of 5: is the language clear, precise and academically appropriate? w-08 act as an academic language editor for a q1 journal in [field].
+list sentences in the text below that are unclear, wordy, imprecise or too informal, with a suggested revision for each.
+do not change technical terms, numbers or citations. use [british/american] english.
+
+text:
+[paste]"><header><div><span class="pcode">W-08</span><h3>Academic language editor</h3></div><button class="copy" type="button" data-target="p36">Copy</button></header><p class="use">Review perspective 4 of 5: is the language clear, precise and academically appropriate?</p><pre id="p36">Act as an academic language editor for a Q1 journal in [FIELD].
 List sentences in the text below that are unclear, wordy, imprecise or too informal, with a suggested revision for each.
 Do not change technical terms, numbers or citations. Use [British/American] English.
 
 Text:
-[PASTE]</pre></article><article class="prompt" data-cat="review"><header><h3>Pre-submission quality auditor</h3><button class="copy" type="button" data-target="p18">Copy</button></header><p class="use">Review perspective 5 of 5: are all key requirements met for a strong submission?</p><pre id="p18">Act as a pre-submission auditor for [JOURNAL NAME]. Using the author guidelines below, check my manuscript package for:
+[PASTE]</pre></article><article class="prompt" data-cat="quality" data-search="pre-submission quality auditor review perspective 5 of 5: are all key requirements met for a strong submission? w-09 act as a pre-submission auditor for [journal name]. using the author guidelines below, check my manuscript package for:
+word limits, required sections and statements (ethics, funding, conflicts, data availability, ai disclosure, credit), reference style, figure and table requirements, and anonymisation.
+return a checklist marked done / missing / unclear.
+
+author guidelines:
+[paste]
+manuscript summary and statements:
+[paste]"><header><div><span class="pcode">W-09</span><h3>Pre-submission quality auditor</h3></div><button class="copy" type="button" data-target="p37">Copy</button></header><p class="use">Review perspective 5 of 5: are all key requirements met for a strong submission?</p><pre id="p37">Act as a pre-submission auditor for [JOURNAL NAME]. Using the author guidelines below, check my manuscript package for:
 word limits, required sections and statements (ethics, funding, conflicts, data availability, AI disclosure, CRediT), reference style, figure and table requirements, and anonymisation.
 Return a checklist marked Done / Missing / Unclear.
 
 Author guidelines:
 [PASTE]
 Manuscript summary and statements:
-[PASTE]</pre></article><article class="prompt" data-cat="references"><header><h3>Reference consistency check</h3><button class="copy" type="button" data-target="p19">Copy</button></header><p class="use">Checks formatting only; it does not confirm that sources exist.</p><pre id="p19">Check the reference list below for formatting consistency with [APA 7 / IEEE / Vancouver].
+[PASTE]</pre></article><article class="prompt" data-cat="quality" data-search="audit citation support checks that each cited source really supports the claim. 03-integrity-p01 for each citation-dependent claim, assess whether the supplied source directly supports it. flag citation stretching, missing evidence, secondary citation and statements requiring source verification.
+
+paragraph with citations:
+[paste]
+
+relevant text from each cited source:
+[paste]"><header><div><span class="pcode">03-Integrity-P01</span><h3>Audit citation support</h3></div><button class="copy" type="button" data-target="p38">Copy</button></header><p class="use">Checks that each cited source really supports the claim.</p><pre id="p38">For each citation-dependent claim, assess whether the supplied source directly supports it. Flag citation stretching, missing evidence, secondary citation and statements requiring source verification.
+
+Paragraph with citations:
+[PASTE]
+
+Relevant text from each cited source:
+[PASTE]</pre></article><article class="prompt" data-cat="quality" data-search="check paraphrasing integrity finds phrasing too close to the source or distorted meaning. 03-integrity-p02 compare my paragraph with the supplied source text. identify overly close phrasing or distorted meaning, then propose an original, accurate synthesis with correct attribution placeholders.
+
+my paragraph:
+[paste]
+
+source text:
+[paste]"><header><div><span class="pcode">03-Integrity-P02</span><h3>Check paraphrasing integrity</h3></div><button class="copy" type="button" data-target="p39">Copy</button></header><p class="use">Finds phrasing too close to the source or distorted meaning.</p><pre id="p39">Compare my paragraph with the supplied source text. Identify overly close phrasing or distorted meaning, then propose an original, accurate synthesis with correct attribution placeholders.
+
+My paragraph:
+[PASTE]
+
+Source text:
+[PASTE]</pre></article><article class="prompt" data-cat="quality" data-search="prepare an ai-use integrity check checks your ai workflow against confidentiality and policy risks. 03-integrity-p03 review my declared ai-assisted workflow for confidentiality, authorship, accountability, disclosure and journal-policy risks. produce a compliance checklist; do not assume the journal permits any specific use.
+
+how i used ai (tools, tasks, sections):
+[paste]
+
+journal ai policy text:
+[paste]"><header><div><span class="pcode">03-Integrity-P03</span><h3>Prepare an AI-use integrity check</h3></div><button class="copy" type="button" data-target="p40">Copy</button></header><p class="use">Checks your AI workflow against confidentiality and policy risks.</p><pre id="p40">Review my declared AI-assisted workflow for confidentiality, authorship, accountability, disclosure and journal-policy risks. Produce a compliance checklist; do not assume the journal permits any specific use.
+
+How I used AI (tools, tasks, sections):
+[PASTE]
+
+Journal AI policy text:
+[PASTE]</pre></article><article class="prompt" data-cat="quality" data-search="reference consistency check checks formatting only; it does not confirm that sources exist. w-10 check the reference list below for formatting consistency with [apa 7 / ieee / vancouver].
+list inconsistencies only (author format, italics, capitalisation, missing doi, year placement).
+do not invent or correct any bibliographic details; mark uncertain items for manual checking.
+
+references:
+[paste list]"><header><div><span class="pcode">W-10</span><h3>Reference consistency check</h3></div><button class="copy" type="button" data-target="p41">Copy</button></header><p class="use">Checks formatting only; it does not confirm that sources exist.</p><pre id="p41">Check the reference list below for formatting consistency with [APA 7 / IEEE / Vancouver].
 List inconsistencies only (author format, italics, capitalisation, missing DOI, year placement).
 Do not invent or correct any bibliographic details; mark uncertain items for manual checking.
 
 References:
-[PASTE LIST]</pre></article>
+[PASTE LIST]</pre></article><article class="prompt" data-cat="quality" data-search="audit against a supplied checklist item-by-item check against consort, prisma, strobe and others. 03-reporting-p02 compare the manuscript with the reporting checklist i provide. return item number, requirement, manuscript location, status and exact action required for incomplete items.
+
+reporting checklist:
+[paste]
+
+manuscript:
+[paste]"><header><div><span class="pcode">03-Reporting-P02</span><h3>Audit against a supplied checklist</h3></div><button class="copy" type="button" data-target="p42">Copy</button></header><p class="use">Item-by-item check against CONSORT, PRISMA, STROBE and others.</p><pre id="p42">Compare the manuscript with the reporting checklist I provide. Return item number, requirement, manuscript location, status and exact action required for incomplete items.
+
+Reporting checklist:
+[PASTE]
+
+Manuscript:
+[PASTE]</pre></article></section><section class="prompt-phase" data-cat="journal" id="journal"><h2>04 Select Journal <span class="n">1</span></h2><p class="lede">Test fit with your target journal before you submit.</p><article class="prompt" data-cat="journal" data-search="evaluate one target journal fit strengths, risks and positioning changes for one journal. 04-journal-p02 assess my manuscript&#x27;s fit with [journal name] based on its supplied aims, scope and recent article information. identify fit strengths, risks and positioning changes needed before submission.
+
+aims and scope, and titles of recent articles:
+[paste]
+
+abstract:
+[paste]"><header><div><span class="pcode">04-Journal-P02</span><h3>Evaluate one target journal</h3></div><button class="copy" type="button" data-target="p43">Copy</button></header><p class="use">Fit strengths, risks and positioning changes for one journal.</p><pre id="p43">Assess my manuscript&#x27;s fit with [JOURNAL NAME] based on its supplied aims, scope and recent article information. Identify fit strengths, risks and positioning changes needed before submission.
+
+Aims and scope, and titles of recent articles:
+[PASTE]
+
+Abstract:
+[PASTE]</pre></article></section><section class="prompt-phase" data-cat="submit" id="submit"><h2>05 Prepare &amp; Submit <span class="n">5</span></h2><p class="lede">Prepare the cover letter, highlights, summary, disclosure and a desk-rejection check.</p><article class="prompt" data-cat="submit" data-search="draft a journal-specific cover letter a concise letter with no flattery or unsupported claims. 05-submission-p01 draft a concise cover letter to the editor of [journal name] stating manuscript title, article type, problem, principal verified contribution, journal fit, originality and required declarations. avoid flattery and unsupported claims. maximum 250 words.
+
+title, article type and abstract:
+[paste]"><header><div><span class="pcode">05-Submission-P01</span><h3>Draft a journal-specific cover letter</h3></div><button class="copy" type="button" data-target="p44">Copy</button></header><p class="use">A concise letter with no flattery or unsupported claims.</p><pre id="p44">Draft a concise cover letter to the editor of [JOURNAL NAME] stating manuscript title, article type, problem, principal verified contribution, journal fit, originality and required declarations. Avoid flattery and unsupported claims. Maximum 250 words.
+
+Title, article type and abstract:
+[PASTE]</pre></article><article class="prompt" data-cat="submit" data-search="prepare highlights and key points specific highlights within the character limit. 05-submission-p02 create [number] journal highlights within [character limit] from the verified findings. make each point specific, non-overlapping and understandable without overstating impact.
+
+abstract and key findings:
+[paste]"><header><div><span class="pcode">05-Submission-P02</span><h3>Prepare highlights and key points</h3></div><button class="copy" type="button" data-target="p45">Copy</button></header><p class="use">Specific highlights within the character limit.</p><pre id="p45">Create [NUMBER] journal highlights within [CHARACTER LIMIT] from the verified findings. Make each point specific, non-overlapping and understandable without overstating impact.
+
+Abstract and key findings:
+[PASTE]</pre></article><article class="prompt" data-cat="submit" data-search="draft a plain-language summary a jargon-free summary that keeps the uncertainty. 05-submission-p03 write a plain-language summary for a non-specialist reader covering why the study matters, what was done, what was found and what it means. preserve uncertainty and avoid jargon.
+
+abstract:
+[paste]"><header><div><span class="pcode">05-Submission-P03</span><h3>Draft a plain-language summary</h3></div><button class="copy" type="button" data-target="p46">Copy</button></header><p class="use">A jargon-free summary that keeps the uncertainty.</p><pre id="p46">Write a plain-language summary for a non-specialist reader covering why the study matters, what was done, what was found and what it means. Preserve uncertainty and avoid jargon.
+
+Abstract:
+[PASTE]</pre></article><article class="prompt" data-cat="submit" data-search="ai disclosure statement an accurate, concise disclosure. w-11 write a short ai-use disclosure statement for a journal manuscript.
+facts:
+- tool(s) used: [tool and version]
+- purpose: [e.g., language editing and readability of selected sections]
+- sections affected: [sections]
+- authors reviewed and edited all output and take full responsibility.
+keep it under 70 words and neutral in tone."><header><div><span class="pcode">W-11</span><h3>AI disclosure statement</h3></div><button class="copy" type="button" data-target="p47">Copy</button></header><p class="use">An accurate, concise disclosure.</p><pre id="p47">Write a short AI-use disclosure statement for a journal manuscript.
+Facts:
+- Tool(s) used: [TOOL AND VERSION]
+- Purpose: [e.g., language editing and readability of selected sections]
+- Sections affected: [SECTIONS]
+- Authors reviewed and edited all output and take full responsibility.
+Keep it under 70 words and neutral in tone.</pre></article><article class="prompt" data-cat="submit" data-search="simulate a desk-rejection screen the five most likely desk-rejection risks and how to reduce them. 05-screening-p02 act as a time-pressured editor of [journal name] screening the submission. identify the five most likely desk-rejection risks and the exact revisions that would reduce each risk.
+
+aims and scope:
+[paste]
+
+title, abstract and cover letter:
+[paste]"><header><div><span class="pcode">05-Screening-P02</span><h3>Simulate a desk-rejection screen</h3></div><button class="copy" type="button" data-target="p48">Copy</button></header><p class="use">The five most likely desk-rejection risks and how to reduce them.</p><pre id="p48">Act as a time-pressured editor of [JOURNAL NAME] screening the submission. Identify the five most likely desk-rejection risks and the exact revisions that would reduce each risk.
+
+Aims and scope:
+[PASTE]
+
+Title, abstract and cover letter:
+[PASTE]</pre></article></section><section class="prompt-phase" data-cat="respond" id="respond"><h2>06 Respond &amp; Resubmit <span class="n">2</span></h2><p class="lede">Reply to reviewers clearly and courteously.</p><article class="prompt" data-cat="respond" data-search="draft point-by-point responses acknowledgement, action, rationale and location for each comment. 06-revision-p03 draft respectful point-by-point responses using: acknowledgement, action taken, rationale and exact location. quote each supplied comment accurately and avoid defensive language. do not claim a revision has been made unless i have described it.
+
+reviewer comments:
+[paste]
+
+changes i made, with page and line numbers:
+[paste]"><header><div><span class="pcode">06-Revision-P03</span><h3>Draft point-by-point responses</h3></div><button class="copy" type="button" data-target="p49">Copy</button></header><p class="use">Acknowledgement, action, rationale and location for each comment.</p><pre id="p49">Draft respectful point-by-point responses using: acknowledgement, action taken, rationale and exact location. Quote each supplied comment accurately and avoid defensive language. Do not claim a revision has been made unless I have described it.
+
+Reviewer comments:
+[PASTE]
+
+Changes I made, with page and line numbers:
+[PASTE]</pre></article><article class="prompt" data-cat="respond" data-search="draft a respectful disagreement when you cannot make a requested change. 06-revision-p05 prepare a concise response when we cannot implement a request. acknowledge the concern, explain the evidence-based reason, offer a reasonable alternative and state any clarifying revision made.
+
+reviewer comment:
+[paste]
+
+why we cannot make the change, and what we did instead:
+[paste]"><header><div><span class="pcode">06-Revision-P05</span><h3>Draft a respectful disagreement</h3></div><button class="copy" type="button" data-target="p50">Copy</button></header><p class="use">When you cannot make a requested change.</p><pre id="p50">Prepare a concise response when we cannot implement a request. Acknowledge the concern, explain the evidence-based reason, offer a reasonable alternative and state any clarifying revision made.
+
+Reviewer comment:
+[PASTE]
+
+Why we cannot make the change, and what we did instead:
+[PASTE]</pre></article></section>
+  <p class="empty" id="prompt-empty" hidden>No prompts match your search. Try another word or choose All.</p>
 </div>
 </main>
 <footer class="site-footer">

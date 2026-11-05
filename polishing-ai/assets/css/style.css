@@ -552,3 +552,13 @@ mark.m-leftover{background:var(--brand);color:#fff;border-radius:2px;cursor:help
 .persp span{color:var(--muted)}
 .secure-note{margin-bottom:2rem}
 .viewer{max-width:min(1100px,calc((100vh - 190px) * 1.7778))}
+
+/* ---------- Prompt library by phase ---------- */
+.prompt-phase{margin-top:2.5rem;scroll-margin-top:84px}
+.prompt-phase h2{font-size:1.6rem}
+.prompt-phase h2 .n{font-family:var(--sans);font-size:.9rem;font-weight:500;color:var(--muted);vertical-align:middle}
+.prompt-phase .lede{font-size:1.05rem;margin-bottom:1rem}
+.prompt header > div{display:flex;flex-direction:column;gap:.15rem}
+.pcode{font-family:var(--sans);font-size:.75rem;font-weight:600;color:var(--brand);letter-spacing:.02em}
+.prompt.configure{border:2px solid var(--brand)}
+.prompt.configure pre{font-family:var(--serif);font-size:1rem}

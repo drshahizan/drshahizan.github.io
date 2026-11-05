@@ -1,13 +1,22 @@
 POLISHING YOUR DRAFT ARTICLE USING AI TOOLS · PROMPT PACK
 Winning Journal Writing Workshop 2026 (UTM & HCMUT)
 
+Paste the setup instruction first, then any prompt, then your own text where it says [PASTE].
 Replace everything in [BRACKETS] with your own details.
-Paste one paragraph or section at a time, and check every change before you accept it.
 Do not paste confidential data or participant information into public AI tools.
 
+================================================================
+STEP 1 · CONFIGURE ONCE
+----------------------------------------------------------------
+Act as a senior academic researcher, journal editor and peer reviewer in [FIELD]. I am preparing a [ARTICLE TYPE] for [TARGET JOURNAL OR JOURNAL LEVEL]. My study examines [TOPIC] using [METHOD] in [CONTEXT]. Use only the manuscript text, verified evidence and references that I provide. Do not fabricate citations, data, results or journal requirements. Clearly label assumptions, weaknesses and items requiring author verification. Preserve my intended meaning and disciplinary terminology. Provide precise, actionable recommendations aligned with ethical scholarly publishing and the target journal's requirements.
+
+
+################################################################
+# POLISH THE LANGUAGE
+################################################################
 
 ================================================================
-1. POLISH WITHOUT CHANGING MEANING
+W-01 · POLISH WITHOUT CHANGING MEANING
 Use it: For a paragraph whose ideas are complete but whose language needs work.
 ----------------------------------------------------------------
 Act as an academic editor for a Q1 journal in [FIELD].
@@ -23,73 +32,31 @@ Paragraph:
 
 
 ================================================================
-2. STRUCTURED ABSTRACT
-Use it: Ensures every essential element of the abstract is present.
+W-02 · HEDGING AND OVERCLAIMING
+Use it: Finds claims stronger than the evidence allows.
 ----------------------------------------------------------------
-Act as the handling editor of [JOURNAL NAME].
-Review my abstract against this structure: background, aim, method, key findings, contribution.
-1. Identify any missing or weak element.
-2. Suggest a revised abstract within [WORD LIMIT] words.
-3. Do not invent results; use only the information in my text.
+Identify every sentence in the text below that makes a claim stronger than the evidence supports (e.g., "proves", "clearly shows", "always").
+For each, suggest a more appropriately hedged version.
+Do not change sentences that are already appropriately cautious.
 
-Abstract:
-[PASTE ABSTRACT]
-
-
-================================================================
-3. ALTERNATIVE TITLES
-Use it: Generates title options to compare.
-----------------------------------------------------------------
-Suggest 8 alternative titles for the article summarised below.
-Mix styles: descriptive, question, and finding-led.
-Each title must be under [N] words and include at least one of these keywords: [KEYWORDS].
-After the list, recommend the 2 strongest titles for [JOURNAL NAME] and explain why.
-
-Summary:
-[PASTE ABSTRACT]
-
-
-================================================================
-4. RESEARCH GAP IN THE INTRODUCTION
-Use it: Makes the gap and contribution explicit.
-----------------------------------------------------------------
-Read my introduction and answer:
-1. What research gap does it claim? Quote the sentence.
-2. Is the gap supported by cited literature, or only asserted?
-3. Are the objectives and contributions stated explicitly?
-Then suggest how to restructure the final two paragraphs so the gap leads directly to the objectives.
-Do not add citations.
-
-Introduction:
+Text:
 [PASTE TEXT]
 
 
 ================================================================
-5. FROM SUMMARY TO SYNTHESIS
-Use it: Rewrites “Author A found… Author B found…” paragraphs.
+W-03 · REMOVE AI-SOUNDING STYLE
+Use it: Strips clichés and repetitive phrasing.
 ----------------------------------------------------------------
-The paragraph below summarises studies one by one.
-Rewrite it as a synthesis organised by theme or argument, not by author.
-Keep every citation exactly as given and do not add new sources.
-Highlight any point where the studies disagree.
+Review the text below for wording that sounds generic or machine-generated: overused words, filler transitions, inflated adjectives and repetitive sentence openings.
+List each instance with a plainer alternative.
+Keep my original sentence structure where possible.
 
-Paragraph:
-[PASTE PARAGRAPH]
+Text:
+[PASTE TEXT]
 
 
 ================================================================
-6. ALIGNMENT CHECK
-Use it: Tests consistency from objectives to conclusions.
-----------------------------------------------------------------
-Below are my research objectives, research questions, main findings and conclusion.
-Build a table that maps each objective to its research question, finding and conclusion.
-Flag any objective without a finding, any finding without an objective, and any conclusion not supported by the findings.
-
-[PASTE SECTIONS]
-
-
-================================================================
-7. REVERSE OUTLINE
+W-04 · REVERSE OUTLINE
 Use it: Reveals the overall flow of the argument.
 ----------------------------------------------------------------
 Summarise each paragraph of the text below in one sentence, numbered.
@@ -102,71 +69,492 @@ Text:
 [PASTE SECTION]
 
 
-================================================================
-8. HEDGING AND OVERCLAIMING
-Use it: Finds claims stronger than the evidence allows.
-----------------------------------------------------------------
-Identify every sentence in the text below that makes a claim stronger than the evidence supports (e.g., "proves", "clearly shows", "always").
-For each, suggest a more appropriately hedged version.
-Do not change sentences that are already appropriately cautious.
-
-Text:
-[PASTE TEXT]
-
+################################################################
+# 01 PLAN & POSITION
+################################################################
 
 ================================================================
-9. REMOVE AI-SOUNDING STYLE
-Use it: Strips clichés and repetitive phrasing.
+01-Positioning-P03 · TEST THE ARTICLE'S FOCUS
+Use it: Checks that the article has one coherent, publishable focus.
 ----------------------------------------------------------------
-Review the text below for wording that sounds generic or machine-generated: overused words, filler transitions, inflated adjectives and repetitive sentence openings.
-List each instance with a plainer alternative.
-Keep my original sentence structure where possible.
+Evaluate whether my proposed article has one coherent and publishable focus. Identify scope creep, competing messages and unnecessary material, then recommend a precise focus statement and boundaries.
 
-Text:
-[PASTE TEXT]
+Article summary or outline:
+[PASTE]
 
 
 ================================================================
-10. DEMANDING REVIEWER SIMULATION
-Use it: Anticipates criticism before submission.
+01-Novelty-P01 · DISTINGUISH NOVELTY FROM SIGNIFICANCE
+Use it: Separates what is new from why it matters.
 ----------------------------------------------------------------
-Act as a critical but fair reviewer for [JOURNAL NAME], a Q1 journal in [FIELD].
-Evaluate the manuscript summary below on: novelty, theoretical contribution, methodological rigour, clarity and fit with the journal scope.
-Give: (1) major concerns, (2) minor concerns, (3) a likely recommendation (accept / minor / major / reject) with justification.
+Separate the study's novelty, theoretical contribution, methodological contribution, empirical contribution and practical significance. Use only the supplied evidence and identify unsupported claims.
 
-Summary:
-[PASTE ABSTRACT + KEY METHOD + KEY FINDINGS]
+Abstract, gap statement and key findings:
+[PASTE]
 
 
 ================================================================
-11. RESPONSE TO REVIEWERS
-Use it: Structures a reply to each reviewer comment.
+01-Novelty-P03 · STRESS-TEST THE CONTRIBUTION
+Use it: A sceptical editor challenges your claimed contribution.
 ----------------------------------------------------------------
-Help me draft a point-by-point response to the reviewer comment below.
-Tone: respectful, concise and confident.
-Structure: thank the reviewer, state what was changed (with page/line placeholders), and explain briefly.
-If I disagree, phrase it politely with evidence.
+Act as a sceptical editor. Challenge the claimed contribution against the supplied literature and findings. List the strongest objections, evidence needed and a revised defensible claim.
 
-Reviewer comment:
-[PASTE COMMENT]
-My planned change or position:
-[DESCRIBE]
+Contribution statement, key findings and closest studies:
+[PASTE]
 
 
 ================================================================
-12. COVER LETTER
-Use it: A first draft to tailor yourself.
+01-Storyline-P03 · CHECK NARRATIVE COHERENCE
+Use it: Finds broken logic and sections that do not serve the central claim.
 ----------------------------------------------------------------
-Draft a cover letter to the editor of [JOURNAL NAME] for the manuscript "[TITLE]".
-Include: the problem addressed, the main contribution in 2 sentences, why it fits the journal scope, confirmation that it is original and not under review elsewhere.
-Maximum 250 words. Avoid exaggerated language.
+Review my outline for broken logic, repetition, missing steps and sections that do not serve the central claim. Return a revised outline with reasons for each structural change.
+
+Outline:
+[PASTE]
+
+
+################################################################
+# 02 DEVELOP MANUSCRIPT
+################################################################
+
+================================================================
+02-Title-P01 · GENERATE ACCURATE TITLES
+Use it: Title options that reflect the study without hype.
+----------------------------------------------------------------
+Propose ten concise, informative titles that accurately reflect the topic, design, population or context and main contribution. Avoid hype, ambiguity and claims beyond the evidence. Then recommend the two strongest titles for [JOURNAL NAME] and explain why.
 
 Abstract:
-[PASTE ABSTRACT]
+[PASTE]
 
 
 ================================================================
-13. AI DISCLOSURE STATEMENT
+02-Title-P02 · EVALUATE TITLE QUALITY
+Use it: Scores your current title and suggests alternatives.
+----------------------------------------------------------------
+Score my title for accuracy, specificity, discoverability, readability and fit with the target journal. Explain weaknesses and provide five improved alternatives.
+
+Title and abstract:
+[PASTE]
+
+
+================================================================
+02-Title-P03 · OPTIMISE KEYWORDS
+Use it: Indexing-friendly keywords that do not repeat the title.
+----------------------------------------------------------------
+Recommend 5–8 indexing-friendly keywords not unnecessarily duplicated in the title. Explain how each keyword supports discoverability and flag terms requiring field-specific verification.
+
+Title, abstract and current keywords:
+[PASTE]
+
+
+================================================================
+02-Abstract-P02 · STRENGTHEN AN EXISTING ABSTRACT
+Use it: Revises your abstract and logs every change.
+----------------------------------------------------------------
+Critically revise my abstract for completeness, clarity, internal consistency and journal fit. Preserve all findings and return the revised abstract plus a concise change log. Respect [WORD LIMIT].
+
+Abstract:
+[PASTE]
+
+
+================================================================
+02-Abstract-P03 · CHECK ABSTRACT–MANUSCRIPT ALIGNMENT
+Use it: Finds numbers or claims in the abstract that do not match the paper.
+----------------------------------------------------------------
+Compare the abstract with the manuscript. Identify claims, numbers, methods or conclusions that are missing, inconsistent or overstated, then propose exact corrections.
+
+Abstract:
+[PASTE]
+
+Methods, results and conclusion:
+[PASTE]
+
+
+================================================================
+02-Introduction-P02 · DIAGNOSE INTRODUCTION LOGIC
+Use it: Maps each paragraph's job and the weak transitions.
+----------------------------------------------------------------
+Map each paragraph of my introduction to its function. Identify weak transitions, unsupported claims, excessive background and an unclear gap, then propose a revised paragraph sequence.
+
+Introduction:
+[PASTE]
+
+
+================================================================
+02-Introduction-P03 · SHARPEN THE RESEARCH GAP
+Use it: Makes the gap specific, justified and linked to your study.
+----------------------------------------------------------------
+Rewrite the gap paragraph so it distinguishes what is known, what remains unresolved, why the gap matters and how this study addresses it. Do not imply that no research exists unless verified. Keep every citation exactly as given.
+
+Gap paragraph:
+[PASTE]
+
+
+================================================================
+02-Literature-P01 · SYNTHESIZE EVIDENCE BY THEME
+Use it: Turns source-by-source summaries into a critical synthesis.
+----------------------------------------------------------------
+Organise the supplied verified sources into meaningful themes. Compare agreements, contradictions, methods and limitations, then draft a critical synthesis rather than a source-by-source summary. Keep every citation exactly as given and do not add new sources.
+
+Literature review paragraphs or source notes:
+[PASTE]
+
+
+================================================================
+02-Literature-P03 · IDENTIFY EVIDENCE GAPS
+Use it: Separates genuine gaps from topics you have under-cited.
+----------------------------------------------------------------
+Using only the supplied literature, identify conceptual, methodological, population, context and evidence gaps. Distinguish genuine gaps from topics that are merely under-cited in my draft.
+
+Literature notes or review section:
+[PASTE]
+
+
+================================================================
+02-Methodology-P02 · AUDIT METHODOLOGICAL COMPLETENESS
+Use it: A reviewer's view of what is missing for replication.
+----------------------------------------------------------------
+Review my methodology as a peer reviewer. Identify missing information affecting reproducibility, validity, ethics or interpretation and organise recommendations into critical and optional revisions.
+
+Methods:
+[PASTE]
+
+
+================================================================
+02-Methodology-P03 · ALIGN METHODS WITH OBJECTIVES
+Use it: Checks that the design can answer every objective.
+----------------------------------------------------------------
+Create an alignment table connecting each objective or question to data, variables, sampling, instrument, analysis and expected output. Flag any objective that the design cannot answer.
+
+Objectives and methods:
+[PASTE]
+
+
+================================================================
+02-Results-P01 · STRUCTURE THE RESULTS NARRATIVE
+Use it: Factual results in the order of the research questions.
+----------------------------------------------------------------
+Organise my verified results according to the research questions. Draft a factual results narrative that highlights essential patterns without interpretation or duplication of tables.
+
+Research questions and results:
+[PASTE]
+
+
+================================================================
+02-Results-P02 · IMPROVE STATISTICAL REPORTING
+Use it: Checks completeness and consistency of statistics.
+----------------------------------------------------------------
+Check the supplied results for complete and consistent statistical reporting, including sample sizes, estimates, uncertainty and exact values where appropriate. Do not calculate or invent missing statistics.
+
+Results section and tables:
+[PASTE]
+
+
+================================================================
+02-Discussion-P02 · CALIBRATE INTERPRETATION AND CLAIMS
+Use it: Finds causal overreach and unsupported generalisation.
+----------------------------------------------------------------
+Review my discussion for causal overreach, unsupported generalisation, selective interpretation and claims that exceed the design or data. Provide precise, appropriately qualified revisions.
+
+Study design:
+[PASTE]
+
+Discussion:
+[PASTE]
+
+
+================================================================
+02-Discussion-P03 · INTEGRATE CONFLICTING EVIDENCE
+Use it: Explains agreement and disagreement with other studies fairly.
+----------------------------------------------------------------
+Compare my findings with the supplied supporting and conflicting studies. Develop balanced explanations for convergence and divergence without dismissing contradictory evidence.
+
+Key findings:
+[PASTE]
+
+Supporting and conflicting studies:
+[PASTE]
+
+
+================================================================
+02-Conclusion-P01 · DRAFT A PROPORTIONATE CONCLUSION
+Use it: A conclusion that matches the strength of your design.
+----------------------------------------------------------------
+Write a concise conclusion that answers the objective, states the principal contribution and practical or scholarly implications, while remaining proportionate to the design and results. Use only the supplied text.
+
+Objectives, key findings and current conclusion:
+[PASTE]
+
+
+================================================================
+02-Conclusion-P03 · STRENGTHEN LIMITATIONS AND FUTURE WORK
+Use it: Constructive limitations and specific future research.
+----------------------------------------------------------------
+Rewrite the limitations constructively, explaining their likely effect on interpretation and transferability. Derive specific future research priorities without using generic statements.
+
+Limitations paragraph:
+[PASTE]
+
+
+================================================================
+02-Tables-P02 · DRAFT PUBLICATION-READY CAPTIONS
+Use it: Self-contained captions for tables and figures.
+----------------------------------------------------------------
+Write concise, self-contained captions for the supplied tables and figures. Define abbreviations and symbols, describe the content accurately and avoid interpreting results in the caption.
+
+Tables and figures with current captions:
+[PASTE]
+
+
+################################################################
+# 03 STRENGTHEN QUALITY
+################################################################
+
+================================================================
+03-Alignment-P01 · RUN A FULL ALIGNMENT AUDIT
+Use it: Mismatches from title to conclusion, with the smallest fix for each.
+----------------------------------------------------------------
+Create an alignment matrix for title, abstract, gap, objectives, methods, results, discussion and conclusion. Identify every mismatch and propose the smallest defensible correction.
+
+Manuscript:
+[PASTE]
+
+
+================================================================
+03-Alignment-P02 · TRACE CLAIMS TO EVIDENCE
+Use it: Maps every major claim to its results and references.
+----------------------------------------------------------------
+Extract the manuscript's major claims and map each to supporting results and verified references. Flag unsupported, duplicated, contradictory or overextended claims.
+
+Manuscript:
+[PASTE]
+
+
+================================================================
+03-Alignment-P03 · CHECK TERMINOLOGY AND NUMBERS
+Use it: Catches terminology drift and inconsistent values.
+----------------------------------------------------------------
+Audit terminology, abbreviations, sample sizes, dates, variable names and numerical values across all sections, tables and figures. Report inconsistencies without guessing the correct value.
+
+Manuscript:
+[PASTE]
+
+
+================================================================
+03-Review-P01 · SIMULATE AN EDITORIAL REVIEW
+Use it: The handling editor's proceed, revise or reject decision.
+----------------------------------------------------------------
+Act as the handling editor of [JOURNAL NAME]. Assess fit, originality, methodological credibility, clarity, significance and reporting quality, then recommend proceed, revise or reject with reasons.
+
+Abstract, key methods and key findings:
+[PASTE]
+
+
+================================================================
+03-Review-P02 · SIMULATE A RIGOROUS PEER REVIEW
+Use it: A full constructive review report.
+----------------------------------------------------------------
+Write a constructive peer-review report with summary, major issues, minor issues and recommendation. Prioritise issues that affect validity, interpretation, transparency or contribution.
+
+Manuscript or detailed summary:
+[PASTE]
+
+
+================================================================
+03-Review-P03 · CREATE A REVISION PRIORITY PLAN
+Use it: Turns weaknesses into a prioritised action list.
+----------------------------------------------------------------
+Convert the manuscript weaknesses into a prioritised action plan using Critical, Important and Enhancement levels. For each item, state the location, problem, action and evidence needed.
+
+Review comments or list of weaknesses:
+[PASTE]
+
+
+================================================================
+W-05 · JOURNAL-FIT EVALUATOR
+Use it: Review perspective 1 of 5: is the manuscript suitable for the target journal?
+----------------------------------------------------------------
+Act as the editor-in-chief of [JOURNAL NAME]. Read the journal's aims and scope below and my abstract.
+1. Is this manuscript within scope? Quote the scope statement that supports or rules it out.
+2. Would readers of this journal care about the contribution? Why or why not?
+3. Name the single biggest risk of desk rejection.
+Do not rewrite the abstract.
+
+Aims and scope:
+[PASTE]
+Abstract:
+[PASTE]
+
+
+================================================================
+W-06 · METHODOLOGY REVIEWER
+Use it: Review perspective 2 of 5: are the methods sound, appropriate and sufficiently described?
+----------------------------------------------------------------
+Act as a methodology reviewer in [FIELD]. Read my Methods section.
+List (1) anything another researcher would need in order to replicate the study but cannot find, (2) design choices that need justification, (3) threats to validity I have not acknowledged.
+Do not suggest analyses I did not do unless you label them as optional.
+
+Methods:
+[PASTE]
+
+
+================================================================
+W-07 · EVIDENCE AND ARGUMENT REVIEWER
+Use it: Review perspective 3 of 5: do the results support the claims and advance the field?
+----------------------------------------------------------------
+Act as a reviewer checking the argument of my manuscript.
+For each main claim in the Discussion and Conclusion below, state whether it is supported by the results given, partly supported, or not supported. Quote the claim and the result.
+Flag any claim of causation from correlational data.
+
+Results:
+[PASTE]
+Discussion and Conclusion:
+[PASTE]
+
+
+================================================================
+W-08 · ACADEMIC LANGUAGE EDITOR
+Use it: Review perspective 4 of 5: is the language clear, precise and academically appropriate?
+----------------------------------------------------------------
+Act as an academic language editor for a Q1 journal in [FIELD].
+List sentences in the text below that are unclear, wordy, imprecise or too informal, with a suggested revision for each.
+Do not change technical terms, numbers or citations. Use [British/American] English.
+
+Text:
+[PASTE]
+
+
+================================================================
+W-09 · PRE-SUBMISSION QUALITY AUDITOR
+Use it: Review perspective 5 of 5: are all key requirements met for a strong submission?
+----------------------------------------------------------------
+Act as a pre-submission auditor for [JOURNAL NAME]. Using the author guidelines below, check my manuscript package for:
+word limits, required sections and statements (ethics, funding, conflicts, data availability, AI disclosure, CRediT), reference style, figure and table requirements, and anonymisation.
+Return a checklist marked Done / Missing / Unclear.
+
+Author guidelines:
+[PASTE]
+Manuscript summary and statements:
+[PASTE]
+
+
+================================================================
+03-Integrity-P01 · AUDIT CITATION SUPPORT
+Use it: Checks that each cited source really supports the claim.
+----------------------------------------------------------------
+For each citation-dependent claim, assess whether the supplied source directly supports it. Flag citation stretching, missing evidence, secondary citation and statements requiring source verification.
+
+Paragraph with citations:
+[PASTE]
+
+Relevant text from each cited source:
+[PASTE]
+
+
+================================================================
+03-Integrity-P02 · CHECK PARAPHRASING INTEGRITY
+Use it: Finds phrasing too close to the source or distorted meaning.
+----------------------------------------------------------------
+Compare my paragraph with the supplied source text. Identify overly close phrasing or distorted meaning, then propose an original, accurate synthesis with correct attribution placeholders.
+
+My paragraph:
+[PASTE]
+
+Source text:
+[PASTE]
+
+
+================================================================
+03-Integrity-P03 · PREPARE AN AI-USE INTEGRITY CHECK
+Use it: Checks your AI workflow against confidentiality and policy risks.
+----------------------------------------------------------------
+Review my declared AI-assisted workflow for confidentiality, authorship, accountability, disclosure and journal-policy risks. Produce a compliance checklist; do not assume the journal permits any specific use.
+
+How I used AI (tools, tasks, sections):
+[PASTE]
+
+Journal AI policy text:
+[PASTE]
+
+
+================================================================
+W-10 · REFERENCE CONSISTENCY CHECK
+Use it: Checks formatting only; it does not confirm that sources exist.
+----------------------------------------------------------------
+Check the reference list below for formatting consistency with [APA 7 / IEEE / Vancouver].
+List inconsistencies only (author format, italics, capitalisation, missing DOI, year placement).
+Do not invent or correct any bibliographic details; mark uncertain items for manual checking.
+
+References:
+[PASTE LIST]
+
+
+================================================================
+03-Reporting-P02 · AUDIT AGAINST A SUPPLIED CHECKLIST
+Use it: Item-by-item check against CONSORT, PRISMA, STROBE and others.
+----------------------------------------------------------------
+Compare the manuscript with the reporting checklist I provide. Return item number, requirement, manuscript location, status and exact action required for incomplete items.
+
+Reporting checklist:
+[PASTE]
+
+Manuscript:
+[PASTE]
+
+
+################################################################
+# 04 SELECT JOURNAL
+################################################################
+
+================================================================
+04-Journal-P02 · EVALUATE ONE TARGET JOURNAL
+Use it: Fit strengths, risks and positioning changes for one journal.
+----------------------------------------------------------------
+Assess my manuscript's fit with [JOURNAL NAME] based on its supplied aims, scope and recent article information. Identify fit strengths, risks and positioning changes needed before submission.
+
+Aims and scope, and titles of recent articles:
+[PASTE]
+
+Abstract:
+[PASTE]
+
+
+################################################################
+# 05 PREPARE & SUBMIT
+################################################################
+
+================================================================
+05-Submission-P01 · DRAFT A JOURNAL-SPECIFIC COVER LETTER
+Use it: A concise letter with no flattery or unsupported claims.
+----------------------------------------------------------------
+Draft a concise cover letter to the editor of [JOURNAL NAME] stating manuscript title, article type, problem, principal verified contribution, journal fit, originality and required declarations. Avoid flattery and unsupported claims. Maximum 250 words.
+
+Title, article type and abstract:
+[PASTE]
+
+
+================================================================
+05-Submission-P02 · PREPARE HIGHLIGHTS AND KEY POINTS
+Use it: Specific highlights within the character limit.
+----------------------------------------------------------------
+Create [NUMBER] journal highlights within [CHARACTER LIMIT] from the verified findings. Make each point specific, non-overlapping and understandable without overstating impact.
+
+Abstract and key findings:
+[PASTE]
+
+
+================================================================
+05-Submission-P03 · DRAFT A PLAIN-LANGUAGE SUMMARY
+Use it: A jargon-free summary that keeps the uncertainty.
+----------------------------------------------------------------
+Write a plain-language summary for a non-specialist reader covering why the study matters, what was done, what was found and what it means. Preserve uncertainty and avoid jargon.
+
+Abstract:
+[PASTE]
+
+
+================================================================
+W-11 · AI DISCLOSURE STATEMENT
 Use it: An accurate, concise disclosure.
 ----------------------------------------------------------------
 Write a short AI-use disclosure statement for a journal manuscript.
@@ -179,13 +567,44 @@ Keep it under 70 words and neutral in tone.
 
 
 ================================================================
-14. REFERENCE CONSISTENCY CHECK
-Use it: Checks formatting only; it does not confirm that sources exist.
+05-Screening-P02 · SIMULATE A DESK-REJECTION SCREEN
+Use it: The five most likely desk-rejection risks and how to reduce them.
 ----------------------------------------------------------------
-Check the reference list below for formatting consistency with [APA 7 / IEEE / Vancouver].
-List inconsistencies only (author format, italics, capitalisation, missing DOI, year placement).
-Do not invent or correct any bibliographic details; mark uncertain items for manual checking.
+Act as a time-pressured editor of [JOURNAL NAME] screening the submission. Identify the five most likely desk-rejection risks and the exact revisions that would reduce each risk.
 
-References:
-[PASTE LIST]
+Aims and scope:
+[PASTE]
+
+Title, abstract and cover letter:
+[PASTE]
+
+
+################################################################
+# 06 RESPOND & RESUBMIT
+################################################################
+
+================================================================
+06-Revision-P03 · DRAFT POINT-BY-POINT RESPONSES
+Use it: Acknowledgement, action, rationale and location for each comment.
+----------------------------------------------------------------
+Draft respectful point-by-point responses using: acknowledgement, action taken, rationale and exact location. Quote each supplied comment accurately and avoid defensive language. Do not claim a revision has been made unless I have described it.
+
+Reviewer comments:
+[PASTE]
+
+Changes I made, with page and line numbers:
+[PASTE]
+
+
+================================================================
+06-Revision-P05 · DRAFT A RESPECTFUL DISAGREEMENT
+Use it: When you cannot make a requested change.
+----------------------------------------------------------------
+Prepare a concise response when we cannot implement a request. Acknowledge the concern, explain the evidence-based reason, offer a reasonable alternative and state any clarifying revision made.
+
+Reviewer comment:
+[PASTE]
+
+Why we cannot make the change, and what we did instead:
+[PASTE]
 

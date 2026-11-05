@@ -145,7 +145,10 @@
         lang: f.lang.value,
         plan: f.plan.value.trim() || "[DESCRIBE YOUR CHANGE OR POSITION]",
         text: f.text.value.trim() || "[PASTE TEXT HERE]",
-        explain: f.explain.checked
+        explain: f.explain.checked,
+        atype: (f.atype && f.atype.value.trim()) || "[ARTICLE TYPE]",
+        method: (f.method && f.method.value.trim()) || "[METHOD] in [CONTEXT]",
+        setup: f.setup && f.setup.checked
       };
       var r = [];
       if (f.keepMeaning.checked) r.push("- Do not change the meaning or add new claims, data or results.");
@@ -158,10 +161,29 @@
       d.rules = r;
       return d;
     }
+    function f_text_given(d) { return d.text !== "[PASTE TEXT HERE]"; }
     function renderPB() {
       var d = readPB();
       document.querySelectorAll("[data-show]").forEach(function (el) { el.hidden = el.dataset.show !== d.task; });
-      $("pb-out").textContent = T[d.task](d).join("\n");
+      var body;
+      if (T[d.task]) body = T[d.task](d).join("\n");
+      else {
+        var lib = (window.PB_LIB || {})[d.task];
+        var t = lib.text
+          .replace(/\[FIELD\]/g, d.field).replace(/\[JOURNAL NAME\]|\[JOURNAL\]/g, d.journal)
+          .replace(/\[British\/American\]/g, d.variant).replace(/\[WORD LIMIT\]/g, d.limit ? d.limit + " words" : "[WORD LIMIT]");
+        var cut = t.indexOf("\n\n");
+        var head = cut === -1 ? t : t.slice(0, cut), tail = cut === -1 ? "" : t.slice(cut);
+        if (f_text_given(d)) tail = tail.replace("[PASTE]", d.text);
+        var rules = d.rules.filter(function (r) { return r.indexOf("Keep the result within") === -1; });
+        body = head + "\n\nRules:\n" + rules.join("\n") + (d.explain ? "\n- Explain each change or finding in a table." : "") + tail;
+      }
+      if (d.setup && window.PB_SETUP) {
+        var setup = window.PB_SETUP.replace("[FIELD]", d.field).replace("[ARTICLE TYPE]", d.atype)
+          .replace("[TARGET JOURNAL OR JOURNAL LEVEL]", d.journal).replace("[METHOD] in [CONTEXT]", d.method);
+        body = setup + "\n\n---\n\n" + body;
+      }
+      $("pb-out").textContent = body;
     }
     pbForm.addEventListener("input", renderPB);
     pbForm.addEventListener("change", renderPB);
