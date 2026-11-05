@@ -11,7 +11,7 @@ window.WORKSHOP_STUDENTS = [
   { name: 'MUHAMMAD ANIQ AIMAN BIN MOHAMMAD SALIM', institution: 'UiTM', pagesUrl: 'https://AniqAiman2002.github.io', githubUrl: 'https://github.com/AniqAiman2002' },
   { name: "MUHAMMAD FARIS AFIQ BIN RABI'UDDIN", institution: 'UKM', pagesUrl: 'https://faris-cpu.github.io/', githubUrl: 'https://github.com/faris-cpu' },
   { name: 'MUHAMMAD SUHAIL AKMAL BIN SUHAILI', institution: 'UiTM', pagesUrl: 'https://AkmalCoder-oss.github.io', githubUrl: 'https://github.com/AkmalCoder-oss' },
-  { name: 'MUHAMMMAD HAFIZ ZIQRI BIN MOHD SUHAIMI', institution: 'UNITEN', pagesUrl: 'http://hafizceogenz.github.io/index%20(6).html', githubUrl: '' },
+  { name: 'MUHAMMMAD HAFIZ ZIQRI BIN MOHD SUHAIMI', institution: 'UNITEN', pagesUrl: 'https://hafizceogenz.github.io/', githubUrl: 'https://github.com/hafizceogenz' },
   { name: 'NUR IZWANI BINTI IZLAN', institution: 'UTM', pagesUrl: 'https://nurizwani.github.io/', githubUrl: 'https://github.com/nurizwani' },
   { name: 'VIROCCHAN A/L S.ELANKOVEN', institution: 'UTM', pagesUrl: 'https://virocchan.github.io/', githubUrl: 'https://github.com/Virocchan' },
   { name: 'WAN AINUN NASHWA BINTI WAN MOHD HAMDI', institution: 'UiTM', pagesUrl: 'https://wanashwa.github.io/', githubUrl: 'https://github.com/wanashwa' }
