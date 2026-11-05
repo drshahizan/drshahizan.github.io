@@ -7,3 +7,4 @@
 - `capstone/capstone.html` — Malaysian case study and capstone project brief.
 
 Shared styles, scripts and visual assets are kept under `../assets/`. The light professional theme is loaded separately from the core component stylesheet.
+- `exercises/day-4-sheets-homestay.html` — focused beginner exercise for a homestay request app connected to Google Sheets.
