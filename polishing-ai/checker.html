@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Language checker · Polishing Your Draft Article Using AI Tools</title>
+<meta name="description" content="Check AI-sounding words, overclaiming, sentence length, spelling consistency and word limits.">
+<meta name="theme-color" content="#7A1631">
+<meta property="og:title" content="Language checker · Polishing Your Draft Article Using AI Tools">
+<meta property="og:description" content="Check AI-sounding words, overclaiming, sentence length, spelling consistency and word limits.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/images/winning-journal-writing-workshop-2026-poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Winning Journal Writing Workshop 2026">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,700;1,6..72,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-root="">
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">P</span><span class="brand-text"><span class="b1">Polishing with AI</span><small><span>Winning Journal Writing</span><span>Workshop 2026</span></small></span></a>
+    <nav class="nav" id="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="session.html">Session</a><a href="modules.html">Modules</a><a href="toolkit.html" aria-current="page">Toolkit</a><a href="guides.html">Guides</a><a href="prompts.html">Prompts</a><a href="tools.html">AI Tools</a><a href="materials.html">Materials</a></nav>
+    <div class="nav-tools">
+      <a class="btn btn-sm" href="https://forms.gle/gkNi6a5dqNoLiU2EA" target="_blank" rel="noopener">Register</a>
+      <button class="icon-btn" id="search-open" type="button" aria-haspopup="dialog" aria-label="Search this site">Search</button>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark theme">Theme</button>
+      <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-head"><div class="wrap"><p class="crumbs"><a href="index.html">Home</a> / <a href="toolkit.html">Toolkit</a> / Language checker</p><h1>Language and word-limit checker</h1><p>Paste a paragraph, abstract or section. The checker highlights wording reviewers often notice and checks it against a word limit.</p></div></section>
+<div class="wrap" style="padding-bottom:3rem">
+  <form class="tool-form" id="ck-form" autocomplete="off" onsubmit="return false">
+    <div class="field"><label for="ck-text">Your text</label><textarea id="ck-text" rows="10" placeholder="Paste your text here."></textarea></div>
+    <div class="field-row">
+      <div class="field"><label for="ck-preset">Limit</label><select id="ck-preset"><option value="" data-chars="0">No limit</option><option value="150" data-chars="0">Abstract · 150 words</option><option value="200" data-chars="0">Abstract · 200 words</option><option value="250" data-chars="0">Abstract · 250 words</option><option value="300" data-chars="0">Abstract · 300 words</option><option value="15" data-chars="0">Title · 15 words</option><option value="20" data-chars="0">Title · 20 words</option><option value="85" data-chars="1">Highlight · 85 characters</option></select></div>
+      <div class="field"><label for="ck-custom">Or custom word limit</label><input id="ck-custom" type="number" min="0" placeholder="e.g., 180"></div>
+    </div>
+    <p class="privacy">Runs entirely in your browser. Nothing you type is stored or sent anywhere.</p>
+  </form>
+  <div id="ck-stats" class="stats" aria-live="polite"></div>
+  <div id="ck-legend" class="legend" hidden>
+    <span><mark class="m-leftover">Prompt leftover</mark></span>
+    <span><mark class="m-ai">AI-sounding word</mark></span>
+    <span><mark class="m-filler">Filler phrase</mark></span>
+    <span><mark class="m-claim">Overclaiming</mark></span>
+    <span><mark class="m-spell">Spelling variant</mark></span>
+    <span><span class="m-long">Long sentence</span></span>
+  </div>
+  <div id="ck-view" class="ck-view" hidden></div>
+  <div id="ck-list"></div>
+  <p class="hint">These are prompts to look again, not errors. Some flagged words are fine in context; what matters is whether they are precise and not overused.</p>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>Polishing Your Draft Article Using AI Tools</h3>
+        <p>A session of the Winning Journal Writing Workshop 2026, a collaborative programme between Universiti Teknologi Malaysia (UTM) and Ho Chi Minh City University of Technology (HCMUT), Vietnam.</p>
+        <p><b style="color:var(--ink)">Organised by</b><br>Universiti Teknologi Malaysia (UTM)<br>Ho Chi Minh City University of Technology (HCMUT), Vietnam</p>
+        <p><b style="color:var(--ink)">In collaboration with</b><br>Faculty of Computing, UTM<br>Postgraduate Student Society – Faculty of Computing (PGSS-FC), UTM</p>
+      </div>
+      <div><h3>Learn</h3><ul><li><a href="session.html">Session outline</a></li><li><a href="modules.html">12 modules</a></li><li><a href="example.html">Worked example</a></li><li><a href="activities.html">Activities</a></li><li><a href="vi.html">Tiếng Việt</a></li></ul></div><div><h3>Toolkit</h3><ul><li><a href="prompt-builder.html">Prompt builder</a></li><li><a href="checker.html">Language checker</a></li><li><a href="disclosure.html">Disclosure generator</a></li><li><a href="doi-checker.html">Reference checker</a></li><li><a href="checklist.html">Pre-submission checklist</a></li></ul></div><div><h3>Guides</h3><ul><li><a href="policies.html">Publisher AI policies</a></li><li><a href="phrasebank.html">Phrasebank</a></li><li><a href="sections.html">Section examples</a></li><li><a href="pitfalls.html">AI pitfalls and cases</a></li><li><a href="response-letter.html">Response letter</a></li><li><a href="resources.html">Resources</a></li></ul></div>
+    </div>
+    <p class="foot-event">Friday, 6 November 2026 · 9:00 AM – 1:00 PM (MYT) · Cisco Webex (online) · <a href="https://forms.gle/gkNi6a5dqNoLiU2EA" target="_blank" rel="noopener">Register</a> · <a href="https://utm1.webex.com/utm1/j.php?MTID=m02a124f191746799b4c8bf1c037963ab" target="_blank" rel="noopener">Webex meeting link</a></p>
+    <p class="copyright">© 2026 Winning Journal Writing Workshop 2026 · UTM and HCMUT. Speaker: Assoc. Prof. Dr. Mohd Shahizan, Universiti Teknologi Malaysia (UTM). Always check publishers' current AI policies before submitting a manuscript.</p>
+    <p class="visitors"><a href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Site visitor count" height="20" loading="lazy"></a></p>
+  </div>
+</footer>
+<dialog class="search-dialog" id="search-dialog" aria-label="Search this site">
+  <form method="dialog" class="search-head">
+    <label for="site-q" class="sr-only">Search this site</label>
+    <input id="site-q" class="search" type="search" placeholder="Search modules, prompts, tools and guides" autocomplete="off">
+    <button class="icon-btn" value="close" aria-label="Close search">Close</button>
+  </form>
+  <p class="search-status" id="search-status" aria-live="polite">Type at least two letters.</p>
+  <ul class="search-results" id="search-results"></ul>
+</dialog>
+<script src="assets/js/main.js"></script><script src="assets/js/toolkit.js"></script>
+</body>
+</html>

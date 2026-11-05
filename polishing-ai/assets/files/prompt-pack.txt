@@ -1,0 +1,191 @@
+POLISHING YOUR DRAFT ARTICLE USING AI TOOLS · PROMPT PACK
+Winning Journal Writing Workshop 2026 (UTM & HCMUT)
+
+Replace everything in [BRACKETS] with your own details.
+Paste one paragraph or section at a time, and check every change before you accept it.
+Do not paste confidential data or participant information into public AI tools.
+
+
+================================================================
+1. POLISH WITHOUT CHANGING MEANING
+Use it: For a paragraph whose ideas are complete but whose language needs work.
+----------------------------------------------------------------
+Act as an academic editor for a Q1 journal in [FIELD].
+Improve the clarity, grammar and flow of the paragraph below.
+Rules:
+- Do not change the meaning or add new claims, data or citations.
+- Keep technical terms exactly as written.
+- Use [British/American] English.
+Return: (1) the revised paragraph, (2) a short table listing each change and why.
+
+Paragraph:
+[PASTE PARAGRAPH]
+
+
+================================================================
+2. STRUCTURED ABSTRACT
+Use it: Ensures every essential element of the abstract is present.
+----------------------------------------------------------------
+Act as the handling editor of [JOURNAL NAME].
+Review my abstract against this structure: background, aim, method, key findings, contribution.
+1. Identify any missing or weak element.
+2. Suggest a revised abstract within [WORD LIMIT] words.
+3. Do not invent results; use only the information in my text.
+
+Abstract:
+[PASTE ABSTRACT]
+
+
+================================================================
+3. ALTERNATIVE TITLES
+Use it: Generates title options to compare.
+----------------------------------------------------------------
+Suggest 8 alternative titles for the article summarised below.
+Mix styles: descriptive, question, and finding-led.
+Each title must be under [N] words and include at least one of these keywords: [KEYWORDS].
+After the list, recommend the 2 strongest titles for [JOURNAL NAME] and explain why.
+
+Summary:
+[PASTE ABSTRACT]
+
+
+================================================================
+4. RESEARCH GAP IN THE INTRODUCTION
+Use it: Makes the gap and contribution explicit.
+----------------------------------------------------------------
+Read my introduction and answer:
+1. What research gap does it claim? Quote the sentence.
+2. Is the gap supported by cited literature, or only asserted?
+3. Are the objectives and contributions stated explicitly?
+Then suggest how to restructure the final two paragraphs so the gap leads directly to the objectives.
+Do not add citations.
+
+Introduction:
+[PASTE TEXT]
+
+
+================================================================
+5. FROM SUMMARY TO SYNTHESIS
+Use it: Rewrites “Author A found… Author B found…” paragraphs.
+----------------------------------------------------------------
+The paragraph below summarises studies one by one.
+Rewrite it as a synthesis organised by theme or argument, not by author.
+Keep every citation exactly as given and do not add new sources.
+Highlight any point where the studies disagree.
+
+Paragraph:
+[PASTE PARAGRAPH]
+
+
+================================================================
+6. ALIGNMENT CHECK
+Use it: Tests consistency from objectives to conclusions.
+----------------------------------------------------------------
+Below are my research objectives, research questions, main findings and conclusion.
+Build a table that maps each objective to its research question, finding and conclusion.
+Flag any objective without a finding, any finding without an objective, and any conclusion not supported by the findings.
+
+[PASTE SECTIONS]
+
+
+================================================================
+7. REVERSE OUTLINE
+Use it: Reveals the overall flow of the argument.
+----------------------------------------------------------------
+Summarise each paragraph of the text below in one sentence, numbered.
+Then tell me:
+- which paragraphs repeat the same point,
+- where the logical flow breaks,
+- which paragraph could be cut with the least loss.
+
+Text:
+[PASTE SECTION]
+
+
+================================================================
+8. HEDGING AND OVERCLAIMING
+Use it: Finds claims stronger than the evidence allows.
+----------------------------------------------------------------
+Identify every sentence in the text below that makes a claim stronger than the evidence supports (e.g., "proves", "clearly shows", "always").
+For each, suggest a more appropriately hedged version.
+Do not change sentences that are already appropriately cautious.
+
+Text:
+[PASTE TEXT]
+
+
+================================================================
+9. REMOVE AI-SOUNDING STYLE
+Use it: Strips clichés and repetitive phrasing.
+----------------------------------------------------------------
+Review the text below for wording that sounds generic or machine-generated: overused words, filler transitions, inflated adjectives and repetitive sentence openings.
+List each instance with a plainer alternative.
+Keep my original sentence structure where possible.
+
+Text:
+[PASTE TEXT]
+
+
+================================================================
+10. DEMANDING REVIEWER SIMULATION
+Use it: Anticipates criticism before submission.
+----------------------------------------------------------------
+Act as a critical but fair reviewer for [JOURNAL NAME], a Q1 journal in [FIELD].
+Evaluate the manuscript summary below on: novelty, theoretical contribution, methodological rigour, clarity and fit with the journal scope.
+Give: (1) major concerns, (2) minor concerns, (3) a likely recommendation (accept / minor / major / reject) with justification.
+
+Summary:
+[PASTE ABSTRACT + KEY METHOD + KEY FINDINGS]
+
+
+================================================================
+11. RESPONSE TO REVIEWERS
+Use it: Structures a reply to each reviewer comment.
+----------------------------------------------------------------
+Help me draft a point-by-point response to the reviewer comment below.
+Tone: respectful, concise and confident.
+Structure: thank the reviewer, state what was changed (with page/line placeholders), and explain briefly.
+If I disagree, phrase it politely with evidence.
+
+Reviewer comment:
+[PASTE COMMENT]
+My planned change or position:
+[DESCRIBE]
+
+
+================================================================
+12. COVER LETTER
+Use it: A first draft to tailor yourself.
+----------------------------------------------------------------
+Draft a cover letter to the editor of [JOURNAL NAME] for the manuscript "[TITLE]".
+Include: the problem addressed, the main contribution in 2 sentences, why it fits the journal scope, confirmation that it is original and not under review elsewhere.
+Maximum 250 words. Avoid exaggerated language.
+
+Abstract:
+[PASTE ABSTRACT]
+
+
+================================================================
+13. AI DISCLOSURE STATEMENT
+Use it: An accurate, concise disclosure.
+----------------------------------------------------------------
+Write a short AI-use disclosure statement for a journal manuscript.
+Facts:
+- Tool(s) used: [TOOL AND VERSION]
+- Purpose: [e.g., language editing and readability of selected sections]
+- Sections affected: [SECTIONS]
+- Authors reviewed and edited all output and take full responsibility.
+Keep it under 70 words and neutral in tone.
+
+
+================================================================
+14. REFERENCE CONSISTENCY CHECK
+Use it: Checks formatting only; it does not confirm that sources exist.
+----------------------------------------------------------------
+Check the reference list below for formatting consistency with [APA 7 / IEEE / Vancouver].
+List inconsistencies only (author format, italics, capitalisation, missing DOI, year placement).
+Do not invent or correct any bibliographic details; mark uncertain items for manual checking.
+
+References:
+[PASTE LIST]
+
