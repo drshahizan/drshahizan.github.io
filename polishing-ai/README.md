@@ -5,7 +5,7 @@ One-stop website for the session at the **Winning Journal Writing Workshop 2026*
 - **Date:** Friday, 6 November 2026
 - **Time:** 9:00 AM – 1:00 PM (MYT)
 - **Platform:** Cisco Webex (online)
-- **Speaker:** Assoc. Prof. Dr. Mohd Shahizan, UTM
+- **Speaker:** Assoc. Prof. Dr. Mohd Shahizan Othman, UTM
 - **Register:** https://forms.gle/gkNi6a5dqNoLiU2EA
 - **Organised by:** UTM and HCMUT, in collaboration with the Faculty of Computing, UTM and PGSS-FC, UTM
 
