@@ -562,3 +562,16 @@ mark.m-leftover{background:var(--brand);color:#fff;border-radius:2px;cursor:help
 .pcode{font-family:var(--sans);font-size:.75rem;font-weight:600;color:var(--brand);letter-spacing:.02em}
 .prompt.configure{border:2px solid var(--brand)}
 .prompt.configure pre{font-family:var(--serif);font-size:1rem}
+
+/* ---------- Compact footer ---------- */
+.site-footer{padding:2rem 0 1.5rem;margin-top:3rem}
+.foot-top{display:flex;justify-content:space-between;align-items:center;gap:1rem 2rem;flex-wrap:wrap;padding-bottom:1.1rem;border-bottom:1px solid var(--rule)}
+.foot-brand{display:flex;flex-direction:column;text-decoration:none;color:var(--muted);font-size:.85rem;line-height:1.35}
+.foot-brand b{color:var(--ink);font-size:1rem;font-weight:600}
+.foot-links{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;font-size:.92rem}
+.foot-links a{color:var(--muted);text-decoration:none}
+.foot-links a:hover{color:var(--brand)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:.75rem 1.5rem;flex-wrap:wrap;padding-top:1rem}
+.foot-bottom .copyright{margin:0;padding:0;border:0;font-size:.82rem}
+.foot-bottom .visitors{margin:0;line-height:0}
+@media (max-width:640px){.foot-top{flex-direction:column;align-items:flex-start}}
