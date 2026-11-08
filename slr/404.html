@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><meta name="description" content="The page you requested could not be found on the SLR workshop website."><meta name="theme-color" content="#7a1730"><title>Page not found | UTM SLR</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;background:#f7f4f2;color:#2c2f36;min-height:100vh;display:flex;flex-direction:column}
+header{display:flex;align-items:center;gap:12px;padding:18px clamp(16px,4vw,64px);background:#fff;border-bottom:1px solid #ece4e2}
+.mark{display:grid;place-items:center;width:44px;height:44px;border-radius:10px;background:#7a1730;color:#fff;font-weight:800;font-size:14px;box-shadow:0 3px 0 #c89c5a}
+header strong{display:block;font-size:15px}header small{color:#6b6e75;font-size:12px}
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 16px}
+.card{max-width:620px;width:100%;background:#fff;border:1px solid #ece4e2;border-radius:18px;padding:clamp(22px,5vw,40px)}
+.code{color:#9a7044;font-weight:800;letter-spacing:.12em;font-size:12px}h1{margin:8px 0 10px;color:#6d1830;font-size:clamp(26px,5vw,36px);line-height:1.15}
+p{line-height:1.65;color:#50545b}.links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:20px}
+.links a{display:block;padding:12px 14px;border:1px solid #eadadd;border-radius:10px;color:#7a1730;text-decoration:none;font-weight:700}.links a:hover{background:#fff8f7;border-color:#7a1730}
+.links a.primary{background:#7a1730;color:#fff;border-color:#7a1730}footer{padding:18px;text-align:center;font-size:12px;color:#7b7e85}
+@media(max-width:520px){.links{grid-template-columns:1fr}}
+</style></head>
+<body><header><span class="mark">SLR</span><span><strong>Systematic Literature Review</strong><small>From Literature Discovery to Publication</small></span></header>
+<main><div class="card"><p class="code">ERROR 404</p><h1>This page could not be found</h1>
+<p>The link may be out of date, or the page may have moved during a recent update. Use one of the links below, or search for the page in the Site Index.</p>
+<div class="links"><a class="primary" data-path="site-index.html" href="site-index.html">Search the Site Index →</a><a data-path="index.html" href="index.html">Home</a><a data-path="programme/index.html" href="programme/index.html">Programme</a><a data-path="stages/stage-3.html" href="stages/stage-3.html">Stage 3 · Write</a><a data-path="stages/stage-4.html" href="stages/stage-4.html">Stage 4 · Refine</a><a data-path="tools.html" href="tools.html">Research Tools</a></div></div></main>
+<footer>Faculty of Computing · Universiti Teknologi Malaysia</footer>
+<script>
+(function(){
+  // GitHub Pages serves this page at any missing URL, so resolve links against the site root.
+  var seg=location.pathname.split('/').filter(Boolean);
+  var candidates=[];
+  if(location.hostname.slice(-10)==='github.io'&&seg.length)candidates.push('/'+seg[0]+'/');
+  candidates.push('/');
+  function apply(base){document.querySelectorAll('[data-path]').forEach(function(a){a.href=base+a.getAttribute('data-path')})}
+  if(location.protocol==='file:')return;
+  (function tryNext(i){
+    if(i>=candidates.length){apply(candidates[candidates.length-1]);return}
+    fetch(candidates[i]+'site-index.html',{method:'HEAD'}).then(function(r){r.ok?apply(candidates[i]):tryNext(i+1)}).catch(function(){tryNext(i+1)});
+  })(0);
+})();
+</script></body></html>

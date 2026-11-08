@@ -36,7 +36,7 @@
 .sx-takehome h2{margin:0 0 8px;color:#6f1d35;font-size:21px}
 .sx-takehome ul{margin:9px 0 14px;padding-left:22px;line-height:1.65}
 .sx-takehome-ready{margin:12px 0 0;padding:11px 13px;border-radius:8px;background:#eef7f1;color:#315846;line-height:1.55}
-.sx-import{cursor:pointer}
+.sx-import{cursor:pointer;display:inline-flex;align-items:center;margin:0;width:auto}
 .sx-prose{line-height:1.65;color:#3f4148;font-size:14.5px}
 .sx-prose h2{color:#6d1830;font-size:20px;margin:22px 0 8px}
 .sx-prose h2:first-child{margin-top:0}

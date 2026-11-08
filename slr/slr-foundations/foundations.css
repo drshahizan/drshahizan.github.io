@@ -12,3 +12,5 @@
 .template-sequence{margin-top:16px;padding:13px 16px;border-left:4px solid #c89c5a;background:#fff8e8;border-radius:0 9px 9px 0;color:#54472f;line-height:1.6}
 #supporting-worksheets .foundation-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:760px){.template-grid,#supporting-worksheets .foundation-grid{grid-template-columns:1fr}.template-card{min-height:0}}
+/* 2026-11 update: scroll wide tables inside their panel on phones */
+@media(max-width:960px){table.foundation-table{display:block;overflow-x:auto;min-width:0;max-width:100%}}
