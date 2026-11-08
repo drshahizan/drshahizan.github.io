@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><meta name="description" content="The page you requested could not be found on the SLR workshop website."><meta name="theme-color" content="#7a1730"><title>Page not found | UTM SLR</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><meta name="description" content="The page you requested could not be found on the SLR workshop website."><meta name="theme-color" content="#7a1730"><title>Page not found | UTM SLR</title><meta property="og:type" content="website"><meta property="og:site_name" content="Systematic Literature Review · UTM"><meta property="og:title" content="Page not found | UTM SLR"><meta property="og:description" content="The page you requested could not be found on the SLR workshop website."><meta property="og:image" content="https://drshahizan.github.io/slr/images/og/og-default.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Systematic Literature Review workshop, Universiti Teknologi Malaysia"><meta name="twitter:card" content="summary_large_image">
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;background:#f7f4f2;color:#2c2f36;min-height:100vh;display:flex;flex-direction:column}
 header{display:flex;align-items:center;gap:12px;padding:18px clamp(16px,4vw,64px);background:#fff;border-bottom:1px solid #ece4e2}
@@ -20,16 +20,9 @@ p{line-height:1.65;color:#50545b}.links{display:grid;grid-template-columns:repea
 <footer>Faculty of Computing · Universiti Teknologi Malaysia</footer>
 <script>
 (function(){
-  // GitHub Pages serves this page at any missing URL, so resolve links against the site root.
-  var seg=location.pathname.split('/').filter(Boolean);
-  var candidates=[];
-  if(location.hostname.slice(-10)==='github.io'&&seg.length)candidates.push('/'+seg[0]+'/');
-  candidates.push('/');
-  function apply(base){document.querySelectorAll('[data-path]').forEach(function(a){a.href=base+a.getAttribute('data-path')})}
+  // GitHub Pages serves this page for any missing URL under /slr/, so use absolute links.
   if(location.protocol==='file:')return;
-  (function tryNext(i){
-    if(i>=candidates.length){apply(candidates[candidates.length-1]);return}
-    fetch(candidates[i]+'site-index.html',{method:'HEAD'}).then(function(r){r.ok?apply(candidates[i]):tryNext(i+1)}).catch(function(){tryNext(i+1)});
-  })(0);
+  var base=location.hostname==='drshahizan.github.io'?'/slr/':'/';
+  document.querySelectorAll('[data-path]').forEach(function(a){a.href=base+a.getAttribute('data-path')});
 })();
 </script></body></html>
