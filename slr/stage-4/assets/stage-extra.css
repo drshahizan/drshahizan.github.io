@@ -1,0 +1,52 @@
+.s2-layout>*,.s2-workarea,.s2-panel{min-width:0}
+.sx-learn{margin:0 0 20px;padding:20px 22px;border:1px solid #ece3df;border-radius:12px;background:#fffdfb}
+.sx-learn h2{margin:0 0 10px;font-size:18px;color:#6d1830}
+.sx-list{margin:8px 0 0;padding-left:20px;line-height:1.65;color:#45454d;font-size:14px}
+.sx-list li{margin:5px 0}
+.sx-table-wrap{overflow-x:auto;margin:8px 0 12px;-webkit-overflow-scrolling:touch}
+.sx-table{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}
+.sx-table th,.sx-table td{padding:9px 10px;border:1px solid #ebe3e1;text-align:left;vertical-align:top;line-height:1.5}
+.sx-table th{background:#f7efe9;color:#53313b;font-weight:700}
+.sx-table td:first-child{font-weight:600;color:#53313b}
+.sx-example{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.sx-example>div{padding:12px 14px;border-radius:9px;font-size:13px;line-height:1.55}
+.sx-example span{display:block;font-size:11px;font-weight:750;letter-spacing:.07em;text-transform:uppercase;margin-bottom:4px}
+.sx-example p{margin:0}
+.sx-weak{background:#fdf1f1;color:#6b2a2a;border:1px solid #f1d2d2}
+.sx-strong{background:#eef7f1;color:#2f5543;border:1px solid #cfe6d8}
+.sx-single{display:block;padding:12px 14px;border-radius:9px;background:#f6f3fb;border:1px solid #e1d9ef;color:#3f3a55;font-size:13px;line-height:1.55}
+.sx-single p{margin:6px 0 0}
+.sx-checklist{margin:0 0 20px;padding:18px 20px;border:1px solid #e9e2e1;border-radius:12px;background:#fff}
+.sx-check-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.sx-check-head h3{margin:0;font-size:16px;color:#53313b}
+.sx-check-head span{font-size:13px;color:#7a1730;font-weight:700}
+.sx-meter{height:7px;margin:10px 0 14px;background:#eee6e7;border-radius:99px;overflow:hidden}
+.sx-meter i{display:block;height:100%;width:0;background:#2f7a55;border-radius:99px;transition:width .25s}
+.sx-check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sx-check{display:flex;gap:9px;align-items:flex-start;padding:9px 10px;border:1px solid #efe8e6;border-radius:8px;font-size:13px;line-height:1.45;cursor:pointer}
+.sx-check:hover{background:#fbf6f4}
+.sx-check input{margin-top:2px;accent-color:#7a1730;flex:none}
+.sx-hint{font-size:12.5px;color:#666a72;margin:0 0 8px;line-height:1.5}
+.sx-prisma td small{display:block;color:#6b6e75;font-weight:400;margin-top:2px}
+.sx-prisma select,.sx-prisma input{width:100%;min-width:120px;padding:7px 8px;border:1px solid #ddd3d1;border-radius:7px;font:inherit;font-size:13px;background:#fff}
+.sx-prisma .sx-num{width:38px;text-align:center;color:#84213b;font-weight:750}
+.sx-prisma tr.sx-group td{background:#f3e6e9;color:#6d1830;font-size:11px;font-weight:800;letter-spacing:.08em}
+.sx-takehome{margin:18px 0 20px;padding:20px 22px;border:1px solid #ead7ad;border-left:5px solid #c89c5a;border-radius:12px;background:#fffaf0;color:#4c463a}
+.sx-takehome .eyebrow{margin:0 0 5px;color:#815523;font-size:11px;font-weight:750;letter-spacing:.08em}
+.sx-takehome h2{margin:0 0 8px;color:#6f1d35;font-size:21px}
+.sx-takehome ul{margin:9px 0 14px;padding-left:22px;line-height:1.65}
+.sx-takehome-ready{margin:12px 0 0;padding:11px 13px;border-radius:8px;background:#eef7f1;color:#315846;line-height:1.55}
+.sx-import{cursor:pointer}
+.sx-prose{line-height:1.65;color:#3f4148;font-size:14.5px}
+.sx-prose h2{color:#6d1830;font-size:20px;margin:22px 0 8px}
+.sx-prose h2:first-child{margin-top:0}
+.sx-prose h3{color:#53313b;font-size:16px;margin:16px 0 6px}
+.sx-prose ol,.sx-prose ul{padding-left:22px}
+.sx-prose li{margin:4px 0}
+.sx-excerpt{padding:16px 18px;border:1px dashed #c9b8b3;border-radius:10px;background:#fbf9f7;font-family:Georgia,serif;font-size:14px;line-height:1.7}
+.sx-excerpt h3{font-family:inherit}
+.sx-badge{display:inline-block;padding:3px 8px;border-radius:6px;background:#fff1d6;color:#7a5413;font-size:11px;font-weight:800;letter-spacing:.06em}
+.sx-prose textarea{width:100%;min-height:90px;padding:10px;border:1px solid #ddd3d1;border-radius:8px;font:inherit;font-size:14px}
+.sx-prose label{display:block;font-weight:600;margin:12px 0 4px;color:#45454d}
+@media(max-width:760px){.sx-example,.sx-check-grid{grid-template-columns:1fr}.sx-learn,.sx-checklist{padding:15px}}
+@media print{.s2-sidebar,.topbar,.site-footer,.s2-actions,.s2-bottom{display:none!important}.s2-layout{display:block}}

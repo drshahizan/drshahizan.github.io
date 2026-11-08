@@ -1,0 +1,15 @@
+﻿No.,Planted issue,Location,Related PRISMA 2020 item,Severity
+1,Title does not identify the report as a systematic review,Title,1,Minor
+2,"Unstructured abstract: no sources, dates, appraisal, synthesis method, limitations, registration",Abstract,2 / PRISMA for Abstracts,Major
+3,Over-claiming: “prove” and “improves performance and motivation”,"Abstract, Results",23,Major
+4,Generic future-research statement,"Abstract, Discussion",23,Minor
+5,Single source (Google Scholar) and two keywords; no full search string,Method,"6, 7",Major
+6,Date of search not reported,Method,6,Major
+7,Eligibility criteria incomplete (language only),Method,5,Major
+8,Single reviewer; independence and conflict resolution not described,Method,"8, 9",Major
+9,Count inconsistency: 38 (abstract; 80 − 42) vs 41 (Results); no flow diagram,"Abstract, Method, Results",16,Major
+10,No quality / risk-of-bias appraisal,"Method, Results","11, 18",Major
+11,No synthesis method; results summarised paper by paper,"Method, Results","13, 20",Major
+12,Smith et al. (2025) cited but missing from reference list; speculative claim,Results,Reference integrity,Major
+13,Discussion repeats results; unsupported “first comprehensive review”; no limitations,Discussion,23,Major
+14,"Declarations “None”: no registration, funding, competing interests or data availability",Declarations,24–27,Major
