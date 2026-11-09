@@ -10,16 +10,25 @@ const pages=[
 ['skills-and-balancing-act.html','Skills and the Balancing Act','core'],
 ['technical-toolkit.html','The Technical Toolkit','core'],
 ['future-of-data-engineering.html','The Future of Data Engineering','core'],
+['case-studies.html','Case Studies','core'],
+['case-uber.html','Required: Uber','core'],
+['case-kkm-covid-data.html','Required: KKM COVID-19 Data','core'],
+['case-study-activity.html','Case-Study Task','core'],
 ['activity.html','Learning Activities','core'],
 ['quiz.html','Knowledge Check','core'],
 ['reflection.html','Reflection','core'],
+['case-phe-excel.html','Public Health England','optional'],
+['case-prime-video.html','Prime Video','optional'],
+['case-airbnb-airflow.html','Airbnb and Airflow','optional'],
+['case-linkedin-kafka.html','LinkedIn and Kafka','optional'],
+['case-google-flu-trends.html','Google Flu Trends','optional'],
 ['original-papers.html','The Papers That Started It','extension'],
 ['big-data-hype-and-reality.html','Big Data: Hype and Reality','extension'],
 ['sql-comeback.html','The Comeback of SQL','extension'],
 ['reading-materials.html','Reading Materials','enrichment'],
 ['videos.html','Videos and Podcasts','enrichment'],
 ['glossary.html','Glossary','reference']];
-const groupLabel={core:'Required pathway',extension:'Extension pathway',enrichment:'Professional enrichment',reference:'Reference'};
+const groupLabel={core:'Required pathway',optional:'Optional case studies',extension:'Extension pathway',enrichment:'Professional enrichment',reference:'Reference'};
 const current=location.pathname.split('/').pop()||'index.html';
 if(moduleNav){let g='';moduleNav.innerHTML=pages.map((p,i)=>{const h=p[2]!==g?(g=p[2],'<p class="nav-group">'+groupLabel[g]+'</p>'):'';return h+'<a href="'+p[0]+'" class="'+(current===p[0]?'active':'')+'"><span>'+String(i+1).padStart(2,'0')+'</span>'+p[1]+'</a>'}).join('')}
 const pos=Math.max(1,pages.findIndex(p=>p[0]===current)+1);document.documentElement.style.setProperty('--progress',pos/pages.length*100+'%');
