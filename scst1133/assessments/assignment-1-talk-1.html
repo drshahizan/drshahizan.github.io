@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Assignment 1 brief: academic writing on the Creative Thinking industry talk — instructions, submission, Harvard referencing, rubric and checklist.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Assignment 1: Creative Thinking Brief | SCST1133</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .br-wrap{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.8fr);gap:22px;align-items:start}
+    .br-wrap>*{min-width:0}
+    .br-side{position:sticky;top:96px}
+    .br-toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+    .br-toc a{background:#fff;border:1px solid var(--line);border-radius:99px;padding:7px 13px;font-weight:750;font-size:.86rem;color:var(--maroon);text-decoration:none}
+    .br-toc a:hover{border-color:var(--gold)}
+    .panel{scroll-margin-top:96px}
+    .glance{margin:0;display:grid;gap:0}
+    .glance div{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+    .glance div:last-child{border:0}
+    .glance dt{font-weight:800;color:var(--muted);font-size:.86rem}.glance dd{margin:0}
+    .deadline{background:var(--maroon);color:#fff;border-radius:12px;padding:16px 18px;margin:0 0 16px}
+    .deadline b{display:block;color:var(--gold);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+    .deadline span{font-size:1.15rem;font-weight:850}
+    .br-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .br-btn{display:inline-flex;padding:10px 15px;border-radius:9px;background:#8a1538;color:#fff!important;text-decoration:none;font-weight:750}
+    .br-btn.ghost{background:#fff;color:#8a1538!important;border:1px solid #d9c9cf}
+    .talk{display:grid;grid-template-columns:200px 1fr;gap:22px;align-items:center}
+    .talk img{width:100%;height:auto;border-radius:12px;display:block}
+    .talk dl{margin:0}.talk dt{font-weight:800;color:var(--muted);font-size:.82rem;margin-top:8px}.talk dd{margin:0}
+    .pages{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+    .page-card{border:1px solid var(--line);border-top:5px solid var(--maroon);border-radius:12px;padding:16px;background:#fff}
+    .page-card.log{border-top-color:var(--gold)}
+    .page-card h3{margin:0 0 4px;color:var(--maroon);font-size:1.02rem}
+    .page-card .k{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:900;color:var(--blue)}
+    .page-card ul{margin:8px 0 0;padding-left:18px}.page-card li{margin:4px 0;font-size:.94rem}
+    .steps{display:grid;gap:14px;margin:16px 0 0}
+    .step{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+    .step i{font-style:normal;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#f8eaf0;color:var(--maroon);font-weight:900}
+    .step h3{margin:2px 0 4px;font-size:1.02rem}.step p{margin:0;color:var(--muted)}
+    .warn{padding:16px 18px;border-left:5px solid #b42318;background:#fef3f2;border-radius:8px;margin:16px 0 0}
+    .warn b{color:#b42318}
+    .quote{margin:8px 0 14px;padding:10px 14px;border-left:3px solid var(--line);color:#344054;font-style:italic;background:#fafbfc}
+    .table-scroll{overflow-x:auto}
+    .br-table td:last-child{font-weight:400;color:inherit}
+    .br-table td{vertical-align:top;font-size:.93rem}
+    .br-table td:first-child{font-weight:800;color:var(--maroon);white-space:nowrap}
+    .rubric{min-width:820px}
+    .rubric td:nth-child(2){font-weight:850;color:var(--maroon);text-align:center}
+    .rubric th:nth-child(2){text-align:center}
+    .rubric ul{margin:0;padding-left:16px}.rubric li{margin:2px 0}
+    .rubric tfoot td{background:#fff8e7;font-weight:850!important;color:var(--ink)!important}
+    .levels{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+    .levels span{border-radius:99px;padding:5px 11px;font-weight:800;font-size:.82rem;background:#f8eaf0;color:var(--maroon)}
+    details{border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-top:14px;background:#fff}
+    summary{cursor:pointer;font-weight:800;color:var(--maroon)}
+    .ref-ex{font-size:.9rem;color:#344054}
+    pre.tpl{white-space:pre;overflow-x:auto;background:#18202b;color:#f2f4f7;border-radius:10px;padding:16px;font-size:.82rem;line-height:1.5;margin:12px 0 0}
+    .copy{font:inherit;font-weight:800;border:0;border-radius:8px;padding:8px 13px;background:var(--gold);color:#281b00;cursor:pointer}
+    .checklist{list-style:none;padding:0;margin:10px 0 0}
+    .checklist li{margin:0;border-bottom:1px solid var(--line)}
+    .checklist label{display:grid;grid-template-columns:22px 1fr;gap:10px;padding:9px 0;cursor:pointer;font-size:.93rem}
+    .checklist input{width:18px;height:18px;margin-top:3px;accent-color:#8a1538}
+    .ck-progress{font-weight:800;color:var(--maroon);margin:12px 0 0;font-size:.9rem}
+    @media(max-width:930px){.br-wrap{grid-template-columns:1fr}.br-side{position:static}.pages{grid-template-columns:1fr}}
+    @media(max-width:620px){.talk{grid-template-columns:1fr}.talk img{max-width:240px}.br-table td:first-child{white-space:normal}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">FC</span><span class="brand-text"><b>SCST1133</b><span>Data Engineering Ecosystem</span></span></a>
+      <button class="menu">Menu</button>
+      <nav><a href="../index.html">Home</a><a href="../course/index.html">Course</a><a href="../topics/index.html">Topics</a><a class="active" href="index.html">Assessments</a><a href="../resources/index.html">Resources</a><a href="../tools/index.html">Tools</a><a href="../students/index.html">Students</a><a href="../announcements/index.html">Announcements</a></nav>
+    </div>
+  </header>
+
+  <section class="page-title">
+<div>
+<p class="eyebrow">Assignment 1 · Industry Talk 1 · Academic Writing · 5%</p>
+<h1>Industry Talk &amp; Academic Writing: Creative Thinking</h1>
+<p>Write a three-page academic report on the Creative Thinking industry talk as a group. Submission deadline: <b>Friday, 20 November 2026, before 5.00 pm</b>.</p>
+</div>
+</section>
+  <main>
+    <div class="br-toc" role="navigation" aria-label="On this page"><a href="#talk">The talk</a><a href="#write">What to write</a><a href="#submit">Submission</a><a href="#format">Format and integrity</a><a href="#cite">Referencing</a><a href="#rubric">Rubric</a><a href="#log">Log template</a></div>
+    <div class="br-wrap">
+      <div>
+        <section class="panel" id="talk">
+          <p class="eyebrow">The talk</p>
+          <h2>Industry Talk: Creative Thinking</h2>
+          <div class="talk">
+            <a href="../announcements/assets/images/industry-talk.webp" target="_blank" rel="noopener" aria-label="Open the Creative Thinking poster"><img src="../announcements/assets/images/industry-talk.webp" alt="Industry Talk poster: Creative Thinking by Dr Zahari Othman, 3 November 2026, 10 am to 6 pm" loading="lazy" decoding="async"></a>
+            <dl>
+              <dt>Speaker</dt><dd><b>Dr Zahari Othman</b><br>Director, Centre for Teaching Thinking &amp; Innovation (CenT-TI)</dd>
+              <dt>Date and time</dt><dd>3 November 2026 · 10 am – 6 pm</dd>
+              <dt>Your task</dt><dd>Turn what you learned from the talk into a short academic report, supported by academic papers and your own reflection.</dd>
+            </dl>
+          </div>
+        </section>
+
+        <section class="panel" id="write">
+          <p class="eyebrow">Instructions</p>
+          <h2>What to write</h2>
+          <p>Prepare <b>an academic writing</b> report. It <b>should not exceed three pages</b>.</p>
+          <div class="pages">
+            <article class="page-card"><span class="k">Page 1</span><h3>Cover</h3><ul><li>A proper title and a representative picture</li><li>Titles of the topics covered in the report</li><li>Names and pictures of group members</li></ul></article>
+            <article class="page-card"><span class="k">Pages 2–3</span><h3>Content</h3><ul><li>The speaker's experience</li><li>What critical, creative, mathematical and scientific thinking are</li><li>Higher-Order Thinking Skills (HOTS)</li><li>Applying HOTS in computer science and data engineering in real life</li><li>Each student's reflection</li><li>List of references</li></ul></article>
+            <article class="page-card log"><span class="k">Also include</span><h3>Log activity</h3><ul><li>How you searched for material</li><li>Any prompts used in searching or for any task</li><li>Tasks done by each member</li><li>Work done in GitHub</li></ul></article>
+          </div>
+          <h3>Cite academic papers</h3>
+          <p>Support your content with references from academic papers. Cite them in the text as <b>(author name, year)</b>.</p>
+          <h3>Reflection (each student)</h3>
+          <p>Each member writes their own reflection on the talk: <b>how will you succeed in computer science and data engineering over the next three years?</b></p>
+          <div class="notice"><b>Note</b><br>The content of your report should be your own opinions and views. Check the <a href="#rubric">rubric</a> before you start.</div>
+        </section>
+
+        <section class="panel" id="submit">
+          <p class="eyebrow">Group work</p>
+          <h2>Submission</h2>
+          <p>This is a <b>group work</b>. Name your file with your group code, for example <b>S03-G1.pdf</b>. <a href="assignment-1.html">Find your group code →</a></p>
+          <div class="steps">
+            <div class="step"><i>1</i><div><h3>Upload to UTM e-Learning</h3><p>Upload the report in <b>.pdf</b> format before <b>5.00 pm on Friday, 20 November 2026</b>.</p></div></div>
+            <div class="step"><i>2</i><div><h3>Upload to GitHub and share on LinkedIn</h3><p>Upload the report (.pdf) to GitHub and share it on LinkedIn <b>one week after</b> your UTM e-Learning submission.</p></div></div>
+          </div>
+        </section>
+
+        <section class="panel" id="format">
+          <p class="eyebrow">Format and integrity</p>
+          <h2>Format and academic integrity</h2>
+          <ul>
+            <li>Use <b>justified</b> alignment for text.</li>
+            <li>Include a <b>page number</b> on every page.</li>
+            <li>Design your report using your own creativity.</li>
+          </ul>
+          <h3>Academic writing guides</h3>
+          <ul>
+            <li><a href="https://www.phrasebank.manchester.ac.uk/" target="_blank" rel="noopener">Academic Phrasebank – The University of Manchester</a></li>
+            <li><a href="https://www.sheffield.ac.uk/study-skills/writing/academic/style" target="_blank" rel="noopener">How to write in an academic style – StudySkills@Sheffield</a></li>
+          </ul>
+          <div class="warn"><b>Plagiarism is prohibited.</b> If any content is found to be copied from other websites, reviews or blogs, you will receive <b>0 marks</b>. You may use photos or information from other sources, but you must <b>credit the original owners</b> with a citation or link.</div>
+        </section>
+
+        <section class="panel" id="cite">
+          <p class="eyebrow">Reference format</p>
+          <h2>Referencing: Harvard system (UTM format)</h2>
+          <p>Cite references in the text with the author's last name and the year of publication.</p>
+          <ol>
+            <li>If the author's name is part of the sentence, put the year in parentheses. Write both names when there are two authors.
+              <p class="quote">Preneel (2003) noted that the process of replacing the old algorithms with new ones is time consuming and cumbersome.</p>
+              <p class="quote">Lenstra and Verheul (2001) proposed a model that formulates a set of assumptions as a guideline for selecting adequate key size for practical security.</p></li>
+            <li>If the author's name is not part of the sentence, put both the name and the year in parentheses.
+              <p class="quote">Small block size is also vulnerable as it is prone to dictionary attack (Canniere <i>et al.</i>, 2006).</p></li>
+            <li>For more than three authors, use <i>et al.</i> after the first author's name.</li>
+            <li>For several works by the same author in the same year, add a, b, c and so on.
+              <p class="quote">Newton-Euler (NE) equations (Luh <i>et al.</i>, 1980a) … Luh <i>et al.</i> (1980b) presented an example of an acceleration control of robot arm/manipulator.</p></li>
+          </ol>
+          <h3>List of references</h3>
+          <p>List all cited references <b>alphabetically</b>. Works by the same author are listed <b>chronologically</b> (for example, Preneel 2001 before Preneel 2003). Write the author's surname followed by initials, and separate multiple authors with commas.</p>
+          <div class="table-scroll"><table class="br-table"><thead><tr><th>Resource</th><th>Format and example</th></tr></thead><tbody><tr><td>Book</td><td>Author (Year). <i>Title</i>. (Edition). Place published: Publisher.<br><span class="ref-ex"><b>Example:</b> Stallings, W. (2003). <i>Cryptography and Network Security: Principles and Practices</i>. (3rd ed.). Upper Saddle River, New Jersey: Prentice Hall.</span></td></tr><tr><td>Article in a book</td><td>Author of the article (Year). Title of the article. In author or editor of the book. <i>Title of the book</i>. (page). Place published: Publisher.<br><span class="ref-ex"><b>Example:</b> Hussein, S. B., Jamaluddin, H., Mailah, M. and Zalzala, A. M. S. (2000). An Evolutionary Neural Network Controller for Intelligent Active Force Control. In Parmee, I. C. (Ed.) <i>Evolutionary Design and Manufacturing</i> (pp. 351–362). London: Springer-Verlag.</span></td></tr><tr><td>Journal article</td><td>Author (Year). Title of the article. <i>Title of the Journal</i>. Volume (Issue no.), page.<br><span class="ref-ex"><b>Example:</b> Lenstra, A. K. and Verheul, E. R. (2001). Selecting Cryptographic Key Sizes. <i>Journal of Cryptology</i>. 14(4), 255–293.</span></td></tr><tr><td>Conference article</td><td>Author (Year). Title of the article. <i>Name of the conference</i>. Date of the conference. Place, page.<br><span class="ref-ex"><b>Example:</b> Sheta, A. F. and De Jong, K. (1996). Parameter Estimation of Nonlinear Systems in Noisy Environments Using Genetic Algorithms. <i>Proceedings of the 1996 IEEE International Symposium on Intelligent Control</i>. 15–18 September. Dearborn, Michigan: IEEE, 360–365.</span></td></tr><tr><td>Thesis</td><td>Author (Year). <i>Title of the thesis</i>. Thesis award. Place published.<br><span class="ref-ex"><b>Example:</b> Rijmen, V. (1997). <i>Cryptanalysis and Design of Iterated Block Ciphers</i>. Ph.D. Thesis, Katholieke University Leuven, Belgium.</span></td></tr><tr><td>Internet</td><td>Organisation/author (Year). Title of article. URL address. Available online day month, year.<br><span class="ref-ex"><b>Example:</b> EPIC (2005). Census and Privacy. http://www.epic.org/privacy/census/. Available online 15 February 2005.</span></td></tr><tr><td>Newspaper (online)</td><td>Author. (Year, date). Title of article. <i>Name of newspaper</i>. Retrieved date, year, from URL address of the newspaper.<br><span class="ref-ex"><b>Example:</b> Rosmawati Mion (2006, June 17). Sindiket judi haram tumpas. <i>Utusan Malaysia</i>. Retrieved June 19, 2006, from http://www.utusan.com.my</span></td></tr></tbody></table></div>
+          <details><summary>More formats (newspaper, magazine, legislation, standards, patents and others)</summary><div class="table-scroll"><table class="br-table"><thead><tr><th>Resource</th><th>Format and example</th></tr></thead><tbody><tr><td>Newspaper (print, no author)</td><td>Title of article. (Year, date). <i>Name of newspaper</i>, page.<br><span class="ref-ex"><b>Example:</b> Gearing up to meet new challenges. (2000, February 22). <i>The Star</i>. p. 2.</span></td></tr><tr><td>Newspaper (print, with author)</td><td>Author. (Year, date). Title of article. <i>Name of newspaper</i>, page.<br><span class="ref-ex"><b>Example:</b> Izatun Shari (2000, April 18). K-economy: draft out in October. <i>New Straits Times</i>. p. 2–4.</span></td></tr><tr><td>Magazine</td><td>Author. (Year). Title of article. <i>Name of magazine</i>, Volume/Issue no., page.<br><span class="ref-ex"><b>Example:</b> Smith, B. L. (1994). Biofeedback. <i>Science</i>, 62, 673–675.</span></td></tr><tr><td>Legislation</td><td>Name of the country (Year). <i>Title of the legislation</i>. Legislation number.<br><span class="ref-ex"><b>Example:</b> Malaysia (1983). <i>Perintah Monumen Lama dan Tapak Tanah Bersejarah</i>. P.U.(A)41 1983.</span></td></tr><tr><td>Standard</td><td>Name of the institution (Year). <i>Standard number</i>. Place published: Publisher.<br><span class="ref-ex"><b>Example:</b> British Standards Institution (1990). <i>B.S. 764</i>. London: British Standards Institution.</span></td></tr><tr><td>Patent (print)</td><td>Author (Year). <i>Patent number</i>. Place published: Official source.<br><span class="ref-ex"><b>Example:</b> Smith, I. M. (1988). <i>U.S. Patent No. 123,445</i>. Washington DC: U.S. Patent and Trademark Office.</span></td></tr><tr><td>Patent (electronic)</td><td>Author (Year). <i>Patent number</i>. Retrieved on date, year, from URL address of the patent database.<br><span class="ref-ex"><b>Example:</b> Ulrich, K. (2001). <i>European Patent No. EP1162184</i>. Retrieved on March 7, 2002, from ftp://ep.espacenet.com/</span></td></tr><tr><td>Brochure</td><td>Name of organisation (Year). <i>Title</i> [Brochure]. Place published: Publisher.<br><span class="ref-ex"><b>Example:</b> Research and Training Center (1993). <i>Guidelines for Reporting and Writing About People with Disabilities</i> [Brochure]. Lawrence, KS: Macmillan.</span></td></tr><tr><td>Measured drawing</td><td>Author (Year). <i>Title</i>. [Measured drawing]. Name of organisation: Place published.<br><span class="ref-ex"><b>Example:</b> Salim Man (1989). <i>Pengisi Sekam ke Dalam Kontena Penyimpan: Pandangan Isometrik</i>. [Lukisan Teknik]. Universiti Teknologi Malaysia: Skudai.</span></td></tr><tr><td>Unpublished material</td><td>Author (Year). <i>Title</i>. Unpublished note, Name of organisation.</td></tr><tr><td>CD-ROM</td><td>Author. (Year). Title of article. [CD-ROM]. <i>Title of Journal</i>, Volume, page, Publisher.<br><span class="ref-ex"><b>Example:</b> Ivry, R. B. (1995). Perception and production of temporal intervals across a range of durations. [CD-ROM]. <i>Journal of Experimental Psychology</i>, 21, 3–18. American Psychological Association.</span></td></tr></tbody></table></div></details>
+        </section>
+
+      </div>
+
+      <aside class="br-side">
+        <div class="panel">
+          <div class="deadline"><b>Submission deadline</b><span>Friday, 20 November 2026, before 5.00 pm</span></div>
+          <h2>At a glance</h2>
+          <dl class="glance">
+            <div><dt>Subject</dt><dd>Data Engineering Ecosystem (SCST1133)</dd></div>
+            <div><dt>Session</dt><dd>2026/2027 Semester 1</dd></div>
+            <div><dt>Task</dt><dd>Academic writing on an industry talk</dd></div>
+            <div><dt>Title</dt><dd>Creative Thinking</dd></div>
+            <div><dt>Duration</dt><dd>10 days (10–20 November 2026)</dd></div>
+            <div><dt>Length</dt><dd>Not more than 3 pages</dd></div>
+            <div><dt>File name</dt><dd>Your group code, e.g. <b>S03-G1</b></dd></div>
+            <div><dt>Weight</dt><dd>5% of the course assessment</dd></div>
+          </dl>
+          <div class="br-actions"><a class="br-btn" href="assignment-1.html">Find your group</a><a class="br-btn ghost" href="#rubric">View rubric</a></div>
+        </div>
+        <div class="panel">
+          <h2>Before you submit</h2>
+          <ul class="checklist" id="a1-check"><li><label><input type="checkbox"><span>The report is no longer than three pages (cover + pages two and three).</span></label></li><li><label><input type="checkbox"><span>The cover has a proper title, a representative picture, the topic titles, and the names and pictures of all members.</span></label></li><li><label><input type="checkbox"><span>Pages two and three cover the speaker's experience, the four kinds of thinking, HOTS and its use in CS and data engineering.</span></label></li><li><label><input type="checkbox"><span>Academic papers are cited in the text as (author name, year).</span></label></li><li><label><input type="checkbox"><span>Every member has written their own reflection.</span></label></li><li><label><input type="checkbox"><span>The list of references follows the Harvard (UTM) format.</span></label></li><li><label><input type="checkbox"><span>The log activity records searches, prompts, tasks for each member and GitHub work.</span></label></li><li><label><input type="checkbox"><span>Text is justified and every page has a page number.</span></label></li><li><label><input type="checkbox"><span>All photos and information from other sources are credited.</span></label></li><li><label><input type="checkbox"><span>The file is a PDF named with your group code, for example S03-G1.pdf.</span></label></li><li><label><input type="checkbox"><span>Submitted on UTM e-Learning before 5.00 pm on Friday, 20 November 2026.</span></label></li><li><label><input type="checkbox"><span>Uploaded to GitHub and shared on LinkedIn one week after the e-Learning submission.</span></label></li></ul>
+          <p class="ck-progress" id="a1-check-progress" aria-live="polite"></p>
+        </div>
+      </aside>
+    </div>
+        <section class="panel" id="rubric">
+      <p class="eyebrow">Assessment</p>
+      <h2>Rubric for the report (5%)</h2>
+      <div class="levels"><span>Excellent: 10–7</span><span>Fair: 6–4</span><span>Poor: 3–0</span></div>
+      <div class="table-scroll"><table class="br-table rubric"><thead><tr><th>Criteria</th><th>Weight</th><th>Excellent (10–7)</th><th>Fair (6–4)</th><th>Poor (3–0)</th></tr></thead><tbody><tr><td>Informative and attractive</td><td>10</td><td><ul><li>Accurate information (content).</li><li>All required information is presented in a logical order.</li></ul></td><td><ul><li>Some information is inaccurate but presented in a logical order.</li><li>Very little required information is missing.</li></ul></td><td><ul><li>Most information is inaccurate or not presented in a logical order, making it difficult to follow.</li><li>Most required information is missing.</li></ul></td></tr><tr><td>Contents</td><td>25</td><td><ul><li><b>Page one:</b> cover with a proper title, a representative picture, the titles of the topics covered, and the names and pictures of group members.</li><li><b>Pages two and three:</b> the speaker's experience; critical, creative, mathematical and scientific thinking; HOTS and how it applies to computer science and data engineering; academic citations.</li><li>All contents included, very well presented and organised; many graphics and pictures.</li></ul></td><td><ul><li>Included but not well covered.</li><li>Moderate presentation and organisation; moderate graphics and pictures.</li></ul></td><td><ul><li>Included but poorly covered; lacking content and not organised properly.</li><li>Inappropriate graphics or pictures.</li></ul></td></tr><tr><td>Reflection</td><td>25</td><td><ul><li>Each student's reflection on the talk: how you will succeed in computer science and data engineering over the next three years.</li><li>Excellent explanation.</li></ul></td><td><ul><li>Fair explanation.</li></ul></td><td><ul><li>Poor explanation.</li></ul></td></tr><tr><td>Report features</td><td>10</td><td><ul><li>Includes all required features, such as the main report, graphics with captions and reporters.</li><li>All features relate to the subject and suit the target audience.</li><li>Creative layout.</li></ul></td><td><ul><li>Not all required features are included.</li><li>Features are mostly related and appropriate.</li><li>Some creativity, but not organised logically and/or cluttered.</li></ul></td><td><ul><li>Lacks features such as the main report, graphics with captions and reporters.</li><li>Features are unrelated or inappropriate.</li><li>Layout is messy, disorganised or cluttered.</li></ul></td></tr><tr><td>Organisation and structure</td><td>10</td><td><ul><li>Text is interesting, very well organised and easy to understand.</li></ul></td><td><ul><li>Text is quite interesting and organised.</li></ul></td><td><ul><li>Most of the text is not interesting and is disorganised.</li></ul></td></tr><tr><td>Text</td><td>5</td><td><ul><li>All text is easy to read with clear explanations.</li><li>Appropriate font size.</li><li>No more than three font styles.</li></ul></td><td><ul><li>Most text is easy to read and clear.</li><li>Appropriate font size.</li><li>More than three font styles.</li></ul></td><td><ul><li>Some text is difficult to read or unclear.</li><li>Medium font size.</li><li>More than four font styles.</li></ul></td></tr><tr><td>Log activity</td><td>10</td><td><ul><li>Activities are clearly and comprehensively described with relevant details.</li></ul></td><td><ul><li>Activities are described but lack some important details.</li></ul></td><td><ul><li>Activities are unclear, incomplete or poorly described.</li></ul></td></tr><tr><td>Timeliness</td><td>5</td><td><ul><li>Submitted on time.</li></ul></td><td><ul><li>Submitted one day late.</li></ul></td><td><ul><li>Submitted more than one day late.</li></ul></td></tr></tbody><tfoot><tr><td>Total</td><td>100</td><td colspan="3">Converted to 5% of the course assessment</td></tr></tfoot></table></div>
+    </section>
+
+    <section class="panel" id="log">
+      <p class="eyebrow">Template</p>
+      <h2>Log activity template</h2>
+      <p>Copy this table into your report or GitHub README and fill it in as you work. Record every search, AI prompt and task.</p>
+      <button class="copy" type="button" data-copy="log-tpl">Copy template</button>
+      <pre class="tpl" id="log-tpl">ASSIGNMENT 1 – INDUSTRY TALK 1: CREATIVE THINKING
+Group code: S0X-GX
+Log activity
+
+| No | Date | Member | Task | Source / search / AI prompt used | Output / GitHub link |
+|----|------|--------|------|----------------------------------|----------------------|
+| 1  |      |        |      |                                  |                      |
+| 2  |      |        |      |                                  |                      |
+| 3  |      |        |      |                                  |                      |
+| 4  |      |        |      |                                  |                      |</pre>
+    </section>
+  </main>
+  <footer><div class="footer-inner"><div><b>SCST1133 · Data Engineering Ecosystem</b><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><div><p>© 2026 Dr MSO · Universiti Teknologi Malaysia.<a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Site visitors"></a></p></div></div></footer>
+  <script src="../assets/app.js"></script>
+
+<script>
+(function(){
+  const box=[...document.querySelectorAll('#a1-check input')],out=document.getElementById('a1-check-progress'),key='scst1133-a1-talk1-check';
+  let saved=[];try{saved=JSON.parse(localStorage.getItem(key)||'[]')}catch(e){}
+  const upd=()=>{out.textContent=box.filter(b=>b.checked).length+' of '+box.length+' items checked'};
+  box.forEach((b,i)=>{b.checked=!!saved[i];b.addEventListener('change',()=>{try{localStorage.setItem(key,JSON.stringify(box.map(x=>x.checked)))}catch(e){}upd()})});upd();
+  document.querySelectorAll('[data-copy]').forEach(btn=>btn.addEventListener('click',async()=>{const t=document.getElementById(btn.dataset.copy).textContent;try{await navigator.clipboard.writeText(t);btn.textContent='Copied ✓'}catch(e){btn.textContent='Select the text below to copy'}setTimeout(()=>btn.textContent='Copy template',2000)}));
+})();
+</script>
+</body>
+</html>
