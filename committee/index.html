@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Committee Invitation · AiScholar Conferences 2027</title>
+  <meta name="description" content="Join the organizing and technical program committees of AiScholar international conferences in 2027.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-inner">
+      <div class="brand"><span class="brand-mark">A</span><span id="orgName">AiScholar</span> <span class="muted">Conferences</span></div>
+      <nav><a href="#conferences">Conferences</a><a href="#role">Role &amp; Benefits</a><a href="#apply" class="btn btn-sm">Apply</a></nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Call for Committee Members · 2027</p>
+      <h1>Shape the next generation of international conferences.</h1>
+      <p class="lede">We invite academic staff to join the organizing and technical program committees. Choose a conference, check the positions you qualify for, and submit your details in a few minutes.</p>
+      <div class="hero-cta"><a href="#apply" class="btn">Submit your details</a><a href="#conferences" class="btn btn-ghost">View open positions</a></div>
+    </div>
+  </section>
+
+  <main>
+    <section id="conferences" class="wrap section">
+      <h2>Conferences &amp; open positions</h2>
+      <div id="confList" class="conf-grid"></div>
+    </section>
+
+    <section class="wrap section">
+      <h2>Eligibility by position</h2>
+      <div class="elig" id="eligTable"></div>
+    </section>
+
+    <section id="role" class="wrap section role">
+      <div>
+        <h2>Role (advisory &amp; flexible)</h2>
+        <p id="roleIntro"></p>
+        <h3>We would be grateful if you could</h3>
+        <ul id="roleAsks" class="ticks"></ul>
+      </div>
+      <div class="benefits">
+        <h3>Rights &amp; benefits</h3>
+        <ul id="roleBenefits" class="ticks"></ul>
+      </div>
+    </section>
+
+    <section id="apply" class="wrap section">
+      <h2>Application form</h2>
+      <p class="muted">Fields marked <span class="req">*</span> are required. One application per person per conference.</p>
+      <div id="demoBanner" class="banner" hidden>Demo mode: no Apps Script URL has been set in <code>config.js</code>, so submissions are not saved.</div>
+
+      <form id="appForm" novalidate>
+        <fieldset>
+          <legend>1 · Position</legend>
+          <div class="grid2">
+            <label>Academic title <span class="req">*</span>
+              <select name="title" id="title" required></select>
+            </label>
+            <label>Conference <span class="req">*</span>
+              <select name="conference" id="conference" required></select>
+            </label>
+          </div>
+          <div>
+            <span class="label">Position <span class="req">*</span></span>
+            <div id="roleOptions" class="role-options"><p class="muted small">Select your title and conference first.</p></div>
+          </div>
+          <div>
+            <span class="label">Preferred track(s) <span class="req">*</span></span>
+            <div id="trackOptions" class="checks"><p class="muted small">Select a conference first.</p></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>2 · Personal details</legend>
+          <div class="grid2">
+            <label>Full name <span class="req">*</span>
+              <input name="name" required placeholder="e.g. Ahmad bin Ali" autocomplete="name">
+            </label>
+            <label>Nationality <span class="req">*</span>
+              <input name="nationality" required placeholder="e.g. Malaysia" list="countries" autocomplete="country-name">
+            </label>
+            <label class="span2">University / Department <span class="req">*</span>
+              <input name="affiliation" required placeholder="e.g. Faculty of Computing, Universiti Teknologi Malaysia" autocomplete="organization">
+            </label>
+            <label>Email <span class="req">*</span>
+              <input name="email" type="email" required placeholder="name@university.edu" autocomplete="email">
+            </label>
+            <label>Personal webpage
+              <input name="webpage" id="webpage" type="url" placeholder="https://… (university profile, Google Scholar)">
+            </label>
+            <label>IEEE membership <span class="req">*</span>
+              <select name="ieee" required><option value="">Select…</option><option>Yes</option><option>No</option></select>
+            </label>
+            <label>Research interests
+              <input name="interests" placeholder="e.g. federated learning, smart contracts">
+            </label>
+          </div>
+          <label class="photo">Photo <span class="req" id="photoReq">* (required if no webpage)</span>
+            <input name="photo" id="photo" type="file" accept="image/*">
+            <img id="photoPreview" alt="" hidden>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>3 · Confirmation</legend>
+          <label class="check"><input type="checkbox" name="consent" required> I agree that my name, title, affiliation and photo may be published on the conference website if appointed.</label>
+        </fieldset>
+
+        <div id="formError" class="error" role="alert" hidden></div>
+        <button type="submit" class="btn btn-lg" id="submitBtn">Submit application</button>
+      </form>
+
+      <div id="success" class="success" hidden>
+        <h3>Thank you!</h3>
+        <p>Your application has been received. The organizing team will review it and contact you by email.</p>
+        <button class="btn btn-ghost" id="againBtn" type="button">Submit another application</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <p>Organized &amp; sponsored by <strong id="orgFoot">AiScholar</strong>. <span id="contactLine"></span></p>
+  </footer>
+
+  <datalist id="countries"></datalist>
+  <script src="config.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
