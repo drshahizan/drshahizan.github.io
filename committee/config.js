@@ -1,41 +1,67 @@
 /* =========================================================================
-   CONFIG — edit this file to add/modify conferences.
-   After deploying the Google Apps Script, paste its Web App URL below.
+   CONFIG — the only file you normally need to edit.
    ========================================================================= */
 window.APP_CONFIG = {
-  // Paste your Google Apps Script Web App URL here (ends with /exec).
-  // Leave empty to run in DEMO mode (nothing is saved).
+  // Google Apps Script Web App URL (ends with /exec). Empty = demo mode.
   SCRIPT_URL: "https://script.google.com/macros/s/AKfycbykGuZgHz8loeCutbUZRF_wlRdO8B5-b-7hugXRbB_vZYkd6arpEiaDz8Cn1pUw0VjJuQ/exec",
 
-  organizer: "AiScholar",
-  contactEmail: "", // optional, e.g. "committee@yourdomain.org"
+  site: {
+    name: "Call for Committee Members",
+    tagline: "International Conferences 2027",
+    year: 2026
+  },
+
+  // Shown in the footer.
+  owner: {
+    name: "Prof. Madya Ts. Dr. Mohd Shahizan bin Othman"
+  },
+
+  // Visitor badge (same style as drshahizan.github.io).
+  visitorBadge: {
+    img: "https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&labelColor=%23697689&countColor=%23555555&style=plastic",
+    link: "https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan",
+    alt: "Bilangan pelawat laman"
+  },
 
   // Academic titles, ranked. Higher rank = more senior.
   titles: [
-    { value: "Professor",           label: "Professor",            rank: 3 },
-    { value: "Associate Professor", label: "Associate Professor",  rank: 2 },
-    { value: "Dr",                  label: "Dr (PhD holder: Assistant Professor / Senior Lecturer / Lecturer / Researcher)", rank: 1 }
+    { value: "Professor",           label: "Professor",           rank: 3 },
+    { value: "Associate Professor", label: "Associate Professor", rank: 2 },
+    { value: "Dr",                  label: "Dr (PhD holder: Assistant Professor / Senior Lecturer / Lecturer / Researcher)", short: "Dr", rank: 1 }
   ],
 
   // Role eligibility (minimum title rank required).
   roles: {
-    "General Chair":                      { minRank: 3, requirement: "Professor only" },
-    "Publication Chair":                  { minRank: 2, requirement: "Associate Professor and above",
-                                            note: "For first-time applicants, priority is given to overseas experts whose research interests align with the conference." },
-    "Technical Program Chair":            { minRank: 2, requirement: "Associate Professor and above" },
-    "Technical Program Committee Member": { minRank: 1, requirement: "Professor, Associate Professor or Dr" }
+    "General Chair": {
+      minRank: 3, requirement: "Professor only",
+      summary: "Provides overall academic leadership and represents the conference."
+    },
+    "Publication Chair": {
+      minRank: 2, requirement: "Associate Professor and above",
+      summary: "Advises on publication quality and proceedings.",
+      note: "For first-time applicants, priority is given to overseas experts whose research interests align with the conference."
+    },
+    "Technical Program Chair": {
+      minRank: 2, requirement: "Associate Professor and above",
+      summary: "Advises on the technical programme, tracks and review standards."
+    },
+    "Technical Program Committee Member": {
+      minRank: 1, requirement: "Professor, Associate Professor or Dr",
+      summary: "Offers academic advice within one or more conference tracks."
+    }
   },
 
   conferences: [
     {
       id: "ICBIS2027",
+      page: "icbis-2027.html",
       short: "ICBIS 2027",
       edition: "6th",
       name: "The 6th Blockchain, Artificial Intelligence and Intelligent Information Systems",
       date: "May 28–30, 2027",
-      location: "Shanghai, China",
+      city: "Shanghai",
+      country: "China",
       website: "https://www.ic-bis.net/",
-      accent: "#2f6f5e",
       tracks: [
         "Fundamentals and Ecosystem of Blockchain",
         "Intelligent Information System",
@@ -50,13 +76,14 @@ window.APP_CONFIG = {
     },
     {
       id: "ICAIFE2027",
+      page: "icaife-2027.html",
       short: "ICAIFE 2027",
       edition: "4th",
       name: "The 4th International Conference on Artificial Intelligence and Future Education",
       date: "June 25–27, 2027",
-      location: "Tokyo, Japan",
+      city: "Tokyo",
+      country: "Japan",
       website: "https://www.icaife.net/",
-      accent: "#a2452f",
       tracks: [
         "Learning Analytics and Educational Data Mining",
         "Technology-Enhanced Learning",
@@ -70,7 +97,7 @@ window.APP_CONFIG = {
   ],
 
   roleDescription: {
-    intro: "To respect your time, your involvement is primarily advisory, high-level and highly flexible. The AiScholar organizing team takes full responsibility for operational and administrative work, including submission management, peer-review coordination, registration, publication formatting and day-to-day author correspondence.",
+    intro: "To respect your time, your involvement is primarily advisory, high-level and highly flexible. The organizing team takes full responsibility for operational and administrative work, including submission management, peer-review coordination, registration, publication formatting and day-to-day author correspondence.",
     asks: [
       "Offer academic advice on the overall conference development",
       "Support conference visibility within your academic network (optional)",

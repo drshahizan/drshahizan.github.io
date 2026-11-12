@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Positions &amp; Eligibility · Call for Committee Members</title>
+  <meta name="description" content="Committee positions, academic title requirements, responsibilities and benefits.">
+  <meta name="theme-color" content="#0a1a33">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="positions">
+  <main id="main">
+    <section class="hero page-hero">
+      <div class="wrap">
+        <div class="crumbs"><a href="index.html">Home</a> / Positions</div>
+        <span class="eyebrow">Positions &amp; eligibility</span>
+        <h1>Find the position that matches your academic title.</h1>
+        <p class="lede">Chair positions are open to senior academics. Committee member positions are open to all PhD holders.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Positions</span>
+          <h2>Committee positions</h2>
+        </div>
+        <div class="grid grid-4" id="roleCards"></div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Eligibility matrix</span>
+          <h2>Which positions can I apply for?</h2>
+          <p>Find your academic title in the left column. A tick means you are eligible.</p>
+        </div>
+        <div class="table-wrap"><table id="matrix"></table></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <span class="eyebrow">Your role</span>
+          <h2>Advisory, high-level and flexible</h2>
+          <p class="muted" id="roleIntro"></p>
+          <ul class="ticks" id="roleAsks"></ul>
+        </div>
+        <div class="panel-navy">
+          <span class="eyebrow">Rights &amp; benefits</span>
+          <h3>What committee members receive</h3>
+          <ul class="ticks" id="roleBenefits"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <div><h2>Know your position?</h2><p>The form only shows positions you are eligible for.</p></div>
+        <a href="apply.html" class="btn btn-gold">Apply now</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/cards.js"></script>
+  <script>
+  (function () {
+    const { C, esc } = Portal;
+    const roles = Object.entries(C.roles);
+    document.getElementById("roleCards").innerHTML = roles.map(([name, r], i) => {
+      const where = C.conferences.filter((c) => c.positions.some((p) => p.role === name));
+      const seats = where.reduce((n, c) => n + c.positions.find((p) => p.role === name).slots, 0);
+      return `<div class="card num-card"><div class="n">${String(i + 1).padStart(2, "0")}</div>
+        <h3>${esc(name)}</h3>
+        <p style="margin-bottom:14px">${esc(r.summary)}</p>
+        <p style="margin:0 0 6px"><span class="badge gold">${esc(r.requirement)}</span></p>
+        <p class="small" style="margin-top:auto;padding-top:12px">${seats} seat${seats > 1 ? "s" : ""} · ${where.map((c) => `<a href="${c.page}">${esc(c.short)}</a>`).join(", ")}</p>
+        ${r.note ? `<p class="small" style="margin-top:8px">${esc(r.note)}</p>` : ""}
+      </div>`;
+    }).join("");
+    document.getElementById("matrix").innerHTML =
+      `<thead><tr><th>Academic title</th>${roles.map(([n]) => `<th class="c">${esc(n)}</th>`).join("")}</tr></thead>
+       <tbody>${C.titles.map((t) => `<tr><td><strong>${esc(t.short || t.label)}</strong></td>${roles.map(([, r]) =>
+         t.rank >= r.minRank ? '<td class="c yes" aria-label="Eligible">✓</td>' : '<td class="c no" aria-label="Not eligible">—</td>').join("")}</tr>`).join("")}</tbody>`;
+    Portal.fillRole();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Application Form · Call for Committee Members</title>
+  <meta name="description" content="Apply to join the ICBIS 2027 or ICAIFE 2027 committee.">
+  <meta name="theme-color" content="#0a1a33">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="apply">
+  <main id="main">
+    <section class="hero page-hero">
+      <div class="wrap">
+        <div class="crumbs"><a href="index.html">Home</a> / Application form</div>
+        <span class="eyebrow">Application form</span>
+        <h1>Apply to join the committee</h1>
+        <p class="lede">Fields marked <span class="req">*</span> are required. One application per person per conference.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:48px">
+      <div class="wrap form-layout">
+        <div>
+          <div id="demoBanner" class="alert alert-warn" hidden>Demo mode: no Apps Script URL is set in <code>config.js</code>, so submissions are not saved.</div>
+
+          <form id="appForm" class="form-card" novalidate>
+            <fieldset>
+              <legend><span class="step">1</span>Position</legend>
+              <div class="fgrid">
+                <label>Academic title <span class="req">*</span>
+                  <select name="title" id="title" required></select>
+                </label>
+                <label>Conference <span class="req">*</span>
+                  <select name="conference" id="conference" required></select>
+                </label>
+              </div>
+              <div style="margin-top:18px">
+                <span class="label">Position <span class="req">*</span> <span class="hint">Only positions you are eligible for can be selected.</span></span>
+                <div id="roleOptions" class="role-options"><p class="hint">Select your academic title and conference first.</p></div>
+              </div>
+              <div>
+                <span class="label">Preferred track(s) <span class="req">*</span></span>
+                <div id="trackOptions" class="checks"><p class="hint">Select a conference first.</p></div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend><span class="step">2</span>Personal details</legend>
+              <div class="fgrid">
+                <label>Full name <span class="req">*</span>
+                  <input name="name" required placeholder="As it should appear on the website" autocomplete="name">
+                </label>
+                <label>Nationality <span class="req">*</span>
+                  <input name="nationality" required placeholder="e.g. Malaysia" list="countries" autocomplete="country-name">
+                </label>
+                <label class="span2">University / Department <span class="req">*</span>
+                  <input name="affiliation" required placeholder="e.g. Faculty of Computing, Universiti Teknologi Malaysia" autocomplete="organization">
+                </label>
+                <label>Email <span class="req">*</span>
+                  <input name="email" type="email" required placeholder="name@university.edu" autocomplete="email">
+                </label>
+                <label>Personal webpage
+                  <input name="webpage" id="webpage" type="url" placeholder="https://… university profile or Google Scholar">
+                </label>
+                <label>IEEE membership <span class="req">*</span>
+                  <select name="ieee" required><option value="">Select…</option><option>Yes</option><option>No</option></select>
+                </label>
+                <label>Research interests
+                  <input name="interests" placeholder="e.g. federated learning, smart contracts">
+                </label>
+                <div class="span2">
+                  <label for="photo">Photo <span class="req" id="photoReq">* required if you have no webpage</span></label>
+                  <div class="photo-row">
+                    <input name="photo" id="photo" type="file" accept="image/*">
+                    <img id="photoPreview" alt="Photo preview" hidden>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset style="border-bottom:0">
+              <legend><span class="step">3</span>Confirmation</legend>
+              <label class="check"><input type="checkbox" name="consent" required> I agree that my name, title, affiliation and photo may be published on the conference website if appointed.</label>
+            </fieldset>
+
+            <div id="formError" class="alert alert-err" role="alert" hidden></div>
+            <button type="submit" class="btn btn-navy" id="submitBtn" style="padding:.9em 2.2em">Submit application</button>
+          </form>
+
+          <div id="success" class="card success" hidden>
+            <div class="tick"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12.5 10 17l9-10"/></svg></div>
+            <h2>Thank you</h2>
+            <p class="muted">Your application has been received. The organizing team will review it and contact you by email.</p>
+            <div class="cta-row" style="justify-content:center">
+              <button class="btn btn-outline" id="againBtn" type="button">Apply to another conference</button>
+              <a class="btn btn-navy" href="index.html">Back to home</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="form-aside">
+          <div class="card">
+            <span class="kicker">Before you start</span>
+            <h3 style="margin:.4em 0 .6em">Have these ready</h3>
+            <ul class="ticks small" style="margin-bottom:18px">
+              <li>Your official affiliation (university and department)</li>
+              <li>A personal or university webpage, or a photo</li>
+              <li>The track(s) closest to your expertise</li>
+            </ul>
+            <span class="kicker">Eligibility</span>
+            <ul class="ticks small" id="eligList"></ul>
+            <p class="small" style="margin:12px 0 0"><a href="positions.html">Full eligibility details →</a></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <datalist id="countries"></datalist>
+  <script src="config.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/apply.js"></script>
+</body>
+</html>

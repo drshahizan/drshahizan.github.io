@@ -13,12 +13,23 @@ Peraturan disemak dua kali: di borang (pilihan yang tidak layak dikelabukan) dan
 
 ## Struktur
 ```
-index.html          laman utama + borang
-config.js           SEMUA tetapan: conference, track, kuota, syarat, SCRIPT_URL
-assets/style.css    reka bentuk
-assets/app.js       logik borang
-apps-script/Code.gs backend Google Sheets (bukan untuk GitHub Pages)
+index.html              Laman utama
+icbis-2027.html         Halaman ICBIS 2027
+icaife-2027.html        Halaman ICAIFE 2027
+positions.html          Jawatan & jadual kelayakan
+apply.html              Borang permohonan
+faq.html                Soalan lazim
+config.js               SEMUA tetapan: conference, track, kuota, syarat, nama footer, visitor badge, SCRIPT_URL
+assets/css/style.css    Reka bentuk (navy & emas)
+assets/js/layout.js     Header & footer dikongsi oleh semua halaman
+assets/js/cards.js      Kad conference & senarai kerusi
+assets/js/home.js       Logik laman utama
+assets/js/conference.js Logik halaman conference
+assets/js/apply.js      Logik borang
+apps-script/Code.gs     Backend Google Sheets (tidak perlu dimuat naik ke GitHub)
 ```
+
+Tambah conference baru: tambah objek dalam `config.js` (termasuk `page`), salin `icbis-2027.html` kepada nama baru dan tukar `data-page` serta `data-conf`, kemudian kemas kini `CONFERENCES` dalam Code.gs.
 
 ## Langkah 1 — Google Sheet (backend)
 1. Buat Google Sheet baru, contohnya "Committee Applications 2027".

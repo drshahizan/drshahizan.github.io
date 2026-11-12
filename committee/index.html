@@ -3,134 +3,97 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Committee Invitation · AiScholar Conferences 2027</title>
-  <meta name="description" content="Join the organizing and technical program committees of AiScholar international conferences in 2027.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+  <title>Call for Committee Members · International Conferences 2027</title>
+  <meta name="description" content="Join the organizing and technical program committees of ICBIS 2027 (Shanghai) and ICAIFE 2027 (Tokyo).">
+  <meta name="theme-color" content="#0a1a33">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-  <header class="top">
-    <div class="wrap top-inner">
-      <div class="brand"><span class="brand-mark">A</span><span id="orgName">AiScholar</span> <span class="muted">Conferences</span></div>
-      <nav><a href="#conferences">Conferences</a><a href="#role">Role &amp; Benefits</a><a href="#apply" class="btn btn-sm">Apply</a></nav>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="wrap">
-      <p class="eyebrow">Call for Committee Members · 2027</p>
-      <h1>Shape the next generation of international conferences.</h1>
-      <p class="lede">We invite academic staff to join the organizing and technical program committees. Choose a conference, check the positions you qualify for, and submit your details in a few minutes.</p>
-      <div class="hero-cta"><a href="#apply" class="btn">Submit your details</a><a href="#conferences" class="btn btn-ghost">View open positions</a></div>
-    </div>
-  </section>
-
-  <main>
-    <section id="conferences" class="wrap section">
-      <h2>Conferences &amp; open positions</h2>
-      <div id="confList" class="conf-grid"></div>
-    </section>
-
-    <section class="wrap section">
-      <h2>Eligibility by position</h2>
-      <div class="elig" id="eligTable"></div>
-    </section>
-
-    <section id="role" class="wrap section role">
-      <div>
-        <h2>Role (advisory &amp; flexible)</h2>
-        <p id="roleIntro"></p>
-        <h3>We would be grateful if you could</h3>
-        <ul id="roleAsks" class="ticks"></ul>
-      </div>
-      <div class="benefits">
-        <h3>Rights &amp; benefits</h3>
-        <ul id="roleBenefits" class="ticks"></ul>
+<body data-page="home">
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Call for committee members · 2027</span>
+          <h1>Serve on the committees of two international conferences.</h1>
+          <p class="lede">We invite professors, associate professors and PhD-holding academics to join the organizing and technical program committees of ICBIS 2027 and ICAIFE 2027. The role is advisory and flexible.</p>
+          <div class="cta-row">
+            <a href="apply.html" class="btn btn-gold">Apply now</a>
+            <a href="positions.html" class="btn btn-line">Positions &amp; eligibility</a>
+          </div>
+        </div>
+        <aside class="facts" aria-label="At a glance">
+          <div class="fact">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+            <div><small>Conferences</small><strong class="num" id="statConfs">2</strong></div>
+          </div>
+          <div class="fact">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18 14.6c2 .7 3.2 2.6 3.6 5.4"/></svg>
+            <div><small>Positions open</small><strong class="num"><span id="statOpen">–</span> <span class="muted" style="font-size:.95rem">of <span id="statTotal">–</span></span></strong></div>
+          </div>
+          <div class="fact">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+            <div><small>Conference dates</small><strong id="statDates"></strong></div>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section id="apply" class="wrap section">
-      <h2>Application form</h2>
-      <p class="muted">Fields marked <span class="req">*</span> are required. One application per person per conference.</p>
-      <div id="demoBanner" class="banner" hidden>Demo mode: no Apps Script URL has been set in <code>config.js</code>, so submissions are not saved.</div>
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">The conferences</span>
+          <h2>Choose where you would like to serve</h2>
+          <p>Each conference has its own tracks and committee positions. Open the conference page for full details.</p>
+        </div>
+        <div class="grid grid-2" id="confCards"></div>
+      </div>
+    </section>
 
-      <form id="appForm" novalidate>
-        <fieldset>
-          <legend>1 · Position</legend>
-          <div class="grid2">
-            <label>Academic title <span class="req">*</span>
-              <select name="title" id="title" required></select>
-            </label>
-            <label>Conference <span class="req">*</span>
-              <select name="conference" id="conference" required></select>
-            </label>
-          </div>
-          <div>
-            <span class="label">Position <span class="req">*</span></span>
-            <div id="roleOptions" class="role-options"><p class="muted small">Select your title and conference first.</p></div>
-          </div>
-          <div>
-            <span class="label">Preferred track(s) <span class="req">*</span></span>
-            <div id="trackOptions" class="checks"><p class="muted small">Select a conference first.</p></div>
-          </div>
-        </fieldset>
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2>Four steps to join</h2>
+        </div>
+        <div class="grid grid-4">
+          <div class="card num-card"><div class="n">01</div><h3>Check eligibility</h3><p>Each position has a minimum academic title. Chairs require Associate Professor and above.</p></div>
+          <div class="card num-card"><div class="n">02</div><h3>Choose a position</h3><p>Pick the conference, the position you qualify for and your preferred tracks.</p></div>
+          <div class="card num-card"><div class="n">03</div><h3>Submit your details</h3><p>Name, affiliation, webpage or photo, and IEEE membership. It takes about five minutes.</p></div>
+          <div class="card num-card"><div class="n">04</div><h3>Receive confirmation</h3><p>The organizing team reviews each application and contacts you by email.</p></div>
+        </div>
+      </div>
+    </section>
 
-        <fieldset>
-          <legend>2 · Personal details</legend>
-          <div class="grid2">
-            <label>Full name <span class="req">*</span>
-              <input name="name" required placeholder="e.g. Ahmad bin Ali" autocomplete="name">
-            </label>
-            <label>Nationality <span class="req">*</span>
-              <input name="nationality" required placeholder="e.g. Malaysia" list="countries" autocomplete="country-name">
-            </label>
-            <label class="span2">University / Department <span class="req">*</span>
-              <input name="affiliation" required placeholder="e.g. Faculty of Computing, Universiti Teknologi Malaysia" autocomplete="organization">
-            </label>
-            <label>Email <span class="req">*</span>
-              <input name="email" type="email" required placeholder="name@university.edu" autocomplete="email">
-            </label>
-            <label>Personal webpage
-              <input name="webpage" id="webpage" type="url" placeholder="https://… (university profile, Google Scholar)">
-            </label>
-            <label>IEEE membership <span class="req">*</span>
-              <select name="ieee" required><option value="">Select…</option><option>Yes</option><option>No</option></select>
-            </label>
-            <label>Research interests
-              <input name="interests" placeholder="e.g. federated learning, smart contracts">
-            </label>
-          </div>
-          <label class="photo">Photo <span class="req" id="photoReq">* (required if no webpage)</span>
-            <input name="photo" id="photo" type="file" accept="image/*">
-            <img id="photoPreview" alt="" hidden>
-          </label>
-        </fieldset>
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <span class="eyebrow">Your role</span>
+          <h2>Advisory, high-level and flexible</h2>
+          <p class="muted" id="roleIntro"></p>
+          <h3 style="margin-top:28px">We would be grateful if you could</h3>
+          <ul class="ticks" id="roleAsks"></ul>
+        </div>
+        <div class="panel-navy">
+          <span class="eyebrow">Rights &amp; benefits</span>
+          <h3>What committee members receive</h3>
+          <ul class="ticks" id="roleBenefits"></ul>
+        </div>
+      </div>
+    </section>
 
-        <fieldset>
-          <legend>3 · Confirmation</legend>
-          <label class="check"><input type="checkbox" name="consent" required> I agree that my name, title, affiliation and photo may be published on the conference website if appointed.</label>
-        </fieldset>
-
-        <div id="formError" class="error" role="alert" hidden></div>
-        <button type="submit" class="btn btn-lg" id="submitBtn">Submit application</button>
-      </form>
-
-      <div id="success" class="success" hidden>
-        <h3>Thank you!</h3>
-        <p>Your application has been received. The organizing team will review it and contact you by email.</p>
-        <button class="btn btn-ghost" id="againBtn" type="button">Submit another application</button>
+    <section class="cta-band">
+      <div class="wrap">
+        <div><h2>Ready to apply?</h2><p>One application per conference. You may apply to both.</p></div>
+        <a href="apply.html" class="btn btn-gold">Go to application form</a>
       </div>
     </section>
   </main>
 
-  <footer class="wrap foot">
-    <p>Organized &amp; sponsored by <strong id="orgFoot">AiScholar</strong>. <span id="contactLine"></span></p>
-  </footer>
-
-  <datalist id="countries"></datalist>
   <script src="config.js"></script>
-  <script src="assets/app.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/cards.js"></script>
+  <script src="assets/js/home.js"></script>
 </body>
 </html>
