@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Group video assignment: explain the data engineering lifecycle through one case study in five minutes on YouTube — rules, structure, upload guide, rubric and description template.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Video: Data Engineering Lifecycle | SCST1133</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .br-wrap{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.8fr);gap:22px;align-items:start}
+    .br-wrap>*{min-width:0}
+    .br-side{position:sticky;top:96px}
+    .br-toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+    .br-toc a{background:#fff;border:1px solid var(--line);border-radius:99px;padding:7px 13px;font-weight:750;font-size:.86rem;color:var(--maroon);text-decoration:none}
+    .br-toc a:hover{border-color:var(--gold)}
+    .panel{scroll-margin-top:96px}
+    .glance{margin:0;display:grid;gap:0}
+    .glance div{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+    .glance div:last-child{border:0}
+    .glance dt{font-weight:800;color:var(--muted);font-size:.86rem}.glance dd{margin:0}
+    .deadline{background:var(--maroon);color:#fff;border-radius:12px;padding:16px 18px;margin:0 0 16px}
+    .deadline b{display:block;color:var(--gold);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+    .deadline span{font-size:1.15rem;font-weight:850}
+    .br-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .br-btn{display:inline-flex;padding:10px 15px;border-radius:9px;background:#8a1538;color:#fff!important;text-decoration:none;font-weight:750}
+    .br-btn.ghost{background:#fff;color:#8a1538!important;border:1px solid #d9c9cf}
+    .talk{display:grid;grid-template-columns:200px 1fr;gap:22px;align-items:center}
+    .talk img{width:100%;height:auto;border-radius:12px;display:block}
+    .talk dl{margin:0}.talk dt{font-weight:800;color:var(--muted);font-size:.82rem;margin-top:8px}.talk dd{margin:0}
+    .pages{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+    .page-card{border:1px solid var(--line);border-top:5px solid var(--maroon);border-radius:12px;padding:16px;background:#fff}
+    .page-card.log{border-top-color:var(--gold)}
+    .page-card h3{margin:0 0 4px;color:var(--maroon);font-size:1.02rem}
+    .page-card .k{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:900;color:var(--blue)}
+    .page-card ul{margin:8px 0 0;padding-left:18px}.page-card li{margin:4px 0;font-size:.94rem}
+    .steps{display:grid;gap:14px;margin:16px 0 0}
+    .step{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+    .step i{font-style:normal;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#f8eaf0;color:var(--maroon);font-weight:900}
+    .step h3{margin:2px 0 4px;font-size:1.02rem}.step p{margin:0;color:var(--muted)}
+    .warn{padding:16px 18px;border-left:5px solid #b42318;background:#fef3f2;border-radius:8px;margin:16px 0 0}
+    .warn b{color:#b42318}
+    .quote{margin:8px 0 14px;padding:10px 14px;border-left:3px solid var(--line);color:#344054;font-style:italic;background:#fafbfc}
+    .table-scroll{overflow-x:auto}
+    .br-table td:last-child{font-weight:400;color:inherit}
+    .br-table td{vertical-align:top;font-size:.93rem}
+    .br-table td:first-child{font-weight:800;color:var(--maroon);white-space:nowrap}
+    .rubric{min-width:820px}
+    .rubric td:nth-child(2){font-weight:850;color:var(--maroon);text-align:center}
+    .rubric th:nth-child(2){text-align:center}
+    .rubric ul{margin:0;padding-left:16px}.rubric li{margin:2px 0}
+    .rubric tfoot td{background:#fff8e7;font-weight:850!important;color:var(--ink)!important}
+    .levels{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+    .levels span{border-radius:99px;padding:5px 11px;font-weight:800;font-size:.82rem;background:#f8eaf0;color:var(--maroon)}
+    details{border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-top:14px;background:#fff}
+    summary{cursor:pointer;font-weight:800;color:var(--maroon)}
+    .ref-ex{font-size:.9rem;color:#344054}
+    pre.tpl{white-space:pre;overflow-x:auto;background:#18202b;color:#f2f4f7;border-radius:10px;padding:16px;font-size:.82rem;line-height:1.5;margin:12px 0 0}
+    .copy{font:inherit;font-weight:800;border:0;border-radius:8px;padding:8px 13px;background:var(--gold);color:#281b00;cursor:pointer}
+    .checklist{list-style:none;padding:0;margin:10px 0 0}
+    .checklist li{margin:0;border-bottom:1px solid var(--line)}
+    .checklist label{display:grid;grid-template-columns:22px 1fr;gap:10px;padding:9px 0;cursor:pointer;font-size:.93rem}
+    .checklist input{width:18px;height:18px;margin-top:3px;accent-color:#8a1538}
+    .ck-progress{font-weight:800;color:var(--maroon);margin:12px 0 0;font-size:.9rem}
+    @media(max-width:930px){.br-wrap{grid-template-columns:1fr}.br-side{position:static}.pages{grid-template-columns:1fr}}
+    @media(max-width:620px){.talk{grid-template-columns:1fr}.talk img{max-width:240px}.br-table td:first-child{white-space:normal}}
+
+    .rules{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0 0}
+    .rule{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}
+    .rule i{font-style:normal;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--maroon);color:#fff;font-weight:900}
+    .rule h3{margin:0 0 3px;font-size:1rem;color:var(--maroon)}.rule p{margin:0;color:var(--muted);font-size:.93rem}
+    .tl{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:16px 0 6px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+    .tl div{padding:12px;background:#fff;border-right:1px solid var(--line)}.tl div:last-child{border:0}
+    .tl div:nth-child(odd){background:#fbf5f7}
+    .tl b{display:block;color:var(--maroon);font-size:.82rem}.tl span{font-size:.88rem}
+    .stage-list{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+    .stage-list span{border-radius:99px;padding:6px 12px;font-weight:800;font-size:.85rem;background:#f8eaf0;color:var(--maroon)}
+    .stage-list.u span{background:#eef4f7;color:var(--blue)}
+    .vids{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0 18px}
+    .vid{display:grid;gap:4px;border:1px solid var(--line);border-left:5px solid #c4302b;border-radius:12px;padding:14px;text-decoration:none;background:#fff}
+    .vid:hover{border-color:#c4302b}
+    .vid .k{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:900;color:var(--blue)}
+    .vid b{color:var(--maroon)}.vid span:last-child{color:var(--muted);font-size:.9rem}
+    .script td:nth-child(2){font-weight:800;color:var(--ink)}.script td:first-child{white-space:nowrap}
+    .callout-reg{display:flex;gap:16px;align-items:center;justify-content:space-between;margin:14px 0;padding:16px 18px;border-radius:12px;background:#f8eaf0;border:1px solid #e8c9d4}
+    .callout-reg .br-btn{white-space:nowrap}
+    .toolgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .tool{border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:4px;background:#fff}
+    .tool b{color:var(--maroon)}.tool span{color:var(--muted);font-size:.92rem}
+    .tool.star{grid-column:1/-1;border-color:#d8ad36;background:#fff8e7}
+    #faq details p{margin:8px 0 2px;color:var(--muted)}
+    .tba{background:#fff8e7;border:1px dashed var(--gold);color:#5c4300}
+    @media(max-width:760px){.callout-reg{flex-direction:column;align-items:flex-start}.toolgrid,.rules,.vids{grid-template-columns:1fr}.tl{grid-template-columns:1fr}.tl div{border-right:0;border-bottom:1px solid var(--line)}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark">FC</span><span class="brand-text"><b>SCST1133</b><span>Data Engineering Ecosystem</span></span></a>
+      <button class="menu">Menu</button>
+      <nav><a href="../index.html">Home</a><a href="../course/index.html">Course</a><a href="../topics/index.html">Topics</a><a class="active" href="index.html">Assessments</a><a href="../resources/index.html">Resources</a><a href="../tools/index.html">Tools</a><a href="../students/index.html">Students</a><a href="../announcements/index.html">Announcements</a></nav>
+    </div>
+  </header>
+
+  <section class="page-title">
+<div>
+<p class="eyebrow">Group video · 8%</p>
+<h1>Video: The Data Engineering Lifecycle</h1>
+<p>Explain the data engineering lifecycle through one case study, in a group video of no more than five minutes, presented in your own voices and uploaded to YouTube.</p>
+</div>
+</section>
+  <main>
+    <div class="br-toc" role="navigation" aria-label="On this page"><a href="#task">The task</a><a href="#rules">Rules</a><a href="#plan">Plan your video</a><a href="#examples">Examples</a><a href="#youtube">YouTube upload</a><a href="#tools">Tools</a><a href="#faq">FAQ</a><a href="#rubric">Rubric</a><a href="#template">Description template</a></div>
+    <div class="br-wrap">
+      <div>
+        <section class="panel" id="task">
+          <p class="eyebrow">The task</p>
+          <h2>What to explain</h2>
+          <p>Work in your <a href="assignment-1.html">Assignment 1 group</a> (same members and group code, for example <b>S03-G1</b>). Explain how data moves through the data engineering lifecycle, from where it is created to where it delivers value.</p>
+          <h3>The five lifecycle stages (all required)</h3>
+          <div class="stage-list"><span>1 · Generation</span><span>2 · Storage</span><span>3 · Ingestion</span><span>4 · Transformation</span><span>5 · Serving</span></div>
+          <h3>Undercurrents (explain at least two)</h3>
+          <div class="stage-list u"><span>Security</span><span>Data management</span><span>DataOps</span><span>Data architecture</span><span>Orchestration</span><span>Software engineering</span></div>
+          <h3>One case study (required)</h3>
+          <p>Choose <b>one case study</b> and follow its data through all five stages and the undercurrents you choose. Explain what data is created, where it is stored, how it is ingested, how it is transformed and who uses it.</p>
+          <div class="notice"><b>Choosing a case study</b><br>You may use a case study from <a href="../topic-03/case-studies.html">Topic 3</a> (for example, Uber or the KKM COVID-19 data), or choose your own real system: an e-hailing app, an online shop, a bank, a health app or a UTM system. Cite the sources you use about it.</div>
+          <div class="callout-reg"><div><b>Register your case study first</b><br>Each group must use a <b>different</b> case study. Register yours on the website: the first group to register a case keeps it. See which cases are already taken in the <a href="video-gallery.html">video gallery</a>.</div><a class="br-btn" href="video-submit.html">Register case study</a></div>
+          <p>Revise <a href="../topic-03/lifecycle-at-a-glance.html">Topic 3: The Lifecycle at a Glance</a> and <a href="../topic-03/undercurrents.html">The Six Undercurrents</a> before you write your script.</p>
+        </section>
+
+        <section class="panel" id="rules">
+          <p class="eyebrow">Rules</p>
+          <h2>Video rules</h2>
+          <div class="rules"><div class="rule"><i>1</i><div><h3>No AI voices</h3><p>Every voice in the video must be the real voice of a group member. Text-to-speech and AI voice tools are not allowed.</p></div></div><div class="rule"><i>2</i><div><h3>Everyone speaks</h3><p>Every member must present a part of the video. Plan about 60–75 seconds for each person.</p></div></div><div class="rule"><i>3</i><div><h3>Show the speaker</h3><p>The speaker's face must be visible while they talk: full screen or as a picture-in-picture box over slides or visuals.</p></div></div><div class="rule"><i>4</i><div><h3>Maximum 5 minutes</h3><p>The whole video, including the introduction and credits, must be 5:00 or shorter.</p></div></div><div class="rule"><i>5</i><div><h3>One case study</h3><p>Apply the lifecycle to one case study: follow its data from generation to serving.</p></div></div><div class="rule"><i>6</i><div><h3>Cite what you use</h3><p>You may use suitable images, diagrams or clips, but credit every source on screen or in the YouTube description.</p></div></div><div class="rule"><i>7</i><div><h3>One language only</h3><p>Choose English or Bahasa Melayu, and use the same language from start to finish, both spoken and on screen.</p></div></div></div>
+          <div class="warn"><b>Penalties.</b> If the video is longer than 5 minutes, only the first 5:00 is assessed. A member who does not speak, or whose part uses an AI voice, receives <b>0</b> for <i>Participation and presence</i>.</div>
+        </section>
+
+        <section class="panel" id="plan">
+          <p class="eyebrow">Plan your video</p>
+          <h2>Suggested structure</h2>
+          <p>A five-minute video goes quickly. Write a script, time it, and rehearse before you record.</p>
+          <div class="tl">
+            <div><b>0:00–0:20</b><span>Title card: video title, group code and members' names</span></div>
+            <div><b>0:20–0:50</b><span>Introduction: the lifecycle and your case study</span></div>
+            <div><b>0:50–3:40</b><span>The five stages applied to the case study, shared between members</span></div>
+            <div><b>3:40–4:40</b><span>Undercurrents in the case study and conclusion</span></div>
+            <div><b>4:40–5:00</b><span>References and credits</span></div>
+          </div>
+          <h3>Sharing the parts</h3>
+          <div class="table-scroll"><table class="br-table"><thead><tr><th>Member</th><th>Group of 4</th><th>Group of 3</th></tr></thead><tbody>
+            <tr><td>Member 1</td><td>Introduction · Generation</td><td>Introduction · Generation · Storage</td></tr>
+            <tr><td>Member 2</td><td>Storage · Ingestion</td><td>Ingestion · Transformation</td></tr>
+            <tr><td>Member 3</td><td>Transformation · Serving</td><td>Serving · Undercurrents · Conclusion</td></tr>
+            <tr><td>Member 4</td><td>Undercurrents · Conclusion</td><td>—</td></tr>
+          </tbody></table></div>
+          <h3>Recording tips</h3>
+          <ul>
+            <li>Record in landscape (16:9), at least 720p, in a quiet room facing a light source.</li>
+            <li>Use picture-in-picture so the speaker stays on screen while slides or diagrams are shown.</li>
+            <li>Show each speaker's name on screen when they start talking.</li>
+            <li>Use only copyright-free music, for example from the YouTube Audio Library, and keep it quieter than your voice.</li>
+            <li>You may use AI to brainstorm or check your script, but say so in the description. Voices and faces must be your own.</li>
+          </ul>
+        </section>
+
+        <section class="panel" id="examples">
+          <p class="eyebrow">Examples</p>
+          <h2>Reference videos</h2>
+          <p>Watch these to understand the content and see how clear visuals explain data flow. They are longer, professionally produced explainers, so use them for ideas only: do not copy their script, visuals or structure, and remember that your video must use your own voices and faces.</p>
+          <div class="vids"><a class="vid" href="https://www.youtube.com/watch?v=qWru-b6m030" target="_blank" rel="noopener"><span class="k">AltexSoft · about 14 min</span><b>How Data Engineering Works</b><span>An animated walkthrough of pipelines, ETL, data warehouses, big data and streaming. A good model for clear visuals.</span></a><a class="vid" href="https://www.youtube.com/watch?v=_-DzZeixu0w" target="_blank" rel="noopener"><span class="k">Luke Barousse</span><b>How I Would Learn to be a Data Engineer</b><span>Walks through generation, storage, ingestion, transformation and serving, plus undercurrents such as orchestration and DataOps.</span></a><a class="vid" href="https://www.youtube.com/watch?v=kGT4PcTEPP8" target="_blank" rel="noopener"><span class="k">ByteByteGo</span><b>What is Data Pipeline? | Why Is It So Popular?</b><span>A short, diagram-led explanation of how a data pipeline collects, processes and serves data.</span></a><a class="vid" href="https://www.youtube.com/watch?v=wthEAfXsZb0" target="_blank" rel="noopener"><span class="k">Intellipaat · 2:23</span><b>What is Data Engineering?</b><span>A short overview of data engineering. Notice how much fits into under three minutes.</span></a></div>
+          <h3>Example script (group of four, about 5 minutes)</h3>
+          <p>A short example of how a group might share the script, using an online food-delivery app as the case study. Write your own; do not reuse this text.</p>
+          <div class="table-scroll"><table class="br-table script"><thead><tr><th>Time</th><th>Speaker</th><th>What they say (summary)</th><th>On screen</th></tr></thead><tbody><tr><td>0:00–0:20</td><td>All</td><td>Group code, video title and each member's name.</td><td>Title card; each member waves on camera</td></tr><tr><td>0:20–0:50</td><td>Member 1</td><td>What the data engineering lifecycle is. Introduce the case study: an online food-delivery app and why its data matters.</td><td>Speaker in a corner box; app screenshot (credited)</td></tr><tr><td>0:50–1:30</td><td>Member 1</td><td><b>Generation:</b> orders, GPS locations, payments and ratings created by customers, riders and restaurants.</td><td>Speaker; icons for each data source</td></tr><tr><td>1:30–2:35</td><td>Member 2</td><td><b>Storage</b> choices (database, data lake, warehouse) and <b>ingestion</b>: batch for daily sales, streaming for live rider GPS.</td><td>Speaker; simple flow diagram</td></tr><tr><td>2:35–3:40</td><td>Member 3</td><td><b>Transformation:</b> cleaning, removing duplicates and joining orders with restaurants. <b>Serving:</b> restaurant dashboards and delivery-time predictions.</td><td>Speaker; before/after table and a dashboard mock-up</td></tr><tr><td>3:40–4:40</td><td>Member 4</td><td>Two <b>undercurrents</b> in the case: security (protecting customer and payment data) and orchestration (scheduling the nightly pipeline). Conclusion: what the case shows about the lifecycle.</td><td>Speaker; lifecycle diagram with undercurrents</td></tr><tr><td>4:40–5:00</td><td>—</td><td>References and image credits.</td><td>Credits slide</td></tr></tbody></table></div>
+        </section>
+
+        <section class="panel" id="youtube">
+          <p class="eyebrow">Upload</p>
+          <h2>Uploading to YouTube</h2>
+          <div class="steps">
+            <div class="step"><i>1</i><div><h3>Title</h3><p><b>SCST1133 | The Data Engineering Lifecycle | S03-G1</b> (use your own group code).</p></div></div>
+            <div class="step"><i>2</i><div><h3>Description</h3><p>Paste and complete the <a href="#template">description template</a>: group, all members, summary, chapters, references, credits and AI use.</p></div></div>
+            <div class="step"><i>3</i><div><h3>Settings</h3><p>Visibility <b>Public</b> or <b>Unlisted</b> (not Private). Set <i>Made for kids</i> to <b>No</b>. Turn on captions and check them. Add a custom thumbnail with the title and group code if you can.</p></div></div>
+            <div class="step"><i>4</i><div><h3>Submit in two places</h3><p><b>(a) Course website:</b> any member submits the YouTube link on the <a href="video-submit.html">submission page</a> (after registering your case study). <b>(b) UTM e-Learning:</b> the group leader submits the same link. Check that the link opens in a private browser window before you submit.</p></div></div>
+          </div>
+        </section>
+        <section class="panel" id="rules-submit">
+          <p class="eyebrow">Submission rules</p>
+          <h2>Submission, privacy and backup</h2>
+          <ul>
+            <li><b>One submission per group.</b> Any member may submit on the website; the <b>group leader</b> submits the same link on UTM e-Learning.</li>
+            <li>You may update your submission until the deadline. After the deadline, <b>do not change, replace or re-upload</b> the video.</li>
+            <li><b>Consent:</b> every member must agree to appear in the video. If a member is uncomfortable with a public video, choose <b>Unlisted</b>.</li>
+            <li><b>Privacy:</b> do not show personal data such as IC numbers, phone numbers, addresses or private chats. Use only publicly available information about your case study.</li>
+            <li><b>Backup:</b> keep the final MP4 file in your group's Google Drive in case YouTube blocks or removes the video.</li>
+          </ul>
+        </section>
+
+        <section class="panel" id="tools">
+          <p class="eyebrow">Tools</p>
+          <h2>Recommended free tools</h2>
+          <div class="toolgrid">
+            <div class="tool star"><b>Google Vids</b><span>Recommended. Build the video from slides and scenes, and record your own voice and camera inside Vids. Do <b>not</b> use its AI voiceover or AI avatars. See <a href="../topic-02/google-vids-scriptwriting.html">Topic 2: Scriptwriting for Technical Videos</a>.</span></div>
+            <div class="tool"><b>OBS Studio</b><span>Record your screen with your camera in a corner (picture-in-picture).</span></div>
+            <div class="tool"><b>CapCut · Clipchamp · DaVinci Resolve · Canva</b><span>Edit clips, add titles, captions and credits.</span></div>
+            <div class="tool"><b>YouTube Studio</b><span>Check automatic captions, add chapters and a thumbnail.</span></div>
+            <div class="tool"><b>YouTube Audio Library</b><span>Copyright-free background music.</span></div>
+          </div>
+        </section>
+
+        <section class="panel" id="storyboard">
+          <p class="eyebrow">Template</p>
+          <h2>Storyboard template</h2>
+          <p>Plan every scene before you record. Copy this table into a shared document and fill it in together.</p>
+          <button class="copy" type="button" data-copy="sb-tpl">Copy template</button>
+          <pre class="tpl" id="sb-tpl">VIDEO STORYBOARD – S0X-GX – Case study: [name]
+Language: [English / Bahasa Melayu]   Target length: [mm:ss, max 5:00]
+
+| Scene | Time      | Speaker  | Script (what we say)        | Visual on screen      | Source / credit |
+|-------|-----------|----------|-----------------------------|-----------------------|-----------------|
+| 1     | 0:00-0:20 | All      | Title, group code, names    | Title card            | -               |
+| 2     | 0:20-0:50 |          | Lifecycle + case study      |                       |                 |
+| 3     |           |          | Generation                  |                       |                 |
+| 4     |           |          | Storage                     |                       |                 |
+| 5     |           |          | Ingestion                   |                       |                 |
+| 6     |           |          | Transformation              |                       |                 |
+| 7     |           |          | Serving                     |                       |                 |
+| 8     |           |          | Undercurrents + conclusion  |                       |                 |
+| 9     | -5:00     | -        | References and credits      | Credits slide         | -               |</pre>
+        </section>
+
+        <section class="panel" id="faq">
+          <p class="eyebrow">FAQ</p>
+          <h2>Frequently asked questions</h2>
+          <details><summary>Can we record our parts separately and combine them?</summary><p>Yes. Each member can record their own part; combine them into one video with a consistent style.</p></details>
+          <details><summary>Can we use Google Vids?</summary><p>Yes, Google Vids is recommended. Record your own voice and camera in Vids. Its AI voiceover and AI avatar features are not allowed.</p></details>
+          <details><summary>Can we use AI-generated images?</summary><p>Yes, but label them on screen (for example, "Image generated with AI") and declare the tool in the YouTube description.</p></details>
+          <details><summary>Can two groups use the same case study?</summary><p>No. Register your case study on the website; the first group to register it keeps it.</p></details>
+          <details><summary>What if a member does not contribute?</summary><p>Inform the lecturer before the deadline, with evidence such as your storyboard and chat records.</p></details>
+          <details><summary>Can the video be shorter than five minutes?</summary><p>Yes. Five minutes is the maximum, but the video must still cover all five stages, at least two undercurrents and the case study.</p></details>
+        </section>
+      </div>
+
+      <aside class="br-side">
+        <div class="panel">
+          <div class="deadline tba"><b style="color:#8a6a00">Submission deadline</b><span>To be announced</span></div>
+          <h2>At a glance</h2>
+          <dl class="glance">
+            <div><dt>Subject</dt><dd>Data Engineering Ecosystem (SCST1133)</dd></div>
+            <div><dt>Session</dt><dd>2026/2027 Semester 1</dd></div>
+            <div><dt>Task</dt><dd>Group video on the data engineering lifecycle</dd></div>
+            <div><dt>Groups</dt><dd>Same as Assignment 1, e.g. <b>S03-G1</b></dd></div>
+            <div><dt>Length</dt><dd>Maximum 5 minutes</dd></div>
+            <div><dt>Case study</dt><dd>One, required</div>
+            <div><dt>Language</dt><dd>English or Bahasa Melayu, one language throughout</dd></div>
+            <div><dt>Platform</dt><dd>YouTube (Public or Unlisted)</dd></div>
+            <div><dt>Submit</dt><dd>Course website and UTM e-Learning</dd></div>
+            <div><dt>Weight</dt><dd>8% of the course assessment</dd></div>
+          </dl>
+          <div class="br-actions"><a class="br-btn" href="video-submit.html">Register / Submit</a><a class="br-btn ghost" href="video-gallery.html">Video gallery</a><a class="br-btn ghost" href="assignment-1.html">Find your group</a></div>
+        </div>
+        <div class="panel">
+          <h2>Before you submit</h2>
+          <ul class="checklist" id="a1-check"><li><label><input type="checkbox"><span>The video is 5:00 or shorter, including the intro and credits.</span></label></li><li><label><input type="checkbox"><span>One case study is introduced and followed through all five stages.</span></label></li><li><label><input type="checkbox"><span>Every member speaks in their own voice. No AI voice is used.</span></label></li><li><label><input type="checkbox"><span>Each speaker's face is visible while they are talking.</span></label></li><li><label><input type="checkbox"><span>All five lifecycle stages and at least two undercurrents are explained.</span></label></li><li><label><input type="checkbox"><span>One language (English or Bahasa Melayu) is used from start to finish.</span></label></li><li><label><input type="checkbox"><span>The opening shows the title, group code and members' names.</span></label></li><li><label><input type="checkbox"><span>Every image, clip and music track is credited.</span></label></li><li><label><input type="checkbox"><span>Music is copyright-free (for example, from the YouTube Audio Library).</span></label></li><li><label><input type="checkbox"><span>Captions are switched on and checked.</span></label></li><li><label><input type="checkbox"><span>Visibility is Public or Unlisted (not Private), and 'Made for kids' is set to No.</span></label></li><li><label><input type="checkbox"><span>The title follows the format and the description is complete.</span></label></li><li><label><input type="checkbox"><span>Our case study is registered on the course website.</span></label></li><li><label><input type="checkbox"><span>The final MP4 is backed up in our group's Google Drive.</span></label></li><li><label><input type="checkbox"><span>The YouTube link is submitted on the course website and on UTM e-Learning by the deadline.</span></label></li></ul>
+          <p class="ck-progress" id="a1-check-progress" aria-live="polite"></p>
+        </div>
+      </aside>
+    </div>
+
+    <section class="panel" id="rubric">
+      <p class="eyebrow">Assessment</p>
+      <h2>Rubric for the video (8%)</h2>
+      <div class="levels"><span>Excellent: 10–7</span><span>Fair: 6–4</span><span>Poor: 3–0</span></div>
+      <div class="table-scroll"><table class="br-table rubric"><thead><tr><th>Criteria</th><th>Weight</th><th>Excellent (10–7)</th><th>Fair (6–4)</th><th>Poor (3–0)</th></tr></thead><tbody><tr><td>Content accuracy</td><td>25</td><td><ul><li>Explains all five lifecycle stages correctly and clearly.</li><li>Explains at least two undercurrents and links them to the stages.</li></ul></td><td><ul><li>Most stages are explained, with minor errors.</li><li>Undercurrents are mentioned but not linked.</li></ul></td><td><ul><li>Stages are missing or explained incorrectly.</li><li>No undercurrents.</li></ul></td></tr><tr><td>Case study</td><td>20</td><td><ul><li>One clearly introduced case study.</li><li>Its data is followed through all five stages, with the undercurrents applied to it.</li><li>Sources about the case study are cited.</li></ul></td><td><ul><li>The case study is described but linked to only some stages.</li><li>Few sources cited.</li></ul></td><td><ul><li>No case study, or it is not linked to the lifecycle.</li></ul></td></tr><tr><td>Participation and presence</td><td>15</td><td><ul><li>Every member speaks with their own voice.</li><li>Each speaker's face is visible while they talk.</li></ul></td><td><ul><li>One member speaks very little, or a face is not always visible.</li></ul></td><td><ul><li>A member does not speak, or an AI voice is used.</li></ul></td></tr><tr><td>Visuals and citations</td><td>10</td><td><ul><li>Relevant, clear visuals.</li><li>All images and sources are credited.</li></ul></td><td><ul><li>Visuals are mostly relevant; some credits are missing.</li></ul></td><td><ul><li>Visuals are unrelated or not credited.</li></ul></td></tr><tr><td>Audio and video quality</td><td>10</td><td><ul><li>Clear voice with little background noise.</li><li>Sharp picture (at least 720p) and checked captions.</li></ul></td><td><ul><li>Audio or picture is uneven; captions not checked.</li></ul></td><td><ul><li>Hard to hear or see; no captions.</li></ul></td></tr><tr><td>Creativity and flow</td><td>5</td><td><ul><li>Original, engaging presentation with a logical flow and strong conclusion.</li></ul></td><td><ul><li>Some creative elements; mostly logical.</li></ul></td><td><ul><li>Little creativity; hard to follow.</li></ul></td></tr><tr><td>Timeliness</td><td>5</td><td><ul><li>Submitted on the website and UTM e-Learning by the deadline.</li></ul></td><td><ul><li>Submitted one day late.</li></ul></td><td><ul><li>Submitted more than one day late.</li></ul></td></tr><tr><td>YouTube upload and compliance</td><td>10</td><td><ul><li>Complete description (group, members, chapters, references).</li><li>Within 5 minutes, one language, correct title and visibility.</li></ul></td><td><ul><li>Description is incomplete or one rule is missed.</li></ul></td><td><ul><li>Description is missing or several rules are missed.</li></ul></td></tr></tbody><tfoot><tr><td>Total</td><td>100</td><td colspan="3">Converted to 8% of the course assessment</td></tr></tfoot></table></div>
+    </section>
+
+    <section class="panel" id="template">
+      <p class="eyebrow">Template</p>
+      <h2>YouTube description template</h2>
+      <p>Copy this template into your YouTube description and replace everything in square brackets. If your video is in Bahasa Melayu, you may write the description in Bahasa Melayu.</p>
+      <button class="copy" type="button" data-copy="desc-tpl">Copy template</button>
+      <pre class="tpl" id="desc-tpl">SCST1133 Data Engineering Ecosystem | The Data Engineering Lifecycle | S03-G1
+
+Group: S03-G1 – [Group name]
+Section 03 · Semester 1, 2026/2027 · Faculty of Computing, Universiti Teknologi Malaysia
+
+Members:
+1. [Full name] – [Matric no.] – [Part presented, e.g. Introduction & Generation]
+2. [Full name] – [Matric no.] – [Part presented]
+3. [Full name] – [Matric no.] – [Part presented]
+4. [Full name] – [Matric no.] – [Part presented]
+
+Summary:
+[Two or three sentences about the video.]
+
+Case study:
+[Name of the case study and one sentence about it.]
+
+Chapters:
+0:00 Introduction
+0:20 Case study
+0:50 Generation
+...
+4:40 Conclusion and credits
+
+References:
+Reis, J. and Housley, M. (2022). Fundamentals of Data Engineering. Sebastopol, CA: O'Reilly Media.
+[Other references in Harvard (UTM) format]
+
+Image and media credits:
+[Source of each image, clip or music track]
+
+AI use:
+[None / what AI was used for, e.g. checking the script. All voices are our own.]
+
+#SCST1133 #DataEngineering #UTM</pre>
+    </section>
+  </main>
+  <footer><div class="footer-inner"><div><b>SCST1133 · Data Engineering Ecosystem</b><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><div><p>© 2026 Dr MSO · Universiti Teknologi Malaysia.<a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Site visitors"></a></p></div></div></footer>
+  <script src="../assets/app.js"></script>
+
+<script>
+(function(){
+  const box=[...document.querySelectorAll('#a1-check input')],out=document.getElementById('a1-check-progress'),key='scst1133-video-lifecycle-check';
+  let saved=[];try{saved=JSON.parse(localStorage.getItem(key)||'[]')}catch(e){}
+  const upd=()=>{out.textContent=box.filter(b=>b.checked).length+' of '+box.length+' items checked'};
+  box.forEach((b,i)=>{b.checked=!!saved[i];b.addEventListener('change',()=>{try{localStorage.setItem(key,JSON.stringify(box.map(x=>x.checked)))}catch(e){}upd()})});upd();
+  document.querySelectorAll('[data-copy]').forEach(btn=>btn.addEventListener('click',async()=>{const t=document.getElementById(btn.dataset.copy).textContent;try{await navigator.clipboard.writeText(t);btn.textContent='Copied ✓'}catch(e){btn.textContent='Select the text below to copy'}setTimeout(()=>btn.textContent='Copy template',2000)}));
+})();
+</script>
+</body>
+</html>
