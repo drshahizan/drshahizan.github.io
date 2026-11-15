@@ -35,7 +35,7 @@
     .page-card ul{margin:8px 0 0;padding-left:18px}.page-card li{margin:4px 0;font-size:.94rem}
     .steps{display:grid;gap:14px;margin:16px 0 0}
     .step{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
-    .step i{font-style:normal;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#f8eaf0;color:var(--maroon);font-weight:900}
+    .step>i{font-style:normal;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#f8eaf0;color:var(--maroon);font-weight:900}
     .step h3{margin:2px 0 4px;font-size:1.02rem}.step p{margin:0;color:var(--muted)}
     .warn{padding:16px 18px;border-left:5px solid #b42318;background:#fef3f2;border-radius:8px;margin:16px 0 0}
     .warn b{color:#b42318}
@@ -66,7 +66,7 @@
 
     .rules{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0 0}
     .rule{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}
-    .rule i{font-style:normal;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--maroon);color:#fff;font-weight:900}
+    .rule>i{font-style:normal;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--maroon);color:#fff;font-weight:900}
     .rule h3{margin:0 0 3px;font-size:1rem;color:var(--maroon)}.rule p{margin:0;color:var(--muted);font-size:.93rem}
     .tl{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:16px 0 6px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
     .tl div{padding:12px;background:#fff;border-right:1px solid var(--line)}.tl div:last-child{border:0}
@@ -86,6 +86,8 @@
     .toolgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
     .tool{border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:4px;background:#fff}
     .tool b{color:var(--maroon)}.tool span{color:var(--muted);font-size:.92rem}
+    .tool .links{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:4px;font-size:.88rem;font-weight:750}.tool .links a{color:var(--maroon)}
+    .tool .tag-free{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;background:#d8ad36;color:#281b00;font-weight:900;border-radius:99px;padding:2px 8px;margin-left:6px;vertical-align:middle}
     .tool.star{grid-column:1/-1;border-color:#d8ad36;background:#fff8e7}
     #faq details p{margin:8px 0 2px;color:var(--muted)}
     .tba{background:#fff8e7;border:1px dashed var(--gold);color:#5c4300}
@@ -198,11 +200,11 @@
           <p class="eyebrow">Tools</p>
           <h2>Recommended free tools</h2>
           <div class="toolgrid">
-            <div class="tool star"><b>Google Vids</b><span>Recommended. Build the video from slides and scenes, and record your own voice and camera inside Vids. Do <b>not</b> use its AI voiceover or AI avatars. See <a href="../topic-02/google-vids-scriptwriting.html">Topic 2: Scriptwriting for Technical Videos</a>.</span></div>
-            <div class="tool"><b>OBS Studio</b><span>Record your screen with your camera in a corner (picture-in-picture).</span></div>
-            <div class="tool"><b>CapCut · Clipchamp · DaVinci Resolve · Canva</b><span>Edit clips, add titles, captions and credits.</span></div>
-            <div class="tool"><b>YouTube Studio</b><span>Check automatic captions, add chapters and a thumbnail.</span></div>
-            <div class="tool"><b>YouTube Audio Library</b><span>Copyright-free background music.</span></div>
+            <div class="tool star"><b>Google Vids <span class="tag-free">Recommended</span></b><span>Build the video from slides and scenes, and record your own voice and camera inside Vids. Do <b>not</b> use its AI voiceover or AI avatars. Sign in with your UTM student account (<b>@graduate.utm.my</b>) so your group can share and edit the same project.</span><span class="links"><a href="https://vids.google.com/" target="_blank" rel="noopener">Open Google Vids</a><a href="https://workspace.google.com/products/vids/" target="_blank" rel="noopener">About Vids</a><a href="https://support.google.com/docs/answer/15609411" target="_blank" rel="noopener">Availability (Help Center)</a><a href="../topic-02/google-vids-scriptwriting.html">Topic 2: Scriptwriting for Technical Videos</a></span></div>
+            <div class="tool"><b>OBS Studio</b><span>Record your screen with your camera in a corner (picture-in-picture). Windows, macOS and Linux.</span><span class="links"><a href="https://obsproject.com/" target="_blank" rel="noopener">obsproject.com</a></span></div>
+            <div class="tool"><b>Video editors</b><span>Edit clips, add titles, captions and credits.</span><span class="links"><a href="https://www.capcut.com/" target="_blank" rel="noopener">CapCut</a><a href="https://clipchamp.com/" target="_blank" rel="noopener">Clipchamp</a><a href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" rel="noopener">DaVinci Resolve</a><a href="https://www.canva.com/video-editor/" target="_blank" rel="noopener">Canva Video</a></span></div>
+            <div class="tool"><b>YouTube Studio</b><span>Upload the video, check automatic captions, add chapters and a thumbnail.</span><span class="links"><a href="https://studio.youtube.com/" target="_blank" rel="noopener">YouTube Studio</a><a href="https://support.google.com/youtube/answer/57407" target="_blank" rel="noopener">How to upload (Help)</a></span></div>
+            <div class="tool"><b>YouTube Audio Library</b><span>Copyright-free background music and sound effects (sign in to YouTube Studio).</span><span class="links"><a href="https://studio.youtube.com/channel/UC/music" target="_blank" rel="noopener">Open Audio Library</a></span></div>
           </div>
         </section>
 
@@ -231,7 +233,7 @@ Language: [English / Bahasa Melayu]   Target length: [mm:ss, max 5:00]
           <p class="eyebrow">FAQ</p>
           <h2>Frequently asked questions</h2>
           <details><summary>Can we record our parts separately and combine them?</summary><p>Yes. Each member can record their own part; combine them into one video with a consistent style.</p></details>
-          <details><summary>Can we use Google Vids?</summary><p>Yes, Google Vids is recommended. Record your own voice and camera in Vids. Its AI voiceover and AI avatar features are not allowed.</p></details>
+          <details><summary>Can we use Google Vids?</summary><p>Yes, Google Vids is recommended. Sign in with your <b>@graduate.utm.my</b> account and share the project with your group members. Record your own voice and camera in Vids. Its AI voiceover and AI avatar features are not allowed.</p></details>
           <details><summary>Can we use AI-generated images?</summary><p>Yes, but label them on screen (for example, "Image generated with AI") and declare the tool in the YouTube description.</p></details>
           <details><summary>Can two groups use the same case study?</summary><p>No. Register your case study on the website; the first group to register it keeps it.</p></details>
           <details><summary>What if a member does not contribute?</summary><p>Inform the lecturer before the deadline, with evidence such as your storyboard and chat records.</p></details>
