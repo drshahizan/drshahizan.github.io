@@ -1,0 +1,119 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Data Lab: Population of Malaysia | SCST1133</title><link rel="stylesheet" href="assets/module.css"><style>
+.lab-glance th{width:120px;text-align:left;background:#f8eaf0;color:#7b1734;font-weight:800;vertical-align:top}
+.lab-glance td{font-weight:400}
+.lab-code,.code-card.lab-code{background:#18202b!important;color:#f2f4f7!important;border-radius:10px;padding:14px 16px;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;line-height:1.5}
+.code-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.code-row .code-card{margin:0;flex:1;min-width:0;overflow-x:auto;white-space:pre}
+pre#worksheet{white-space:pre;overflow-x:auto;font-size:.82rem}
+.trap{border-top:1px solid #e3d7dc;padding:14px 0}
+.trap-q{display:grid;grid-template-columns:30px 1fr;gap:10px;margin:0 0 8px;font-weight:700}
+.trap-q .n{width:28px;height:28px;border-radius:50%;background:#7b1734;color:#fff;display:grid;place-items:center;font-size:.85rem;font-weight:900}
+.trap details{margin-left:40px}
+.trap summary,.hint summary{cursor:pointer;font-weight:800;color:#7b1734}
+.trap details p{margin:8px 0 0}
+.trap .why{background:#fff8e7;border-left:4px solid #d8ad36;padding:8px 12px;border-radius:6px}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.flow span{background:#f8eaf0;color:#7b1734;font-weight:800;border-radius:99px;padding:6px 12px;font-size:.88rem}
+.flow i{font-style:normal;color:#98a2b3;font-weight:900}
+@media(max-width:600px){.trap details{margin-left:0}}
+</style></head><body><header class="site-header"><div class="header-inner"><a class="brand" href="../index.html"><span class="brand-mark">FC</span><span class="brand-text"><b>SCST1133</b><span>Data Engineering Ecosystem</span></span></a><button class="menu">Menu</button><nav class="top-nav"><a href="../index.html">Home</a><a href="../topics/index.html">Topics</a><a class="active" href="index.html">Topic 5</a><a href="../tools/index.html">Tools</a><a href="../students/index.html">Students</a></nav></div><div class="progress-track"><span></span></div></header><section class="module-hero"><div class="hero-inner"><div><p class="eyebrow">Step 13 · Explore</p><h1>Data Lab: Population of Malaysia</h1><p>Work in pairs with real open data from the Department of Statistics Malaysia. Learn to read, question and explain a dataset before you use it.</p></div><div class="topic-chip"><b>13</b><span>Data Lab</span></div></div></section>
+<main class="module-shell"><aside class="module-nav"></aside><article class="lesson"><header class="lesson-head"><span class="pill">In-class lab · pairs · not graded</span><h2>Understand the data before you use it</h2><p>In this lab you will explore one official dataset with Google Sheets. The goal is not complex analysis. It is to understand <b>what the data means, where it comes from, what it can and cannot tell you, and who uses it</b>.</p></header>
+
+<section class="card lab-glance"><h3>At a glance</h3><div class="table-scroll"><table><tbody>
+<tr><th>When</th><td>In class, Tuesday 17 November 2026 (about 2 hours)</td></tr>
+<tr><th>Work</th><td>In pairs; one shared Google Sheet per pair</td></tr>
+<tr><th>Tool</th><td>Google Sheets with your <b>@graduate.utm.my</b> account</td></tr>
+<tr><th>Dataset</th><td><a href="https://data.gov.my/data-catalogue/population_malaysia" target="_blank" rel="noopener">Population Table: Malaysia ↗</a> · Department of Statistics Malaysia (DOSM) · CC BY 4.0</td></tr>
+<tr><th>Assessment</th><td>Practice only. It is not graded, but you may keep it as evidence in your E-Portfolio.</td></tr>
+</tbody></table></div></section>
+
+<section class="card"><h3>Learning outcomes</h3><ul>
+<li>Read a data dictionary and metadata: producer, unit, granularity, coverage and licence.</li>
+<li>Recognise common data traps: totals mixed with details, units, rounding, changing categories and scope.</li>
+<li>Turn data into information with simple charts, and explain who would use it.</li>
+<li>Map the data ecosystem behind an official dataset: sources, producer, publisher, access channels, users and roles.</li>
+</ul></section>
+
+<section class="steps"><h3>Before you start (10 min)</h3>
+<div class="step"><h4>Open the dataset page</h4><p>Go to <a href="https://data.gov.my/data-catalogue/population_malaysia" target="_blank" rel="noopener">data.gov.my › Population Table: Malaysia ↗</a> and read the description, the data dictionary and the methodology notes.</p></div>
+<div class="step"><h4>Load the data into Google Sheets</h4><p>Create a new Google Sheet. In cell A1, type the formula below and press Enter. The full table (about 17,800 rows) will load. If it does not, download the CSV from the dataset page and use <b>File › Import</b>.</p>
+<div class="code-row"><pre class="code-card lab-code" id="import-formula">=IMPORTDATA("https://storage.dosm.gov.my/population/population_malaysia.csv")</pre><button class="copy-button" type="button" data-copy-target="import-formula">Copy formula</button></div></div>
+<div class="step"><h4>Turn on a filter</h4><p>Select row 1, then <b>Data › Create a filter</b>. You will use the filters on <code>date</code>, <code>sex</code>, <code>age</code> and <code>ethnicity</code> throughout the lab.</p></div>
+</section>
+
+<section class="card"><span class="pill">Part A · 15 min</span><h3>Read the data card first</h3><p>Before looking at any numbers, answer these from the dataset page:</p><ol>
+<li>Who <b>produced</b> the data, and who <b>publishes</b> it?</li>
+<li>What is the <b>unit</b> of the <code>population</code> column?</li>
+<li>What does <b>one row</b> represent (granularity)? How often is it measured?</li>
+<li>Which years are covered?</li>
+<li>Which years are <b>census</b> figures and which are <b>estimates</b>?</li>
+<li>What is the <b>licence</b>, and what does it allow you to do?</li>
+<li>When is the <b>next update</b>?</li>
+<li>Which <b>caveats</b> (warnings) does the page give?</li>
+</ol><div class="callout tip"><div>i</div><p>Columns: <code>date</code> (1 January of each year), <code>sex</code> (both, male, female), <code>age</code> (overall or five-year groups), <code>ethnicity</code> (overall or ethnic groups) and <code>population</code> (in thousands).</p></div></section>
+
+<section class="card"><span class="pill">Part B · 40 min</span><h3>Data traps</h3><p>Answer each question in your Google Sheet first. Then open <b>Show answer</b> and discuss the lesson with your partner.</p><div class="trap"><p class="trap-q"><b class="n">1</b><span>What was the population of Malaysia in 2026?</span></p><details><summary>Show answer</summary><p>Filter <code>date</code> = 2026-01-01, <code>sex</code> = both, <code>age</code> = overall and <code>ethnicity</code> = overall. The answer is <b>34,389.4</b> (thousand).</p><p class="why"><b>Lesson:</b> If you simply add up every 2026 row, you get about <b>275,115</b>: eight times too large. The table repeats the same people in many rows (totals, by sex, by age, by ethnicity and their combinations). Always find the <b>total row</b> instead of summing everything.</p></details></div><div class="trap"><p class="trap-q"><b class="n">2</b><span>Write that answer as a number of people.</span></p><details><summary>Show answer</summary><p>About <b>34.4 million people</b> (34,389.4 × 1,000 = 34,389,400).</p><p class="why"><b>Lesson:</b> The <code>population</code> column is in <b>thousands</b>. Reading 34,389.4 as “34 thousand people” is a unit error. Always check the unit in the data dictionary.</p></details></div><div class="trap"><p class="trap-q"><b class="n">3</b><span>Add the 18 age groups for 2026 (sex = both, ethnicity = overall). Is the sum equal to the total?</span></p><details><summary>Show answer</summary><p>The age groups add up to <b>34,389.2</b>, not 34,389.4. The difference is 0.2 thousand.</p><p class="why"><b>Lesson:</b> Each value is <b>rounded to one decimal place</b>, so the parts may not add up exactly to the total. This is a documented caveat, not an error in your spreadsheet.</p></details></div><div class="trap"><p class="trap-q"><b class="n">4</b><span>How many people aged 85 and over were there in 1985?</span></p><details><summary>Show answer</summary><p>There is <b>no answer</b>. In 1985 the oldest group is <b>80+</b> (90.0 thousand). The 85+ group only starts in 1991.</p><p class="why"><b>Lesson:</b> Category definitions change over time: 70+ in the 1970s, 80+ from 1980 to 1990 and 85+ from 1991. You cannot compare age groups that do not exist in both years.</p></details></div><div class="trap"><p class="trap-q"><b class="n">5</b><span>Compare the share of the Chinese population in 1975 and 2025.</span></p><details><summary>Show answer</summary><p>It cannot be done for 1975: the years <b>1970–1979 have no ethnic breakdown</b>. You can compare 1985 (29.9%) with 2026 (19.9%).</p><p class="why"><b>Lesson:</b> Missing breakdowns are not zeros. Check which years have which categories before you compare.</p></details></div><div class="trap"><p class="trap-q"><b class="n">6</b><span>In 2026, about 9.8% of the population is <code>other_noncitizen</code>. Can you find this group in 1985?</span></p><details><summary>Show answer</summary><p>No. In 1980–1990 there is only one combined group, <code>other</code>. Citizens and non-citizens are separated only from 1991.</p><p class="why"><b>Lesson:</b> Categories can be split or renamed over time (for example, <code>bumi</code> becomes <code>bumi_malay</code> and <code>bumi_other</code> in 1991). A data engineer must map old and new categories carefully.</p></details></div><div class="trap"><p class="trap-q"><b class="n">7</b><span>Is the figure for 2023 as reliable as the figure for 2020?</span></p><details><summary>Show answer</summary><p>Not in the same way. <b>2020 is a census year</b> (adjusted census figure). <b>2023 is an estimate</b> calculated from the previous year plus births, minus deaths, plus net migration.</p><p class="why"><b>Lesson:</b> Knowing how data was produced (its <b>lineage</b> or methodology) tells you how much to trust it and how it may be revised later.</p></details></div><div class="trap"><p class="trap-q"><b class="n">8</b><span>What was the population of Johor in 2026?</span></p><details><summary>Show answer</summary><p>This dataset cannot answer it. It is <b>national-level</b> only.</p><p class="why"><b>Lesson:</b> Every dataset has a scope. To answer a state-level question you need a different dataset, such as the state population table in the data.gov.my catalogue.</p></details></div></section>
+
+<section class="card"><span class="pill">Part C · 30 min</span><h3>From data to information</h3><p>Create three charts in Google Sheets (<b>Insert › Chart</b>). Filter the data first so that each chart uses only the rows it needs.</p>
+<div class="table-scroll"><table><thead><tr><th>Chart</th><th>Filter</th><th>Chart type</th></tr></thead><tbody>
+<tr><td>1 · Population trend, 1970–2026</td><td>sex = both · age = overall · ethnicity = overall</td><td>Line chart</td></tr>
+<tr><td>2 · Population pyramid, 2026</td><td>date = 2026 · sex = male and female · ethnicity = overall · age ≠ overall</td><td>Bar chart (males as negative values)</td></tr>
+<tr><td>3 · Ethnic composition, 2026</td><td>date = 2026 · sex = both · age = overall · ethnicity ≠ overall</td><td>Pie or bar chart</td></tr>
+</tbody></table></div>
+<p>For each chart, write <b>one finding</b> and <b>who would use it</b>, for example the Ministry of Health, the Ministry of Education, town planners or businesses.</p>
+<details class="hint"><summary>Need ideas? Things to look for</summary><ul>
+<li>How many times larger is the population in 2026 than in 1970?</li>
+<li>Compare the share of children aged 0–14 and adults aged 65+ in 1970 and in 2026. What does this mean for schools and health care?</li>
+<li>Which age groups are the largest in 2026?</li>
+<li>How many males are there for every 100 females in 2026?</li>
+</ul></details></section>
+
+<section class="card"><span class="pill">Part D · 25 min</span><h3>Map the data ecosystem</h3><p>Draw the journey of this dataset from source to user, on paper or in a shared slide.</p>
+<div class="flow"><span>Sources</span><i>→</i><span>Producer</span><i>→</i><span>Publisher</span><i>→</i><span>Access channels</span><i>→</i><span>Users</span></div>
+<ul>
+<li><b>Sources:</b> where could the data come from? Think about the census, birth and death registration and migration records.</li>
+<li><b>Producer and publisher:</b> who processes the data, and where is it shared?</li>
+<li><b>Access channels:</b> the same data is offered as CSV, Parquet and an API. Why offer three ways?</li>
+<li><b>Users:</b> who uses population data, and for what decisions?</li>
+<li><b>People and roles:</b> label where a data producer, data engineer, data steward, data analyst and data consumer would work.</li>
+<li><b>Data maturity:</b> find two signs that this dataset is well managed (for example, a data dictionary, an open licence, an update schedule or methodology notes).</li>
+</ul><p>Link your map to <a href="ecosystem.html">The Ecosystem</a>, <a href="people.html">People and Roles</a>, <a href="journey.html">Data Journey</a> and <a href="data-maturity.html">Data Maturity</a>.</p></section>
+
+<section class="card"><h3>Worksheet template</h3><p>Copy this into a Google Doc or a tab in your Google Sheet and fill it in with your partner.</p><button class="copy-button" type="button" data-copy-target="worksheet">Copy worksheet</button><pre class="code-card lab-code" id="worksheet">DATA LAB: POPULATION OF MALAYSIA · SCST1133 Topic 5
+Pair: [Name 1] · [Name 2]          Section: [03/04]
+
+PART A · DATA CARD
+1. Producer (who created the data):
+2. Publisher (where it is shared):
+3. Unit of the population column:
+4. Granularity (one row represents...):
+5. Time coverage:
+6. Census years vs estimate years:
+7. Licence:
+8. Next update:
+
+PART B · DATA TRAPS (answer, then check)
+Q1:            Q2:            Q3:            Q4:
+Q5:            Q6:            Q7:            Q8:
+
+PART C · FINDINGS (one per chart)
+Chart 1 (population trend 1970–2026):  Finding:            Who would use it:
+Chart 2 (age-sex pyramid 2026):        Finding:            Who would use it:
+Chart 3 (ethnic composition 2026):     Finding:            Who would use it:
+
+PART D · ECOSYSTEM MAP
+Sources -> Producer -> Publisher -> Access channels -> Users
+Roles at each stage:
+Two signs of data maturity in this dataset:
+
+REFLECTION
+One thing we learned about understanding data before using it:</pre></section>
+
+<section class="card"><h3>Wrap-up discussion (5 min)</h3><ul>
+<li>Which trap surprised you the most, and how would you avoid it next time?</li>
+<li>What would go wrong if a ministry used the wrong total or the wrong unit in a report?</li>
+<li>Which part of the data engineering lifecycle does each trap belong to?</li>
+</ul><p class="visual-note">Data source: Department of Statistics Malaysia (2026). <i>Population Table: Malaysia</i>. data.gov.my. Licensed under CC BY 4.0. Values in this lab were checked against the dataset published on 31 July 2026.</p></section>
+
+<nav class="lesson-nav"><a href="activity.html">← Activities</a><a class="next" href="case-study-activity.html">Case Study Activity →</a></nav></article></main>
+<footer><div class="footer-inner"><div><b>SCST1133 · Data Engineering Ecosystem</b><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><p>© 2026 Dr MSO · Universiti Teknologi Malaysia.<a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Site visitors"></a></p></div></footer><script src="assets/module.js"></script></body></html>
