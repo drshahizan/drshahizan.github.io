@@ -138,11 +138,11 @@
   </main>
 <footer><div class="footer-inner"><div><b>SCST1133 · Data Engineering Ecosystem</b><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><div><p>© 2026 Dr MSO · Universiti Teknologi Malaysia.<a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Site visitors"></a></p></div></div></footer>
   <script src="../assets/app.js"></script>
-<script src="../entry-survey/assets/config.js"></script>
+<script src="submit-config.js"></script>
 <script>
 
 const SVC_DOWN='The submission service is not available yet. Please try again later or contact the lecturer.';
-const api=async(action,payload={})=>{const url=(window.SCST1133_CONFIG||{}).apiUrl;if(!url)throw new Error(SVC_DOWN);
+const api=async(action,payload={})=>{const url=window.SCST1133_SUBMIT_API;if(!url||/PASTE/.test(url))throw new Error(SVC_DOWN);
   let res;try{res=await fetch(url,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action,...payload})})}catch(e){throw new Error('Could not reach the server. Check your connection and try again.')}
   const r=await res.json().catch(()=>({ok:false,error:'Unexpected server response.'}));
   if(!res.ok||r.ok===false){const m=r.message||r.error||'The request could not be completed.';throw new Error(/Invalid API action/i.test(m)?SVC_DOWN:m)}return r};
