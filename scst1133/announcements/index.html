@@ -13,6 +13,20 @@
     .event-copy h2{margin:8px 0 14px;color:#7b1734;font-size:clamp(1.7rem,3vw,2.45rem)}
     .event-meta{display:grid;gap:10px;margin:22px 0;padding:18px;border-left:4px solid #d8ad36;background:#fff8e7}
     .event-meta p{margin:0}.event-speaker{margin-top:20px}
+    .pinned{border-top:5px solid #d8ad36}
+    .dl{width:100%;border-collapse:collapse;margin:18px 0;font-size:.95rem}
+    .dl th{background:#7b1734;color:#fff;text-align:left;padding:10px 12px;font-size:.82rem}
+    .dl td{padding:10px 12px;border-bottom:1px solid #eadfe3;vertical-align:top}
+    .dl td:first-child{white-space:nowrap;font-weight:800;color:#7b1734}
+    .dl td:last-child{font-weight:400;color:inherit}
+    .dl tbody tr:nth-child(even){background:#fbf7f8}
+    .table-scroll{overflow-x:auto}
+    .actions{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+    .past{margin:0 0 24px}
+    .past>summary{cursor:pointer;font-weight:800;color:#7b1734;padding:14px 18px;border:1px solid #e3d7dc;border-radius:12px;background:#fff;list-style-position:inside}
+    .past[open]>summary{margin-bottom:18px}
+    .past .event-panel{opacity:.85}
+    .past-tag{background:#eceff3!important;color:#4a5565!important}
     @media(max-width:760px){.event-layout{grid-template-columns:1fr}.event-poster{max-height:none}}
   </style>
 </head>
@@ -25,67 +39,25 @@
     </div>
   </header>
 
-  <section class="page-title"><div><p class="eyebrow">Course updates</p><h1>Announcements</h1><p>Important course instructions, activities and deadlines will be listed here.</p></div></section>
+  <section class="page-title"><div><p class="eyebrow">Course updates</p><h1>Announcements</h1><p>Important course instructions, activities and deadlines. Submission dates are pinned at the top.</p></div></section>
 
   <main>
-    <section class="panel event-panel" aria-labelledby="deadlines-nov-title">
+    <section class="panel event-panel pinned" aria-labelledby="submissions-title" id="submissions">
       <div class="event-copy">
-        <span class="tag">Deadlines · Assignment 1 and Video</span>
-        <h2 id="deadlines-nov-title">Submission dates for Assignment 1 and the Video assignment</h2>
-        <p>The deadlines for the group work are now confirmed. The submission page closes automatically at each deadline, and late submissions are not accepted.</p>
-        <div class="event-meta">
-          <p><b>Assignment 1 · Talk 1 report (PDF):</b> UTM e-Learning · Friday, 20 November 2026, before 5.00 pm</p>
-          <p><b>Video · Case study registration:</b> submission page · Monday, 23 November 2026, before 5.00 pm</p>
-          <p><b>Assignment 1 · Talk 1 GitHub and LinkedIn links:</b> submission page · Friday, 27 November 2026, before 5.00 pm</p>
-          <p><b>Video · YouTube link:</b> submission page and UTM e-Learning · Monday, 30 November 2026, before 5.00 pm</p>
-        </div>
-        <p><a class="btn" href="../assessments/assignment-1.html#submissions">See all submission dates</a> &nbsp; <a href="../assessments/submit.html">Submit your work</a></p>
-      </div>
-    </section>
-
-    <section class="panel event-panel" aria-labelledby="submission-page-title">
-      <div class="event-copy">
-        <span class="tag">Submission · New</span>
-        <h2 id="submission-page-title">One page for all group submissions</h2>
-        <p>Submit your group's assignment links on the new <b>submission page</b>. Enter your matric number, choose your group and the assignment, then fill in the details. Any group member may submit, and you will receive a reference number as proof.</p>
-        <div class="event-meta">
-          <p><b>Assignment 1 · Talk 1:</b> GitHub and LinkedIn links (the PDF report is still uploaded on UTM e-Learning)</p>
-          <p><b>Video:</b> register your case study first, then submit your YouTube link</p>
-          <p><b>Deadline:</b> submission closes automatically at each deadline</p>
-        </div>
-        <p><a class="btn" href="../assessments/submit.html">Go to the submission page</a></p>
-      </div>
-    </section>
-
-    <section class="panel event-panel" aria-labelledby="video-lifecycle-title">
-      <div class="event-copy">
-        <span class="tag">Group video · 8%</span>
-        <h2 id="video-lifecycle-title">New assignment: Video on the Data Engineering Lifecycle</h2>
-        <p>In your Assignment 1 groups, produce a video of <b>no more than five minutes</b> that explains the five stages of the data engineering lifecycle and its undercurrents through <b>one case study</b>. Every member must speak in their own voice, with their face visible. AI voices are not allowed.</p>
-        <div class="event-meta">
-          <p><b>Submission deadline:</b> Monday, 30 November 2026, before 5.00 pm (case study registration: Monday, 23 November 2026, before 5.00 pm)</p>
-          <p><b>Length:</b> maximum 5 minutes · <b>Case study:</b> one, required</p>
-          <p><b>Upload:</b> YouTube (Public or Unlisted) with a complete description</p>
-          <p><b>Submit:</b> register your case study and submit the YouTube link on the course <a href="../assessments/submit.html">submission page</a>, and submit the same link on UTM e-Learning</p>
-          <p><b>Language:</b> English or Bahasa Melayu, one language throughout</p>
-          <p><b>Weight:</b> 8% of the course assessment</p>
-        </div>
-        <p><a class="btn" href="../assessments/video-lifecycle.html">Read the brief</a> &nbsp; <a href="../assessments/submit.html">Submit</a></p>
-      </div>
-    </section>
-
-    <section class="panel event-panel" aria-labelledby="assignment1-brief-title">
-      <div class="event-copy">
-        <span class="tag">Assignment 1 · Brief and updated deadline</span>
-        <h2 id="assignment1-brief-title">Assignment 1: Industry Talk &amp; Academic Writing — Creative Thinking</h2>
-        <p>The full brief for Assignment 1 is now available. Write a group academic report (not more than three pages) on the <b>Creative Thinking</b> industry talk by Dr Zahari Othman, including each member's reflection, academic citations and a log activity.</p>
-        <div class="event-meta">
-          <p><b>Submission deadline (updated):</b> Friday, 20 November 2026, before 5.00 pm · <i>replaces the earlier date of 23 November 2026</i></p>
-          <p><b>Submit:</b> PDF on UTM e-Learning, then GitHub and LinkedIn one week later</p>
-          <p><b>File name:</b> your group code, for example S03-G1.pdf</p>
-          <p><b>Weight:</b> 5% of the course assessment</p>
-        </div>
-        <p><a class="btn" href="../assessments/assignment-1-talk-1.html">Read the brief</a> &nbsp; <a href="../assessments/assignment-1.html">Find your group</a></p>
+        <span class="tag">📌 Pinned · Submissions</span>
+        <h2 id="submissions-title">Submission dates and how to submit</h2>
+        <p>All group work is submitted on one <b>submission page</b>, except the Assignment 1 report PDF, which goes to UTM e-Learning. Every deadline is at <b>5.00 pm</b>. The submission page closes automatically at each deadline, and late submissions are not accepted.</p>
+        <div class="table-scroll"><table class="dl">
+          <thead><tr><th>Deadline</th><th>What to submit</th><th>Where</th></tr></thead>
+          <tbody>
+            <tr><td>Fri, 20 Nov 2026</td><td>Assignment 1 · Talk 1 report (PDF, e.g. S03-G1.pdf)</td><td>UTM e-Learning</td></tr>
+            <tr><td>Mon, 23 Nov 2026</td><td>Video · case study registration</td><td>Submission page</td></tr>
+            <tr><td>Fri, 27 Nov 2026</td><td>Assignment 1 · Talk 1 GitHub and LinkedIn links</td><td>Submission page</td></tr>
+            <tr><td>Mon, 30 Nov 2026</td><td>Video · YouTube link</td><td>Submission page and UTM e-Learning</td></tr>
+          </tbody>
+        </table></div>
+        <p><b>How to submit:</b> enter your matric number, choose your group and the assignment, then fill in the details. Any group member may submit, and you will receive a reference number as proof.</p>
+        <p class="actions"><a class="btn" href="../assessments/submit.html">Submit your work</a><a href="../assessments/assignment-1.html#submissions">Groups and Submissions</a></p>
       </div>
     </section>
 
@@ -109,23 +81,40 @@
       </div>
     </section>
 
-    <section class="panel event-panel" aria-labelledby="assignment1-groups-title">
+    <section class="panel event-panel" aria-labelledby="video-lifecycle-title">
       <div class="event-copy">
-        <span class="tag">Assignment 1 · Groups and deadline</span>
-        <h2 id="assignment1-groups-title">Assignment 1 groups are now available</h2>
-        <p>Groups for <b>Assignment 1 – Industry Talk 1: Creative Thinking</b> have been released for Sections 03 and 04. Find your group, contact your teammates and choose a group leader.</p>
+        <span class="tag">Group video · 8%</span>
+        <h2 id="video-lifecycle-title">Video: The Data Engineering Lifecycle</h2>
+        <p>In your Assignment 1 groups, produce a video of <b>no more than five minutes</b> that explains the five stages of the data engineering lifecycle and its undercurrents through <b>one case study</b>. Every member must speak in their own voice, with their face visible. AI voices are not allowed.</p>
         <div class="event-meta">
-          <p><b>Submission deadline:</b> Friday, 20 November 2026, before 5.00 pm (updated)</p>
-          <p><b>Sections:</b> 03 and 04 · 11 groups each</p>
-          <p><b>Group code:</b> use your code (for example, S03-G1) in every file name and submission</p>
+          <p><b>Case study:</b> one per group, and each group must use a different one</p>
+          <p><b>Upload:</b> YouTube (Public or Unlisted) with a complete description</p>
+          <p><b>Language:</b> English or Bahasa Melayu, one language throughout</p>
+          <p><b>Weight:</b> 8% of the course assessment</p>
         </div>
-        <p><a class="btn" href="../assessments/assignment-1.html">View your group</a></p>
+        <p class="actions"><a class="btn" href="../assessments/video-lifecycle.html">Read the brief</a><a href="#submissions">See submission dates</a></p>
       </div>
     </section>
 
+    <section class="panel event-panel" aria-labelledby="assignment1-title">
+      <div class="event-copy">
+        <span class="tag">Assignment 1 · Groups and brief</span>
+        <h2 id="assignment1-title">Assignment 1: Industry Talk &amp; Academic Writing — Creative Thinking</h2>
+        <p>Write a group academic report (not more than three pages) on the <b>Creative Thinking</b> industry talk by Dr Zahari Othman, including each member's reflection, academic citations and a log activity.</p>
+        <div class="event-meta">
+          <p><b>Groups:</b> Sections 03 and 04 · 11 groups each. Find your group, contact your teammates and choose a group leader.</p>
+          <p><b>Group code:</b> use your code (for example, S03-G1) in every file name and submission</p>
+          <p><b>Weight:</b> 5% of the course assessment</p>
+        </div>
+        <p class="actions"><a class="btn" href="../assessments/assignment-1-talk-1.html">Read the brief</a><a href="../assessments/assignment-1.html">Find your group</a><a href="#submissions">See submission dates</a></p>
+      </div>
+    </section>
+
+    <details class="past">
+      <summary>Past announcements (2)</summary>
     <section class="panel event-panel" aria-labelledby="topic3-class-title">
       <div class="event-copy">
-        <span class="tag">Online class · Google Meet</span>
+        <span class="tag past-tag">Past · Online class · Google Meet</span>
         <h2 id="topic3-class-title">SCST1133: Topic 3 – Introduction to Data Engineering</h2>
         <p>Join the three-hour online lecture on Topic 3. We will cover what data engineering is, how the field evolved, the data engineering lifecycle and two real case studies.</p>
         <div class="event-meta">
@@ -147,7 +136,7 @@
           <img class="event-poster" src="assets/images/industry-talk.webp" alt="Industry Talk poster for Creative Thinking by Dr Zahari Othman on 3 November 2026, from 10 am to 6 pm at BK1, Block N28">
         </a>
         <div class="event-copy">
-          <span class="tag">Industry Talk</span>
+          <span class="tag past-tag">Past · Industry Talk</span>
           <h2 id="industry-talk-title">Creative Thinking</h2>
           <p>Join this industry talk on creative thinking, teaching innovation and the practical development of new ideas.</p>
           <div class="event-meta">
@@ -160,9 +149,11 @@
       </div>
     </section>
 
+    </details>
+
     <div class="two-col">
       <section><article class="panel"><span class="tag">Course preparation</span><h2>Prepare your learning environment</h2><p>Bring a working laptop and ensure that you can install course-related software.</p></article></section>
-      <aside><div class="panel"><h2>Quick links</h2><p><a href="../topics/index.html">Course Topics</a></p><p><a href="../assessments/index.html">Assessment Plan</a></p><p><a href="../resources/index.html">Tools &amp; References</a></p></div></aside>
+      <aside><div class="panel"><h2>Quick links</h2><p><a href="../assessments/submit.html">Submission page</a></p><p><a href="../assessments/assignment-1.html">Groups and Submissions</a></p><p><a href="../topics/index.html">Course Topics</a></p><p><a href="../assessments/index.html">Assessment Plan</a></p><p><a href="../resources/index.html">Tools &amp; References</a></p></div></aside>
     </div>
   </main>
 
