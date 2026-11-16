@@ -8,6 +8,10 @@
 .s34-ref{margin:1.2rem 0;padding:1rem 1.2rem;border:1px solid #ead5dc;border-radius:16px;background:#fff9f5;text-align:left;display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
 .s34-ref span{display:block;color:#6b7075;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}.s34-ref strong{display:block;margin-top:.2rem;color:#7a1730;font-size:1.15rem;word-break:break-word}
 .s34-deadline{margin:0 0 18px;padding:18px 22px;border:1px solid #e7c9d1;border-left:5px solid #7a1730;border-radius:16px;background:#fff8fa}.s34-deadline strong{display:block;color:#7a1730;font-size:1.08rem}.s34-deadline p{margin:.45rem 0 0;color:#4d5459;line-height:1.6;font-size:.93rem}.s34-count{display:inline-block;margin-top:.6rem;padding:4px 10px;border-radius:99px;background:#7a1730;color:#fff;font-size:.8rem;font-weight:700}.s34-deadline.is-closed{border-left-color:#8a8f94;background:#f5f5f5}.s34-deadline.is-closed .s34-count{background:#8a8f94}
+.s34-steps{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px;padding:0;list-style:none}.s34-steps li{flex:1;min-width:120px;padding:10px 12px;border-radius:12px;background:#f3eef0;color:#7b6f73;font-size:.85rem;font-weight:700}.s34-steps li b{display:inline-grid;place-items:center;width:22px;height:22px;margin-right:6px;border-radius:50%;background:#d9cdd1;color:#fff;font-size:.75rem}.s34-steps li.is-active{background:#7a1730;color:#fff}.s34-steps li.is-active b{background:#fff;color:#7a1730}.s34-steps li.is-done{background:#e7f3ec;color:#2f6b4c}.s34-steps li.is-done b{background:#2f6b4c}
+.s34-welcome{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 18px;padding:16px 20px;border:1px solid #cfe6d8;border-radius:16px;background:#eef7f1}.s34-welcome strong{display:block;color:#245a3d;font-size:1.05rem}.s34-welcome span{color:#3f6b55;font-size:.9rem}.s34-welcome button{background:none;border:0;color:#7a1730;font-weight:700;text-decoration:underline;cursor:pointer;font:inherit}
+.s34-prev{margin:0 0 18px;padding:14px 18px;border-radius:14px;background:#fff8e8;border:1px solid #f0dcaa;color:#6b5217;font-size:.92rem;line-height:1.55}
+.s34-verify-bar{display:flex;justify-content:flex-end;margin-top:16px}
 .s34-late{margin:.6rem 0 0;padding:.7rem .9rem;border-radius:12px;background:#fff3dc;color:#7a5413;font-size:.9rem;text-align:left}
 .s34-help{display:block;margin-top:.4rem;color:#6b737b;font-size:.8rem;line-height:1.45}
 .s34-howto{margin:.9rem 0 0;padding:.9rem 1.1rem;border:1px dashed #d8c9cd;border-radius:12px;background:#fcfafa;font-size:.88rem;line-height:1.6;color:#4d5459}
@@ -23,10 +27,11 @@
 </style><link rel="stylesheet" href="../assets/footer.css"></head><body>
 <a class="skip-link" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark">SLR</span><span><strong>Systematic Literature Review</strong><small>From Literature Discovery to Publication</small></span></a><button aria-expanded="false" aria-label="Open navigation" class="menu-button" id="menuButton">☰</button><nav id="mainNav"><a class="nav-link" href="../index.html">Home</a><a class="nav-link" href="../programme/index.html">Programme</a><a class="nav-link" href="../stages/stage-1.html">Stage 1</a><a class="nav-link" href="../stages/stage-2.html">Stage 2</a><a class="nav-link" href="../stages/stage-3.html">Stage 3</a><a class="nav-link" href="../stages/stage-4.html">Stage 4</a><a class="nav-link active" href="../workspace/index.html">SLR Workspace</a><a class="nav-link" href="../tools.html">Research Tools</a><a class="nav-link" href="../resources/index.html">Resources</a><a class="nav-link" href="../site-index.html">Site Index</a></nav></header><main id="main"><section class="view active"><div class="page-heading"><p class="eyebrow">SLR Workshop 2026 · Stage 3 &amp; 4</p><h1>Submit Your Stage 1 &amp; 2 Documents</h1><p>Submit your SLR article draft, the quality assessment file and your PRISMA diagram. The secretariat will review all submissions and contact participants selected for Stage 3 and Stage 4.</p></div>
 <div class="s34-layout"><form id="s34Form" novalidate>
-<div class="s34-deadline" id="deadlineBox"><strong id="deadlineHead">Submission deadline: Monday, 30 November 2026, 5:00 PM (Malaysia time)</strong><p>You may resubmit before the deadline; only your latest submission will be reviewed. <b>Late submissions will not be accepted</b>, and the time recorded by the server is final. Do not edit your submitted files after the deadline.</p><span class="s34-count" id="countdown" hidden></span></div>
-<div class="form-section"><div class="section-heading"><span>1</span><div><h2>Verify your registration</h2><p>Use the same Matric / Staff No. and email you used to register for the workshop.</p></div></div>
+<ol class="s34-steps" aria-label="Submission steps"><li id="step1" class="is-active"><b>1</b>Verify</li><li id="step2"><b>2</b>Submit documents</li><li id="step3"><b>3</b>Done</li></ol><div class="s34-deadline" id="deadlineBox"><strong id="deadlineHead">Submission deadline: Monday, 30 November 2026, 5:00 PM (Malaysia time)</strong><p>You may resubmit before the deadline; only your latest submission will be reviewed. <b>Late submissions will not be accepted</b>, and the time recorded by the server is final. Do not edit your submitted files after the deadline.</p><span class="s34-count" id="countdown" hidden></span></div>
+<div class="form-section" id="verifySection"><div class="section-heading"><span>1</span><div><h2>Verify your registration</h2><p>Use the same Matric / Staff No. and email you used to register for the workshop.</p></div></div>
 <div class="form-grid two"><div class="field"><label for="matricStaffNo">Matric / Staff No. *</label><input id="matricStaffNo" name="matricStaffNo" autocomplete="off" required maxlength="30" placeholder="e.g. PEC253003"/></div>
-<div class="field"><label for="email">Registered email *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="120" placeholder="name@graduate.utm.my"/></div></div></div>
+<div class="field"><label for="email">Registered email *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="120" placeholder="name@graduate.utm.my"/></div></div><div class="s34-verify-bar"><button class="button primary" id="verifyButton" type="button">Verify →</button></div><div class="inline-message" id="verifyMessage" role="status" aria-live="polite"></div></div>
+<div id="docStage" hidden><div class="s34-welcome"><div><strong id="welcomeName"></strong><span id="welcomeMeta"></span></div><button type="button" id="changeUser">Not you? Change</button></div><div class="s34-prev" id="prevBox" hidden></div>
 <div class="form-section"><div class="section-heading"><span>2</span><div><h2>Your SLR</h2><p>Basic information that helps the reviewer check your documents.</p></div></div>
 <div class="form-grid two"><div class="field wide"><label for="articleTitle">Working title of your SLR article *</label><input id="articleTitle" name="articleTitle" required maxlength="300"/></div>
 <div class="field wide"><label for="databases">Databases searched *</label><input id="databases" name="databases" required maxlength="300" placeholder="e.g. Scopus; Web of Science; IEEE Xplore"/></div>
@@ -45,8 +50,8 @@
 <label class="declaration"><input type="checkbox" name="declAccess" required/><span id="accessDecl">I have shared all three files so that the reviewer can open and comment on them.</span></label>
 <label class="declaration"><input type="checkbox" name="declAccuracy" required/><span>The counts entered above match my PRISMA diagram and quality assessment file.</span></label>
 <label class="declaration"><input type="checkbox" name="declAi"/><span>Where I used generative AI tools, this is disclosed in my draft. <span class="opt">(Optional — tick if applicable)</span></span></label></div>
-<div class="submit-bar"><p><strong>Ready to submit?</strong><br/>You can resubmit before 30 November 2026, 5:00 PM. The latest submission is reviewed.</p><div><button class="button ghost" type="reset">Clear form</button><button class="button primary" id="s34Button" type="submit">Submit documents</button></div></div>
-<div class="inline-message" id="s34Message" role="status" aria-live="polite"></div></form>
+<div class="submit-bar"><p><strong>Ready to submit?</strong><br/>You can resubmit before 30 November 2026, 5:00 PM. The latest submission is reviewed.</p><div><button class="button ghost" type="button" id="clearDocs">Clear fields</button><button class="button primary" id="s34Button" type="submit">Submit documents</button></div></div>
+<div class="inline-message" id="s34Message" role="status" aria-live="polite"></div></div></form>
 <aside class="s34-aside"><p class="eyebrow">Selection for Stage 3 &amp; 4</p><h2>What to submit</h2><ol><li>SLR article draft</li><li>Excel file of articles after quality assessment</li><li>PRISMA 2020 flow diagram</li></ol>
 <div class="s34-dl" id="deadlineText">Deadline: 30 November 2026, 5:00 PM</div>
 <small>Late submissions are not accepted. Not every submission will be accepted: the secretariat reviews completeness and quality, and will contact selected participants directly.</small>
@@ -70,10 +75,37 @@ if(!tick()){const iv=setInterval(()=>{if(tick())clearInterval(iv)},30000)}
 if(cfg.reviewerEmail){document.getElementById('shareNote').innerHTML='Share each file with <strong></strong> as <em>Commenter</em>, or set access to “Anyone with the link · Commenter”.';document.querySelector('#shareNote strong').textContent=cfg.reviewerEmail;document.getElementById('accessDecl').textContent='I have shared all three files with '+cfg.reviewerEmail+' (or anyone with the link) with comment access.'}
 const show=(t,type)=>{msg.textContent=t;msg.className='inline-message show '+type};
 const validLink=v=>{try{const u=new URL(v);return u.protocol==='https:'&&HOSTS.some(r=>r.test(u.hostname))}catch(e){return false}};
-const close=()=>{modal.hidden=true;document.body.style.overflow=''};
+const close=()=>{modal.hidden=true;document.body.style.overflow='';if(verified){verified.previous=null}};
 ok.addEventListener('click',close);modal.addEventListener('click',e=>{if(e.target===modal)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)close()});
+const vSec=document.getElementById('verifySection'),stage=document.getElementById('docStage'),vBtn=document.getElementById('verifyButton'),vMsg=document.getElementById('verifyMessage');
+const matricEl=document.getElementById('matricStaffNo'),emailEl=document.getElementById('email');
+const setStep=n=>[1,2,3].forEach(i=>{const li=document.getElementById('step'+i);li.className=i<n?'is-done':i===n?'is-active':''});
+const vShow=(t,type)=>{vMsg.textContent=t;vMsg.className='inline-message show '+type};
+const DOC_FIELDS=['articleTitle','databases','recordsIdentified','includedStudies','draftLink','qaLink','prismaLink'];
+let verified=null;
+const resetToVerify=()=>{verified=null;stage.hidden=true;vSec.hidden=false;DOC_FIELDS.forEach(k=>{document.getElementById(k).value=''});form.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=false);msg.className='inline-message';setStep(1);matricEl.focus()};
+document.getElementById('changeUser').addEventListener('click',resetToVerify);
+const doVerify=async()=>{
+  if(!matricEl.value.trim()||!emailEl.checkValidity()||!emailEl.value.trim()){(matricEl.value.trim()?emailEl:matricEl).reportValidity();return vShow('Enter your Matric / Staff No. and registered email.','error')}
+  const api=cfg.stage34ApiUrl||cfg.apiUrl;if(!api)return vShow('The submission service is not configured.','error');
+  vBtn.disabled=true;vBtn.textContent='Verifying…';vShow('Checking your registration…','info');
+  try{const res=await fetch(api,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action:'stage34-verify',matricStaffNo:matricEl.value.trim().toUpperCase(),email:emailEl.value.trim().toLowerCase()})});
+    const out=await res.json();if(out&&out.closed)lock();if(!out||!out.ok)throw new Error((out&&out.error)||'Verification failed.');
+    verified=out;vMsg.className='inline-message';
+    document.getElementById('welcomeName').textContent='Welcome, '+out.fullName;
+    document.getElementById('welcomeMeta').textContent=out.registrationId+(out.cohort?' · Cohort '+String(out.cohort).replace(/^V/,''):'')+' · '+matricEl.value.trim().toUpperCase();
+    const pb=document.getElementById('prevBox'),pv=out.previous;
+    if(pv){pb.hidden=false;pb.textContent='You submitted version '+pv.version+' on '+pv.submittedAt+' (Ref '+pv.reference+'). Your previous details are filled in below. Submitting again will replace it; the latest submission is reviewed.';
+      DOC_FIELDS.forEach(k=>{if(pv[k]!==undefined&&pv[k]!==null)document.getElementById(k).value=pv[k]})}else{pb.hidden=true}
+    vSec.hidden=true;stage.hidden=false;setStep(2);document.getElementById('articleTitle').focus();
+  }catch(err){vShow(err.message||'Verification failed. Please try again.','error')}
+  finally{vBtn.textContent='Verify →';vBtn.disabled=closed}};
+vBtn.addEventListener('click',doVerify);
+document.getElementById('clearDocs').addEventListener('click',()=>{DOC_FIELDS.forEach(k=>{document.getElementById(k).value=''});form.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=false);msg.className='inline-message'});
+[matricEl,emailEl].forEach(el=>el.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();doVerify()}}));
 form.addEventListener('reset',()=>{msg.className='inline-message'});
 form.addEventListener('submit',async e=>{e.preventDefault();
+  if(!verified){stage.hidden=true;vSec.hidden=false;return vShow('Please verify your registration first.','error')}
   if(!form.checkValidity()){form.reportValidity();return show('Complete all required fields and declarations.','error')}
   const d=Object.fromEntries(new FormData(form).entries());
   d.matricStaffNo=String(d.matricStaffNo||'').trim().toUpperCase();d.email=String(d.email||'').trim().toLowerCase();
@@ -83,14 +115,14 @@ form.addEventListener('submit',async e=>{e.preventDefault();
   if(inc>rec)return show('Included studies cannot be more than records identified.','error');
   ['declOriginal','declAccess','declAccuracy','declAi'].forEach(k=>{d[k]=!!d[k]});
   d.action='stage34-submission';d.clientTimestamp=new Date().toISOString();
-  if(!cfg.apiUrl)return show('The submission service is not configured. Please contact the secretariat.','error');
+  const api=cfg.stage34ApiUrl||cfg.apiUrl;if(!api)return show('The submission service is not configured. Please contact the secretariat.','error');
   btn.disabled=true;btn.textContent='Submitting…';show('Submitting your documents…','info');
-  try{const res=await fetch(cfg.apiUrl,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)});
+  try{const res=await fetch(api,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)});
     const out=await res.json();if(out&&out.closed)lock();if(!out||!out.ok)throw new Error((out&&out.error)||'Submission failed.');
     document.getElementById('s34Ref').textContent=out.reference;document.getElementById('s34Version').textContent=out.version;
     document.getElementById('s34Reg').textContent=out.registrationId||'—';document.getElementById('s34Time').textContent=out.submittedAt||'';
     document.getElementById('s34SuccessName').textContent=out.fullName?('Thank you, '+out.fullName+'.'):'Thank you.';
-    msg.className='inline-message';modal.hidden=false;document.body.style.overflow='hidden';ok.focus();
+    msg.className='inline-message';setStep(3);modal.hidden=false;document.body.style.overflow='hidden';ok.focus();
     form.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=false);
   }catch(err){show(err.message||'Submission failed. Please try again.','error')}
   finally{btn.textContent='Submit documents';btn.disabled=closed}
