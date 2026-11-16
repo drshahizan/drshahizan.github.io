@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Case studies and YouTube videos submitted by each group for the Data Engineering Lifecycle assignment.">
+  <meta name="description" content="This page has moved to the submission page.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Video Gallery | SCST1133</title>
   <link rel="stylesheet" href="../assets/style.css">
@@ -53,7 +53,20 @@
     .empty{padding:18px;border:1px dashed #d9c9cf;border-radius:12px;color:var(--muted)}
     @media(max-width:930px){.vs-wrap{grid-template-columns:1fr}}
     @media(max-width:560px){.row2{grid-template-columns:1fr}}
+
+    .sel-help{font-size:.84rem;color:var(--muted);margin:6px 0 0;min-height:1.1em}
+    .cur{margin:14px 0 0;padding:12px 14px;border-radius:10px;background:#eef4f7;border:1px solid #cfe0e8;font-size:.9rem}
+    .cur b{color:#265a73}
+    .cur dl{margin:6px 0 0;display:grid;grid-template-columns:max-content 1fr;gap:4px 12px}.cur dt{color:var(--muted)}.cur dd{margin:0;word-break:break-all}
+    .receipt{border:2px solid var(--green);border-radius:14px;padding:20px;background:#f3fbf7}
+    .receipt h2{margin:0 0 4px;color:#11643f}
+    .receipt .ref{font-size:1.3rem;font-weight:900;letter-spacing:.03em;color:var(--ink);margin:6px 0 12px;word-break:break-all}
+    .receipt dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:6px 14px}.receipt dt{color:var(--muted);font-weight:700}.receipt dd{margin:0;word-break:break-all}
+    .case-box{margin:0 0 4px;padding:10px 12px;border-radius:9px;background:#f8eaf0;font-size:.92rem}
+    @media print{header,footer,.vs-side,.vs-steps,.no-print{display:none!important}.receipt{border-color:#000}}
   </style>
+<meta http-equiv="refresh" content="0; url=submit.html">
+  <link rel="canonical" href="submit.html">
 </head>
 <body>
   <header class="site-header">
@@ -66,51 +79,13 @@
 
   <section class="page-title">
 <div>
-<p class="eyebrow">Video: Data Engineering Lifecycle · Gallery</p>
-<h1>Video Gallery</h1>
-<p>Registered case studies and submitted videos for every group in Sections 03 and 04.</p>
+<p class="eyebrow">Assessments</p>
+<h1>Page moved</h1>
+<p>Submissions are now made on one page.</p>
 </div>
 </section>
-  <main>
-    <section class="panel">
-      <div class="gal-tools">
-        <div class="tabs" role="tablist" aria-label="Sections"><button class="tab" role="tab" data-s="03" aria-selected="true">Section 03</button><button class="tab" role="tab" data-s="04" aria-selected="false">Section 04</button></div>
-        <span class="gal-sum" id="sum" aria-live="polite">Loading…</span>
-      </div>
-      <div class="gal" id="gal"></div>
-      <p class="empty" id="gal-msg" hidden></p>
-      <p style="margin:18px 0 0"><a class="vbtn" style="text-decoration:none;display:inline-block" href="video-submit.html">Register or submit your video</a> &nbsp; <a href="video-lifecycle.html">Read the assignment brief</a></p>
-    </section>
-  </main>
+  <main><section class="panel"><h2>This page has moved</h2><p>All submissions are now made on one page. <a href="submit.html">Go to the submission page →</a></p></section></main>
 <footer><div class="footer-inner"><div><b>SCST1133 · Data Engineering Ecosystem</b><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><div><p>© 2026 Dr MSO · Universiti Teknologi Malaysia.<a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Site visitors"></a></p></div></div></footer>
   <script src="../assets/app.js"></script>
-<script src="../entry-survey/assets/config.js"></script>
-<script>
-
-const SVC_DOWN='The submission service is not available yet. Please try again later or contact the lecturer.';
-const api=async(action,payload={})=>{const url=(window.SCST1133_CONFIG||{}).apiUrl;if(!url)throw new Error(SVC_DOWN);
-  let res;try{res=await fetch(url,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action,...payload})})}catch(e){throw new Error('Could not reach the server. Check your connection and try again.')}
-  const r=await res.json().catch(()=>({ok:false,error:'Unexpected server response.'}));
-  if(!res.ok||r.ok===false){const m=r.message||r.error||'The request could not be completed.';throw new Error(/Invalid API action/i.test(m)?SVC_DOWN:m)}return r};
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-
-let data=null,cur=(location.hash.match(/^#s(03|04)$/i)||[])[1]||'03';
-const tabs=[...document.querySelectorAll('.tab')];
-function draw(){tabs.forEach(t=>t.setAttribute('aria-selected',t.dataset.s===cur?'true':'false'));
-  const list=data.groups.filter(g=>g.section===cur),done=list.filter(g=>g.submitted).length,cases=list.filter(g=>g.caseStudy).length;
-  document.getElementById('sum').textContent='Section '+cur+': '+cases+' of '+list.length+' case studies registered · '+done+' videos submitted · Deadline: '+data.deadline.text;
-  document.getElementById('gal').innerHTML=list.map(g=>{
-    const th=g.videoId?'<a class="thumb" href="https://www.youtube.com/watch?v='+esc(g.videoId)+'" target="_blank" rel="noopener" aria-label="Watch '+esc(g.code)+' on YouTube"><img src="https://i.ytimg.com/vi/'+esc(g.videoId)+'/hqdefault.jpg" alt="" loading="lazy"><span class="play">▶ '+esc(g.duration||'Watch')+'</span></a>'
-      :'<div class="thumb"><span class="ph">'+(g.caseStudy?'Video not submitted yet':'Case study not registered yet')+'</span></div>';
-    return '<article class="card-v">'+th+'<div class="b"><span><span class="code">'+esc(g.code)+'</span></span><h3>'+esc(g.name)+'</h3>'+
-      '<p class="cs" style="margin:0"><b>Case study:</b> '+(g.caseStudy?esc(g.caseStudy):'—')+'</p>'+
-      (g.title?'<p class="mem" style="color:var(--ink)">'+esc(g.title)+'</p>':'')+
-      '<div class="meta">'+(g.submitted?'<span class="pill y">Submitted</span>':'<span class="pill w">Pending</span>')+(g.language?'<span class="pill w" style="background:#eef4f7;color:#265a73">'+esc(g.language)+'</span>':'')+'</div>'+
-      '<p class="mem">'+g.members.map(esc).join(' · ')+'</p></div></article>'}).join('');
-}
-tabs.forEach(t=>t.onclick=()=>{cur=t.dataset.s;history.replaceState(null,'','#s'+cur);if(data)draw()});
-api('video-gallery').then(r=>{data=r;draw()}).catch(e=>{document.getElementById('sum').textContent='';const m=document.getElementById('gal-msg');m.hidden=false;m.textContent=e.message});
-
-</script>
 </body>
 </html>

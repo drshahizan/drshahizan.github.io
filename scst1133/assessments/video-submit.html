@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Register your case study and submit your YouTube video for the Data Engineering Lifecycle assignment.">
+  <meta name="description" content="This page has moved to the submission page.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Submit Your Video | SCST1133</title>
   <link rel="stylesheet" href="../assets/style.css">
@@ -53,7 +53,20 @@
     .empty{padding:18px;border:1px dashed #d9c9cf;border-radius:12px;color:var(--muted)}
     @media(max-width:930px){.vs-wrap{grid-template-columns:1fr}}
     @media(max-width:560px){.row2{grid-template-columns:1fr}}
+
+    .sel-help{font-size:.84rem;color:var(--muted);margin:6px 0 0;min-height:1.1em}
+    .cur{margin:14px 0 0;padding:12px 14px;border-radius:10px;background:#eef4f7;border:1px solid #cfe0e8;font-size:.9rem}
+    .cur b{color:#265a73}
+    .cur dl{margin:6px 0 0;display:grid;grid-template-columns:max-content 1fr;gap:4px 12px}.cur dt{color:var(--muted)}.cur dd{margin:0;word-break:break-all}
+    .receipt{border:2px solid var(--green);border-radius:14px;padding:20px;background:#f3fbf7}
+    .receipt h2{margin:0 0 4px;color:#11643f}
+    .receipt .ref{font-size:1.3rem;font-weight:900;letter-spacing:.03em;color:var(--ink);margin:6px 0 12px;word-break:break-all}
+    .receipt dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:6px 14px}.receipt dt{color:var(--muted);font-weight:700}.receipt dd{margin:0;word-break:break-all}
+    .case-box{margin:0 0 4px;padding:10px 12px;border-radius:9px;background:#f8eaf0;font-size:.92rem}
+    @media print{header,footer,.vs-side,.vs-steps,.no-print{display:none!important}.receipt{border-color:#000}}
   </style>
+<meta http-equiv="refresh" content="0; url=submit.html">
+  <link rel="canonical" href="submit.html">
 </head>
 <body>
   <header class="site-header">
@@ -66,128 +79,13 @@
 
   <section class="page-title">
 <div>
-<p class="eyebrow">Video: Data Engineering Lifecycle · Submission</p>
-<h1>Register and Submit Your Video</h1>
-<p>Register your group's case study, then submit your YouTube link. Submit the same link on UTM e-Learning.</p>
+<p class="eyebrow">Assessments</p>
+<h1>Page moved</h1>
+<p>Submissions are now made on one page.</p>
 </div>
 </section>
-  <main>
-    <div class="vs-wrap">
-      <div>
-        <ol class="vs-steps" aria-label="Progress"><li id="st1" class="on">Verify</li><li id="st2">Register case study</li><li id="st3">Submit video</li></ol>
-
-        <section class="panel" id="p-verify">
-          <h2>Verify your matric number</h2>
-          <p>Any member of the group may register the case study and submit the video. Your matric number is used only to find your group; it is not shown publicly.</p>
-          <label class="f" for="matric">Matric number</label>
-          <input class="t" id="matric" autocomplete="off" placeholder="A26CS0000" maxlength="12">
-          <button class="vbtn" id="btn-verify" type="button">Find my group</button>
-          <p class="msg" id="m-verify" aria-live="polite"></p>
-        </section>
-
-        <div id="p-main" hidden>
-          <section class="panel">
-            <div class="grp" id="grp"></div>
-            <div class="status" id="status"></div>
-            <button class="vbtn ghost" id="btn-change" type="button">Use a different matric number</button>
-          </section>
-
-          <section class="panel" id="p-case">
-            <h2>Step 2 · Register your case study</h2>
-            <p>Each group must use a <b>different</b> case study. Register yours early: the first group to register a case study keeps it. You can change it until your video is submitted.</p>
-            <label class="f" for="case">Case study</label>
-            <input class="t" id="case" maxlength="120" placeholder="For example: Grab – ride-hailing and food delivery">
-            <p class="f-help">Name the organisation or system and what it does. Topic 3 case studies are allowed.</p>
-            <button class="vbtn" id="btn-case" type="button">Register case study</button>
-            <p class="msg" id="m-case" aria-live="polite"></p>
-            <details><summary>Case studies already registered</summary><ul class="taken" id="taken"><li>Loading…</li></ul></details>
-          </section>
-
-          <section class="panel" id="p-video">
-            <h2>Step 3 · Submit your YouTube video</h2>
-            <p id="video-lock" class="notice" hidden>Register your case study first.</p>
-            <fieldset id="video-fields" style="border:0;padding:0;margin:0">
-              <label class="f" for="url">YouTube link</label>
-              <input class="t" id="url" inputmode="url" placeholder="https://youtu.be/…">
-              <label class="f" for="title">Video title (as on YouTube)</label>
-              <input class="t" id="title" maxlength="150" placeholder="SCST1133 | The Data Engineering Lifecycle | S03-G1">
-              <div class="row2">
-                <div><label class="f" for="duration">Video length (min:sec)</label><input class="t" id="duration" placeholder="4:35" maxlength="5"><p class="f-help">Maximum 5:00.</p></div>
-                <div><label class="f" for="language">Language</label><select class="t" id="language"><option value="">Choose…</option><option>English</option><option>Bahasa Melayu</option></select></div>
-              </div>
-              <label class="f" for="visibility">YouTube visibility</label>
-              <select class="t" id="visibility"><option value="">Choose…</option><option>Public</option><option>Unlisted</option></select>
-              <label class="decl"><input type="checkbox" id="decl"><span>We confirm that every member speaks in their own voice with their face visible, no AI voice is used, the video is 5:00 or shorter, one language is used throughout, and all sources are credited. We also submit the same link on UTM e-Learning.</span></label>
-              <button class="vbtn" id="btn-video" type="button">Submit video</button>
-              <p class="msg" id="m-video" aria-live="polite"></p>
-            </fieldset>
-          </section>
-        </div>
-      </div>
-
-      <aside class="vs-side">
-        <div class="panel">
-          <h2>Submit in two places</h2>
-          <ol>
-            <li><b>This page</b>: register your case study, then submit your YouTube link.</li>
-            <li><b>UTM e-Learning</b>: the group leader submits the same YouTube link.</li>
-          </ol>
-          <div class="notice"><b>Submission deadline</b><br><span id="deadline">To be announced</span></div>
-          <p>You can update your submission until the deadline. After the deadline, the video and link must not be changed.</p>
-          <p><a href="video-lifecycle.html">← Back to the assignment brief</a></p>
-          <p><a href="video-gallery.html">View the video gallery →</a></p>
-        </div>
-      </aside>
-    </div>
-  </main>
+  <main><section class="panel"><h2>This page has moved</h2><p>All submissions are now made on one page. <a href="submit.html">Go to the submission page →</a></p></section></main>
 <footer><div class="footer-inner"><div><b>SCST1133 · Data Engineering Ecosystem</b><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><div><p>© 2026 Dr MSO · Universiti Teknologi Malaysia.<a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Site visitors"></a></p></div></div></footer>
   <script src="../assets/app.js"></script>
-<script src="../entry-survey/assets/config.js"></script>
-<script>
-
-const SVC_DOWN='The submission service is not available yet. Please try again later or contact the lecturer.';
-const api=async(action,payload={})=>{const url=(window.SCST1133_CONFIG||{}).apiUrl;if(!url)throw new Error(SVC_DOWN);
-  let res;try{res=await fetch(url,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action,...payload})})}catch(e){throw new Error('Could not reach the server. Check your connection and try again.')}
-  const r=await res.json().catch(()=>({ok:false,error:'Unexpected server response.'}));
-  if(!res.ok||r.ok===false){const m=r.message||r.error||'The request could not be completed.';throw new Error(/Invalid API action/i.test(m)?SVC_DOWN:m)}return r};
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-
-let matric='',state=null;
-const $=id=>document.getElementById(id);
-const msg=(id,t,ok)=>{const e=$(id);e.textContent=t||'';e.className='msg'+(t?(ok?' ok':' err'):'')};
-const busy=(b,on,label)=>{b.disabled=on;if(label)b.textContent=label};
-function steps(){const hasCase=!!(state&&state.submission&&state.submission.caseStudy),hasVid=!!(state&&state.submission&&state.submission.videoId);
-  $('st1').className=state?'done':'on';$('st2').className=!state?'':hasCase?'done':'on';$('st3').className=!hasCase?'':hasVid?'done':'on'}
-function render(){
-  const g=state.group,s=state.submission||{},open=state.deadline.open;
-  $('deadline').textContent=state.deadline.text+(open?'':' (closed)');
-  $('grp').innerHTML='<span class="code">'+esc(g.code)+'</span><h3>Group '+esc(g.code.split('-G')[1])+' · '+esc(g.name)+'</h3><p style="margin:0">Verified as <b>'+esc(state.student.name)+'</b></p><ol>'+g.members.map(m=>'<li>'+esc(m)+'</li>').join('')+'</ol>';
-  $('status').innerHTML='<div><span>Case study</span>'+(s.caseStudy?'<b>'+esc(s.caseStudy)+'</b>':'<span class="pill n">Not registered</span>')+'</div>'+
-    '<div><span>Video</span>'+(s.videoId?'<span class="pill y">Submitted · '+esc(s.duration)+' · '+esc(s.language)+'</span>':'<span class="pill w">Not submitted</span>')+'</div>'+
-    (s.videoId?'<div><span>Link</span><a href="https://www.youtube.com/watch?v='+esc(s.videoId)+'" target="_blank" rel="noopener">Open on YouTube</a></div>':'');
-  $('case').value=s.caseStudy||'';$('case').disabled=!!s.videoId||!open;$('btn-case').hidden=!!s.videoId||!open;
-  $('btn-case').textContent=s.caseStudy?'Update case study':'Register case study';
-  const lock=!s.caseStudy||!open;$('video-lock').hidden=!!s.caseStudy&&open;$('video-lock').textContent=!open?'The deadline has passed. Submissions are closed.':'Register your case study first.';
-  $('video-fields').disabled=lock;$('video-fields').style.opacity=lock?.55:1;
-  if(s.videoId){$('url').value=s.url;$('title').value=s.title;$('duration').value=s.duration;$('language').value=s.language;$('visibility').value=s.visibility;$('btn-video').textContent='Update submission'}
-  else{$('title').value=$('title').value||'SCST1133 | The Data Engineering Lifecycle | '+g.code}
-  steps();
-}
-async function loadTaken(){try{const r=await api('video-gallery');const list=r.groups.filter(g=>g.caseStudy);$('taken').innerHTML=list.length?list.map(g=>'<li>'+esc(g.code)+': '+esc(g.caseStudy)+'</li>').join(''):'<li>None yet</li>';if(!state)$('deadline').textContent=r.deadline.text}catch(e){$('taken').innerHTML='<li>'+esc(e.message)+'</li>'}}
-async function verify(){const b=$('btn-verify');matric=$('matric').value.trim().toUpperCase().replace(/\s/g,'');if(!matric){msg('m-verify','Enter your matric number.');return}
-  busy(b,true,'Checking…');msg('m-verify','');
-  try{state=await api('video-group-get',{matric});$('p-verify').hidden=true;$('p-main').hidden=false;render();loadTaken()}catch(e){msg('m-verify',e.message)}finally{busy(b,false,'Find my group')}}
-$('btn-verify').onclick=verify;$('matric').addEventListener('keydown',e=>{if(e.key==='Enter')verify()});
-$('btn-change').onclick=()=>{state=null;$('p-main').hidden=true;$('p-verify').hidden=false;$('matric').value='';steps()};
-$('btn-case').onclick=async()=>{const b=$('btn-case'),t=b.textContent;busy(b,true,'Saving…');msg('m-case','');
-  try{state=await api('video-case-register',{matric,caseStudy:$('case').value});render();msg('m-case','Case study registered.',true);loadTaken()}catch(e){msg('m-case',e.message)}finally{busy(b,false);if(b.textContent==='Saving…')b.textContent=t}};
-$('btn-video').onclick=async()=>{const b=$('btn-video'),t=b.textContent;
-  if(!$('decl').checked){msg('m-video','Please tick the declaration.');return}
-  busy(b,true,'Submitting…');msg('m-video','');
-  try{state=await api('video-submit',{matric,url:$('url').value.trim(),title:$('title').value.trim(),duration:$('duration').value.trim(),language:$('language').value,visibility:$('visibility').value,declaration:true});render();msg('m-video','Video submitted. Remember to submit the same link on UTM e-Learning.',true)}
-  catch(e){msg('m-video',e.message)}finally{busy(b,false);if(b.textContent==='Submitting…')b.textContent=t}};
-loadTaken();steps();
-
-</script>
 </body>
 </html>
