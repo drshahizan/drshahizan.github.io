@@ -152,7 +152,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const $=id=>document.getElementById(id);
 let cfg=null,ctx=null;
 const HELP={caseChoice:'The case study assigned to your group by the lecturer.',link:'Link to your Canva PDF on your group\'s github.io site, e.g. https://username.github.io/repository/S03-G1_Topic3_Uber.pdf. Test it in a private window first.',github:'Link to the report PDF in your group\'s GitHub repository.',linkedin:'Link to the LinkedIn post that shares your report.',
-  caseStudy:'Name the organisation or system and what it does, e.g. "Grab – ride-hailing and food delivery".',url:'For example https://youtu.be/xxxxxxxxxxx',
+  caseStudy:'Choose one case from the approved list. Cases already registered by other groups are marked (taken).',url:'For example https://youtu.be/xxxxxxxxxxx',
   title:'Use the format: SCST1133 | The Data Engineering Lifecycle | your group code',duration:'Minutes:seconds, maximum 5:00.'};
 const DECL='We confirm that every member speaks in their own voice with their face visible, no AI voice is used, the video is 5:00 or shorter, one language is used throughout, and all sources are credited.';
 const msg=(id,t,ok)=>{const e=$(id);e.textContent=t||'';e.className='msg'+(t?(ok?' ok':' err'):'')};
@@ -169,7 +169,8 @@ function field(f,val){
   const id='f-'+f.key,v=val==null?'':String(val);
   if(f.kind==='confirm')return '<label class="decl"><input type="checkbox" id="'+id+'"'+(val?' checked':'')+'><span>'+esc(DECL)+'</span></label>';
   let input;
-  if(f.kind==='choice')input='<select class="t" id="'+id+'"><option value="">Choose…</option>'+f.options.map(o=>'<option'+(o===v?' selected':'')+'>'+esc(o)+'</option>').join('')+'</select>';
+  const key=x=>String(x||'').toLowerCase().replace(/[^a-z0-9]+/g,''),taken=(ctx&&ctx.taken||[]).map(key);
+  if(f.kind==='choice')input='<select class="t" id="'+id+'"><option value="">Choose…</option>'+f.options.map(o=>{const t=o!==v&&taken.includes(key(o));return '<option value="'+esc(o)+'"'+(o===v?' selected':'')+(t?' disabled':'')+'>'+esc(o)+(t?' (taken)':'')+'</option>'}).join('')+'</select>';
   else input='<input class="t" id="'+id+'" value="'+esc(v)+'"'+(f.kind==='url'||f.kind==='youtube'?' inputmode="url" placeholder="https://…"':'')+(f.kind==='duration'?' placeholder="4:35" maxlength="5"':'')+'>';
   return '<label class="f" for="'+id+'">'+esc(f.label)+'</label>'+input+(HELP[f.key]?'<p class="f-help">'+esc(HELP[f.key])+'</p>':'');
 }
