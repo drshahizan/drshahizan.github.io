@@ -7,6 +7,7 @@ const categories=[
  ['Stage 2','Manage records, screen studies, document decisions and prepare evidence.'],
  ['Stage 3','Move from extracted evidence to synthesis and a publishable manuscript.'],
  ['Stage 4','Refine the manuscript and prepare it for submission and publication.'],
+ ['Writing','Ten SLR writing modules, phrasebank, checkers and publisher AI policies.'],
  ['Learning','Step-by-step learning guides for the systematic review process.'],
  ['Foundations','Core SLR concepts, examples, reporting guidance and templates.'],
  ['Tools','Find a tool guide by purpose or review stage.'],
@@ -20,7 +21,7 @@ let selectedCategory='',selectedLetter='';
 const search=$('indexSearch');
 function countFor(category){return entries.filter(e=>e.categories.includes(category)).length}
 function renderCategories(){
- const icons={'Start Here':'01','SLR Journey':'02','Stage 1':'S1','Stage 2':'S2','Stage 3':'S3','Stage 4':'S4','Learning':'↗','Foundations':'◇','Tools':'⌘','Resources':'▤','Workspace':'□','Survey':'✓'};
+ const icons={'Start Here':'01','SLR Journey':'02','Stage 1':'S1','Stage 2':'S2','Stage 3':'S3','Stage 4':'S4','Writing':'W','Learning':'↗','Foundations':'◇','Tools':'⌘','Resources':'▤','Workspace':'□','Survey':'✓'};
  $('categoryCards').innerHTML=categories.map(([name,description])=>`<button class="index-category" type="button" data-category="${esc(name)}"><span class="category-icon">${icons[name]||'•'}</span><span class="category-copy"><strong>${esc(name)}</strong><small>${esc(description)}</small></span><span class="category-count" aria-label="${countFor(name)} pages">${countFor(name)}</span></button>`).join('');
 }
 function renderLetters(){
@@ -28,6 +29,8 @@ function renderLetters(){
  $('letterIndex').innerHTML='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter=>`<button type="button" data-letter="${letter}" class="${selectedLetter===letter?'active':''}" ${counts[letter]?'':'disabled'} aria-label="Browse pages beginning with ${letter}${counts[letter]?`, ${counts[letter]} pages`:''}">${letter}</button>`).join('');
  $('letterIndex').querySelectorAll('[data-letter]').forEach(button=>button.addEventListener('click',()=>{selectedLetter=button.dataset.letter;selectedCategory='';render();$('indexResults').scrollIntoView({behavior:'smooth',block:'start'})}));
 }
+const sectionOrder=['Start Here','SLR Journey','Stage 1','Stage 2','Stage 3','Stage 4','Writing','Learning','Foundations','Workspace','Tools','Resources','Survey'];
+function sectionRank(e){const s=String(e.section||'');const i=sectionOrder.findIndex(x=>s===x||s.startsWith(x+' ·'));return i<0?99:i}
 function filteredEntries(){
  const q=normalise(search.value.trim());
  return entries.filter(e=>{
@@ -35,7 +38,7 @@ function filteredEntries(){
   if(selectedLetter&&(e.title.trim()[0]||'').toUpperCase()!==selectedLetter)return false;
   if(!q)return true;
   return normalise([e.title,e.description,e.href,...e.tags,...e.categories].join(' ')).includes(q);
- }).sort((a,b)=>a.title.localeCompare(b.title));
+ }).sort((a,b)=>sectionRank(a)-sectionRank(b)||String(a.section).localeCompare(String(b.section))||(a.step??999)-(b.step??999)||a.title.localeCompare(b.title));
 }
 function renderResults(list){
  const hasFilter=!!(search.value.trim()||selectedCategory||selectedLetter);
@@ -49,7 +52,7 @@ function renderResults(list){
  if(!list.length){$('resultsGroups').innerHTML='<div class="index-empty">No pages match this search. Try a shorter term or choose another category.</div>';return}
  const groups=new Map();list.forEach(e=>{const label=e.section||e.categories[0]||'Other';if(!groups.has(label))groups.set(label,[]);groups.get(label).push(e)});
  const openAll=!!(query||selectedLetter||groups.size===1);
- $('resultsGroups').innerHTML=[...groups.entries()].map(([label,items])=>`<details class="index-group" ${openAll?'open':''}><summary>${esc(label)}<span>${items.length} ${items.length===1?'page':'pages'}</span></summary><div class="index-entry-list">${items.map(e=>`<a class="index-entry" href="${esc(e.href)}"><span class="index-entry-copy"><strong>${esc(e.title)}</strong><p>${esc(e.description)}</p><span class="entry-tags">${e.categories.filter(c=>c!==label).slice(0,3).map(c=>`<span>${esc(c)}</span>`).join('')}</span></span><span class="entry-arrow" aria-hidden="true">→</span></a>`).join('')}</div></details>`).join('');
+ $('resultsGroups').innerHTML=[...groups.entries()].map(([label,items])=>`<details class="index-group" ${openAll?'open':''}><summary>${esc(label)}<span>${items.length} ${items.length===1?'page':'pages'}</span></summary><div class="index-entry-list">${items.map(e=>`<a class="index-entry" href="${esc(e.href)}"><span class="index-entry-copy"><strong>${e.step&&e.section!=='Writing'?`<span class="entry-step">Step ${e.step}</span>`:''}${esc(e.title)}</strong><p>${esc(e.description)}</p><span class="entry-tags">${e.categories.filter(c=>c!==label).slice(0,3).map(c=>`<span>${esc(c)}</span>`).join('')}</span></span><span class="entry-arrow" aria-hidden="true">→</span></a>`).join('')}</div></details>`).join('');
 }
 function render(){renderLetters();renderResults(filteredEntries())}
 $('categoryCards').addEventListener('click',e=>{const button=e.target.closest('[data-category]');if(!button)return;selectedCategory=button.dataset.category;selectedLetter='';render();$('indexResults').scrollIntoView({behavior:'smooth',block:'start'})});
@@ -59,5 +62,9 @@ document.querySelectorAll('[data-query]').forEach(button=>button.addEventListene
 document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();search.focus()}});
 const menu=document.getElementById('menuButton'),nav=document.getElementById('mainNav');
 if(menu&&nav)menu.addEventListener('click',()=>{nav.classList.toggle('open');menu.setAttribute('aria-expanded',nav.classList.contains('open'))});
-renderCategories();render();
+renderCategories();
+const stat=(id,v)=>{const el=$(id);if(el)el.textContent=v};
+stat('statPages',entries.length);stat('statTools',entries.filter(e=>e.categories.includes('Tools')).length);stat('statWriting',entries.filter(e=>e.categories.includes('Writing')).length);
+const q=new URLSearchParams(location.search).get('q');if(q){search.value=q}
+render();
 })();
