@@ -146,6 +146,7 @@ function cell(c,it){
   if(!it)return '<span class="dash" aria-label="Not submitted">—</span>';
   if(c.schema==='T1')return '<span class="sw-links">'+(it.github?'<a href="'+esc(it.github)+'" target="_blank" rel="noopener">GitHub</a>':'')+(it.linkedin?'<a href="'+esc(it.linkedin)+'" target="_blank" rel="noopener">LinkedIn</a>':'')+'</span>';
   if(c.schema==='CASE')return esc(it.caseStudy);
+  if(c.schema==='T3')return (it.caseChoice?'<span class="lang" style="margin:0 0 4px">'+esc(it.caseChoice)+'</span>':'')+(it.link?'<span class="sw-links"><a href="'+esc(it.link)+'" target="_blank" rel="noopener">Open PDF</a></span>':'');
   if(c.schema==='VIDEO')return it.videoId?'<span class="sw-links"><a href="https://www.youtube.com/watch?v='+esc(it.videoId)+'" target="_blank" rel="noopener" title="'+esc(it.title)+'">▶ Watch'+(it.duration?' ('+esc(it.duration)+')':'')+'</a></span>'+(it.language?'<span class="lang">'+esc(it.language)+'</span>':''):'<span class="muted">Unlisted</span>';
   return '';
 }
@@ -162,7 +163,7 @@ function draw(){
 document.querySelectorAll('[data-sec]').forEach(b=>b.onclick=()=>{sec=b.dataset.sec;document.querySelectorAll('[data-sec]').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));draw()});
 $('q').oninput=()=>data&&draw();
 api('sub-public').then(r=>{data=r;
-  cols=r.types.map(t=>({id:t.id,schema:t.schema,head:t.schema==='CASE'?'Case study':t.schema==='VIDEO'?'Video':short(t.label).replace(/^Assignment 1 · /,'Assignment 1 · ')}));
+  cols=r.types.map(t=>({id:t.id,schema:t.schema,head:t.schema==='T3'?'Topic 3 case-study task':t.schema==='CASE'?'Case study':t.schema==='VIDEO'?'Video':short(t.label).replace(/^Assignment 1 · /,'Assignment 1 · ')}));
   $('thead').innerHTML='<tr><th>Code</th><th>Group</th>'+cols.map(c=>'<th>'+esc(c.head)+'</th>').join('')+'</tr>';
   draw()}).catch(e=>{$('tbody').innerHTML='';$('empty').hidden=false;$('empty').textContent=e.message});
 
