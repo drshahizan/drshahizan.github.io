@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Turn your data extraction or quality assessment spreadsheet into a study characteristics table and charts of studies by year, country or design. Runs in your browser."><meta name="theme-color" content="#7a1730"><title>Study Characteristics Table Builder | UTM SLR</title><link rel="canonical" href="https://drshahizan.github.io/slr/stage-3/characteristics-table.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Systematic Literature Review · UTM"><meta property="og:title" content="Study Characteristics Table Builder"><meta property="og:description" content="Turn your data extraction or quality assessment spreadsheet into a study characteristics table and charts of studies by year, country or design. Runs in your browser."><meta property="og:url" content="https://drshahizan.github.io/slr/stage-3/characteristics-table.html"><meta property="og:image" content="https://drshahizan.github.io/slr/images/og/og-stage-3.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@600;700&display=swap" rel="stylesheet"><link href="../assets/styles.css" rel="stylesheet"><link href="../assets/writing-toolkit.css" rel="stylesheet"><link rel="stylesheet" href="../assets/footer.css"></head><body><a class="skip-link" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark">SLR</span><span><strong>Systematic Literature Review</strong><small>From Literature Discovery to Publication</small></span></a><button aria-expanded="false" aria-label="Open navigation" class="menu-button" id="menuButton">☰</button><nav id="mainNav"><a class="nav-link" href="../index.html">Home</a><a class="nav-link" href="../programme/index.html">Programme</a><a class="nav-link" href="../stages/stage-1.html">Stage 1</a><a class="nav-link" href="../stages/stage-2.html">Stage 2</a><a class="nav-link active" href="../stages/stage-3.html">Stage 3</a><a class="nav-link" href="../stages/stage-4.html">Stage 4</a><a class="nav-link" href="../workspace/index.html">SLR Workspace</a><a class="nav-link" href="../tools.html">Research Tools</a><a class="nav-link" href="../resources/index.html">Resources</a><a class="nav-link" href="../site-index.html">Site Index</a></nav></header><main id="main" class="wt"><nav class="wt-crumb" aria-label="Breadcrumb"><a href="../stages/stage-3.html">Stage 3</a> / <a href="../writing/index.html">SLR Writing</a> / Study Characteristics Table Builder</nav><div class="wt-hero"><p class="eyebrow">STAGE 3 · WRITE · TOOL</p><h1>Study Characteristics Table Builder</h1><p>Load your spreadsheet, pick the columns, and get a formatted characteristics table for Word or LaTeX plus distribution charts for your Results section.</p></div><div class="wt-note">Turn your data extraction or quality assessment spreadsheet into a <b>study characteristics table</b> and <b>distribution charts</b> (studies by year, country, design or any other column). Everything runs in your browser; your file is not uploaded or stored.</div>
+
+<section class="wt-sec"><h2>1. Load your data</h2>
+<div class="wt-card">
+<div class="wt-form">
+<div class="wide"><label for="ctFile"><b>Upload a file</b> (.xlsx, .xls, .csv or .tsv)</label><input type="file" id="ctFile" accept=".xlsx,.xls,.csv,.tsv,.txt"></div>
+<div id="ctSheetWrap" hidden><label for="ctSheet">Worksheet</label><select id="ctSheet"></select></div>
+<div><label for="ctHeaderRow">Header row number</label><input type="text" id="ctHeaderRow" value="1" inputmode="numeric"></div>
+<div class="wide"><label for="ctPaste"><b>Or paste</b> cells copied from Excel or Google Sheets (include the header row)</label><textarea id="ctPaste" rows="5" placeholder="Study ID&#9;Year&#9;Country&#9;Design&#10;S01&#9;2021&#9;Malaysia&#9;Experiment"></textarea></div>
+</div>
+<div class="wt-tools"><button type="button" class="button primary" id="ctUsePaste">Use pasted data</button><button type="button" class="button secondary" id="ctDemo">Load practice data</button><span id="ctStatus" class="wt-ext" aria-live="polite"></span></div>
+<p class="wt-ext">Practice data are synthetic. Header row: if your sheet has a title above the column names, set the row that holds the column names.</p>
+</div></section>
+
+<section class="wt-sec" id="ctStep2" hidden><h2>2. Choose rows and columns</h2>
+<div class="wt-card">
+<div class="wt-form">
+<div><label for="ctFilterCol">Keep only rows where column</label><select id="ctFilterCol"><option value="">(keep all rows)</option></select></div>
+<div><label for="ctFilterVal">contains</label><input type="text" id="ctFilterVal" placeholder="e.g. Include"></div>
+</div>
+<p style="margin:12px 0 6px"><b>Columns in the table</b> <span class="wt-ext">(tick to include; the order follows your file)</span></p>
+<div id="ctCols" class="ct-cols"></div>
+<div class="wt-form" style="margin-top:12px">
+<div class="wide"><label for="ctCaption">Table caption</label><input type="text" id="ctCaption" value="Table 2. Characteristics of the included studies"></div>
+</div>
+<label class="ct-opt"><input type="checkbox" id="ctNumber"> Add a running number column (#)</label>
+</div></section>
+
+<section class="wt-sec" id="ctStep3" hidden><h2>3. Study characteristics table</h2>
+<p id="ctSummary"></p>
+<div class="wt-tools"><button type="button" class="button primary" id="ctCopy">Copy table for Word</button><button type="button" class="button secondary" id="ctDoc">Download Word (.doc)</button><button type="button" class="button ghost" id="ctCsv">CSV</button><button type="button" class="button ghost" id="ctTex">LaTeX</button><button type="button" class="button ghost" id="ctMd">Markdown</button><span id="ctCopyMsg" class="wt-ext" aria-live="polite"></span></div>
+<div class="wt-card"><div class="wt-tw" id="ctTableWrap"></div></div>
+</section>
+
+<section class="wt-sec" id="ctStep4" hidden><h2>4. Distribution charts</h2>
+<div class="wt-card">
+<div class="wt-form">
+<div><label for="ctYearCol">Year column</label><select id="ctYearCol"></select></div>
+<div><label for="ctCat1">Category chart 1</label><select id="ctCat1"></select></div>
+<div><label for="ctCat2">Category chart 2</label><select id="ctCat2"></select></div>
+</div>
+<label class="ct-opt"><input type="checkbox" id="ctSplit" checked> Split cells with several values (separated by ; or ,) and count each value</label>
+</div>
+<div id="ctCharts"></div>
+<p class="wt-ext">Report the denominator in the caption, e.g. “Figure 3. Included studies by country (n = 24)”. When one study has several values, counts can add up to more than n; say so in the caption.</p>
+</section>
+
+<section class="wt-sec"><h2>Good practice</h2><div class="wt-card"><ul class="wt-why" style="margin:0">
+<li>Keep the characteristics table descriptive: study ID, year, country or setting, design, sample, and the variables your RQs need. Interpretation belongs in the synthesis.</li>
+<li>Use the same study IDs as your PRISMA diagram, quality assessment file and reference list.</li>
+<li>Long tables usually go to a supplementary file; keep a shorter summary table in the article.</li>
+<li>More examples: <a href="figure-gallery.html">Figure and Table Gallery</a> · <a href="step-06-tables-figures.html">Stage 3 Step 6 · Tables and figures</a> · <a href="../stage-4/count-checker.html">Count Consistency Checker</a>.</li>
+</ul></div></section>
+<style>.ct-cols{display:flex;flex-wrap:wrap;gap:6px 14px}.ct-cols label{display:inline-flex;gap:6px;align-items:center;font-size:.92rem}.ct-table{border-collapse:collapse;width:100%;font-size:.86rem}.ct-table caption{text-align:left;font-weight:700;margin-bottom:6px}.ct-table th,.ct-table td{border-top:1px solid #e6dde0;padding:6px 8px;text-align:left;vertical-align:top}.ct-table thead th{border-top:2px solid #1e2430;border-bottom:1px solid #1e2430;background:#faf6f7}.ct-table tbody tr:last-child td{border-bottom:2px solid #1e2430}.ct-chart{margin:14px 0 0;background:#fff;border:1px solid #eadfe2;border-radius:14px;padding:14px}.ct-chart h3{margin:0 0 6px;font-size:1rem}.ct-chart svg{width:100%;height:auto;display:block}.ct-chart .wt-tools{margin-top:8px}.ct-bar:hover{opacity:.8}.ct-opt{display:flex;gap:8px;align-items:center;margin-top:10px;font-size:.93rem}.ct-opt input{width:16px;height:16px;flex:none}.ct-table th{text-transform:none;letter-spacing:0;font-size:.84rem;color:#1e2430}</style></main><footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><strong>SYSTEMATIC LITERATURE REVIEW</strong><p class="footer-gold">FROM LITERATURE DISCOVERY TO PUBLICATION</p><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><div class="footer-links"><a href="../index.html">Home</a><a href="../programme/index.html">Programme</a><a href="../stages/stage-1.html">Stage 1</a><a href="../stages/stage-2.html">Stage 2</a><a href="../stages/stage-3.html">Stage 3</a><a href="../stages/stage-4.html">Stage 4</a><a href="../workspace/index.html">SLR Workspace</a><a href="../resources/index.html">Resources</a><a href="../workspace/submit-stage34.html">Submit Documents</a></div></div><div class="footer-rule"></div><div class="footer-bottom"><span>© 2026 Dr MSO · Universiti Teknologi Malaysia. All rights reserved.</span><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" rel="noopener noreferrer" target="_blank"><img alt="Visitor count" src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic"/></a></div></footer><script src="../assets/writing-toolkit.js"></script><script>
+(()=>{'use strict';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const XLSX_URL='https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js';
+const DEMO=[['Study ID','Author (year)','Year','Country','Study design','Domain','Sample size','QA score','Decision'],
+['S01','Study A (2018)','2018','Malaysia','Experiment','Higher education','120','8','Include'],
+['S02','Study B (2019)','2019','China','Survey','Higher education','310','7','Include'],
+['S03','Study C (2019)','2019','United States','Case study','Secondary school','24','6','Include'],
+['S04','Study D (2020)','2020','Malaysia; Indonesia','Survey','Higher education','450','9','Include'],
+['S05','Study E (2020)','2020','United Kingdom','Experiment','Higher education','86','5','Exclude'],
+['S06','Study F (2021)','2021','China','Mixed methods','Vocational','150','8','Include'],
+['S07','Study G (2021)','2021','Saudi Arabia','Survey','Higher education','275','7','Include'],
+['S08','Study H (2022)','2022','Malaysia','Design-based research','Secondary school','60','8','Include'],
+['S09','Study I (2022)','2022','Australia','Experiment','Higher education','98','9','Include'],
+['S10','Study J (2023)','2023','China','Experiment','Higher education','210','8','Include'],
+['S11','Study K (2023)','2023','India','Survey','Vocational','520','6','Include'],
+['S12','Study L (2024)','2024','Malaysia','Mixed methods','Higher education','140','9','Include'],
+['S13','Study M (2024)','2024','United States','Case study','Higher education','12','4','Exclude'],
+['S14','Study N (2025)','2025','Indonesia','Experiment','Secondary school','76','8','Include']];
+let grid=[],wb=null,headers=[],rows=[];
+const status=m=>{$('#ctStatus').textContent=m};
+function parseDelimited(text){
+  text=text.replace(/^\uFEFF/,'');const first=text.split(/\r?\n/)[0]||'';
+  const d=first.includes('\t')?'\t':((first.match(/;/g)||[]).length>(first.match(/,/g)||[]).length?';':',');
+  const out=[];let row=[],f='',q=false;
+  for(let i=0;i<text.length;i++){const c=text[i];
+    if(q){if(c==='"'){if(text[i+1]==='"'){f+='"';i++}else q=false}else f+=c}
+    else if(c==='"'&&f==='')q=true;else if(c===d){row.push(f);f=''}
+    else if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;row.push(f);out.push(row);row=[];f=''}
+    else f+=c}
+  if(f!==''||row.length){row.push(f);out.push(row)}
+  return out;
+}
+function loadScript(u){return new Promise((res,rej)=>{if(window.XLSX)return res();const s=document.createElement('script');s.src=u;s.onload=res;s.onerror=()=>rej(new Error('load'));document.head.appendChild(s)})}
+function useGrid(g,auto=true){grid=g.map(r=>r.map(v=>v==null?'':String(v).trim()));if(auto){const w=Math.max(0,...grid.slice(0,30).map(r=>r.filter(v=>v!=='').length));const k=grid.findIndex(r=>r.filter(v=>v!=='').length>=Math.max(2,w*0.6));$('#ctHeaderRow').value=String((k<0?0:k)+1)}build()}
+function sheetToGrid(name){const ws=wb.Sheets[name];return XLSX.utils.sheet_to_json(ws,{header:1,raw:false,defval:''})}
+$('#ctFile').addEventListener('change',async e=>{
+  const f=e.target.files[0];if(!f)return;wb=null;$('#ctSheetWrap').hidden=true;
+  if(/\.(xlsx|xls)$/i.test(f.name)){
+    status('Reading workbook…');
+    try{await loadScript(XLSX_URL)}catch(err){status('Could not load the Excel reader. Check your internet connection, or save the sheet as CSV and upload that.');return}
+    const buf=await f.arrayBuffer();wb=XLSX.read(buf,{type:'array'});
+    const sel=$('#ctSheet');sel.innerHTML=wb.SheetNames.map(n=>`<option>${esc(n)}</option>`).join('');
+    let best=wb.SheetNames[0],bestN=-1;wb.SheetNames.forEach(n=>{const g=sheetToGrid(n);if(g.length>bestN){bestN=g.length;best=n}});
+    sel.value=best;$('#ctSheetWrap').hidden=wb.SheetNames.length<2;useGrid(sheetToGrid(best));status(`Loaded “${f.name}” · worksheet “${best}”.`);
+  }else{const t=await f.text();useGrid(parseDelimited(t));status(`Loaded “${f.name}”.`)}
+});
+$('#ctSheet').addEventListener('change',e=>{if(wb)useGrid(sheetToGrid(e.target.value))});
+$('#ctUsePaste').addEventListener('click',()=>{const t=$('#ctPaste').value;if(!t.trim()){status('Paste some cells first.');return}useGrid(parseDelimited(t));status('Using pasted data.')});
+$('#ctDemo').addEventListener('click',()=>{$('#ctHeaderRow').value='1';useGrid(DEMO);status('Practice data loaded (synthetic).');$('#ctFilterCol').value='Decision';$('#ctFilterVal').value='Include';render()});
+$('#ctHeaderRow').addEventListener('input',()=>{if(grid.length)build()});
+const guess=(re)=>headers.findIndex(h=>re.test(h));
+function build(){
+  const hr=Math.max(1,parseInt($('#ctHeaderRow').value,10)||1)-1;
+  const raw=grid.slice(hr);if(!raw.length){status('No rows found.');return}
+  const width=Math.max(...raw.map(r=>r.length));
+  let hs=(raw[0]||[]).concat(Array(width).fill('')).slice(0,width).map((h,i)=>h||`Column ${i+1}`);
+  // drop columns that are empty everywhere
+  const body=raw.slice(1).filter(r=>r.some(v=>v!==''));
+  const keep=hs.map((h,i)=>body.some(r=>(r[i]||'')!==''));
+  headers=hs.filter((h,i)=>keep[i]);rows=body.map(r=>hs.map((h,i)=>r[i]||'').filter((v,i)=>keep[i]));
+  const opts='<option value="">(none)</option>'+headers.map((h,i)=>`<option value="${i}">${esc(h)}</option>`).join('');
+  $('#ctFilterCol').innerHTML='<option value="">(keep all rows)</option>'+headers.map(h=>`<option>${esc(h)}</option>`).join('');
+  const dec=guess(/decision|status|include|final/i);if(dec>=0&&rows.some(r=>/include/i.test(r[dec]))){$('#ctFilterCol').value=headers[dec];$('#ctFilterVal').value='Include'}else{$('#ctFilterVal').value=''}
+  $('#ctCols').innerHTML=headers.map((h,i)=>`<label><input type="checkbox" data-col="${i}" ${/decision|status|reason|note|comment|abstract|url|link|^score|qa score/i.test(h)?'':'checked'}> ${esc(h)}</label>`).join('');
+  ['#ctYearCol','#ctCat1','#ctCat2'].forEach(s=>$(s).innerHTML=opts);
+  let y=guess(/^(year|publication year|year of publication|tahun)$/i);if(y<0)y=headers.findIndex(h=>/year|tahun/i.test(h)&&!/author|study|reference|citation/i.test(h));if(y<0)y=headers.findIndex((h,i)=>rows.length&&rows.filter(r=>/\b(19|20)\d{2}\b/.test(r[i])).length>=rows.length*0.8);
+  const c=guess(/country|negara|location|region|setting/i);const m=guess(/design|method|approach|type|domain|kaedah/i);
+  $('#ctYearCol').value=y>=0?y:'';$('#ctCat1').value=c>=0?c:'';$('#ctCat2').value=m>=0&&m!==c?m:'';
+  ['#ctStep2','#ctStep3','#ctStep4'].forEach(s=>$(s).hidden=false);render();
+}
+function filtered(){const col=$('#ctFilterCol').value,val=$('#ctFilterVal').value.trim().toLowerCase();if(!col||!val)return rows;const i=headers.indexOf(col);return rows.filter(r=>String(r[i]).toLowerCase().includes(val))}
+function selCols(){return [...document.querySelectorAll('#ctCols input:checked')].map(x=>+x.dataset.col)}
+function tableData(){const cols=selCols(),num=$('#ctNumber').checked,fr=filtered();
+  const h=(num?['#']:[]).concat(cols.map(i=>headers[i]));const b=fr.map((r,k)=>(num?[String(k+1)]:[]).concat(cols.map(i=>r[i])));return {h,b,n:fr.length}}
+function caption(n){let c=$('#ctCaption').value.trim()||'Table. Characteristics of the included studies';if(!/\(n\s*=/.test(c))c+=` (n = ${n})`;return c}
+function tableHTML(inline){const {h,b,n}=tableData();const st=inline?' style="border-collapse:collapse;font-family:Calibri,Arial,sans-serif;font-size:10pt"':' class="ct-table"';
+  const td=inline?' style="border-top:1px solid #999;padding:3px 6px;vertical-align:top"':'';const th=inline?' style="border-top:1.5px solid #000;border-bottom:1px solid #000;padding:3px 6px;text-align:left"':'';
+  return `<table${st}><caption${inline?' style="text-align:left;font-weight:bold;padding-bottom:4px"':''}>${esc(caption(n))}</caption><thead><tr>${h.map(x=>`<th${th}>${esc(x)}</th>`).join('')}</tr></thead><tbody>${b.map(r=>`<tr>${r.map(x=>`<td${td}>${esc(x)}</td>`).join('')}</tr>`).join('')}</tbody></table>`}
+function render(){if(!headers.length)return;const {h,b,n}=tableData();
+  $('#ctTableWrap').innerHTML=h.length?tableHTML(false):'<p>Tick at least one column.</p>';
+  const yi=$('#ctYearCol').value;let ys=[];if(yi!=='')ys=filtered().map(r=>(String(r[+yi]).match(/\b(19|20)\d{2}\b/)||[])[0]).filter(Boolean).map(Number);
+  let s=`<b>${n}</b> ${n===1?'study':'studies'} in the table`;if(n!==rows.length)s+=` (of ${rows.length} rows in the file)`;if(ys.length)s+=` · published ${Math.min(...ys)}–${Math.max(...ys)}`;
+  const ci=$('#ctCat1').value;if(ci!==''){const k=Object.keys(counts(+ci)).length;s+=` · ${k} distinct ${esc(headers[+ci]).toLowerCase()} value${k===1?'':'s'}`}
+  $('#ctSummary').innerHTML=s+'.';charts();}
+function counts(i){const split=$('#ctSplit').checked,out={};filtered().forEach(r=>{let v=String(r[i]||'').trim();if(!v)v='Not reported';const parts=split?v.split(/\s*[;,]\s*/).filter(Boolean):[v];new Set(parts).forEach(p=>{out[p]=(out[p]||0)+1})});return out}
+const W=640,MAROON='#7a1730',INK='#1e2430',MUTED='#596171',GRID='#ece4e6';
+function yearChart(i,n){const c={};filtered().forEach(r=>{const y=(String(r[i]).match(/\b(19|20)\d{2}\b/)||[])[0];if(y)c[y]=(c[y]||0)+1});
+  const ks=Object.keys(c).map(Number);if(!ks.length)return '';const lo=Math.min(...ks),hi=Math.max(...ks),yrs=[];for(let y=lo;y<=hi;y++)yrs.push(y);
+  const max=Math.max(...Object.values(c)),H=230,pl=34,pr=10,pt=24,pb=34,pw=W-pl-pr,ph=H-pt-pb,slot=pw/yrs.length,bw=Math.min(slot,44),gap=Math.max(2,bw*0.22),off=(slot-bw)/2;
+  const step=Math.max(1,Math.ceil(max/5));let g='';for(let v=0;v<=max;v+=step){const y=pt+ph-ph*v/max;g+=`<line x1="${pl}" x2="${W-pr}" y1="${y}" y2="${y}" stroke="${GRID}"/><text x="${pl-6}" y="${y+4}" text-anchor="end" font-size="11" fill="${MUTED}">${v}</text>`}
+  const every=Math.ceil(yrs.length/14);
+  const bars=yrs.map((y,k)=>{const v=c[y]||0,h=ph*v/max,x=pl+k*slot+off+gap/2,yy=pt+ph-h;return `<g class="ct-bar"><title>${y}: ${v} ${v===1?'study':'studies'}</title><rect x="${x}" y="${yy}" width="${bw-gap}" height="${Math.max(h,0)}" rx="3" fill="${MAROON}"/>${v?`<text x="${x+(bw-gap)/2}" y="${yy-5}" text-anchor="middle" font-size="11" fill="${INK}">${v}</text>`:''}${k%every===0?`<text x="${x+(bw-gap)/2}" y="${H-pb+16}" text-anchor="middle" font-size="11" fill="${MUTED}">${y}</text>`:''}</g>`}).join('');
+  return svgWrap(`Studies by ${headers[i].toLowerCase()} (n = ${n})`,`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" font-family="Arial,Helvetica,sans-serif" role="img" aria-label="Number of studies per year">${g}<line x1="${pl}" x2="${W-pr}" y1="${pt+ph}" y2="${pt+ph}" stroke="${MUTED}"/>${bars}</svg>`,'year')}
+function catChart(i,n){const c=counts(i);let e=Object.entries(c).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]));if(!e.length)return '';
+  if(e.length>12){const rest=e.slice(11).reduce((s,x)=>s+x[1],0);e=e.slice(0,11).concat([[`Other (${Object.keys(c).length-11} values)`,rest]])}
+  const lab=Math.min(220,Math.max(90,Math.max(...e.map(x=>x[0].length))*6.6)),rh=26,pt=6,H=pt+e.length*rh+6,pw=W-lab-46,max=Math.max(...e.map(x=>x[1]));
+  const bars=e.map(([k,v],j)=>{const y=pt+j*rh,w=pw*v/max,t=k.length>32?k.slice(0,31)+'…':k;return `<g class="ct-bar"><title>${esc(k)}: ${v}</title><text x="${lab-8}" y="${y+16}" text-anchor="end" font-size="12" fill="${INK}">${esc(t)}</text><rect x="${lab}" y="${y+4}" width="${Math.max(w,1)}" height="${rh-10}" rx="3" fill="${MAROON}"/><text x="${lab+w+6}" y="${y+16}" font-size="12" fill="${INK}">${v}</text></g>`}).join('');
+  const tot=e.reduce((s,x)=>s+x[1],0);const note=tot>n?' · counts exceed n because some studies have several values':'';
+  return svgWrap(`Studies by ${headers[i].toLowerCase()} (n = ${n})${note}`,`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" font-family="Arial,Helvetica,sans-serif" role="img" aria-label="Number of studies by ${esc(headers[i])}"><line x1="${lab}" x2="${lab}" y1="${pt}" y2="${H-4}" stroke="${MUTED}"/>${bars}</svg>`,headers[i])}
+let svgs=[];
+function svgWrap(title,svg,name){svgs.push({svg,name});const k=svgs.length-1;return `<figure class="ct-chart"><h3>${esc(title)}</h3>${svg}<div class="wt-tools"><button type="button" class="button ghost" data-svg="${k}">SVG</button><button type="button" class="button ghost" data-png="${k}">PNG</button></div></figure>`}
+function charts(){svgs=[];const n=filtered().length;let h='';const y=$('#ctYearCol').value;if(y!=='')h+=yearChart(+y,n);
+  [$('#ctCat1').value,$('#ctCat2').value].filter((v,k,a)=>v!==''&&a.indexOf(v)===k).forEach(v=>{h+=catChart(+v,n)});$('#ctCharts').innerHTML=h||'<p class="wt-ext">Choose a column above to draw a chart.</p>'}
+const slug=s=>String(s).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'chart';
+function dl(name,data,type){const b=data instanceof Blob?data:new Blob([data],{type});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
+$('#ctCharts').addEventListener('click',e=>{const s=e.target.dataset.svg,p=e.target.dataset.png;
+  if(s!==undefined){dl(`studies-by-${slug(svgs[+s].name)}.svg`,svgs[+s].svg,'image/svg+xml')}
+  if(p!==undefined){const {svg,name}=svgs[+p];const img=new Image();const vb=svg.match(/viewBox="0 0 (\d+) (\d+)"/);const w=+vb[1]*3,h=+vb[2]*3;
+    img.onload=()=>{const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,w,h);x.drawImage(img,0,0,w,h);c.toBlob(b=>dl(`studies-by-${slug(name)}.png`,b),'image/png')};
+    img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg)}});
+const csvCell=v=>/[",\n]/.test(v)?'"'+String(v).replace(/"/g,'""')+'"':v;
+$('#ctCsv').addEventListener('click',()=>{const {h,b}=tableData();dl('study-characteristics.csv','\uFEFF'+[h,...b].map(r=>r.map(csvCell).join(',')).join('\r\n'),'text/csv')});
+const tex=s=>String(s).replace(/\\/g,'\\textbackslash{}').replace(/([&%$#_{}])/g,'\\$1').replace(/~/g,'\\textasciitilde{}').replace(/\^/g,'\\textasciicircum{}');
+$('#ctTex').addEventListener('click',()=>{const {h,b,n}=tableData();const t=`% Requires \\usepackage{booktabs} (and longtable for long tables)\n\\begin{table}[htbp]\n\\centering\n\\caption{${tex(caption(n))}}\n\\label{tab:characteristics}\n\\small\n\\begin{tabular}{${'l'.repeat(h.length)}}\n\\toprule\n${h.map(tex).join(' & ')} \\\\\n\\midrule\n${b.map(r=>r.map(tex).join(' & ')+' \\\\').join('\n')}\n\\bottomrule\n\\end{tabular}\n\\end{table}\n`;dl('study-characteristics.tex',t,'text/plain')});
+const md=s=>String(s).replace(/\|/g,'\\|');
+$('#ctMd').addEventListener('click',()=>{const {h,b,n}=tableData();dl('study-characteristics.md',`**${md(caption(n))}**\n\n| ${h.map(md).join(' | ')} |\n|${h.map(()=>'---').join('|')}|\n${b.map(r=>'| '+r.map(md).join(' | ')+' |').join('\n')}\n`,'text/markdown')});
+$('#ctDoc').addEventListener('click',()=>{dl('study-characteristics.doc',`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="utf-8"><title>Study characteristics</title></head><body>${tableHTML(true)}</body></html>`,'application/msword')});
+$('#ctCopy').addEventListener('click',async()=>{const html=tableHTML(true),{h,b}=tableData(),txt=[h,...b].map(r=>r.join('\t')).join('\n');const m=$('#ctCopyMsg');
+  try{if(window.ClipboardItem&&navigator.clipboard.write){await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([txt],{type:'text/plain'})})])}else{await navigator.clipboard.writeText(txt)}m.textContent='Copied. Paste into Word.'}
+  catch(e){m.textContent='Copy was blocked by the browser; use “Download Word (.doc)” instead.'}});
+['#ctFilterCol','#ctYearCol','#ctCat1','#ctCat2'].forEach(s=>$(s).addEventListener('change',render));
+['#ctFilterVal','#ctCaption'].forEach(s=>$(s).addEventListener('input',render));
+['#ctNumber','#ctSplit'].forEach(s=>$(s).addEventListener('change',render));
+$('#ctCols').addEventListener('change',render);
+})();
+</script><script src="../assets/app.js"></script></body></html>

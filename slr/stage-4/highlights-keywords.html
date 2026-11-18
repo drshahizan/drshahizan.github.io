@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Check SLR highlights and keywords against your target journal limits: number of highlights, characters per highlight, keyword count, keywords that repeat the title and review type in the title."><meta name="theme-color" content="#7a1730"><title>Highlights and Keywords Checker | UTM SLR</title><link rel="canonical" href="https://drshahizan.github.io/slr/stage-4/highlights-keywords.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Systematic Literature Review · UTM"><meta property="og:title" content="Highlights and Keywords Checker"><meta property="og:description" content="Check SLR highlights and keywords against your target journal limits: number of highlights, characters per highlight, keyword count, keywords that repeat the title and review type in the title."><meta property="og:url" content="https://drshahizan.github.io/slr/stage-4/highlights-keywords.html"><meta property="og:image" content="https://drshahizan.github.io/slr/images/og/og-stage-4.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@600;700&display=swap" rel="stylesheet"><link href="../assets/styles.css" rel="stylesheet"><link href="../assets/writing-toolkit.css" rel="stylesheet"><link rel="stylesheet" href="../assets/footer.css"></head><body><a class="skip-link" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark">SLR</span><span><strong>Systematic Literature Review</strong><small>From Literature Discovery to Publication</small></span></a><button aria-expanded="false" aria-label="Open navigation" class="menu-button" id="menuButton">☰</button><nav id="mainNav"><a class="nav-link" href="../index.html">Home</a><a class="nav-link" href="../programme/index.html">Programme</a><a class="nav-link" href="../stages/stage-1.html">Stage 1</a><a class="nav-link" href="../stages/stage-2.html">Stage 2</a><a class="nav-link" href="../stages/stage-3.html">Stage 3</a><a class="nav-link active" href="../stages/stage-4.html">Stage 4</a><a class="nav-link" href="../workspace/index.html">SLR Workspace</a><a class="nav-link" href="../tools.html">Research Tools</a><a class="nav-link" href="../resources/index.html">Resources</a><a class="nav-link" href="../site-index.html">Site Index</a></nav></header><main id="main" class="wt"><nav class="wt-crumb" aria-label="Breadcrumb"><a href="../stages/stage-4.html">Stage 4</a> / <a href="../writing/index.html">SLR Writing</a> / Highlights and Keywords Checker</nav><div class="wt-hero"><p class="eyebrow">STAGE 4 · REFINE · TOOL</p><h1>Highlights and Keywords Checker</h1><p>Check your highlights, keywords and title against the limits of your target journal before you submit.</p></div><div class="wt-note">Many journals ask for <b>highlights</b> (short bullet points shown with the article) and a limited number of <b>keywords</b>. Elsevier journals, for example, usually ask for 3–5 highlights of up to 85 characters each, including spaces. Limits differ between journals, so set them from your target journal's guide for authors. The check runs in your browser and is saved only there.</div>
+
+<section class="wt-sec"><h2>Limits from your target journal</h2><div class="wt-card"><div class="wt-form">
+<div><label for="hkMin">Highlights: minimum</label><input type="text" id="hkMin" inputmode="numeric" value="3" data-s></div>
+<div><label for="hkMax">Highlights: maximum</label><input type="text" id="hkMax" inputmode="numeric" value="5" data-s></div>
+<div><label for="hkChars">Characters per highlight (incl. spaces)</label><input type="text" id="hkChars" inputmode="numeric" value="85" data-s></div>
+<div><label for="kwMin">Keywords: minimum</label><input type="text" id="kwMin" inputmode="numeric" value="3" data-s></div>
+<div><label for="kwMax">Keywords: maximum</label><input type="text" id="kwMax" inputmode="numeric" value="6" data-s></div>
+</div></div></section>
+
+<section class="wt-sec"><h2>Your title, highlights and keywords</h2><div class="wt-card">
+<label for="hkTitle"><b>Title</b></label><input type="text" id="hkTitle" data-s style="width:100%;margin-top:8px;padding:12px;border:1px solid #d9cfd2;border-radius:12px;font:inherit;font-size:.95rem" placeholder="AI-generated feedback in programming education: A systematic literature review">
+<label for="hkHl" style="display:block;margin-top:14px"><b>Highlights</b>, one per line</label><textarea id="hkHl" rows="6" data-s style="width:100%;margin-top:8px;padding:12px;border:1px solid #d9cfd2;border-radius:12px;font:inherit;font-size:.95rem" placeholder="Synthesises 26 studies on AI-generated feedback in programming courses."></textarea>
+<label for="hkKw" style="display:block;margin-top:14px"><b>Keywords</b>, separated by semicolons, commas or new lines</label><textarea id="hkKw" rows="3" data-s style="width:100%;margin-top:8px;padding:12px;border:1px solid #d9cfd2;border-radius:12px;font:inherit;font-size:.95rem" placeholder="automated feedback; programming education; large language models; systematic literature review"></textarea>
+<div class="wt-tools"><button type="button" class="button secondary" id="hkDemo">Load practice example</button><button type="button" class="button ghost" id="hkCopy">Copy highlights as bullet list</button><span id="hkMsg" class="wt-ext" aria-live="polite"></span></div>
+</div></section>
+
+<section class="wt-sec"><h2>Results</h2><p id="hkSum" class="wt-ext">Results update as you type.</p>
+<div class="wt-card"><h3 style="margin-top:0">Highlights</h3><div class="wt-tw"><table class="wt-table"><thead><tr><th>#</th><th>Highlight</th><th>Characters</th><th>Notes</th></tr></thead><tbody id="hkHlBody"></tbody></table></div><ul id="hkHlNotes" class="wt-why"></ul></div>
+<div class="wt-card"><h3 style="margin-top:0">Keywords</h3><div id="hkKwOut"></div><ul id="hkKwNotes" class="wt-why"></ul></div>
+<div class="wt-card"><h3 style="margin-top:0">Title</h3><ul id="hkTiNotes" class="wt-why" style="margin:0"></ul></div>
+</section>
+
+<section class="wt-sec"><h2>Writing good SLR highlights</h2><div class="wt-card"><ul class="wt-why" style="margin:0">
+<li>Each highlight states one finding or contribution, not a section summary (“The results are discussed” says nothing).</li>
+<li>Give the evidence base once: “Synthesises 26 studies published 2015–2025.”</li>
+<li>Use the same hedging as the article: “suggests”, “is associated with”. Never stronger than the abstract.</li>
+<li>Keywords should add search terms that are <i>not</i> already in the title, including synonyms readers search for.</li>
+<li>Related: <a href="../writing/w02-journal-expectations.html">W2 · What journals expect</a> · <a href="language-checker.html">SLR Language Checker</a> · <a href="step-07-submission.html">Step 7 · Submission package</a>.</li>
+</ul></div></section>
+<style>.hk-kw{display:inline-flex;gap:6px;align-items:center;margin:0 6px 6px 0;padding:4px 10px;border-radius:999px;border:1px solid #d9cfd2;font-size:.88rem;background:#fff}.hk-kw.warn{border-color:#e2a400;background:#fff8e1}.hk-kw.bad{border-color:#d03b3b;background:#fdecec}.hk-over{color:#b3261e;font-weight:700}</style></main><footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><strong>SYSTEMATIC LITERATURE REVIEW</strong><p class="footer-gold">FROM LITERATURE DISCOVERY TO PUBLICATION</p><p>Faculty of Computing · Universiti Teknologi Malaysia</p></div><div class="footer-links"><a href="../index.html">Home</a><a href="../programme/index.html">Programme</a><a href="../stages/stage-1.html">Stage 1</a><a href="../stages/stage-2.html">Stage 2</a><a href="../stages/stage-3.html">Stage 3</a><a href="../stages/stage-4.html">Stage 4</a><a href="../workspace/index.html">SLR Workspace</a><a href="../resources/index.html">Resources</a><a href="../workspace/submit-stage34.html">Submit Documents</a></div></div><div class="footer-rule"></div><div class="footer-bottom"><span>© 2026 Dr MSO · Universiti Teknologi Malaysia. All rights reserved.</span><a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" rel="noopener noreferrer" target="_blank"><img alt="Visitor count" src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic"/></a></div></footer><script src="../assets/writing-toolkit.js"></script><script>
+(()=>{'use strict';
+const KEY='slr_highlights_keywords_v1',$=s=>document.querySelector(s),esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const F=[...document.querySelectorAll('[data-s]')];
+try{const o=JSON.parse(localStorage.getItem(KEY)||'{}');F.forEach(f=>{if(o[f.id]!=null)f.value=o[f.id]})}catch(e){}
+const save=()=>{const o={};F.forEach(f=>o[f.id]=f.value);try{localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}};
+const n=(id,d)=>{const v=parseInt($('#'+id).value,10);return isNaN(v)?d:v};
+const STOP=new Set('a an the of in on for and or to with from by at as is are be its into using use based via between among towards toward review systematic literature study studies analysis'.split(' '));
+const words=s=>String(s).toLowerCase().match(/[a-z0-9][a-z0-9-]*/g)||[];
+const stem=w=>w.replace(/(ies)$/,'y').replace(/(es|s)$/,'');
+const OVER=/\b(prove[sd]?|proven|first|novel|unprecedented|revolutioni[sz]\w*|clearly demonstrate\w*|definitively|all studies)\b/i;
+const VAGUE=/^(this (paper|study|review|article)|in this (paper|study|review)|the (results|findings) (are|were) (discussed|presented))/i;
+function check(){save();
+  const title=$('#hkTitle').value.trim(),max=n('hkChars',85),hmin=n('hkMin',3),hmax=n('hkMax',5),kmin=n('kwMin',3),kmax=n('kwMax',6);
+  const hl=$('#hkHl').value.split(/\n/).map(l=>l.replace(/^\s*([•\-*–·]|\d+[.)])\s*/,'').trim()).filter(Boolean);
+  let issues=0;
+  $('#hkHlBody').innerHTML=hl.map((h,i)=>{const L=h.length,notes=[];if(L>max){notes.push(`${L-max} over the limit`);issues++}
+    if(VAGUE.test(h))notes.push('Starts like a section summary; state the finding.');if(OVER.test(h))notes.push('Strong claim; match the hedging in your abstract.');
+    if(/\([A-Z][^)]*\d{4}\)|\[\d+\]/.test(h))notes.push('Remove citations from highlights.');
+    const ab=(h.match(/\b[A-Z]{2,}s?\b/g)||[]).filter(a=>!['AI','SLR','PRISMA'].includes(a));if(ab.length)notes.push(`Abbreviation${ab.length>1?'s':''} ${[...new Set(ab)].join(', ')}: spell out unless widely known.`);
+    return `<tr><td>${i+1}</td><td>${esc(h)}</td><td class="${L>max?'hk-over':''}">${L} / ${max}</td><td>${notes.map(esc).join('<br>')||'<span class="wt-status st-ok">OK</span>'}</td></tr>`}).join('')||'<tr><td colspan="4">No highlights yet.</td></tr>';
+  const hn=[];if(hl.length&&hl.length<hmin){hn.push(`Only ${hl.length} highlight${hl.length===1?'':'s'}; the journal asks for at least ${hmin}.`);issues++}
+  if(hl.length>hmax){hn.push(`${hl.length} highlights; the journal allows at most ${hmax}.`);issues++}
+  if(hl.length&&!hl.some(h=>/\b\d+\s+(included\s+)?(studies|articles|papers|primary studies|publications)\b/i.test(h)))hn.push('Consider stating the evidence base in one highlight, e.g. “Synthesises 26 studies published 2015–2025.”');
+  $('#hkHlNotes').innerHTML=hn.map(x=>`<li>${esc(x)}</li>`).join('');
+  const kw=$('#hkKw').value.split(/[;,\n]/).map(k=>k.trim()).filter(Boolean);const tw=new Set(words(title).filter(w=>!STOP.has(w)).map(stem));const seen=new Set(),kn=[];
+  $('#hkKwOut').innerHTML=kw.map(k=>{const low=k.toLowerCase();let cls='',tip='';const ws=words(k).filter(w=>!STOP.has(w)).map(stem);
+    if(seen.has(low)){cls='bad';tip='Duplicate';issues++}else if(ws.length&&ws.every(w=>tw.has(w))&&!/systematic|review/i.test(k)){cls='warn';tip='Already in the title'}
+    else if(words(k).length>4){cls='warn';tip='Long; keywords are usually 1–4 words'}else if(/^[A-Z]{2,}s?$/.test(k)){cls='warn';tip='Abbreviation only; add the full term'}
+    seen.add(low);return `<span class="hk-kw ${cls}" title="${esc(tip)}">${esc(k)}${tip?` <small>· ${esc(tip)}</small>`:''}</span>`}).join('')||'<p class="wt-ext">No keywords yet.</p>';
+  if(kw.length&&kw.length<kmin){kn.push(`Only ${kw.length} keyword${kw.length===1?'':'s'}; the journal asks for at least ${kmin}.`);issues++}
+  if(kw.length>kmax){kn.push(`${kw.length} keywords; the journal allows at most ${kmax}.`);issues++}
+  const inTitle=kw.filter(k=>{const ws=words(k).filter(w=>!STOP.has(w)).map(stem);return ws.length&&ws.every(w=>tw.has(w))&&!/systematic|review/i.test(k)}).length;
+  if(kw.length&&inTitle>=Math.ceil(kw.length/2))kn.push(`${inTitle} of ${kw.length} keywords repeat the title. Use keywords to add synonyms and related terms readers search for.`);
+  if(kw.length&&!/systematic (literature )?review|scoping review|mapping study|bibliometric/i.test(title+' '+kw.join(' ')))kn.push('Neither the title nor the keywords name the review type (e.g. “systematic literature review”). Readers filter by it.');
+  $('#hkKwNotes').innerHTML=kn.map(x=>`<li>${esc(x)}</li>`).join('');
+  const tn=[];if(title){const wc=words(title).length;tn.push(`${wc} words, ${title.length} characters.`);
+    if(!/systematic (literature )?review|scoping review|mapping (study|review)|meta-analysis|umbrella review|rapid review/i.test(title))tn.push('PRISMA 2020 item 1: identify the report as a systematic review in the title.');
+    if(OVER.test(title))tn.push('Avoid claims such as “first” or “novel” in the title.');if(wc>25)tn.push('Long title; many journals prefer under about 20 words.')}
+  else tn.push('Enter your title to check it.');
+  $('#hkTiNotes').innerHTML=tn.map(x=>`<li>${esc(x)}</li>`).join('');
+  $('#hkSum').innerHTML=(hl.length||kw.length)?(issues?`<b style="color:#b3261e">${issues}</b> item${issues===1?'':'s'} break the limits you set.`:'<b>Within the limits you set.</b> Read the notes below.'):'Results update as you type.';
+}
+F.forEach(f=>f.addEventListener('input',check));
+$('#hkDemo').addEventListener('click',()=>{$('#hkTitle').value='AI-generated feedback in programming education: A systematic literature review';
+  $('#hkHl').value='This review discusses AI feedback in programming education.\nSynthesises 26 studies on AI-generated feedback in programming courses (2015–2025).\nAutomated feedback was associated with faster error correction in 14 of 26 studies.\nEvidence on long-term learning gains remains limited and mostly short-term.\nWe prove that LLM-based tutors are the first truly scalable solution for teaching programming to novices.';
+  $('#hkKw').value='AI-generated feedback; programming education; LLM; large language models; automated assessment; programming education';check()});
+$('#hkCopy').addEventListener('click',async()=>{const hl=$('#hkHl').value.split(/\n/).map(l=>l.replace(/^\s*([•\-*–·]|\d+[.)])\s*/,'').trim()).filter(Boolean);try{await navigator.clipboard.writeText(hl.map(h=>'• '+h).join('\n'));$('#hkMsg').textContent='Copied.'}catch(e){$('#hkMsg').textContent='Copy was blocked by the browser.'}});
+check();
+})();
+</script><script src="../assets/app.js"></script></body></html>
