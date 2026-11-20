@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Submit · Dr MSO PhD Research | UTM</title>
+  <meta name="description" content="Submit your research proposal, thesis chapters or viva slides to appear on the group website." />
+  <meta property="og:title" content="Students · Dr MSO PhD Research" />
+  <meta property="og:description" content="PhD and MSc students supervised by Dr Mohd Shahizan Othman: thesis titles and shared materials." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="submit">
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="brand"><span class="mono">MSO</span> PhD Research</a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="students.html">Students</a>
+        <a href="guide.html">PhD Guide</a>
+        <a href="submit.html" class="active" aria-current="page">Submit</a>
+        <a href="join.html">Join Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="wrap">
+        <h1>Submit a document</h1>
+        <p>Sign in with your graduate email and matric number to share your proposal, thesis chapters, viva slides or papers. Your latest document appears on your card on the Students page.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap sb-wrap">
+        <div>
+          <ol class="sb-steps" aria-label="Progress"><li id="st1" class="on">Sign in</li><li id="st2">Fill in</li><li id="st3">Receipt</li></ol>
+
+          <section class="card sb-panel" id="p1">
+            <h2>Sign in</h2>
+            <p class="muted-p">Use your UTM graduate email and your matric number. First time without a registered email? Sign in with your <b>@graduate.utm.my</b> email and matric number to register it.</p>
+            <form id="login" autocomplete="on">
+              <label class="f" for="email">Email</label>
+              <input class="t" id="email" type="email" autocomplete="username" placeholder="name@graduate.utm.my" maxlength="80">
+              <label class="f" for="matric">Matric number (password)</label>
+              <div class="pw"><input class="t" id="matric" type="password" autocomplete="current-password" placeholder="PEC233037" maxlength="12"><button type="button" class="pw-toggle" id="pw-toggle" aria-label="Show matric number">Show</button></div>
+              <button class="btn primary sb-btn" id="btn-next" type="submit">Sign in</button>
+            </form>
+            <p class="msg" id="m1" aria-live="polite"></p>
+          </section>
+
+          <section class="card sb-panel" id="p2" hidden>
+            <div class="sb-who" id="who"></div>
+            <div id="welcome"></div>
+            <label class="f" for="type">Document</label>
+            <select class="t" id="type"><option value="">Loading…</option></select>
+            <div id="mine"></div>
+            <div id="form2" hidden>
+            <h2 id="p2-title"></h2>
+            <div id="cur"></div>
+            <label class="f" for="f-title">Document title</label>
+            <input class="t" id="f-title" placeholder="e.g. Enhanced Learning Styles Identification Using Ensemble Deep Learning">
+            <label class="f" for="f-link">Link to the file (Google Drive or OneDrive)</label>
+            <input class="t" id="f-link" inputmode="url" placeholder="https://drive.google.com/…">
+            <p class="f-help">Set sharing to <b>Anyone with the link · Viewer</b>, then test the link in a private window. UTM OneDrive links are often limited to UTM accounts.</p>
+            <label class="f" for="f-version">Version</label>
+            <input class="t" id="f-version" placeholder="e.g. v2 · after panel comments" maxlength="60">
+            <label class="f" for="f-note">Note for your supervisor (optional, not shown on the website)</label>
+            <textarea class="t" id="f-note" rows="3" maxlength="500"></textarea>
+            <fieldset class="vis">
+              <legend class="f">On the website, show</legend>
+              <label><input type="radio" name="vis" value="Public link" checked> Title <b>and</b> link</label>
+              <label><input type="radio" name="vis" value="Title only"> Title only (the link stays private)</label>
+            </fieldset>
+            <label class="decl"><input type="checkbox" id="f-decl"><span>I confirm this is my own work, the link opens the correct file, and I agree to it being listed on the group website as chosen above.</span></label>
+            <div class="sb-actions">
+              <button class="btn primary sb-btn" id="btn-submit" type="button">Submit</button>
+            </div>
+            </div>
+            <div class="sb-actions"><button class="btn ghost sb-btn" id="btn-back" type="button">Sign out</button></div>
+            <p class="msg" id="m2" aria-live="polite"></p>
+          </section>
+
+          <section class="card sb-panel" id="p3" hidden>
+            <div class="receipt" id="receipt"></div>
+            <div class="sb-actions no-print">
+              <button class="btn primary sb-btn" id="btn-another" type="button">Submit another document</button>
+              <button class="btn ghost sb-btn" id="btn-print" type="button">Print or save receipt</button>
+            </div>
+          </section>
+        </div>
+
+        <aside class="sb-side">
+          <div class="card">
+            <h3>What you can submit</h3>
+            <ul>
+              <li>Research proposal</li>
+              <li>Thesis chapters 1–5</li>
+              <li>Full thesis draft</li>
+              <li>Viva slides</li>
+              <li>Journal or conference papers</li>
+            </ul>
+            <div class="notice"><b>Submitting again</b><br>A new submission of the same document replaces the earlier one on the website. Your supervisor keeps the full history.</div>
+            <p class="muted-p">Keep your receipt (screenshot or print) as proof of submission.</p>
+            <p><a href="students.html#current">See current students →</a></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <h3>MSO PhD Research</h3>
+        <p>PhD &amp; MSc supervision in data science, AI and information systems<br>Intelligent Informatics Research Group (IIRG) · Faculty of Computing, Universiti Teknologi Malaysia</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="students.html">Students</a>
+        <a href="guide.html">PhD Guide</a>
+        <a href="submit.html">Submit a document</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="join.html">Join Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://scholar.google.com/citations?hl=en&amp;user=QzgVq24AAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/drshahizan/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="https://github.com/drshahizan/research-material" target="_blank" rel="noopener">Research Material</a>
+        <a href="https://github.com/drshahizan/phd" target="_blank" rel="noopener">Source on GitHub</a>
+        <span>Faculty of Computing, UTM Johor Bahru</span>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <p>© <span id="yr">2026</span> MSO PhD Research · Faculty of Computing, Universiti Teknologi Malaysia.<br>Supervisor: Prof. Madya Ts. Dr. Mohd Shahizan bin Othman.</p>
+      <a class="visitor-badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fdrshahizan" target="_blank" rel="noopener noreferrer">
+        <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan&amp;labelColor=%23697689&amp;countColor=%23555555&amp;style=plastic" alt="Bilangan pelawat laman" decoding="async">
+      </a>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/publications.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/submit-config.js"></script>
+  <script src="assets/js/submit.js"></script>
+</body>
+</html>
