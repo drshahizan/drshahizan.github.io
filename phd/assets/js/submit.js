@@ -18,7 +18,9 @@
     const r = await res.json().catch(() => ({ ok: false, error: "Unexpected server response." }));
     if (!res.ok || r.ok === false) {
       const m = r.message || r.error || "The request could not be completed.";
-      throw new Error(/Invalid API action/i.test(m) ? SVC_DOWN : m);
+      throw new Error(/Invalid API action/i.test(m)
+        ? "This page is out of date. Please refresh it (Ctrl+Shift+R, or Cmd+Shift+R on Mac) and try again."
+        : m);
     }
     return r;
   }
