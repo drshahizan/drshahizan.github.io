@@ -4,6 +4,8 @@
      link       Google Scholar article page
      cited      citation count, citedLink: "cited by" page
      sjr        "Q1" | "Q2" | "Q3" | "Q4"
+     kind       "SLR" (shown as Review) | "Technical" (shown as Article)
+     field      "CS" (Computer Science) | "SS" (Social Science)
 */
 const SCHOLAR_STATS = { citations: 5023, hIndex: 32, i10: 64, asOf: "November 2026" };
 
@@ -16,7 +18,9 @@ const PUBLICATIONS = [
   "venue": "Cogent Education, 13(1), 2745324",
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AartPoR2Yc-kC",
   "sjr": "Q1",
-  "doi": "10.1080/2331186x.2026.2745324"
+  "doi": "10.1080/2331186x.2026.2745324",
+  "kind": "SLR",
+  "field": "SS"
  },
  {
   "year": 2026,
@@ -25,7 +29,9 @@ const PUBLICATIONS = [
   "title": "System-Level Performance Evaluation of Dilithium2, Falcon-512, and SPHINCS+ for Post-Quantum Secure E-Government Document Signing",
   "venue": "INTENSIF: Jurnal Ilmiah Penelitian dan Penerapan Teknologi Sistem Informasi, 10(1), pp. 139-160",
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AgVv57TyPmFsC",
-  "doi": "10.29407/intensif.v10i1.26424"
+  "doi": "10.29407/intensif.v10i1.26424",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2026,
@@ -35,7 +41,9 @@ const PUBLICATIONS = [
   "venue": "PLOS ONE, 21(4), e0346790",
   "doi": "10.1371/journal.pone.0346790",
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3A8xutWZnSdmoC",
-  "sjr": "Q1"
+  "sjr": "Q1",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2026,
@@ -44,7 +52,9 @@ const PUBLICATIONS = [
   "title": "Real-Time Human Detection for Heritage Monitoring Using YOLOv11n with Lightweight Attention Mechanisms",
   "venue": "2026 International Conference on Information Communication, IoT Technology, and Smart Cities (IITS), pp. 166-171, IEEE",
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AgKiMpY-AVTkC",
-  "doi": "10.1109/iits69561.2026.11648446"
+  "doi": "10.1109/iits69561.2026.11648446",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2026,
@@ -54,7 +64,9 @@ const PUBLICATIONS = [
   "venue": "Humanities and Social Sciences Communications, 13(1), 842",
   "doi": "10.1057/s41599-026-06807-x",
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AEhil0879vHcC",
-  "sjr": "Q1"
+  "sjr": "Q1",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2026,
@@ -64,7 +76,9 @@ const PUBLICATIONS = [
   "venue": "International Journal of Advanced Computer Science & Applications, 17(3), 758",
   "doi": "10.14569/IJACSA.2026.0170367",
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AGFxP56DSvIMC",
-  "sjr": "Q3"
+  "sjr": "Q3",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2026,
@@ -73,7 +87,9 @@ const PUBLICATIONS = [
   "title": "Developing Digitalized Green and Low-Carbon Accounting: A Case Study of Guiyang City",
   "venue": "2025 4th International Conference on Mathematical Statistics and Economic Analysis (MSEA 2025), pp. 98-109, Atlantis Press",
   "doi": "10.2991/978-94-6463-992-6_11",
-  "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3A_OXeSy2IsFwC"
+  "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3A_OXeSy2IsFwC",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2026,
@@ -85,7 +101,9 @@ const PUBLICATIONS = [
   "cited": 2,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2869680348347852700",
   "sjr": "Q3",
-  "doi": "10.14569/ijacsa.2026.0170531"
+  "doi": "10.14569/ijacsa.2026.0170531",
+  "kind": "SLR",
+  "field": "SS"
  },
  {
   "year": 2026,
@@ -94,7 +112,9 @@ const PUBLICATIONS = [
   "title": "Smart Village: Artificial Intelligence and Social Media for Sales Transformation",
   "venue": "INTI JOURNAL, 2026(17), pp. 138-146",
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3A5MTHONV0fEkC",
-  "doi": "10.61453/intij.20260117"
+  "doi": "10.61453/intij.20260117",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2026,
@@ -106,7 +126,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AKbBQZpvPDL4C",
   "cited": 8,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5819900275576457403",
-  "sjr": "Q1"
+  "sjr": "Q1",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2025,
@@ -118,7 +140,9 @@ const PUBLICATIONS = [
   "cited": 31,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4186289407345196237",
   "sjr": "Q2",
-  "doi": "10.1080/23311886.2025.2492833"
+  "doi": "10.1080/23311886.2025.2492833",
+  "kind": "SLR",
+  "field": "SS"
  },
  {
   "year": 2025,
@@ -129,7 +153,9 @@ const PUBLICATIONS = [
   "doi": "10.1145/3786554.3786572",
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AF9fV5C73w3QC",
   "cited": 1,
-  "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3028576435306438688"
+  "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3028576435306438688",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2025,
@@ -138,7 +164,9 @@ const PUBLICATIONS = [
   "title": "Breast Cancer Detection with CNNs: A Systematic Review of Datasets, Challenges, and Accuracy",
   "venue": "2025 4th International Conference on Creative Communication and Innovative Technology (ICCIT), pp. 1-7, IEEE",
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AfFSKOagxvKUC",
-  "doi": "10.1109/iccit65724.2025.11166761"
+  "doi": "10.1109/iccit65724.2025.11166761",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2025,
@@ -150,7 +178,9 @@ const PUBLICATIONS = [
   "cited": 34,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4223509272253223884",
   "sjr": "Q1",
-  "doi": "10.1109/access.2025.3595621"
+  "doi": "10.1109/access.2025.3595621",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2025,
@@ -162,7 +192,9 @@ const PUBLICATIONS = [
   "cited": 35,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9558461530904589355",
   "sjr": "Q1",
-  "doi": "10.1109/access.2025.3562918"
+  "doi": "10.1109/access.2025.3562918",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2025,
@@ -174,7 +206,9 @@ const PUBLICATIONS = [
   "cited": 40,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17646844125980048598",
   "sjr": "Q1",
-  "doi": "10.1186/s12880-025-01667-4"
+  "doi": "10.1186/s12880-025-01667-4",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2025,
@@ -186,7 +220,9 @@ const PUBLICATIONS = [
   "cited": 28,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10311934530776634257",
   "sjr": "Q1",
-  "doi": "10.1016/j.engappai.2025.110046"
+  "doi": "10.1016/j.engappai.2025.110046",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2025,
@@ -197,7 +233,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AZzlSgRqYykMC",
   "cited": 4,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11578858885580589945",
-  "doi": "10.5530/irc.1.2.10"
+  "doi": "10.5530/irc.1.2.10",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2025,
@@ -206,7 +244,9 @@ const PUBLICATIONS = [
   "title": "Relationship Between Language Preferences and Performance in the Use of Management Information Systems by University Faculty and Staff",
   "venue": "FORUM FOR LINGUISTIC STUDIES, 7(2), Whioce Publishing Pte. Ltd.",
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AODE9OILHJdcC",
-  "doi": "10.30564/fls.v7i2.8262"
+  "doi": "10.30564/fls.v7i2.8262",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2025,
@@ -218,7 +258,9 @@ const PUBLICATIONS = [
   "cited": 5,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15606811638715951902",
   "sjr": "Q1",
-  "doi": "10.1155/acis/2766701"
+  "doi": "10.1155/acis/2766701",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2025,
@@ -230,7 +272,9 @@ const PUBLICATIONS = [
   "cited": 8,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11050741181834170224",
   "sjr": "Q3",
-  "doi": "10.1504/ijesdf.2024.10060679"
+  "doi": "10.1504/ijesdf.2024.10060679",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2025,
@@ -241,7 +285,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3A4vMrXwiscB8C",
   "cited": 1,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=408854018874291750",
-  "doi": "10.56294/sctconf20251239"
+  "doi": "10.56294/sctconf20251239",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2024,
@@ -252,7 +298,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AHIFyuExEbWQC",
   "cited": 4,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=18267700238378876597",
-  "doi": "10.1109/pcds61776.2024.10743769"
+  "doi": "10.1109/pcds61776.2024.10743769",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2024,
@@ -264,7 +312,9 @@ const PUBLICATIONS = [
   "cited": 36,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15938795120439737759",
   "sjr": "Q1",
-  "doi": "10.1016/j.iswa.2024.200407"
+  "doi": "10.1016/j.iswa.2024.200407",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2024,
@@ -276,7 +326,9 @@ const PUBLICATIONS = [
   "cited": 281,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6308931129368805307",
   "sjr": "Q1",
-  "doi": "10.1186/s40537-024-00892-y"
+  "doi": "10.1186/s40537-024-00892-y",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2024,
@@ -288,7 +340,9 @@ const PUBLICATIONS = [
   "cited": 22,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10237047992370841196,8520356615155366349",
   "sjr": "Q2",
-  "doi": "10.21123/bsj.2023.8544"
+  "doi": "10.21123/bsj.2023.8544",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2024,
@@ -299,7 +353,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AmNrWkgRL2YcC",
   "cited": 1,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7923718750926706153",
-  "doi": "10.56294/sctconf20241167"
+  "doi": "10.56294/sctconf20241167",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2024,
@@ -311,7 +367,9 @@ const PUBLICATIONS = [
   "cited": 10,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11614066906206742169",
   "sjr": "Q3",
-  "doi": "10.1504/ijcnds.2024.10057332"
+  "doi": "10.1504/ijcnds.2024.10057332",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2023,
@@ -323,7 +381,9 @@ const PUBLICATIONS = [
   "cited": 155,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3842688879445230642",
   "sjr": "Q1",
-  "doi": "10.3390/su15108144"
+  "doi": "10.3390/su15108144",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2023,
@@ -334,7 +394,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3ADUooU5lO8OsC",
   "cited": 7,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8658617008324271091",
-  "doi": "10.2139/ssrn.4320161"
+  "doi": "10.2139/ssrn.4320161",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2021,
@@ -346,7 +408,9 @@ const PUBLICATIONS = [
   "cited": 5,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2422575674742840509",
   "sjr": "Q4",
-  "doi": "10.1504/ijcaet.2021.117133"
+  "doi": "10.1504/ijcaet.2021.117133",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2020,
@@ -358,7 +422,9 @@ const PUBLICATIONS = [
   "cited": 63,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5582892762303053282",
   "sjr": "Q1",
-  "doi": "10.1109/access.2020.3029890"
+  "doi": "10.1109/access.2020.3029890",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2020,
@@ -370,7 +436,9 @@ const PUBLICATIONS = [
   "cited": 5,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16358532538012628150",
   "sjr": "Q3",
-  "doi": "10.32890/jict2020.19.4.1"
+  "doi": "10.32890/jict2020.19.4.1",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2020,
@@ -381,7 +449,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3Akh2fBNsKQNwC",
   "cited": 6,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1784799026641889930",
-  "doi": "10.11591/ijeecs.v18.i3.pp1439-1445"
+  "doi": "10.11591/ijeecs.v18.i3.pp1439-1445",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2020,
@@ -392,7 +462,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AUg5p-4gJ2f0C",
   "cited": 4,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10952996346694784494",
-  "doi": "10.1088/1757-899x/864/1/012071"
+  "doi": "10.1088/1757-899x/864/1/012071",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2020,
@@ -403,7 +475,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AXoXfffV-tXoC",
   "cited": 3,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8731301069057870397,18211849770926112944",
-  "doi": "10.1088/1757-899x/864/1/012082"
+  "doi": "10.1088/1757-899x/864/1/012082",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2020,
@@ -414,7 +488,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3Aruyezt5ZtCIC",
   "cited": 7,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6667329589166802341",
-  "doi": "10.1088/1757-899x/864/1/012095"
+  "doi": "10.1088/1757-899x/864/1/012095",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2020,
@@ -425,7 +501,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AfoquWX3nUaYC",
   "cited": 46,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5469927760417312260",
-  "doi": "10.30534/ijatcse/2020/16932020"
+  "doi": "10.30534/ijatcse/2020/16932020",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2020,
@@ -437,7 +515,9 @@ const PUBLICATIONS = [
   "cited": 228,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=855907842305897039",
   "sjr": "Q1",
-  "doi": "10.1109/access.2020.2990420"
+  "doi": "10.1109/access.2020.2990420",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2020,
@@ -449,7 +529,9 @@ const PUBLICATIONS = [
   "cited": 17,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9406488835577404612",
   "sjr": "Q3",
-  "doi": "10.32890/jict2020.19.2.5"
+  "doi": "10.32890/jict2020.19.2.5",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2020,
@@ -461,7 +543,9 @@ const PUBLICATIONS = [
   "cited": 24,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7131181847484654852",
   "sjr": "Q3",
-  "doi": "10.30534/ijatcse/2020/92922020"
+  "doi": "10.30534/ijatcse/2020/92922020",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2020,
@@ -472,7 +556,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AFPJr55Dyh1AC",
   "cited": 3,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=13821353845283768217",
-  "doi": "10.1109/aect47998.2020.9194221"
+  "doi": "10.1109/aect47998.2020.9194221",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2020,
@@ -483,7 +569,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3ALI9QrySNdTsC",
   "cited": 35,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5143836714624857949",
-  "doi": "10.11591/ijece.v10i1.pp1070-1078"
+  "doi": "10.11591/ijece.v10i1.pp1070-1078",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2020,
@@ -493,7 +581,9 @@ const PUBLICATIONS = [
   "venue": "International Journal of Advanced and Applied Sciences, 7(4), 1",
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AtH6gc1N1XXoC",
   "sjr": "Q3",
-  "doi": "10.21833/ijaas.2020.04.001"
+  "doi": "10.21833/ijaas.2020.04.001",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2020,
@@ -504,7 +594,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3Aa3BOlSfXSfwC",
   "cited": 3,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11328470390442190740",
-  "doi": "10.5373/jardcs/v12sp5/20201892"
+  "doi": "10.5373/jardcs/v12sp5/20201892",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2019,
@@ -515,7 +607,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3ATIZ-Mc8IlK0C",
   "cited": 10,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10778060062959926906",
-  "doi": "10.11591/ijeecs.v14.i3.pp1544-1551"
+  "doi": "10.11591/ijeecs.v14.i3.pp1544-1551",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2019,
@@ -526,7 +620,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AtuHXwOkdijsC",
   "cited": 5,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1571524567125027932",
-  "doi": "10.15282/ijsecs.5.1.2019.4.0055"
+  "doi": "10.15282/ijsecs.5.1.2019.4.0055",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2019,
@@ -538,7 +634,9 @@ const PUBLICATIONS = [
   "cited": 6,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15260057571336998809",
   "sjr": "Q3",
-  "doi": "10.14569/ijacsa.2019.0100867"
+  "doi": "10.14569/ijacsa.2019.0100867",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2019,
@@ -549,7 +647,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3A-FonjvnnhkoC",
   "cited": 16,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5522915781318796313",
-  "doi": "10.1016/j.procs.2019.12.096"
+  "doi": "10.1016/j.procs.2019.12.096",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2018,
@@ -561,7 +661,9 @@ const PUBLICATIONS = [
   "cited": 382,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14481876992045846781",
   "sjr": "Q1",
-  "doi": "10.1016/j.compedu.2018.02.010"
+  "doi": "10.1016/j.compedu.2018.02.010",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2018,
@@ -573,7 +675,9 @@ const PUBLICATIONS = [
   "cited": 309,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4134320374752178029",
   "sjr": "Q1",
-  "doi": "10.1109/access.2018.2802325"
+  "doi": "10.1109/access.2018.2802325",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2018,
@@ -583,7 +687,9 @@ const PUBLICATIONS = [
   "venue": "A cloud based framework for e-government implementation in developing countries",
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AkuK5TVdYjLIC",
   "cited": 13,
-  "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14152635808394873442"
+  "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14152635808394873442",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2018,
@@ -594,7 +700,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AEYYDruWGBe4C",
   "cited": 8,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8716165216823831814",
-  "doi": "10.14419/ijet.v7i2.29.13115"
+  "doi": "10.14419/ijet.v7i2.29.13115",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2018,
@@ -605,7 +713,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AvbGhcppDl1QC",
   "cited": 35,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12878837085708894434",
-  "doi": "10.15282/ijsecs.4.2.2018.6.0050"
+  "doi": "10.15282/ijsecs.4.2.2018.6.0050",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2018,
@@ -616,7 +726,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3ANJ774b8OgUMC",
   "cited": 8,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12268818875424037660",
-  "doi": "10.1504/ijaip.2018.10007841"
+  "doi": "10.1504/ijaip.2018.10007841",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2017,
@@ -628,7 +740,9 @@ const PUBLICATIONS = [
   "cited": 13,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16962908097741886043",
   "sjr": "Q3",
-  "doi": "10.26555/ijain.v3i3.131"
+  "doi": "10.26555/ijain.v3i3.131",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2017,
@@ -639,7 +753,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3A-_dYPAW6P2MC",
   "cited": 3,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12569158199960999382",
-  "doi": "10.1109/eecsi.2017.8239128"
+  "doi": "10.1109/eecsi.2017.8239128",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2017,
@@ -649,7 +765,9 @@ const PUBLICATIONS = [
   "venue": "J. Theor. Appl. Inf. Technol, 95(20), pp. 5399-5414",
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3A7T2F9Uy0os0C",
   "cited": 52,
-  "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8227967324252667878"
+  "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8227967324252667878",
+  "kind": "SLR",
+  "field": "SS"
  },
  {
   "year": 2017,
@@ -660,7 +778,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AkzcrU_BdoSEC",
   "cited": 4,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15683606617468555513",
-  "doi": "10.1109/ict-ispc.2017.8075351"
+  "doi": "10.1109/ict-ispc.2017.8075351",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2017,
@@ -671,7 +791,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AUHK10RUVsp4C",
   "cited": 12,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12412313791981850778",
-  "doi": "10.1007/978-3-319-59427-9_72"
+  "doi": "10.1007/978-3-319-59427-9_72",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2017,
@@ -682,7 +804,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AdQ2og3OwTAUC",
   "cited": 2,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11234061068456100449",
-  "doi": "10.1007/978-3-319-59427-9_51"
+  "doi": "10.1007/978-3-319-59427-9_51",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2016,
@@ -694,7 +818,9 @@ const PUBLICATIONS = [
   "cited": 8,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10455295144947685359",
   "sjr": "Q3",
-  "doi": "10.26555/ijain.v2i3.84"
+  "doi": "10.26555/ijain.v2i3.84",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2016,
@@ -706,7 +832,9 @@ const PUBLICATIONS = [
   "cited": 3,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11144813010644036803",
   "sjr": "Q3",
-  "doi": "10.11113/jt.v78.10143"
+  "doi": "10.11113/jt.v78.10143",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2016,
@@ -718,7 +846,9 @@ const PUBLICATIONS = [
   "cited": 8,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11082148370422895407",
   "sjr": "Q3",
-  "doi": "10.4018/ijeis.2016040103"
+  "doi": "10.4018/ijeis.2016040103",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2016,
@@ -729,7 +859,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3ABrmTIyaxlBUC",
   "cited": 17,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16882895868051801603",
-  "doi": "10.1109/icbdsc.2016.7460336"
+  "doi": "10.1109/icbdsc.2016.7460336",
+  "kind": "SLR",
+  "field": "SS"
  },
  {
   "year": 2016,
@@ -737,7 +869,9 @@ const PUBLICATIONS = [
   "authors": "Othman, M. S., Yusuf, L. M., Kumaran, S. R., Rodzi, N. A. H. M., Hairuddin, N. L.",
   "title": "Business Intelligence (BI) System for Data Analytic in Higher Education Administration",
   "venue": "CARNIVAL ON e-LEARNING (IUCEL) 2016, 12",
-  "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AYohjEiUPhakC"
+  "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AYohjEiUPhakC",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2016,
@@ -748,7 +882,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3A1yQoGdGgb4wC",
   "cited": 6,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12969139290363525971",
-  "doi": "10.11113/jt.v78.9547"
+  "doi": "10.11113/jt.v78.9547",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2016,
@@ -758,7 +894,9 @@ const PUBLICATIONS = [
   "venue": "Journal of Advanced Review on Scientific Research, 27(1), pp. 8-17",
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AWqliGbK-hY8C",
   "cited": 2,
-  "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=902521487545274831"
+  "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=902521487545274831",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2016,
@@ -770,7 +908,9 @@ const PUBLICATIONS = [
   "cited": 7,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10138086885433926679",
   "sjr": "Q3",
-  "doi": "10.11113/jt.v78.9544"
+  "doi": "10.11113/jt.v78.9544",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2016,
@@ -781,7 +921,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AAXPGKjj_ei8C",
   "cited": 19,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17038251218997777435",
-  "sjr": "Q4"
+  "sjr": "Q4",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2016,
@@ -792,7 +934,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AP5F9QuxV20EC",
   "cited": 23,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5179326863084304934",
-  "doi": "10.5539/res.v8n1p20"
+  "doi": "10.5539/res.v8n1p20",
+  "kind": "SLR",
+  "field": "SS"
  },
  {
   "year": 2015,
@@ -803,7 +947,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AtOudhMTPpwUC",
   "cited": 17,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14282879237563664519",
-  "doi": "10.1109/icsitech.2015.7407794"
+  "doi": "10.1109/icsitech.2015.7407794",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2015,
@@ -814,7 +960,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3Al7t_Zn2s7bgC",
   "cited": 47,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9823872154408591943",
-  "doi": "10.1109/icsitech.2015.7407800"
+  "doi": "10.1109/icsitech.2015.7407800",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2015,
@@ -826,7 +974,9 @@ const PUBLICATIONS = [
   "cited": 359,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4039969737298423388",
   "sjr": "Q1",
-  "doi": "10.19173/irrodl.v16i4.2326"
+  "doi": "10.19173/irrodl.v16i4.2326",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2015,
@@ -837,7 +987,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AhMod-77fHWUC",
   "cited": 153,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7418196492416158021",
-  "doi": "10.5901/mjss.2015.v6n5s2p625"
+  "doi": "10.5901/mjss.2015.v6n5s2p625",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2015,
@@ -849,7 +1001,9 @@ const PUBLICATIONS = [
   "cited": 7,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17740558317392289615",
   "sjr": "Q3",
-  "doi": "10.11113/jt.v76.3904"
+  "doi": "10.11113/jt.v76.3904",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2015,
@@ -860,7 +1014,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AaqlVkmm33-oC",
   "cited": 103,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=213703085535025742",
-  "doi": "10.5901/mjss.2015.v6n4s1p299"
+  "doi": "10.5901/mjss.2015.v6n4s1p299",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2015,
@@ -871,7 +1027,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AUebtZRa9Y70C",
   "cited": 83,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11183956336747024369",
-  "doi": "10.5901/mjss.2015.v6n3s1p246"
+  "doi": "10.5901/mjss.2015.v6n3s1p246",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2015,
@@ -882,7 +1040,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AqUcmZB5y_30C",
   "cited": 6,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=513014056647932069,460872960424279837",
-  "doi": "10.12928/telkomnika.v13i1.1321"
+  "doi": "10.12928/telkomnika.v13i1.1321",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2015,
@@ -894,7 +1054,9 @@ const PUBLICATIONS = [
   "cited": 56,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=13841721487228637361",
   "sjr": "Q1",
-  "doi": "10.1016/j.eswa.2014.08.031"
+  "doi": "10.1016/j.eswa.2014.08.031",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2015,
@@ -902,7 +1064,9 @@ const PUBLICATIONS = [
   "authors": "Mohamad, N., Yusof, N., Othman, M. S., Suhaimi, S. M.",
   "title": "Analisis Interaksi Pengikut Terpinggir dalam Forum Perbincangan e-Pembelajaran",
   "venue": "Sains Humanika, 4(1)",
-  "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AcFHS6HbyZ2cC"
+  "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AcFHS6HbyZ2cC",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2015,
@@ -913,7 +1077,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AkRWSkSYxWN8C",
   "cited": 72,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3815567554857878742",
-  "doi": "10.19026/rjaset.9.2608"
+  "doi": "10.19026/rjaset.9.2608",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2015,
@@ -924,7 +1090,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3A_xSYboBqXhAC",
   "cited": 6,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6460691075511583550",
-  "doi": "10.19026/rjaset.11.1859"
+  "doi": "10.19026/rjaset.11.1859",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2015,
@@ -935,7 +1103,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AYOwf2qJgpHMC",
   "cited": 60,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5574482718790183298",
-  "doi": "10.5901/mjss.2015.v6n4s1p193"
+  "doi": "10.5901/mjss.2015.v6n4s1p193",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2015,
@@ -946,7 +1116,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AkNdYIx-mwKoC",
   "cited": 144,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3108910078364660163",
-  "doi": "10.5539/res.v7n3p265"
+  "doi": "10.5539/res.v7n3p265",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2014,
@@ -958,7 +1130,9 @@ const PUBLICATIONS = [
   "cited": 39,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8334712786017046827",
   "sjr": "Q1",
-  "doi": "10.1016/j.eswa.2014.06.039"
+  "doi": "10.1016/j.eswa.2014.06.039",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2014,
@@ -969,7 +1143,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3Ar0BpntZqJG4C",
   "cited": 6,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4439024174198621655",
-  "doi": "10.1007/978-3-319-17530-0_18"
+  "doi": "10.1007/978-3-319-17530-0_18",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2014,
@@ -980,7 +1156,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AQIV2ME_5wuYC",
   "cited": 5,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9326255782704837875",
-  "doi": "10.11591/eecsi.v1.365"
+  "doi": "10.11591/eecsi.v1.365",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2014,
@@ -991,7 +1169,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3A86PQX7AUzd4C",
   "cited": 2,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7815994437755488256",
-  "doi": "10.3233/978-1-61499-434-3-736"
+  "doi": "10.3233/978-1-61499-434-3-736",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2014,
@@ -1002,7 +1182,9 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3AhMsQuOkrut0C",
   "cited": 16,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3893267917427328765",
-  "doi": "10.1061/9780784413616.260"
+  "doi": "10.1061/9780784413616.260",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2014,
@@ -1014,7 +1196,9 @@ const PUBLICATIONS = [
   "cited": 8,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11882335329802720734",
   "sjr": "Q3",
-  "doi": "10.11113/jt.v69.3193"
+  "doi": "10.11113/jt.v69.3193",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2014,
@@ -1022,7 +1206,9 @@ const PUBLICATIONS = [
   "authors": "Musa, M.",
   "title": "The improvement of students’ academic performance by using social media through collaborative learning in Malaysian higher education",
   "venue": "Asian social science",
-  "doi": "10.5539/ass.v10n8p210"
+  "doi": "10.5539/ass.v10n8p210",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2014,
@@ -1030,7 +1216,9 @@ const PUBLICATIONS = [
   "authors": "Yunianta, A., Yusof, N., Jayadianti, H., Othman, M. S., Suhaimi, S.",
   "title": "Ontology Development to Handle Semantic Relationship between Moodle E-learning and Question Bank System",
   "venue": "Recent Advances on Soft Computing and Data Mining: Proceedings of The First International Conference on Soft Computing and Data Mining (SCDM-2014) Universiti Tun Hussein Onn Malaysia, Johor, MalaysiaJune 16th-18th, 2014, pp. 691-701, Springer International Publishing, Cham",
-  "doi": "10.1007/978-3-319-07692-8_65"
+  "doi": "10.1007/978-3-319-07692-8_65",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2014,
@@ -1038,7 +1226,9 @@ const PUBLICATIONS = [
   "authors": "Amini, B., Ibrahim, R., Othman, M. S., Ahmad, M. N.",
   "title": "A Multi-reference Ontology for Profiling Scholars’ Background Knowledge",
   "venue": "Recent Advances on Soft Computing and Data Mining: Proceedings of The First International Conference on Soft Computing and Data Mining (SCDM-2014) Universiti Tun Hussein Onn Malaysia, Johor, MalaysiaJune 16th-18th, 2014, pp. 35-46, Springer International Publishing, Cham",
-  "doi": "10.1007/978-3-319-07692-8_4"
+  "doi": "10.1007/978-3-319-07692-8_4",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2014,
@@ -1046,21 +1236,27 @@ const PUBLICATIONS = [
   "authors": "Yunianta, A.",
   "title": "Knowledge construction for wiki education applied in Moodle 2.3",
   "venue": "Jurnal Teknologi",
-  "doi": "10.11113/jt.v70.3520"
+  "doi": "10.11113/jt.v70.3520",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2014,
   "type": "Journal",
   "authors": "Musa, M. A., Othman, M. S., Al-Rahimi, W. M.",
   "title": "Ontology knowledge map for enhancing health care services: A case of emergency unit of specialist hospital",
-  "venue": "Theor. Appl. Inf. Technol, 70, pp. 196-209"
+  "venue": "Theor. Appl. Inf. Technol, 70, pp. 196-209",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2014,
   "type": "Book",
   "authors": "Alias, N., Othman, M. S., Yusuf, L. M.",
   "title": "Pengkomputeran selari",
-  "venue": "Penerbit UTM Press"
+  "venue": "Penerbit UTM Press",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2013,
@@ -1071,35 +1267,45 @@ const PUBLICATIONS = [
   "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QzgVq24AAAAJ&citation_for_view=QzgVq24AAAAJ%3ARi6SYOTghG4C",
   "cited": 1,
   "citedLink": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12456955158301047000",
-  "doi": "10.3233/978-1-61499-434-3-1058"
+  "doi": "10.3233/978-1-61499-434-3-1058",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2013,
   "type": "Journal",
   "authors": "Al-Rahmi, W., Othman, M. S.",
   "title": "The impact of social media use on academic performance among university students: A pilot study",
-  "venue": "Journal of information systems research and innovation, 4(12), pp. 1-10"
+  "venue": "Journal of information systems research and innovation, 4(12), pp. 1-10",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2013,
   "type": "Journal",
   "authors": "Al-Rahmi, W. M., Othman, M. S.",
   "title": "Evaluating student’s satisfaction of using social media through collaborative learning in higher education",
-  "venue": "International Journal of advances in engineering & technology, 6(4), pp. 1541-1551"
+  "venue": "International Journal of advances in engineering & technology, 6(4), pp. 1541-1551",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2013,
   "type": "Journal",
   "authors": "Omar, N., Jusoh, F., Ibrahim, R., Othman, M. S.",
   "title": "Review of feature selection for solving classification problems",
-  "venue": "Journal of Information System Research and Innovation, 3(1), pp. 64-70"
+  "venue": "Journal of Information System Research and Innovation, 3(1), pp. 64-70",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2013,
   "type": "Journal",
   "authors": "Al-Rahimi, W. M., Othman, M. S., Musa, M. A.",
   "title": "Using TAM model to measure the use of social media for collaborative learning",
-  "venue": "International Journal of Engineering Trends and Technology (IJETT), 5(2), pp. 90-95"
+  "venue": "International Journal of Engineering Trends and Technology (IJETT), 5(2), pp. 90-95",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2013,
@@ -1107,14 +1313,18 @@ const PUBLICATIONS = [
   "authors": "Amini, B., Ibrahim, R., Othman, M. S.",
   "title": "Data sets for offline evaluation of scholar’s recommender system",
   "venue": "Asian Conference on Intelligent Information and Database Systems, pp. 158-167, Springer Berlin Heidelberg, Berlin, Heidelberg",
-  "doi": "10.1007/978-3-642-36543-0_17"
+  "doi": "10.1007/978-3-642-36543-0_17",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2013,
   "type": "Journal",
   "authors": "Musa, M. A., Othman, M. S., Al-Rahimi, W. M.",
   "title": "Enterprise ontology based knowledge map for improving hospital services",
-  "venue": "International Journal of Engineering Trends and Technology, pp. 96-101"
+  "venue": "International Journal of Engineering Trends and Technology, pp. 96-101",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2013,
@@ -1122,7 +1332,9 @@ const PUBLICATIONS = [
   "authors": "Musa, M. A., Othman, M. S., Al-Rahimi, W. M.",
   "title": "Ontology driven knowledge map for enhancing business process reengineering",
   "venue": "Computer Science & Engineering, 3(6), 11",
-  "doi": "10.5121/cseij.2013.3602"
+  "doi": "10.5121/cseij.2013.3602",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2013,
@@ -1130,14 +1342,18 @@ const PUBLICATIONS = [
   "authors": "Jusoh, F., Ibrahim, R., Othman, M. S., Omar, N.",
   "title": "Development of breast cancer ontology based on hybrid approach",
   "venue": "International Journal of Innovative Computing, 3(1)",
-  "doi": "10.11113/ijic.v3n1.32"
+  "doi": "10.11113/ijic.v3n1.32",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2013,
   "type": "Conference",
   "authors": "Yusof, N., Octaviani, D., Othman, M. S., Suhaimi, S., Mohamad, N.",
   "title": "Clustering of Learners’ E-learning Usage Based on Meaningful Learning Characteristics",
-  "venue": "Research In Engineering Education Symposium (REES2013)"
+  "venue": "Research In Engineering Education Symposium (REES2013)",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2013,
@@ -1145,21 +1361,27 @@ const PUBLICATIONS = [
   "authors": "Yusof, E. M. M., Yusof, A. R. M.",
   "title": "The study on the application of business intelligence in manufacturing: A review",
   "venue": "International Journal of Business Intelligence Research (IJBIR), 4(1), pp. 43-51",
-  "doi": "10.4018/jbir.2013010104"
+  "doi": "10.4018/jbir.2013010104",
+  "kind": "SLR",
+  "field": "SS"
  },
  {
   "year": 2012,
   "type": "Journal",
   "authors": "Musa, M. A., Othman, M. S.",
   "title": "Critical success factor in e-Learning: an examination of technology and student factors",
-  "venue": "International Journal of Advances in Engineering & Technology, 3(2), pp. 140-148"
+  "venue": "International Journal of Advances in Engineering & Technology, 3(2), pp. 140-148",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2012,
   "type": "Journal",
   "authors": "Yunianta, A., Yusof, N., Othman, M. S., Octaviani, D.",
   "title": "Analysis and categorization of e-learning activities based on meaningful learning characteristics",
-  "venue": "World Academy of Science, Engineering and Technology, 69, pp. 811-816"
+  "venue": "World Academy of Science, Engineering and Technology, 69, pp. 811-816",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2012,
@@ -1167,7 +1389,9 @@ const PUBLICATIONS = [
   "authors": "Othman, M. S., Suhaimi, S. M., Yusuf, L. M., Yusof, N., Mohamad, N.",
   "title": "An analysis of social network categories: social learning and social friendship",
   "venue": "Procedia-Social and Behavioral Sciences, 56, pp. 441-447, Elsevier",
-  "doi": "10.1016/j.sbspro.2012.09.674"
+  "doi": "10.1016/j.sbspro.2012.09.674",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2012,
@@ -1175,7 +1399,9 @@ const PUBLICATIONS = [
   "authors": "Othman, M. S., Mohamad, N., Yusuf, L. M., Yusof, N., Suhaimi, S. M.",
   "title": "An analysis of e-learning system features in supporting the true e-learning 2.0",
   "venue": "Procedia-Social and Behavioral Sciences, 56, pp. 454-460, Elsevier",
-  "doi": "10.1016/j.sbspro.2012.09.676"
+  "doi": "10.1016/j.sbspro.2012.09.676",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2012,
@@ -1183,28 +1409,36 @@ const PUBLICATIONS = [
   "authors": "Selamat, M. H., Othman, M. S., Shamsuddin, N. H. M., Zukepli, N. I. M., Hassan, A. F.",
   "title": "A review on open source architecture in Geographical Information Systems",
   "venue": "2012 International Conference on Computer & Information Science (ICCIS), 2, pp. 962-966, IEEE",
-  "doi": "10.1109/iccisci.2012.6297165"
+  "doi": "10.1109/iccisci.2012.6297165",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2012,
   "type": "Journal",
   "authors": "Selamat, M. H., Selamat, A., Othman, M. S., Shamsuddin, N., Zukepli, N.",
   "title": "A review on geographical information system (GIS) in town planning: Malaysia experience",
-  "venue": "Geoinformatica: An International Journal (GIIJ), 2(2), pp. 27-38"
+  "venue": "Geoinformatica: An International Journal (GIIJ), 2(2), pp. 27-38",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2012,
   "type": "Journal",
   "authors": "Yusof, E. M. M., Othman, M. S.",
   "title": "A Review on the Dashboard Characteristics for manufacturing Organizations",
-  "venue": "Journal of information systems research and innovation, 2, pp. 28-34"
+  "venue": "Journal of information systems research and innovation, 2, pp. 28-34",
+  "kind": "SLR",
+  "field": "SS"
  },
  {
   "year": 2012,
   "type": "Other",
   "authors": "Selamat, M. H., Othman, M. S., Hassan, A. F., Zukepli, N. I. M., Shamsuddin, N. H. M., Selamat, A., Yusuf, L. M.",
   "title": "A Review on Application of Geographical Information System in Town Planning in Malaysia",
-  "venue": ""
+  "venue": "",
+  "kind": "SLR",
+  "field": "CS"
  },
  {
   "year": 2012,
@@ -1212,7 +1446,9 @@ const PUBLICATIONS = [
   "authors": "Amini, B., Ibrahim, R., Othman, M. S.",
   "title": "Exploiting Scholar's Background Knowledge to Improve Recommender System for Digital Libraries",
   "venue": "International Journal of Digital Content Technology and its Applications, 6(22), 119",
-  "doi": "10.4156/jdcta.vol6.issue22.12"
+  "doi": "10.4156/jdcta.vol6.issue22.12",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2012,
@@ -1220,7 +1456,9 @@ const PUBLICATIONS = [
   "authors": "Yusof, N., Bahiah, N., Othman, M. S., Chun, Y.",
   "title": "A concise fuzzy rule base to reason student performance based on rough-fuzzy approach",
   "venue": "Fuzzy Inference System-Theory and Applications, InTech",
-  "doi": "10.5772/37773"
+  "doi": "10.5772/37773",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2011,
@@ -1228,7 +1466,9 @@ const PUBLICATIONS = [
   "authors": "Yusof, N., Mansur, A. B. F., Othman, M. S.",
   "title": "Ontology of moodle e-learning system for social network analysis",
   "venue": "2011 IEEE conference on open systems, pp. 122-126, IEEE",
-  "doi": "10.1109/icos.2011.6079258"
+  "doi": "10.1109/icos.2011.6079258",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2011,
@@ -1236,7 +1476,9 @@ const PUBLICATIONS = [
   "authors": "Amini, B., Ibrahim, R., Othman, M. S.",
   "title": "Discovering the impact of knowledge in recommender systems: A comparative study",
   "venue": "arXiv preprint arXiv:1109.0166",
-  "doi": "10.5121/ijcses.2011.2301"
+  "doi": "10.5121/ijcses.2011.2301",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2011,
@@ -1244,7 +1486,9 @@ const PUBLICATIONS = [
   "authors": "Amini, B., Ibrahim, R., Othman, M. S., Rastegari, H.",
   "title": "Incorporating scholar's background knowledge into recommender system for digital libraries",
   "venue": "2011 Malaysian Conference in Software Engineering, pp. 516-523, IEEE",
-  "doi": "10.1109/mysec.2011.6140721"
+  "doi": "10.1109/mysec.2011.6140721",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2011,
@@ -1252,21 +1496,27 @@ const PUBLICATIONS = [
   "authors": "Amini, B., Ibrahim, R., Othman, M. S.",
   "title": "A framework for personalized information integration in higher education institutes",
   "venue": "International Journal of Computer Applications, 2(4), pp. 0975-8887",
-  "doi": "10.5120/2879-3749"
+  "doi": "10.5120/2879-3749",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2011,
   "type": "Journal",
   "authors": "Salim, J., Mohd, M., Othman, M. S.",
   "title": "Integrated approach to knowledge management initiatives programme: towards designing an effective knowledge management system",
-  "venue": "Journal of Information and Knowledge Management (JIKM), 1(1), pp. 1-18"
+  "venue": "Journal of Information and Knowledge Management (JIKM), 1(1), pp. 1-18",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2011,
   "type": "Conference",
   "authors": "Mansur, A. B. F., Yusof, N., Othman, M. S.",
   "title": "Analysis of social learning network for wiki in moodle E-Learning",
-  "venue": "The 4th International Conference on Interaction Sciences, pp. 1-4, IEEE"
+  "venue": "The 4th International Conference on Interaction Sciences, pp. 1-4, IEEE",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2011,
@@ -1274,7 +1524,9 @@ const PUBLICATIONS = [
   "authors": "Yusuf, L. M., Alias, N., Ghouse, M. S. B., Shamsuddin, S. M., Othman, M. S.",
   "title": "The parallel AGE variances method for temperature prediction on laser glass interaction",
   "venue": "2011 IEEE Symposium on Computers & Informatics, pp. 279-283, IEEE",
-  "doi": "10.1109/isci.2011.5958927"
+  "doi": "10.1109/isci.2011.5958927",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2011,
@@ -1282,21 +1534,27 @@ const PUBLICATIONS = [
   "authors": "Yusuf, L. M., Ghouse, M. S. B., Othman, M. S., Shamsuddin, S. M., Alias, N.",
   "title": "Parallel numerical solution for temperature prediction on laser glass cutting using AGE variances method",
   "venue": "2011 IEEE Conference on Sustainable Utilization and Development in Engineering and Technology (STUDENT), pp. 79-84, IEEE",
-  "doi": "10.1109/student.2011.6089329"
+  "doi": "10.1109/student.2011.6089329",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2011,
   "type": "Journal",
   "authors": "Salim, J., Saad, S. Z., Othman, M. S.",
   "title": "Penggunaan Bioinformatik Berstrategik sebagai Wadah Dakwah Islam",
-  "venue": "Jurnal Hadhari, 3(1), pp. 1-20"
+  "venue": "Jurnal Hadhari, 3(1), pp. 1-20",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2011,
   "type": "Journal",
   "authors": "Amini, B., Ibrahim, R., Othman, M. S.",
   "title": "Adaptive Information Analysis in Higher Education Institutes",
-  "venue": "Journal of Advances in Computer Research"
+  "venue": "Journal of Advances in Computer Research",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2010,
@@ -1304,7 +1562,9 @@ const PUBLICATIONS = [
   "authors": "Othman, M. S., Yusuf, L. M., Salim, J.",
   "title": "Features discovery for web classification using support vector machine",
   "venue": "2010 International Conference on Intelligent Computing and Cognitive Informatics, pp. 36-40, IEEE",
-  "doi": "10.1109/icicci.2010.16"
+  "doi": "10.1109/icicci.2010.16",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2010,
@@ -1312,7 +1572,9 @@ const PUBLICATIONS = [
   "authors": "Othman, M. S., Yusuf, L. M., Basitt, U. N. A., Alias, N.",
   "title": "The architecture of scientific computing library portal on sequential algorithm based on partial differential equation",
   "venue": "2010 International Symposium on Information Technology, 3, pp. 1109-1113, IEEE",
-  "doi": "10.1109/itsim.2010.5561507"
+  "doi": "10.1109/itsim.2010.5561507",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2010,
@@ -1320,7 +1582,9 @@ const PUBLICATIONS = [
   "authors": "Yusuf, L. M., Othman, M. S., Salim, J.",
   "title": "Web classification using extraction and machine learning techniques",
   "venue": "2010 International Symposium on Information Technology, 2, pp. 765-770, IEEE",
-  "doi": "10.1109/itsim.2010.5561603"
+  "doi": "10.1109/itsim.2010.5561603",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2010,
@@ -1328,28 +1592,36 @@ const PUBLICATIONS = [
   "authors": "Othman, M. S., Yusuf, L. M., Basitt, U. N. A., Alias, N.",
   "title": "Characteristics determination on scientific computing library portal",
   "venue": "International Conference on Computer and Communication Engineering (ICCCE'10), pp. 1-6, IEEE",
-  "doi": "10.1109/iccce.2010.5556801"
+  "doi": "10.1109/iccce.2010.5556801",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2010,
   "type": "Book",
   "authors": "Othman, M. S., Yusuf, L. M.",
   "title": "Pengaturcaraan web ASP. net",
-  "venue": "Penerbit Universiti Teknologi Malaysia (UTM)"
+  "venue": "Penerbit Universiti Teknologi Malaysia (UTM)",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2010,
   "type": "Book",
   "authors": "Othman, M. S.",
   "title": "Pembangunan aplikasi web menggunakan ASP. NET",
-  "venue": "Penerbit UTM Press"
+  "venue": "Penerbit UTM Press",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2009,
   "type": "Journal",
   "authors": "Salim, J., Rashid, N. R. M., Yahya, Y., Hamdan, A. R., Deraman, A., Othman, M. S., Amin, H. M., Aris, A.",
   "title": "HiKMas: cultural behavioural and ontology based approach towards a holistic knowledge management system design",
-  "venue": "Communication of the IBIMA, 8, pp. 107-113"
+  "venue": "Communication of the IBIMA, 8, pp. 107-113",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2009,
@@ -1357,21 +1629,27 @@ const PUBLICATIONS = [
   "authors": "Othman, M. S., Yusuf, L. M., Salim, J.",
   "title": "Web Document Analysis for Companies Listed in Bursa Malaysia",
   "venue": "arXiv preprint arXiv:0912.1010",
-  "doi": "10.48550/arXiv.0912.1010"
+  "doi": "10.48550/arXiv.0912.1010",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2009,
   "type": "Journal",
   "authors": "Othman, M. S., Yusuf, L. M.",
   "title": "Pengelasan Dokumen Web di Bursa Malaysia Menggunakan Pendekatan Support Vector Machine (SVM)",
-  "venue": "Jurnal Teknologi Maklumat & Multimedia, 5, pp. 47-60"
+  "venue": "Jurnal Teknologi Maklumat & Multimedia, 5, pp. 47-60",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2008,
   "type": "Journal",
   "authors": "Salim, J., Yahya, Y., Rashid, N. R. M., Othman, M. S., Mohd, M.",
   "title": "DiGLiB: Gateway to Digital Libraries and Searchable Databases",
-  "venue": "International Journal of Learning, 14(12)"
+  "venue": "International Journal of Learning, 14(12)",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2008,
@@ -1379,104 +1657,134 @@ const PUBLICATIONS = [
   "authors": "Salim, J., Yahya, Y., Rashid, N. R. M., Hamdan, A. R., Deraman, A., Amin, H. M., Aris, A., Othman, M. S.",
   "title": "Cultural behavioural based model to a Holistic Knowledge Management System",
   "venue": "2008 International Symposium on Information Technology, 2, pp. 1-6, IEEE",
-  "doi": "10.1109/itsim.2008.4631708"
+  "doi": "10.1109/itsim.2008.4631708",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2008,
   "type": "Book",
   "authors": "Salim, J., Othman, M. S., Ten Moi, L.",
   "title": "Organisasi maklumat",
-  "venue": "Penerbit UTM Press"
+  "venue": "Penerbit UTM Press",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2008,
   "type": "Journal",
   "authors": "Azli, N. A., Othman, M. S.",
   "title": "Web-based evaluation system for a problem-based laboratory",
-  "venue": "Online Submission, 5(3), pp. 16-23"
+  "venue": "Online Submission, 5(3), pp. 16-23",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2008,
   "type": "Book",
   "authors": "Othman, M. S.",
   "title": "Pengelasan sumber maklumat web secara automatik menggunakan pendekatan pengestrakan dan pembelajaran mesin",
-  "venue": "Pusat Pengurusan Penyelidikan, Universiti Teknologi Malaysia"
+  "venue": "Pusat Pengurusan Penyelidikan, Universiti Teknologi Malaysia",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2007,
   "type": "Conference",
   "authors": "Salim, J., Yahya, Y., Othman, M. S., Rashid, N. R.",
   "title": "The Use of Holistic Approach to Knowledge Management Initiative in Managing Information in Higher Learning Institution: A Perspective",
-  "venue": "6th Wseas International Conference on e-activities, pp. 347-352"
+  "venue": "6th Wseas International Conference on e-activities, pp. 347-352",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2006,
   "type": "Other",
   "authors": "Salim, J., Takeuchi, H., Nonaka, I., Toyama, R., Othman, M. S.",
   "title": "Integrating Japanese knowledge creation theory into knowledge management initiatives",
-  "venue": ""
+  "venue": "",
+  "kind": "Technical",
+  "field": "SS"
  },
  {
   "year": 2006,
   "type": "Book",
   "authors": "Othman, M. S., Miskon, S., Abdullah, S. N. H. S., Yusuf, L. M.",
   "title": "Pembangunan Apilikasi Web Menggunakan Active Server Pages (ASP)",
-  "venue": "Penerbit UTM"
+  "venue": "Penerbit UTM",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2006,
   "type": "Book",
   "authors": "Othman, M. S., Yusuf, L. M., Miskon, S., Abdullah, S. N. H. S.",
   "title": "Pengaturcaraan Web Hypertext Preprocessor PHP",
-  "venue": "Penerbit UTM"
+  "venue": "Penerbit UTM",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2004,
   "type": "Journal",
   "authors": "Hassan, R., Salim, J., Salleh, S. M., Shukur, Z., Othman, M. S.",
   "title": "Reka Bentuk Sistem Pusat Sumber Digital FTSM",
-  "venue": "Jurnal Teknologi Maklumat dan Multimedia, 1, pp. 35-52"
+  "venue": "Jurnal Teknologi Maklumat dan Multimedia, 1, pp. 35-52",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2004,
   "type": "Other",
   "authors": "Othman, M. S.",
   "title": "Perbandingan tahap penggunaan meta tag bagi pengekstrakan sumber maklumat web",
-  "venue": ""
+  "venue": "",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2004,
   "type": "Journal",
   "authors": "Othman, M. S., Salim, J., Shukur, Z., Mi Yusuf, L.",
   "title": "Pengesktrakan Sumber Maklumat Web: Kajian Terhadap Penggunaan Meta Tag",
-  "venue": "Jurnal Teknologi Maklumat, 16(1), pp. 35-48"
+  "venue": "Jurnal Teknologi Maklumat, 16(1), pp. 35-48",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2004,
   "type": "Book",
   "authors": "Othman, M. S., Miskon, S., Abdullah, S. N. H. S., Ahmad, N., Ibrahim, R.",
   "title": "Teori & Amali Microsoft SQL Server 2000",
-  "venue": "Penerbit UTM"
+  "venue": "Penerbit UTM",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2003,
   "type": "Book",
   "authors": "Salim, J., Puade, O. A., Othman, M. S.",
   "title": "Pembangunan templat untuk membina laman web syarikat secara profesional",
-  "venue": "Universiti Teknologi Malaysia"
+  "venue": "Universiti Teknologi Malaysia",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2003,
   "type": "Other",
   "authors": "Othman, M. S.",
   "title": "Aplikasi teknik storan & capaian maklumat: pendekatan pengkalan & pengkelasan secara automatik bagi pengurusan maklumat pusat",
-  "venue": ""
+  "venue": "",
+  "kind": "Technical",
+  "field": "CS"
  },
  {
   "year": 2002,
   "type": "Journal",
   "authors": "Othman, M. S., Shukur, Z., Salim, J., Ayob, M.",
   "title": "Penghasilan Nombor Pengkelasan Secara Automatik",
-  "venue": "Jurnal Antarabangsa Teknologi Maklumat, 2, pp. 65-81"
+  "venue": "Jurnal Antarabangsa Teknologi Maklumat, 2, pp. 65-81",
+  "kind": "Technical",
+  "field": "CS"
  }
 ];

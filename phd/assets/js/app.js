@@ -159,7 +159,7 @@
     if (p.cited) l.push(ext(p.citedLink || p.link || "#", "Cited by " + p.cited, "cites"));
     const main = doiUrl || p.link;
     return `<li>
-      <div class="pub-meta"><span class="tag">${esc(p.type)}</span>${p.sjr ? `<span class="tag sjr sjr-${esc(p.sjr.toLowerCase())}" title="SCImago Journal Rank quartile">SJR ${esc(p.sjr)}</span>` : ""}<span>${p.year}</span></div>
+      <div class="pub-meta"><span class="tag">${esc(p.type)}</span>${p.kind === "SLR" ? '<span class="tag kind-slr">Review</span>' : ""}<span class="tag field-${p.field === "SS" ? "ss" : "cs"}">${p.field === "SS" ? "Social Science" : "Computer Science"}</span>${p.sjr ? `<span class="tag sjr sjr-${esc(p.sjr.toLowerCase())}" title="SCImago Journal Rank quartile">SJR ${esc(p.sjr)}</span>` : ""}<span>${p.year}</span></div>
       <h3>${main ? ext(main, esc(p.title), "pub-title") : esc(p.title)}</h3>
       <p class="authors">${esc(p.authors).replace(/Othman, M\. S\./g, "<b>Othman, M. S.</b>")}</p>
       ${p.venue ? `<p class="venue"><em>${esc(p.venue)}</em></p>` : ""}
@@ -171,26 +171,54 @@
     $("#pubs").innerHTML = PUBLICATIONS.slice(0, n).map(pubItem).join("");
   }
   if ($("#pubs-by-year")) {
-    const types = ["All", ...["Journal", "Conference", "Book", "Book chapter", "Preprint", "Other"].filter((t) => PUBLICATIONS.some((p) => p.type === t)), "With DOI"];
-    let type = "All", sortBy = "year";
-    $("#pub-sort").addEventListener("change", (e) => { sortBy = e.target.value; render(); });
+    const KINDS = [["", "All"], ["SLR", "Review"], ["Technical", "Article"]];
+    const FIELDS = [["", "All"], ["CS", "Computer Science"], ["SS", "Social Science"]];
+    const DOCS = ["Journal", "Conference", "Book", "Book chapter", "Preprint", "Other"].filter((t) => PUBLICATIONS.some((p) => p.type === t));
+    const params = new URLSearchParams(location.search);
+    let kind = KINDS.some((k) => k[0] === params.get("kind")) ? params.get("kind") : "";
+    let field = FIELDS.some((k) => k[0] === params.get("field")) ? params.get("field") : "";
+    let doc = DOCS.includes(params.get("doc")) ? params.get("doc") : "";
+    let sortBy = "year";
+    const search = $("#pub-search");
+    if (params.get("q")) search.value = params.get("q");
+
     $("#pub-summary").innerHTML = [
       [PUBLICATIONS.length, "Publications"],
-      [PUBLICATIONS.filter((p) => p.type === "Journal").length, "Journal articles"],
-      [SCHOLAR_STATS.citations.toLocaleString(), "Citations"],
-      [SCHOLAR_STATS.hIndex, "h-index"],
+      [PUBLICATIONS.filter((p) => p.kind === "SLR").length, "Reviews"],
+      [PUBLICATIONS.filter((p) => p.field === "CS").length + " · " + PUBLICATIONS.filter((p) => p.field === "SS").length, "Computer · Social Science"],
+      [SCHOLAR_STATS.citations.toLocaleString(), "Citations · h-index " + SCHOLAR_STATS.hIndex],
     ].map(([n, l]) => `<div class="stat"><strong>${n}</strong><span>${l}</span></div>`).join("");
+
+    const q = () => search.value.trim().toLowerCase();
+    const pass = (p, o = {}) => {
+      const k = "kind" in o ? o.kind : kind, f = "field" in o ? o.field : field, d = "doc" in o ? o.doc : doc;
+      return (!k || p.kind === k) && (!f || p.field === f) && (!d || p.type === d) &&
+        (!q() || [p.title, p.authors, p.venue].join(" ").toLowerCase().includes(q()));
+    };
+    const chips = (el, list, cur, key) => {
+      $(el).innerHTML = list.map(([v, l]) => {
+        const n = PUBLICATIONS.filter((p) => pass(p, { [key]: v })).length;
+        return `<button type="button" class="lib-cat${v === cur ? " on" : ""}" data-v="${v}" aria-pressed="${v === cur}">${esc(l)} <small>${n}</small></button>`;
+      }).join("");
+    };
+    const updateUrl = () => {
+      const u = new URL(location.href);
+      [["kind", kind], ["field", field], ["doc", doc], ["q", search.value.trim()]].forEach(([k, v]) => (v ? u.searchParams.set(k, v) : u.searchParams.delete(k)));
+      history.replaceState(null, "", u);
+    };
     const render = () => {
-      const q = $("#pub-search").value.trim().toLowerCase();
-      const byType = (t) => PUBLICATIONS.filter((p) => t === "All" || p.type === t || (t === "With DOI" && p.doi));
-      $("#pub-filter").innerHTML = types
-        .map((t) => `<button class="chip ${t === type ? "on" : ""}" data-t="${esc(t)}">${esc(t)} <small>${byType(t).length}</small></button>`).join("");
-      const list = byType(type).filter((p) => !q || [p.title, p.authors, p.venue].join(" ").toLowerCase().includes(q));
+      chips("#pub-kind", KINDS, kind, "kind");
+      chips("#pub-field", FIELDS, field, "field");
+      $("#pub-doctype").innerHTML = `<option value="">All (${PUBLICATIONS.filter((p) => pass(p, { doc: "" })).length})</option>` +
+        DOCS.map((t) => `<option value="${esc(t)}"${t === doc ? " selected" : ""}>${esc(t)} (${PUBLICATIONS.filter((p) => pass(p, { doc: t })).length})</option>`).join("");
+      const list = PUBLICATIONS.filter((p) => pass(p));
+      const parts = [kind && KINDS.find((k) => k[0] === kind)[1], field && FIELDS.find((k) => k[0] === field)[1], doc].filter(Boolean);
+      $("#pub-count").textContent = `${list.length} publication${list.length === 1 ? "" : "s"}` + (parts.length ? " · " + parts.join(" · ") : "") + (q() ? ` · matching “${search.value.trim()}”` : "");
       if (sortBy === "cited") {
         $("#year-nav").innerHTML = "";
         $("#pubs-by-year").innerHTML = list.length
           ? `<ol class="pubs">${[...list].sort((a, b) => (b.cited || 0) - (a.cited || 0)).map(pubItem).join("")}</ol>`
-          : `<p class="empty">No publications match your search.</p>`;
+          : `<p class="empty">No publications match these filters.</p>`;
         return;
       }
       const ys = [...new Set(list.map((p) => p.year))].sort((a, b) => b - a);
@@ -201,13 +229,14 @@
             return `<div class="year-block" id="y${y}"><h2 class="year">${y} <small>${items.length}</small></h2>
               <ol class="pubs">${items.map(pubItem).join("")}</ol></div>`;
           }).join("")
-        : `<p class="empty">No publications match your search.</p>`;
+        : `<p class="empty">No publications match these filters.</p>`;
     };
-    $("#pub-filter").addEventListener("click", (e) => {
-      const b = e.target.closest("button");
-      if (b) { type = b.dataset.t; render(); }
-    });
-    $("#pub-search").addEventListener("input", render);
+    $("#pub-kind").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { kind = b.dataset.v; updateUrl(); render(); } });
+    $("#pub-field").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { field = b.dataset.v; updateUrl(); render(); } });
+    $("#pub-doctype").addEventListener("change", (e) => { doc = e.target.value; updateUrl(); render(); });
+    $("#pub-sort").addEventListener("change", (e) => { sortBy = e.target.value; render(); });
+    let t;
+    search.addEventListener("input", () => { clearTimeout(t); t = setTimeout(() => { updateUrl(); render(); }, 120); });
     render();
     if (/^#y\d{4}$/.test(location.hash)) {
       const el = document.querySelector(location.hash);
@@ -262,7 +291,7 @@
           <div class="avatar g-cs">${esc(initials(s.name))}</div>
           <div><h3>${esc(s.name)}</h3>
             <p><span class="flag">${FLAGS[s.country] || ""}</span> ${esc(s.country)}${s.level !== "PhD" ? ` · <span class="badge b-project">${esc(s.level)}</span>` : ""}
-            ${s.folder ? ` · <a href="${REPO}${esc(s.folder)}" target="_blank" rel="noopener">Folder</a>` : ""}</p>
+</p>
             ${docsHtml(s.name)}</div>
         </div>`).join("");
     };
@@ -275,18 +304,38 @@
   }
 
   if ($("#alumni-list")) {
-    $("#alumni-list").innerHTML = alumni().map((s) => `<article class="card student">
-        <div class="avatar g-${s.group}">${esc(initials(s.name))}</div>
-        <div class="s-body">
-          <div class="s-top"><h3>${esc(s.name)}</h3><span class="badge">PhD${s.group === "ss" ? " · Social Science" : " · Computer Science"}</span></div>
-          <p class="s-title">${esc(s.title)}</p>
-          <div class="s-links">
-            ${s.files ? ext(s.files, "📄 Thesis files") : ""}
-            ${s.folder ? ext(REPO + s.folder, "📁 Repo folder") : ""}
-            <a href="${P("library")}?q=${encodeURIComponent(s.name)}">All their work →</a>
-          </div>
+    const CATS = [["all", "All"], ["cs", "Computer Science"], ["ss", "Social Science"]];
+    const list = alumni();
+    let cat = "all";
+    const row = (s) => `<li class="lib-row">
+        <div class="lib-main">
+          <p class="lib-tags"><span class="tag">PhD thesis</span></p>
+          <h3>${s.files ? ext(s.files, esc(s.title)) : esc(s.title)}</h3>
+          <p class="lib-meta"><b>${esc(s.name)}</b>${s.note ? " · " + esc(s.note) : ""}</p>
         </div>
-      </article>`).join("");
+        ${s.files ? `<a class="btn ghost lib-open" href="${esc(s.files)}" target="_blank" rel="noopener" aria-label="Open thesis of ${esc(s.name)} (opens in a new tab)">Open ↗</a>` : ""}
+      </li>`;
+    const render = () => {
+      $("#alumni-filter").innerHTML = CATS.map(([k, l]) => {
+        const n = k === "all" ? list.length : list.filter((s) => s.group === k).length;
+        return `<button type="button" class="lib-cat${k === cat ? " on" : ""}" data-k="${k}" aria-pressed="${k === cat}">${esc(l)} <small>${n}</small></button>`;
+      }).join("");
+      const shown = list.filter((s) => cat === "all" || s.group === cat);
+      $("#alumni-count").textContent = shown.length + (shown.length === 1 ? " thesis" : " theses") + (cat === "all" ? "" : " in " + CATS.find((c) => c[0] === cat)[1]);
+      $("#alumni-list").innerHTML = CATS.filter(([k]) => k !== "all" && (cat === "all" || cat === k)).map(([k, l]) => {
+        const g = shown.filter((s) => s.group === k);
+        if (!g.length) return "";
+        return `<section class="lib-group" aria-labelledby="al-${k}">
+            <div class="lib-group-head"><h2 id="al-${k}">${esc(l)} <small>${g.length}</small></h2>
+            ${cat === "all" ? `<button type="button" class="link-btn" data-k="${k}">See only ${esc(l)} →</button>` : ""}</div>
+            <ul class="lib-rows">${g.map(row).join("")}</ul>
+          </section>`;
+      }).join("");
+    };
+    const pick = (k) => { cat = k; render(); };
+    $("#alumni-filter").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) pick(b.dataset.k); });
+    $("#alumni-list").addEventListener("click", (e) => { const b = e.target.closest("button[data-k]"); if (b) pick(b.dataset.k); });
+    render();
   }
 
   // ================================================================ LIBRARY
