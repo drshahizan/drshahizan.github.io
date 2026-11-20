@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Library · PhD Hub · Dr MSO | UTM</title>
-  <meta name="description" content="Theses, proposals, viva slides, shared chapters, guides and templates from Dr MSO's PhD group." />
+  <meta name="description" content="Theses, proposals, First Assessment and viva slides, articles and guides from Dr MSO's PhD group." />
   <meta property="og:title" content="Library · PhD Hub · Dr MSO" />
-  <meta property="og:description" content="Theses, proposals, viva slides, shared chapters, guides and templates from Dr MSO's PhD group." />
+  <meta property="og:description" content="Theses, proposals, First Assessment and viva slides, articles and guides from Dr MSO's PhD group." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261120d" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261120g" />
 </head>
 <body data-page="library" data-root="../">
   <header class="nav">
@@ -32,20 +32,25 @@
     <section class="page-head">
       <div class="wrap">
         <h1>Library</h1>
-        <p>Everything the group has shared: proposals, theses, First Assessment and viva slides, articles, guides and templates.</p>
+        <p>Theses, proposals, slides, articles and guides from the group. Search or pick a category.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
-        <div class="toolbar">
-          <div class="chips" id="lib-filter"></div>
-          <input type="search" id="lib-search" placeholder="Search title, name or topic…" aria-label="Search the library" />
+        <form class="lib-search" role="search" onsubmit="return false">
+          <label for="lib-search" class="sr-only">Search the library</label>
+          <span class="lib-search-icon" aria-hidden="true">⌕</span>
+          <input type="search" id="lib-search" placeholder="Search by title, student name or topic" autocomplete="off" />
+          <button type="button" class="lib-clear" id="lib-clear" hidden aria-label="Clear search">✕</button>
+        </form>
+        <nav class="lib-cats" id="lib-filter" aria-label="Categories"></nav>
+        <p class="lib-count" id="lib-count" aria-live="polite"></p>
+        <div id="lib-list"></div>
+        <div class="lib-empty" id="lib-empty" hidden>
+          <p>Nothing matches your search.</p>
+          <button type="button" class="btn ghost sb-small" id="lib-reset">Show everything</button>
         </div>
-        <p class="lib-count" id="lib-count"></p>
-        <div class="lib-list" id="lib-list"></div>
-        <p class="empty" id="lib-empty" hidden>Nothing matches your search.</p>
-        <p class="lib-note">Some items show a title only: the author chose to keep the file private. Ask them or your supervisor for access.</p>
       </div>
     </section>
 
@@ -88,10 +93,10 @@
     </div>
   </footer>
 
-  <script src="../assets/js/data.js?v=20261120d"></script>
-  <script src="../assets/js/publications.js?v=20261120d"></script>
-  <script src="../assets/js/submit-config.js?v=20261120d"></script>
-  <script src="../assets/js/app.js?v=20261120d"></script>
+  <script src="../assets/js/data.js?v=20261120g"></script>
+  <script src="../assets/js/publications.js?v=20261120g"></script>
+  <script src="../assets/js/submit-config.js?v=20261120g"></script>
+  <script src="../assets/js/app.js?v=20261120g"></script>
 
 </body>
 </html>

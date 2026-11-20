@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css?v=20261120d" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261120g" />
 </head>
 <body data-page="home" data-root="">
   <header class="nav">
@@ -29,52 +29,61 @@
   </header>
 
   <main>
-    <section class="hero hub-hero">
-      <div class="wrap hero-grid">
-        <div>
-          <p class="eyebrow">PhD Hub · Faculty of Computing, UTM</p>
-          <h1>Share your work. Learn from each other.</h1>
-          <p class="lede">The meeting point for my PhD students: send me your proposal, drafts, thesis and articles, and use the library of theses, slides and guides left by those who came before you.</p>
-          <div class="btns">
-            <a class="btn primary" href="pages/submit.html">Submit a document</a>
-            <a class="btn ghost" href="pages/library.html">Browse the library</a>
-            <a class="btn ghost" href="pages/guide.html">PhD guide</a>
-          </div>
-          <p class="sup-line">Supervisor: <a href="pages/about.html">Assoc. Prof. Dr Mohd Shahizan Othman</a></p>
-        </div>
-        <div class="stats" id="hub-stats"></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap hub-grid">
-        <div>
-          <div class="sec-head row"><div><h2>Announcements</h2><p>Notices from your supervisor.</p></div></div>
-          <div id="hub-announcements" class="ann-list"><p class="empty">Loading…</p></div>
-        </div>
-        <div>
-          <div class="sec-head row"><div><h2>Latest submissions</h2><p>Recently shared by students.</p></div><a class="see-all" href="pages/library.html?k=Current">Library →</a></div>
-          <ol id="hub-feed" class="feed"><li class="empty">Loading…</li></ol>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt">
+    <section class="hero hub-hero home-hero">
       <div class="wrap">
-        <div class="sec-head row"><div><h2>Where the group is</h2><p>Furthest milestone each current student has shared: First Assessment → Thesis submitted → Viva → Final thesis.</p></div><a class="see-all" href="pages/students.html">All students →</a></div>
-        <div class="progress-board" id="hub-progress"></div>
+        <p class="eyebrow">PhD Hub · Faculty of Computing, UTM</p>
+        <h1>Share your work. Learn from each other.</h1>
+        <p class="lede">The meeting point for my PhD students: submit your proposal, drafts, thesis and articles, and learn from the theses, slides and guides of those who came before you.</p>
+        <div class="btns">
+          <a class="btn primary" href="pages/submit.html">Submit a document</a>
+          <a class="btn ghost" href="pages/library.html">Browse the Library</a>
+          <a class="btn ghost" href="pages/guide.html">PhD Guide</a>
+        </div>
+        <p class="sup-line">Supervisor: <a href="pages/about.html">Assoc. Prof. Dr Mohd Shahizan Othman</a></p>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
-        <div class="sec-head"><h2>Start here</h2></div>
-        <div class="cards four tiles">
-          <a class="card tile" href="pages/submit.html"><span class="num">01</span><h3>Submit</h3><p>Share your First Assessment proposal, drafts, thesis, viva slides and articles.</p><span class="go">Submit →</span></a>
-          <a class="card tile" href="pages/library.html"><span class="num">02</span><h3>Library</h3><p>Theses, proposals, viva slides, guides and templates in one place.</p><span class="go">Browse →</span></a>
-          <a class="card tile" href="pages/guide.html"><span class="num">03</span><h3>PhD guide</h3><p>Stages of the PhD and a checklist for each one.</p><span class="go">Read →</span></a>
-          <a class="card tile" href="pages/students.html"><span class="num">04</span><h3>Students</h3><p>Current students, their progress, and alumni.</p><span class="go">Meet them →</span></a>
-        </div>
+        <div class="sec-head"><h2>Your PhD journey</h2><p>Five stages from proposal to final thesis. Open a stage’s checklist, or see examples from the Library.</p></div>
+        <ol class="journey">
+          <li class="jr-step">
+            <span class="jr-num">1</span>
+            <h3>First Assessment</h3>
+            <p>Define the problem, objectives and scope, then present your research proposal.</p>
+            <p class="jr-docs"><span class="jr-doc">Research Proposal</span><span class="jr-doc">Slides</span></p>
+            <p class="jr-links"><a href="pages/guide.html#stage-1">Checklist</a><a href="pages/library.html?k=Proposal">Example proposals →</a></p>
+          </li>
+          <li class="jr-step">
+            <span class="jr-num">2</span>
+            <h3>Research &amp; drafts</h3>
+            <p>Review the literature, build the method, run experiments and write chapter by chapter.</p>
+            <p class="jr-docs"><span class="jr-doc">Draft for supervisor review</span></p>
+            <p class="jr-links"><a href="pages/guide.html#stage-2">Checklist</a><a href="pages/library.html?k=Guide">Chapter 2 guide →</a></p>
+          </li>
+          <li class="jr-step">
+            <span class="jr-num">3</span>
+            <h3>Articles</h3>
+            <p>Turn each objective into a journal or conference article before submitting the thesis.</p>
+            <p class="jr-docs"><span class="jr-doc">Article</span></p>
+            <p class="jr-links"><a href="pages/guide.html#stage-3">Checklist</a><a href="pages/library.html?k=Article">Students’ articles →</a></p>
+          </li>
+          <li class="jr-step">
+            <span class="jr-num">4</span>
+            <h3>Thesis &amp; viva</h3>
+            <p>Submit the thesis for examination, then prepare and rehearse the viva.</p>
+            <p class="jr-docs"><span class="jr-doc">Thesis for examination</span><span class="jr-doc">Viva slides</span></p>
+            <p class="jr-links"><a href="pages/guide.html#stage-4">Checklist</a><a href="pages/library.html?k=Slides">Past viva slides →</a></p>
+          </li>
+          <li class="jr-step">
+            <span class="jr-num">5</span>
+            <h3>Final thesis</h3>
+            <p>Complete the viva corrections and submit the final thesis.</p>
+            <p class="jr-docs"><span class="jr-doc">Final thesis</span></p>
+            <p class="jr-links"><a href="pages/guide.html#stage-5">Checklist</a><a href="pages/library.html?k=Thesis">Completed theses →</a></p>
+          </li>
+        </ol>
+        <p class="jr-foot">At each stage, <a href="pages/submit.html">submit your document</a> so your supervisor can follow your progress.</p>
       </div>
     </section>
 
@@ -117,10 +126,10 @@
     </div>
   </footer>
 
-  <script src="assets/js/data.js?v=20261120d"></script>
-  <script src="assets/js/publications.js?v=20261120d"></script>
-  <script src="assets/js/submit-config.js?v=20261120d"></script>
-  <script src="assets/js/app.js?v=20261120d"></script>
+  <script src="assets/js/data.js?v=20261120g"></script>
+  <script src="assets/js/publications.js?v=20261120g"></script>
+  <script src="assets/js/submit-config.js?v=20261120g"></script>
+  <script src="assets/js/app.js?v=20261120g"></script>
 
 </body>
 </html>

@@ -160,7 +160,7 @@
     const main = doiUrl || p.link;
     return `<li>
       <div class="pub-meta"><span class="tag">${esc(p.type)}</span>${p.sjr ? `<span class="tag sjr sjr-${esc(p.sjr.toLowerCase())}" title="SCImago Journal Rank quartile">SJR ${esc(p.sjr)}</span>` : ""}<span>${p.year}</span></div>
-      <h3>${main ? ext(main, esc(p.title), "t") : esc(p.title)}</h3>
+      <h3>${main ? ext(main, esc(p.title), "pub-title") : esc(p.title)}</h3>
       <p class="authors">${esc(p.authors).replace(/Othman, M\. S\./g, "<b>Othman, M. S.</b>")}</p>
       ${p.venue ? `<p class="venue"><em>${esc(p.venue)}</em></p>` : ""}
       <p class="pub-links">${l.join("")}</p>
@@ -290,16 +290,18 @@
   }
 
   // ================================================================ LIBRARY
+  // Categories in display order. "Current" = items a current student shared (status "Library").
   const KINDS = [
-    ["All", "All"], ["Current", "Shared by current students"], ["Proposal", "Proposals"], ["Thesis", "Theses"],
-    ["Slides", "Slides"], ["Article", "Articles"], ["MSc", "MSc projects"], ["Guide", "Guides & resources"],
+    ["All", "All"], ["Thesis", "Theses"], ["Proposal", "Proposals"], ["Slides", "Slides"],
+    ["Article", "Articles"], ["MSc", "MSc projects"], ["Guide", "Guides & resources"], ["Current", "From current students"],
   ];
+  const KIND_LABEL = Object.fromEntries(KINDS);
   const fromSubmission = (d) => {
     if (d.type === "DRAFT" || !d.library) return null; // only items the supervisor set to "Library"
     const t = d.type;
     const kind = t === "FA_PROPOSAL" ? "Proposal" : /^THESIS/.test(t) ? "Thesis" : /SLIDES$/.test(t) ? "Slides" : "Article";
     return { kind, current: true, tag: shortLabel(d.typeLabel), title: d.title, who: d.name,
-      meta: [d.version, d.date].filter(Boolean).join(" · "), links: d.link ? [[d.link, "Open"]] : [], titleOnly: !d.link };
+      meta: [d.version, d.date].filter(Boolean).join(" · "), link: d.link || "" };
   };
   function libraryItems(r) {
     const out = [];
@@ -307,50 +309,73 @@
     STUDENTS.forEach((s) => {
       const kind = s.group === "msc" ? "MSc" : s.group === "proposal" ? "Proposal" : "Thesis";
       const tag = kind === "Thesis" ? "PhD thesis" : kind === "Proposal" ? "PhD proposal" : "MSc project";
-      const links = [];
-      if (s.files) links.push([s.files, "Files"]);
-      if (s.folder) links.push([REPO + s.folder, "Repo folder"]);
-      out.push({ kind, tag, title: s.title, who: s.name, meta: s.note || "", links });
+      out.push({ kind, tag, title: s.title, who: s.name, meta: s.note || "", link: s.files || "" });
     });
-    WORKSPACES.forEach((w) => out.push({ kind: "Guide", tag: "Repo folder", title: w.name, who: "", meta: "", links: [[REPO + w.folder, "Open folder"]] }));
+    out.push({ kind: "Guide", tag: "Guide", title: "Chapter 2 – Literature review guide", who: "",
+      meta: "Step-by-step guide and examples for writing Chapter 2.", link: REPO + "chapter2" });
     (r && r.resources ? r.resources : []).forEach((x) => out.push({
-      kind: "Guide", tag: x.category || "Resource", title: x.title, who: "", meta: [x.description, x.stage].filter(Boolean).join(" · "),
-      links: x.link ? [[x.link, "Open"]] : [] }));
+      kind: "Guide", tag: x.category || "Resource", title: x.title, who: "",
+      meta: [x.description, x.stage].filter(Boolean).join(" · "), link: x.link || "" }));
     return out;
   }
   if ($("#lib-list")) {
     const params = new URLSearchParams(location.search);
     let kind = KINDS.some((k) => k[0] === params.get("k")) ? params.get("k") : "All";
-    if (params.get("q")) $("#lib-search").value = params.get("q");
+    const search = $("#lib-search");
+    if (params.get("q")) search.value = params.get("q");
     let items = libraryItems(null);
     const match = (it, k) => k === "All" || (k === "Current" ? it.current : it.kind === k);
-    const render = () => {
-      const q = $("#lib-search").value.trim().toLowerCase();
-      $("#lib-filter").innerHTML = KINDS.map(([k, l]) => {
-        const n = items.filter((it) => match(it, k)).length;
-        return n || k === "All" || k === "Current"
-          ? `<button class="chip ${k === kind ? "on" : ""}" data-k="${k}">${esc(l)} <small>${n}</small></button>` : "";
-      }).join("");
-      const list = items.filter((it) => match(it, kind) && (!q || [it.title, it.who, it.tag, it.meta].join(" ").toLowerCase().includes(q)));
-      $("#lib-count").textContent = list.length + (list.length === 1 ? " item" : " items");
-      $("#lib-empty").hidden = list.length > 0;
-      $("#lib-list").innerHTML = list.map((it) => `<article class="lib-item${it.current ? " is-current" : ""}">
-          <div class="lib-tags"><span class="tag">${esc(it.tag)}</span>${it.current ? '<span class="tag new">Current student</span>' : ""}</div>
-          <h3>${it.links.length ? ext(it.links[0][0], esc(it.title)) : esc(it.title)}</h3>
+    const row = (it) => `<li class="lib-row${it.current ? " is-current" : ""}">
+        <div class="lib-main">
+          <p class="lib-tags"><span class="tag">${esc(it.tag)}</span>${it.current ? '<span class="tag new">Current student</span>' : ""}</p>
+          <h3>${it.link ? ext(it.link, esc(it.title)) : esc(it.title)}</h3>
           ${it.who || it.meta ? `<p class="lib-meta">${it.who ? `<b>${esc(it.who)}</b>` : ""}${it.who && it.meta ? " · " : ""}${esc(it.meta)}</p>` : ""}
-          <p class="lib-links">${it.links.map(([h, l]) => ext(h, esc(l))).join("")}${it.titleOnly ? '<span class="muted">Title only</span>' : ""}</p>
-        </article>`).join("");
-    };
-    $("#lib-filter").addEventListener("click", (e) => {
-      const b = e.target.closest("button");
-      if (!b) return;
-      kind = b.dataset.k;
+        </div>
+        ${it.link ? `<a class="btn ghost lib-open" href="${esc(it.link)}" target="_blank" rel="noopener" aria-label="Open ${esc(it.title)} (opens in a new tab)">Open ↗</a>` : ""}
+      </li>`;
+    const updateUrl = () => {
       const u = new URL(location.href);
       kind === "All" ? u.searchParams.delete("k") : u.searchParams.set("k", kind);
+      search.value.trim() ? u.searchParams.set("q", search.value.trim()) : u.searchParams.delete("q");
       history.replaceState(null, "", u);
-      render();
-    });
-    $("#lib-search").addEventListener("input", render);
+    };
+    const render = () => {
+      const q = search.value.trim().toLowerCase();
+      $("#lib-clear").hidden = !q;
+      const hit = (it) => !q || [it.title, it.who, it.tag, it.meta].join(" ").toLowerCase().includes(q);
+      $("#lib-filter").innerHTML = KINDS.map(([k, l]) => {
+        const n = items.filter((it) => match(it, k) && hit(it)).length;
+        if (k !== "All" && k !== kind && !items.some((it) => match(it, k))) return ""; // hide empty categories
+        return `<button type="button" class="lib-cat${k === kind ? " on" : ""}" data-k="${k}" aria-pressed="${k === kind}">${esc(l)} <small>${n}</small></button>`;
+      }).join("");
+      const list = items.filter((it) => match(it, kind) && hit(it));
+      $("#lib-count").textContent = (q ? `${list.length} result${list.length === 1 ? "" : "s"} for “${search.value.trim()}”` : `${list.length} item${list.length === 1 ? "" : "s"}`) +
+        (kind !== "All" ? " in " + KIND_LABEL[kind] : "");
+      $("#lib-empty").hidden = list.length > 0;
+      $("#lib-empty").querySelector("p").textContent = q ? "Nothing matches your search." : "Nothing in this category yet.";
+      if (kind === "All" && !q) {
+        // grouped view: one section per category
+        $("#lib-list").innerHTML = KINDS.filter(([k]) => k !== "All" && k !== "Current").map(([k, l]) => {
+          const g = list.filter((it) => it.kind === k);
+          if (!g.length) return "";
+          return `<section class="lib-group" aria-labelledby="g-${k}">
+              <div class="lib-group-head"><h2 id="g-${k}">${esc(l)} <small>${g.length}</small></h2>
+              <button type="button" class="link-btn" data-k="${k}">See only ${esc(l.toLowerCase())} →</button></div>
+              <ul class="lib-rows">${g.slice(0, 6).map(row).join("")}</ul>
+              ${g.length > 6 ? `<button type="button" class="link-btn lib-more" data-k="${k}">Show all ${g.length} ${esc(l.toLowerCase())}</button>` : ""}
+            </section>`;
+        }).join("");
+      } else {
+        $("#lib-list").innerHTML = list.length ? `<ul class="lib-rows">${list.map(row).join("")}</ul>` : "";
+      }
+    };
+    const pick = (k) => { kind = k; updateUrl(); render(); window.scrollTo({ top: $("#lib-filter").offsetTop - 80, behavior: "smooth" }); };
+    $("#lib-filter").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) pick(b.dataset.k); });
+    $("#lib-list").addEventListener("click", (e) => { const b = e.target.closest("button[data-k]"); if (b) pick(b.dataset.k); });
+    let t;
+    search.addEventListener("input", () => { clearTimeout(t); t = setTimeout(() => { updateUrl(); render(); }, 120); });
+    $("#lib-clear").onclick = () => { search.value = ""; updateUrl(); render(); search.focus(); };
+    $("#lib-reset").onclick = () => { search.value = ""; kind = "All"; updateUrl(); render(); };
     render();
     hubPromise.then((r) => { if (r) { items = libraryItems(r); render(); } });
   }
