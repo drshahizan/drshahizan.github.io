@@ -1,4 +1,4 @@
-/* Submit page: Sign in (graduate email + matric) → Fill in → Receipt.
+/* Submit page: sign in → dashboard (research title + documents) → form → receipt.
    Backed by Google Apps Script (apps-script/Code.gs). */
 (function () {
   const SVC_DOWN = "The submission service is not available yet. Please try again later or contact your supervisor.";
@@ -26,16 +26,22 @@
   }
 
   const msg = (id, t, ok) => { const e = $(id); e.textContent = t || ""; e.className = "msg" + (t ? (ok ? " ok" : " err") : ""); };
-  const step = (n) => {
-    ["p1", "p2", "p3"].forEach((p, i) => ($(p).hidden = i !== n - 1));
-    ["st1", "st2", "st3"].forEach((s, i) => ($(s).className = i < n - 1 ? "done" : i === n - 1 ? "on" : ""));
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
   const okLink = (u) => /^https:\/\/([a-z0-9-]+\.)*(drive\.google\.com|docs\.google\.com|onedrive\.live\.com|1drv\.ms|sharepoint\.com|github\.com|github\.io)(\/|$)/i.test(u);
+  const initials = (n) => n.replace(/\b(binti|bin|bte)\b/gi, "").split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join("");
+  const busy = (b, on, label) => { b.disabled = on; if (label) b.textContent = label; };
+  const STATUS = {
+    Pending: ["st-pending", "Pending"], Card: ["st-card", "On your card"], Approved: ["st-card", "On your card"],
+    Library: ["st-library", "In Library"], Hidden: ["st-hidden", "Not shown"],
+  };
+  const chip = (it, ty) => {
+    if (ty.private) return '<span class="st st-private">Supervisor only</span>';
+    const [c, l] = STATUS[it.status] || STATUS.Pending;
+    return `<span class="st ${c}">${l}</span>`;
+  };
 
-  let types = [], cred = null, me = null;
+  let types = [], cred = null, me = null, current = null; // current = {type, item}
 
-  // ---- Step 1: sign in
+  // ---------------- sign in
   $("pw-toggle").onclick = () => {
     const i = $("matric"), show = i.type === "password";
     i.type = show ? "text" : "password";
@@ -43,97 +49,151 @@
   };
   try { const e = localStorage.getItem("phd-submit-email"); if (e) $("email").value = e; } catch (e) {}
 
-  async function signIn() {
+  $("login").onsubmit = async (ev) => {
+    ev.preventDefault();
     const email = $("email").value.trim().toLowerCase(), matric = $("matric").value.trim().toUpperCase().replace(/\s/g, "");
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return msg("m1", "Enter your graduate email.");
     if (!matric) return msg("m1", "Enter your matric number.");
-    const b = $("btn-next"); b.disabled = true; b.textContent = "Signing in…"; msg("m1", "");
+    const b = $("btn-login"); busy(b, true, "Signing in…"); msg("m1", "");
     try {
       if (!types.length) types = (await api("sub-config")).types;
       me = await api("sub-login", { email, matric });
       cred = { email, matric };
       try { localStorage.setItem("phd-submit-email", email); } catch (e) {}
-      showDashboard(); step(2);
+      $("p1").hidden = true; $("p2").hidden = false;
+      renderProfile(); renderTitle(); renderDocs();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (e) { msg("m1", e.message); }
-    finally { b.disabled = false; b.textContent = "Sign in"; }
-  }
-  $("login").onsubmit = (e) => { e.preventDefault(); signIn(); };
-
-  // ---- Step 2: choose document + fill in
-  function showDashboard() {
-    const s = me.student;
-    $("who").innerHTML = `<span class="code">${esc(s.level)}</span><h3>${esc(s.name)}</h3><span class="muted-p">${esc(s.email)}</span>`;
-    $("welcome").innerHTML = s.registered
-      ? `<p class="msg ok">Your email ${esc(s.email)} is now registered. Use it next time you sign in.</p>` : "";
-    const done = {};
-    me.items.forEach((i) => (done[i.type] = (done[i.type] || 0) + 1));
-    $("type").innerHTML = '<option value="">Choose a document…</option>' +
-      types.map((t) => `<option value="${esc(t.id)}"${t.open ? "" : " disabled"}>${esc(t.label)}${done[t.id] ? " ✓" : ""}${t.open ? "" : " — closed"}</option>`).join("");
-    $("mine").innerHTML = me.items.length
-      ? `<details class="mine"><summary>Your submissions (${me.items.length})</summary><ul>${me.items.map((i) =>
-          `<li><b>${esc(i.typeLabel)}</b> · ${esc(i.title)}${i.version ? " · " + esc(i.version) : ""} <small>${esc(i.submittedAt)}${i.visibility === "Supervisor only" ? " · supervisor only" : ""}${i.status !== "Approved" ? " · " + esc(i.status) : ""}</small></li>`).join("")}</ul></details>`
-      : `<p class="muted-p">You have not submitted anything yet.</p>`;
-    $("form2").hidden = true;
-    msg("m2", "");
-  }
-
-  $("type").onchange = () => {
-    const t = types.find((x) => x.id === $("type").value);
-    if (!t) { $("form2").hidden = true; return; }
-    const cur = me.items.filter((i) => i.type === t.id);
-    const one = !t.multiple && cur[0];
-    $("p2-title").textContent = t.label;
-    $("cur").innerHTML = cur.length
-      ? `<div class="cur">${one
-          ? `<b>Already submitted</b> on ${esc(one.submittedAt)} (ref. ${esc(one.reference)}). Submitting again replaces it.`
-          : `<b>Already submitted:</b> ${cur.map((c) => esc(c.title)).join("; ")}. The same title is replaced; a new title is added.`}</div>`
-      : "";
-    $("f-title").value = one ? one.title : "";
-    $("f-link").value = one ? one.link : "";
-    $("f-version").value = one ? one.version : "";
-    $("f-note").value = "";
-    $("f-decl").checked = false;
-    const vis = (one && one.visibility !== "Supervisor only" && one.visibility) || t.defaultVisibility || "Public link";
-    document.querySelectorAll('input[name="vis"]').forEach((r) => (r.checked = r.value === vis));
-    $("vis-box").hidden = !!t.private;
-    $("private-note").hidden = !t.private;
-    $("vis-default-note").hidden = t.private || t.defaultVisibility !== "Title only";
-    $("btn-submit").textContent = one ? "Submit again (replace)" : "Submit";
-    $("form2").hidden = false;
-    msg("m2", "");
+    finally { busy(b, false, "Sign in"); }
   };
 
-  $("btn-back").onclick = () => { cred = me = null; $("matric").value = ""; msg("m1", ""); step(1); };
+  $("btn-logout").onclick = () => {
+    cred = me = current = null;
+    $("matric").value = ""; msg("m1", "");
+    $("p2").hidden = true; $("p1").hidden = false;
+    $("form").hidden = $("receipt").hidden = true;
+  };
+
+  // ---------------- profile + research title
+  function renderProfile() {
+    const s = me.student;
+    $("me-initials").textContent = initials(s.name);
+    $("me-name").textContent = s.name;
+    $("me-meta").textContent = s.level + " · " + s.email;
+    $("welcome").hidden = !s.registered;
+    if (s.registered) $("welcome").textContent = "Your email " + s.email + " is now registered. Use it next time you sign in.";
+  }
+
+  function renderTitle(editing) {
+    const t = me.student.researchTitle;
+    const edit = editing || !t;
+    $("title-text").hidden = edit;
+    $("title-text").textContent = t || "";
+    $("btn-edit-title").hidden = edit;
+    $("title-form").hidden = !edit;
+    $("btn-cancel-title").hidden = !t;
+    if (edit) { $("f-rtitle").value = t || ""; if (!t) msg("m-title", "Save your research title before submitting a proposal, slides or thesis."); }
+  }
+  $("btn-edit-title").onclick = () => { msg("m-title", ""); renderTitle(true); $("f-rtitle").focus(); };
+  $("btn-cancel-title").onclick = () => { msg("m-title", ""); renderTitle(false); };
+  $("btn-save-title").onclick = async () => {
+    const title = $("f-rtitle").value.trim().replace(/\s+/g, " ");
+    if (title.length < 10) return msg("m-title", "Enter your full research title.");
+    const b = $("btn-save-title"); busy(b, true, "Saving…");
+    try {
+      const r = await api("sub-title", { ...cred, title });
+      me.student.researchTitle = r.researchTitle; me.items = r.items;
+      renderTitle(false); renderDocs();
+      msg("m-title", "Research title saved.", true);
+    } catch (e) { msg("m-title", e.message); }
+    finally { busy(b, false, "Save title"); }
+  };
+
+  // ---------------- documents dashboard
+  function renderDocs() {
+    $("docs").innerHTML = types.map((t) => {
+      const items = me.items.filter((i) => i.type === t.id);
+      const head = `<div class="doc-head"><h4>${esc(t.label)}</h4>${t.open ? "" : '<span class="st st-hidden">Closed</span>'}</div>`;
+      if (t.multiple) {
+        const list = items.map((it) => `<li>
+            <div><b>${esc(t.entry === "label" ? it.label : it.title)}</b>
+            <small>${esc(it.submittedAt)}${it.version ? " · " + esc(it.version) : ""}</small></div>
+            ${chip(it, t)}
+            ${t.open ? `<button class="link-btn" data-open="${esc(t.id)}" data-ref="${esc(it.reference)}">Replace</button>` : ""}
+          </li>`).join("");
+        return `<div class="doc">${head}${list ? `<ul class="doc-items">${list}</ul>` : '<p class="doc-none">None yet.</p>'}
+          ${t.open ? `<button class="btn ghost sb-small" data-open="${esc(t.id)}">+ Add ${t.entry === "label" ? "a draft" : "an article"}</button>` : ""}</div>`;
+      }
+      const it = items[0];
+      return `<div class="doc">${head}
+        <div class="doc-row">
+          <div>${it ? `<small>Submitted ${esc(it.submittedAt)}${it.version ? " · " + esc(it.version) : ""}</small>` : '<small class="doc-none">Not submitted</small>'}</div>
+          ${it ? chip(it, t) : ""}
+          ${t.open ? `<button class="btn ${it ? "ghost" : "primary"} sb-small" data-open="${esc(t.id)}"${it ? ` data-ref="${esc(it.reference)}"` : ""}>${it ? "Replace" : "Submit"}</button>` : ""}
+        </div></div>`;
+    }).join("");
+  }
+
+  $("docs").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-open]");
+    if (!b) return;
+    const t = types.find((x) => x.id === b.dataset.open);
+    const it = b.dataset.ref ? me.items.find((i) => i.reference === b.dataset.ref) : null;
+    if (t.entry === "research" && !me.student.researchTitle) {
+      renderTitle(true); msg("m-title", "Save your research title first."); $("f-rtitle").focus(); return;
+    }
+    openForm(t, it);
+  });
+
+  function openForm(t, it) {
+    current = { type: t, item: it };
+    $("receipt").hidden = true;
+    $("form-title").textContent = (it ? "Replace · " : "") + t.label;
+    $("row-label").hidden = t.entry !== "label";
+    $("row-atitle").hidden = t.entry !== "title";
+    $("f-label").value = it && t.entry === "label" ? it.label : "";
+    $("f-atitle").value = it && t.entry === "title" ? it.title : "";
+    $("f-link").value = it ? it.link : "";
+    $("f-version").value = "";
+    $("f-note").value = "";
+    $("f-decl").checked = false;
+    $("form-cur").hidden = !(t.entry === "research" || it);
+    $("form-cur").innerHTML = t.entry === "research"
+      ? `Research title: <b>${esc(me.student.researchTitle)}</b>`
+      : it ? `Replacing the version submitted on ${esc(it.submittedAt)}.` : "";
+    $("btn-submit").textContent = it ? "Submit and replace" : "Submit";
+    msg("m2", "");
+    $("form").hidden = false;
+    $("form").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  $("btn-close").onclick = () => { $("form").hidden = true; current = null; };
 
   $("btn-submit").onclick = async () => {
-    const type = $("type").value;
+    const t = current.type;
     const data = {
-      title: $("f-title").value.trim(), link: $("f-link").value.trim(), version: $("f-version").value.trim(),
-      note: $("f-note").value.trim(), declaration: $("f-decl").checked,
-      visibility: (document.querySelector('input[name="vis"]:checked') || {}).value || "Public link",
+      link: $("f-link").value.trim(), version: $("f-version").value.trim(), note: $("f-note").value.trim(),
+      declaration: $("f-decl").checked,
     };
-    if (!type) return msg("m2", "Choose a document.");
-    const ty = types.find((x) => x.id === type) || {};
-    if (ty.private) data.visibility = "Title only"; // never publish a link for private drafts
-    if (data.title.length < 5) return msg("m2", "Enter the document title.");
+    if (t.entry === "label") { data.label = $("f-label").value.trim(); if (data.label.length < 2) return msg("m2", "Enter a short label, e.g. “Chapter 3”."); }
+    if (t.entry === "title") { data.title = $("f-atitle").value.trim(); if (data.title.length < 5) return msg("m2", "Enter the article title."); }
     if (!okLink(data.link)) return msg("m2", "Enter a full Google Drive or OneDrive link that starts with https://");
     if (!data.declaration) return msg("m2", "Please tick the declaration.");
-    const replacing = /replace/i.test($("btn-submit").textContent);
-    if (replacing && !confirm("Replace your earlier submission?")) return;
-    const b = $("btn-submit"), t = b.textContent; b.disabled = true; b.textContent = "Submitting…"; msg("m2", "");
+    const b = $("btn-submit"), label = b.textContent; busy(b, true, "Submitting…"); msg("m2", "");
     try {
-      const r = await api("sub-submit", { ...cred, type, data });
+      const r = await api("sub-submit", { ...cred, type: t.id, data });
       $("receipt").innerHTML = `<h2>✓ Submission received</h2><p class="muted-p">Reference number</p><p class="ref">${esc(r.reference)}</p>
         <dl><dt>Document</dt><dd>${esc(r.type)}</dd><dt>Submitted by</dt><dd>${esc(r.by)}</dd><dt>Time</dt><dd>${esc(r.submittedAt)}</dd>
         ${r.details.map((x) => `<dt>${esc(x.label)}</dt><dd>${esc(x.value)}</dd>`).join("")}</dl>
-        <p class="muted-p">${(types.find((x) => x.id === type) || {}).private ? "This draft is visible to your supervisor only. It is not shown on the website."
-          : r.status === "Approved" ? "It will appear on the website within a few minutes." : "It will appear on the website after your supervisor approves it."}</p>`;
+        <p class="muted-p">${r.private ? "Drafts are seen by your supervisor only." : "Your supervisor will decide whether it is shown on the website."}</p>
+        <div class="sb-actions no-print"><button class="btn primary sb-small" id="btn-done" type="button">Back to my documents</button>
+        <button class="btn ghost sb-small" id="btn-print" type="button">Print or save receipt</button></div>`;
+      $("form").hidden = true; $("receipt").hidden = false;
+      $("btn-done").onclick = () => { $("receipt").hidden = true; window.scrollTo({ top: 0, behavior: "smooth" }); };
+      $("btn-print").onclick = () => window.print();
       me = await api("sub-login", cred).catch(() => me);
-      step(3);
+      renderDocs();
+      $("receipt").scrollIntoView({ behavior: "smooth", block: "start" });
     } catch (e) { msg("m2", e.message); }
-    finally { b.disabled = false; b.textContent = t; }
+    finally { busy(b, false, label); }
   };
-
-  $("btn-another").onclick = () => { $("type").value = ""; showDashboard(); step(2); };
-  $("btn-print").onclick = () => window.print();
 })();

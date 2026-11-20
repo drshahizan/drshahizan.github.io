@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Submit · PhD Hub · Dr MSO | UTM</title>
-  <meta name="description" content="Sign in with your graduate email and matric number to share your proposal, chapters, viva slides or papers." />
+  <meta name="description" content="Sign in with your graduate email and matric number to share your proposal, slides, drafts, thesis and articles with your supervisor." />
   <meta property="og:title" content="Submit · PhD Hub · Dr MSO" />
-  <meta property="og:description" content="Sign in with your graduate email and matric number to share your proposal, chapters, viva slides or papers." />
+  <meta property="og:description" content="Sign in with your graduate email and matric number to share your proposal, slides, drafts, thesis and articles with your supervisor." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261120c" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261120d" />
 </head>
 <body data-page="submit" data-root="../">
   <header class="nav">
@@ -29,89 +29,97 @@
   </header>
 
   <main>
-
     <section class="page-head">
       <div class="wrap">
         <h1>Submit a document</h1>
-        <p>Sign in with your graduate email and matric number to share your First Assessment proposal and slides, drafts for review, thesis, viva slides and articles.</p>
+        <p>Sign in with your graduate email and matric number. Save your research title once, then submit each milestone as you reach it.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap sb-wrap">
         <div>
-          <ol class="sb-steps" aria-label="Progress"><li id="st1" class="on">Sign in</li><li id="st2">Fill in</li><li id="st3">Receipt</li></ol>
-
+          <!-- Sign in -->
           <section class="card sb-panel" id="p1">
             <h2>Sign in</h2>
-            <p class="muted-p">Use your UTM graduate email and your matric number. First time without a registered email? Sign in with your <b>@graduate.utm.my</b> email and matric number to register it.</p>
+            <p class="muted-p">Username: your <b>@graduate.utm.my</b> email · Password: your matric number.</p>
             <form id="login" autocomplete="on">
               <label class="f" for="email">Email</label>
               <input class="t" id="email" type="email" autocomplete="username" placeholder="name@graduate.utm.my" maxlength="80">
-              <label class="f" for="matric">Matric number (password)</label>
+              <label class="f" for="matric">Matric number</label>
               <div class="pw"><input class="t" id="matric" type="password" autocomplete="current-password" placeholder="PEC233037" maxlength="12"><button type="button" class="pw-toggle" id="pw-toggle" aria-label="Show matric number">Show</button></div>
-              <button class="btn primary sb-btn" id="btn-next" type="submit">Sign in</button>
+              <button class="btn primary sb-btn" id="btn-login" type="submit">Sign in</button>
             </form>
             <p class="msg" id="m1" aria-live="polite"></p>
           </section>
 
-          <section class="card sb-panel" id="p2" hidden>
-            <div class="sb-who" id="who"></div>
-            <div id="welcome"></div>
-            <label class="f" for="type">Document</label>
-            <select class="t" id="type"><option value="">Loading…</option></select>
-            <div id="mine"></div>
-            <div id="form2" hidden>
-            <h2 id="p2-title"></h2>
-            <div id="cur"></div>
-            <label class="f" for="f-title">Document title</label>
-            <input class="t" id="f-title" placeholder="e.g. Enhanced Learning Styles Identification Using Ensemble Deep Learning">
-            <label class="f" for="f-link">Link to the file (Google Drive or OneDrive)</label>
-            <input class="t" id="f-link" inputmode="url" placeholder="https://drive.google.com/…">
-            <p class="f-help">Set sharing to <b>Anyone with the link · Viewer</b>, then test the link in a private window. UTM OneDrive links are often limited to UTM accounts.</p>
-            <label class="f" for="f-version">Version</label>
-            <input class="t" id="f-version" placeholder="e.g. v2 · after panel comments" maxlength="60">
-            <label class="f" for="f-note">Note for your supervisor (optional, not shown on the website)</label>
-            <textarea class="t" id="f-note" rows="3" maxlength="500"></textarea>
-            <fieldset class="vis" id="vis-box">
-              <legend class="f">On the website, show</legend>
-              <label><input type="radio" name="vis" value="Public link" checked> Title <b>and</b> link</label>
-              <label><input type="radio" name="vis" value="Title only"> Title only (the link stays private)</label>
-              <p class="f-help" id="vis-default-note" hidden>“Title only” is the default for a thesis under examination. Choose “Title and link” only if you are happy to share it publicly.</p>
-            </fieldset>
-            <p class="notice" id="private-note" hidden><b>Supervisor only.</b> Drafts are seen by your supervisor only and never appear on the website.</p>
-            <label class="decl"><input type="checkbox" id="f-decl"><span>I confirm this is my own work, the link opens the correct file, and I agree to it being listed on the group website as chosen above.</span></label>
-            <div class="sb-actions">
-              <button class="btn primary sb-btn" id="btn-submit" type="button">Submit</button>
+          <!-- Dashboard -->
+          <section id="p2" hidden>
+            <div class="card sb-profile">
+              <div class="avatar g-cs" id="me-initials"></div>
+              <div class="sb-me"><h2 id="me-name"></h2><p class="muted-p" id="me-meta"></p></div>
+              <button class="btn ghost sb-small" id="btn-logout" type="button">Sign out</button>
             </div>
-            </div>
-            <div class="sb-actions"><button class="btn ghost sb-btn" id="btn-back" type="button">Sign out</button></div>
-            <p class="msg" id="m2" aria-live="polite"></p>
-          </section>
+            <p class="msg ok" id="welcome" hidden></p>
 
-          <section class="card sb-panel" id="p3" hidden>
-            <div class="receipt" id="receipt"></div>
-            <div class="sb-actions no-print">
-              <button class="btn primary sb-btn" id="btn-another" type="button">Submit another document</button>
-              <button class="btn ghost sb-btn" id="btn-print" type="button">Print or save receipt</button>
+            <div class="card sb-title">
+              <div class="sb-title-head"><h3>Research title</h3><button class="link-btn" id="btn-edit-title" type="button" hidden>Edit</button></div>
+              <p class="sb-title-text" id="title-text"></p>
+              <div id="title-form" hidden>
+                <textarea class="t" id="f-rtitle" rows="2" maxlength="300" placeholder="e.g. Enhanced Learning Styles Identification Using Ensemble Deep Learning Techniques with Multimodal Data"></textarea>
+                <p class="f-help">Enter it once. It is used for your proposal, slides and thesis. You can edit it later.</p>
+                <div class="sb-actions"><button class="btn primary sb-small" id="btn-save-title" type="button">Save title</button><button class="btn ghost sb-small" id="btn-cancel-title" type="button">Cancel</button></div>
+              </div>
+              <p class="msg" id="m-title" aria-live="polite"></p>
             </div>
+
+            <h3 class="sb-h">Your documents</h3>
+            <div class="sb-docs" id="docs"></div>
+
+            <!-- Form -->
+            <section class="card sb-form" id="form" hidden>
+              <div class="sb-form-head"><h3 id="form-title"></h3><button class="link-btn" id="btn-close" type="button">Cancel</button></div>
+              <p class="cur" id="form-cur" hidden></p>
+              <div id="row-label"><label class="f" for="f-label">Label</label>
+                <input class="t" id="f-label" maxlength="60" placeholder="e.g. Chapter 3"><p class="f-help">The same label replaces your earlier draft; a new label adds another.</p></div>
+              <div id="row-atitle"><label class="f" for="f-atitle">Article title</label>
+                <input class="t" id="f-atitle" maxlength="300" placeholder="Full title of the article"></div>
+              <label class="f" for="f-link">Link to the file (Google Drive or OneDrive)</label>
+              <input class="t" id="f-link" inputmode="url" placeholder="https://drive.google.com/…">
+              <p class="f-help">Share as <b>Anyone with the link · Viewer</b> and test it in a private window. UTM OneDrive links are often limited to UTM accounts.</p>
+              <div class="sb-two">
+                <div><label class="f" for="f-version">Version <span class="opt">(optional)</span></label>
+                  <input class="t" id="f-version" maxlength="60" placeholder="e.g. v2 · after panel comments"></div>
+              </div>
+              <label class="f" for="f-note">Note for your supervisor <span class="opt">(optional)</span></label>
+              <textarea class="t" id="f-note" rows="2" maxlength="500"></textarea>
+              <label class="decl"><input type="checkbox" id="f-decl"><span>I confirm this is my own work and the link opens the correct file.</span></label>
+              <button class="btn primary sb-btn" id="btn-submit" type="button">Submit</button>
+              <p class="msg" id="m2" aria-live="polite"></p>
+            </section>
+
+            <!-- Receipt -->
+            <section class="card receipt" id="receipt" hidden></section>
           </section>
         </div>
 
         <aside class="sb-side">
           <div class="card">
-            <h3>What you can submit</h3>
-            <ul>
-              <li><b>First Assessment:</b> research proposal and slides</li>
-              <li><b>Draft for supervisor review:</b> any chapter or draft, seen by your supervisor only</li>
-              <li><b>Thesis submitted for examination</b> (before viva)</li>
-              <li><b>Viva slides</b></li>
-              <li><b>Final thesis</b> (after viva corrections)</li>
-              <li><b>Articles:</b> journal or conference, one entry per title</li>
+            <h3>How it works</h3>
+            <ol class="sb-how">
+              <li>Save your <b>research title</b> once.</li>
+              <li>Submit each document as you reach it. Submitting again <b>replaces</b> the earlier file.</li>
+              <li>Your supervisor decides what is shown on the website.</li>
+            </ol>
+            <h3>Status</h3>
+            <ul class="sb-legend">
+              <li><span class="st st-pending">Pending</span> received, not shown on the website</li>
+              <li><span class="st st-card">On your card</span> title shown on the Students page</li>
+              <li><span class="st st-library">In Library</span> title and file shared in the Library</li>
+              <li><span class="st st-private">Supervisor only</span> drafts are never shown</li>
             </ul>
-            <div class="notice"><b>Submitting again</b><br>A new submission of the same document replaces the earlier one (articles and drafts with a different title are added). Your supervisor keeps the full history.</div>
-            <p class="muted-p">Keep your receipt (screenshot or print) as proof of submission.</p>
-            <p><a href="students.html">See current students →</a><br><a href="library.html">Browse the library →</a></p>
+            <p class="muted-p">Keep the receipt (screenshot or print) as proof of submission.</p>
+            <p><a href="guide.html">PhD guide →</a><br><a href="library.html">Browse the library →</a></p>
           </div>
         </aside>
       </div>
@@ -156,10 +164,10 @@
     </div>
   </footer>
 
-  <script src="../assets/js/data.js?v=20261120c"></script>
-  <script src="../assets/js/publications.js?v=20261120c"></script>
-  <script src="../assets/js/submit-config.js?v=20261120c"></script>
-  <script src="../assets/js/app.js?v=20261120c"></script>
-  <script src="../assets/js/submit.js?v=20261120c"></script>
+  <script src="../assets/js/data.js?v=20261120d"></script>
+  <script src="../assets/js/publications.js?v=20261120d"></script>
+  <script src="../assets/js/submit-config.js?v=20261120d"></script>
+  <script src="../assets/js/app.js?v=20261120d"></script>
+  <script src="../assets/js/submit.js?v=20261120d"></script>
 </body>
 </html>

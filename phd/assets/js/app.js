@@ -295,7 +295,7 @@
     ["Slides", "Slides"], ["Article", "Articles"], ["MSc", "MSc projects"], ["Guide", "Guides & resources"],
   ];
   const fromSubmission = (d) => {
-    if (d.type === "DRAFT") return null; // drafts are never public
+    if (d.type === "DRAFT" || !d.library) return null; // only items the supervisor set to "Library"
     const t = d.type;
     const kind = t === "FA_PROPOSAL" ? "Proposal" : /^THESIS/.test(t) ? "Thesis" : /SLIDES$/.test(t) ? "Slides" : "Article";
     return { kind, current: true, tag: shortLabel(d.typeLabel), title: d.title, who: d.name,
