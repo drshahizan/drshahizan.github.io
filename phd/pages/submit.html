@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261120b" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261120c" />
 </head>
 <body data-page="submit" data-root="../">
   <header class="nav">
@@ -33,7 +33,7 @@
     <section class="page-head">
       <div class="wrap">
         <h1>Submit a document</h1>
-        <p>Sign in with your graduate email and matric number to share your proposal, thesis chapters, viva slides or papers. Your latest document appears on your card on the Students page.</p>
+        <p>Sign in with your graduate email and matric number to share your First Assessment proposal and slides, drafts for review, thesis, viva slides and articles.</p>
       </div>
     </section>
 
@@ -73,11 +73,13 @@
             <input class="t" id="f-version" placeholder="e.g. v2 · after panel comments" maxlength="60">
             <label class="f" for="f-note">Note for your supervisor (optional, not shown on the website)</label>
             <textarea class="t" id="f-note" rows="3" maxlength="500"></textarea>
-            <fieldset class="vis">
+            <fieldset class="vis" id="vis-box">
               <legend class="f">On the website, show</legend>
               <label><input type="radio" name="vis" value="Public link" checked> Title <b>and</b> link</label>
               <label><input type="radio" name="vis" value="Title only"> Title only (the link stays private)</label>
+              <p class="f-help" id="vis-default-note" hidden>“Title only” is the default for a thesis under examination. Choose “Title and link” only if you are happy to share it publicly.</p>
             </fieldset>
+            <p class="notice" id="private-note" hidden><b>Supervisor only.</b> Drafts are seen by your supervisor only and never appear on the website.</p>
             <label class="decl"><input type="checkbox" id="f-decl"><span>I confirm this is my own work, the link opens the correct file, and I agree to it being listed on the group website as chosen above.</span></label>
             <div class="sb-actions">
               <button class="btn primary sb-btn" id="btn-submit" type="button">Submit</button>
@@ -100,13 +102,14 @@
           <div class="card">
             <h3>What you can submit</h3>
             <ul>
-              <li>Research proposal</li>
-              <li>Thesis chapters 1–5</li>
-              <li>Full thesis draft</li>
-              <li>Viva slides</li>
-              <li>Journal or conference papers</li>
+              <li><b>First Assessment:</b> research proposal and slides</li>
+              <li><b>Draft for supervisor review:</b> any chapter or draft, seen by your supervisor only</li>
+              <li><b>Thesis submitted for examination</b> (before viva)</li>
+              <li><b>Viva slides</b></li>
+              <li><b>Final thesis</b> (after viva corrections)</li>
+              <li><b>Articles:</b> journal or conference, one entry per title</li>
             </ul>
-            <div class="notice"><b>Submitting again</b><br>A new submission of the same document replaces the earlier one on the website. Your supervisor keeps the full history.</div>
+            <div class="notice"><b>Submitting again</b><br>A new submission of the same document replaces the earlier one (articles and drafts with a different title are added). Your supervisor keeps the full history.</div>
             <p class="muted-p">Keep your receipt (screenshot or print) as proof of submission.</p>
             <p><a href="students.html">See current students →</a><br><a href="library.html">Browse the library →</a></p>
           </div>
@@ -153,10 +156,10 @@
     </div>
   </footer>
 
-  <script src="../assets/js/data.js?v=20261120b"></script>
-  <script src="../assets/js/publications.js?v=20261120b"></script>
-  <script src="../assets/js/submit-config.js?v=20261120b"></script>
-  <script src="../assets/js/app.js?v=20261120b"></script>
-  <script src="../assets/js/submit.js?v=20261120b"></script>
+  <script src="../assets/js/data.js?v=20261120c"></script>
+  <script src="../assets/js/publications.js?v=20261120c"></script>
+  <script src="../assets/js/submit-config.js?v=20261120c"></script>
+  <script src="../assets/js/app.js?v=20261120c"></script>
+  <script src="../assets/js/submit.js?v=20261120c"></script>
 </body>
 </html>

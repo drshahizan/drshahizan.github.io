@@ -32,7 +32,7 @@
   }
 
   // ---------- Hub data from Apps Script (cached for 3 minutes in this tab)
-  const STAGES = [["PROPOSAL", "Proposal"], ["CH1", "Ch 1"], ["CH2", "Ch 2"], ["CH3", "Ch 3"], ["CH4", "Ch 4"], ["CH5", "Ch 5"], ["THESIS", "Full draft"], ["VIVA", "Viva"]];
+  const STAGES = [["FA_PROPOSAL", "Proposal · First Assessment"], ["FA_SLIDES", "Slides · First Assessment"], ["THESIS_EXAM", "Thesis for examination"], ["VIVA_SLIDES", "Viva slides"], ["THESIS_FINAL", "Final thesis"]];
   const stageIndex = (t) => STAGES.findIndex((s) => s[0] === t);
   async function hubData() {
     const url = window.PHD_SUBMIT_API;
@@ -53,10 +53,10 @@
   const hubPromise = needsHub ? hubData() : Promise.resolve(null);
   const docsByName = (items) => {
     const m = {};
-    (items || []).forEach((d) => (m[key(d.name)] = m[key(d.name)] || []).push(d));
+    (items || []).filter((d) => d.type !== "DRAFT").forEach((d) => (m[key(d.name)] = m[key(d.name)] || []).push(d));
     return m;
   };
-  const shortLabel = (l) => String(l || "").replace(/^Chapter (\d) · /, "Ch $1 · ");
+  const shortLabel = (l) => String(l || "");
   const alumni = () => {
     const seen = new Set();
     return STUDENTS.filter((s) => (s.group === "cs" || s.group === "ss") && !seen.has(s.name) && seen.add(s.name));
@@ -74,7 +74,7 @@
       ].map(([n, l, h]) => `<a class="stat" href="${h}"><strong>${n}</strong><span>${esc(l)}</span></a>`).join("");
     };
     draw("–");
-    hubPromise.then((r) => draw(r ? r.items.length : "–"));
+    hubPromise.then((r) => draw(r ? r.items.filter((d) => d.type !== "DRAFT").length : "–"));
   }
 
   if ($("#hub-announcements")) {
@@ -93,7 +93,7 @@
 
   if ($("#hub-feed")) {
     hubPromise.then((r) => {
-      const items = ((r && r.items) || []).slice().sort((a, b) => String(b.ts).localeCompare(String(a.ts))).slice(0, 6);
+      const items = ((r && r.items) || []).filter((d) => d.type !== "DRAFT").slice().sort((a, b) => String(b.ts).localeCompare(String(a.ts))).slice(0, 6);
       $("#hub-feed").innerHTML = items.length
         ? items.map((d) => `<li>
             <div class="avatar g-cs">${esc(initials(d.name))}</div>
@@ -106,8 +106,8 @@
   }
 
   if ($("#hub-progress")) {
-    const cols = [["none", "Not shared yet"], ["prop", "Proposal"], ["ch", "Chapters"], ["draft", "Full draft"], ["viva", "Viva"]];
-    const colOf = (best) => (best < 0 ? "none" : best === 0 ? "prop" : best <= 5 ? "ch" : best === 6 ? "draft" : "viva");
+    const cols = [["none", "Not shared yet"], ["prop", "First Assessment"], ["ch", "Thesis submitted"], ["draft", "Viva"], ["viva", "Final thesis"]];
+    const colOf = (best) => (best < 0 ? "none" : best <= 1 ? "prop" : best === 2 ? "ch" : best === 3 ? "draft" : "viva");
     hubPromise.then((r) => {
       const docs = docsByName(r && r.items);
       const groups = Object.fromEntries(cols.map(([k]) => [k, []]));
@@ -243,12 +243,14 @@
       const have = new Set((list || []).map((d) => d.type));
       const bar = `<div class="stages" aria-label="Progress">${STAGES.map(([id, l]) => `<span class="${have.has(id) ? "on" : ""}" title="${l}${have.has(id) ? " · shared" : ""}"></span>`).join("")}</div>`;
       if (!list || !list.length) return bar;
-      const items = list.slice().sort((a, b) => a.order - b.order).map((d) => {
+      const arts = list.filter((d) => d.type === "ARTICLE");
+      const items = list.filter((d) => d.type !== "ARTICLE").sort((a, b) => a.order - b.order).map((d) => {
         const label = esc(shortLabel(d.typeLabel));
         const meta = [d.version, d.date].filter(Boolean).map(esc).join(" · ");
         return `<li>${d.link ? `<a href="${esc(d.link)}" target="_blank" rel="noopener" title="${esc(d.title)}">${label}</a>` : `<span title="${esc(d.title)}">${label}</span>`}${meta ? ` <small>${meta}</small>` : ""}</li>`;
       }).join("");
-      return bar + `<ul class="docs">${items}</ul>`;
+      const artLi = arts.length ? `<li><a href="${P("library")}?k=Article&q=${encodeURIComponent(name)}">📝 ${arts.length} article${arts.length > 1 ? "s" : ""}</a></li>` : "";
+      return bar + `<ul class="docs">${items}${artLi}</ul>`;
     };
     const render = () => {
       $("#country-chips").innerHTML =
@@ -289,18 +291,19 @@
 
   // ================================================================ LIBRARY
   const KINDS = [
-    ["All", "All"], ["Current", "Shared by current students"], ["Thesis", "Theses"], ["Proposal", "Proposals"],
-    ["Chapter", "Chapters"], ["Viva", "Viva slides"], ["Paper", "Papers"], ["MSc", "MSc projects"], ["Guide", "Guides & resources"],
+    ["All", "All"], ["Current", "Shared by current students"], ["Proposal", "Proposals"], ["Thesis", "Theses"],
+    ["Slides", "Slides"], ["Article", "Articles"], ["MSc", "MSc projects"], ["Guide", "Guides & resources"],
   ];
   const fromSubmission = (d) => {
+    if (d.type === "DRAFT") return null; // drafts are never public
     const t = d.type;
-    const kind = t === "PROPOSAL" ? "Proposal" : /^CH\d$/.test(t) ? "Chapter" : t === "THESIS" ? "Thesis" : t === "VIVA" ? "Viva" : "Paper";
+    const kind = t === "FA_PROPOSAL" ? "Proposal" : /^THESIS/.test(t) ? "Thesis" : /SLIDES$/.test(t) ? "Slides" : "Article";
     return { kind, current: true, tag: shortLabel(d.typeLabel), title: d.title, who: d.name,
       meta: [d.version, d.date].filter(Boolean).join(" · "), links: d.link ? [[d.link, "Open"]] : [], titleOnly: !d.link };
   };
   function libraryItems(r) {
     const out = [];
-    (r && r.items ? r.items : []).forEach((d) => out.push(fromSubmission(d)));
+    (r && r.items ? r.items : []).map(fromSubmission).filter(Boolean).forEach((x) => out.push(x));
     STUDENTS.forEach((s) => {
       const kind = s.group === "msc" ? "MSc" : s.group === "proposal" ? "Proposal" : "Thesis";
       const tag = kind === "Thesis" ? "PhD thesis" : kind === "Proposal" ? "PhD proposal" : "MSc project";

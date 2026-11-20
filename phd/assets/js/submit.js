@@ -71,7 +71,7 @@
       types.map((t) => `<option value="${esc(t.id)}"${t.open ? "" : " disabled"}>${esc(t.label)}${done[t.id] ? " ✓" : ""}${t.open ? "" : " — closed"}</option>`).join("");
     $("mine").innerHTML = me.items.length
       ? `<details class="mine"><summary>Your submissions (${me.items.length})</summary><ul>${me.items.map((i) =>
-          `<li><b>${esc(i.typeLabel)}</b> · ${esc(i.title)}${i.version ? " · " + esc(i.version) : ""} <small>${esc(i.submittedAt)}${i.status !== "Approved" ? " · " + esc(i.status) : ""}</small></li>`).join("")}</ul></details>`
+          `<li><b>${esc(i.typeLabel)}</b> · ${esc(i.title)}${i.version ? " · " + esc(i.version) : ""} <small>${esc(i.submittedAt)}${i.visibility === "Supervisor only" ? " · supervisor only" : ""}${i.status !== "Approved" ? " · " + esc(i.status) : ""}</small></li>`).join("")}</ul></details>`
       : `<p class="muted-p">You have not submitted anything yet.</p>`;
     $("form2").hidden = true;
     msg("m2", "");
@@ -93,7 +93,11 @@
     $("f-version").value = one ? one.version : "";
     $("f-note").value = "";
     $("f-decl").checked = false;
-    document.querySelectorAll('input[name="vis"]').forEach((r) => (r.checked = r.value === ((one && one.visibility) || "Public link")));
+    const vis = (one && one.visibility !== "Supervisor only" && one.visibility) || t.defaultVisibility || "Public link";
+    document.querySelectorAll('input[name="vis"]').forEach((r) => (r.checked = r.value === vis));
+    $("vis-box").hidden = !!t.private;
+    $("private-note").hidden = !t.private;
+    $("vis-default-note").hidden = t.private || t.defaultVisibility !== "Title only";
     $("btn-submit").textContent = one ? "Submit again (replace)" : "Submit";
     $("form2").hidden = false;
     msg("m2", "");
@@ -109,6 +113,8 @@
       visibility: (document.querySelector('input[name="vis"]:checked') || {}).value || "Public link",
     };
     if (!type) return msg("m2", "Choose a document.");
+    const ty = types.find((x) => x.id === type) || {};
+    if (ty.private) data.visibility = "Title only"; // never publish a link for private drafts
     if (data.title.length < 5) return msg("m2", "Enter the document title.");
     if (!okLink(data.link)) return msg("m2", "Enter a full Google Drive or OneDrive link that starts with https://");
     if (!data.declaration) return msg("m2", "Please tick the declaration.");
@@ -120,7 +126,8 @@
       $("receipt").innerHTML = `<h2>✓ Submission received</h2><p class="muted-p">Reference number</p><p class="ref">${esc(r.reference)}</p>
         <dl><dt>Document</dt><dd>${esc(r.type)}</dd><dt>Submitted by</dt><dd>${esc(r.by)}</dd><dt>Time</dt><dd>${esc(r.submittedAt)}</dd>
         ${r.details.map((x) => `<dt>${esc(x.label)}</dt><dd>${esc(x.value)}</dd>`).join("")}</dl>
-        <p class="muted-p">${r.status === "Approved" ? "It will appear on the Students page within a few minutes." : "It will appear on the website after your supervisor approves it."}</p>`;
+        <p class="muted-p">${(types.find((x) => x.id === type) || {}).private ? "This draft is visible to your supervisor only. It is not shown on the website."
+          : r.status === "Approved" ? "It will appear on the website within a few minutes." : "It will appear on the website after your supervisor approves it."}</p>`;
       me = await api("sub-login", cred).catch(() => me);
       step(3);
     } catch (e) { msg("m2", e.message); }
