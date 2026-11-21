@@ -758,3 +758,13 @@ body.adm-noscroll { overflow: hidden; }
   .links { gap: 16px; }
   .links a { font-size: .9rem; }
 }
+
+/* ---------- Announcements page ---------- */
+.ann-page { max-width: 820px; }
+.ann-page .ann { padding: 20px 22px; }
+.ann-page .ann h3 { font-size: 1.15rem; margin-bottom: 8px; }
+.ann-msg { white-space: pre-line; line-height: 1.6; }
+.ann-new { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 99px; background: var(--accent); color: #fff; font-size: .68rem; letter-spacing: .04em; vertical-align: 1px; }
+.ann .btn { margin-top: 6px; }
+@media (min-width: 721px) and (max-width: 900px) { .links { gap: 10px; } .links a { font-size: .8rem; } }
+@media (min-width: 901px) and (max-width: 1100px) { .links { gap: 12px; } .links a { font-size: .86rem; } }

@@ -79,13 +79,15 @@
 
   if ($("#hub-announcements")) {
     hubPromise.then((r) => {
-      const list = (r && r.announcements) || [];
+      const when = (a) => Date.parse(a.ts) || Date.parse(a.date) || 0;
+      const limit = Number($("#hub-announcements").dataset.limit) || 5;
+      const list = ((r && r.announcements) || []).slice().sort((x, y) => when(y) - when(x));
       $("#hub-announcements").innerHTML = list.length
-        ? list.slice(0, 5).map((a) => `<article class="ann">
-            <p class="ann-date">${esc(a.date)}</p>
+        ? list.slice(0, limit).map((a) => `<article class="ann">
+            <p class="ann-date">${esc(a.date)}${Date.now() - when(a) < 7 * 864e5 ? ' <span class="ann-new">New</span>' : ""}</p>
             <h3>${esc(a.title)}</h3>
-            ${a.message ? `<p>${esc(a.message)}</p>` : ""}
-            ${a.link ? ext(a.link, "Open →", "see-all") : ""}
+            ${a.message ? `<p class="ann-msg">${esc(a.message)}</p>` : ""}
+            ${a.link ? ext(a.link, "Details →", "btn ghost sb-small") : ""}
           </article>`).join("")
         : `<p class="empty">${r ? "No announcements right now." : "Announcements are not available at the moment."}</p>`;
     });
