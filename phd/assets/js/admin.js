@@ -6,8 +6,9 @@
     String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const TKEY = "phd-admin-token";
   const STATUSES = ["Pending", "Card", "Library", "Hidden"];
-  const ST = { Pending: "st-pending", Card: "st-card", Approved: "st-card", Library: "st-library", Hidden: "st-hidden" };
-  const LBL = { Pending: "Pending", Card: "Card", Approved: "Card", Library: "Library", Hidden: "Hidden" };
+  const FORM_STATUSES = ["Pending", "Verified", "Returned"];
+  const ST = { Pending: "st-pending", Card: "st-card", Approved: "st-card", Library: "st-library", Hidden: "st-hidden", Verified: "st-library", Returned: "st-returned" };
+  const LBL = { Pending: "Pending", Card: "Card", Approved: "Card", Library: "Library", Hidden: "Hidden", Verified: "Verified", Returned: "Returned" };
   const chip = (s, priv) => priv ? '<span class="st st-private">Private</span>'
     : `<span class="st ${ST[s] || "st-pending"}">${LBL[s] || esc(s)}</span>`;
   const safeUrl = (u) => (/^https:\/\//i.test(u) ? u : "");
@@ -75,7 +76,9 @@
   }
 
   // ---------------- helpers
-  const isPriv = (s) => !!(D.tmap[s.type] && D.tmap[s.type].private);
+  const isForm = (s) => /_FORM$/.test(String(s.type || ""));
+  const isPriv = (s) => !isForm(s) && !!(D.tmap[s.type] && D.tmap[s.type].private);   // drafts only
+  const optsFor = (s) => (isForm(s) ? FORM_STATUSES : STATUSES);
   const when = (s) => s.submittedAt || "";
   const tsOf = (s) => Date.parse(s.ts) || 0;
   const byNew = (a, b) => tsOf(b) - tsOf(a) || String(b.submittedAt).localeCompare(String(a.submittedAt));
@@ -83,7 +86,7 @@
   const titleOf = (s) => s.label ? `${esc(s.label)}${s.title ? " — " + esc(s.title) : ""}` : esc(s.title || "(untitled)");
   const openBtn = (s) => safeUrl(s.link) ? `<a class="btn ghost sb-small" href="${esc(s.link)}" target="_blank" rel="noopener">Open</a>` : "";
   const stBtns = (s) => isPriv(s) ? "" :
-    `<div class="adm-st" role="group" aria-label="Set status">${STATUSES.map((x) =>
+    `<div class="adm-st" role="group" aria-label="Set status">${optsFor(s).map((x) =>
       `<button type="button" class="adm-stb ${x === s.status || (x === "Card" && s.status === "Approved") ? "on " + ST[x] : ""}" data-ref="${esc(s.reference)}" data-st="${x}">${x}</button>`).join("")}</div>`;
 
   function render() {
@@ -117,8 +120,9 @@
         const it = mine.filter((s) => s.type === t.id);
         if (!it.length) return '<td class="mx-empty">·</td>';
         const s = it[0];
-        const cls = t.private ? "st-private" : ST[s.status] || "st-pending";
-        const lab = t.private ? "Draft" : LBL[s.status] || s.status;
+        const draft = t.private && !t.verify;
+        const cls = draft ? "st-private" : ST[s.status] || "st-pending";
+        const lab = draft ? "Draft" : LBL[s.status] || s.status;
         return `<td><span class="st ${cls}" title="${esc(s.title || s.label)}">${lab}${it.length > 1 ? " ×" + it.length : ""}</span></td>`;
       }).join("");
       const last = mine.length ? when(mine[0]).split(" ")[0] : "—";
@@ -128,7 +132,7 @@
 
     renderAll();
   }
-  const SHORT = { FA_PROPOSAL: "FA proposal", FA_SLIDES: "FA slides", DRAFT: "Drafts", THESIS_EXAM: "Exam thesis",
+  const SHORT = { FA_PROPOSAL: "FA proposal", FA_SLIDES: "FA slides", ETHICS_FORM: "Ethics form", AI_FORM: "AI declaration", LOGBOOK_FORM: "Logbook", NHP_FORM: "NHP checklist", DRAFT: "Drafts", THESIS_EXAM: "Exam thesis",
     VIVA_SLIDES: "Viva slides", THESIS_FINAL: "Final thesis", ARTICLE: "Articles" };
 
   function rowCard(s) {
@@ -149,7 +153,7 @@
     $("f-student").innerHTML = '<option value="">All students</option>' +
       D.students.slice().sort((a, b) => a.name.localeCompare(b.name)).map((s) => `<option value="${esc(s.id)}">${esc(s.name)}</option>`).join("");
     $("f-type").innerHTML = '<option value="">All types</option>' + D.types.map((t) => `<option value="${esc(t.id)}">${esc(t.label)}</option>`).join("");
-    $("f-status").innerHTML = '<option value="">All statuses</option>' + STATUSES.concat(["Private"]).map((x) => `<option>${x}</option>`).join("");
+    $("f-status").innerHTML = '<option value="">All statuses</option>' + STATUSES.concat(["Verified", "Returned", "Private"]).map((x) => `<option>${x}</option>`).join("");
     $("f-student").value = v[0]; $("f-type").value = v[1]; $("f-status").value = v[2];
   }
   function filtered() {
@@ -168,7 +172,7 @@
         <td data-l="Student"><button class="link-btn" type="button" data-stu="${esc(s.studentId)}">${esc(sName(s.studentId, s.name))}</button></td>
         <td data-l="Document">${esc(s.typeLabel || s.type)}${s.version ? ` <small>v${esc(s.version)}</small>` : ""}</td>
         <td data-l="Title">${titleOf(s)}</td>
-        <td data-l="Status">${isPriv(s) ? chip("", true) : `<select class="t adm-sel" data-ref="${esc(s.reference)}" aria-label="Status">${STATUSES.map((x) =>
+        <td data-l="Status">${isPriv(s) ? chip("", true) : `<select class="t adm-sel" data-ref="${esc(s.reference)}" aria-label="Status">${optsFor(s).map((x) =>
           `<option${x === s.status || (x === "Card" && s.status === "Approved") ? " selected" : ""}>${x}</option>`).join("")}</select>`}</td>
         <td>${openBtn(s)}</td></tr>`).join("")
         : '<tr><td colspan="6" class="empty-note">No submissions match.</td></tr>') + "</tbody>";

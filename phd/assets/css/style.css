@@ -671,3 +671,90 @@ body.adm-noscroll { overflow: hidden; }
 .adm-matrix tbody th .link-btn, .adm-table .link-btn { text-align: left; padding: 0; }
 .adm-matrix thead th { text-align: center; }
 .adm-matrix thead th:first-child, .adm-matrix thead th:last-child { text-align: left; }
+
+/* ---------- thesis toolkit ---------- */
+#toolkit { scroll-margin-top: 80px; }
+.tk-lede { margin: -4px 0 14px; }
+.tk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 8px; }
+.tk-card { padding: 20px 22px; }
+.tk-card h3 { margin: 0 0 6px; font-size: 1.1rem; }
+.tk-card > p { color: var(--ink-2); font-size: .93rem; margin: 0 0 10px; }
+.tk-links { list-style: none; padding: 0; margin: 0 0 10px; }
+.tk-links li { padding: 6px 0; border-bottom: 1px dashed var(--line); font-size: .93rem; }
+.tk-links li:last-child { border-bottom: 0; }
+.tk-links.small li { font-size: .86rem; padding: 4px 0; }
+.tk-sub { font-size: .78rem !important; text-transform: uppercase; letter-spacing: .04em; color: var(--muted) !important; margin: 8px 0 2px !important; }
+.tk-steps { padding-left: 20px; margin: 0 0 14px; font-size: .92rem; }
+.tk-steps li { margin-bottom: 8px; }
+.tk-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.tk-note { font-size: .82rem; color: var(--muted); margin: 10px 0 0; }
+.sb-quick { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: .86rem; margin: 4px 0 12px; padding: 8px 12px; background: var(--alt); border-radius: 10px; }
+.sb-quick span { color: var(--muted); }
+.sb-quick a { font-weight: 600; text-decoration: none; }
+.sb-quick a:hover { text-decoration: underline; }
+@media (max-width: 800px) { .tk-grid { grid-template-columns: 1fr; } }
+.tk-card ul.tk-links { padding-left: 0; margin-left: 0; }
+.st-returned { background: #fdecec; color: #a52a2a; }
+
+/* ---------- First Assessment requirements ---------- */
+.fa-req { margin: 18px 0 8px; padding: 20px 22px; border-left: 4px solid var(--brand, #8a1538); scroll-margin-top: 80px; }
+.fa-req h3 { margin: 0 0 4px; font-size: 1.1rem; }
+.fa-req > p { margin: 0 0 12px; color: var(--ink-2); font-size: .92rem; }
+.fa-list { margin: 0; padding-left: 22px; }
+.fa-list > li { margin-bottom: 12px; }
+.fa-list > li > b { display: block; }
+.fa-list ul { margin: 4px 0 0; padding-left: 18px; font-size: .9rem; color: var(--ink-2); }
+.fa-list ul li { margin-bottom: 3px; }
+.fa-tag { display: inline-block; font-size: .72rem; font-weight: 700; padding: 1px 7px; border-radius: 99px; background: var(--alt); color: var(--ink-2); margin-left: 6px; vertical-align: 2px; }
+.fa-tag.sub { background: #e7f3ec; color: #1e6b3c; }
+.fa-tag { font-family: inherit; }
+/* Turnitin programme table */
+.tt-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; margin: 4px 0 12px; }
+.tt { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.tt th, .tt td { padding: 7px 9px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.tt thead th { background: var(--alt); font-size: .72rem; text-transform: uppercase; letter-spacing: .03em; color: var(--ink-2); white-space: nowrap; }
+.tt tr:last-child td { border-bottom: 0; }
+.tt td small { display: block; color: var(--muted); font-size: .75rem; }
+.tt code { font-size: .88rem; font-weight: 700; background: var(--alt); padding: 1px 6px; border-radius: 5px; user-select: all; }
+.tt-rules { font-size: .88rem; }
+@media (max-width: 1000px) {
+  .tt thead { display: none; }
+  .tt tr { display: block; border-bottom: 1px solid var(--line); padding: 6px 0; }
+  .tt tr:last-child { border-bottom: 0; }
+  .tt td { display: flex; gap: 8px; border: 0; padding: 2px 10px; }
+  .tt td::before { content: attr(data-l); min-width: 96px; color: var(--muted); font-size: .76rem; }
+}
+.tt td:first-child { min-width: 130px; }
+
+/* ---------- First Assessment page ---------- */
+.fa-toc { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 8px; }
+.fa-toc a { font-size: .85rem; font-weight: 600; padding: 5px 12px; border: 1px solid var(--line); border-radius: 99px; text-decoration: none; background: var(--card); }
+.fa-toc a:hover { border-color: var(--accent); }
+#when, #requirements, #forms, #turnitin, #submit-list, #steps { scroll-margin-top: 80px; }
+.fa-when { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.fa-when .card { padding: 16px 18px; }
+.fa-when .card > b { display: block; font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.fa-when .card > span { display: block; font-size: 1.35rem; font-weight: 700; margin: 2px 0 6px; }
+.fa-when p { margin: 0; font-size: .88rem; color: var(--ink-2); }
+.fa-when .warn > span { color: #a52a2a; }
+.fa-big > li { margin-bottom: 14px; }
+.fa-forms { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.fa-form { display: flex; gap: 14px; padding: 16px 18px; }
+.fa-ico { font-size: 1.6rem; line-height: 1; }
+.fa-form h3 { margin: 0 0 4px; font-size: 1rem; }
+.fa-form p { margin: 0 0 10px; font-size: .88rem; color: var(--ink-2); }
+.fa-dl { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 !important; }
+.fa-rules { font-size: .92rem; padding-left: 20px; }
+.fa-rules li { margin-bottom: 4px; }
+.fa-submit { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; flex-wrap: wrap; }
+.fa-submit ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 32px; font-size: .92rem; }
+.fa-steps { padding-left: 22px; }
+.fa-steps li { margin-bottom: 10px; }
+@media (max-width: 800px) {
+  .fa-when, .fa-forms { grid-template-columns: 1fr; }
+  .fa-submit ol { columns: 1; }
+}
+@media (min-width: 901px) and (max-width: 1100px) {
+  .links { gap: 16px; }
+  .links a { font-size: .9rem; }
+}

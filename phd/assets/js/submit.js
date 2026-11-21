@@ -33,7 +33,14 @@
     Pending: ["st-pending", "Pending"], Card: ["st-card", "On your card"], Approved: ["st-card", "On your card"],
     Library: ["st-library", "In Library"], Hidden: ["st-hidden", "Not shown"], Replaced: ["st-hidden", "Replaced"],
   };
+  // Forms (type ID ends in _FORM) are verified by the supervisor and never shown publicly.
+  const isForm = (id) => /_FORM$/.test(String(id || ""));
+  const FORM_ST = {
+    Verified: ["st-library", "Verified ✓"], Returned: ["st-returned", "Returned for correction"],
+    Pending: ["st-pending", "Awaiting verification"], Replaced: ["st-hidden", "Replaced"],
+  };
   const chip = (it, ty) => {
+    if (isForm(ty.id)) { const [c, l] = FORM_ST[it.status] || FORM_ST.Pending; return `<span class="st ${c}">${l}</span>`; }
     if (ty.private) return '<span class="st st-private">Supervisor only</span>';
     const [c, l] = STATUS[it.status] || STATUS.Pending;
     return `<span class="st ${c}">${l}</span>`;
@@ -151,7 +158,8 @@
     $("hist").innerHTML = `<thead><tr><th>Date</th><th>Document</th><th>Version</th><th>Status</th><th>Reference</th><th></th></tr></thead><tbody>` +
       h.map((x, i) => {
         const what = x.type === "ARTICLE" ? x.title : x.type === "DRAFT" ? x.label : "";
-        const [c, l] = x.private && x.status !== "Replaced" ? ["st-private", "Supervisor only"] : (STATUS[x.status] || STATUS.Pending);
+        const [c, l] = isForm(x.type) ? (FORM_ST[x.status] || FORM_ST.Pending)
+          : x.private && x.status !== "Replaced" ? ["st-private", "Supervisor only"] : (STATUS[x.status] || STATUS.Pending);
         return `<tr class="${x.current ? "" : "old"}">
           <td data-l="Date">${esc(x.submittedAt)}</td>
           <td data-l="Document"><b>${esc(x.typeLabel)}</b>${what ? `<br><span class="muted">${esc(what)}</span>` : ""}</td>
@@ -198,6 +206,7 @@
     $("f-label").value = it && t.entry === "label" ? it.label : "";
     $("f-atitle").value = it && t.entry === "title" ? it.title : "";
     $("f-link").value = it ? it.link : "";
+    $("f-form-help").hidden = !isForm(t.id);
     $("f-version").value = "";
     $("f-note").value = "";
     $("f-decl").checked = false;
@@ -228,7 +237,7 @@
       $("receipt").innerHTML = `<h2>✓ Submission received</h2><p class="muted-p">Reference number</p><p class="ref">${esc(r.reference)}</p>
         <dl><dt>Document</dt><dd>${esc(r.type)}</dd><dt>Submitted by</dt><dd>${esc(r.by)}</dd><dt>Time</dt><dd>${esc(r.submittedAt)}</dd>
         ${r.details.map((x) => `<dt>${esc(x.label)}</dt><dd>${esc(x.value)}</dd>`).join("")}</dl>
-        <p class="muted-p">${r.private ? "Drafts are seen by your supervisor only." : "Your supervisor will decide whether it is shown on the website."}</p>
+        <p class="muted-p">${isForm(t.id) ? "Your supervisor will verify this form. It is never shown on the website." : r.private ? "Drafts are seen by your supervisor only." : "Your supervisor will decide whether it is shown on the website."}</p>
         <div class="sb-actions no-print"><button class="btn primary sb-small" id="btn-done" type="button">Back to my documents</button>
         <button class="btn ghost sb-small" id="btn-print" type="button">Print or save receipt</button></div>`;
       $("form").hidden = true; $("receipt").hidden = false;
