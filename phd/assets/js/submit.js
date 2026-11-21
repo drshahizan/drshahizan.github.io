@@ -31,7 +31,7 @@
   const busy = (b, on, label) => { b.disabled = on; if (label) b.textContent = label; };
   const STATUS = {
     Pending: ["st-pending", "Pending"], Card: ["st-card", "On your card"], Approved: ["st-card", "On your card"],
-    Library: ["st-library", "In Library"], Hidden: ["st-hidden", "Not shown"],
+    Library: ["st-library", "In Library"], Hidden: ["st-hidden", "Not shown"], Replaced: ["st-hidden", "Replaced"],
   };
   const chip = (it, ty) => {
     if (ty.private) return '<span class="st st-private">Supervisor only</span>';
@@ -61,7 +61,7 @@
       cred = { email, matric };
       try { localStorage.setItem("phd-submit-email", email); } catch (e) {}
       $("p1").hidden = true; $("p2").hidden = false;
-      renderProfile(); renderTitle(); renderDocs();
+      renderProfile(); renderTitle(); renderDocs(); renderHistory(); showTab("docs");
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (e) { msg("m1", e.message); }
     finally { busy(b, false, "Sign in"); }
@@ -134,6 +134,50 @@
     }).join("");
   }
 
+  // ---------------- tabs + history (all versions)
+  function showTab(which) {
+    const docs = which === "docs";
+    $("tab-docs").classList.toggle("on", docs); $("tab-docs").setAttribute("aria-selected", docs);
+    $("tab-hist").classList.toggle("on", !docs); $("tab-hist").setAttribute("aria-selected", !docs);
+    $("panel-docs").hidden = !docs; $("panel-hist").hidden = docs;
+  }
+  $("tab-docs").onclick = () => showTab("docs");
+  $("tab-hist").onclick = () => showTab("hist");
+
+  function renderHistory() {
+    const h = me.history || [];
+    $("hist-count").textContent = h.length ? "(" + h.length + ")" : "";
+    if (!h.length) { $("hist").innerHTML = '<tbody><tr><td class="doc-none">Nothing submitted yet.</td></tr></tbody>'; return; }
+    $("hist").innerHTML = `<thead><tr><th>Date</th><th>Document</th><th>Version</th><th>Status</th><th>Reference</th><th></th></tr></thead><tbody>` +
+      h.map((x, i) => {
+        const what = x.type === "ARTICLE" ? x.title : x.type === "DRAFT" ? x.label : "";
+        const [c, l] = x.private && x.status !== "Replaced" ? ["st-private", "Supervisor only"] : (STATUS[x.status] || STATUS.Pending);
+        return `<tr class="${x.current ? "" : "old"}">
+          <td data-l="Date">${esc(x.submittedAt)}</td>
+          <td data-l="Document"><b>${esc(x.typeLabel)}</b>${what ? `<br><span class="muted">${esc(what)}</span>` : ""}</td>
+          <td data-l="Version">${esc(x.version || "–")}</td>
+          <td data-l="Status"><span class="st ${c}">${l}</span></td>
+          <td data-l="Reference"><code>${esc(x.reference)}</code></td>
+          <td class="hist-act">${x.link ? `<a href="${esc(x.link)}" target="_blank" rel="noopener">Open</a>` : ""}<button type="button" class="link-btn" data-receipt="${i}">Receipt</button></td>
+        </tr>`;
+      }).join("") + "</tbody>";
+  }
+  $("hist").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-receipt]");
+    if (!b) return;
+    const x = me.history[+b.dataset.receipt];
+    const what = x.type === "ARTICLE" ? ["Article title", x.title] : x.type === "DRAFT" ? ["Label", x.label] : ["Research title", x.title];
+    $("receipt").innerHTML = `<h2>Submission receipt</h2><p class="muted-p">Reference number</p><p class="ref">${esc(x.reference)}</p>
+      <dl><dt>Document</dt><dd>${esc(x.typeLabel)}</dd><dt>Submitted by</dt><dd>${esc(me.student.name)}</dd><dt>Time</dt><dd>${esc(x.submittedAt)}</dd>
+      <dt>${what[0]}</dt><dd>${esc(what[1])}</dd><dt>Link</dt><dd>${esc(x.link)}</dd><dt>Version</dt><dd>${esc(x.version || "-")}</dd></dl>
+      <div class="sb-actions no-print"><button class="btn primary sb-small" id="btn-done" type="button">Close</button>
+      <button class="btn ghost sb-small" id="btn-print" type="button">Print or save receipt</button></div>`;
+    $("form").hidden = true; $("receipt").hidden = false;
+    $("btn-done").onclick = () => { $("receipt").hidden = true; };
+    $("btn-print").onclick = () => window.print();
+    $("receipt").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
   $("docs").addEventListener("click", (e) => {
     const b = e.target.closest("[data-open]");
     if (!b) return;
@@ -191,7 +235,7 @@
       $("btn-done").onclick = () => { $("receipt").hidden = true; window.scrollTo({ top: 0, behavior: "smooth" }); };
       $("btn-print").onclick = () => window.print();
       me = await api("sub-login", cred).catch(() => me);
-      renderDocs();
+      renderDocs(); renderHistory();
       $("receipt").scrollIntoView({ behavior: "smooth", block: "start" });
     } catch (e) { msg("m2", e.message); }
     finally { busy(b, false, label); }

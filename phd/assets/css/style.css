@@ -587,3 +587,87 @@ a.tile.area { color: inherit; }
   .links a { font-size: .86rem; }
   .brand { font-size: .95rem; }
 }
+
+/* Submit: tabs + history */
+.sb-tabs { display: flex; gap: 4px; border-bottom: 2px solid var(--line); margin: 4px 0 14px; }
+.sb-tab { font: inherit; font-weight: 600; font-size: .95rem; padding: 10px 14px; background: none; border: 0; border-bottom: 3px solid transparent; margin-bottom: -2px; color: var(--muted); cursor: pointer; }
+.sb-tab.on { color: var(--accent); border-bottom-color: var(--accent); }
+.sb-tab small { font-weight: 500; }
+.hist-wrap { overflow-x: auto; background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
+.hist { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.hist th { text-align: left; font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); padding: 10px 12px; border-bottom: 1px solid var(--line); background: var(--alt); }
+.hist td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.hist tr:last-child td { border-bottom: 0; }
+.hist tr.old td { color: var(--muted); }
+.hist .muted { color: var(--muted); font-size: .82rem; }
+.hist code { font-size: .78rem; }
+.hist-act { white-space: nowrap; }
+.hist-act a { font-weight: 600; margin-right: 8px; text-decoration: none; }
+@media (max-width: 600px) {
+  .hist thead { display: none; }
+  .hist tr { display: block; padding: 8px 12px; border-bottom: 1px solid var(--line); }
+  .hist td { display: flex; gap: 10px; border: 0; padding: 3px 0; }
+  .hist td[data-l]::before { content: attr(data-l); min-width: 76px; font-size: .74rem; color: var(--muted); text-transform: uppercase; }
+}
+
+/* ---------- admin dashboard ---------- */
+.adm-login { max-width: 420px; margin: 0 auto; }
+.empty-note { color: var(--muted); font-size: .92rem; padding: 10px 0; }
+.adm-bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+.adm-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.adm-kpis { grid-template-columns: repeat(4, 1fr); margin: 10px 0 22px; }
+.adm-kpis .stat { padding: 16px; }
+.adm-kpis .stat strong { font-size: 1.9rem; }
+.adm-sec { margin: 0 0 28px; }
+.adm-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+.adm-head h2 { margin: 0; font-size: 1.25rem; }
+.adm-head h2 small { color: var(--muted); font-weight: 400; font-size: .9rem; }
+.adm-head .muted-p { margin: 0; flex: 1 1 100%; }
+.adm-row { display: flex; gap: 14px; justify-content: space-between; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; }
+.adm-main { min-width: 0; flex: 1; }
+.adm-meta { font-size: .85rem; color: var(--ink-2); }
+.adm-meta .muted { color: var(--muted); }
+.adm-title { font-weight: 600; margin-top: 2px; overflow-wrap: anywhere; }
+.adm-note { font-size: .86rem; color: var(--muted); font-style: italic; margin-top: 3px; }
+.adm-side { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.adm-st { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.adm-stb { border: 0; border-right: 1px solid var(--line); background: #fff; font: inherit; font-size: .8rem; padding: 5px 9px; cursor: pointer; color: var(--ink-2); }
+.adm-stb:last-child { border-right: 0; }
+.adm-stb:hover { background: var(--alt); }
+.adm-stb.on { font-weight: 700; }
+.adm-stb:disabled { opacity: .5; cursor: wait; }
+.adm-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+.adm-matrix, .adm-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.adm-matrix th, .adm-matrix td, .adm-table th, .adm-table td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+.adm-matrix thead th, .adm-table thead th { background: var(--alt); font-size: .78rem; text-transform: uppercase; letter-spacing: .03em; color: var(--ink-2); white-space: nowrap; }
+.adm-matrix tbody th { min-width: 190px; font-weight: 600; }
+.adm-matrix tbody th small { display: block; font-weight: 400; color: var(--muted); font-size: .78rem; }
+.adm-matrix td { text-align: center; white-space: nowrap; }
+.mx-empty { color: #c5cad6; }
+.mx-last { color: var(--muted); font-size: .8rem; }
+.adm-matrix tr:last-child > *, .adm-table tr:last-child > * { border-bottom: 0; }
+.adm-filters { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.adm-filters .t, .adm-sel { margin: 0; }
+.adm-sel { padding: 4px 8px; font-size: .85rem; width: auto; }
+.adm-modal { position: fixed; inset: 0; background: rgba(20, 33, 61, .45); z-index: 100; display: flex; justify-content: center; align-items: flex-start; padding: 40px 16px; overflow-y: auto; }
+.adm-modal[hidden] { display: none; }
+.adm-dialog { position: relative; width: 100%; max-width: 820px; padding: 24px; }
+.adm-dialog h2 { margin: 0 0 2px; padding-right: 30px; }
+.adm-dialog h3 { font-size: 1rem; margin: 18px 0 8px; }
+.adm-close { position: absolute; top: 14px; right: 16px; font-size: 1.1rem; }
+.adm-rt { background: var(--alt); padding: 10px 12px; border-radius: 8px; font-size: .92rem; }
+body.adm-noscroll { overflow: hidden; }
+@media (max-width: 800px) {
+  .adm-kpis { grid-template-columns: 1fr 1fr; }
+  .adm-filters { grid-template-columns: 1fr 1fr; }
+  .adm-filters #f-q { grid-column: 1 / -1; }
+  .adm-row { flex-direction: column; align-items: stretch; }
+  .adm-side { justify-content: flex-start; }
+  .adm-table thead { display: none; }
+  .adm-table tr { display: block; border-bottom: 1px solid var(--line); padding: 6px 0; }
+  .adm-table td { display: flex; gap: 8px; border: 0; padding: 3px 10px; }
+  .adm-table td[data-l]::before { content: attr(data-l); min-width: 76px; color: var(--muted); font-size: .78rem; }
+}
+.adm-matrix tbody th .link-btn, .adm-table .link-btn { text-align: left; padding: 0; }
+.adm-matrix thead th { text-align: center; }
+.adm-matrix thead th:first-child, .adm-matrix thead th:last-child { text-align: left; }
