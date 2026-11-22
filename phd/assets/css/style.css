@@ -822,3 +822,11 @@ body.adm-noscroll { overflow: hidden; }
 .mx-prog b { font-size: .82rem; min-width: 28px; }
 .adm-matrix .muted { color: #b8bdc9; }
 .mx-cap { caption-side: top; text-align: left; padding: 10px 12px; font-size: .9rem; color: var(--ink-2); background: #fdf0f3; }
+/* students: compact current list */
+.stage-group { margin: 0 0 16px; }
+.stage-h { margin-bottom: 8px; font-size: 1.02rem; }
+.cur-mini-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 6px; }
+.cur-mini { display: flex; align-items: center; gap: 10px; padding: 7px 10px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
+.cur-mini b { display: block; font-size: .9rem; font-weight: 600; line-height: 1.25; }
+.cur-mini small { display: block; font-size: .78rem; color: var(--muted); }
+.avatar.sm { width: 30px; height: 30px; font-size: .7rem; flex: none; }

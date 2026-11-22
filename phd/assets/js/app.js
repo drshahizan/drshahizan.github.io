@@ -284,12 +284,10 @@
     let order = STAGE_ORDER.slice(), stageOf = {};
     CURRENT_STUDENTS.forEach((s) => (stageOf[key(s.name)] = s.stage || ""));
     let stage = "";
-    const card = (s) => `<div class="cur-card">
-          <div class="avatar g-cs">${esc(initials(s.name))}</div>
-          <div><h3>${esc(s.name)}</h3>
-            <p><span class="flag">${FLAGS[s.country] || ""}</span> ${esc(s.country)}${s.level !== "PhD" ? ` · <span class="badge b-project">${esc(s.level)}</span>` : ""}</p>
-            ${docsHtml(s.name)}</div>
-        </div>`;
+    const card = (s) => `<li class="cur-mini">
+          <span class="avatar sm g-cs" aria-hidden="true">${esc(initials(s.name))}</span>
+          <span><b>${esc(s.name)}</b><small>${FLAGS[s.country] || ""} ${esc(s.country)}${s.level !== "PhD" ? ` · ${esc(s.level)}` : ""}</small></span>
+        </li>`;
     const render = () => {
       const groups = order.map((g) => [g, CURRENT_STUDENTS.filter((s) => stageOf[key(s.name)] === g)]);
       const other = CURRENT_STUDENTS.filter((s) => !order.includes(stageOf[key(s.name)]));
@@ -299,9 +297,8 @@
         groups.filter(([, l]) => l.length).map(([g, l]) => `<button class="chip ${stage === g ? "on" : ""}" data-c="${esc(g)}">${esc(g)} <small>${l.length}</small></button>`).join("");
       $("#current-list").innerHTML = groups.filter(([g, l]) => l.length && (!stage || stage === g)).map(([g, l], i) => `
         <section class="stage-group">
-          <h3 class="stage-h"><span class="stage-n">${order.indexOf(g) + 1 || "•"}</span>${esc(g)} <small>${l.length} student${l.length > 1 ? "s" : ""}</small></h3>
-          ${STAGE_INFO[g] ? `<p class="stage-d">${esc(STAGE_INFO[g])}</p>` : ""}
-          <div class="current-grid">${l.map(card).join("")}</div>
+          <h3 class="stage-h"><span class="stage-n">${order.indexOf(g) + 1 || "•"}</span>${esc(g)} <small>${l.length}${STAGE_INFO[g] ? " · " + esc(STAGE_INFO[g]) : ""}</small></h3>
+          <ul class="cur-mini-grid">${l.map(card).join("")}</ul>
         </section>`).join("");
     };
     $("#country-chips").addEventListener("click", (e) => {
@@ -311,7 +308,6 @@
     render();
     hubPromise.then((r) => {
       if (!r) return;
-      docs = docsByName(r.items);
       if (r.stages && r.stages.length) order = r.stages;
       (r.students || []).forEach((x) => { if (x.stage) stageOf[key(x.name)] = x.stage; });
       render();
