@@ -76,6 +76,8 @@
   }
 
   // ---------------- helpers
+  const sameStage = (a, b) => String(a || "").trim().toLowerCase() === String(b || "").trim().toLowerCase();
+  const stageOf = (name) => (D.stages || []).find((g) => sameStage(g.name, name));
   const isForm = (s) => /_FORM$/.test(String(s.type || ""));
   const isPriv = (s) => !isForm(s) && !!(D.tmap[s.type] && D.tmap[s.type].private);   // drafts only
   const optsFor = (s) => (isForm(s) ? FORM_STATUSES : STATUSES);
@@ -98,9 +100,15 @@
     const none = active.filter((s) => !withAny.has(s.id));
     const week = D.history.filter((h) => /^(New|Replaced)$/.test(h.action) && tsOf(h) >= weekAgo).length;
 
+    const fa = stageOf("First Assessment");
+    const faStu = fa ? active.filter((st) => sameStage(st.stage, fa.name)) : [];
+    const faDone = faStu.filter((st) => fa.docs.every((id) => subs.some((x) => x.studentId === st.id && x.type === id && x.status !== "Returned"))).length;
+    const faVer = faStu.filter((st) => fa.docs.every((id) => subs.some((x) => x.studentId === st.id && x.type === id && (x.status === "Verified" || !/_FORM$/.test(id))))).length;
     $("a-kpis").innerHTML = [
-      [subs.length, "Documents (current)"], [pending.length, "Waiting for review"],
-      [week, "Submitted in the last 7 days"], [`${active.length - none.length}/${active.length}`, "Students who have submitted"],
+      [pending.length, "Waiting for review"], [week, "Submitted in the last 7 days"],
+      ...(fa ? [[`${faDone}/${faStu.length}`, `First Assessment: all ${fa.docs.length} documents in${fa.deadline ? " · closes " + esc(fa.deadline) : ""}`],
+                [`${faVer}/${faStu.length}`, "First Assessment: forms verified"]]
+             : [[subs.length, "Documents (current)"], [`${active.length - none.length}/${active.length}`, "Students who have submitted"]]),
     ].map(([n, l]) => `<div class="stat"><strong>${n}</strong><span>${l}</span></div>`).join("");
 
     // queue
@@ -114,23 +122,34 @@
 
     // matrix
     const head = `<thead><tr><th>Student</th>${D.types.map((t) => `<th title="${esc(t.label)}">${esc(SHORT[t.id] || t.label)}</th>`).join("")}<th>Last</th></tr></thead>`;
-    const body = active.map((st) => {
+    const fm = $("f-mstage").value;
+    const groups = (D.stages || []).map((g) => ({ g, list: active.filter((st) => sameStage(st.stage, g.name)) }));
+    const known = new Set((D.stages || []).map((g) => g.name.toLowerCase()));
+    groups.push({ g: { name: "No stage set", docs: [] }, list: active.filter((st) => !known.has(String(st.stage || "").toLowerCase())) });
+    const ncol = D.types.length + 2;
+    const body = groups.filter((x) => x.list.length && (!fm || x.g.name === fm)).map(({ g, list }) =>
+      `<tr class="mx-group"><th colspan="${ncol}">${esc(g.name)} <small>${list.length} student${list.length > 1 ? "s" : ""}${g.deadline ? " · deadline " + esc(g.deadline) : ""}</small></th></tr>` +
+      list.map((st) => rowFor(st, g)).join("")).join("");
+    $("a-matrix").innerHTML = head + `<tbody>${body}</tbody>`;
+
+    renderAll();
+  }
+  function rowFor(st, g) {
+    const subs = D.submissions.slice().sort(byNew);
+    const need = new Set(g.docs || []);
       const mine = subs.filter((s) => s.studentId === st.id);
       const cells = D.types.map((t) => {
         const it = mine.filter((s) => s.type === t.id);
-        if (!it.length) return '<td class="mx-empty">·</td>';
+        const rq = need.has(t.id) ? " mx-req" : "";
+        if (!it.length) return `<td class="mx-empty${rq}">${rq ? "✗" : "·"}</td>`;
         const s = it[0];
         const draft = t.private && !t.verify;
         const cls = draft ? "st-private" : ST[s.status] || "st-pending";
         const lab = draft ? "Draft" : LBL[s.status] || s.status;
-        return `<td><span class="st ${cls}" title="${esc(s.title || s.label)}">${lab}${it.length > 1 ? " ×" + it.length : ""}</span></td>`;
+        return `<td class="${rq.trim()}"><span class="st ${cls}" title="${esc(s.title || s.label)}">${lab}${it.length > 1 ? " ×" + it.length : ""}</span></td>`;
       }).join("");
       const last = mine.length ? when(mine[0]).split(" ")[0] : "—";
       return `<tr><th><button class="link-btn" type="button" data-stu="${esc(st.id)}">${esc(st.name)}</button><small>${esc(st.level)}${st.country ? " · " + esc(st.country) : ""}</small></th>${cells}<td class="mx-last">${esc(last)}</td></tr>`;
-    }).join("");
-    $("a-matrix").innerHTML = head + `<tbody>${body}</tbody>`;
-
-    renderAll();
   }
   const SHORT = { FA_PROPOSAL: "FA proposal", FA_SLIDES: "FA slides", ETHICS_FORM: "Ethics form", AI_FORM: "AI declaration", LOGBOOK_FORM: "Logbook", NHP_FORM: "NHP checklist", DRAFT: "Drafts", THESIS_EXAM: "Exam thesis",
     VIVA_SLIDES: "Viva slides", THESIS_FINAL: "Final thesis", ARTICLE: "Articles" };
@@ -149,7 +168,10 @@
   // ---------------- all submissions table
   function fillFilters() {
     const keep = (id) => $(id).value;
-    const v = [keep("f-student"), keep("f-type"), keep("f-status")];
+    const v = [keep("f-student"), keep("f-type"), keep("f-status"), keep("f-stage"), keep("f-mstage")];
+    const stOpts = (all) => `<option value="">${all}</option>` + (D.stages || []).map((g) => `<option>${esc(g.name)}</option>`).join("");
+    $("f-stage").innerHTML = stOpts("All stages"); $("f-mstage").innerHTML = stOpts("All stages");
+    $("f-stage").value = v[3]; $("f-mstage").value = v[4];
     $("f-student").innerHTML = '<option value="">All students</option>' +
       D.students.slice().sort((a, b) => a.name.localeCompare(b.name)).map((s) => `<option value="${esc(s.id)}">${esc(s.name)}</option>`).join("");
     $("f-type").innerHTML = '<option value="">All types</option>' + D.types.map((t) => `<option value="${esc(t.id)}">${esc(t.label)}</option>`).join("");
@@ -157,9 +179,10 @@
     $("f-student").value = v[0]; $("f-type").value = v[1]; $("f-status").value = v[2];
   }
   function filtered() {
+    const fg = $("f-stage").value;
     const q = $("f-q").value.trim().toLowerCase(), fs = $("f-student").value, ft = $("f-type").value, fst = $("f-status").value;
     return D.submissions.slice().sort(byNew).filter((s) =>
-      (!fs || s.studentId === fs) && (!ft || s.type === ft) &&
+      (!fs || s.studentId === fs) && (!fg || sameStage((D.smap[s.studentId] || {}).stage, fg)) && (!ft || s.type === ft) &&
       (!fst || (fst === "Private" ? isPriv(s) : !isPriv(s) && (s.status === fst || (fst === "Card" && s.status === "Approved")))) &&
       (!q || [s.title, s.label, s.note, s.name, sName(s.studentId), s.reference, s.typeLabel].join(" ").toLowerCase().includes(q)));
   }
@@ -177,7 +200,8 @@
         <td>${openBtn(s)}</td></tr>`).join("")
         : '<tr><td colspan="6" class="empty-note">No submissions match.</td></tr>') + "</tbody>";
   }
-  ["f-q", "f-student", "f-type", "f-status"].forEach((id) => $(id).addEventListener("input", () => D && renderAll()));
+  $("f-mstage").addEventListener("change", (e) => { e.stopPropagation(); if (D) render(); });
+  ["f-q", "f-stage", "f-student", "f-type", "f-status"].forEach((id) => $(id).addEventListener("input", () => D && renderAll()));
 
   // ---------------- status changes
   async function setStatus(ref, status, el) {
@@ -213,7 +237,7 @@
     const hist = D.history.filter((h) => h.studentId === id).sort(byNew);
     $("a-student").innerHTML = `
       <h2 id="a-st-name">${esc(st.name)}</h2>
-      <p class="muted-p">${esc([st.level, st.country, st.email].filter(Boolean).join(" · "))}</p>
+      <p class="muted-p">${esc([st.level, st.country, st.email].filter(Boolean).join(" · "))}${st.stage ? ` · <span class="st st-req">${esc(st.stage)}</span>` : ""}</p>
       <p class="adm-rt"><b>Research title:</b> ${st.researchTitle ? esc(st.researchTitle) : '<span class="muted">not entered yet</span>'}</p>
       <h3>Current documents (${items.length})</h3>
       ${items.length ? items.map(rowCard).join("") : '<p class="empty-note">Nothing submitted yet.</p>'}

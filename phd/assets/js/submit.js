@@ -116,11 +116,51 @@
     finally { busy(b, false, "Save title"); }
   };
 
+  // ---------------- stage panel (Students › Stage + Stages tab)
+  const DAY = 864e5;
+  function deadlineInfo(iso, text) {
+    if (!/^\d{4}-\d\d-\d\d$/.test(iso || "")) {        // fall back to the display date, e.g. "24 Nov 2026"
+      const t = Date.parse(text || "");
+      if (!t) return null;
+      const d = new Date(t); iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    }
+    const end = new Date(iso + "T23:59:59+08:00").getTime();
+    const todayMY = new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10);   // calendar date in Malaysia
+    const left = Math.round((Date.parse(iso) - Date.parse(todayMY)) / DAY);
+    const nice = new Date(iso + "T12:00:00+08:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" });
+    return { nice, left, closed: Date.now() > end };
+  }
+  const isDone = (it) => it && it.status !== "Returned";
+  function renderStage() {
+    const st = me.stage, box = $("stage");
+    if (!st) { box.hidden = true; return; }
+    const docs = st.docs.map((id) => types.find((t) => t.id === id)).filter(Boolean);
+    const rows = docs.map((t) => {
+      const it = me.items.find((i) => i.type === t.id);
+      return `<li class="${isDone(it) ? "done" : ""}"><span class="stg-tick" aria-hidden="true">${isDone(it) ? "✓" : ""}</span>
+        <span class="stg-name">${esc(t.label.replace(/ · First Assessment$/, ""))}</span>
+        ${it ? chip(it, t) : '<span class="st st-hidden">Not submitted</span>'}
+        ${t.open ? `<button class="link-btn" data-open="${esc(t.id)}"${it && !t.multiple ? ` data-ref="${esc(it.reference)}"` : ""}>${it && !t.multiple ? "Replace" : "Submit"}</button>` : ""}</li>`;
+    }).join("");
+    const n = docs.filter((t) => isDone(me.items.find((i) => i.type === t.id))).length;
+    const d = deadlineInfo(st.deadlineIso, st.deadline);
+    const dl = d ? `<p class="stg-dl ${d.closed ? "closed" : d.left <= 3 ? "soon" : ""}">${d.closed ? "Closed" : "Deadline"}: <b>${esc(d.nice)}</b>${d.closed ? "" : ` · ${d.left <= 0 ? "today" : d.left === 1 ? "1 day left" : d.left + " days left"}`}</p>` : "";
+    box.innerHTML = `<div class="stg-head"><div><p class="stg-k">Your stage</p><h3>${esc(st.name)}</h3></div>
+        ${docs.length ? `<div class="stg-prog"><b>${n}/${docs.length}</b><span>submitted</span></div>` : ""}</div>
+      ${dl}${st.note ? `<p class="stg-note">${esc(st.note)}</p>` : ""}
+      ${docs.length ? `<div class="stg-bar"><i style="width:${Math.round((100 * n) / docs.length)}%"></i></div><ul class="stg-list">${rows}</ul>` : ""}
+      ${st.name === "First Assessment" ? '<p class="stg-more"><a href="first-assessment.html">Requirements, forms and Turnitin →</a></p>' : ""}`;
+    box.hidden = false;
+  }
+
   // ---------------- documents dashboard
   function renderDocs() {
-    $("docs").innerHTML = types.map((t) => {
+    renderStage();
+    const need = new Set((me.stage && me.stage.docs) || []);
+    const ordered = types.filter((t) => need.has(t.id)).concat(types.filter((t) => !need.has(t.id)));
+    $("docs").innerHTML = ordered.map((t) => {
       const items = me.items.filter((i) => i.type === t.id);
-      const head = `<div class="doc-head"><h4>${esc(t.label)}</h4>${t.open ? "" : '<span class="st st-hidden">Closed</span>'}</div>`;
+      const head = `<div class="doc-head"><h4>${esc(t.label)}</h4>${need.has(t.id) ? '<span class="st st-req">Your stage</span>' : ""}${t.open ? "" : '<span class="st st-hidden">Closed</span>'}</div>`;
       if (t.multiple) {
         const list = items.map((it) => `<li>
             <div><b>${esc(t.entry === "label" ? it.label : it.title)}</b>
@@ -186,7 +226,7 @@
     $("receipt").scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
-  $("docs").addEventListener("click", (e) => {
+  const onOpen = (e) => {
     const b = e.target.closest("[data-open]");
     if (!b) return;
     const t = types.find((x) => x.id === b.dataset.open);
@@ -195,7 +235,9 @@
       renderTitle(true); msg("m-title", "Save your research title first."); $("f-rtitle").focus(); return;
     }
     openForm(t, it);
-  });
+  };
+  $("docs").addEventListener("click", onOpen);
+  $("stage").addEventListener("click", onOpen);
 
   function openForm(t, it) {
     current = { type: t, item: it };

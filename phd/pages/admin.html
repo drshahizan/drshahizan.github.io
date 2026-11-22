@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261121m" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261122a" />
 </head>
 <body data-page="admin" data-root="../">
   <header class="nav">
@@ -72,7 +72,7 @@
           </section>
 
           <section class="adm-sec">
-            <div class="adm-head"><h2>Progress by student</h2><p class="muted-p">Click a name for details. Cells show the status of each document.</p></div>
+            <div class="adm-head"><h2>Progress by student</h2><select class="t adm-stage" id="f-mstage" aria-label="Filter by stage"></select><p class="muted-p">Grouped by stage. Outlined cells are documents required at the student’s current stage. Click a name for details.</p></div>
             <div class="adm-scroll"><table class="adm-matrix" id="a-matrix"></table></div>
           </section>
 
@@ -86,6 +86,7 @@
               <button class="btn ghost sb-small" id="a-csv" type="button">⇩ Download CSV</button></div>
             <div class="adm-filters">
               <input type="search" class="t" id="f-q" placeholder="Search title, name, note…">
+              <select class="t" id="f-stage" aria-label="Stage"></select>
               <select class="t" id="f-student"></select>
               <select class="t" id="f-type"></select>
               <select class="t" id="f-status"></select>
@@ -126,10 +127,10 @@
     </div>
   </footer>
 
-  <script src="../assets/js/data.js?v=20261121m"></script>
-  <script src="../assets/js/publications.js?v=20261121m"></script>
-  <script src="../assets/js/submit-config.js?v=20261121m"></script>
-  <script src="../assets/js/app.js?v=20261121m"></script>
-  <script src="../assets/js/admin.js?v=20261121m"></script>
+  <script src="../assets/js/data.js?v=20261122a"></script>
+  <script src="../assets/js/publications.js?v=20261122a"></script>
+  <script src="../assets/js/submit-config.js?v=20261122a"></script>
+  <script src="../assets/js/app.js?v=20261122a"></script>
+  <script src="../assets/js/admin.js?v=20261122a"></script>
 </body>
 </html>
