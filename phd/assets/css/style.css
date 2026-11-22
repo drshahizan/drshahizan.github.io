@@ -803,3 +803,10 @@ body.adm-noscroll { overflow: hidden; }
 .adm-matrix td.mx-req { background: #fff6f8; }
 .adm-matrix td.mx-empty.mx-req { color: #c0392b; font-weight: 700; }
 @media (max-width: 800px) { .adm-filters { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- students by stage ---------- */
+.stage-group { margin: 0 0 22px; }
+.stage-h { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 1.1rem; }
+.stage-h small { color: var(--muted); font-weight: 400; font-size: .85rem; }
+.stage-n { width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font-size: .8rem; font-weight: 700; flex: none; }
+.stage-d { margin: 2px 0 10px 36px; font-size: .88rem; color: var(--muted); }

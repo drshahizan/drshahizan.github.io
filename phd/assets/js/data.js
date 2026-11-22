@@ -102,27 +102,36 @@ const STUDENTS = [
 /* Current students — from UTM GSMS (List of Students and Assessors),
    session 2026/2027 semester 1. level: "PhD" | "Master" */
 const CURRENT_SESSION = "2026/2027 · Semester 1";
+// Stages in order (the Google Sheet › Stages tab overrides these when available).
+const STAGE_ORDER = ["Proposal preparation", "First Assessment", "Research", "Thesis notice submitted", "Awaiting viva"];
+const STAGE_INFO = {
+  "Proposal preparation": "Preparing the research proposal",
+  "First Assessment": "Proposal submitted for First Assessment",
+  "Research": "Research and writing after First Assessment",
+  "Thesis notice submitted": "Notice of thesis submission sent",
+  "Awaiting viva": "Thesis submitted, waiting for the viva voce",
+};
 const CURRENT_STUDENTS = [
-  { name: "Apri Junaidi", country: "Indonesia", level: "PhD" },
-  { name: "Saleh Dhekre Saber Saleh", country: "Iraq", level: "PhD" },
-  { name: "Abdulaziz Saidu Yalwa", country: "Nigeria", level: "PhD" },
-  { name: "Taofik Olasunkanmi Tafa", country: "Nigeria", level: "PhD" },
-  { name: "Sarafa Olasunkanmi Adeyemo", country: "Nigeria", level: "PhD" },
-  { name: "Alex James", country: "India", level: "PhD" },
-  { name: "Lahib Nidhal Dawd Al-Yousuf", country: "Iraq", level: "PhD" },
-  { name: "Mazliana binti Mustapa", country: "Malaysia", level: "PhD" },
-  { name: "Hashmeya Mahmood Mohamed Barakat", country: "Bahrain", level: "PhD" },
-  { name: "Jaafar Almoadhen", country: "Bahrain", level: "PhD" },
-  { name: "Rishma Fathima binti Basher", country: "Malaysia", level: "PhD" },
-  { name: "Sara Ahmed J. Almezal", country: "Bahrain", level: "PhD" },
-  { name: "Mohamed Eiamin Mohamed Ali Elkanzi", country: "Bahrain", level: "PhD" },
-  { name: "Israk Entisar", country: "Bangladesh", level: "Master" },
-  { name: "Pan Tong", country: "China", level: "PhD", folder: "pan-tong" },
-  { name: "Ancy Sara Cheriyan", country: "India", level: "PhD" },
-  { name: "Zhu Caihua", country: "China", level: "PhD", folder: "zhu-chaihua" },
-  { name: "Yang Xiulun", country: "China", level: "PhD" },
-  { name: "Rabab Hasan Ali Yusuf Alshjjar", country: "Bahrain", level: "PhD", folder: "rabab" },
-  { name: "Xu Zhanghua", country: "Singapore", level: "PhD" },
+  { name: "Apri Junaidi", country: "Indonesia", level: "PhD", stage: "Awaiting viva" },
+  { name: "Saleh Dhekre Saber Saleh", country: "Iraq", level: "PhD", stage: "Awaiting viva" },
+  { name: "Abdulaziz Saidu Yalwa", country: "Nigeria", level: "PhD", stage: "Thesis notice submitted" },
+  { name: "Taofik Olasunkanmi Tafa", country: "Nigeria", level: "PhD", stage: "Thesis notice submitted" },
+  { name: "Sarafa Olasunkanmi Adeyemo", country: "Nigeria", level: "PhD", stage: "Thesis notice submitted" },
+  { name: "Alex James", country: "India", level: "PhD", stage: "Research" },
+  { name: "Lahib Nidhal Dawd Al-Yousuf", country: "Iraq", level: "PhD", stage: "Proposal preparation" },
+  { name: "Mazliana binti Mustapa", country: "Malaysia", level: "PhD", stage: "First Assessment" },
+  { name: "Hashmeya Mahmood Mohamed Barakat", country: "Bahrain", level: "PhD", stage: "Research" },
+  { name: "Jaafar Almoadhen", country: "Bahrain", level: "PhD", stage: "Proposal preparation" },
+  { name: "Rishma Fathima binti Basher", country: "Malaysia", level: "PhD", stage: "Proposal preparation" },
+  { name: "Sara Ahmed J. Almezal", country: "Bahrain", level: "PhD", stage: "Research" },
+  { name: "Mohamed Eiamin Mohamed Ali Elkanzi", country: "Bahrain", level: "PhD", stage: "First Assessment" },
+  { name: "Israk Entisar", country: "Bangladesh", level: "Master", stage: "Proposal preparation" },
+  { name: "Pan Tong", country: "China", level: "PhD", folder: "pan-tong", stage: "First Assessment" },
+  { name: "Ancy Sara Cheriyan", country: "India", level: "PhD", stage: "First Assessment" },
+  { name: "Zhu Caihua", country: "China", level: "PhD", folder: "zhu-chaihua", stage: "Research" },
+  { name: "Yang Xiulun", country: "China", level: "PhD", stage: "First Assessment" },
+  { name: "Rabab Hasan Ali Yusuf Alshjjar", country: "Bahrain", level: "PhD", folder: "rabab", stage: "Research" },
+  { name: "Xu Zhanghua", country: "Singapore", level: "PhD", stage: "Research" },
 ];
 
 const FLAGS = { Indonesia: "🇮🇩", Iraq: "🇮🇶", Nigeria: "🇳🇬", India: "🇮🇳", Malaysia: "🇲🇾", Bahrain: "🇧🇭", Bangladesh: "🇧🇩", China: "🇨🇳", Singapore: "🇸🇬" };

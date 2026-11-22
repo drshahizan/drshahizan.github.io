@@ -266,9 +266,7 @@
   // ================================================================ STUDENTS
   if ($("#current-list")) {
     $("#cur-session").textContent = "Session " + CURRENT_SESSION;
-    const counts = {};
-    CURRENT_STUDENTS.forEach((s) => (counts[s.country] = (counts[s.country] || 0) + 1));
-    let country = "", docs = {};
+    let docs = {};
     const docsHtml = (name) => {
       const list = docs[key(name)];
       const have = new Set((list || []).map((d) => d.type));
@@ -283,26 +281,41 @@
       const artLi = arts.length ? `<li><a href="${P("library")}?k=Article&q=${encodeURIComponent(name)}">📝 ${arts.length} article${arts.length > 1 ? "s" : ""}</a></li>` : "";
       return bar + `<ul class="docs">${items}${artLi}</ul>`;
     };
-    const render = () => {
-      $("#country-chips").innerHTML =
-        `<button class="chip ${!country ? "on" : ""}" data-c="">All <small>${CURRENT_STUDENTS.length}</small></button>` +
-        Object.entries(counts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-          .map(([c, n]) => `<button class="chip ${country === c ? "on" : ""}" data-c="${esc(c)}">${FLAGS[c] || ""} ${esc(c)} <small>${n}</small></button>`).join("");
-      $("#current-list").innerHTML = CURRENT_STUDENTS.filter((s) => !country || s.country === country)
-        .map((s) => `<div class="cur-card">
+    let order = STAGE_ORDER.slice(), stageOf = {};
+    CURRENT_STUDENTS.forEach((s) => (stageOf[key(s.name)] = s.stage || ""));
+    let stage = "";
+    const card = (s) => `<div class="cur-card">
           <div class="avatar g-cs">${esc(initials(s.name))}</div>
           <div><h3>${esc(s.name)}</h3>
-            <p><span class="flag">${FLAGS[s.country] || ""}</span> ${esc(s.country)}${s.level !== "PhD" ? ` · <span class="badge b-project">${esc(s.level)}</span>` : ""}
-</p>
+            <p><span class="flag">${FLAGS[s.country] || ""}</span> ${esc(s.country)}${s.level !== "PhD" ? ` · <span class="badge b-project">${esc(s.level)}</span>` : ""}</p>
             ${docsHtml(s.name)}</div>
-        </div>`).join("");
+        </div>`;
+    const render = () => {
+      const groups = order.map((g) => [g, CURRENT_STUDENTS.filter((s) => stageOf[key(s.name)] === g)]);
+      const other = CURRENT_STUDENTS.filter((s) => !order.includes(stageOf[key(s.name)]));
+      if (other.length) groups.push(["Other", other]);
+      $("#country-chips").innerHTML =
+        `<button class="chip ${!stage ? "on" : ""}" data-c="">All <small>${CURRENT_STUDENTS.length}</small></button>` +
+        groups.filter(([, l]) => l.length).map(([g, l]) => `<button class="chip ${stage === g ? "on" : ""}" data-c="${esc(g)}">${esc(g)} <small>${l.length}</small></button>`).join("");
+      $("#current-list").innerHTML = groups.filter(([g, l]) => l.length && (!stage || stage === g)).map(([g, l], i) => `
+        <section class="stage-group">
+          <h3 class="stage-h"><span class="stage-n">${order.indexOf(g) + 1 || "•"}</span>${esc(g)} <small>${l.length} student${l.length > 1 ? "s" : ""}</small></h3>
+          ${STAGE_INFO[g] ? `<p class="stage-d">${esc(STAGE_INFO[g])}</p>` : ""}
+          <div class="current-grid">${l.map(card).join("")}</div>
+        </section>`).join("");
     };
     $("#country-chips").addEventListener("click", (e) => {
       const b = e.target.closest("button");
-      if (b) { country = b.dataset.c; render(); }
+      if (b) { stage = b.dataset.c; render(); }
     });
     render();
-    hubPromise.then((r) => { if (r) { docs = docsByName(r.items); render(); } });
+    hubPromise.then((r) => {
+      if (!r) return;
+      docs = docsByName(r.items);
+      if (r.stages && r.stages.length) order = r.stages;
+      (r.students || []).forEach((x) => { if (x.stage) stageOf[key(x.name)] = x.stage; });
+      render();
+    });
   }
 
   if ($("#alumni-list")) {
