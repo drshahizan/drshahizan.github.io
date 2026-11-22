@@ -30,6 +30,16 @@
       menuBtn.setAttribute("aria-expanded", open);
     });
   }
+  // dropdowns: hover/focus on desktop (CSS), click for touch screens and keyboards
+  const dds = $$(".dd");
+  const closeDd = (except) => dds.forEach((d) => { if (d !== except) { d.classList.remove("open"); d.querySelector(".dd-btn").setAttribute("aria-expanded", "false"); } });
+  dds.forEach((d) => d.querySelector(".dd-btn").addEventListener("click", () => {
+    const open = d.classList.toggle("open");
+    d.querySelector(".dd-btn").setAttribute("aria-expanded", open);
+    closeDd(d);
+  }));
+  document.addEventListener("click", (e) => { if (!e.target.closest(".dd")) closeDd(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDd(); });
 
   // ---------- Hub data from Apps Script (cached for 3 minutes in this tab)
   const STAGES = [["FA_PROPOSAL", "Proposal · First Assessment"], ["FA_SLIDES", "Slides · First Assessment"], ["THESIS_EXAM", "Thesis for examination"], ["VIVA_SLIDES", "Viva slides"], ["THESIS_FINAL", "Final thesis"]];

@@ -850,3 +850,47 @@ body.adm-noscroll { overflow: hidden; }
 .footer-one .footer-links a:hover { color: #fff; text-decoration: underline; }
 .footer-one .visitor-badge img { display: block; height: 20px; }
 @media (max-width: 720px) { .footer-one { flex-direction: column; align-items: flex-start; } }
+
+/* ---------- Header: The Viva Path ---------- */
+.brand { gap: 10px; }
+.brand-mark { width: 34px; height: 34px; border-radius: 10px; background: var(--accent); color: #fff; display: grid; place-items: center; flex: none; }
+.brand-t { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-t b { font-family: var(--serif); font-size: 1.12rem; font-weight: 650; color: var(--ink); letter-spacing: -.01em; }
+.brand-t small { font-size: .7rem; color: var(--muted); font-weight: 500; letter-spacing: .02em; margin-top: 2px; }
+.links { align-items: center; gap: 22px; }
+.links a, .dd-btn { font-size: .95rem; }
+.dd { position: relative; }
+.dd-btn { background: none; border: 0; padding: 0; font: inherit; font-weight: 500; color: var(--ink-2); cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
+.dd-btn:hover, .dd.active > .dd-btn { color: var(--accent); }
+.dd.active > .dd-btn { position: relative; }
+.dd.active > .dd-btn::after { content: ""; position: absolute; left: 0; right: 0; bottom: -21px; height: 2px; background: var(--accent); }
+.dd-caret { font-size: .7rem; transition: transform .15s; }
+.dd-menu { position: absolute; top: calc(100% + 14px); left: -14px; min-width: 190px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 12px 30px rgba(20, 20, 40, .12); padding: 6px; display: none; z-index: 60; }
+.dd-menu::before { content: ""; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
+.dd-menu a { display: block; padding: 9px 12px; border-radius: 8px; white-space: nowrap; }
+.dd-menu a:hover { background: var(--alt); }
+.dd-menu a.active { color: var(--accent); background: #fdf0f3; }
+.dd-menu a.active::after { display: none; }
+.dd:hover .dd-menu, .dd:focus-within .dd-menu, .dd.open .dd-menu { display: block; }
+.dd:hover .dd-caret, .dd.open .dd-caret { transform: rotate(180deg); }
+.nav-cta { background: var(--accent); color: #fff !important; padding: 8px 18px; border-radius: 99px; font-weight: 600 !important; }
+.nav-cta:hover { filter: brightness(1.1); }
+.nav-cta.on { box-shadow: 0 0 0 3px #f6d5dd; }
+.links a.nav-cta.on::after { display: none; }
+@media (min-width: 721px) and (max-width: 960px) {
+  .links { gap: 14px; }
+  .links a, .dd-btn { font-size: .86rem; }
+  .brand-t small { display: none; }
+  .nav-cta { padding: 7px 14px; }
+}
+@media (max-width: 720px) {
+  .links { align-items: stretch; }
+  .dd { border-top: 1px solid var(--line); }
+  .dd-btn { padding: 14px 24px 6px; font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); cursor: default; }
+  .dd-caret, .dd.active > .dd-btn::after { display: none; }
+  .dd-menu, .dd:hover .dd-menu { display: block; position: static; border: 0; box-shadow: none; padding: 0 0 6px; background: none; min-width: 0; }
+  .dd-menu::before { display: none; }
+  .dd-menu a { padding: 10px 24px 10px 36px; border-top: 0 !important; border-radius: 0; }
+  .nav-cta { margin: 12px 24px 16px; text-align: center; border-top: 0 !important; }
+}
+@media (max-width: 720px) { .links { gap: 0; } .dd-btn { padding-top: 12px; } }
