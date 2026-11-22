@@ -810,3 +810,15 @@ body.adm-noscroll { overflow: hidden; }
 .stage-h small { color: var(--muted); font-weight: 400; font-size: .85rem; }
 .stage-n { width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font-size: .8rem; font-weight: 700; flex: none; }
 .stage-d { margin: 2px 0 10px 36px; font-size: .88rem; color: var(--muted); }
+/* admin: compact progress */
+.adm-tabs { margin: 0 0 10px; }
+.adm-matrix th.c, .adm-matrix td.c { text-align: center; }
+.adm-matrix tbody th { min-width: 200px; }
+.mx-overview td, .mx-overview tbody th { padding-top: 6px; padding-bottom: 6px; }
+.mx-overview td:nth-child(2) { white-space: nowrap; }
+.mx-prog { display: flex; align-items: center; gap: 8px; min-width: 130px; }
+.mx-bar { flex: 1; height: 6px; border-radius: 99px; background: var(--alt); overflow: hidden; }
+.mx-bar i { display: block; height: 100%; background: #2e8b57; }
+.mx-prog b { font-size: .82rem; min-width: 28px; }
+.adm-matrix .muted { color: #b8bdc9; }
+.mx-cap { caption-side: top; text-align: left; padding: 10px 12px; font-size: .9rem; color: var(--ink-2); background: #fdf0f3; }

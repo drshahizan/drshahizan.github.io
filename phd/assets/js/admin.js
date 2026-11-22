@@ -121,36 +121,73 @@
     $("a-drafts").innerHTML = drafts.length ? drafts.map(rowCard).join("") : '<p class="empty-note">No drafts yet.</p>';
 
     // matrix
-    const head = `<thead><tr><th>Student</th>${D.types.map((t) => `<th title="${esc(t.label)}">${esc(SHORT[t.id] || t.label)}</th>`).join("")}<th>Last</th></tr></thead>`;
-    const fm = $("f-mstage").value;
-    const groups = (D.stages || []).map((g) => ({ g, list: active.filter((st) => sameStage(st.stage, g.name)) }));
-    const known = new Set((D.stages || []).map((g) => g.name.toLowerCase()));
-    groups.push({ g: { name: "No stage set", docs: [] }, list: active.filter((st) => !known.has(String(st.stage || "").toLowerCase())) });
-    const ncol = D.types.length + 2;
-    const body = groups.filter((x) => x.list.length && (!fm || x.g.name === fm)).map(({ g, list }) =>
-      `<tr class="mx-group"><th colspan="${ncol}">${esc(g.name)} <small>${list.length} student${list.length > 1 ? "s" : ""}${g.deadline ? " · deadline " + esc(g.deadline) : ""}</small></th></tr>` +
-      list.map((st) => rowFor(st, g)).join("")).join("");
-    $("a-matrix").innerHTML = head + `<tbody>${body}</tbody>`;
-
+    renderMatrix(active, subs);
     renderAll();
   }
-  function rowFor(st, g) {
-    const subs = D.submissions.slice().sort(byNew);
-    const need = new Set(g.docs || []);
-      const mine = subs.filter((s) => s.studentId === st.id);
-      const cells = D.types.map((t) => {
-        const it = mine.filter((s) => s.type === t.id);
-        const rq = need.has(t.id) ? " mx-req" : "";
-        if (!it.length) return `<td class="mx-empty${rq}">${rq ? "✗" : "·"}</td>`;
-        const s = it[0];
-        const draft = t.private && !t.verify;
-        const cls = draft ? "st-private" : ST[s.status] || "st-pending";
-        const lab = draft ? "Draft" : LBL[s.status] || s.status;
-        return `<td class="${rq.trim()}"><span class="st ${cls}" title="${esc(s.title || s.label)}">${lab}${it.length > 1 ? " ×" + it.length : ""}</span></td>`;
+
+  // ---------------- progress: compact overview, or one stage with only its documents
+  let mview = "";
+  function renderMatrix(active, subs) {
+    const stagesL = (D.stages || []).slice();
+    const known = new Set(stagesL.map((g) => g.name.toLowerCase()));
+    const groupOf = (st) => stagesL.find((g) => sameStage(g.name, st.stage)) || { name: "No stage set", docs: [] };
+    const counts = {};
+    active.forEach((st) => { const g = groupOf(st).name; counts[g] = (counts[g] || 0) + 1; });
+    const tabs = [["", "Overview", active.length]].concat(stagesL.filter((g) => counts[g.name]).map((g) => [g.name, g.name, counts[g.name]]));
+    if (counts["No stage set"]) tabs.push(["No stage set", "No stage set", counts["No stage set"]]);
+    if (!tabs.some(([v]) => v === mview)) mview = "";
+    $("a-mtabs").innerHTML = tabs.map(([v, l, n]) => `<button type="button" class="chip ${v === mview ? "on" : ""}" data-mv="${esc(v)}">${esc(l)} <small>${n}</small></button>`).join("");
+
+    const mineOf = (st) => subs.filter((x) => x.studentId === st.id);
+    const done = (x) => x && x.status !== "Returned";
+    const nameCell = (st) => `<th><button class="link-btn" type="button" data-stu="${esc(st.id)}">${esc(st.name)}</button><small>${esc(st.country || st.level)}${st.level && st.level !== "PhD" ? " · " + esc(st.level) : ""}</small></th>`;
+    const lastCell = (mine) => `<td class="mx-last">${mine.length ? esc(when(mine[0]).split(",")[0]) : "—"}</td>`;
+    const order = (st) => { const k = stagesL.findIndex((g) => sameStage(g.name, st.stage)); return k < 0 ? 99 : k; };
+
+    if (!mview) {
+      // one short row per student
+      const rows = active.slice().sort((a, b) => order(a) - order(b) || a.name.localeCompare(b.name)).map((st) => {
+        const g = groupOf(st), mine = mineOf(st);
+        const req = g.docs || [];
+        const n = req.filter((id) => done(mine.find((x) => x.type === id))).length;
+        const prog = req.length
+          ? `<div class="mx-prog"><span class="mx-bar"><i style="width:${Math.round((100 * n) / req.length)}%"></i></span><b>${n}/${req.length}</b></div>`
+          : '<span class="muted">—</span>';
+        const pend = mine.filter((x) => !isPriv(x) && x.status === "Pending").length;
+        const drafts = mine.filter((x) => x.type === "DRAFT").length, arts = mine.filter((x) => x.type === "ARTICLE").length;
+        return `<tr>${nameCell(st)}<td><span class="st st-req">${esc(g.name)}</span></td><td>${prog}</td>
+          <td class="c">${pend ? `<span class="st st-pending">${pend}</span>` : '<span class="muted">0</span>'}</td>
+          <td class="c">${drafts || '<span class="muted">0</span>'}</td><td class="c">${arts || '<span class="muted">0</span>'}</td>${lastCell(mine)}</tr>`;
       }).join("");
-      const last = mine.length ? when(mine[0]).split(" ")[0] : "—";
-      return `<tr><th><button class="link-btn" type="button" data-stu="${esc(st.id)}">${esc(st.name)}</button><small>${esc(st.level)}${st.country ? " · " + esc(st.country) : ""}</small></th>${cells}<td class="mx-last">${esc(last)}</td></tr>`;
+      $("a-matrix").className = "adm-matrix mx-overview";
+      $("a-matrix").innerHTML = `<thead><tr><th>Student</th><th>Stage</th><th>Required documents</th><th class="c">To review</th><th class="c">Drafts</th><th class="c">Articles</th><th>Last</th></tr></thead><tbody>${rows}</tbody>`;
+      return;
+    }
+
+    // one stage: only its required documents (plus drafts and articles when nothing is required)
+    const g = stagesL.find((x) => x.name === mview) || { name: mview, docs: [] };
+    const cols = (g.docs && g.docs.length ? g.docs : ["DRAFT", "ARTICLE"]).map((id) => D.tmap[id]).filter(Boolean);
+    const list = active.filter((st) => groupOf(st).name === g.name).sort((a, b) => a.name.localeCompare(b.name));
+    const rows = list.map((st) => {
+      const mine = mineOf(st);
+      const cells = cols.map((t) => {
+        const it = mine.filter((x) => x.type === t.id);
+        const req = (g.docs || []).includes(t.id);
+        if (!it.length) return `<td class="c mx-empty${req ? " mx-req" : ""}">${req ? "✗" : "·"}</td>`;
+        const x = it[0], draft = t.private && !t.verify;
+        return `<td class="c"><span class="st ${draft ? "st-private" : ST[x.status] || "st-pending"}" title="${esc(x.title || x.label)}">${draft ? "Draft" : LBL[x.status] || esc(x.status)}${it.length > 1 ? " ×" + it.length : ""}</span></td>`;
+      }).join("");
+      const n = (g.docs || []).filter((id) => done(mine.find((x) => x.type === id))).length;
+      return `<tr>${nameCell(st)}${cells}${g.docs && g.docs.length ? `<td class="c"><b>${n}/${g.docs.length}</b></td>` : ""}${lastCell(mine)}</tr>`;
+    }).join("");
+    $("a-matrix").className = "adm-matrix";
+    $("a-matrix").innerHTML = `<caption class="mx-cap">${esc(g.name)}${g.deadline ? ` · deadline <b>${esc(g.deadline)}</b>` : ""}</caption>
+      <thead><tr><th>Student</th>${cols.map((t) => `<th class="c" title="${esc(t.label)}">${esc(SHORT[t.id] || t.label)}</th>`).join("")}${g.docs && g.docs.length ? '<th class="c">Done</th>' : ""}<th>Last</th></tr></thead><tbody>${rows}</tbody>`;
   }
+  $("a-mtabs").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-mv]");
+    if (b && D) { mview = b.dataset.mv; renderMatrix(D.students.filter((x) => x.active), D.submissions.slice().sort(byNew)); }
+  });
   const SHORT = { FA_PROPOSAL: "FA proposal", FA_SLIDES: "FA slides", ETHICS_FORM: "Ethics form", AI_FORM: "AI declaration", LOGBOOK_FORM: "Logbook", NHP_FORM: "NHP checklist", DRAFT: "Drafts", THESIS_EXAM: "Exam thesis",
     VIVA_SLIDES: "Viva slides", THESIS_FINAL: "Final thesis", ARTICLE: "Articles" };
 
@@ -168,10 +205,10 @@
   // ---------------- all submissions table
   function fillFilters() {
     const keep = (id) => $(id).value;
-    const v = [keep("f-student"), keep("f-type"), keep("f-status"), keep("f-stage"), keep("f-mstage")];
+    const v = [keep("f-student"), keep("f-type"), keep("f-status"), keep("f-stage")];
     const stOpts = (all) => `<option value="">${all}</option>` + (D.stages || []).map((g) => `<option>${esc(g.name)}</option>`).join("");
-    $("f-stage").innerHTML = stOpts("All stages"); $("f-mstage").innerHTML = stOpts("All stages");
-    $("f-stage").value = v[3]; $("f-mstage").value = v[4];
+    $("f-stage").innerHTML = stOpts("All stages");
+    $("f-stage").value = v[3];
     $("f-student").innerHTML = '<option value="">All students</option>' +
       D.students.slice().sort((a, b) => a.name.localeCompare(b.name)).map((s) => `<option value="${esc(s.id)}">${esc(s.name)}</option>`).join("");
     $("f-type").innerHTML = '<option value="">All types</option>' + D.types.map((t) => `<option value="${esc(t.id)}">${esc(t.label)}</option>`).join("");
@@ -200,7 +237,6 @@
         <td>${openBtn(s)}</td></tr>`).join("")
         : '<tr><td colspan="6" class="empty-note">No submissions match.</td></tr>') + "</tbody>";
   }
-  $("f-mstage").addEventListener("change", (e) => { e.stopPropagation(); if (D) render(); });
   ["f-q", "f-stage", "f-student", "f-type", "f-status"].forEach((id) => $(id).addEventListener("input", () => D && renderAll()));
 
   // ---------------- status changes
