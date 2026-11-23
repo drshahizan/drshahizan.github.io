@@ -894,3 +894,21 @@ body.adm-noscroll { overflow: hidden; }
   .nav-cta { margin: 12px 24px 16px; text-align: center; border-top: 0 !important; }
 }
 @media (max-width: 720px) { .links { gap: 0; } .dd-btn { padding-top: 12px; } }
+
+/* ---------- First Assessment schedule ---------- */
+#schedule { scroll-margin-top: 80px; }
+.fa-sched { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px; }
+.sched { display: flex; gap: 16px; padding: 16px 18px; align-items: flex-start; }
+.sched.done { opacity: .6; }
+.sched-date { flex: none; width: 64px; text-align: center; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: #fff; }
+.sched-date span { display: block; background: var(--accent); color: #fff; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 3px 0; }
+.sched-date b { display: block; font-family: var(--serif); font-size: 1.7rem; line-height: 1.15; padding-top: 4px; }
+.sched-date small { display: block; font-size: .72rem; color: var(--muted); padding-bottom: 5px; }
+.sched-body h3 { margin: 0 0 4px; font-size: 1.02rem; }
+.sched-body p { margin: 0 0 3px; font-size: .88rem; color: var(--ink-2); line-height: 1.5; }
+.sched-body .muted { color: var(--muted); }
+.sched-note { font-style: italic; }
+.fa-sched-note { margin-top: 8px; font-size: .85rem; }
+.stg-sched { margin: 10px 0 0; padding: 10px 12px; border-radius: 8px; background: #eef6f1; font-size: .9rem; line-height: 1.5; }
+.stg-sched span { color: var(--ink-2); font-size: .85rem; }
+@media (max-width: 480px) { .fa-sched { grid-template-columns: 1fr; } }

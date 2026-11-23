@@ -147,6 +147,7 @@
     const dl = d ? `<p class="stg-dl ${d.closed ? "closed" : d.left <= 3 ? "soon" : ""}">${d.closed ? "Closed" : "Deadline"}: <b>${esc(d.nice)}</b>${d.closed ? "" : ` · ${d.left <= 0 ? "today" : d.left === 1 ? "1 day left" : d.left + " days left"}`}</p>` : "";
     box.innerHTML = `<div class="stg-head"><div><p class="stg-k">Your stage</p><h3>${esc(st.name)}</h3></div>
         ${docs.length ? `<div class="stg-prog"><b>${n}/${docs.length}</b><span>submitted</span></div>` : ""}</div>
+      ${(me.schedule || []).map((x) => `<p class="stg-sched">📅 <b>Your ${esc(x.event)}:</b> ${esc(x.date)}${x.time ? ", " + esc(x.time) : " (time to be confirmed)"}<br><span>📍 ${esc(x.venue)}</span></p>`).join("")}
       ${dl}${st.note ? `<p class="stg-note">${esc(st.note)}</p>` : ""}
       ${docs.length ? `<div class="stg-bar"><i style="width:${Math.round((100 * n) / docs.length)}%"></i></div><ul class="stg-list">${rows}</ul>` : ""}
       ${st.name === "First Assessment" ? '<p class="stg-more"><a href="first-assessment.html">Requirements, forms and Turnitin →</a></p>' : ""}`;
