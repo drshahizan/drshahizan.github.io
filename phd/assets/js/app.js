@@ -480,13 +480,12 @@
       const card = (x, done) => {
         const d = x.dateIso ? new Date(x.dateIso + "T12:00:00+08:00") : null;
         const days = d ? Math.round((Date.parse(x.dateIso) - Date.parse(todayMY)) / 864e5) : null;
-        const [where, online] = String(x.venue).split(/\s*\/\s*(?=Online)/i);
         return `<article class="card sched${done ? " done" : ""}">
           <div class="sched-date">${d ? `<span>${d.toLocaleDateString("en-GB", { month: "short" })}</span><b>${d.getDate()}</b><small>${d.toLocaleDateString("en-GB", { weekday: "short" })}</small>` : "<b>TBC</b>"}</div>
           <div class="sched-body">
             <h3>${esc(x.student)}</h3>
             <p class="sched-when">🕑 ${d ? esc(x.date) + " · " : ""}${x.time ? esc(x.time) : '<span class="muted">time to be confirmed</span>'}${done ? ' · <span class="st st-hidden">Completed</span>' : days === 0 ? ' · <span class="st st-pending">Today</span>' : days > 0 && days <= 7 ? ` · <span class="st st-pending">In ${days} day${days > 1 ? "s" : ""}</span>` : ""}</p>
-            ${where ? `<p class="sched-where">📍 ${esc(where)}${online ? `<br>💻 ${esc(online)}` : ""}</p>` : ""}
+            ${x.venue ? `<p class="sched-where">📍 ${esc(x.venue)}</p>` : ""}
             ${x.note && !(x.note === "Time to be confirmed" && !x.time) ? `<p class="sched-note">${esc(x.note)}</p>` : ""}
           </div></article>`;
       };
