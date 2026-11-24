@@ -97,6 +97,28 @@
           </section>
         </div>
 
+        <div class="adm-modal" id="a-fb-modal" hidden>
+          <div class="adm-dialog card adm-fb" role="dialog" aria-modal="true" aria-labelledby="fb-title">
+            <button class="link-btn adm-close" id="fb-close" type="button" aria-label="Close">✕</button>
+            <h2 id="fb-title">Give feedback</h2>
+            <p class="muted-p" id="fb-doc"></p>
+            <form id="fb-form">
+              <label class="f" for="fb-link">Link to the commented file <span class="muted">(Google Drive / OneDrive)</span></label>
+              <input class="t" id="fb-link" type="url" inputmode="url" placeholder="https://drive.google.com/…">
+              <p class="f-help">Upload the commented file to your Drive, set sharing to the student (or anyone with the link), then paste the link.</p>
+              <label class="f" for="fb-note">Note to the student <span class="muted">(optional)</span></label>
+              <textarea class="t" id="fb-note" rows="4" maxlength="2000" placeholder="Main points to address…"></textarea>
+              <fieldset class="fb-dec"><legend class="f">Decision</legend>
+                <label><input type="radio" name="fb-dec" value="Needs revision" checked> Needs revision</label>
+                <label><input type="radio" name="fb-dec" value="Approved"> Approved</label>
+              </fieldset>
+              <label class="fb-notify"><input type="checkbox" id="fb-notify" checked> Email the student</label>
+              <button class="btn primary sb-btn" id="fb-btn" type="submit">Send feedback</button>
+              <p class="msg" id="fb-m" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+
         <div class="adm-modal" id="a-modal" hidden>
           <div class="adm-dialog card" role="dialog" aria-modal="true" aria-labelledby="a-st-name">
             <button class="link-btn adm-close" id="a-close" type="button" aria-label="Close">✕</button>

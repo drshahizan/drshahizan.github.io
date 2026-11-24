@@ -154,6 +154,15 @@
     box.hidden = false;
   }
 
+  // ---------------- supervisor feedback
+  const safe = (u) => (/^https:\/\//i.test(u || "") ? u : "");
+  const fbBox = (f) => !f ? "" : `<div class="fb ${f.decision === "Approved" ? "fb-ok" : "fb-rev"}">
+      <p class="fb-h">💬 <b>Supervisor feedback</b> · <span>${esc(f.decision)}</span> · <small>${esc(String(f.at).split(",")[0])}</small></p>
+      ${f.note ? `<p class="fb-note">${esc(f.note)}</p>` : ""}
+      ${safe(f.link) ? `<a class="btn ghost sb-small" href="${esc(f.link)}" target="_blank" rel="noopener">Open commented file</a>` : ""}
+      ${f.decision === "Needs revision" ? '<p class="fb-tip">Revise the document, then use <b>Replace</b> to submit the new version.</p>' : ""}
+    </div>`;
+
   // ---------------- documents dashboard
   function renderDocs() {
     renderStage();
@@ -168,6 +177,7 @@
             <small>${esc(it.submittedAt)}${it.version ? " · " + esc(it.version) : ""}</small></div>
             ${chip(it, t)}
             ${t.open ? `<button class="link-btn" data-open="${esc(t.id)}" data-ref="${esc(it.reference)}">Replace</button>` : ""}
+            ${it.feedback ? `<div class="fb-wrap">${fbBox(it.feedback)}</div>` : ""}
           </li>`).join("");
         return `<div class="doc">${head}${list ? `<ul class="doc-items">${list}</ul>` : '<p class="doc-none">None yet.</p>'}
           ${t.open ? `<button class="btn ghost sb-small" data-open="${esc(t.id)}">+ Add ${t.entry === "label" ? "a draft" : "an article"}</button>` : ""}</div>`;
@@ -178,7 +188,7 @@
           <div>${it ? `<small>Submitted ${esc(it.submittedAt)}${it.version ? " · " + esc(it.version) : ""}</small>` : '<small class="doc-none">Not submitted</small>'}</div>
           ${it ? chip(it, t) : ""}
           ${t.open ? `<button class="btn ${it ? "ghost" : "primary"} sb-small" data-open="${esc(t.id)}"${it ? ` data-ref="${esc(it.reference)}"` : ""}>${it ? "Replace" : "Submit"}</button>` : ""}
-        </div></div>`;
+        </div>${it ? fbBox(it.feedback) : ""}</div>`;
     }).join("");
   }
 
@@ -196,7 +206,7 @@
     const h = me.history || [];
     $("hist-count").textContent = h.length ? "(" + h.length + ")" : "";
     if (!h.length) { $("hist").innerHTML = '<tbody><tr><td class="doc-none">Nothing submitted yet.</td></tr></tbody>'; return; }
-    $("hist").innerHTML = `<thead><tr><th>Date</th><th>Document</th><th>Version</th><th>Status</th><th>Reference</th><th></th></tr></thead><tbody>` +
+    $("hist").innerHTML = `<thead><tr><th>Date</th><th>Document</th><th>Version</th><th>Status</th><th>Feedback</th><th>Reference</th><th></th></tr></thead><tbody>` +
       h.map((x, i) => {
         const what = x.type === "ARTICLE" ? x.title : x.type === "DRAFT" ? x.label : "";
         const [c, l] = isForm(x.type) ? (FORM_ST[x.status] || FORM_ST.Pending)
@@ -206,6 +216,7 @@
           <td data-l="Document"><b>${esc(x.typeLabel)}</b>${what ? `<br><span class="muted">${esc(what)}</span>` : ""}</td>
           <td data-l="Version">${esc(x.version || "–")}</td>
           <td data-l="Status"><span class="st ${c}">${l}</span></td>
+          <td data-l="Feedback">${x.feedback ? `<span class="st ${x.feedback.decision === "Approved" ? "st-library" : "st-returned"}">${esc(x.feedback.decision)}</span>${safe(x.feedback.link) ? ` <a href="${esc(x.feedback.link)}" target="_blank" rel="noopener">Commented file</a>` : ""}` : '<span class="muted">–</span>'}</td>
           <td data-l="Reference"><code>${esc(x.reference)}</code></td>
           <td class="hist-act">${x.link ? `<a href="${esc(x.link)}" target="_blank" rel="noopener">Open</a>` : ""}<button type="button" class="link-btn" data-receipt="${i}">Receipt</button></td>
         </tr>`;

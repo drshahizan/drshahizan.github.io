@@ -95,7 +95,7 @@
     const subs = D.submissions.slice().sort(byNew);
     const active = D.students.filter((s) => s.active);
     const weekAgo = Date.now() - 7 * 864e5;
-    const pending = subs.filter((s) => !isPriv(s) && (s.status || "Pending") === "Pending");
+    const pending = subs.filter((s) => !isPriv(s) && (s.status || "Pending") === "Pending" && !s.feedback);
     const withAny = new Set(subs.map((s) => s.studentId));
     const none = active.filter((s) => !withAny.has(s.id));
     const week = D.history.filter((h) => /^(New|Replaced)$/.test(h.action) && tsOf(h) >= weekAgo).length;
@@ -197,8 +197,9 @@
         <div class="adm-meta"><b>${esc(sName(s.studentId, s.name))}</b> · ${esc(s.typeLabel || s.type)}${s.version ? " · v" + esc(s.version) : ""} · <span class="muted">${esc(when(s))}</span></div>
         <div class="adm-title">${titleOf(s)}</div>
         ${s.note ? `<div class="adm-note">“${esc(s.note)}”</div>` : ""}
+        ${s.feedback ? `<div class="adm-fbline">💬 <span class="st ${s.feedback.decision === "Approved" ? "st-library" : "st-returned"}">${esc(s.feedback.decision)}</span> <small>${esc(String(s.feedback.at).split(",")[0])}</small>${safeUrl(s.feedback.link) ? ` · <a href="${esc(s.feedback.link)}" target="_blank" rel="noopener">commented file</a>` : ""}${s.feedback.note ? ` · <span class="muted">${esc(s.feedback.note.slice(0, 90))}${s.feedback.note.length > 90 ? "…" : ""}</span>` : ""}</div>` : ""}
       </div>
-      <div class="adm-side">${isPriv(s) ? chip("", true) : ""}${openBtn(s)}${stBtns(s)}</div>
+      <div class="adm-side">${isPriv(s) ? chip("", true) : ""}${openBtn(s)}<button type="button" class="btn ghost sb-small" data-fb="${esc(s.reference)}">💬 ${s.feedback ? "Update feedback" : "Feedback"}</button>${stBtns(s)}</div>
     </div>`;
   }
 
@@ -234,7 +235,7 @@
         <td data-l="Title">${titleOf(s)}</td>
         <td data-l="Status">${isPriv(s) ? chip("", true) : `<select class="t adm-sel" data-ref="${esc(s.reference)}" aria-label="Status">${optsFor(s).map((x) =>
           `<option${x === s.status || (x === "Card" && s.status === "Approved") ? " selected" : ""}>${x}</option>`).join("")}</select>`}</td>
-        <td>${openBtn(s)}</td></tr>`).join("")
+        <td class="adm-acts">${openBtn(s)}<button type="button" class="link-btn" data-fb="${esc(s.reference)}" title="Give feedback">💬${s.feedback ? " ✓" : ""}</button></td></tr>`).join("")
         : '<tr><td colspan="6" class="empty-note">No submissions match.</td></tr>') + "</tbody>";
   }
   ["f-q", "f-stage", "f-student", "f-type", "f-status"].forEach((id) => $(id).addEventListener("input", () => D && renderAll()));
@@ -258,6 +259,8 @@
   document.addEventListener("click", (ev) => {
     const b = ev.target.closest(".adm-stb");
     if (b && D) return setStatus(b.dataset.ref, b.dataset.st, b);
+    const f = ev.target.closest("[data-fb]");
+    if (f && D) return openFeedback(f.dataset.fb);
     const u = ev.target.closest("[data-stu]");
     if (u && D) return showStudent(u.dataset.stu);
   });
@@ -289,13 +292,49 @@
   function closeModal() { $("a-modal").hidden = true; document.body.classList.remove("adm-noscroll"); }
   $("a-close").onclick = closeModal;
   $("a-modal").addEventListener("click", (ev) => { if (ev.target === $("a-modal")) closeModal(); });
-  document.addEventListener("keydown", (ev) => { if (ev.key === "Escape" && !$("a-modal").hidden) closeModal(); });
+  document.addEventListener("keydown", (ev) => { if (ev.key !== "Escape") return; if (!$("a-fb-modal").hidden) closeFb(); else if (!$("a-modal").hidden) closeModal(); });
+
+  // ---------------- feedback
+  let fbRef = null;
+  function openFeedback(ref) {
+    const s = D.submissions.find((x) => x.reference === ref);
+    if (!s) return;
+    fbRef = ref;
+    $("fb-doc").textContent = `${sName(s.studentId, s.name)} · ${s.typeLabel}${s.version ? " · v" + s.version : ""}${s.label ? " · " + s.label : ""}`;
+    $("fb-link").value = (s.feedback && s.feedback.link) || "";
+    $("fb-note").value = (s.feedback && s.feedback.note) || "";
+    const dec = (s.feedback && s.feedback.decision) || "Needs revision";
+    document.querySelectorAll('input[name="fb-dec"]').forEach((r) => (r.checked = r.value === dec));
+    $("fb-notify").checked = true; msg("fb-m", "");
+    $("a-fb-modal").hidden = false; document.body.classList.add("adm-noscroll"); $("fb-link").focus();
+  }
+  const closeFb = () => { $("a-fb-modal").hidden = true; if ($("a-modal").hidden) document.body.classList.remove("adm-noscroll"); };
+  $("fb-close").onclick = closeFb;
+  $("a-fb-modal").addEventListener("click", (ev) => { if (ev.target === $("a-fb-modal")) closeFb(); });
+  $("fb-form").onsubmit = async (ev) => {
+    ev.preventDefault();
+    const link = $("fb-link").value.trim(), note = $("fb-note").value.trim();
+    const decision = (document.querySelector('input[name="fb-dec"]:checked') || {}).value;
+    if (!link && !note) return msg("fb-m", "Add the link to the commented file or a note.");
+    if (link && !/^https:\/\//i.test(link)) return msg("fb-m", "The link must start with https://");
+    const b = $("fb-btn"); b.disabled = true; b.textContent = "Sending…"; msg("fb-m", "");
+    try {
+      const r = await api("admin-feedback", { token, reference: fbRef, link, note, decision, notify: $("fb-notify").checked });
+      const s = D.submissions.find((x) => x.reference === fbRef);
+      s.feedback = r.feedback; if (r.status) s.status = r.status;
+      D.history.push(Object.assign({}, s, { action: `Feedback → ${decision} (admin)`, ts: new Date().toISOString(), submittedAt: "just now" }));
+      closeFb(); render(); if (!$("a-modal").hidden) showStudent(s.studentId);
+      msg("a-msg", `Feedback sent to ${sName(s.studentId, s.name)} (${decision}).` +
+        (r.emailed ? " The student has been emailed." : r.emailError ? " Email not sent: " + r.emailError : ""), !r.emailError);
+    } catch (e) { msg("fb-m", e.message); }
+    finally { b.disabled = false; b.textContent = "Send feedback"; }
+  };
 
   // ---------------- CSV
   $("a-csv").onclick = () => {
-    const cols = ["reference", "submittedAt", "studentId", "name", "typeLabel", "label", "title", "version", "status", "link", "note"];
+    const cols = ["reference", "submittedAt", "studentId", "name", "typeLabel", "label", "title", "version", "status", "link", "note", "feedback"];
     const q = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
-    const rows = filtered().map((s) => cols.map((c) => q(c === "name" ? sName(s.studentId, s.name) : c === "status" && isPriv(s) ? "Private" : s[c])).join(","));
+    const rows = filtered().map((s) => cols.map((c) => q(c === "name" ? sName(s.studentId, s.name) : c === "status" && isPriv(s) ? "Private" : c === "feedback" ? (s.feedback ? s.feedback.decision + " " + (s.feedback.link || "") : "") : s[c])).join(","));
     const blob = new Blob(["﻿" + [cols.join(",")].concat(rows).join("\r\n")], { type: "text/csv;charset=utf-8" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob); a.download = "phd-submissions-" + new Date().toISOString().slice(0, 10) + ".csv";
