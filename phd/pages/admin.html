@@ -64,7 +64,7 @@
             </div>
           </div>
           <nav class="adm-nav" role="tablist" aria-label="Dashboard pages">
-            <a href="#review" data-view="review" role="tab">📥 Belum disemak <b id="a-queue-n"></b></a>
+            <a href="#review" data-view="review" role="tab">📥 To review <b id="a-queue-n"></b></a>
             <a href="#students" data-view="students" role="tab">👥 Students</a>
             <a href="#submissions" data-view="submissions" role="tab">🗂️ All submissions <b id="a-all-n"></b></a>
           </nav>
@@ -72,7 +72,7 @@
 
           <div class="adm-view" id="v-review">
             <div class="stats adm-kpis" id="a-kpis"></div>
-            <div class="adm-head"><p class="muted-p">Dikumpulkan ikut pelajar. Klik <b>✓ Telah disemak</b> selepas menyemak, atau <b>💬 Maklum balas</b> untuk hantar komen. Item akan keluar dari senarai ini. <b>Laman web</b> hanya menentukan sama ada dokumen dipaparkan di laman awam.</p>
+            <div class="adm-head"><p class="muted-p">Grouped by student. Click <b>✓ Mark as reviewed</b> once you have checked a document, or <b>💬 Feedback</b> to send comments. Reviewed items leave this list. <b>Website</b> only controls whether a document is shown on the public site.</p>
               <div class="adm-actions"><button class="btn ghost sb-small" id="q-expand" type="button">Expand all</button><button class="btn ghost sb-small" id="q-collapse" type="button">Collapse all</button></div></div>
             <div id="a-queue"></div>
           </div>
@@ -110,9 +110,9 @@
               <label class="f" for="fb-note">Note to the student <span class="muted">(optional)</span></label>
               <textarea class="t" id="fb-note" rows="4" maxlength="2000" placeholder="Main points to address…"></textarea>
               <fieldset class="fb-dec"><legend class="f">Decision</legend>
-                <label><input type="radio" name="fb-dec" value="Reviewed"> Telah disemak</label>
-                <label><input type="radio" name="fb-dec" value="Needs revision" checked> Perlu dibetulkan</label>
-                <label><input type="radio" name="fb-dec" value="Approved"> Diluluskan</label>
+                <label><input type="radio" name="fb-dec" value="Reviewed"> Reviewed</label>
+                <label><input type="radio" name="fb-dec" value="Needs revision" checked> Needs revision</label>
+                <label><input type="radio" name="fb-dec" value="Approved"> Approved</label>
               </fieldset>
               <label class="fb-notify"><input type="checkbox" id="fb-notify" checked> Email the student</label>
               <button class="btn primary sb-btn" id="fb-btn" type="submit">Send feedback</button>

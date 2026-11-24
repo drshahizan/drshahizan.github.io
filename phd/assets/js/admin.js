@@ -123,14 +123,14 @@
   const titleOf = (s) => s.label ? `${esc(s.label)}${s.title ? " — " + esc(titleCase(s.title)) : ""}` : esc(titleCase(s.title) || "(untitled)");
   const openBtn = (s) => safeUrl(s.link) ? `<a class="btn ghost sb-small" href="${esc(s.link)}" target="_blank" rel="noopener">Open</a>` : "";
   // review state (from feedback) and website display (Status column) are shown separately
-  const REV = { Reviewed: ["st-library", "✓ Telah disemak"], Approved: ["st-library", "✓ Diluluskan"], "Needs revision": ["st-returned", "Perlu dibetulkan"] };
-  const revChip = (s) => { const [c, l] = s.feedback ? REV[s.feedback.decision] || REV.Reviewed : ["st-hidden", "Belum disemak"]; return `<span class="st ${c}">${l}</span>`; };
-  const WEB = { Pending: "Belum ditentukan", Card: "Tajuk sahaja", Approved: "Tajuk sahaja", Library: "Dalam Library", Hidden: "Tidak dipaparkan" };
+  const REV = { Reviewed: ["st-library", "✓ Reviewed"], Approved: ["st-library", "✓ Approved"], "Needs revision": ["st-returned", "Needs revision"] };
+  const revChip = (s) => { const [c, l] = s.feedback ? REV[s.feedback.decision] || REV.Reviewed : ["st-hidden", "Not reviewed"]; return `<span class="st ${c}">${l}</span>`; };
+  const WEB = { Pending: "Not decided", Card: "Title only", Approved: "Title only", Library: "In Library", Hidden: "Not shown" };
   const showsOnWeb = (s) => !isPriv(s) && !isForm(s);       // drafts and forms are never public
   const webSel = (s) => !showsOnWeb(s) ? "" :
-    `<label class="web-sel"><span>Laman web</span><select class="t adm-sel" data-ref="${esc(s.reference)}" aria-label="Paparan di laman web">${STATUSES.filter((x) => WEB[x]).map((x) =>
+    `<label class="web-sel"><span>Website</span><select class="t adm-sel" data-ref="${esc(s.reference)}" aria-label="Display on the website">${STATUSES.filter((x) => WEB[x]).map((x) =>
       `<option value="${x}"${x === s.status || (x === "Card" && s.status === "Approved") ? " selected" : ""}>${WEB[x]}</option>`).join("")}</select></label>`;
-  const revBtns = (s) => `${s.feedback ? "" : `<button type="button" class="btn primary sb-small" data-rev="${esc(s.reference)}">✓ Telah disemak</button>`}<button type="button" class="btn ghost sb-small" data-fb="${esc(s.reference)}">💬 ${s.feedback ? "Kemas kini maklum balas" : "Maklum balas"}</button>`;
+  const revBtns = (s) => `${s.feedback ? "" : `<button type="button" class="btn primary sb-small" data-rev="${esc(s.reference)}">✓ Mark as reviewed</button>`}<button type="button" class="btn ghost sb-small" data-fb="${esc(s.reference)}">💬 ${s.feedback ? "Update feedback" : "Feedback"}</button>`;
 
   function render() {
     const subs = D.submissions.slice().sort(byNew);
@@ -206,7 +206,7 @@
           <td class="c">${drafts || '<span class="muted">0</span>'}</td><td class="c">${arts || '<span class="muted">0</span>'}</td>${lastCell(mine)}</tr>`;
       }).join("");
       $("a-matrix").className = "adm-matrix mx-overview";
-      $("a-matrix").innerHTML = `<thead><tr><th>Student</th><th>Stage</th><th>Required documents</th><th class="c">Belum disemak</th><th class="c">Drafts</th><th class="c">Articles</th><th>Last</th></tr></thead><tbody>${rows}</tbody>`;
+      $("a-matrix").innerHTML = `<thead><tr><th>Student</th><th>Stage</th><th>Required documents</th><th class="c">Not reviewed</th><th class="c">Drafts</th><th class="c">Articles</th><th>Last</th></tr></thead><tbody>${rows}</tbody>`;
       return;
     }
 
@@ -221,7 +221,7 @@
         const req = (g.docs || []).includes(t.id);
         if (!it.length) return `<td class="c mx-empty${req ? " mx-req" : ""}">${req ? "✗" : "·"}</td>`;
         const x = it[0];
-        const [c, l] = x.feedback ? (x.feedback.decision === "Needs revision" ? ["st-returned", "Betulkan"] : ["st-library", "✓ Disemak"]) : ["st-pending", "Belum"];
+        const [c, l] = x.feedback ? (x.feedback.decision === "Needs revision" ? ["st-returned", "Revise"] : ["st-library", "✓ Reviewed"]) : ["st-pending", "Not yet"];
         return `<td class="c"><span class="st ${c}" title="${esc(x.typeLabel)}">${l}${it.length > 1 ? " ×" + it.length : ""}</span></td>`;
       }).join("");
       const n = (g.docs || []).filter((id) => done(mine.find((x) => x.type === id))).length;
@@ -260,8 +260,8 @@
     $("f-student").innerHTML = '<option value="">All students</option>' +
       D.students.slice().sort((a, b) => a.name.localeCompare(b.name)).map((s) => `<option value="${esc(s.id)}">${esc(s.name)}</option>`).join("");
     $("f-type").innerHTML = '<option value="">All types</option>' + D.types.map((t) => `<option value="${esc(t.id)}">${esc(t.label)}</option>`).join("");
-    $("f-status").innerHTML = '<option value="">Semua</option><optgroup label="Semakan"><option value="rev:no">Belum disemak</option><option value="rev:yes">Telah disemak</option><option value="rev:fix">Perlu dibetulkan</option></optgroup>' +
-      '<optgroup label="Laman web">' + ["Pending", "Card", "Library", "Hidden"].map((x) => `<option value="${x}">${WEB[x]}</option>`).join("") + "</optgroup>";
+    $("f-status").innerHTML = '<option value="">All</option><optgroup label="Review"><option value="rev:no">Not reviewed</option><option value="rev:yes">Reviewed</option><option value="rev:fix">Needs revision</option></optgroup>' +
+      '<optgroup label="Website">' + ["Pending", "Card", "Library", "Hidden"].map((x) => `<option value="${x}">${WEB[x]}</option>`).join("") + "</optgroup>";
     $("f-student").value = v[0]; $("f-type").value = v[1]; $("f-status").value = v[2];
   }
   function filtered() {
@@ -282,15 +282,15 @@
     $("a-pager").innerHTML = all.length > PER ? `<button class="btn ghost sb-small" data-pg="${page - 1}"${page === 1 ? " disabled" : ""}>‹ Prev</button>
       <span>${(page - 1) * PER + 1}–${Math.min(page * PER, all.length)} of ${all.length}</span>
       <button class="btn ghost sb-small" data-pg="${page + 1}"${page === pages ? " disabled" : ""}>Next ›</button>` : all.length ? `<span>${all.length} submission${all.length > 1 ? "s" : ""}</span>` : "";
-    $("a-all").innerHTML = `<thead><tr><th>Date</th><th>Student</th><th>Document</th><th>Title</th><th>Semakan</th><th>Laman web</th><th></th></tr></thead><tbody>` +
+    $("a-all").innerHTML = `<thead><tr><th>Date</th><th>Student</th><th>Document</th><th>Title</th><th>Review</th><th>Website</th><th></th></tr></thead><tbody>` +
       (list.length ? list.map((s) => `<tr>
         <td data-l="Date" title="${esc(whenT(s))}">${esc(when(s))}</td>
         <td data-l="Student"><button class="link-btn" type="button" data-stu="${esc(s.studentId)}">${esc(sName(s.studentId, s.name))}</button></td>
         <td data-l="Document" title="${esc(s.typeLabel)}">${esc(SHORT[s.type] === "Drafts" ? "Draft" : SHORT[s.type] === "Articles" ? "Article" : SHORT[s.type] || s.typeLabel || s.type)}${ver(s.version) ? ` <small>${esc(ver(s.version))}</small>` : ""}</td>
         <td data-l="Title">${titleOf(s)}</td>
-        <td data-l="Semakan">${revChip(s)}${s.feedback ? "" : ` <button type="button" class="link-btn" data-rev="${esc(s.reference)}" title="Tandakan telah disemak">✓</button>`}</td>
-        <td data-l="Laman web">${showsOnWeb(s) ? webSel(s) : '<span class="muted">—</span>'}</td>
-        <td class="adm-acts">${openBtn(s)}<button type="button" class="link-btn" data-fb="${esc(s.reference)}" title="Maklum balas">💬</button></td></tr>`).join("")
+        <td data-l="Review">${revChip(s)}${s.feedback ? "" : ` <button type="button" class="link-btn" data-rev="${esc(s.reference)}" title="Mark as reviewed">✓</button>`}</td>
+        <td data-l="Website">${showsOnWeb(s) ? webSel(s) : '<span class="muted">—</span>'}</td>
+        <td class="adm-acts">${openBtn(s)}<button type="button" class="link-btn" data-fb="${esc(s.reference)}" title="Feedback">💬</button></td></tr>`).join("")
         : '<tr><td colspan="7" class="empty-note">No submissions match.</td></tr>') + "</tbody>";
   }
   ["f-q", "f-stage", "f-student", "f-type", "f-status"].forEach((id) => $(id).addEventListener("input", () => { page = 1; if (D) renderAll(); }));
@@ -321,7 +321,7 @@
       await api("admin-status", { token, reference: ref, status });
       s.status = status;
       D.history.push(Object.assign({}, s, { action: `Status → ${status} (admin)`, ts: new Date().toISOString(), submittedAt: "just now" }));
-      msg("a-msg", `${sName(s.studentId, s.name)} · ${s.typeLabel}: laman web → ${WEB[status] || status}.`, true);
+      msg("a-msg", `${sName(s.studentId, s.name)} · ${s.typeLabel}: website → ${WEB[status] || status}.`, true);
       render(); if (!$("a-modal").hidden) showStudent(s.studentId);
     } catch (e) {
       s.status = old; msg("a-msg", e.message); render();
@@ -410,7 +410,7 @@
       const r = await api("admin-feedback", { token, reference: ref, decision: "Reviewed", link: "", note: "", notify: false });
       s.feedback = r.feedback; if (r.status) s.status = r.status;
       D.history.push(Object.assign({}, s, { action: "Feedback → Reviewed (admin)", ts: new Date().toISOString() }));
-      msg("a-msg", `${sName(s.studentId, s.name)} · ${s.typeLabel}: telah disemak.`, true);
+      msg("a-msg", `${sName(s.studentId, s.name)} · ${s.typeLabel}: marked as reviewed.`, true);
       render(); if (!$("a-modal").hidden) showStudent(s.studentId);
     } catch (e) { msg("a-msg", e.message); el.disabled = false; }
   }

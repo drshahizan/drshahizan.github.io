@@ -960,7 +960,7 @@ body.adm-noscroll { overflow: hidden; }
 /* admin: review vs website */
 .web-sel { display: inline-flex; align-items: center; gap: 6px; font-size: .75rem; color: var(--muted); }
 .web-sel select { font-size: .82rem; padding: 4px 8px; }
-.adm-table td[data-l="Semakan"] { white-space: nowrap; }
+.adm-table td[data-l="Review"] { white-space: nowrap; }
 .stg-head { flex-wrap: wrap; }
 .stg-head > .stg-prog + .stg-prog { margin-left: -4px; }
 .stg-head > div:first-child { flex: 1; }
