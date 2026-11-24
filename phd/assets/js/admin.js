@@ -282,16 +282,15 @@
     $("a-pager").innerHTML = all.length > PER ? `<button class="btn ghost sb-small" data-pg="${page - 1}"${page === 1 ? " disabled" : ""}>‹ Prev</button>
       <span>${(page - 1) * PER + 1}–${Math.min(page * PER, all.length)} of ${all.length}</span>
       <button class="btn ghost sb-small" data-pg="${page + 1}"${page === pages ? " disabled" : ""}>Next ›</button>` : all.length ? `<span>${all.length} submission${all.length > 1 ? "s" : ""}</span>` : "";
-    $("a-all").innerHTML = `<thead><tr><th>Date</th><th>Student</th><th>Document</th><th>Title</th><th>Review</th><th>Website</th><th></th></tr></thead><tbody>` +
+    $("a-all").innerHTML = `<thead><tr><th>Date</th><th>Student</th><th>Document</th><th>Review</th><th>Website</th><th></th></tr></thead><tbody>` +
       (list.length ? list.map((s) => `<tr>
         <td data-l="Date" title="${esc(whenT(s))}">${esc(when(s))}</td>
         <td data-l="Student"><button class="link-btn" type="button" data-stu="${esc(s.studentId)}">${esc(sName(s.studentId, s.name))}</button></td>
-        <td data-l="Document" title="${esc(s.typeLabel)}">${esc(SHORT[s.type] === "Drafts" ? "Draft" : SHORT[s.type] === "Articles" ? "Article" : SHORT[s.type] || s.typeLabel || s.type)}${ver(s.version) ? ` <small>${esc(ver(s.version))}</small>` : ""}</td>
-        <td data-l="Title">${titleOf(s)}</td>
+        <td data-l="Document" title="${esc(s.typeLabel)}">${esc(SHORT[s.type] === "Drafts" ? "Draft" : SHORT[s.type] === "Articles" ? "Article" : SHORT[s.type] || s.typeLabel || s.type)}${ver(s.version) ? ` <small>${esc(ver(s.version))}</small>` : ""}${s.label ? `<br><small class="muted">${esc(s.label)}</small>` : s.type === "ARTICLE" && s.title ? `<br><small class="muted">${esc(titleCase(s.title))}</small>` : ""}</td>
         <td data-l="Review">${revChip(s)}${s.feedback ? "" : ` <button type="button" class="link-btn" data-rev="${esc(s.reference)}" title="Mark as reviewed">✓</button>`}</td>
         <td data-l="Website">${showsOnWeb(s) ? webSel(s) : '<span class="muted">—</span>'}</td>
         <td class="adm-acts">${openBtn(s)}<button type="button" class="link-btn" data-fb="${esc(s.reference)}" title="Feedback">💬</button></td></tr>`).join("")
-        : '<tr><td colspan="7" class="empty-note">No submissions match.</td></tr>') + "</tbody>";
+        : '<tr><td colspan="6" class="empty-note">No submissions match.</td></tr>') + "</tbody>";
   }
   ["f-q", "f-stage", "f-student", "f-type", "f-status"].forEach((id) => $(id).addEventListener("input", () => { page = 1; if (D) renderAll(); }));
   $("a-pager").addEventListener("click", (e) => { const b = e.target.closest("[data-pg]"); if (b && !b.disabled) { page = +b.dataset.pg; renderAll(); $("v-submissions").scrollIntoView({ block: "start" }); } });
