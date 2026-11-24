@@ -70,7 +70,7 @@
       D.smap = {}; D.students.forEach((s) => (D.smap[s.id] = s));
       $("a-login").hidden = true; $("a-dash").hidden = false; msg("a-m", "");
       $("a-sheet").href = D.sheetUrl || "#";
-      $("a-updated").textContent = "Updated " + (D.updated || new Date().toLocaleString());
+      $("a-updated").textContent = "Updated " + fmtD(D.updated || new Date().toISOString(), true);
       fillFilters(); render();
     } finally { b.disabled = false; }
   }
@@ -81,11 +81,46 @@
   const isForm = (s) => /_FORM$/.test(String(s.type || ""));
   const isPriv = (s) => !isForm(s) && !!(D.tmap[s.type] && D.tmap[s.type].private);   // drafts only
   const optsFor = (s) => (isForm(s) ? FORM_STATUSES : STATUSES);
-  const when = (s) => s.submittedAt || "";
+  // dates: show DD/MM/YYYY whatever the sheet stored (ISO timestamp, "24 Nov 2026, 1:28 PM", or a Date string)
+  const MON = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+  function toDate(v) {
+    if (!v) return null;
+    const t = String(v), m = t.match(/^(\d{1,2}) (\w{3})\w* (\d{4})(?:,? (\d{1,2}):(\d{2})\s*([AP]M))?/i);
+    if (m && MON[m[2].toLowerCase()] != null) {
+      let h = +(m[4] || 0); if (m[6]) h = (h % 12) + (/p/i.test(m[6]) ? 12 : 0);
+      return new Date(Date.UTC(+m[3], MON[m[2].toLowerCase()], +m[1], h - 8, +(m[5] || 0)));
+    }
+    const d = new Date(t.replace(/\s*\(.*\)$/, ""));
+    return isNaN(d) ? null : d;
+  }
+  const pad = (n) => String(n).padStart(2, "0");
+  function fmtD(v, withTime) {
+    const d = toDate(v); if (!d) return String(v || "");
+    const my = new Date(d.getTime() + 8 * 3600e3);          // Malaysia time
+    const out = `${pad(my.getUTCDate())}/${pad(my.getUTCMonth() + 1)}/${my.getUTCFullYear()}`;
+    return withTime ? `${out} ${pad(my.getUTCHours())}:${pad(my.getUTCMinutes())}` : out;
+  }
+  const when = (s) => fmtD(s.ts && toDate(s.ts) ? s.ts : s.submittedAt);
+  const whenT = (s) => fmtD(s.ts && toDate(s.ts) ? s.ts : s.submittedAt, true);
+  const ver = (v) => { const x = String(v || "").trim().replace(/^(version|ver\.?|v)\s*/i, ""); return x ? "v" + x : ""; };
+  // titles in UPPER CASE are shown in title case (small words lower, known acronyms kept)
+  const SMALL = new Set("a an and as at but by for from in into nor of on or per the to via vs with within".split(" "));
+  const ACR = new Set("AI IOT NLP LLM LLMS CNN RNN LSTM NMT ML DL UTM GPU API IT ICT SME SMES BIM GIS UAV RFID ERP CRM KPI ESG STEM TVET 5G 6G".split(" "));
+  function titleCase(t) {
+    t = String(t || "").trim();
+    if (!t || /[a-z]/.test(t)) return t;                     // already mixed case: keep the student's casing
+    let i = 0;
+    return t.toLowerCase().replace(/[A-Za-z0-9][\w']*/g, (w, off) => {
+      const up = w.toUpperCase(), first = i++ === 0, afterBreak = /[:–—-]\s*$/.test(t.slice(Math.max(0, off - 2), off)) && t[off - 1] !== "-";
+      if (ACR.has(up)) return up === "IOT" ? "IoT" : up === "LLMS" ? "LLMs" : up === "SMES" ? "SMEs" : up;
+      if (!first && !afterBreak && SMALL.has(w)) return w;
+      return w[0].toUpperCase() + w.slice(1);
+    });
+  }
   const tsOf = (s) => Date.parse(s.ts) || 0;
   const byNew = (a, b) => tsOf(b) - tsOf(a) || String(b.submittedAt).localeCompare(String(a.submittedAt));
   const sName = (id, fb) => (D.smap[id] ? D.smap[id].name : fb || id);
-  const titleOf = (s) => s.label ? `${esc(s.label)}${s.title ? " — " + esc(s.title) : ""}` : esc(s.title || "(untitled)");
+  const titleOf = (s) => s.label ? `${esc(s.label)}${s.title ? " — " + esc(titleCase(s.title)) : ""}` : esc(titleCase(s.title) || "(untitled)");
   const openBtn = (s) => safeUrl(s.link) ? `<a class="btn ghost sb-small" href="${esc(s.link)}" target="_blank" rel="noopener">Open</a>` : "";
   const stBtns = (s) => isPriv(s) ? "" :
     `<div class="adm-st" role="group" aria-label="Set status">${optsFor(s).map((x) =>
@@ -95,7 +130,7 @@
     const subs = D.submissions.slice().sort(byNew);
     const active = D.students.filter((s) => s.active);
     const weekAgo = Date.now() - 7 * 864e5;
-    const pending = subs.filter((s) => !isPriv(s) && (s.status || "Pending") === "Pending" && !s.feedback);
+    const pending = subs.filter((s) => !s.feedback && (isPriv(s) || (s.status || "Pending") === "Pending"));
     const withAny = new Set(subs.map((s) => s.studentId));
     const none = active.filter((s) => !withAny.has(s.id));
     const week = D.history.filter((h) => /^(New|Replaced)$/.test(h.action) && tsOf(h) >= weekAgo).length;
@@ -111,14 +146,19 @@
              : [[subs.length, "Documents (current)"], [`${active.length - none.length}/${active.length}`, "Students who have submitted"]]),
     ].map(([n, l]) => `<div class="stat"><strong>${n}</strong><span>${l}</span></div>`).join("");
 
-    // queue
-    $("a-queue-n").textContent = pending.length ? `(${pending.length})` : "";
-    $("a-queue").innerHTML = pending.length ? pending.map(rowCard).join("")
-      : '<p class="empty-note">Nothing waiting. All public documents have a status.</p>';
-
-    // drafts
-    const drafts = subs.filter(isPriv).slice(0, 8);
-    $("a-drafts").innerHTML = drafts.length ? drafts.map(rowCard).join("") : '<p class="empty-note">No drafts yet.</p>';
+    // queue, grouped by student (newest activity first)
+    $("a-queue-n").textContent = pending.length || "";
+    const byStu = {};
+    pending.forEach((x) => (byStu[x.studentId] = byStu[x.studentId] || []).push(x));
+    const groups = Object.entries(byStu).sort((a, b) => tsOf(b[1][0]) - tsOf(a[1][0]));
+    $("a-queue").innerHTML = groups.length ? groups.map(([id, l], i) => {
+      const st = D.smap[id] || {};
+      return `<details class="q-group" data-stu-q="${esc(id)}"${openQ.has(id) || (openQ.size === 0 && i === 0) ? " open" : ""}>
+        <summary><span class="q-name">${esc(sName(id, l[0].name))}</span>${st.stage ? `<span class="st st-req">${esc(st.stage)}</span>` : ""}
+          <span class="q-count">${l.length} item${l.length > 1 ? "s" : ""}</span><span class="q-last">latest ${esc(when(l[0]))}</span></summary>
+        ${st.researchTitle ? `<p class="q-rt">${esc(titleCase(st.researchTitle))}</p>` : ""}
+        ${l.map(rowCard).join("")}</details>`;
+    }).join("") : '<p class="empty-note">Nothing waiting. Every document has feedback or a status.</p>';
 
     // matrix
     renderMatrix(active, subs);
@@ -141,7 +181,7 @@
     const mineOf = (st) => subs.filter((x) => x.studentId === st.id);
     const done = (x) => x && x.status !== "Returned";
     const nameCell = (st) => `<th><button class="link-btn" type="button" data-stu="${esc(st.id)}">${esc(st.name)}</button><small>${esc(st.country || st.level)}${st.level && st.level !== "PhD" ? " · " + esc(st.level) : ""}</small></th>`;
-    const lastCell = (mine) => `<td class="mx-last">${mine.length ? esc(when(mine[0]).split(",")[0]) : "—"}</td>`;
+    const lastCell = (mine) => `<td class="mx-last">${mine.length ? esc(when(mine[0])) : "—"}</td>`;
     const order = (st) => { const k = stagesL.findIndex((g) => sameStage(g.name, st.stage)); return k < 0 ? 99 : k; };
 
     if (!mview) {
@@ -194,10 +234,10 @@
   function rowCard(s) {
     return `<div class="adm-row">
       <div class="adm-main">
-        <div class="adm-meta"><b>${esc(sName(s.studentId, s.name))}</b> · ${esc(s.typeLabel || s.type)}${s.version ? " · v" + esc(s.version) : ""} · <span class="muted">${esc(when(s))}</span></div>
-        <div class="adm-title">${titleOf(s)}</div>
+        <div class="adm-meta"><b>${esc(s.typeLabel || s.type)}</b>${ver(s.version) ? " · " + esc(ver(s.version)) : ""} · <span class="muted" title="${esc(whenT(s))}">${esc(when(s))}</span></div>
+        ${s.label || s.type === "ARTICLE" ? `<div class="adm-title">${titleOf(s)}</div>` : ""}
         ${s.note ? `<div class="adm-note">“${esc(s.note)}”</div>` : ""}
-        ${s.feedback ? `<div class="adm-fbline">💬 <span class="st ${s.feedback.decision === "Approved" ? "st-library" : "st-returned"}">${esc(s.feedback.decision)}</span> <small>${esc(String(s.feedback.at).split(",")[0])}</small>${safeUrl(s.feedback.link) ? ` · <a href="${esc(s.feedback.link)}" target="_blank" rel="noopener">commented file</a>` : ""}${s.feedback.note ? ` · <span class="muted">${esc(s.feedback.note.slice(0, 90))}${s.feedback.note.length > 90 ? "…" : ""}</span>` : ""}</div>` : ""}
+        ${s.feedback ? `<div class="adm-fbline">💬 <span class="st ${s.feedback.decision === "Approved" ? "st-library" : "st-returned"}">${esc(s.feedback.decision)}</span> <small>${esc(fmtD(s.feedback.ts || s.feedback.at))}</small>${safeUrl(s.feedback.link) ? ` · <a href="${esc(s.feedback.link)}" target="_blank" rel="noopener">commented file</a>` : ""}${s.feedback.note ? ` · <span class="muted">${esc(s.feedback.note.slice(0, 90))}${s.feedback.note.length > 90 ? "…" : ""}</span>` : ""}</div>` : ""}
       </div>
       <div class="adm-side">${isPriv(s) ? chip("", true) : ""}${openBtn(s)}<button type="button" class="btn ghost sb-small" data-fb="${esc(s.reference)}">💬 ${s.feedback ? "Update feedback" : "Feedback"}</button>${stBtns(s)}</div>
     </div>`;
@@ -224,21 +264,43 @@
       (!fst || (fst === "Private" ? isPriv(s) : !isPriv(s) && (s.status === fst || (fst === "Card" && s.status === "Approved")))) &&
       (!q || [s.title, s.label, s.note, s.name, sName(s.studentId), s.reference, s.typeLabel].join(" ").toLowerCase().includes(q)));
   }
+  let page = 1; const PER = 20;
   function renderAll() {
-    const list = filtered();
-    $("a-all-n").textContent = `(${list.length})`;
+    const all = filtered();
+    $("a-all-n").textContent = D.submissions.length || "";
+    const pages = Math.max(1, Math.ceil(all.length / PER)); if (page > pages) page = pages;
+    const list = all.slice((page - 1) * PER, page * PER);
+    $("a-pager").innerHTML = all.length > PER ? `<button class="btn ghost sb-small" data-pg="${page - 1}"${page === 1 ? " disabled" : ""}>‹ Prev</button>
+      <span>${(page - 1) * PER + 1}–${Math.min(page * PER, all.length)} of ${all.length}</span>
+      <button class="btn ghost sb-small" data-pg="${page + 1}"${page === pages ? " disabled" : ""}>Next ›</button>` : all.length ? `<span>${all.length} submission${all.length > 1 ? "s" : ""}</span>` : "";
     $("a-all").innerHTML = `<thead><tr><th>Date</th><th>Student</th><th>Document</th><th>Title</th><th>Status</th><th></th></tr></thead><tbody>` +
       (list.length ? list.map((s) => `<tr>
-        <td data-l="Date">${esc(when(s))}</td>
+        <td data-l="Date" title="${esc(whenT(s))}">${esc(when(s))}</td>
         <td data-l="Student"><button class="link-btn" type="button" data-stu="${esc(s.studentId)}">${esc(sName(s.studentId, s.name))}</button></td>
-        <td data-l="Document">${esc(s.typeLabel || s.type)}${s.version ? ` <small>v${esc(s.version)}</small>` : ""}</td>
+        <td data-l="Document" title="${esc(s.typeLabel)}">${esc(SHORT[s.type] === "Drafts" ? "Draft" : SHORT[s.type] === "Articles" ? "Article" : SHORT[s.type] || s.typeLabel || s.type)}${ver(s.version) ? ` <small>${esc(ver(s.version))}</small>` : ""}</td>
         <td data-l="Title">${titleOf(s)}</td>
         <td data-l="Status">${isPriv(s) ? chip("", true) : `<select class="t adm-sel" data-ref="${esc(s.reference)}" aria-label="Status">${optsFor(s).map((x) =>
           `<option${x === s.status || (x === "Card" && s.status === "Approved") ? " selected" : ""}>${x}</option>`).join("")}</select>`}</td>
         <td class="adm-acts">${openBtn(s)}<button type="button" class="link-btn" data-fb="${esc(s.reference)}" title="Give feedback">💬${s.feedback ? " ✓" : ""}</button></td></tr>`).join("")
         : '<tr><td colspan="6" class="empty-note">No submissions match.</td></tr>') + "</tbody>";
   }
-  ["f-q", "f-stage", "f-student", "f-type", "f-status"].forEach((id) => $(id).addEventListener("input", () => D && renderAll()));
+  ["f-q", "f-stage", "f-student", "f-type", "f-status"].forEach((id) => $(id).addEventListener("input", () => { page = 1; if (D) renderAll(); }));
+  $("a-pager").addEventListener("click", (e) => { const b = e.target.closest("[data-pg]"); if (b && !b.disabled) { page = +b.dataset.pg; renderAll(); $("v-submissions").scrollIntoView({ block: "start" }); } });
+
+  // ---------------- pages (hash): #review · #students · #submissions
+  const VIEWS = ["review", "students", "submissions"];
+  function showView() {
+    const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "review";
+    VIEWS.forEach((x) => { $("v-" + x).hidden = x !== v; });
+    document.querySelectorAll(".adm-nav [data-view]").forEach((a) => { const on = a.dataset.view === v; a.classList.toggle("on", on); a.setAttribute("aria-selected", on); });
+  }
+  window.addEventListener("hashchange", showView); showView();
+
+  // remember which student groups are open in the review list
+  const openQ = new Set();
+  $("a-queue").addEventListener("toggle", (e) => { const d = e.target; if (d.dataset && d.dataset.stuQ) d.open ? openQ.add(d.dataset.stuQ) : openQ.delete(d.dataset.stuQ); }, true);
+  $("q-expand").onclick = () => document.querySelectorAll(".q-group").forEach((d) => (d.open = true));
+  $("q-collapse").onclick = () => document.querySelectorAll(".q-group").forEach((d) => (d.open = false));
 
   // ---------------- status changes
   async function setStatus(ref, status, el) {
@@ -277,7 +339,7 @@
     $("a-student").innerHTML = `
       <h2 id="a-st-name">${esc(st.name)}</h2>
       <p class="muted-p">${esc([st.level, st.country, st.email].filter(Boolean).join(" · "))}${st.stage ? ` · <span class="st st-req">${esc(st.stage)}</span>` : ""}</p>
-      <p class="adm-rt"><b>Research title:</b> ${st.researchTitle ? esc(st.researchTitle) : '<span class="muted">not entered yet</span>'}</p>
+      <p class="adm-rt"><b>Research title:</b> ${st.researchTitle ? esc(titleCase(st.researchTitle)) : '<span class="muted">not entered yet</span>'}</p>
       <h3>Current documents (${items.length})</h3>
       ${items.length ? items.map(rowCard).join("") : '<p class="empty-note">Nothing submitted yet.</p>'}
       <h3>History</h3>

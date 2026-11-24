@@ -63,28 +63,28 @@
               <button class="btn ghost sb-small" id="a-logout" type="button">Sign out</button>
             </div>
           </div>
+          <nav class="adm-nav" role="tablist" aria-label="Dashboard pages">
+            <a href="#review" data-view="review" role="tab">📥 To review <b id="a-queue-n"></b></a>
+            <a href="#students" data-view="students" role="tab">👥 Students</a>
+            <a href="#submissions" data-view="submissions" role="tab">🗂️ All submissions <b id="a-all-n"></b></a>
+          </nav>
           <p class="msg" id="a-msg" aria-live="polite"></p>
 
-          <div class="stats adm-kpis" id="a-kpis"></div>
-
-          <section class="adm-sec">
-            <div class="adm-head"><h2>To review <small id="a-queue-n"></small></h2><p class="muted-p">New and replaced documents and forms waiting for your decision. Forms: Verified or Returned. Drafts are listed separately.</p></div>
+          <div class="adm-view" id="v-review">
+            <div class="stats adm-kpis" id="a-kpis"></div>
+            <div class="adm-head"><p class="muted-p">Grouped by student, newest first. Items leave this list once you give feedback or set a status.</p>
+              <div class="adm-actions"><button class="btn ghost sb-small" id="q-expand" type="button">Expand all</button><button class="btn ghost sb-small" id="q-collapse" type="button">Collapse all</button></div></div>
             <div id="a-queue"></div>
-          </section>
+          </div>
 
-          <section class="adm-sec">
-            <div class="adm-head"><h2>Progress by student</h2><p class="muted-p">Overview shows one line per student. Choose a stage to see only that stage’s documents. Click a name for details.</p></div>
+          <div class="adm-view" id="v-students" hidden>
             <div class="country-chips adm-tabs" id="a-mtabs" role="tablist" aria-label="Progress view"></div>
             <div class="adm-scroll"><table class="adm-matrix" id="a-matrix"></table></div>
-          </section>
+            <p class="muted-p adm-foot">Click a name for the research title, documents, feedback and history.</p>
+          </div>
 
-          <section class="adm-sec">
-            <div class="adm-head"><h2>Recent drafts</h2><p class="muted-p">Supervisor only, never shown on the website.</p></div>
-            <div id="a-drafts"></div>
-          </section>
-
-          <section class="adm-sec">
-            <div class="adm-head"><h2>All submissions <small id="a-all-n"></small></h2>
+          <div class="adm-view" id="v-submissions" hidden>
+            <div class="adm-head"><p class="muted-p">Search, filter, change status or give feedback. 20 per page.</p>
               <button class="btn ghost sb-small" id="a-csv" type="button">⇩ Download CSV</button></div>
             <div class="adm-filters">
               <input type="search" class="t" id="f-q" placeholder="Search title, name, note…">
@@ -94,7 +94,8 @@
               <select class="t" id="f-status"></select>
             </div>
             <div class="adm-scroll"><table class="adm-table" id="a-all"></table></div>
-          </section>
+            <div class="adm-pager" id="a-pager"></div>
+          </div>
         </div>
 
         <div class="adm-modal" id="a-fb-modal" hidden>
