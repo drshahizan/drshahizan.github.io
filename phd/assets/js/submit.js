@@ -37,13 +37,20 @@
   const isForm = (id) => /_FORM$/.test(String(id || ""));
   const FORM_ST = {
     Verified: ["st-library", "Verified ✓"], Returned: ["st-returned", "Returned for correction"],
-    Pending: ["st-pending", "Awaiting verification"], Replaced: ["st-hidden", "Replaced"],
+    Pending: ["st-pending", "Awaiting review"], Replaced: ["st-hidden", "Replaced"],
   };
+  // review status shown to the student (from the supervisor's feedback)
+  const REVIEW = {
+    none: ["st-pending", "Awaiting review"], Reviewed: ["st-library", "Reviewed ✓"],
+    Approved: ["st-library", "Approved ✓"], "Needs revision": ["st-returned", "Needs revision"],
+  };
+  const reviewOf = (x) => (x.feedback ? REVIEW[x.feedback.decision] || REVIEW.Reviewed : REVIEW.none);
   const chip = (it, ty) => {
-    if (isForm(ty.id)) { const [c, l] = FORM_ST[it.status] || FORM_ST.Pending; return `<span class="st ${c}">${l}</span>`; }
-    if (ty.private) return '<span class="st st-private">Supervisor only</span>';
-    const [c, l] = STATUS[it.status] || STATUS.Pending;
-    return `<span class="st ${c}">${l}</span>`;
+    if (isForm(ty.id)) { const [c, l] = it.feedback ? reviewOf(it) : FORM_ST[it.status] || FORM_ST.Pending; return `<span class="st ${c}">${l}</span>`; }
+    const [rc, rl] = reviewOf(it);
+    const rev = `<span class="st ${rc}">${rl}</span>`;
+    const web = !ty.private && /^(Card|Approved|Library)$/.test(it.status) ? ` <span class="st st-card">${STATUS[it.status][1]}</span>` : "";
+    return rev + web;
   };
 
   let types = [], cred = null, me = null, current = null; // current = {type, item}
@@ -143,10 +150,11 @@
         ${t.open ? `<button class="link-btn" data-open="${esc(t.id)}"${it && !t.multiple ? ` data-ref="${esc(it.reference)}"` : ""}>${it && !t.multiple ? "Replace" : "Submit"}</button>` : ""}</li>`;
     }).join("");
     const n = docs.filter((t) => isDone(me.items.find((i) => i.type === t.id))).length;
+    const nr = docs.filter((t) => { const it = me.items.find((i) => i.type === t.id); return it && it.feedback && it.feedback.decision !== "Needs revision"; }).length;
     const d = deadlineInfo(st.deadlineIso, st.deadline);
     const dl = d ? `<p class="stg-dl ${d.closed ? "closed" : d.left <= 3 ? "soon" : ""}">${d.closed ? "Closed" : "Deadline"}: <b>${esc(d.nice)}</b>${d.closed ? "" : ` · ${d.left <= 0 ? "today" : d.left === 1 ? "1 day left" : d.left + " days left"}`}</p>` : "";
     box.innerHTML = `<div class="stg-head"><div><p class="stg-k">Your stage</p><h3>${esc(st.name)}</h3></div>
-        ${docs.length ? `<div class="stg-prog"><b>${n}/${docs.length}</b><span>submitted</span></div>` : ""}</div>
+        ${docs.length ? `<div class="stg-prog"><b>${n}/${docs.length}</b><span>submitted</span></div><div class="stg-prog"><b>${nr}/${docs.length}</b><span>reviewed</span></div>` : ""}</div>
       ${(me.schedule || []).map((x) => `<p class="stg-sched">📅 <b>Your ${esc(x.event)}:</b> ${esc(x.date)}${x.time ? ", " + esc(x.time) : " (time to be confirmed)"}<br><span>📍 ${esc(x.venue)}</span></p>`).join("")}
       ${dl}${st.note ? `<p class="stg-note">${esc(st.note)}</p>` : ""}
       ${docs.length ? `<div class="stg-bar"><i style="width:${Math.round((100 * n) / docs.length)}%"></i></div><ul class="stg-list">${rows}</ul>` : ""}
@@ -156,7 +164,9 @@
 
   // ---------------- supervisor feedback
   const safe = (u) => (/^https:\/\//i.test(u || "") ? u : "");
-  const fbBox = (f) => !f ? "" : `<div class="fb ${f.decision === "Approved" ? "fb-ok" : "fb-rev"}">
+  const fbBox = (f) => !f ? "" : f.decision === "Reviewed" && !f.note && !f.link
+    ? `<div class="fb fb-ok"><p class="fb-h">✓ <b>Reviewed by your supervisor</b> · <small>${esc(String(f.at).split(",")[0])}</small></p></div>`
+    : `<div class="fb ${f.decision === "Needs revision" ? "fb-rev" : "fb-ok"}">
       <p class="fb-h">💬 <b>Supervisor feedback</b> · <span>${esc(f.decision)}</span> · <small>${esc(String(f.at).split(",")[0])}</small></p>
       ${f.note ? `<p class="fb-note">${esc(f.note)}</p>` : ""}
       ${safe(f.link) ? `<a class="btn ghost sb-small" href="${esc(f.link)}" target="_blank" rel="noopener">Open commented file</a>` : ""}
@@ -206,17 +216,16 @@
     const h = me.history || [];
     $("hist-count").textContent = h.length ? "(" + h.length + ")" : "";
     if (!h.length) { $("hist").innerHTML = '<tbody><tr><td class="doc-none">Nothing submitted yet.</td></tr></tbody>'; return; }
-    $("hist").innerHTML = `<thead><tr><th>Date</th><th>Document</th><th>Version</th><th>Status</th><th>Feedback</th><th>Reference</th><th></th></tr></thead><tbody>` +
+    $("hist").innerHTML = `<thead><tr><th>Date</th><th>Document</th><th>Version</th><th>Review</th><th>Feedback</th><th>Reference</th><th></th></tr></thead><tbody>` +
       h.map((x, i) => {
         const what = x.type === "ARTICLE" ? x.title : x.type === "DRAFT" ? x.label : "";
-        const [c, l] = isForm(x.type) ? (FORM_ST[x.status] || FORM_ST.Pending)
-          : x.private && x.status !== "Replaced" ? ["st-private", "Supervisor only"] : (STATUS[x.status] || STATUS.Pending);
+        const [c, l] = !x.current && !x.feedback ? ["st-hidden", "Replaced"] : reviewOf(x);
         return `<tr class="${x.current ? "" : "old"}">
           <td data-l="Date">${esc(x.submittedAt)}</td>
           <td data-l="Document"><b>${esc(x.typeLabel)}</b>${what ? `<br><span class="muted">${esc(what)}</span>` : ""}</td>
           <td data-l="Version">${esc(x.version || "–")}</td>
-          <td data-l="Status"><span class="st ${c}">${l}</span></td>
-          <td data-l="Feedback">${x.feedback ? `<span class="st ${x.feedback.decision === "Approved" ? "st-library" : "st-returned"}">${esc(x.feedback.decision)}</span>${safe(x.feedback.link) ? ` <a href="${esc(x.feedback.link)}" target="_blank" rel="noopener">Commented file</a>` : ""}` : '<span class="muted">–</span>'}</td>
+          <td data-l="Review"><span class="st ${c}">${l}</span></td>
+          <td data-l="Feedback">${x.feedback ? `${x.feedback.note ? `<span class="hist-note">${esc(x.feedback.note.slice(0, 80))}${x.feedback.note.length > 80 ? "…" : ""}</span>` : ""}${safe(x.feedback.link) ? ` <a href="${esc(x.feedback.link)}" target="_blank" rel="noopener">Commented file</a>` : ""}${!x.feedback.note && !safe(x.feedback.link) ? '<span class="muted">–</span>' : ""}` : '<span class="muted">–</span>'}</td>
           <td data-l="Reference"><code>${esc(x.reference)}</code></td>
           <td class="hist-act">${x.link ? `<a href="${esc(x.link)}" target="_blank" rel="noopener">Open</a>` : ""}<button type="button" class="link-btn" data-receipt="${i}">Receipt</button></td>
         </tr>`;

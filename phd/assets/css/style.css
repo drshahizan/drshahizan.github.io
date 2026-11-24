@@ -957,3 +957,11 @@ body.adm-noscroll { overflow: hidden; }
 .q-group .adm-row { margin: 0 12px 8px; padding: 10px 12px; background: var(--bg, #fafafa); }
 .q-group .adm-row:last-child { margin-bottom: 12px; }
 .adm-pager { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 12px 0 0; font-size: .88rem; color: var(--muted); }
+/* admin: review vs website */
+.web-sel { display: inline-flex; align-items: center; gap: 6px; font-size: .75rem; color: var(--muted); }
+.web-sel select { font-size: .82rem; padding: 4px 8px; }
+.adm-table td[data-l="Semakan"] { white-space: nowrap; }
+.stg-head { flex-wrap: wrap; }
+.stg-head > .stg-prog + .stg-prog { margin-left: -4px; }
+.stg-head > div:first-child { flex: 1; }
+.hist-note { color: var(--ink-2); font-size: .85rem; }

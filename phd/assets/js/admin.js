@@ -122,9 +122,15 @@
   const sName = (id, fb) => (D.smap[id] ? D.smap[id].name : fb || id);
   const titleOf = (s) => s.label ? `${esc(s.label)}${s.title ? " — " + esc(titleCase(s.title)) : ""}` : esc(titleCase(s.title) || "(untitled)");
   const openBtn = (s) => safeUrl(s.link) ? `<a class="btn ghost sb-small" href="${esc(s.link)}" target="_blank" rel="noopener">Open</a>` : "";
-  const stBtns = (s) => isPriv(s) ? "" :
-    `<div class="adm-st" role="group" aria-label="Set status">${optsFor(s).map((x) =>
-      `<button type="button" class="adm-stb ${x === s.status || (x === "Card" && s.status === "Approved") ? "on " + ST[x] : ""}" data-ref="${esc(s.reference)}" data-st="${x}">${x}</button>`).join("")}</div>`;
+  // review state (from feedback) and website display (Status column) are shown separately
+  const REV = { Reviewed: ["st-library", "✓ Telah disemak"], Approved: ["st-library", "✓ Diluluskan"], "Needs revision": ["st-returned", "Perlu dibetulkan"] };
+  const revChip = (s) => { const [c, l] = s.feedback ? REV[s.feedback.decision] || REV.Reviewed : ["st-hidden", "Belum disemak"]; return `<span class="st ${c}">${l}</span>`; };
+  const WEB = { Pending: "Belum ditentukan", Card: "Tajuk sahaja", Approved: "Tajuk sahaja", Library: "Dalam Library", Hidden: "Tidak dipaparkan" };
+  const showsOnWeb = (s) => !isPriv(s) && !isForm(s);       // drafts and forms are never public
+  const webSel = (s) => !showsOnWeb(s) ? "" :
+    `<label class="web-sel"><span>Laman web</span><select class="t adm-sel" data-ref="${esc(s.reference)}" aria-label="Paparan di laman web">${STATUSES.filter((x) => WEB[x]).map((x) =>
+      `<option value="${x}"${x === s.status || (x === "Card" && s.status === "Approved") ? " selected" : ""}>${WEB[x]}</option>`).join("")}</select></label>`;
+  const revBtns = (s) => `${s.feedback ? "" : `<button type="button" class="btn primary sb-small" data-rev="${esc(s.reference)}">✓ Telah disemak</button>`}<button type="button" class="btn ghost sb-small" data-fb="${esc(s.reference)}">💬 ${s.feedback ? "Kemas kini maklum balas" : "Maklum balas"}</button>`;
 
   function render() {
     const subs = D.submissions.slice().sort(byNew);
@@ -193,14 +199,14 @@
         const prog = req.length
           ? `<div class="mx-prog"><span class="mx-bar"><i style="width:${Math.round((100 * n) / req.length)}%"></i></span><b>${n}/${req.length}</b></div>`
           : '<span class="muted">—</span>';
-        const pend = mine.filter((x) => !isPriv(x) && x.status === "Pending").length;
+        const pend = mine.filter((x) => !x.feedback).length;
         const drafts = mine.filter((x) => x.type === "DRAFT").length, arts = mine.filter((x) => x.type === "ARTICLE").length;
         return `<tr>${nameCell(st)}<td><span class="st st-req">${esc(g.name)}</span></td><td>${prog}</td>
           <td class="c">${pend ? `<span class="st st-pending">${pend}</span>` : '<span class="muted">0</span>'}</td>
           <td class="c">${drafts || '<span class="muted">0</span>'}</td><td class="c">${arts || '<span class="muted">0</span>'}</td>${lastCell(mine)}</tr>`;
       }).join("");
       $("a-matrix").className = "adm-matrix mx-overview";
-      $("a-matrix").innerHTML = `<thead><tr><th>Student</th><th>Stage</th><th>Required documents</th><th class="c">To review</th><th class="c">Drafts</th><th class="c">Articles</th><th>Last</th></tr></thead><tbody>${rows}</tbody>`;
+      $("a-matrix").innerHTML = `<thead><tr><th>Student</th><th>Stage</th><th>Required documents</th><th class="c">Belum disemak</th><th class="c">Drafts</th><th class="c">Articles</th><th>Last</th></tr></thead><tbody>${rows}</tbody>`;
       return;
     }
 
@@ -214,8 +220,9 @@
         const it = mine.filter((x) => x.type === t.id);
         const req = (g.docs || []).includes(t.id);
         if (!it.length) return `<td class="c mx-empty${req ? " mx-req" : ""}">${req ? "✗" : "·"}</td>`;
-        const x = it[0], draft = t.private && !t.verify;
-        return `<td class="c"><span class="st ${draft ? "st-private" : ST[x.status] || "st-pending"}" title="${esc(x.title || x.label)}">${draft ? "Draft" : LBL[x.status] || esc(x.status)}${it.length > 1 ? " ×" + it.length : ""}</span></td>`;
+        const x = it[0];
+        const [c, l] = x.feedback ? (x.feedback.decision === "Needs revision" ? ["st-returned", "Betulkan"] : ["st-library", "✓ Disemak"]) : ["st-pending", "Belum"];
+        return `<td class="c"><span class="st ${c}" title="${esc(x.typeLabel)}">${l}${it.length > 1 ? " ×" + it.length : ""}</span></td>`;
       }).join("");
       const n = (g.docs || []).filter((id) => done(mine.find((x) => x.type === id))).length;
       return `<tr>${nameCell(st)}${cells}${g.docs && g.docs.length ? `<td class="c"><b>${n}/${g.docs.length}</b></td>` : ""}${lastCell(mine)}</tr>`;
@@ -239,7 +246,7 @@
         ${s.note ? `<div class="adm-note">“${esc(s.note)}”</div>` : ""}
         ${s.feedback ? `<div class="adm-fbline">💬 <span class="st ${s.feedback.decision === "Approved" ? "st-library" : "st-returned"}">${esc(s.feedback.decision)}</span> <small>${esc(fmtD(s.feedback.ts || s.feedback.at))}</small>${safeUrl(s.feedback.link) ? ` · <a href="${esc(s.feedback.link)}" target="_blank" rel="noopener">commented file</a>` : ""}${s.feedback.note ? ` · <span class="muted">${esc(s.feedback.note.slice(0, 90))}${s.feedback.note.length > 90 ? "…" : ""}</span>` : ""}</div>` : ""}
       </div>
-      <div class="adm-side">${isPriv(s) ? chip("", true) : ""}${openBtn(s)}<button type="button" class="btn ghost sb-small" data-fb="${esc(s.reference)}">💬 ${s.feedback ? "Update feedback" : "Feedback"}</button>${stBtns(s)}</div>
+      <div class="adm-side">${revChip(s)}${openBtn(s)}${revBtns(s)}${webSel(s)}</div>
     </div>`;
   }
 
@@ -253,7 +260,8 @@
     $("f-student").innerHTML = '<option value="">All students</option>' +
       D.students.slice().sort((a, b) => a.name.localeCompare(b.name)).map((s) => `<option value="${esc(s.id)}">${esc(s.name)}</option>`).join("");
     $("f-type").innerHTML = '<option value="">All types</option>' + D.types.map((t) => `<option value="${esc(t.id)}">${esc(t.label)}</option>`).join("");
-    $("f-status").innerHTML = '<option value="">All statuses</option>' + STATUSES.concat(["Verified", "Returned", "Private"]).map((x) => `<option>${x}</option>`).join("");
+    $("f-status").innerHTML = '<option value="">Semua</option><optgroup label="Semakan"><option value="rev:no">Belum disemak</option><option value="rev:yes">Telah disemak</option><option value="rev:fix">Perlu dibetulkan</option></optgroup>' +
+      '<optgroup label="Laman web">' + ["Pending", "Card", "Library", "Hidden"].map((x) => `<option value="${x}">${WEB[x]}</option>`).join("") + "</optgroup>";
     $("f-student").value = v[0]; $("f-type").value = v[1]; $("f-status").value = v[2];
   }
   function filtered() {
@@ -261,7 +269,8 @@
     const q = $("f-q").value.trim().toLowerCase(), fs = $("f-student").value, ft = $("f-type").value, fst = $("f-status").value;
     return D.submissions.slice().sort(byNew).filter((s) =>
       (!fs || s.studentId === fs) && (!fg || sameStage((D.smap[s.studentId] || {}).stage, fg)) && (!ft || s.type === ft) &&
-      (!fst || (fst === "Private" ? isPriv(s) : !isPriv(s) && (s.status === fst || (fst === "Card" && s.status === "Approved")))) &&
+      (!fst || (fst === "rev:no" ? !s.feedback : fst === "rev:yes" ? s.feedback && s.feedback.decision !== "Needs revision" : fst === "rev:fix" ? s.feedback && s.feedback.decision === "Needs revision"
+        : showsOnWeb(s) && (s.status === fst || (fst === "Card" && s.status === "Approved")))) &&
       (!q || [s.title, s.label, s.note, s.name, sName(s.studentId), s.reference, s.typeLabel].join(" ").toLowerCase().includes(q)));
   }
   let page = 1; const PER = 20;
@@ -273,16 +282,16 @@
     $("a-pager").innerHTML = all.length > PER ? `<button class="btn ghost sb-small" data-pg="${page - 1}"${page === 1 ? " disabled" : ""}>‹ Prev</button>
       <span>${(page - 1) * PER + 1}–${Math.min(page * PER, all.length)} of ${all.length}</span>
       <button class="btn ghost sb-small" data-pg="${page + 1}"${page === pages ? " disabled" : ""}>Next ›</button>` : all.length ? `<span>${all.length} submission${all.length > 1 ? "s" : ""}</span>` : "";
-    $("a-all").innerHTML = `<thead><tr><th>Date</th><th>Student</th><th>Document</th><th>Title</th><th>Status</th><th></th></tr></thead><tbody>` +
+    $("a-all").innerHTML = `<thead><tr><th>Date</th><th>Student</th><th>Document</th><th>Title</th><th>Semakan</th><th>Laman web</th><th></th></tr></thead><tbody>` +
       (list.length ? list.map((s) => `<tr>
         <td data-l="Date" title="${esc(whenT(s))}">${esc(when(s))}</td>
         <td data-l="Student"><button class="link-btn" type="button" data-stu="${esc(s.studentId)}">${esc(sName(s.studentId, s.name))}</button></td>
         <td data-l="Document" title="${esc(s.typeLabel)}">${esc(SHORT[s.type] === "Drafts" ? "Draft" : SHORT[s.type] === "Articles" ? "Article" : SHORT[s.type] || s.typeLabel || s.type)}${ver(s.version) ? ` <small>${esc(ver(s.version))}</small>` : ""}</td>
         <td data-l="Title">${titleOf(s)}</td>
-        <td data-l="Status">${isPriv(s) ? chip("", true) : `<select class="t adm-sel" data-ref="${esc(s.reference)}" aria-label="Status">${optsFor(s).map((x) =>
-          `<option${x === s.status || (x === "Card" && s.status === "Approved") ? " selected" : ""}>${x}</option>`).join("")}</select>`}</td>
-        <td class="adm-acts">${openBtn(s)}<button type="button" class="link-btn" data-fb="${esc(s.reference)}" title="Give feedback">💬${s.feedback ? " ✓" : ""}</button></td></tr>`).join("")
-        : '<tr><td colspan="6" class="empty-note">No submissions match.</td></tr>') + "</tbody>";
+        <td data-l="Semakan">${revChip(s)}${s.feedback ? "" : ` <button type="button" class="link-btn" data-rev="${esc(s.reference)}" title="Tandakan telah disemak">✓</button>`}</td>
+        <td data-l="Laman web">${showsOnWeb(s) ? webSel(s) : '<span class="muted">—</span>'}</td>
+        <td class="adm-acts">${openBtn(s)}<button type="button" class="link-btn" data-fb="${esc(s.reference)}" title="Maklum balas">💬</button></td></tr>`).join("")
+        : '<tr><td colspan="7" class="empty-note">No submissions match.</td></tr>') + "</tbody>";
   }
   ["f-q", "f-stage", "f-student", "f-type", "f-status"].forEach((id) => $(id).addEventListener("input", () => { page = 1; if (D) renderAll(); }));
   $("a-pager").addEventListener("click", (e) => { const b = e.target.closest("[data-pg]"); if (b && !b.disabled) { page = +b.dataset.pg; renderAll(); $("v-submissions").scrollIntoView({ block: "start" }); } });
@@ -312,7 +321,7 @@
       await api("admin-status", { token, reference: ref, status });
       s.status = status;
       D.history.push(Object.assign({}, s, { action: `Status → ${status} (admin)`, ts: new Date().toISOString(), submittedAt: "just now" }));
-      msg("a-msg", `${sName(s.studentId, s.name)} · ${s.typeLabel}: set to ${status}.`, true);
+      msg("a-msg", `${sName(s.studentId, s.name)} · ${s.typeLabel}: laman web → ${WEB[status] || status}.`, true);
       render(); if (!$("a-modal").hidden) showStudent(s.studentId);
     } catch (e) {
       s.status = old; msg("a-msg", e.message); render();
@@ -321,6 +330,8 @@
   document.addEventListener("click", (ev) => {
     const b = ev.target.closest(".adm-stb");
     if (b && D) return setStatus(b.dataset.ref, b.dataset.st, b);
+    const rv = ev.target.closest("[data-rev]");
+    if (rv && D) return markReviewed(rv.dataset.rev, rv);
     const f = ev.target.closest("[data-fb]");
     if (f && D) return openFeedback(f.dataset.fb);
     const u = ev.target.closest("[data-stu]");
@@ -377,7 +388,7 @@
     ev.preventDefault();
     const link = $("fb-link").value.trim(), note = $("fb-note").value.trim();
     const decision = (document.querySelector('input[name="fb-dec"]:checked') || {}).value;
-    if (!link && !note) return msg("fb-m", "Add the link to the commented file or a note.");
+    if (!link && !note && decision !== "Reviewed") return msg("fb-m", "Add the link to the commented file or a note.");
     if (link && !/^https:\/\//i.test(link)) return msg("fb-m", "The link must start with https://");
     const b = $("fb-btn"); b.disabled = true; b.textContent = "Sending…"; msg("fb-m", "");
     try {
@@ -391,6 +402,18 @@
     } catch (e) { msg("fb-m", e.message); }
     finally { b.disabled = false; b.textContent = "Send feedback"; }
   };
+
+  async function markReviewed(ref, el) {
+    const s = D.submissions.find((x) => x.reference === ref); if (!s) return;
+    el.disabled = true;
+    try {
+      const r = await api("admin-feedback", { token, reference: ref, decision: "Reviewed", link: "", note: "", notify: false });
+      s.feedback = r.feedback; if (r.status) s.status = r.status;
+      D.history.push(Object.assign({}, s, { action: "Feedback → Reviewed (admin)", ts: new Date().toISOString() }));
+      msg("a-msg", `${sName(s.studentId, s.name)} · ${s.typeLabel}: telah disemak.`, true);
+      render(); if (!$("a-modal").hidden) showStudent(s.studentId);
+    } catch (e) { msg("a-msg", e.message); el.disabled = false; }
+  }
 
   // ---------------- CSV
   $("a-csv").onclick = () => {
