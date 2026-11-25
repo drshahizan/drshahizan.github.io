@@ -253,6 +253,7 @@
   // ---------------- upcoming sessions and readiness
   function renderSessions(subs) {
     const box = $("a-sessions");
+    if (!box) return;                       // older admin.html without the sessions panel
     const today = new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10);
     const up = (D.schedule || []).filter((x) => !x.dateIso || x.dateIso >= today);
     if (!up.length) { box.hidden = true; return; }

@@ -965,3 +965,26 @@ body.adm-noscroll { overflow: hidden; }
 .stg-head > .stg-prog + .stg-prog { margin-left: -4px; }
 .stg-head > div:first-child { flex: 1; }
 .hist-note { color: var(--ink-2); font-size: .85rem; }
+
+/* ---------- admin: sessions, waiting, approve all ---------- */
+.adm-sessions { padding: 14px 16px; margin: 4px 0 14px; }
+.adm-sessions h3 { margin: 0 0 10px; font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.ses-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 10px; }
+.ses { display: flex; gap: 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; border-left: 4px solid #c9cfdb; }
+.ses.soon { border-left-color: #e8833a; }
+.ses.ready { border-left-color: #2e8b57; }
+.ses-when { flex: none; width: 92px; line-height: 1.25; }
+.ses-when b { display: block; font-size: .92rem; }
+.ses-when span { display: block; font-size: .8rem; color: var(--ink-2); }
+.ses-when small { display: block; font-size: .72rem; color: var(--muted); margin-top: 2px; }
+.ses-body { min-width: 0; flex: 1; font-size: .9rem; }
+.ses-body .link-btn { font-weight: 700; padding: 0; }
+.ses-bars { display: grid; grid-template-columns: auto 1fr; gap: 3px 8px; align-items: center; margin: 6px 0 4px; font-size: .78rem; color: var(--ink-2); }
+.ses-note { margin: 0; font-size: .8rem; color: var(--muted); }
+.ses.ready .ses-note { color: #1e6b3c; }
+.wait { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 99px; font-size: .72rem; font-weight: 600; }
+.w-new { background: #eef1f6; color: var(--ink-2); }
+.w-mid { background: #fff2cc; color: #7a5300; }
+.w-late { background: #fdecec; color: #a52a2a; }
+.q-tools { display: flex; align-items: center; gap: 10px; margin: -2px 16px 10px 36px; font-size: .78rem; }
+.q-tools .confirm { background: var(--accent); color: #fff; }
