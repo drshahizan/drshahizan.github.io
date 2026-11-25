@@ -64,7 +64,8 @@
   async function load() {
     const b = $("a-refresh"); b.disabled = true;
     try {
-      D = await api("admin-data", { token });
+      const [ad, pub] = await Promise.all([api("admin-data", { token }), api("sub-public").catch(() => ({}))]);
+      D = ad; D.schedule = pub.schedule || [];
       D.tmap = {}; D.types.forEach((t) => (D.tmap[t.id] = t));
       D.types.sort((a, b) => (a.order || 99) - (b.order || 99));
       D.smap = {}; D.students.forEach((s) => (D.smap[s.id] = s));
@@ -145,6 +146,7 @@
     const faStu = fa ? active.filter((st) => sameStage(st.stage, fa.name)) : [];
     const faDone = faStu.filter((st) => fa.docs.every((id) => subs.some((x) => x.studentId === st.id && x.type === id && x.status !== "Returned"))).length;
     const faVer = faStu.filter((st) => fa.docs.every((id) => subs.some((x) => x.studentId === st.id && x.type === id && (x.status === "Verified" || !/_FORM$/.test(id))))).length;
+    renderSessions(subs);
     $("a-kpis").innerHTML = [
       [pending.length, "Waiting for review"], [week, "Submitted in the last 7 days"],
       ...(fa ? [[`${faDone}/${faStu.length}`, `First Assessment: all ${fa.docs.length} documents in${fa.deadline ? " · closes " + esc(fa.deadline) : ""}`],
@@ -161,7 +163,8 @@
       const st = D.smap[id] || {};
       return `<details class="q-group" data-stu-q="${esc(id)}"${openQ.has(id) || (openQ.size === 0 && i === 0) ? " open" : ""}>
         <summary><span class="q-name">${esc(sName(id, l[0].name))}</span>${st.stage ? `<span class="st st-req">${esc(st.stage)}</span>` : ""}
-          <span class="q-count">${l.length} item${l.length > 1 ? "s" : ""}</span><span class="q-last">latest ${esc(when(l[0]))}</span></summary>
+          <span class="q-count">${l.length} item${l.length > 1 ? "s" : ""}</span>${waitTag(l[l.length - 1], "oldest ")}<span class="q-last">latest ${esc(when(l[0]))}</span></summary>
+        <div class="q-tools"><button type="button" class="btn ghost sb-small" data-all="${esc(id)}" data-n="${l.length}">✓ Approve all ${l.length}</button><span class="muted">No emails are sent for bulk approval.</span></div>
         ${st.researchTitle ? `<p class="q-rt">${esc(titleCase(st.researchTitle))}</p>` : ""}
         ${l.map(rowCard).join("")}</details>`;
     }).join("") : '<p class="empty-note">Nothing waiting. Every document has feedback or a status.</p>';
@@ -238,10 +241,68 @@
   const SHORT = { FA_PROPOSAL: "FA proposal", FA_SLIDES: "FA slides", ETHICS_FORM: "Ethics form", AI_FORM: "AI declaration", LOGBOOK_FORM: "Logbook", NHP_FORM: "NHP checklist", DRAFT: "Drafts", THESIS_EXAM: "Exam thesis",
     VIVA_SLIDES: "Viva slides", THESIS_FINAL: "Final thesis", ARTICLE: "Articles" };
 
+  // ---------------- waiting time
+  const daysSince = (x) => { const d = toDate(x.ts) || toDate(x.submittedAt); return d ? Math.floor((Date.now() - d.getTime()) / 864e5) : null; };
+  function waitTag(x, prefix = "") {
+    if (!x || x.feedback) return "";
+    const n = daysSince(x); if (n == null) return "";
+    const cls = n > 7 ? "w-late" : n >= 3 ? "w-mid" : "w-new";
+    return ` <span class="wait ${cls}" title="Submitted ${esc(whenT(x))}">${prefix}${n === 0 ? "today" : n === 1 ? "waiting 1 day" : "waiting " + n + " days"}</span>`;
+  }
+
+  // ---------------- upcoming sessions and readiness
+  function renderSessions(subs) {
+    const box = $("a-sessions");
+    const today = new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10);
+    const up = (D.schedule || []).filter((x) => !x.dateIso || x.dateIso >= today);
+    if (!up.length) { box.hidden = true; return; }
+    const ok = (x) => x && x.feedback && x.feedback.decision !== "Needs revision";
+    box.hidden = false;
+    box.innerHTML = `<h3>Upcoming sessions</h3><div class="ses-list">${up.map((x) => {
+      const st = D.students.find((y) => sameStage(y.name, x.student)) || {};
+      const g = stageOf(x.event) || stageOf(st.stage) || { docs: [] };
+      const mine = subs.filter((y) => y.studentId === st.id);
+      const items = g.docs.map((id) => mine.find((y) => y.type === id));
+      const sub = items.filter((y) => y && y.status !== "Returned").length, rev = items.filter(ok).length, n = g.docs.length;
+      const fix = items.filter((y) => y && y.feedback && y.feedback.decision === "Needs revision").length;
+      const days = x.dateIso ? Math.round((Date.parse(x.dateIso) - Date.parse(today)) / 864e5) : null;
+      const ready = n && rev === n;
+      const miss = g.docs.filter((id, i) => !items[i]).map((id) => SHORT[id] || id);
+      return `<div class="ses ${ready ? "ready" : days != null && days <= 7 ? "soon" : ""}">
+        <div class="ses-when"><b>${esc(x.date ? x.date.replace(/,? \d{4}$/, "") : "TBC")}</b><span>${esc(x.time || "time TBC")}</span>${days != null ? `<small>${days === 0 ? "today" : days === 1 ? "tomorrow" : "in " + days + " days"}</small>` : ""}</div>
+        <div class="ses-body"><button class="link-btn" type="button" data-stu="${esc(st.id || "")}">${esc(x.student)}</button> <span class="muted">· ${esc(x.event)}</span>
+          ${n ? `<div class="ses-bars"><span>Submitted <b>${sub}/${n}</b></span><span class="mx-bar"><i style="width:${Math.round((100 * sub) / n)}%"></i></span>
+            <span>Reviewed <b>${rev}/${n}</b></span><span class="mx-bar"><i style="width:${Math.round((100 * rev) / n)}%"></i></span></div>` : ""}
+          <p class="ses-note">${ready ? "✓ Ready: every document has been reviewed." : [miss.length ? "Missing: " + esc(miss.join(", ")) : "", fix ? fix + " need revision" : "", sub - rev - fix > 0 ? (sub - rev - fix) + " waiting for your review" : ""].filter(Boolean).join(" · ")}</p>
+        </div></div>`;
+    }).join("")}</div>`;
+  }
+
+  // ---------------- approve all for one student (two clicks)
+  async function approveAll(btn) {
+    const id = btn.dataset.all;
+    if (!btn.classList.contains("confirm")) {
+      btn.classList.add("confirm"); btn.textContent = `Click again to approve ${btn.dataset.n}`;
+      setTimeout(() => { if (btn.isConnected && btn.classList.contains("confirm")) { btn.classList.remove("confirm"); btn.textContent = `✓ Approve all ${btn.dataset.n}`; } }, 5000);
+      return;
+    }
+    const list = D.submissions.filter((x) => x.studentId === id && !x.feedback);
+    btn.disabled = true; let done = 0;
+    for (const s of list) {
+      btn.textContent = `Approving ${done + 1}/${list.length}…`;
+      try {
+        const r = await api("admin-feedback", { token, reference: s.reference, decision: "Approved", link: "", note: "", notify: false });
+        s.feedback = r.feedback; if (r.status) s.status = r.status; done++;
+      } catch (e) { msg("a-msg", e.message); break; }
+    }
+    msg("a-msg", `${sName(id)}: ${done} document${done === 1 ? "" : "s"} approved.`, done === list.length);
+    render();
+  }
+
   function rowCard(s) {
     return `<div class="adm-row">
       <div class="adm-main">
-        <div class="adm-meta"><b>${esc(s.typeLabel || s.type)}</b>${ver(s.version) ? " · " + esc(ver(s.version)) : ""} · <span class="muted" title="${esc(whenT(s))}">${esc(when(s))}</span></div>
+        <div class="adm-meta"><b>${esc(s.typeLabel || s.type)}</b>${ver(s.version) ? " · " + esc(ver(s.version)) : ""} · <span class="muted" title="${esc(whenT(s))}">${esc(when(s))}</span>${waitTag(s)}</div>
         ${s.label || s.type === "ARTICLE" ? `<div class="adm-title">${titleOf(s)}</div>` : ""}
         ${s.note ? `<div class="adm-note">“${esc(s.note)}”</div>` : ""}
         ${s.feedback ? `<div class="adm-fbline">💬 <span class="st ${s.feedback.decision === "Approved" ? "st-library" : "st-returned"}">${esc(s.feedback.decision)}</span> <small>${esc(fmtD(s.feedback.ts || s.feedback.at))}</small>${safeUrl(s.feedback.link) ? ` · <a href="${esc(s.feedback.link)}" target="_blank" rel="noopener">commented file</a>` : ""}${s.feedback.note ? ` · <span class="muted">${esc(s.feedback.note.slice(0, 90))}${s.feedback.note.length > 90 ? "…" : ""}</span>` : ""}</div>` : ""}
@@ -329,6 +390,8 @@
   document.addEventListener("click", (ev) => {
     const b = ev.target.closest(".adm-stb");
     if (b && D) return setStatus(b.dataset.ref, b.dataset.st, b);
+    const al = ev.target.closest("[data-all]");
+    if (al && D) { ev.preventDefault(); return approveAll(al); }
     const rv = ev.target.closest("[data-rev]");
     if (rv && D) return markReviewed(rv.dataset.rev, rv);
     const f = ev.target.closest("[data-fb]");
@@ -355,7 +418,7 @@
       <h3>History</h3>
       ${hist.length ? `<div class="hist-wrap"><table class="hist"><thead><tr><th>Date</th><th>Action</th><th>Document</th><th>Version</th><th></th></tr></thead><tbody>${hist.map((h) => `<tr>
         <td data-l="Date">${esc(when(h))}</td><td data-l="Action">${esc(h.action)}</td>
-        <td data-l="Document">${esc(h.typeLabel)}${h.label || h.title ? `<br><small>${titleOf(h)}</small>` : ""}</td>
+        <td data-l="Document">${esc(h.typeLabel)}${h.label ? `<br><small class="muted">${esc(h.label)}</small>` : h.type === "ARTICLE" && h.title ? `<br><small class="muted">${esc(titleCase(h.title))}</small>` : ""}</td>
         <td data-l="Version">${esc(h.version)}</td><td>${openBtn(h)}</td></tr>`).join("")}</tbody></table></div>`
         : '<p class="empty-note">No history.</p>'}`;
     $("a-modal").hidden = false; document.body.classList.add("adm-noscroll");
@@ -387,7 +450,7 @@
     ev.preventDefault();
     const link = $("fb-link").value.trim(), note = $("fb-note").value.trim();
     const decision = (document.querySelector('input[name="fb-dec"]:checked') || {}).value;
-    if (!link && !note && decision !== "Reviewed") return msg("fb-m", "Add the link to the commented file or a note.");
+    if (!link && !note && decision === "Needs revision") return msg("fb-m", "Add the link to the commented file or a note explaining what to revise.");
     if (link && !/^https:\/\//i.test(link)) return msg("fb-m", "The link must start with https://");
     const b = $("fb-btn"); b.disabled = true; b.textContent = "Sending…"; msg("fb-m", "");
     try {
